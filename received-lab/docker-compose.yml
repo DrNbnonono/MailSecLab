@@ -1,0 +1,68 @@
+services:
+
+  postfix1:
+    build:
+      context: ./postfix
+    container_name: postfix1
+    hostname: postfix1.lab.test
+    environment:
+      MYHOSTNAME: postfix1.lab.test
+      RELAYHOST: "[postfix2]:25"
+      HOPCOUNT_LIMIT: "50"
+    networks:
+      - mailnet
+    depends_on:
+      - postfix2
+
+  postfix2:
+    build:
+      context: ./postfix
+    container_name: postfix2
+    hostname: postfix2.lab.test
+    environment:
+      MYHOSTNAME: postfix2.lab.test
+      RELAYHOST: "[postfix3]:25"
+      HOPCOUNT_LIMIT: "50"
+    networks:
+      - mailnet
+    depends_on:
+      - postfix3
+
+  postfix3:
+    build:
+      context: ./postfix
+    container_name: postfix3
+    hostname: postfix3.lab.test
+    environment:
+      MYHOSTNAME: postfix3.lab.test
+      RELAYHOST: "[mailpit]:1025"
+      HOPCOUNT_LIMIT: "50"
+    networks:
+      - mailnet
+    depends_on:
+      - mailpit
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: mailpit
+    hostname: mailpit.lab.test
+    ports:
+      - "127.0.0.1:8025:8025"
+    networks:
+      - mailnet
+
+  client:
+    build:
+      context: ./client
+    container_name: mail-client
+    hostname: client.lab.test
+    networks:
+      - mailnet
+    depends_on:
+      - postfix1
+    volumes:
+      - ./scripts:/scripts
+
+networks:
+  mailnet:
+    driver: bridge

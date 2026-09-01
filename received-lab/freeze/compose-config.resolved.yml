@@ -1,0 +1,84 @@
+name: received-lab
+services:
+  client:
+    build:
+      context: /mnt/e/MailSecLab/received-lab/client
+      dockerfile: Dockerfile
+    container_name: mail-client
+    depends_on:
+      postfix1:
+        condition: service_started
+        required: true
+    hostname: client.lab.test
+    networks:
+      mailnet: null
+    volumes:
+      - type: bind
+        source: /mnt/e/MailSecLab/received-lab/scripts
+        target: /scripts
+        bind:
+          create_host_path: true
+  mailpit:
+    container_name: mailpit
+    hostname: mailpit.lab.test
+    image: axllent/mailpit@sha256:c96991d9bef73594c246d89ca81411d4e916f03e76a7d2d72fa2ab5dd3c9ce24
+    networks:
+      mailnet: null
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 8025
+        published: "8025"
+        protocol: tcp
+  postfix1:
+    build:
+      context: /mnt/e/MailSecLab/received-lab/postfix
+      dockerfile: Dockerfile
+    container_name: postfix1
+    depends_on:
+      postfix2:
+        condition: service_started
+        required: true
+    environment:
+      HOPCOUNT_LIMIT: "50"
+      MYHOSTNAME: postfix1.lab.test
+      RELAYHOST: '[postfix2]:25'
+    hostname: postfix1.lab.test
+    networks:
+      mailnet: null
+  postfix2:
+    build:
+      context: /mnt/e/MailSecLab/received-lab/postfix
+      dockerfile: Dockerfile
+    container_name: postfix2
+    depends_on:
+      postfix3:
+        condition: service_started
+        required: true
+    environment:
+      HOPCOUNT_LIMIT: "50"
+      MYHOSTNAME: postfix2.lab.test
+      RELAYHOST: '[postfix3]:25'
+    hostname: postfix2.lab.test
+    networks:
+      mailnet: null
+  postfix3:
+    build:
+      context: /mnt/e/MailSecLab/received-lab/postfix
+      dockerfile: Dockerfile
+    container_name: postfix3
+    depends_on:
+      mailpit:
+        condition: service_started
+        required: true
+    environment:
+      HOPCOUNT_LIMIT: "50"
+      MYHOSTNAME: postfix3.lab.test
+      RELAYHOST: '[mailpit]:1025'
+    hostname: postfix3.lab.test
+    networks:
+      mailnet: null
+networks:
+  mailnet:
+    name: received-lab_mailnet
+    driver: bridge

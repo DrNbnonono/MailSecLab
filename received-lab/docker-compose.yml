@@ -113,6 +113,7 @@ services:
       - postfix1
     volumes:
       - ./scripts:/scripts
+      - ./results:/results
 
 networks:
   mailnet:

@@ -7,7 +7,7 @@ set -u
 cd "$(dirname "$0")/.."
 mkdir -p results/logs
 OUT=results/phase2.csv
-[ -s "$OUT" ] || echo "case_id,description,smtp_code,postfix1_result,postfix2_result,postfix3_result,delivered,received_ci_in_final,largest_header_bytes,notes" > "$OUT"
+[ -s "$OUT" ] || echo "case_id,description,smtp_code,postfix1_result,postfix2_result,postfix3_result,delivered,received_exact,received_ci,received_ws_variant,received_in_body,largest_header_bytes,notes" > "$OUT"
 
 csv_escape() { local v="$1"; v="${v//,/;}"; printf '%s' "$v"; }
 
@@ -56,9 +56,12 @@ run_case() {
 
     docker exec mail-client python3 /scripts/inspect_raw.py --case-id "$CASE" --timeout 12 \
         "${INSPECT_ARGS[@]}" > "results/logs/$CASE.inspect.log" 2>&1
-    local delivered rcv largest
+    local delivered rcv_exact rcv_ci rcv_ws rcv_body largest
     delivered=$(grep -oP '^FOUND: \K\S+' "results/logs/$CASE.inspect.log")
-    rcv=$(grep -oP '^RECEIVED_STRICT: header=\K[0-9]+' "results/logs/$CASE.inspect.log")
+    rcv_exact=$(grep -oP '^RECEIVED_EXACT: \K[0-9]+' "results/logs/$CASE.inspect.log")
+    rcv_ci=$(grep -oP '^RECEIVED_CI: \K[0-9]+' "results/logs/$CASE.inspect.log")
+    rcv_ws=$(grep -oP '^RECEIVED_SPACE: \K[0-9]+' "results/logs/$CASE.inspect.log")
+    rcv_body=$(grep -oP '^RECEIVED_IN_BODY: \K[0-9]+' "results/logs/$CASE.inspect.log")
     largest=$(grep -oP '^LARGEST_HEADER_BYTES: \K[0-9]+' "results/logs/$CASE.inspect.log")
 
     docker logs postfix1 2>&1 | tail -n +$((o1+1)) > "results/logs/$CASE.p1.log"
@@ -72,8 +75,8 @@ run_case() {
     q3=$(extract_next_qid "results/logs/$CASE.p2.log")
     p3=$(node_classify "results/logs/$CASE.p3.log" "$q3")
 
-    echo "$CASE,$(csv_escape "$DESC"),$code,$(csv_escape "$p1"),$(csv_escape "$p2"),$(csv_escape "$p3"),${delivered:-}-${rcv:--},${largest:--},$(csv_escape "${NOTES}bytes=$bytes bounce=$bounce")" >> "$OUT"
-    echo "[$CASE] code=$code delivered=${delivered:--} received_ci=${rcv:--} largest_hdr=${largest:--} bounce=$bounce bytes=$bytes | p1=$p1 p2=$p2 p3=$p3"
+    echo "$CASE,$(csv_escape "$DESC"),$code,$(csv_escape "$p1"),$(csv_escape "$p2"),$(csv_escape "$p3"),${delivered:--},${rcv_exact:--},${rcv_ci:--},${rcv_ws:--},${rcv_body:--},${largest:--},$(csv_escape "${NOTES}bytes=$bytes bounce=$bounce")" >> "$OUT"
+    echo "[$CASE] code=$code delivered=${delivered:--} rcv_exact=${rcv_exact:--} rcv_ci=${rcv_ci:--} rcv_ws=${rcv_ws:--} rcv_body=${rcv_body:--} bounce=$bounce bytes=$bytes | p1=$p1 p2=$p2 p3=$p3"
 }
 
 echo "===== B: Resent-* blocks (hopcount should ignore them) ====="

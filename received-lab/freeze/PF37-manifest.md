@@ -25,6 +25,18 @@
 | `debian:sid`(postfix-current/Dockerfile,PF_CURRENT) | `sha256:c1acdb109bacb5adf0f2078892ac177ee2e2ce6f88e96c5b743998b5489d36a9` |
 | `axllent/mailpit`(docker-compose.yml,替代 `:latest`) | `sha256:c96991d9bef73594c246d89ca81411d4e916f03e76a7d2d72fa2ab5dd3c9ce24`(= v1.31.0) |
 
+## PF_CURRENT(PF11)运行时事实(Phase 3A,2026-09-01)
+
+| 项 | 值 |
+| --- | --- |
+| Postfix 版本 | **3.11.6**(Debian sid,`postconf mail_version`) |
+| 镜像 ID | `sha256:479b883ff0959ce26d5534c9a4c4bc485bc374e1116d17ec701374cd026e4b7a`(`received-lab-postfix1n`) |
+| 基础镜像 | `debian:sid@sha256:c1acdb109bacb5adf0f2078892ac177ee2e2ce6f88e96c5b743998b5489d36a9` |
+| 新增参数 | `non_empty_end_of_header_action`,**默认 `fix_quietly`**(3.7.11 无此参数) |
+| 拓扑 | postfix1n → postfix2n → postfix3n → mailpit(hopcount_limit=50,与 PF37 一致) |
+| 启动方式 | `docker compose --profile pf11 up -d --build`(默认 profile 不启动) |
+| 实验后状态 | 策略覆盖已用 `postconf -X` 清除,`postconf -n` 无残留 |
+
 ## 已知注意事项
 
 1. PF37 镜像最初构建于 2026-08-30,当时的 `debian:bookworm-slim` tag 指向的 digest 与上表(2026-09-01 拉取)可能不同;**冻结的运行时工件是镜像 ID `sha256:860f16d9...`**,只要不删除该镜像,行为即可复现。Dockerfile 中的 digest 约束的是未来的重建。

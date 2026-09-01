@@ -405,3 +405,37 @@ docker exec mail-client python3 /scripts/check_delivery.py --clear
 | 折叠 150KB 单头 | 投递,单头被截断至 ~101701B |
 | `Received :` ×100 | 554(规范化后计数) |
 | `Receíved:` ×50 | 投递,不计数;后续合法头被降级为正文 |
+
+### 8.10 Phase 3A:跨版本差分(Postfix 3.7.11 vs 3.11.6)
+
+```bash
+# 启动 PF11 链(postfix1n/2n/3n,debian:sid → Postfix 3.11.6)
+docker compose --profile pf11 up -d --build
+docker exec postfix1n postconf mail_version                          # 3.11.6
+docker exec postfix1n postconf -d non_empty_end_of_header_action     # 默认 fix_quietly
+
+# 构建/校验字节级 corpus(V001~V012,含 sha256 manifest)
+docker exec mail-client python3 /scripts/build_corpus.py --out /results/phase3/corpus
+
+# 全矩阵:PF37×default + PF11×{default,fix_quietly,add_header,reject}(约 4 分钟)
+bash scripts/phase3.sh
+bash scripts/phase3.sh pf37        # 或只跑某一轮
+column -t -s, results/phase3/matrix.csv | less -S
+# 期望:两版本 default 下 12 用例行为完全一致;add_header 下 V007~V009 多出 1 个
+#       MIME-Error 头;reject 下 V007~V009 被 P1 以 550 5.6.0 拒绝;V002/V003 的
+#       hopcount 边界与 V012 的 101700B 截断在所有轮次一致
+
+# 手动单发某个 corpus 用例并取证
+docker exec mail-client python3 /scripts/send_received.py \
+  --server postfix1n --input-file /results/phase3/corpus/V007.eml
+docker exec mail-client python3 /scripts/inspect_raw.py --case-id V007 \
+  --name Received --name MIME-Error
+docker exec mail-client python3 /scripts/check_delivery.py --case-id V007
+
+# 手动切换 header-termination 策略(仅 3.11+;实验后务必还原)
+docker exec postfix1n postconf -e 'non_empty_end_of_header_action = reject'
+docker exec postfix1n postfix reload
+# ……实验后还原:
+docker exec postfix1n postconf -X non_empty_end_of_header_action
+docker exec postfix1n postfix reload
+```

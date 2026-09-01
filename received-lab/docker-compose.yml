@@ -43,13 +43,64 @@ services:
       - mailpit
 
   mailpit:
-    image: axllent/mailpit:latest
+    # pinned: v1.31.0 (freeze 2026-09-01)
+    image: axllent/mailpit@sha256:c96991d9bef73594c246d89ca81411d4e916f03e76a7d2d72fa2ab5dd3c9ce24
     container_name: mailpit
     hostname: mailpit.lab.test
     ports:
       - "127.0.0.1:8025:8025"
     networks:
       - mailnet
+
+  # ---- PF_CURRENT chain (Postfix 3.11.x from debian:sid) ----
+  # started only with: docker compose --profile pf11 up -d
+  postfix1n:
+    build:
+      context: ./postfix-current
+    container_name: postfix1n
+    hostname: postfix1n.lab.test
+    environment:
+      MYHOSTNAME: postfix1n.lab.test
+      RELAYHOST: "[postfix2n]:25"
+      HOPCOUNT_LIMIT: "50"
+    networks:
+      - mailnet
+    depends_on:
+      - postfix2n
+    profiles:
+      - pf11
+
+  postfix2n:
+    build:
+      context: ./postfix-current
+    container_name: postfix2n
+    hostname: postfix2n.lab.test
+    environment:
+      MYHOSTNAME: postfix2n.lab.test
+      RELAYHOST: "[postfix3n]:25"
+      HOPCOUNT_LIMIT: "50"
+    networks:
+      - mailnet
+    depends_on:
+      - postfix3n
+    profiles:
+      - pf11
+
+  postfix3n:
+    build:
+      context: ./postfix-current
+    container_name: postfix3n
+    hostname: postfix3n.lab.test
+    environment:
+      MYHOSTNAME: postfix3n.lab.test
+      RELAYHOST: "[mailpit]:1025"
+      HOPCOUNT_LIMIT: "50"
+    networks:
+      - mailnet
+    depends_on:
+      - mailpit
+    profiles:
+      - pf11
 
   client:
     build:

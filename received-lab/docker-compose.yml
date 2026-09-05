@@ -115,6 +115,52 @@ services:
       - ./scripts:/scripts
       - ./results:/results
 
+  # ---- Phase 3B: alternative MTAs, same corpus (single-hop smarthost -> mailpit) ----
+  exim:
+    build:
+      context: ./exim
+    container_name: exim
+    hostname: exim.lab.test
+    networks:
+      - mailnet
+    depends_on:
+      - mailpit
+    profiles:
+      - mta3b
+
+  opensmtpd:
+    build:
+      context: ./opensmtpd
+    container_name: opensmtpd
+    hostname: opensmtpd.lab.test
+    networks:
+      - mailnet
+    depends_on:
+      - mailpit
+    profiles:
+      - mta3b
+
+  # ---- Phase 3C: header parsers over the same corpus ----
+  parser-node:
+    build:
+      context: ./parsers/node
+    container_name: parser-node
+    volumes:
+      - ./scripts:/scripts
+      - ./results:/results
+    profiles:
+      - parsers
+
+  parser-go:
+    build:
+      context: ./parsers/go
+    container_name: parser-go
+    volumes:
+      - ./scripts:/scripts
+      - ./results:/results
+    profiles:
+      - parsers
+
 networks:
   mailnet:
     driver: bridge

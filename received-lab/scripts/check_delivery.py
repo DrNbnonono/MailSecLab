@@ -56,11 +56,17 @@ def count_received_exact(raw: bytes):
 
 
 def bounce_for_case(case):
+    """A DSN contains the original X-Case-ID in its attached headers/body but
+    NOT in its own header section (that is the case message itself). Detect
+    the marker anywhere in messages that are not the case message, regardless
+    of DSN subject wording (Postfix/Exim/OpenSMTPD differ)."""
     marker = b"X-Case-ID: " + case.encode()
     for m in list_messages():
-        if "Undelivered Mail Returned to Sender" in (m.get("Subject") or ""):
-            if marker in get_raw(m["ID"]):
-                return True
+        raw = get_raw(m["ID"])
+        if marker in raw.split(b"\r\n\r\n", 1)[0]:
+            continue  # this is the case message itself
+        if marker in raw:
+            return True
     return False
 
 

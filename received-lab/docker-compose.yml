@@ -49,6 +49,10 @@ services:
     image: axllent/mailpit:v1.31.0
     container_name: mailpit
     hostname: mailpit.lab.test
+    environment:
+      MP_DATA_FILE: /data/mailpit.db
+    volumes:
+      - mailpit-data:/data
     ports:
       - "127.0.0.1:8025:8025"
     networks:
@@ -180,6 +184,9 @@ services:
       - ./results:/results
     profiles:
       - frspamd
+
+volumes:
+  mailpit-data:
 
 networks:
   mailnet:

@@ -261,7 +261,7 @@ html_doc = f"""<!DOCTYPE html>
 <a href="#env">环境</a><a href="#p1">Phase 1 · hopcount</a><a href="#var">头名变体</a>
 <a href="#loop">真实 Loop</a><a href="#p2">Phase 2 · RFC 无界路径</a>
 <a href="#p3a">Phase 3A · 版本/策略</a><a href="#p3b">Phase 3B · MTA 差分</a>
-<a href="#p3c">Phase 3C · 解析器差分</a><a href="#find">核心结论</a><a href="#eseries">E 系列 · 限制面</a><a href="#fseries">F 系列 · 安全后果</a><a href="#gseries">G 系列 · 纠错归因</a><a href="#hseries">H 系列 · 信任边界</a><a href="#iseries">I 系列 · 走私/链伪造</a><a href="#next">后续方向</a>
+<a href="#p3c">Phase 3C · 解析器差分</a><a href="#find">核心结论</a><a href="#eseries">E 系列 · 限制面</a><a href="#fseries">F 系列 · 安全后果</a><a href="#gseries">G 系列 · 纠错归因</a><a href="#hseries">H 系列 · 信任边界</a><a href="#iseries">I 系列 · 走私/链伪造</a><a href="#jseries">J 系列 · DKIM 交互</a><a href="#next">后续方向</a>
 </nav>
 
 <section id="env">
@@ -634,6 +634,23 @@ parser 在全部正确语料上一致。原 G1/G2 的"阈值/位置差分"均为
 <p><b>阴性结论</b>：经一台诚实中继后，自洽伪造链不改变 rspamd 的 source 认定 ——
 信任锚定在真实 SMTP 会话头。与 H3 合并的完整图景：<b>伪造 source 的必要条件是
 控制可见链顶部（无可信中继）</b>。</p>
+</section>
+
+<section id="jseries">
+<h2>15 · J 系列 — DKIM 与传输层缺陷的交互（2026-09-06 深夜）</h2>
+<p class="note">dkimpy 1.1.8 真实签名/验证（RSA-2048，relaxed/relaxed，DNS 用本地公钥记录覆盖）；完整记录见 <code>result/j-series/RECORD.md</code>。</p>
+<table class="matrix">
+<thead><tr><th>实验</th><th>中继前</th><th>三跳中继 + Mailpit 后</th><th>含义</th></tr></thead>
+<tbody>
+<tr><td>J1 · 150KB 折叠头 + DKIM（h 含该头，无 l=）</td><td><span class="pill ok">pass</span></td><td><span class="pill bad">FAIL</span>（头被静默截断至 ~101.7KB）</td><td>静默截断会被认证层发现（防守正面）</td></tr>
+<tr><td>J2 · l= 前缀签名 + 正文追加 101B 垃圾</td><td><span class="pill warn">pass（追加后仍有效）</span></td><td><span class="pill warn">pass</span></td><td>l= 弱点实证：签名内正文可无限追加未签名内容</td></tr>
+<tr><td>J3 · 签名后注入 Receíved 终结头（淹没）</td><td><span class="pill bad">注入后 dkimpy 拒绝解析</span></td><td><span class="pill bad">FAIL（整封沉入正文，bh= 必然失配）</span></td><td>异常头使消息永久不可验证；dkimpy 在签名边界即拒绝畸形头</td></tr>
+</tbody></table>
+<ul class="findings">
+<li>J1+G4 合并：同一截断既是"完整性事件"（DKIM fail）也是"字节通道"（多出的字节照常投递）。</li>
+<li>J2+H 系列合并：带签名的垃圾（自签 l=）+ 伪造 source（无诚实中继时）= 攻击者可同时持有"有签名"与"任意源"两个表象。</li>
+<li>J3+3C 合并：异常头使认证缺失并加剧解析分裂 —— go/node 眼里有完整头（含 DKIM-Sig），postfix/python 眼里整封无头。</li>
+</ul>
 </section>
 
 <section id="appendix">

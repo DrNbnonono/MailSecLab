@@ -1,0 +1,16 @@
+Receíved: from spoofer.lab.test by spoofer.lab.test; Tue, 1 Jan 2030 00:00:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ i=@lab.test; q=dns/txt; s=j1; t=1788710269; h=from : to : subject :
+ message-id; bh=IObB/DTXf8P1LAs56UrdkNkffcYaW0eOWLvRz6So0oc=;
+ b=QuDr+17QRMznLxVXYCovdrDP5G1c8zkiNgJDiAbYndiXsPEkWG+4WJdHWlNL2zYoBg2cP
+ UYIOlIvUAcOVnvA93y42CQW0bDuHU0KIPsCh9FP1NAZXfAVXxz09Ys2cD/E4KUYbOmkYIE3
+ bHH6YD9sJvWffm2ZENXJA4BbWd49pWALqJMUVqBuQ1wQzlNh1QmFRZmzLRNy+gt8Cr+MkD2
+ Sq50uPmLx6fK4h9BEBbcG7zoPmSDLM10eRnl70i6lDBurpEwRklLEGWtRUeyOF8n47ykINX
+ dsMoU7I5UIPbxL5ukVrP7pQL2BMZ45bStNN8TQ4xfTpmPzXILmvSGZHCkv3Q==
+X-Case-ID: J3-relay
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: J3 boundary differential
+Message-ID: <j3@sender.lab.test>
+
+J3 body.

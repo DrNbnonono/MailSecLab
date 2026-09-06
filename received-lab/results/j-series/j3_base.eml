@@ -1,0 +1,8 @@
+X-Case-ID: J3-relay
+Receíved: from spoofer.lab.test by spoofer.lab.test; Tue, 1 Jan 2030 00:00:00 +0000
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: J3 boundary differential
+Message-ID: <j3@sender.lab.test>
+
+J3 body.

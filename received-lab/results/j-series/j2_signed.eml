@@ -1,0 +1,15 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ i=@lab.test; l=33; q=dns/txt; s=j1; t=1788709602; h=from : to :
+ subject : message-id; bh=4vDUQ+Kgukuma1CFC4yiRwJT2G54nlVQhP3rljnVhTs=;
+ b=Y+WMEvbOuhYu7JevGN2s79D6UZzBH/0kLTf/n//9pTlfNi+nnZwtbQ0OtPQNZQjLEiPve
+ nkV0Ra8Zy00MHS2RMZU850fbGtpHw5PFt2r5AY2o4WHMniyedGNIgu2cjBLK4TwA+PozBpS
+ jOFAb8BKOpsVCYafhqo9ley0cLRAlBsgoQZqK+S2RlOiUWfUccC5RAmunz50//jdqe18WAh
+ HwzgkUdEs4tVrKV6SBjBcU9yUEoso9pIfy7fiZ/Nx5wetwOgIWHOvWXkUJAqWQ18xJHBDdU
+ jjryZPcoCrSqWuD3RDbJFqCP+AUPCV0hRIRDkGZ7MtwMhMLSMHNjJCDQ0dAQ==
+X-Case-ID: J2-relay
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: J2 l= test
+Message-ID: <j2@sender.lab.test>
+
+This is the benign signed body.

@@ -1,0 +1,7 @@
+X-Case-ID: J2-relay
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: J2 l= test
+Message-ID: <j2@sender.lab.test>
+
+This is the benign signed body.

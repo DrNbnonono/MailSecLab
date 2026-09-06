@@ -1,0 +1,61 @@
+Return-Path: <alice@sender.lab.test>
+Received: from postfix1.lab.test (postfix1.received-lab_mailnet. [172.22.0.5])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sun, 6 Sep 2026 02:54:56 +0000 (UTC)
+Received: from client.lab.test (mail-client.received-lab_mailnet [172.22.0.6])
+	by postfix1.lab.test (Postfix) with ESMTP id E27FA2CD466
+	for <bob@receiver.lab.test>; Sun,  6 Sep 2026 02:54:56 +0000 (UTC)
+X-Case-ID: H3-RELAY46
+Received: from mail0.spoof.example (192.0.2.10) by relay0.spoof.example; Tue, 1 Jan 2030 00:00:00 +0000
+Received: from mail1.spoof.example (198.51.100.10) by relay1.spoof.example; Tue, 1 Jan 2030 00:00:01 +0000
+Received: from mail2.spoof.example (203.0.113.10) by relay2.spoof.example; Tue, 1 Jan 2030 00:00:02 +0000
+Received: from mail3.spoof.example (192.0.2.11) by relay3.spoof.example; Tue, 1 Jan 2030 00:00:03 +0000
+Received: from mail4.spoof.example (198.51.100.11) by relay4.spoof.example; Tue, 1 Jan 2030 00:00:04 +0000
+Received: from mail5.spoof.example (203.0.113.11) by relay5.spoof.example; Tue, 1 Jan 2030 00:00:05 +0000
+Received: from mail6.spoof.example (192.0.2.12) by relay6.spoof.example; Tue, 1 Jan 2030 00:00:06 +0000
+Received: from mail7.spoof.example (198.51.100.12) by relay7.spoof.example; Tue, 1 Jan 2030 00:00:07 +0000
+Received: from mail8.spoof.example (203.0.113.12) by relay8.spoof.example; Tue, 1 Jan 2030 00:00:08 +0000
+Received: from mail9.spoof.example (192.0.2.13) by relay9.spoof.example; Tue, 1 Jan 2030 00:00:09 +0000
+Received: from mail10.spoof.example (198.51.100.13) by relay10.spoof.example; Tue, 1 Jan 2030 00:00:00 +0000
+Received: from mail11.spoof.example (203.0.113.13) by relay11.spoof.example; Tue, 1 Jan 2030 00:00:01 +0000
+Received: from mail12.spoof.example (192.0.2.14) by relay12.spoof.example; Tue, 1 Jan 2030 00:00:02 +0000
+Received: from mail13.spoof.example (198.51.100.14) by relay13.spoof.example; Tue, 1 Jan 2030 00:00:03 +0000
+Received: from mail14.spoof.example (203.0.113.14) by relay14.spoof.example; Tue, 1 Jan 2030 00:00:04 +0000
+Received: from mail15.spoof.example (192.0.2.15) by relay15.spoof.example; Tue, 1 Jan 2030 00:00:05 +0000
+Received: from mail16.spoof.example (198.51.100.15) by relay16.spoof.example; Tue, 1 Jan 2030 00:00:06 +0000
+Received: from mail17.spoof.example (203.0.113.15) by relay17.spoof.example; Tue, 1 Jan 2030 00:00:07 +0000
+Received: from mail18.spoof.example (192.0.2.16) by relay18.spoof.example; Tue, 1 Jan 2030 00:00:08 +0000
+Received: from mail19.spoof.example (198.51.100.16) by relay19.spoof.example; Tue, 1 Jan 2030 00:00:09 +0000
+Received: from mail20.spoof.example (203.0.113.16) by relay20.spoof.example; Tue, 1 Jan 2030 00:00:00 +0000
+Received: from mail21.spoof.example (192.0.2.17) by relay21.spoof.example; Tue, 1 Jan 2030 00:00:01 +0000
+Received: from mail22.spoof.example (198.51.100.17) by relay22.spoof.example; Tue, 1 Jan 2030 00:00:02 +0000
+Received: from mail23.spoof.example (203.0.113.17) by relay23.spoof.example; Tue, 1 Jan 2030 00:00:03 +0000
+Received: from mail24.spoof.example (192.0.2.18) by relay24.spoof.example; Tue, 1 Jan 2030 00:00:04 +0000
+Received: from mail25.spoof.example (198.51.100.18) by relay25.spoof.example; Tue, 1 Jan 2030 00:00:05 +0000
+Received: from mail26.spoof.example (203.0.113.18) by relay26.spoof.example; Tue, 1 Jan 2030 00:00:06 +0000
+Received: from mail27.spoof.example (192.0.2.19) by relay27.spoof.example; Tue, 1 Jan 2030 00:00:07 +0000
+Received: from mail28.spoof.example (198.51.100.19) by relay28.spoof.example; Tue, 1 Jan 2030 00:00:08 +0000
+Received: from mail29.spoof.example (203.0.113.19) by relay29.spoof.example; Tue, 1 Jan 2030 00:00:09 +0000
+Received: from mail30.spoof.example (192.0.2.20) by relay30.spoof.example; Tue, 1 Jan 2030 00:00:00 +0000
+Received: from mail31.spoof.example (198.51.100.20) by relay31.spoof.example; Tue, 1 Jan 2030 00:00:01 +0000
+Received: from mail32.spoof.example (203.0.113.20) by relay32.spoof.example; Tue, 1 Jan 2030 00:00:02 +0000
+Received: from mail33.spoof.example (192.0.2.21) by relay33.spoof.example; Tue, 1 Jan 2030 00:00:03 +0000
+Received: from mail34.spoof.example (198.51.100.21) by relay34.spoof.example; Tue, 1 Jan 2030 00:00:04 +0000
+Received: from mail35.spoof.example (203.0.113.21) by relay35.spoof.example; Tue, 1 Jan 2030 00:00:05 +0000
+Received: from mail36.spoof.example (192.0.2.22) by relay36.spoof.example; Tue, 1 Jan 2030 00:00:06 +0000
+Received: from mail37.spoof.example (198.51.100.22) by relay37.spoof.example; Tue, 1 Jan 2030 00:00:07 +0000
+Received: from mail38.spoof.example (203.0.113.22) by relay38.spoof.example; Tue, 1 Jan 2030 00:00:08 +0000
+Received: from mail39.spoof.example (192.0.2.23) by relay39.spoof.example; Tue, 1 Jan 2030 00:00:09 +0000
+Received: from mail40.spoof.example (198.51.100.23) by relay40.spoof.example; Tue, 1 Jan 2030 00:00:00 +0000
+Received: from mail41.spoof.example (203.0.113.23) by relay41.spoof.example; Tue, 1 Jan 2030 00:00:01 +0000
+Received: from mail42.spoof.example (192.0.2.24) by relay42.spoof.example; Tue, 1 Jan 2030 00:00:02 +0000
+Received: from mail43.spoof.example (198.51.100.24) by relay43.spoof.example; Tue, 1 Jan 2030 00:00:03 +0000
+Received: from mail44.spoof.example (203.0.113.24) by relay44.spoof.example; Tue, 1 Jan 2030 00:00:04 +0000
+Received: from mail45.spoof.example (192.0.2.25) by relay45.spoof.example; Tue, 1 Jan 2030 00:00:05 +0000
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: H H3-RELAY46
+Message-ID: <h@sender.lab.test>
+
+body.
+

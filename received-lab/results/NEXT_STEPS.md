@@ -16,14 +16,15 @@
    解析器）；9MB 真头块对 rspamd 无压力（56ms / 3.4 分，G4 修正后结论）。
    首轮 "rspamd 丢头" 结论因语料双 CRLF 缺陷撤回（详见 g-series/RECORD.md 纠错记录）。
 
-## 下一步（按价值排序）
+## 下一步（按价值排序，H 系列完成后更新）
 
-1. **Rspamd 信任边界 / source 认定**（Phase 5 主线）：trusted_networks 两种配置 × 伪造
-   Received 深度，全部 RFC 5737 保留地址；结合 G4 的 9MB 头块报文（rspamd 已能正常解析，
-   可直接测其对 source/IP 判定的影响）。
+1. **链一致性判据的边界刻画**：H3 显示 rspamd 在"by/from 衔接断裂"处切断信任链 ——
+   系统性测试哪些断裂被识别（helo 不匹配 / IP 不匹配 / 时间戳倒挂 / 缺失括号 IP），
+   哪些伪造链形态仍能穿透（例如完全一致地伪造整条链 + 诚实中继继续 prepend）。
 2. **DKIM l= 标签 × 头区边界**：Postfix 对 WSP 的改写、对超大折叠头的截断（header_size_limit）
    都会移动 l= 覆盖字节与验证者读取字节的相对位置 —— 用真实 signer/verifier 验证。
 3. **Postfix cleanup 规范化的日志与开关**：WSP→Received 转正发生在 cleanup 哪个阶段、
    有无告警日志（对取证/检测有意义）。
-4. **工程清理**：代理恢复后还原 digest pin；全部成果 commit 到 research/received-trace
-   （results/、result/、脚本修改、rspamd/ 目录目前均未入库）。
+4. **rspamd 9MB 报文的 source 提取补全**（h_ip 插件在 rspamd.conf 主配置注册的方式）；
+   DNS 启用后 RDNS/HFILTER 判定复测。
+5. 工程清理：代理恢复后还原 digest pin。

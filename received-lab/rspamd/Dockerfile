@@ -8,3 +8,5 @@ RUN for m in rbl surbl spf dmarc replies url_redirector attachments; do \
         printf 'enabled = false;\n' > /etc/rspamd/local.d/$m.conf; \
     done
 CMD ["rspamd", "-f", "-u", "_rspamd", "-g", "_rspamd"]
+COPY h_ip.conf /etc/rspamd/local.d/h_ip.conf
+COPY h_ip.lua /usr/share/rspamd/plugins/h_ip.lua

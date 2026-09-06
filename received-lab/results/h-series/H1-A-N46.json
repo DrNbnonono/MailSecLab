@@ -1,0 +1,122 @@
+{
+    "is_skipped": false,
+    "score": 5.250000,
+    "required_score": 15.0,
+    "action": "greylist",
+    "symbols": {
+        "ARC_NA": {
+            "name": "ARC_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "ARC signature absent"
+        },
+        "RDNS_NONE": {
+            "name": "RDNS_NONE",
+            "score": 1.0,
+            "metric_score": 1.0,
+            "description": "Cannot resolve reverse DNS for sender's IP"
+        },
+        "FROM_HAS_DN": {
+            "name": "FROM_HAS_DN",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "From header has a display name"
+        },
+        "MISSING_DATE": {
+            "name": "MISSING_DATE",
+            "score": 1.0,
+            "metric_score": 1.0,
+            "description": "Message date is missing"
+        },
+        "MIME_GOOD": {
+            "name": "MIME_GOOD",
+            "score": -0.100000,
+            "metric_score": -0.100000,
+            "description": "Known content-type",
+            "options": [
+                "text/plain"
+            ]
+        },
+        "RCVD_COUNT_TWELVE": {
+            "name": "RCVD_COUNT_TWELVE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message has 12 or more Received headers",
+            "options": [
+                "46"
+            ]
+        },
+        "RCPT_COUNT_ONE": {
+            "name": "RCPT_COUNT_ONE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "One recipient",
+            "options": [
+                "1"
+            ]
+        },
+        "TO_DN_ALL": {
+            "name": "TO_DN_ALL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "All the recipients have display names"
+        },
+        "SUBJ_ALL_CAPS": {
+            "name": "SUBJ_ALL_CAPS",
+            "score": 0.750000,
+            "metric_score": 3.0,
+            "description": "All capital letters in subject",
+            "options": [
+                "10"
+            ]
+        },
+        "RCVD_NO_TLS_LAST": {
+            "name": "RCVD_NO_TLS_LAST",
+            "score": 0.100000,
+            "metric_score": 0.100000,
+            "description": "Last hop did not use encrypted transports"
+        },
+        "R_DKIM_NA": {
+            "name": "R_DKIM_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Missing DKIM signature"
+        },
+        "MIME_TRACE": {
+            "name": "MIME_TRACE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "0:+"
+            ]
+        },
+        "MID_RHS_MATCH_FROM": {
+            "name": "MID_RHS_MATCH_FROM",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message-ID RHS matches From domain"
+        },
+        "HFILTER_HOSTNAME_UNKNOWN": {
+            "name": "HFILTER_HOSTNAME_UNKNOWN",
+            "score": 2.500000,
+            "metric_score": 2.500000,
+            "description": "Unknown client hostname (PTR or FCrDNS verification failed)"
+        },
+        "RDNS_DNSFAIL": {
+            "name": "RDNS_DNSFAIL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "PTR verification DNS error"
+        }
+    },
+    "messages": {},
+    "message-id": "h@sender.lab.test",
+    "time_real": 4.012974,
+    "milter": {
+        "remove_headers": {
+            "X-Spam": 0
+        }
+    },
+    "filename": "/results/h-series/H1-A-N46.eml",
+    "scan_time": 4.011999
+}

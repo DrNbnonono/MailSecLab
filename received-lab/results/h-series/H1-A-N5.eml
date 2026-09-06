@@ -1,0 +1,12 @@
+X-Case-ID: H1-A-N5
+Received: from mail0.spoof.example (192.0.2.10) by relay0.spoof.example; Tue, 1 Jan 2030 00:00:00 +0000
+Received: from mail1.spoof.example (198.51.100.10) by relay1.spoof.example; Tue, 1 Jan 2030 00:00:01 +0000
+Received: from mail2.spoof.example (203.0.113.10) by relay2.spoof.example; Tue, 1 Jan 2030 00:00:02 +0000
+Received: from mail3.spoof.example (192.0.2.11) by relay3.spoof.example; Tue, 1 Jan 2030 00:00:03 +0000
+Received: from mail4.spoof.example (198.51.100.11) by relay4.spoof.example; Tue, 1 Jan 2030 00:00:04 +0000
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: H H1-A-N5
+Message-ID: <h@sender.lab.test>
+
+body.

@@ -261,7 +261,7 @@ html_doc = f"""<!DOCTYPE html>
 <a href="#env">环境</a><a href="#p1">Phase 1 · hopcount</a><a href="#var">头名变体</a>
 <a href="#loop">真实 Loop</a><a href="#p2">Phase 2 · RFC 无界路径</a>
 <a href="#p3a">Phase 3A · 版本/策略</a><a href="#p3b">Phase 3B · MTA 差分</a>
-<a href="#p3c">Phase 3C · 解析器差分</a><a href="#find">核心结论</a><a href="#eseries">E 系列 · 限制面</a><a href="#fseries">F 系列 · 安全后果</a><a href="#gseries">G 系列 · 纠错归因</a><a href="#next">后续方向</a>
+<a href="#p3c">Phase 3C · 解析器差分</a><a href="#find">核心结论</a><a href="#eseries">E 系列 · 限制面</a><a href="#fseries">F 系列 · 安全后果</a><a href="#gseries">G 系列 · 纠错归因</a><a href="#hseries">H 系列 · 信任边界</a><a href="#next">后续方向</a>
 </nav>
 
 <section id="env">
@@ -565,6 +565,32 @@ F2 中 OSMTPD→PF/EX 路径的"转正"主要来自第一跳 OpenSMTPD。</p>
 <h3>G1/G2 · rspamd 丢头阈值（修正后结论）</h3>
 <p>修复语料后扫描 90KB–9.07MB 真折叠头块 ×〔折叠/非折叠、单折行/多折行、行长 100–5000、X-Received/X-Giant/Received〕共 20+ 变体：<b>未发现任何丢头阈值</b>，rspamd 与三个开源
 parser 在全部正确语料上一致。原 G1/G2 的"阈值/位置差分"均为语料伪影。</p>
+</section>
+
+<section id="hseries">
+<h2>13 · H 系列 — Rspamd 信任边界与 source 认定（2026-09-06）</h2>
+<p class="note">伪造公网源 Received（RFC 5737 三池轮转）× 伪造深度 × local_addrs 两种配置；可观测手段为 rspamd debug 日志的 <code>ip:</code> 字段（自定义 lua 插件被 3.4 拒绝注册）。完整记录含稳定性事故定位（maps.rspamd.com 刷新触发 3.4 崩溃 → network_mode:none 规避）见 <code>result/h-series/RECORD.md</code>。</p>
+<table class="matrix">
+<thead><tr><th>N（伪造公网 Received）</th><th>config A（默认 trust）</th><th>config B（strict）</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>UNKNOWN · 4.075</td><td>UNKNOWN · 4.075</td></tr>
+<tr><td>1</td><td><b>source=192.0.2.10</b> · 5.275 greylist</td><td><b>source=192.0.2.10</b> · 4.175 greylist</td></tr>
+<tr><td>5</td><td><b>192.0.2.10</b> · 5.175</td><td><b>192.0.2.10</b> · 4.175</td></tr>
+<tr><td>46</td><td><b>192.0.2.10</b> · 5.25</td><td><b>192.0.2.10</b> · 4.25</td></tr>
+<tr><td>100</td><td><b>192.0.2.10</b> · 5.325</td><td><b>192.0.2.10</b> · 4.325</td></tr>
+</tbody></table>
+<table class="matrix">
+<thead><tr><th>H3 对照</th><th>认定 source</th><th>分数</th></tr></thead>
+<tbody>
+<tr><td>46 条伪造，直接文件扫描</td><td><b>192.0.2.10</b>（伪造源成立）</td><td>5.4 greylist</td></tr>
+<tr><td>同报文经 postfix1 中继后的 stored 版本</td><td><b>172.22.0.5</b>（真实最后一跳，伪造链失效）</td><td>1.9 no action</td></tr>
+<tr><td>9MB 真头块（F1-XF100）</td><td>未提取（日志行截断）</td><td>3.4 no action</td></tr>
+</tbody></table>
+<ul class="findings">
+<li><b>N=1 即可完全劫持 rspamd 的 source 认定</b>（直接扫描场景），深度无关；私网真实跳永远不会成为 source 候选，因此 trust 配置收紧不改变认定，只改变计分。</li>
+<li><b>真实防御是链一致性而非 trust 配置</b>：报文经过一台诚实 MTA 后，链行走断在伪造边界，source 回落真实最后一跳，分数 5.4 → 1.9。</li>
+<li>主线回答：Received 信任不是"逐头可信"，而是"从最新会话头向下、断在第一个不一致处"——伪造 source 的前提是控制整个可见链的顶部。</li>
+</ul>
 </section>
 
 <section id="appendix">

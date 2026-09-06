@@ -1,0 +1,11 @@
+config,N,src_ip,score,action
+A,0,UNKNOWN,4.075,greylist
+A,1,192.0.2.10,5.275,greylist
+A,5,192.0.2.10,5.175,greylist
+A,46,192.0.2.10,5.25,greylist
+A,100,192.0.2.10,5.325,greylist
+B,0,UNKNOWN,4.075,greylist
+B,1,192.0.2.10,4.175,greylist
+B,5,192.0.2.10,4.175,greylist
+B,46,192.0.2.10,4.25,greylist
+B,100,192.0.2.10,4.325,greylist

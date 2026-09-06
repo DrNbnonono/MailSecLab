@@ -1,0 +1,7 @@
+mta1,mta2,sep,bdat_reply,first,smug
+exim,postfix2,crlf,BDAT_REPLY: 250 OK id=1x3DME-00000M-0y,1/0
+exim,postfix2,lf,BDAT_REPLY: 250 OK id=1x3DMY-00000W-0t,1/0
+exim,postfix2n,crlf,BDAT_REPLY: 250 OK id=1x3DMx-00000K-27,1/0
+exim,postfix2n,lf,BDAT_REPLY: 250 OK id=1x3DNH-00000U-2M,1/0
+exim,mailpit,crlf,BDAT_REPLY: 250 OK id=1x3DNe-00000K-1e,0/0
+exim,mailpit,lf,BDAT_REPLY: 250 OK id=1x3DOA-00000Y-3A,0/0

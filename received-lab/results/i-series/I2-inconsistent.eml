@@ -1,0 +1,9 @@
+X-Case-ID: I2-inconsistent
+Received: from mail0.spoof.example (192.0.113.65)
+	by relay0.spoof.example; Tue, 1 Jan 2030 00:00:00 +0000
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: I2 inconsistent I2-inconsistent
+Message-ID: <i2@sender.lab.test>
+
+body.

@@ -261,7 +261,7 @@ html_doc = f"""<!DOCTYPE html>
 <a href="#env">环境</a><a href="#p1">Phase 1 · hopcount</a><a href="#var">头名变体</a>
 <a href="#loop">真实 Loop</a><a href="#p2">Phase 2 · RFC 无界路径</a>
 <a href="#p3a">Phase 3A · 版本/策略</a><a href="#p3b">Phase 3B · MTA 差分</a>
-<a href="#p3c">Phase 3C · 解析器差分</a><a href="#find">核心结论</a><a href="#eseries">E 系列 · 限制面</a><a href="#fseries">F 系列 · 安全后果</a><a href="#gseries">G 系列 · 纠错归因</a><a href="#hseries">H 系列 · 信任边界</a><a href="#next">后续方向</a>
+<a href="#p3c">Phase 3C · 解析器差分</a><a href="#find">核心结论</a><a href="#eseries">E 系列 · 限制面</a><a href="#fseries">F 系列 · 安全后果</a><a href="#gseries">G 系列 · 纠错归因</a><a href="#hseries">H 系列 · 信任边界</a><a href="#iseries">I 系列 · 走私/链伪造</a><a href="#next">后续方向</a>
 </nav>
 
 <section id="env">
@@ -591,6 +591,49 @@ parser 在全部正确语料上一致。原 G1/G2 的"阈值/位置差分"均为
 <li><b>真实防御是链一致性而非 trust 配置</b>：报文经过一台诚实 MTA 后，链行走断在伪造边界，source 回落真实最后一跳，分数 5.4 → 1.9。</li>
 <li>主线回答：Received 信任不是"逐头可信"，而是"从最新会话头向下、断在第一个不一致处"——伪造 source 的前提是控制整个可见链的顶部。</li>
 </ul>
+</section>
+
+<section id="iseries">
+<h2>14 · I 系列 — RFC 5321 end-of-DATA 走私与链自洽伪造（2026-09-06）</h2>
+<p class="note">基于 RFC 5321 §4.1.1.4（end-of-DATA = CRLF.CRLF）与 §4.4（Received 语法）的协议级漏洞实验；完整记录（含三次操作事故）见 <code>result/i-series/RECORD.md</code>。</p>
+
+<h3>I0 · 能力探针</h3>
+<table class="matrix">
+<thead><tr><th>MTA</th><th>CHUNKING (BDAT)</th><th>直连裸 LF.LF 分裂</th></tr></thead>
+<tbody>
+<tr><td>Postfix 3.7.11</td><td>支持</td><td>否</td></tr>
+<tr><td>Postfix 3.11.6</td><td>未广告</td><td>否</td></tr>
+<tr><td>Exim 4.96</td><td>支持</td><td>否</td></tr>
+<tr><td>OpenSMTPD 6.8</td><td>不支持（BDAT→500）</td><td>否</td></tr>
+<tr><td>Mailpit v1.31</td><td>不支持</td><td>否</td></tr>
+</tbody></table>
+
+<h3>I1 · BDAT→DATA 走私矩阵（CVE-2023-51764 家族）</h3>
+<table class="matrix">
+<thead><tr><th>中继对</th><th>CRLF.CRLF 对照</th><th>LF.LF 走私尝试</th></tr></thead>
+<tbody>
+<tr><td>postfix1(3.7) → postfix2(3.7)</td><td>1/0</td><td>1/0</td></tr>
+<tr><td>postfix1(3.7) → postfix2n(3.11)</td><td>1/0</td><td>1/0</td></tr>
+<tr><td>exim(4.96) → postfix2(3.7)</td><td>1/0</td><td>1/0</td></tr>
+<tr><td>exim(4.96) → postfix2n(3.11)</td><td>1/0</td><td>1/0</td></tr>
+<tr><td>postfix1 → mailpit（端口修正）</td><td>1/0</td><td>1/0</td></tr>
+</tbody></table>
+<p><b>阴性结论</b>：10 个有效中继对均未复现走私（first 投递、smuggled 从未投递）——
+本版本组合（Debian bookworm 打包）的 dot-stuffing 与 end-of-DATA 判定安全，
+与 CVE-2023-51764 披露后 distro 补丁时间线一致。OpenSMTPD 无 BDAT、全部接收端
+对直连裸 `LF.LF` 严格。</p>
+
+<h3>I2 · 链自洽伪造 vs rspamd（承接 H3）</h3>
+<table class="matrix">
+<thead><tr><th>链形态</th><th>derived source</th><th>分数</th></tr></thead>
+<tbody>
+<tr><td>plain（无伪造链）</td><td>172.22.0.9</td><td>1.0 · no action</td></tr>
+<tr><td><b>consistent（与真实头完全衔接的自洽伪造链）</b></td><td><b>172.22.0.9（未变）</b></td><td>1.0 · no action</td></tr>
+<tr><td>inconsistent（断裂链）</td><td>172.22.0.9</td><td>1.0 · no action</td></tr>
+</tbody></table>
+<p><b>阴性结论</b>：经一台诚实中继后，自洽伪造链不改变 rspamd 的 source 认定 ——
+信任锚定在真实 SMTP 会话头。与 H3 合并的完整图景：<b>伪造 source 的必要条件是
+控制可见链顶部（无可信中继）</b>。</p>
 </section>
 
 <section id="appendix">

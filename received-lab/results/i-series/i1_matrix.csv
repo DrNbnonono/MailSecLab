@@ -32,3 +32,8 @@ postfix1,exim,lf,BDAT_REPLY: 250 2.0.0 Ok: 409 bytes queued as 8AD82DCCF,0/0
 postfix1,mailpit,crlf,BDAT_REPLY: 250 2.0.0 Ok: 429 bytes queued as 20D4D35C8,1/0
 postfix1,mailpit,lf,BDAT_REPLY: 250 2.0.0 Ok: 421 bytes queued as 51DC916F2,1/0
 exim,postfix2,crlf,BDAT_REPLY: 250 OK id=1x3CYG-00000E-2H,0/0
+exim,postfix2,lf,BDAT_REPLY: 250 OK id=1x3CZQ-00000G-31,0/0
+exim,postfix2n,crlf,BDAT_REPLY: 250 OK id=1x3Caf-00000E-24,0/0
+exim,postfix2n,lf,BDAT_REPLY: 250 OK id=1x3Cbp-00000G-2H,0/0
+exim,mailpit,crlf,BDAT_REPLY: 250 OK id=1x3Cd2-00000E-1q,0/0
+exim,mailpit,lf,BDAT_REPLY: 250 OK id=1x3CeD-00000G-04,0/0

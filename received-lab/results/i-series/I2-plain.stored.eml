@@ -1,0 +1,15 @@
+Return-Path: <alice@sender.lab.test>
+Received: from postfix1.lab.test (postfix1.received-lab_mailnet. [172.22.0.9])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sun, 6 Sep 2026 13:25:30 +0000 (UTC)
+Received: from client.lab.test (mail-client.received-lab_mailnet [172.22.0.11])
+	by postfix1.lab.test (Postfix) with ESMTP id DBE9E426
+	for <bob@receiver.lab.test>; Sun,  6 Sep 2026 13:25:30 +0000 (UTC)
+X-Case-ID: I2-plain
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: I2 plain I2-plain
+Message-ID: <i2@sender.lab.test>
+
+body.
+

@@ -1,0 +1,104 @@
+{
+    "is_skipped": false,
+    "score": 1.0,
+    "required_score": 15.0,
+    "action": "no action",
+    "symbols": {
+        "ARC_NA": {
+            "name": "ARC_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "ARC signature absent"
+        },
+        "TO_DN_ALL": {
+            "name": "TO_DN_ALL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "All the recipients have display names"
+        },
+        "MID_RHS_MATCH_FROM": {
+            "name": "MID_RHS_MATCH_FROM",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message-ID RHS matches From domain"
+        },
+        "FROM_HAS_DN": {
+            "name": "FROM_HAS_DN",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "From header has a display name"
+        },
+        "MISSING_DATE": {
+            "name": "MISSING_DATE",
+            "score": 1.0,
+            "metric_score": 1.0,
+            "description": "Message date is missing"
+        },
+        "MIME_GOOD": {
+            "name": "MIME_GOOD",
+            "score": -0.100000,
+            "metric_score": -0.100000,
+            "description": "Known content-type",
+            "options": [
+                "text/plain"
+            ]
+        },
+        "FROM_EQ_ENVFROM": {
+            "name": "FROM_EQ_ENVFROM",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "From address is the same as the envelope"
+        },
+        "MIME_TRACE": {
+            "name": "MIME_TRACE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "0:+"
+            ]
+        },
+        "RCVD_NO_TLS_LAST": {
+            "name": "RCVD_NO_TLS_LAST",
+            "score": 0.100000,
+            "metric_score": 0.100000,
+            "description": "Last hop did not use encrypted transports"
+        },
+        "PREVIOUSLY_DELIVERED": {
+            "name": "PREVIOUSLY_DELIVERED",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message either to a list or was forwarded",
+            "options": [
+                "bob@receiver.lab.test"
+            ]
+        },
+        "RCPT_COUNT_ONE": {
+            "name": "RCPT_COUNT_ONE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "One recipient",
+            "options": [
+                "1"
+            ]
+        },
+        "RCVD_COUNT_THREE": {
+            "name": "RCVD_COUNT_THREE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message has 3-5 Received headers",
+            "options": [
+                "3"
+            ]
+        }
+    },
+    "messages": {},
+    "message-id": "i2@sender.lab.test",
+    "time_real": 0.004318,
+    "milter": {
+        "remove_headers": {
+            "X-Spam": 0
+        }
+    },
+    "filename": "/results/i-series/I2-inconsistent.stored.eml",
+    "scan_time": 0.008000
+}

@@ -1,0 +1,4 @@
+mode,score,action,derived_ip
+plain,1.0 , no action,172.22.0.9
+consistent,1.0 , no action,172.22.0.9
+inconsistent,1.0 , no action,172.22.0.9

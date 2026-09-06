@@ -1,0 +1,11 @@
+X-Case-ID: I2-consistent
+Received: from origin0.spoof.example (192.0.113.65)
+	by relay1.spoof.example (192.0.113.66); Tue, 1 Jan 2030 00:00:00 +0000
+Received: from relay1.spoof.example (192.0.113.66)
+	by client.lab.test (172.22.0.3); Tue, 1 Jan 2030 00:00:01 +0000
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: I2 consistent I2-consistent
+Message-ID: <i2@sender.lab.test>
+
+body.

@@ -17,3 +17,4 @@ __pycache__/
 # --- editor / OS ---
 *.swp
 Thumbs.db
+notes/

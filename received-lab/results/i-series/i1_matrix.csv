@@ -1,0 +1,34 @@
+mta1,mta2,sep,bdat_reply,first_delivered,smuggled_delivered
+postfix1,postfix2,crlf,CHUNKING=True BDAT_REPLY: 250 2.0.0 Ok: 429 bytes queued as C5AFCC35E ,1/0
+postfix1,postfix2,lf,CHUNKING=True BDAT_REPLY: 250 2.0.0 Ok: 421 bytes queued as DA676C35E ,1/0
+postfix1,postfix2n,crlf,CHUNKING=True BDAT_REPLY: 250 2.0.0 Ok: 433 bytes queued as AB57D67F ,0/0
+postfix1,postfix2n,lf,CHUNKING=True BDAT_REPLY: 250 2.0.0 Ok: 425 bytes queued as DCE45C35D ,0/0
+postfix1,exim,crlf,CHUNKING=True BDAT_REPLY: 250 2.0.0 Ok: 413 bytes queued as C6AA0BB55 ,0/0
+postfix1,exim,lf,CHUNKING=True BDAT_REPLY: 250 2.0.0 Ok: 405 bytes queued as E6048DCA8 ,0/0
+postfix1,opensmtpd,crlf,CHUNKING=True BDAT_REPLY: 250 2.0.0 Ok: 433 bytes queued as B3115C35E ,0/0
+postfix1,opensmtpd,lf,CHUNKING=True BDAT_REPLY: 250 2.0.0 Ok: 425 bytes queued as C604348E69 ,0/0
+postfix1,mailpit,crlf,CHUNKING=True BDAT_REPLY: 250 2.0.0 Ok: 425 bytes queued as E69F050686 ,0/0
+postfix1,mailpit,lf,CHUNKING=True BDAT_REPLY: 250 2.0.0 Ok: 417 bytes queued as 07A9D48E76 ,0/0
+exim,postfix2,crlf,CHUNKING=True BDAT_REPLY: 250 OK id=1x3CLt-00000D-13 ,0/0
+exim,postfix2,lf,CHUNKING=True BDAT_REPLY: 250 OK id=1x3CMF-00000F-1a ,0/0
+exim,postfix2n,crlf,CHUNKING=True BDAT_REPLY: 250 OK id=1x3CMe-00000E-2I ,0/0
+exim,postfix2n,lf,CHUNKING=True BDAT_REPLY: 250 OK id=1x3CN0-00000G-2y ,0/0
+exim,opensmtpd,crlf,CHUNKING=True BDAT_REPLY: 250 OK id=1x3CNQ-00000E-0F ,0/0
+exim,opensmtpd,lf,CHUNKING=True BDAT_REPLY: 250 OK id=1x3CNm-00000G-10 ,0/0
+exim,mailpit,crlf,CHUNKING=True BDAT_REPLY: 250 OK id=1x3COB-00000E-0b ,0/0
+exim,mailpit,lf,CHUNKING=True BDAT_REPLY: 250 OK id=1x3COX-00000G-12 ,0/0
+opensmtpd,postfix2,crlf,CHUNKING=False BDAT_REPLY: 500 5.5.1 Invalid command: Command unrecognized ,0/0
+opensmtpd,postfix2,lf,CHUNKING=False BDAT_REPLY: 500 5.5.1 Invalid command: Command unrecognized ,0/0
+opensmtpd,postfix2n,crlf,CHUNKING=False BDAT_REPLY: 500 5.5.1 Invalid command: Command unrecognized ,0/0
+opensmtpd,postfix2n,lf,CHUNKING=False BDAT_REPLY: 500 5.5.1 Invalid command: Command unrecognized ,0/0
+opensmtpd,postfix1n,crlf,CHUNKING=False BDAT_REPLY: 500 5.5.1 Invalid command: Command unrecognized ,0/0
+opensmtpd,postfix1n,lf,CHUNKING=False BDAT_REPLY: 500 5.5.1 Invalid command: Command unrecognized ,0/0
+opensmtpd,mailpit,crlf,CHUNKING=False BDAT_REPLY: 500 5.5.1 Invalid command: Command unrecognized ,0/0
+opensmtpd,mailpit,lf,CHUNKING=False BDAT_REPLY: 500 5.5.1 Invalid command: Command unrecognized ,0/0
+postfix1,postfix2n,crlf,,0/0
+postfix1,postfix2n,lf,BDAT_REPLY: 250 2.0.0 Ok: 429 bytes queued as 743FE16F2,1/0
+postfix1,exim,crlf,BDAT_REPLY: 250 2.0.0 Ok: 417 bytes queued as 01AEE35CB,0/0
+postfix1,exim,lf,BDAT_REPLY: 250 2.0.0 Ok: 409 bytes queued as 8AD82DCCF,0/0
+postfix1,mailpit,crlf,BDAT_REPLY: 250 2.0.0 Ok: 429 bytes queued as 20D4D35C8,1/0
+postfix1,mailpit,lf,BDAT_REPLY: 250 2.0.0 Ok: 421 bytes queued as 51DC916F2,1/0
+exim,postfix2,crlf,BDAT_REPLY: 250 OK id=1x3CYG-00000E-2H,0/0

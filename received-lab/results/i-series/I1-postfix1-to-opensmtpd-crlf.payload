@@ -1,0 +1,19 @@
+X-Case-ID: I1-postfix1-to-opensmtpd-crlf
+From: alice@sender.lab.test
+To: bob@receiver.lab.test
+Subject: I1 first I1-postfix1-to-opensmtpd-crlf
+
+body of first message
+
+.
+MAIL FROM:<eve@evil.example>
+RCPT TO:<bob@receiver.lab.test>
+DATA
+X-Case-ID: SMUG-I1-postfix1-to-opensmtpd-crlf
+From: eve@evil.example
+To: bob@receiver.lab.test
+Subject: I1 SMUGGLED I1-postfix1-to-opensmtpd-crlf
+
+body of smuggled message
+.
+QUIT

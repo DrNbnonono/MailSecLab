@@ -1,0 +1,4 @@
+Sep 05 10:20:03 postfix1 postfix/smtpd[200]: connect from mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:20:03 postfix1 postfix/smtpd[200]: DF877ADBC: client=mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:20:03 postfix1 postfix/cleanup[203]: warning: DF877ADBC: message rejected: hopcount exceeded
+Sep 05 10:20:03 postfix1 postfix/smtpd[200]: disconnect from mail-client.received-lab_mailnet[172.22.0.3] ehlo=1 mail=1 rcpt=1 data=0/1 quit=1 commands=4/5

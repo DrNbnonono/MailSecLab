@@ -1,0 +1,22 @@
+Bcc: bob@receiver.lab.test
+Message-ID: <5jx8E0e3BaU82jFu0Og40J@mailpit>
+Return-Path: <alice@sender.lab.test>
+Received: from exim.lab.test (exim.received-lab_mailnet. [172.22.0.9])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sat, 5 Sep 2026 10:58:00 +0000 (UTC)
+Received: from [172.22.0.3] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@sender.lab.test>)
+	id 1x2o5w-00002q-36
+	for bob@receiver.lab.test;
+	Sat, 05 Sep 2026 10:58:00 +0000
+X-Case-ID: V009
+
+BROKEN_HEADER this line has no colon
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [V009] received-experiment
+Message-ID: <V009@sender.lab.test>
+
+Phase 3A corpus body.
+

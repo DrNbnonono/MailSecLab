@@ -1,0 +1,23 @@
+CASE_ID: V001
+< 220 exim.lab.test ESMTP Exim 4.96 Sat, 05 Sep 2026 10:57:00 +0000
+> EHLO client.lab.test
+< 250-exim.lab.test Hello client.lab.test [172.22.0.3]
+< 250-SIZE 52428800
+< 250-8BITMIME
+< 250-PIPELINING
+< 250-PIPECONNECT
+< 250-CHUNKING
+< 250-STARTTLS
+< 250-SMTPUTF8
+< 250 HELP
+> MAIL FROM:<alice@sender.lab.test>
+< 250 OK
+> RCPT TO:<bob@receiver.lab.test>
+< 250 Accepted
+> DATA
+< 354 Enter message, ending with "." on a line by itself
+< 250 OK id=1x2o4y-00000Z-11
+DATA_REPLY: 250 OK id=1x2o4y-00000Z-11
+MESSAGE_BYTES: 185
+> QUIT
+< 221 exim.lab.test closing connection

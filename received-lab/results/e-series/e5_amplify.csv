@@ -1,0 +1,3 @@
+case,header_block,message_bytes,sizes_per_cycle_bytes,dsn_size_bytes,notes
+E5-CTRL,CTRL,205,413;1032;1649,4880,code=250 too_many_hops_lines=2
+E5-5x90KB,5x90KB,463966,464691,467915,code=250 too_many_hops_lines=0

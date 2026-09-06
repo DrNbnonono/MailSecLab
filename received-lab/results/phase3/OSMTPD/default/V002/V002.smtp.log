@@ -1,0 +1,20 @@
+CASE_ID: V002
+< 220 opensmtpd.lab.test ESMTP OpenSMTPD
+> EHLO client.lab.test
+< 250-opensmtpd.lab.test Hello client.lab.test [172.22.0.3], pleased to meet you
+< 250-8BITMIME
+< 250-ENHANCEDSTATUSCODES
+< 250-SIZE 36700160
+< 250-DSN
+< 250 HELP
+> MAIL FROM:<alice@sender.lab.test>
+< 250 2.0.0 Ok
+> RCPT TO:<bob@receiver.lab.test>
+< 250 2.1.5 Destination address valid: Recipient ok
+> DATA
+< 354 Enter mail, end with "." on a line by itself
+< 250 2.0.0 d33d8a16 Message accepted for delivery
+DATA_REPLY: 250 2.0.0 d33d8a16 Message accepted for delivery
+MESSAGE_BYTES: 5199
+> QUIT
+< 221 2.0.0 Bye

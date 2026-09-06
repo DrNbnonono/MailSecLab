@@ -1,0 +1,7 @@
+X-Case-ID: V001
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [V001] received-experiment
+Message-ID: <V001@sender.lab.test>
+
+Phase 3A corpus body.

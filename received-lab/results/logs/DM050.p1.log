@@ -1,0 +1,57 @@
+Sep 05 10:35:36 postfix1 postfix/smtpd[193]: connect from mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:35:36 postfix1 postfix/smtpd[193]: 1AFAB1F5455: client=mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake000.lab.test by fake001.lab.test with ESMTP id DM050-000; Sat, 05 Sep 2026 10:35:35 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake001.lab.test by fake002.lab.test with ESMTP id DM050-001; Sat, 05 Sep 2026 10:35:34 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake002.lab.test by fake003.lab.test with ESMTP id DM050-002; Sat, 05 Sep 2026 10:35:33 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake003.lab.test by fake004.lab.test with ESMTP id DM050-003; Sat, 05 Sep 2026 10:35:32 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake004.lab.test by fake005.lab.test with ESMTP id DM050-004; Sat, 05 Sep 2026 10:35:31 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake005.lab.test by fake006.lab.test with ESMTP id DM050-005; Sat, 05 Sep 2026 10:35:30 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake006.lab.test by fake007.lab.test with ESMTP id DM050-006; Sat, 05 Sep 2026 10:35:29 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake007.lab.test by fake008.lab.test with ESMTP id DM050-007; Sat, 05 Sep 2026 10:35:28 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake008.lab.test by fake009.lab.test with ESMTP id DM050-008; Sat, 05 Sep 2026 10:35:27 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake009.lab.test by fake010.lab.test with ESMTP id DM050-009; Sat, 05 Sep 2026 10:35:26 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake010.lab.test by fake011.lab.test with ESMTP id DM050-010; Sat, 05 Sep 2026 10:35:25 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake011.lab.test by fake012.lab.test with ESMTP id DM050-011; Sat, 05 Sep 2026 10:35:24 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake012.lab.test by fake013.lab.test with ESMTP id DM050-012; Sat, 05 Sep 2026 10:35:23 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake013.lab.test by fake014.lab.test with ESMTP id DM050-013; Sat, 05 Sep 2026 10:35:22 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake014.lab.test by fake015.lab.test with ESMTP id DM050-014; Sat, 05 Sep 2026 10:35:21 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake015.lab.test by fake016.lab.test with ESMTP id DM050-015; Sat, 05 Sep 2026 10:35:20 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake016.lab.test by fake017.lab.test with ESMTP id DM050-016; Sat, 05 Sep 2026 10:35:19 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake017.lab.test by fake018.lab.test with ESMTP id DM050-017; Sat, 05 Sep 2026 10:35:18 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake018.lab.test by fake019.lab.test with ESMTP id DM050-018; Sat, 05 Sep 2026 10:35:17 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake019.lab.test by fake020.lab.test with ESMTP id DM050-019; Sat, 05 Sep 2026 10:35:16 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake020.lab.test by fake021.lab.test with ESMTP id DM050-020; Sat, 05 Sep 2026 10:35:15 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake021.lab.test by fake022.lab.test with ESMTP id DM050-021; Sat, 05 Sep 2026 10:35:14 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake022.lab.test by fake023.lab.test with ESMTP id DM050-022; Sat, 05 Sep 2026 10:35:13 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake023.lab.test by fake024.lab.test with ESMTP id DM050-023; Sat, 05 Sep 2026 10:35:12 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake024.lab.test by fake025.lab.test with ESMTP id DM050-024; Sat, 05 Sep 2026 10:35:11 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake025.lab.test by fake026.lab.test with ESMTP id DM050-025; Sat, 05 Sep 2026 10:35:10 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake026.lab.test by fake027.lab.test with ESMTP id DM050-026; Sat, 05 Sep 2026 10:35:09 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake027.lab.test by fake028.lab.test with ESMTP id DM050-027; Sat, 05 Sep 2026 10:35:08 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake028.lab.test by fake029.lab.test with ESMTP id DM050-028; Sat, 05 Sep 2026 10:35:07 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake029.lab.test by fake030.lab.test with ESMTP id DM050-029; Sat, 05 Sep 2026 10:35:06 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake030.lab.test by fake031.lab.test with ESMTP id DM050-030; Sat, 05 Sep 2026 10:35:05 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake031.lab.test by fake032.lab.test with ESMTP id DM050-031; Sat, 05 Sep 2026 10:35:04 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake032.lab.test by fake033.lab.test with ESMTP id DM050-032; Sat, 05 Sep 2026 10:35:03 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake033.lab.test by fake034.lab.test with ESMTP id DM050-033; Sat, 05 Sep 2026 10:35:02 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake034.lab.test by fake035.lab.test with ESMTP id DM050-034; Sat, 05 Sep 2026 10:35:01 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake035.lab.test by fake036.lab.test with ESMTP id DM050-035; Sat, 05 Sep 2026 10:35:00 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake036.lab.test by fake037.lab.test with ESMTP id DM050-036; Sat, 05 Sep 2026 10:34:59 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake037.lab.test by fake038.lab.test with ESMTP id DM050-037; Sat, 05 Sep 2026 10:34:58 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake038.lab.test by fake039.lab.test with ESMTP id DM050-038; Sat, 05 Sep 2026 10:34:57 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake039.lab.test by fake040.lab.test with ESMTP id DM050-039; Sat, 05 Sep 2026 10:34:56 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake040.lab.test by fake041.lab.test with ESMTP id DM050-040; Sat, 05 Sep 2026 10:34:55 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake041.lab.test by fake042.lab.test with ESMTP id DM050-041; Sat, 05 Sep 2026 10:34:54 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake042.lab.test by fake043.lab.test with ESMTP id DM050-042; Sat, 05 Sep 2026 10:34:53 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake043.lab.test by fake044.lab.test with ESMTP id DM050-043; Sat, 05 Sep 2026 10:34:52 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake044.lab.test by fake045.lab.test with ESMTP id DM050-044; Sat, 05 Sep 2026 10:34:51 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake045.lab.test by fake046.lab.test with ESMTP id DM050-045; Sat, 05 Sep 2026 10:34:50 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake046.lab.test by fake047.lab.test with ESMTP id DM050-046; Sat, 05 Sep 2026 10:34:49 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake047.lab.test by fake048.lab.test with ESMTP id DM050-047; Sat, 05 Sep 2026 10:34:48 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake048.lab.test by fake049.lab.test with ESMTP id DM050-048; Sat, 05 Sep 2026 10:34:47 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=from fake049.lab.test by fake050.lab.test with ESMTP id DM050-049; Sat, 05 Sep 2026 10:34:46 +0800
+Sep 05 10:35:36 postfix1 postfix/cleanup[197]: 1AFAB1F5455: message-id=<DM050@sender.lab.test>
+Sep 05 10:35:36 postfix1 postfix/qmgr[185]: 1AFAB1F5455: from=<alice@sender.lab.test>, size=6009, nrcpt=1 (queue active)
+Sep 05 10:35:36 postfix1 postfix/smtpd[193]: disconnect from mail-client.received-lab_mailnet[172.22.0.3] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:35:36 postfix1 postfix/smtp[198]: 1AFAB1F5455: to=<bob@receiver.lab.test>, relay=postfix2[172.22.0.5]:25, delay=0.04, delays=0.02/0/0/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 205691F5456)
+Sep 05 10:35:36 postfix1 postfix/qmgr[185]: 1AFAB1F5455: removed

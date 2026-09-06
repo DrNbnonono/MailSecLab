@@ -1,0 +1,1 @@
+{"_case":"V007","parser": "python-email", "version": "3.11.2", "parse_error": null, "defects": ["MissingHeaderBodySeparatorDefect"], "header_entries": 1, "received_count": 0, "from_present": false, "subject_present": false, "message_id_present": false, "from_in_body": true, "subject_in_body": true}

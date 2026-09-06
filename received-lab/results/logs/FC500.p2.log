@@ -1,0 +1,7 @@
+Sep 05 10:35:34 postfix2 postfix/smtpd[192]: connect from postfix1.received-lab_mailnet[172.22.0.6]
+Sep 05 10:35:34 postfix2 postfix/smtpd[192]: 3ACAB1F5451: client=postfix1.received-lab_mailnet[172.22.0.6]
+Sep 05 10:35:34 postfix2 postfix/cleanup[196]: 3ACAB1F5451: message-id=<FC500@sender.lab.test>
+Sep 05 10:35:34 postfix2 postfix/smtpd[192]: disconnect from postfix1.received-lab_mailnet[172.22.0.6] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:35:34 postfix2 postfix/qmgr[184]: 3ACAB1F5451: from=<alice@sender.lab.test>, size=464866, nrcpt=1 (queue active)
+Sep 05 10:35:34 postfix2 postfix/smtp[197]: 3ACAB1F5451: to=<bob@receiver.lab.test>, relay=postfix3[172.22.0.4]:25, delay=0.03, delays=0.01/0/0/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 3EA8F1CCD4B)
+Sep 05 10:35:34 postfix2 postfix/qmgr[184]: 3ACAB1F5451: removed

@@ -1,0 +1,17 @@
+Bcc: bob@receiver.lab.test
+Return-Path: <alice@sender.lab.test>
+Received: from exim.lab.test (exim.received-lab_mailnet. [172.22.0.9])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sat, 5 Sep 2026 13:53:05 +0000 (UTC)
+Received: from [172.22.0.3] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@sender.lab.test>)
+	id 1x2qpN-00000U-0m
+	for bob@receiver.lab.test;
+	Sat, 05 Sep 2026 13:53:05 +0000
+X-Case-ID: G3E-EX-RCVDWSP
+Received : from a.lab.test by b.lab.test; Tue, 1 Jan 2030 00:00:00 +0000
+Message-ID: <g3@sender.lab.test>
+
+body.
+

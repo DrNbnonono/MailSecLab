@@ -1,0 +1,14 @@
+case_id,fake_received_count,real_hops,smtp_code,postfix1_result,postfix2_result,postfix3_result,final_received_count,queue_status
+C000,0,3,250,accept;relay=sent,accept;relay=sent,accept;relay=sent,4,delivered
+C001,1,3,250,accept;relay=sent,accept;relay=sent,accept;relay=sent,5,delivered
+C002,2,3,250,accept;relay=sent,accept;relay=sent,accept;relay=sent,6,delivered
+C003,3,3,250,accept;relay=sent,accept;relay=sent,accept;relay=sent,7,delivered
+C004,4,3,250,accept;relay=sent,accept;relay=sent,accept;relay=sent,8,delivered
+C005,5,3,250,accept;relay=sent,accept;relay=bounced,rejected_hopcount_exceeded,,bounced_not_delivered
+C006,6,3,250,accept;relay=bounced,rejected_hopcount_exceeded,no_traffic,,bounced_not_delivered
+C007,7,3,554,rejected_hopcount_exceeded,no_traffic,no_traffic,,rejected_at_data(554)
+C008,8,3,554,rejected_hopcount_exceeded,no_traffic,no_traffic,,rejected_at_data(554)
+C009,9,3,554,rejected_hopcount_exceeded,no_traffic,no_traffic,,rejected_at_data(554)
+C010,10,3,554,rejected_hopcount_exceeded,no_traffic,no_traffic,,rejected_at_data(554)
+C011,11,3,554,rejected_hopcount_exceeded,no_traffic,no_traffic,,rejected_at_data(554)
+C012,12,3,554,rejected_hopcount_exceeded,no_traffic,no_traffic,,rejected_at_data(554)

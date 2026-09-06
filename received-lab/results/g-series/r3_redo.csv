@@ -1,0 +1,3 @@
+n,message_bytes,smtp_reply,check,header_stats,stored_bytes
+50,4534236,,DELIVERED: no BOUNCE: no ,-,0
+100,9068338,,DELIVERED: no BOUNCE: no ,-,0

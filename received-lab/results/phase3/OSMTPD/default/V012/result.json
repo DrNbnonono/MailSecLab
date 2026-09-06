@@ -1,0 +1,1 @@
+{"case":"V012","env":"OSMTPD","policy":"default","version":"6.8.0p2","smtp_final_code":"250","reject_node":"-","delivered":"yes","bounce":"no","raw_sha256":"cc6a999866a05028af529a4723f678f896d5b09cfb5dcc2082662fd5ba6b3442","received_exact":"3","notes":"250 2.0.0 98a11bb7 Message accepted for delivery;bounce=no"}

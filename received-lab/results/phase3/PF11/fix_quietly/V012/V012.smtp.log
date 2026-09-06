@@ -1,0 +1,24 @@
+CASE_ID: V012
+< 220 postfix1n.lab.test ESMTP Postfix (Debian)
+> EHLO client.lab.test
+< 250-postfix1n.lab.test
+< 250-PIPELINING
+< 250-SIZE 10240000
+< 250-VRFY
+< 250-ETRN
+< 250-ENHANCEDSTATUSCODES
+< 250-8BITMIME
+< 250-DSN
+< 250-SMTPUTF8
+< 250 CHUNKING
+> MAIL FROM:<alice@sender.lab.test>
+< 250 2.1.0 Ok
+> RCPT TO:<bob@receiver.lab.test>
+< 250 2.1.5 Ok
+> DATA
+< 354 End data with <CR><LF>.<CR><LF>
+< 250 2.0.0 Ok: queued as 7F6771F6325
+DATA_REPLY: 250 2.0.0 Ok: queued as 7F6771F6325
+MESSAGE_BYTES: 154063
+> QUIT
+< 221 2.0.0 Bye

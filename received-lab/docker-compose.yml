@@ -43,8 +43,10 @@ services:
       - mailpit
 
   mailpit:
-    # pinned: v1.31.0 (freeze 2026-09-01)
-    image: axllent/mailpit@sha256:c96991d9bef73594c246d89ca81411d4e916f03e76a7d2d72fa2ab5dd3c9ce24
+    # pinned: v1.31.0 (freeze 2026-09-01, hub digest sha256:c96991d9...ce24;
+    # digest reference degraded to tag because the daemon cannot reach
+    # registries through the current proxy — image was loaded out-of-band)
+    image: axllent/mailpit:v1.31.0
     container_name: mailpit
     hostname: mailpit.lab.test
     ports:
@@ -57,6 +59,7 @@ services:
   postfix1n:
     build:
       context: ./postfix-current
+      network: host
     container_name: postfix1n
     hostname: postfix1n.lab.test
     environment:
@@ -73,6 +76,7 @@ services:
   postfix2n:
     build:
       context: ./postfix-current
+      network: host
     container_name: postfix2n
     hostname: postfix2n.lab.test
     environment:
@@ -89,6 +93,7 @@ services:
   postfix3n:
     build:
       context: ./postfix-current
+      network: host
     container_name: postfix3n
     hostname: postfix3n.lab.test
     environment:
@@ -119,6 +124,7 @@ services:
   exim:
     build:
       context: ./exim
+      network: host
     container_name: exim
     hostname: exim.lab.test
     networks:
@@ -131,6 +137,7 @@ services:
   opensmtpd:
     build:
       context: ./opensmtpd
+      network: host
     container_name: opensmtpd
     hostname: opensmtpd.lab.test
     networks:
@@ -144,6 +151,7 @@ services:
   parser-node:
     build:
       context: ./parsers/node
+      network: host
     container_name: parser-node
     volumes:
       - ./scripts:/scripts
@@ -154,12 +162,24 @@ services:
   parser-go:
     build:
       context: ./parsers/go
+      network: host
     container_name: parser-go
     volumes:
       - ./scripts:/scripts
       - ./results:/results
     profiles:
       - parsers
+
+  # ---- F-series: rspamd offline scanner (DNS-dependent checks disabled) ----
+  rspamd:
+    build:
+      context: ./rspamd
+      network: host
+    container_name: rspamd
+    volumes:
+      - ./results:/results
+    profiles:
+      - frspamd
 
 networks:
   mailnet:

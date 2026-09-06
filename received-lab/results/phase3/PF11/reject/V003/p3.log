@@ -1,0 +1,12 @@
+Sep 05 10:51:58 postfix3n postfix/smtpd[371]: connect from postfix2n.received-lab_mailnet[172.22.0.10]
+Sep 05 10:51:58 postfix3n postfix/smtpd[371]: 929201F6360: client=postfix2n.received-lab_mailnet[172.22.0.10]
+Sep 05 10:51:58 postfix3n postfix/cleanup[375]: warning: 929201F6360: message rejected: hopcount exceeded
+Sep 05 10:51:58 postfix3n postfix/cleanup[375]: 929201F6360: removed (canceled)
+Sep 05 10:51:58 postfix3n postfix/smtpd[371]: disconnect from postfix2n.received-lab_mailnet[172.22.0.10] ehlo=1 mail=1 rcpt=1 data=0/1 quit=1 commands=4/5
+Sep 05 10:51:58 postfix3n postfix/smtpd[371]: connect from postfix2n.received-lab_mailnet[172.22.0.10]
+Sep 05 10:51:58 postfix3n postfix/smtpd[371]: 97D341F6360: client=postfix2n.received-lab_mailnet[172.22.0.10]
+Sep 05 10:51:58 postfix3n postfix/cleanup[375]: 97D341F6360: message-id=<20260905105158.959712CC136@postfix2n.lab.test>
+Sep 05 10:51:58 postfix3n postfix/qmgr[370]: 97D341F6360: from=<>, size=7960, nrcpt=1 (queue active)
+Sep 05 10:51:58 postfix3n postfix/smtpd[371]: disconnect from postfix2n.received-lab_mailnet[172.22.0.10] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:51:58 postfix3n postfix/smtp[376]: 97D341F6360: to=<alice@sender.lab.test>, relay=mailpit[172.22.0.2]:1025, delay=0.01, delays=0.01/0/0/0, tls=none, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 3drSSdSIgl8C0Lt0VwjICn)
+Sep 05 10:51:58 postfix3n postfix/qmgr[370]: 97D341F6360: removed

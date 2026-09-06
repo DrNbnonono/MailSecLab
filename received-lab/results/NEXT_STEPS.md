@@ -1,0 +1,29 @@
+# 实验进度与下一步方向（2026-09-05，E/F/G 系列完成后）
+
+**研究问题**：Received 头能否无限制增长。
+**全部实验记录**：`result/e-series/`、`result/g-series/`、`result/f-series/RECORD.md`（含两次事故与纠错全记录）。
+
+## 已确立的结论链
+
+1. **数量维度有界但非协议常数**：Postfix hopcount 50 / Exim received_headers_max 30 /
+   OpenSMTPD 100，触发模式各异（内联 554 / 500；Exim 先收后退信）；F3 证明边界随配置线性移动。
+2. **字节维度近乎无界**（G4 修正版 R3）：真折叠 X-Received 头块 9,096,191B 经三跳 Postfix
+   链投递，Received 恒 4；约束仅 message_size_limit（~10.24MB）。
+3. **计数盲区与通道宽度**：`Received<SP>:` 只对 OpenSMTPD 盲；G3 归因 —— Postfix 改写+计数、
+   Exim 只计数不改写、OpenSMTPD 不计数但改写；通道宽度 = 连续无计数 MTA 跳数。
+4. **放大**：loop-DSN 放大率 31.9×（空报文）→ ~1（大报文），圈数受数量上限闭环。
+5. **安全组件视角**：WSP 通道产物被 rspamd 标 `BROKEN_HEADERS +8.0`（骗过传输计数骗不过
+   解析器）；9MB 真头块对 rspamd 无压力（56ms / 3.4 分，G4 修正后结论）。
+   首轮 "rspamd 丢头" 结论因语料双 CRLF 缺陷撤回（详见 g-series/RECORD.md 纠错记录）。
+
+## 下一步（按价值排序）
+
+1. **Rspamd 信任边界 / source 认定**（Phase 5 主线）：trusted_networks 两种配置 × 伪造
+   Received 深度，全部 RFC 5737 保留地址；结合 G4 的 9MB 头块报文（rspamd 已能正常解析，
+   可直接测其对 source/IP 判定的影响）。
+2. **DKIM l= 标签 × 头区边界**：Postfix 对 WSP 的改写、对超大折叠头的截断（header_size_limit）
+   都会移动 l= 覆盖字节与验证者读取字节的相对位置 —— 用真实 signer/verifier 验证。
+3. **Postfix cleanup 规范化的日志与开关**：WSP→Received 转正发生在 cleanup 哪个阶段、
+   有无告警日志（对取证/检测有意义）。
+4. **工程清理**：代理恢复后还原 digest pin；全部成果 commit 到 research/received-trace
+   （results/、result/、脚本修改、rspamd/ 目录目前均未入库）。

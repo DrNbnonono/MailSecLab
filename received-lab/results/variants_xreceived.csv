@@ -1,0 +1,2 @@
+case_id,fake_X-Received_count,real_hops,smtp_code,postfix1_result,postfix2_result,postfix3_result,final_received_count,queue_status
+XR100,100,3,250,accept;relay=sent,accept;relay=sent,accept;relay=sent,4,delivered

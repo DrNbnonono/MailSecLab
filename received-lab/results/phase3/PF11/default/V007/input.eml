@@ -1,0 +1,8 @@
+X-Case-ID: V007
+Receíved: from fake000.lab.test by fake001.lab.test; Mon, 31 Aug 2026 11:59:59 +0800
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [V007] received-experiment
+Message-ID: <V007@sender.lab.test>
+
+Phase 3A corpus body.

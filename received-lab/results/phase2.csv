@@ -1,0 +1,17 @@
+case_id,description,smtp_code,postfix1_result,postfix2_result,postfix3_result,delivered,received_exact,received_ci,received_ws_variant,received_in_body,largest_header_bytes,notes
+RB010,Resent x10 blocks (40 hdrs),250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,4,4,0,0,205,bytes=2059 bounce=no
+RB100,Resent x100 blocks (400 hdrs),250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,4,4,0,0,206,bytes=18799 bounce=no
+RB300,Resent x300 blocks (1200 hdrs),250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,4,4,0,0,205,bytes=55999 bounce=no
+FC090,3x folded Received ~90KB each,250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,7,7,0,0,92745,bytes=278440 bounce=no
+FC150,1x folded Received ~150KB (> header_size_limit 102400),250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,5,5,0,0,101701,bytes=154078 bounce=no
+FC500,5x folded Received ~90KB (450KB),250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,9,9,0,0,92745,bytes=463934 bounce=no
+DS050,Subject x50 (RFC 5322 max=1 violated),250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,4,4,0,0,206,bytes=5649 bounce=no
+DM050,Message-ID x50 (RFC 5322 max=1 violated),250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,4,4,0,0,206,bytes=5799 bounce=no
+DC100,Comments x100 (unlimited field; control),250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,4,4,0,0,206,bytes=11199 bounce=no
+EW005,'Received :' (space) x5 — pass-through & counting check,250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,9,9,0,0,206,bytes=754 bounce=no
+EWT05,'Received<TAB>:' x5 — pass-through & counting check,250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,9,9,0,0,206,bytes=754 bounce=no
+EW100,'Received :' (space before colon) x100,554,rejected_hopcount_exceeded,no_traffic,no_traffic,no,-,-,-,-,-,bytes=11299 bounce=no
+ET050,'Receíved' (UTF-8 look-alike) x50,250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,4,4,0,50,206,bytes=5749 bounce=no
+AF100,ARC-style 100 triplets (300 hdrs),250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,4,4,0,0,206,bytes=44175 bounce=no
+RW046,46 Received + 100 X-Received (boundary control: deliver),250,accept;relay=sent,accept;relay=sent,accept;relay=sent,yes,50,50,0,0,206,bytes=8959 bounce=no
+RW047,47 Received + 100 X-Received (boundary control: bounce),250,accept;relay=sent,accept;relay=bounced,rejected_hopcount_exceeded,no,-,-,-,-,-,bytes=9069 bounce=yes

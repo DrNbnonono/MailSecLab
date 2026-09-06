@@ -1,0 +1,46 @@
+{
+  "raw_sha256": "69480b5a4fb8e8b4d9dcc7194c60cc44559cfccd0020be485770948c1adf8e5e",
+  "raw_bytes": 1075,
+  "header_section_bytes": 1046,
+  "header_end_offset": 1046,
+  "body_offset": 1050,
+  "first_malformed_offset": 470,
+  "logical_headers": 13,
+  "received_exact": 2,
+  "received_ci": 7,
+  "received_space": 5,
+  "received_utf8": 0,
+  "received_in_body": 0,
+  "malformed_in_header": 5,
+  "largest_header_bytes": 207,
+  "names": {
+    "Received": [
+      7,
+      0
+    ],
+    "From": [
+      1,
+      0
+    ],
+    "To": [
+      1,
+      0
+    ],
+    "Subject": [
+      1,
+      0
+    ],
+    "Message-ID": [
+      1,
+      0
+    ],
+    "X-Case-ID": [
+      1,
+      0
+    ],
+    "MIME-Error": [
+      0,
+      0
+    ]
+  }
+}

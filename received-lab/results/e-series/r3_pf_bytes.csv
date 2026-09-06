@@ -1,0 +1,4 @@
+N,message_bytes,smtp_reply,delivered,stored_bytes
+50,4544440,250 2.0.0 Ok: queued as 263D91F544D,DELIVERED: yes received_count=4 BOUNCE: no ,4545380
+90,8179880,250 2.0.0 Ok: queued as F3A0B1F544D,DELIVERED: yes received_count=4 BOUNCE: no ,8180820
+100,9088742,250 2.0.0 Ok: queued as 29E011F544D,DELIVERED: yes received_count=4 BOUNCE: no ,9089682

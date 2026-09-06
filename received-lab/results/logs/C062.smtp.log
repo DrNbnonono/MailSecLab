@@ -1,0 +1,24 @@
+CASE_ID: C062
+< 220 postfix1.lab.test ESMTP Postfix (Debian/GNU)
+> EHLO client.lab.test
+< 250-postfix1.lab.test
+< 250-PIPELINING
+< 250-SIZE 10240000
+< 250-VRFY
+< 250-ETRN
+< 250-ENHANCEDSTATUSCODES
+< 250-8BITMIME
+< 250-DSN
+< 250-SMTPUTF8
+< 250 CHUNKING
+> MAIL FROM:<alice@sender.lab.test>
+< 250 2.1.0 Ok
+> RCPT TO:<bob@receiver.lab.test>
+< 250 2.1.5 Ok
+> DATA
+< 354 End data with <CR><LF>.<CR><LF>
+< 554 5.4.0 Error: too many hops
+DATA_REPLY: 554 5.4.0 Error: too many hops
+MESSAGE_BYTES: 6954
+> QUIT
+< 221 2.0.0 Bye

@@ -1,0 +1,7 @@
+Sep 05 10:50:28 postfix2n postfix/smtpd[282]: connect from postfix1n.received-lab_mailnet[172.22.0.11]
+Sep 05 10:50:28 postfix2n postfix/smtpd[282]: DEE242CC137: client=postfix1n.received-lab_mailnet[172.22.0.11]
+Sep 05 10:50:28 postfix2n postfix/cleanup[286]: DEE242CC137: message-id=<V012@sender.lab.test>
+Sep 05 10:50:28 postfix2n postfix/smtpd[282]: disconnect from postfix1n.received-lab_mailnet[172.22.0.11] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:50:28 postfix2n postfix/qmgr[280]: DEE242CC137: from=<alice@sender.lab.test>, size=102422, nrcpt=1 (queue active)
+Sep 05 10:50:28 postfix2n postfix/smtp[287]: DEE242CC137: to=<bob@receiver.lab.test>, relay=postfix3n[172.22.0.8]:25, delay=0.03, delays=0.02/0/0/0.02, tls=none, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as E39942CC136)
+Sep 05 10:50:28 postfix2n postfix/qmgr[280]: DEE242CC137: removed

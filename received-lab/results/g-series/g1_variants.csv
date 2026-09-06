@@ -1,0 +1,10 @@
+mode,kb,file_bytes,score,action,MISSING_FROM,RCVD_COUNT_opts
+f1,1,2040,10.4,add header,Y,0
+f1,2,2939,10.4,add header,Y,0
+f1,4,4737,10.4,add header,Y,0
+f1,6,6535,10.4,add header,Y,0
+f1,8,9232,10.4,add header,Y,0
+f1u,8,8371,3.4,no action,-,0
+xg,8,9229,10.4,add header,Y,0
+rcv,8,9232,10.4,add header,Y,-
+ctrl,0,167,3.4,no action,-,0

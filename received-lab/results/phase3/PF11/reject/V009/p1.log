@@ -1,0 +1,6 @@
+Sep 05 10:52:55 postfix1n postfix/smtpd[393]: connect from mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:52:55 postfix1n postfix/smtpd[393]: 0C00F1F544F: client=mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:52:55 postfix1n postfix/cleanup[397]: 0C00F1F544F: reject: mime-error primary header was terminated with non-empty line: BROKEN_HEADER this line has no colon from mail-client.received-lab_mailnet[172.22.0.3]; from=<alice@sender.lab.test> to=<bob@receiver.lab.test>
+Sep 05 10:52:55 postfix1n postfix/cleanup[397]: 0C00F1F544F: message-id=<>
+Sep 05 10:52:55 postfix1n postfix/cleanup[397]: 0C00F1F544F: removed (canceled)
+Sep 05 10:52:55 postfix1n postfix/smtpd[393]: disconnect from mail-client.received-lab_mailnet[172.22.0.3] ehlo=1 mail=1 rcpt=1 data=0/1 quit=1 commands=4/5

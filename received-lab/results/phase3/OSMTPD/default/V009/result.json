@@ -1,0 +1,1 @@
+{"case":"V009","env":"OSMTPD","policy":"default","version":"6.8.0p2","smtp_final_code":"550","reject_node":"opensmtpd","delivered":"no","bounce":"no","raw_sha256":"-","received_exact":"-","notes":"550 5.7.1 Delivery not authorized; message refused: Message is not RFC 2822 compliant;bounce=no"}

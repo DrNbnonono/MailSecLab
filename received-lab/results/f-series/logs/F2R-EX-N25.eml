@@ -1,0 +1,44 @@
+Return-Path: <alice@sender.lab.test>
+Received: from postfix1.lab.test (postfix1.received-lab_mailnet. [172.22.0.6])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sat, 5 Sep 2026 13:20:27 +0000 (UTC)
+Received: from opensmtpd.lab.test (opensmtpd.received-lab_mailnet [172.22.0.7])
+	by postfix1.lab.test (Postfix) with ESMTP id 5FEB32CD3C6
+	for <bob@receiver.lab.test>; Sat,  5 Sep 2026 13:20:27 +0000 (UTC)
+Received: from client.lab.test (mail-client.received-lab_mailnet [172.22.0.3])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id eed79e13
+	for <bob@receiver.lab.test>;
+	Sat, 5 Sep 2026 13:20:27 +0000 (UTC)
+X-Case-ID: F2R-EX-N25
+Received: from fake000.lab.test by fake001.lab.test with ESMTP id F2R-EX-N25-000; Sat, 05 Sep 2026 13:20:26 +0800
+Received: from fake001.lab.test by fake002.lab.test with ESMTP id F2R-EX-N25-001; Sat, 05 Sep 2026 13:20:25 +0800
+Received: from fake002.lab.test by fake003.lab.test with ESMTP id F2R-EX-N25-002; Sat, 05 Sep 2026 13:20:24 +0800
+Received: from fake003.lab.test by fake004.lab.test with ESMTP id F2R-EX-N25-003; Sat, 05 Sep 2026 13:20:23 +0800
+Received: from fake004.lab.test by fake005.lab.test with ESMTP id F2R-EX-N25-004; Sat, 05 Sep 2026 13:20:22 +0800
+Received: from fake005.lab.test by fake006.lab.test with ESMTP id F2R-EX-N25-005; Sat, 05 Sep 2026 13:20:21 +0800
+Received: from fake006.lab.test by fake007.lab.test with ESMTP id F2R-EX-N25-006; Sat, 05 Sep 2026 13:20:20 +0800
+Received: from fake007.lab.test by fake008.lab.test with ESMTP id F2R-EX-N25-007; Sat, 05 Sep 2026 13:20:19 +0800
+Received: from fake008.lab.test by fake009.lab.test with ESMTP id F2R-EX-N25-008; Sat, 05 Sep 2026 13:20:18 +0800
+Received: from fake009.lab.test by fake010.lab.test with ESMTP id F2R-EX-N25-009; Sat, 05 Sep 2026 13:20:17 +0800
+Received: from fake010.lab.test by fake011.lab.test with ESMTP id F2R-EX-N25-010; Sat, 05 Sep 2026 13:20:16 +0800
+Received: from fake011.lab.test by fake012.lab.test with ESMTP id F2R-EX-N25-011; Sat, 05 Sep 2026 13:20:15 +0800
+Received: from fake012.lab.test by fake013.lab.test with ESMTP id F2R-EX-N25-012; Sat, 05 Sep 2026 13:20:14 +0800
+Received: from fake013.lab.test by fake014.lab.test with ESMTP id F2R-EX-N25-013; Sat, 05 Sep 2026 13:20:13 +0800
+Received: from fake014.lab.test by fake015.lab.test with ESMTP id F2R-EX-N25-014; Sat, 05 Sep 2026 13:20:12 +0800
+Received: from fake015.lab.test by fake016.lab.test with ESMTP id F2R-EX-N25-015; Sat, 05 Sep 2026 13:20:11 +0800
+Received: from fake016.lab.test by fake017.lab.test with ESMTP id F2R-EX-N25-016; Sat, 05 Sep 2026 13:20:10 +0800
+Received: from fake017.lab.test by fake018.lab.test with ESMTP id F2R-EX-N25-017; Sat, 05 Sep 2026 13:20:09 +0800
+Received: from fake018.lab.test by fake019.lab.test with ESMTP id F2R-EX-N25-018; Sat, 05 Sep 2026 13:20:08 +0800
+Received: from fake019.lab.test by fake020.lab.test with ESMTP id F2R-EX-N25-019; Sat, 05 Sep 2026 13:20:07 +0800
+Received: from fake020.lab.test by fake021.lab.test with ESMTP id F2R-EX-N25-020; Sat, 05 Sep 2026 13:20:06 +0800
+Received: from fake021.lab.test by fake022.lab.test with ESMTP id F2R-EX-N25-021; Sat, 05 Sep 2026 13:20:05 +0800
+Received: from fake022.lab.test by fake023.lab.test with ESMTP id F2R-EX-N25-022; Sat, 05 Sep 2026 13:20:04 +0800
+Received: from fake023.lab.test by fake024.lab.test with ESMTP id F2R-EX-N25-023; Sat, 05 Sep 2026 13:20:03 +0800
+Received: from fake024.lab.test by fake025.lab.test with ESMTP id F2R-EX-N25-024; Sat, 05 Sep 2026 13:20:02 +0800
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [F2R-EX-N25] received-experiment
+Message-ID: <F2R-EX-N25@sender.lab.test>
+
+Received header experiment body.
+

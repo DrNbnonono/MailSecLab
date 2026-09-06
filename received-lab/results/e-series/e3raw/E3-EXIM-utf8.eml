@@ -1,0 +1,118 @@
+Return-Path: <alice@sender.lab.test>
+Received: from exim.lab.test (exim.received-lab_mailnet. [172.22.0.9])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sat, 5 Sep 2026 12:03:38 +0000 (UTC)
+Received: from [172.22.0.3] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@sender.lab.test>)
+	id 1x2p7S-00006J-1U
+	for bob@receiver.lab.test;
+	Sat, 05 Sep 2026 12:03:38 +0000
+X-Case-ID: E3-EXIM-utf8
+Receíved: from fake000.lab.test by fake001.lab.test with ESMTP id E3-EXIM-utf8-000; Sat, 05 Sep 2026 12:03:37 +0800
+Receíved: from fake001.lab.test by fake002.lab.test with ESMTP id E3-EXIM-utf8-001; Sat, 05 Sep 2026 12:03:36 +0800
+Receíved: from fake002.lab.test by fake003.lab.test with ESMTP id E3-EXIM-utf8-002; Sat, 05 Sep 2026 12:03:35 +0800
+Receíved: from fake003.lab.test by fake004.lab.test with ESMTP id E3-EXIM-utf8-003; Sat, 05 Sep 2026 12:03:34 +0800
+Receíved: from fake004.lab.test by fake005.lab.test with ESMTP id E3-EXIM-utf8-004; Sat, 05 Sep 2026 12:03:33 +0800
+Receíved: from fake005.lab.test by fake006.lab.test with ESMTP id E3-EXIM-utf8-005; Sat, 05 Sep 2026 12:03:32 +0800
+Receíved: from fake006.lab.test by fake007.lab.test with ESMTP id E3-EXIM-utf8-006; Sat, 05 Sep 2026 12:03:31 +0800
+Receíved: from fake007.lab.test by fake008.lab.test with ESMTP id E3-EXIM-utf8-007; Sat, 05 Sep 2026 12:03:30 +0800
+Receíved: from fake008.lab.test by fake009.lab.test with ESMTP id E3-EXIM-utf8-008; Sat, 05 Sep 2026 12:03:29 +0800
+Receíved: from fake009.lab.test by fake010.lab.test with ESMTP id E3-EXIM-utf8-009; Sat, 05 Sep 2026 12:03:28 +0800
+Receíved: from fake010.lab.test by fake011.lab.test with ESMTP id E3-EXIM-utf8-010; Sat, 05 Sep 2026 12:03:27 +0800
+Receíved: from fake011.lab.test by fake012.lab.test with ESMTP id E3-EXIM-utf8-011; Sat, 05 Sep 2026 12:03:26 +0800
+Receíved: from fake012.lab.test by fake013.lab.test with ESMTP id E3-EXIM-utf8-012; Sat, 05 Sep 2026 12:03:25 +0800
+Receíved: from fake013.lab.test by fake014.lab.test with ESMTP id E3-EXIM-utf8-013; Sat, 05 Sep 2026 12:03:24 +0800
+Receíved: from fake014.lab.test by fake015.lab.test with ESMTP id E3-EXIM-utf8-014; Sat, 05 Sep 2026 12:03:23 +0800
+Receíved: from fake015.lab.test by fake016.lab.test with ESMTP id E3-EXIM-utf8-015; Sat, 05 Sep 2026 12:03:22 +0800
+Receíved: from fake016.lab.test by fake017.lab.test with ESMTP id E3-EXIM-utf8-016; Sat, 05 Sep 2026 12:03:21 +0800
+Receíved: from fake017.lab.test by fake018.lab.test with ESMTP id E3-EXIM-utf8-017; Sat, 05 Sep 2026 12:03:20 +0800
+Receíved: from fake018.lab.test by fake019.lab.test with ESMTP id E3-EXIM-utf8-018; Sat, 05 Sep 2026 12:03:19 +0800
+Receíved: from fake019.lab.test by fake020.lab.test with ESMTP id E3-EXIM-utf8-019; Sat, 05 Sep 2026 12:03:18 +0800
+Receíved: from fake020.lab.test by fake021.lab.test with ESMTP id E3-EXIM-utf8-020; Sat, 05 Sep 2026 12:03:17 +0800
+Receíved: from fake021.lab.test by fake022.lab.test with ESMTP id E3-EXIM-utf8-021; Sat, 05 Sep 2026 12:03:16 +0800
+Receíved: from fake022.lab.test by fake023.lab.test with ESMTP id E3-EXIM-utf8-022; Sat, 05 Sep 2026 12:03:15 +0800
+Receíved: from fake023.lab.test by fake024.lab.test with ESMTP id E3-EXIM-utf8-023; Sat, 05 Sep 2026 12:03:14 +0800
+Receíved: from fake024.lab.test by fake025.lab.test with ESMTP id E3-EXIM-utf8-024; Sat, 05 Sep 2026 12:03:13 +0800
+Receíved: from fake025.lab.test by fake026.lab.test with ESMTP id E3-EXIM-utf8-025; Sat, 05 Sep 2026 12:03:12 +0800
+Receíved: from fake026.lab.test by fake027.lab.test with ESMTP id E3-EXIM-utf8-026; Sat, 05 Sep 2026 12:03:11 +0800
+Receíved: from fake027.lab.test by fake028.lab.test with ESMTP id E3-EXIM-utf8-027; Sat, 05 Sep 2026 12:03:10 +0800
+Receíved: from fake028.lab.test by fake029.lab.test with ESMTP id E3-EXIM-utf8-028; Sat, 05 Sep 2026 12:03:09 +0800
+Receíved: from fake029.lab.test by fake030.lab.test with ESMTP id E3-EXIM-utf8-029; Sat, 05 Sep 2026 12:03:08 +0800
+Receíved: from fake030.lab.test by fake031.lab.test with ESMTP id E3-EXIM-utf8-030; Sat, 05 Sep 2026 12:03:07 +0800
+Receíved: from fake031.lab.test by fake032.lab.test with ESMTP id E3-EXIM-utf8-031; Sat, 05 Sep 2026 12:03:06 +0800
+Receíved: from fake032.lab.test by fake033.lab.test with ESMTP id E3-EXIM-utf8-032; Sat, 05 Sep 2026 12:03:05 +0800
+Receíved: from fake033.lab.test by fake034.lab.test with ESMTP id E3-EXIM-utf8-033; Sat, 05 Sep 2026 12:03:04 +0800
+Receíved: from fake034.lab.test by fake035.lab.test with ESMTP id E3-EXIM-utf8-034; Sat, 05 Sep 2026 12:03:03 +0800
+Receíved: from fake035.lab.test by fake036.lab.test with ESMTP id E3-EXIM-utf8-035; Sat, 05 Sep 2026 12:03:02 +0800
+Receíved: from fake036.lab.test by fake037.lab.test with ESMTP id E3-EXIM-utf8-036; Sat, 05 Sep 2026 12:03:01 +0800
+Receíved: from fake037.lab.test by fake038.lab.test with ESMTP id E3-EXIM-utf8-037; Sat, 05 Sep 2026 12:03:00 +0800
+Receíved: from fake038.lab.test by fake039.lab.test with ESMTP id E3-EXIM-utf8-038; Sat, 05 Sep 2026 12:02:59 +0800
+Receíved: from fake039.lab.test by fake040.lab.test with ESMTP id E3-EXIM-utf8-039; Sat, 05 Sep 2026 12:02:58 +0800
+Receíved: from fake040.lab.test by fake041.lab.test with ESMTP id E3-EXIM-utf8-040; Sat, 05 Sep 2026 12:02:57 +0800
+Receíved: from fake041.lab.test by fake042.lab.test with ESMTP id E3-EXIM-utf8-041; Sat, 05 Sep 2026 12:02:56 +0800
+Receíved: from fake042.lab.test by fake043.lab.test with ESMTP id E3-EXIM-utf8-042; Sat, 05 Sep 2026 12:02:55 +0800
+Receíved: from fake043.lab.test by fake044.lab.test with ESMTP id E3-EXIM-utf8-043; Sat, 05 Sep 2026 12:02:54 +0800
+Receíved: from fake044.lab.test by fake045.lab.test with ESMTP id E3-EXIM-utf8-044; Sat, 05 Sep 2026 12:02:53 +0800
+Receíved: from fake045.lab.test by fake046.lab.test with ESMTP id E3-EXIM-utf8-045; Sat, 05 Sep 2026 12:02:52 +0800
+Receíved: from fake046.lab.test by fake047.lab.test with ESMTP id E3-EXIM-utf8-046; Sat, 05 Sep 2026 12:02:51 +0800
+Receíved: from fake047.lab.test by fake048.lab.test with ESMTP id E3-EXIM-utf8-047; Sat, 05 Sep 2026 12:02:50 +0800
+Receíved: from fake048.lab.test by fake049.lab.test with ESMTP id E3-EXIM-utf8-048; Sat, 05 Sep 2026 12:02:49 +0800
+Receíved: from fake049.lab.test by fake050.lab.test with ESMTP id E3-EXIM-utf8-049; Sat, 05 Sep 2026 12:02:48 +0800
+Receíved: from fake050.lab.test by fake051.lab.test with ESMTP id E3-EXIM-utf8-050; Sat, 05 Sep 2026 12:02:47 +0800
+Receíved: from fake051.lab.test by fake052.lab.test with ESMTP id E3-EXIM-utf8-051; Sat, 05 Sep 2026 12:02:46 +0800
+Receíved: from fake052.lab.test by fake053.lab.test with ESMTP id E3-EXIM-utf8-052; Sat, 05 Sep 2026 12:02:45 +0800
+Receíved: from fake053.lab.test by fake054.lab.test with ESMTP id E3-EXIM-utf8-053; Sat, 05 Sep 2026 12:02:44 +0800
+Receíved: from fake054.lab.test by fake055.lab.test with ESMTP id E3-EXIM-utf8-054; Sat, 05 Sep 2026 12:02:43 +0800
+Receíved: from fake055.lab.test by fake056.lab.test with ESMTP id E3-EXIM-utf8-055; Sat, 05 Sep 2026 12:02:42 +0800
+Receíved: from fake056.lab.test by fake057.lab.test with ESMTP id E3-EXIM-utf8-056; Sat, 05 Sep 2026 12:02:41 +0800
+Receíved: from fake057.lab.test by fake058.lab.test with ESMTP id E3-EXIM-utf8-057; Sat, 05 Sep 2026 12:02:40 +0800
+Receíved: from fake058.lab.test by fake059.lab.test with ESMTP id E3-EXIM-utf8-058; Sat, 05 Sep 2026 12:02:39 +0800
+Receíved: from fake059.lab.test by fake060.lab.test with ESMTP id E3-EXIM-utf8-059; Sat, 05 Sep 2026 12:02:38 +0800
+Receíved: from fake060.lab.test by fake061.lab.test with ESMTP id E3-EXIM-utf8-060; Sat, 05 Sep 2026 12:02:37 +0800
+Receíved: from fake061.lab.test by fake062.lab.test with ESMTP id E3-EXIM-utf8-061; Sat, 05 Sep 2026 12:02:36 +0800
+Receíved: from fake062.lab.test by fake063.lab.test with ESMTP id E3-EXIM-utf8-062; Sat, 05 Sep 2026 12:02:35 +0800
+Receíved: from fake063.lab.test by fake064.lab.test with ESMTP id E3-EXIM-utf8-063; Sat, 05 Sep 2026 12:02:34 +0800
+Receíved: from fake064.lab.test by fake065.lab.test with ESMTP id E3-EXIM-utf8-064; Sat, 05 Sep 2026 12:02:33 +0800
+Receíved: from fake065.lab.test by fake066.lab.test with ESMTP id E3-EXIM-utf8-065; Sat, 05 Sep 2026 12:02:32 +0800
+Receíved: from fake066.lab.test by fake067.lab.test with ESMTP id E3-EXIM-utf8-066; Sat, 05 Sep 2026 12:02:31 +0800
+Receíved: from fake067.lab.test by fake068.lab.test with ESMTP id E3-EXIM-utf8-067; Sat, 05 Sep 2026 12:02:30 +0800
+Receíved: from fake068.lab.test by fake069.lab.test with ESMTP id E3-EXIM-utf8-068; Sat, 05 Sep 2026 12:02:29 +0800
+Receíved: from fake069.lab.test by fake070.lab.test with ESMTP id E3-EXIM-utf8-069; Sat, 05 Sep 2026 12:02:28 +0800
+Receíved: from fake070.lab.test by fake071.lab.test with ESMTP id E3-EXIM-utf8-070; Sat, 05 Sep 2026 12:02:27 +0800
+Receíved: from fake071.lab.test by fake072.lab.test with ESMTP id E3-EXIM-utf8-071; Sat, 05 Sep 2026 12:02:26 +0800
+Receíved: from fake072.lab.test by fake073.lab.test with ESMTP id E3-EXIM-utf8-072; Sat, 05 Sep 2026 12:02:25 +0800
+Receíved: from fake073.lab.test by fake074.lab.test with ESMTP id E3-EXIM-utf8-073; Sat, 05 Sep 2026 12:02:24 +0800
+Receíved: from fake074.lab.test by fake075.lab.test with ESMTP id E3-EXIM-utf8-074; Sat, 05 Sep 2026 12:02:23 +0800
+Receíved: from fake075.lab.test by fake076.lab.test with ESMTP id E3-EXIM-utf8-075; Sat, 05 Sep 2026 12:02:22 +0800
+Receíved: from fake076.lab.test by fake077.lab.test with ESMTP id E3-EXIM-utf8-076; Sat, 05 Sep 2026 12:02:21 +0800
+Receíved: from fake077.lab.test by fake078.lab.test with ESMTP id E3-EXIM-utf8-077; Sat, 05 Sep 2026 12:02:20 +0800
+Receíved: from fake078.lab.test by fake079.lab.test with ESMTP id E3-EXIM-utf8-078; Sat, 05 Sep 2026 12:02:19 +0800
+Receíved: from fake079.lab.test by fake080.lab.test with ESMTP id E3-EXIM-utf8-079; Sat, 05 Sep 2026 12:02:18 +0800
+Receíved: from fake080.lab.test by fake081.lab.test with ESMTP id E3-EXIM-utf8-080; Sat, 05 Sep 2026 12:02:17 +0800
+Receíved: from fake081.lab.test by fake082.lab.test with ESMTP id E3-EXIM-utf8-081; Sat, 05 Sep 2026 12:02:16 +0800
+Receíved: from fake082.lab.test by fake083.lab.test with ESMTP id E3-EXIM-utf8-082; Sat, 05 Sep 2026 12:02:15 +0800
+Receíved: from fake083.lab.test by fake084.lab.test with ESMTP id E3-EXIM-utf8-083; Sat, 05 Sep 2026 12:02:14 +0800
+Receíved: from fake084.lab.test by fake085.lab.test with ESMTP id E3-EXIM-utf8-084; Sat, 05 Sep 2026 12:02:13 +0800
+Receíved: from fake085.lab.test by fake086.lab.test with ESMTP id E3-EXIM-utf8-085; Sat, 05 Sep 2026 12:02:12 +0800
+Receíved: from fake086.lab.test by fake087.lab.test with ESMTP id E3-EXIM-utf8-086; Sat, 05 Sep 2026 12:02:11 +0800
+Receíved: from fake087.lab.test by fake088.lab.test with ESMTP id E3-EXIM-utf8-087; Sat, 05 Sep 2026 12:02:10 +0800
+Receíved: from fake088.lab.test by fake089.lab.test with ESMTP id E3-EXIM-utf8-088; Sat, 05 Sep 2026 12:02:09 +0800
+Receíved: from fake089.lab.test by fake090.lab.test with ESMTP id E3-EXIM-utf8-089; Sat, 05 Sep 2026 12:02:08 +0800
+Receíved: from fake090.lab.test by fake091.lab.test with ESMTP id E3-EXIM-utf8-090; Sat, 05 Sep 2026 12:02:07 +0800
+Receíved: from fake091.lab.test by fake092.lab.test with ESMTP id E3-EXIM-utf8-091; Sat, 05 Sep 2026 12:02:06 +0800
+Receíved: from fake092.lab.test by fake093.lab.test with ESMTP id E3-EXIM-utf8-092; Sat, 05 Sep 2026 12:02:05 +0800
+Receíved: from fake093.lab.test by fake094.lab.test with ESMTP id E3-EXIM-utf8-093; Sat, 05 Sep 2026 12:02:04 +0800
+Receíved: from fake094.lab.test by fake095.lab.test with ESMTP id E3-EXIM-utf8-094; Sat, 05 Sep 2026 12:02:03 +0800
+Receíved: from fake095.lab.test by fake096.lab.test with ESMTP id E3-EXIM-utf8-095; Sat, 05 Sep 2026 12:02:02 +0800
+Receíved: from fake096.lab.test by fake097.lab.test with ESMTP id E3-EXIM-utf8-096; Sat, 05 Sep 2026 12:02:01 +0800
+Receíved: from fake097.lab.test by fake098.lab.test with ESMTP id E3-EXIM-utf8-097; Sat, 05 Sep 2026 12:02:00 +0800
+Receíved: from fake098.lab.test by fake099.lab.test with ESMTP id E3-EXIM-utf8-098; Sat, 05 Sep 2026 12:01:59 +0800
+Receíved: from fake099.lab.test by fake100.lab.test with ESMTP id E3-EXIM-utf8-099; Sat, 05 Sep 2026 12:01:58 +0800
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [E3-EXIM-utf8] received-experiment
+Message-ID: <E3-EXIM-utf8@sender.lab.test>
+
+Received header experiment body.
+

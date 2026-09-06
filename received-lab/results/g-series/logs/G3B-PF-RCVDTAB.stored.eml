@@ -1,0 +1,20 @@
+Bcc: bob@receiver.lab.test
+Return-Path: <alice@sender.lab.test>
+Received: from postfix3.lab.test (postfix3.received-lab_mailnet. [172.22.0.4])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sat, 5 Sep 2026 13:52:57 +0000 (UTC)
+Received: from postfix2.lab.test (postfix2.received-lab_mailnet [172.22.0.5])
+	by postfix3.lab.test (Postfix) with ESMTP id B2C6A2CC1F5
+	for <bob@receiver.lab.test>; Sat,  5 Sep 2026 13:52:57 +0000 (UTC)
+Received: from postfix1.lab.test (postfix1.received-lab_mailnet [172.22.0.6])
+	by postfix2.lab.test (Postfix) with ESMTP id B05E52CC784
+	for <bob@receiver.lab.test>; Sat,  5 Sep 2026 13:52:57 +0000 (UTC)
+Received: from client.lab.test (mail-client.received-lab_mailnet [172.22.0.3])
+	by postfix1.lab.test (Postfix) with ESMTP id AE1A92CC1F5
+	for <bob@receiver.lab.test>; Sat,  5 Sep 2026 13:52:57 +0000 (UTC)
+X-Case-ID: G3B-PF-RCVDTAB
+Received: from a.lab.test by b.lab.test; Tue, 1 Jan 2030 00:00:00 +0000
+Message-ID: <g3@sender.lab.test>
+
+body.
+

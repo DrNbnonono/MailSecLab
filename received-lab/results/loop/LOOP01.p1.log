@@ -1,0 +1,40 @@
+Sep 05 10:31:30 postfix1 postfix/smtpd[310]: connect from mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:31:30 postfix1 postfix/smtpd[310]: D1B3DB761: client=mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:31:30 postfix1 postfix/cleanup[314]: D1B3DB761: message-id=<LOOP01@sender.lab.test>
+Sep 05 10:31:30 postfix1 postfix/qmgr[303]: D1B3DB761: from=<alice@sender.lab.test>, size=410, nrcpt=1 (queue active)
+Sep 05 10:31:30 postfix1 postfix/smtpd[310]: disconnect from mail-client.received-lab_mailnet[172.22.0.3] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:31:30 postfix1 postfix/smtp[315]: D1B3DB761: to=<bob@receiver.lab.test>, relay=postfix2[172.22.0.5]:25, delay=0.05, delays=0.02/0.01/0.01/0.02, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as DC57627F8A)
+Sep 05 10:31:30 postfix1 postfix/qmgr[303]: D1B3DB761: removed
+Sep 05 10:31:30 postfix1 postfix/smtpd[310]: connect from postfix3.received-lab_mailnet[172.22.0.4]
+Sep 05 10:31:30 postfix1 postfix/smtpd[310]: EA21027F8A: client=postfix3.received-lab_mailnet[172.22.0.4]
+Sep 05 10:31:30 postfix1 postfix/cleanup[314]: EA21027F8A: message-id=<LOOP01@sender.lab.test>
+Sep 05 10:31:30 postfix1 postfix/smtpd[310]: disconnect from postfix3.received-lab_mailnet[172.22.0.4] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:31:30 postfix1 postfix/qmgr[303]: EA21027F8A: from=<alice@sender.lab.test>, size=1027, nrcpt=1 (queue active)
+Sep 05 10:31:30 postfix1 postfix/smtp[315]: EA21027F8A: to=<bob@receiver.lab.test>, relay=postfix2[172.22.0.5]:25, delay=0.01, delays=0.01/0/0/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as EBD6FB761)
+Sep 05 10:31:30 postfix1 postfix/qmgr[303]: EA21027F8A: removed
+Sep 05 10:31:30 postfix1 postfix/smtpd[310]: connect from postfix3.received-lab_mailnet[172.22.0.4]
+Sep 05 10:31:30 postfix1 postfix/smtpd[310]: F0CDDB761: client=postfix3.received-lab_mailnet[172.22.0.4]
+Sep 05 10:31:30 postfix1 postfix/cleanup[314]: F0CDDB761: message-id=<LOOP01@sender.lab.test>
+Sep 05 10:31:30 postfix1 postfix/smtpd[310]: disconnect from postfix3.received-lab_mailnet[172.22.0.4] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:31:30 postfix1 postfix/qmgr[303]: F0CDDB761: from=<alice@sender.lab.test>, size=1643, nrcpt=1 (queue active)
+Sep 05 10:31:30 postfix1 postfix/smtp[315]: F0CDDB761: to=<bob@receiver.lab.test>, relay=postfix2[172.22.0.5]:25, delay=0.01, delays=0.01/0/0/0, dsn=5.4.0, status=bounced (host postfix2[172.22.0.5] said: 554 5.4.0 Error: too many hops (in reply to end of DATA command))
+Sep 05 10:31:31 postfix1 postfix/cleanup[314]: 01AB927F93: message-id=<20260905103131.01AB927F93@postfix1.lab.test>
+Sep 05 10:31:31 postfix1 postfix/bounce[316]: F0CDDB761: sender non-delivery notification: 01AB927F93
+Sep 05 10:31:31 postfix1 postfix/qmgr[303]: 01AB927F93: from=<>, size=3636, nrcpt=1 (queue active)
+Sep 05 10:31:31 postfix1 postfix/qmgr[303]: F0CDDB761: removed
+Sep 05 10:31:31 postfix1 postfix/smtp[315]: 01AB927F93: to=<alice@sender.lab.test>, relay=postfix2[172.22.0.5]:25, delay=0.02, delays=0.01/0/0/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 03948B761)
+Sep 05 10:31:31 postfix1 postfix/qmgr[303]: 01AB927F93: removed
+Sep 05 10:31:31 postfix1 postfix/smtpd[310]: connect from postfix3.received-lab_mailnet[172.22.0.4]
+Sep 05 10:31:31 postfix1 postfix/smtpd[310]: 0A7DCB761: client=postfix3.received-lab_mailnet[172.22.0.4]
+Sep 05 10:31:31 postfix1 postfix/cleanup[314]: 0A7DCB761: message-id=<20260905103131.01AB927F93@postfix1.lab.test>
+Sep 05 10:31:31 postfix1 postfix/smtpd[310]: disconnect from postfix3.received-lab_mailnet[172.22.0.4] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:31:31 postfix1 postfix/qmgr[303]: 0A7DCB761: from=<>, size=4252, nrcpt=1 (queue active)
+Sep 05 10:31:31 postfix1 postfix/smtp[315]: 0A7DCB761: to=<alice@sender.lab.test>, relay=postfix2[172.22.0.5]:25, delay=0.02, delays=0.01/0/0/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 0C9D427F8A)
+Sep 05 10:31:31 postfix1 postfix/qmgr[303]: 0A7DCB761: removed
+Sep 05 10:31:31 postfix1 postfix/smtpd[310]: connect from postfix3.received-lab_mailnet[172.22.0.4]
+Sep 05 10:31:31 postfix1 postfix/smtpd[310]: 1315927F8A: client=postfix3.received-lab_mailnet[172.22.0.4]
+Sep 05 10:31:31 postfix1 postfix/cleanup[314]: 1315927F8A: message-id=<20260905103131.01AB927F93@postfix1.lab.test>
+Sep 05 10:31:31 postfix1 postfix/smtpd[310]: disconnect from postfix3.received-lab_mailnet[172.22.0.4] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:31:31 postfix1 postfix/qmgr[303]: 1315927F8A: from=<>, size=4869, nrcpt=1 (queue active)
+Sep 05 10:31:31 postfix1 postfix/smtp[315]: 1315927F8A: to=<alice@sender.lab.test>, relay=postfix2[172.22.0.5]:25, delay=0.01, delays=0.01/0/0/0, dsn=5.4.0, status=bounced (host postfix2[172.22.0.5] said: 554 5.4.0 Error: too many hops (in reply to end of DATA command))
+Sep 05 10:31:31 postfix1 postfix/qmgr[303]: 1315927F8A: removed

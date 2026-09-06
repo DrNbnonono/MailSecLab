@@ -1,0 +1,92 @@
+{
+    "is_skipped": false,
+    "score": 10.400000,
+    "required_score": 15.0,
+    "action": "add header",
+    "symbols": {
+        "ARC_NA": {
+            "name": "ARC_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "ARC signature absent"
+        },
+        "MISSING_FROM": {
+            "name": "MISSING_FROM",
+            "score": 2.0,
+            "metric_score": 2.0,
+            "description": "Missing From: header"
+        },
+        "MISSING_TO": {
+            "name": "MISSING_TO",
+            "score": 2.0,
+            "metric_score": 2.0,
+            "description": "To header is missing"
+        },
+        "MISSING_SUBJECT": {
+            "name": "MISSING_SUBJECT",
+            "score": 0.500000,
+            "metric_score": 2.0,
+            "description": "Subject header is missing"
+        },
+        "MISSING_DATE": {
+            "name": "MISSING_DATE",
+            "score": 1.0,
+            "metric_score": 1.0,
+            "description": "Message date is missing"
+        },
+        "MIME_GOOD": {
+            "name": "MIME_GOOD",
+            "score": -0.100000,
+            "metric_score": -0.100000,
+            "description": "Known content-type",
+            "options": [
+                "text/plain"
+            ]
+        },
+        "RCVD_COUNT_ZERO": {
+            "name": "RCVD_COUNT_ZERO",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message has no Received headers",
+            "options": [
+                "0"
+            ]
+        },
+        "R_DKIM_NA": {
+            "name": "R_DKIM_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Missing DKIM signature"
+        },
+        "MIME_TRACE": {
+            "name": "MIME_TRACE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "0:+"
+            ]
+        },
+        "HFILTER_HOSTNAME_UNKNOWN": {
+            "name": "HFILTER_HOSTNAME_UNKNOWN",
+            "score": 2.500000,
+            "metric_score": 2.500000,
+            "description": "Unknown client hostname (PTR or FCrDNS verification failed)"
+        },
+        "MISSING_MID": {
+            "name": "MISSING_MID",
+            "score": 2.500000,
+            "metric_score": 2.500000,
+            "description": "Message id is missing"
+        }
+    },
+    "messages": {},
+    "message-id": "undef",
+    "time_real": 0.502398,
+    "milter": {
+        "remove_headers": {
+            "X-Spam": 0
+        }
+    },
+    "filename": "/results/g-series/g1/G1R-N2-K48.eml",
+    "scan_time": 0.512000
+}

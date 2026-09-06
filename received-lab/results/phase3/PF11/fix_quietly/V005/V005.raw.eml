@@ -1,0 +1,26 @@
+Return-Path: <alice@sender.lab.test>
+Received: from postfix3n.lab.test (postfix3n.received-lab_mailnet. [172.22.0.8])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sat, 5 Sep 2026 10:50:59 +0000 (UTC)
+Received: from postfix2n.lab.test (postfix2n.received-lab_mailnet [172.22.0.10])
+	by postfix3n.lab.test (Postfix) with ESMTP id 89F5C1F6325
+	for <bob@receiver.lab.test>; Sat, 05 Sep 2026 10:50:59 +0000 (UTC)
+Received: from postfix1n.lab.test (postfix1n.received-lab_mailnet [172.22.0.11])
+	by postfix2n.lab.test (Postfix) with ESMTP id 8827A1F6353
+	for <bob@receiver.lab.test>; Sat, 05 Sep 2026 10:50:59 +0000 (UTC)
+Received: from client.lab.test (mail-client.received-lab_mailnet [172.22.0.3])
+	by postfix1n.lab.test (Postfix) with ESMTP id 85CF51F6325
+	for <bob@receiver.lab.test>; Sat, 05 Sep 2026 10:50:59 +0000 (UTC)
+X-Case-ID: V005
+Received: from fake000.lab.test by fake001.lab.test; Mon, 31 Aug 2026 11:59:59 +0800
+Received: from fake001.lab.test by fake002.lab.test; Mon, 31 Aug 2026 11:59:58 +0800
+Received: from fake002.lab.test by fake003.lab.test; Mon, 31 Aug 2026 11:59:57 +0800
+Received: from fake003.lab.test by fake004.lab.test; Mon, 31 Aug 2026 11:59:56 +0800
+Received: from fake004.lab.test by fake005.lab.test; Mon, 31 Aug 2026 11:59:55 +0800
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [V005] received-experiment
+Message-ID: <V005@sender.lab.test>
+
+Phase 3A corpus body.
+

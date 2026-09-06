@@ -1,0 +1,8 @@
+X-Case-ID: V009
+BROKEN_HEADER this line has no colon
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [V009] received-experiment
+Message-ID: <V009@sender.lab.test>
+
+Phase 3A corpus body.

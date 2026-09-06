@@ -1,0 +1,3 @@
+case_id,fake_rEcEiVeD_count,real_hops,smtp_code,postfix1_result,postfix2_result,postfix3_result,final_received_count,queue_status
+RC046,46,3,250,accept;relay=sent,accept;relay=sent,accept;relay=sent,4,delivered
+RC047,47,3,250,accept;relay=sent,accept;relay=bounced,rejected_hopcount_exceeded,,bounced_not_delivered

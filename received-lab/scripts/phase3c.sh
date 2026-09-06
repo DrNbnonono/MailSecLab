@@ -14,7 +14,7 @@ for CASE in $CASES; do
     for P in python node go; do
         case $P in
             python) docker exec mail-client python3 /scripts/parse_python.py "$F" ;;
-            node)   docker exec parser-node node /scripts/parse_node.js "$F" ;;
+            node)   docker exec -e NODE_PATH=/app/node_modules parser-node node /scripts/parse_node.js "$F" ;;
             go)     docker exec parser-go /usr/local/bin/parse_go "$F" ;;
         esac | sed "s/^{/{\"_case\":\"$CASE\",/" > "$BASE/$CASE.$P.json" 2>&1
         echo "[$CASE/$P] $(head -c 200 "$BASE/$CASE.$P.json")"

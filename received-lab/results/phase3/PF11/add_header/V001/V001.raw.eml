@@ -1,0 +1,21 @@
+Return-Path: <alice@sender.lab.test>
+Received: from postfix3n.lab.test (postfix3n.received-lab_mailnet. [172.22.0.8])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sat, 5 Sep 2026 10:51:17 +0000 (UTC)
+Received: from postfix2n.lab.test (postfix2n.received-lab_mailnet [172.22.0.10])
+	by postfix3n.lab.test (Postfix) with ESMTP id 1678D1F544D
+	for <bob@receiver.lab.test>; Sat, 05 Sep 2026 10:51:17 +0000 (UTC)
+Received: from postfix1n.lab.test (postfix1n.received-lab_mailnet [172.22.0.11])
+	by postfix2n.lab.test (Postfix) with ESMTP id 0C08B2CC09C
+	for <bob@receiver.lab.test>; Sat, 05 Sep 2026 10:51:17 +0000 (UTC)
+Received: from client.lab.test (mail-client.received-lab_mailnet [172.22.0.3])
+	by postfix1n.lab.test (Postfix) with ESMTP id 001141F544D
+	for <bob@receiver.lab.test>; Sat, 05 Sep 2026 10:51:16 +0000 (UTC)
+X-Case-ID: V001
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [V001] received-experiment
+Message-ID: <V001@sender.lab.test>
+
+Phase 3A corpus body.
+

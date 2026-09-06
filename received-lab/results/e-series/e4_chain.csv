@@ -1,0 +1,9 @@
+N,smtp_code_from_opensmtpd,message_bytes,delivered,final_received,bounce
+0,250,223,yes,4,no
+10,250,1403,yes,14,no
+46,250,5651,no,-,yes
+47,250,5769,no,-,yes
+48,250,5887,no,-,yes
+60,250,7303,no,-,yes
+100,500,12023,no,-,no
+120,500,14383,no,-,no

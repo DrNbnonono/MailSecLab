@@ -1,0 +1,66 @@
+Return-Path: <alice@sender.lab.test>
+Received: from opensmtpd.lab.test (opensmtpd.received-lab_mailnet. [172.22.0.7])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sat, 5 Sep 2026 10:58:20 +0000 (UTC)
+Received: from client.lab.test (mail-client.received-lab_mailnet [172.22.0.3])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id e9ea67b7
+	for <bob@receiver.lab.test>;
+	Sat, 5 Sep 2026 10:58:19 +0000 (UTC)
+X-Case-ID: V008
+Receíved: from fake000.lab.test by fake001.lab.test; Mon, 31 Aug 2026 11:59:59 +0800
+Receíved: from fake001.lab.test by fake002.lab.test; Mon, 31 Aug 2026 11:59:58 +0800
+Receíved: from fake002.lab.test by fake003.lab.test; Mon, 31 Aug 2026 11:59:57 +0800
+Receíved: from fake003.lab.test by fake004.lab.test; Mon, 31 Aug 2026 11:59:56 +0800
+Receíved: from fake004.lab.test by fake005.lab.test; Mon, 31 Aug 2026 11:59:55 +0800
+Receíved: from fake005.lab.test by fake006.lab.test; Mon, 31 Aug 2026 11:59:54 +0800
+Receíved: from fake006.lab.test by fake007.lab.test; Mon, 31 Aug 2026 11:59:53 +0800
+Receíved: from fake007.lab.test by fake008.lab.test; Mon, 31 Aug 2026 11:59:52 +0800
+Receíved: from fake008.lab.test by fake009.lab.test; Mon, 31 Aug 2026 11:59:51 +0800
+Receíved: from fake009.lab.test by fake010.lab.test; Mon, 31 Aug 2026 11:59:50 +0800
+Receíved: from fake010.lab.test by fake011.lab.test; Mon, 31 Aug 2026 11:59:49 +0800
+Receíved: from fake011.lab.test by fake012.lab.test; Mon, 31 Aug 2026 11:59:48 +0800
+Receíved: from fake012.lab.test by fake013.lab.test; Mon, 31 Aug 2026 11:59:47 +0800
+Receíved: from fake013.lab.test by fake014.lab.test; Mon, 31 Aug 2026 11:59:46 +0800
+Receíved: from fake014.lab.test by fake015.lab.test; Mon, 31 Aug 2026 11:59:45 +0800
+Receíved: from fake015.lab.test by fake016.lab.test; Mon, 31 Aug 2026 11:59:44 +0800
+Receíved: from fake016.lab.test by fake017.lab.test; Mon, 31 Aug 2026 11:59:43 +0800
+Receíved: from fake017.lab.test by fake018.lab.test; Mon, 31 Aug 2026 11:59:42 +0800
+Receíved: from fake018.lab.test by fake019.lab.test; Mon, 31 Aug 2026 11:59:41 +0800
+Receíved: from fake019.lab.test by fake020.lab.test; Mon, 31 Aug 2026 11:59:40 +0800
+Receíved: from fake020.lab.test by fake021.lab.test; Mon, 31 Aug 2026 11:59:39 +0800
+Receíved: from fake021.lab.test by fake022.lab.test; Mon, 31 Aug 2026 11:59:38 +0800
+Receíved: from fake022.lab.test by fake023.lab.test; Mon, 31 Aug 2026 11:59:37 +0800
+Receíved: from fake023.lab.test by fake024.lab.test; Mon, 31 Aug 2026 11:59:36 +0800
+Receíved: from fake024.lab.test by fake025.lab.test; Mon, 31 Aug 2026 11:59:35 +0800
+Receíved: from fake025.lab.test by fake026.lab.test; Mon, 31 Aug 2026 11:59:34 +0800
+Receíved: from fake026.lab.test by fake027.lab.test; Mon, 31 Aug 2026 11:59:33 +0800
+Receíved: from fake027.lab.test by fake028.lab.test; Mon, 31 Aug 2026 11:59:32 +0800
+Receíved: from fake028.lab.test by fake029.lab.test; Mon, 31 Aug 2026 11:59:31 +0800
+Receíved: from fake029.lab.test by fake030.lab.test; Mon, 31 Aug 2026 11:59:30 +0800
+Receíved: from fake030.lab.test by fake031.lab.test; Mon, 31 Aug 2026 11:59:29 +0800
+Receíved: from fake031.lab.test by fake032.lab.test; Mon, 31 Aug 2026 11:59:28 +0800
+Receíved: from fake032.lab.test by fake033.lab.test; Mon, 31 Aug 2026 11:59:27 +0800
+Receíved: from fake033.lab.test by fake034.lab.test; Mon, 31 Aug 2026 11:59:26 +0800
+Receíved: from fake034.lab.test by fake035.lab.test; Mon, 31 Aug 2026 11:59:25 +0800
+Receíved: from fake035.lab.test by fake036.lab.test; Mon, 31 Aug 2026 11:59:24 +0800
+Receíved: from fake036.lab.test by fake037.lab.test; Mon, 31 Aug 2026 11:59:23 +0800
+Receíved: from fake037.lab.test by fake038.lab.test; Mon, 31 Aug 2026 11:59:22 +0800
+Receíved: from fake038.lab.test by fake039.lab.test; Mon, 31 Aug 2026 11:59:21 +0800
+Receíved: from fake039.lab.test by fake040.lab.test; Mon, 31 Aug 2026 11:59:20 +0800
+Receíved: from fake040.lab.test by fake041.lab.test; Mon, 31 Aug 2026 11:59:19 +0800
+Receíved: from fake041.lab.test by fake042.lab.test; Mon, 31 Aug 2026 11:59:18 +0800
+Receíved: from fake042.lab.test by fake043.lab.test; Mon, 31 Aug 2026 11:59:17 +0800
+Receíved: from fake043.lab.test by fake044.lab.test; Mon, 31 Aug 2026 11:59:16 +0800
+Receíved: from fake044.lab.test by fake045.lab.test; Mon, 31 Aug 2026 11:59:15 +0800
+Receíved: from fake045.lab.test by fake046.lab.test; Mon, 31 Aug 2026 11:59:14 +0800
+Receíved: from fake046.lab.test by fake047.lab.test; Mon, 31 Aug 2026 11:59:13 +0800
+Receíved: from fake047.lab.test by fake048.lab.test; Mon, 31 Aug 2026 11:59:12 +0800
+Receíved: from fake048.lab.test by fake049.lab.test; Mon, 31 Aug 2026 11:59:11 +0800
+Receíved: from fake049.lab.test by fake050.lab.test; Mon, 31 Aug 2026 11:59:10 +0800
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [V008] received-experiment
+Message-ID: <V008@sender.lab.test>
+
+Phase 3A corpus body.
+

@@ -1,0 +1,4 @@
+Sep 05 10:35:40 postfix1 postfix/smtpd[193]: connect from mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:35:40 postfix1 postfix/smtpd[193]: 723081F54CA: client=mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:35:40 postfix1 postfix/cleanup[197]: warning: 723081F54CA: message rejected: hopcount exceeded
+Sep 05 10:35:40 postfix1 postfix/smtpd[193]: disconnect from mail-client.received-lab_mailnet[172.22.0.3] ehlo=1 mail=1 rcpt=1 data=0/1 quit=1 commands=4/5

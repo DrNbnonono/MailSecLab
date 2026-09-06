@@ -1,0 +1,17 @@
+Return-Path: <alice@sender.lab.test>
+Received: from opensmtpd.lab.test (opensmtpd.received-lab_mailnet. [172.22.0.7])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sat, 5 Sep 2026 10:58:18 +0000 (UTC)
+Received: from client.lab.test (mail-client.received-lab_mailnet [172.22.0.3])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id c184281a
+	for <bob@receiver.lab.test>;
+	Sat, 5 Sep 2026 10:58:17 +0000 (UTC)
+X-Case-ID: V007
+Receíved: from fake000.lab.test by fake001.lab.test; Mon, 31 Aug 2026 11:59:59 +0800
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [V007] received-experiment
+Message-ID: <V007@sender.lab.test>
+
+Phase 3A corpus body.
+

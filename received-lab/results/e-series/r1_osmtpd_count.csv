@@ -1,0 +1,9 @@
+N,smtp_reply,check
+85,250 2.0.0 7015049e Message accepted for delivery,DELIVERED: yes received_count=87 BOUNCE: no 
+90,250 2.0.0 4c9f7f44 Message accepted for delivery,DELIVERED: yes received_count=92 BOUNCE: no 
+95,250 2.0.0 6f43ac69 Message accepted for delivery,DELIVERED: yes received_count=97 BOUNCE: no 
+98,250 2.0.0 d7841532 Message accepted for delivery,DELIVERED: yes received_count=100 BOUNCE: no 
+99,250 2.0.0 875493c0 Message accepted for delivery,DELIVERED: yes received_count=101 BOUNCE: no 
+100,500 5.4.6 Routing loop detected: Loop detected,DELIVERED: no BOUNCE: no 
+101,500 5.4.6 Routing loop detected: Loop detected,DELIVERED: no BOUNCE: no 
+102,500 5.4.6 Routing loop detected: Loop detected,DELIVERED: no BOUNCE: no 

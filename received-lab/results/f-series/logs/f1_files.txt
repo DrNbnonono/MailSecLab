@@ -1,0 +1,10 @@
+total 15644
+drwxrwxrwx 1 linux linux    4096 Sep  5 21:08 .
+drwxrwxrwx 1 linux linux    4096 Sep  5 21:08 ..
+-rwxrwxrwx 1 linux linux   13402 Sep  5 21:08 E3-OSMTPD-received_sp.eml
+-rwxrwxrwx 1 linux linux   91053 Sep  5 21:08 F1-XF001.eml
+-rwxrwxrwx 1 linux linux  454589 Sep  5 21:08 F1-XF005.eml
+-rwxrwxrwx 1 linux linux 1817869 Sep  5 21:08 F1-XF020.eml
+-rwxrwxrwx 1 linux linux 4544449 Sep  5 21:08 F1-XF050.eml
+-rwxrwxrwx 1 linux linux 9088749 Sep  5 21:08 F1-XF100.eml
+-rwxrwxrwx 1 linux linux     272 Sep  5 21:08 V007.eml

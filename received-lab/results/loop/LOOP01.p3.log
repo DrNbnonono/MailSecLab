@@ -1,0 +1,28 @@
+Sep 05 10:31:30 postfix3 postfix/smtpd[328]: connect from postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:31:30 postfix3 postfix/smtpd[328]: E4D3BB761: client=postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:31:30 postfix3 postfix/cleanup[332]: E4D3BB761: message-id=<LOOP01@sender.lab.test>
+Sep 05 10:31:30 postfix3 postfix/qmgr[321]: E4D3BB761: from=<alice@sender.lab.test>, size=821, nrcpt=1 (queue active)
+Sep 05 10:31:30 postfix3 postfix/smtpd[328]: disconnect from postfix2.received-lab_mailnet[172.22.0.5] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:31:30 postfix3 postfix/smtp[333]: E4D3BB761: to=<bob@receiver.lab.test>, relay=postfix1[172.22.0.6]:25, delay=0.03, delays=0.02/0.01/0/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as EA21027F8A)
+Sep 05 10:31:30 postfix3 postfix/qmgr[321]: E4D3BB761: removed
+Sep 05 10:31:30 postfix3 postfix/smtpd[328]: connect from postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:31:30 postfix3 postfix/smtpd[328]: EDE5927F8A: client=postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:31:30 postfix3 postfix/cleanup[332]: EDE5927F8A: message-id=<LOOP01@sender.lab.test>
+Sep 05 10:31:30 postfix3 postfix/smtpd[328]: disconnect from postfix2.received-lab_mailnet[172.22.0.5] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:31:30 postfix3 postfix/qmgr[321]: EDE5927F8A: from=<alice@sender.lab.test>, size=1438, nrcpt=1 (queue active)
+Sep 05 10:31:30 postfix3 postfix/smtp[333]: EDE5927F8A: to=<bob@receiver.lab.test>, relay=postfix1[172.22.0.6]:25, delay=0.02, delays=0.01/0/0/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as F0CDDB761)
+Sep 05 10:31:30 postfix3 postfix/qmgr[321]: EDE5927F8A: removed
+Sep 05 10:31:31 postfix3 postfix/smtpd[328]: connect from postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:31:31 postfix3 postfix/smtpd[328]: 088FC27F8A: client=postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:31:31 postfix3 postfix/cleanup[332]: 088FC27F8A: message-id=<20260905103131.01AB927F93@postfix1.lab.test>
+Sep 05 10:31:31 postfix3 postfix/smtpd[328]: disconnect from postfix2.received-lab_mailnet[172.22.0.5] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:31:31 postfix3 postfix/qmgr[321]: 088FC27F8A: from=<>, size=4047, nrcpt=1 (queue active)
+Sep 05 10:31:31 postfix3 postfix/smtp[333]: 088FC27F8A: to=<alice@sender.lab.test>, relay=postfix1[172.22.0.6]:25, delay=0.02, delays=0.01/0/0/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 0A7DCB761)
+Sep 05 10:31:31 postfix3 postfix/qmgr[321]: 088FC27F8A: removed
+Sep 05 10:31:31 postfix3 postfix/smtpd[328]: connect from postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:31:31 postfix3 postfix/smtpd[328]: 11442B761: client=postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:31:31 postfix3 postfix/cleanup[332]: 11442B761: message-id=<20260905103131.01AB927F93@postfix1.lab.test>
+Sep 05 10:31:31 postfix3 postfix/qmgr[321]: 11442B761: from=<>, size=4663, nrcpt=1 (queue active)
+Sep 05 10:31:31 postfix3 postfix/smtpd[328]: disconnect from postfix2.received-lab_mailnet[172.22.0.5] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:31:31 postfix3 postfix/smtp[333]: 11442B761: to=<alice@sender.lab.test>, relay=postfix1[172.22.0.6]:25, delay=0.01, delays=0.01/0/0/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 1315927F8A)
+Sep 05 10:31:31 postfix3 postfix/qmgr[321]: 11442B761: removed

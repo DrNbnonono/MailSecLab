@@ -1,0 +1,67 @@
+Return-Path: <alice@sender.lab.test>
+Received: from postfix3n.lab.test (postfix3n.received-lab_mailnet. [172.22.0.8])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sat, 5 Sep 2026 10:50:18 +0000 (UTC)
+Received: from postfix2n.lab.test (postfix2n.received-lab_mailnet [172.22.0.10])
+	by postfix3n.lab.test (Postfix) with ESMTP id 5F8372CC136
+	for <bob@receiver.lab.test>; Sat, 05 Sep 2026 10:50:18 +0000 (UTC)
+Received: from postfix1n.lab.test (postfix1n.received-lab_mailnet [172.22.0.11])
+	by postfix2n.lab.test (Postfix) with ESMTP id 5D0092CC137
+	for <bob@receiver.lab.test>; Sat, 05 Sep 2026 10:50:18 +0000 (UTC)
+Received: from client.lab.test (mail-client.received-lab_mailnet [172.22.0.3])
+	by postfix1n.lab.test (Postfix) with ESMTP id 586052CC136
+	for <bob@receiver.lab.test>; Sat, 05 Sep 2026 10:50:18 +0000 (UTC)
+X-Case-ID: V004
+rEcEiVeD: from fake000.lab.test by fake001.lab.test with ESMTP id V004-000; Mon, 31 Aug 2026 11:59:59 +0800
+rEcEiVeD: from fake001.lab.test by fake002.lab.test with ESMTP id V004-001; Mon, 31 Aug 2026 11:59:58 +0800
+rEcEiVeD: from fake002.lab.test by fake003.lab.test with ESMTP id V004-002; Mon, 31 Aug 2026 11:59:57 +0800
+rEcEiVeD: from fake003.lab.test by fake004.lab.test with ESMTP id V004-003; Mon, 31 Aug 2026 11:59:56 +0800
+rEcEiVeD: from fake004.lab.test by fake005.lab.test with ESMTP id V004-004; Mon, 31 Aug 2026 11:59:55 +0800
+rEcEiVeD: from fake005.lab.test by fake006.lab.test with ESMTP id V004-005; Mon, 31 Aug 2026 11:59:54 +0800
+rEcEiVeD: from fake006.lab.test by fake007.lab.test with ESMTP id V004-006; Mon, 31 Aug 2026 11:59:53 +0800
+rEcEiVeD: from fake007.lab.test by fake008.lab.test with ESMTP id V004-007; Mon, 31 Aug 2026 11:59:52 +0800
+rEcEiVeD: from fake008.lab.test by fake009.lab.test with ESMTP id V004-008; Mon, 31 Aug 2026 11:59:51 +0800
+rEcEiVeD: from fake009.lab.test by fake010.lab.test with ESMTP id V004-009; Mon, 31 Aug 2026 11:59:50 +0800
+rEcEiVeD: from fake010.lab.test by fake011.lab.test with ESMTP id V004-010; Mon, 31 Aug 2026 11:59:49 +0800
+rEcEiVeD: from fake011.lab.test by fake012.lab.test with ESMTP id V004-011; Mon, 31 Aug 2026 11:59:48 +0800
+rEcEiVeD: from fake012.lab.test by fake013.lab.test with ESMTP id V004-012; Mon, 31 Aug 2026 11:59:47 +0800
+rEcEiVeD: from fake013.lab.test by fake014.lab.test with ESMTP id V004-013; Mon, 31 Aug 2026 11:59:46 +0800
+rEcEiVeD: from fake014.lab.test by fake015.lab.test with ESMTP id V004-014; Mon, 31 Aug 2026 11:59:45 +0800
+rEcEiVeD: from fake015.lab.test by fake016.lab.test with ESMTP id V004-015; Mon, 31 Aug 2026 11:59:44 +0800
+rEcEiVeD: from fake016.lab.test by fake017.lab.test with ESMTP id V004-016; Mon, 31 Aug 2026 11:59:43 +0800
+rEcEiVeD: from fake017.lab.test by fake018.lab.test with ESMTP id V004-017; Mon, 31 Aug 2026 11:59:42 +0800
+rEcEiVeD: from fake018.lab.test by fake019.lab.test with ESMTP id V004-018; Mon, 31 Aug 2026 11:59:41 +0800
+rEcEiVeD: from fake019.lab.test by fake020.lab.test with ESMTP id V004-019; Mon, 31 Aug 2026 11:59:40 +0800
+rEcEiVeD: from fake020.lab.test by fake021.lab.test with ESMTP id V004-020; Mon, 31 Aug 2026 11:59:39 +0800
+rEcEiVeD: from fake021.lab.test by fake022.lab.test with ESMTP id V004-021; Mon, 31 Aug 2026 11:59:38 +0800
+rEcEiVeD: from fake022.lab.test by fake023.lab.test with ESMTP id V004-022; Mon, 31 Aug 2026 11:59:37 +0800
+rEcEiVeD: from fake023.lab.test by fake024.lab.test with ESMTP id V004-023; Mon, 31 Aug 2026 11:59:36 +0800
+rEcEiVeD: from fake024.lab.test by fake025.lab.test with ESMTP id V004-024; Mon, 31 Aug 2026 11:59:35 +0800
+rEcEiVeD: from fake025.lab.test by fake026.lab.test with ESMTP id V004-025; Mon, 31 Aug 2026 11:59:34 +0800
+rEcEiVeD: from fake026.lab.test by fake027.lab.test with ESMTP id V004-026; Mon, 31 Aug 2026 11:59:33 +0800
+rEcEiVeD: from fake027.lab.test by fake028.lab.test with ESMTP id V004-027; Mon, 31 Aug 2026 11:59:32 +0800
+rEcEiVeD: from fake028.lab.test by fake029.lab.test with ESMTP id V004-028; Mon, 31 Aug 2026 11:59:31 +0800
+rEcEiVeD: from fake029.lab.test by fake030.lab.test with ESMTP id V004-029; Mon, 31 Aug 2026 11:59:30 +0800
+rEcEiVeD: from fake030.lab.test by fake031.lab.test with ESMTP id V004-030; Mon, 31 Aug 2026 11:59:29 +0800
+rEcEiVeD: from fake031.lab.test by fake032.lab.test with ESMTP id V004-031; Mon, 31 Aug 2026 11:59:28 +0800
+rEcEiVeD: from fake032.lab.test by fake033.lab.test with ESMTP id V004-032; Mon, 31 Aug 2026 11:59:27 +0800
+rEcEiVeD: from fake033.lab.test by fake034.lab.test with ESMTP id V004-033; Mon, 31 Aug 2026 11:59:26 +0800
+rEcEiVeD: from fake034.lab.test by fake035.lab.test with ESMTP id V004-034; Mon, 31 Aug 2026 11:59:25 +0800
+rEcEiVeD: from fake035.lab.test by fake036.lab.test with ESMTP id V004-035; Mon, 31 Aug 2026 11:59:24 +0800
+rEcEiVeD: from fake036.lab.test by fake037.lab.test with ESMTP id V004-036; Mon, 31 Aug 2026 11:59:23 +0800
+rEcEiVeD: from fake037.lab.test by fake038.lab.test with ESMTP id V004-037; Mon, 31 Aug 2026 11:59:22 +0800
+rEcEiVeD: from fake038.lab.test by fake039.lab.test with ESMTP id V004-038; Mon, 31 Aug 2026 11:59:21 +0800
+rEcEiVeD: from fake039.lab.test by fake040.lab.test with ESMTP id V004-039; Mon, 31 Aug 2026 11:59:20 +0800
+rEcEiVeD: from fake040.lab.test by fake041.lab.test with ESMTP id V004-040; Mon, 31 Aug 2026 11:59:19 +0800
+rEcEiVeD: from fake041.lab.test by fake042.lab.test with ESMTP id V004-041; Mon, 31 Aug 2026 11:59:18 +0800
+rEcEiVeD: from fake042.lab.test by fake043.lab.test with ESMTP id V004-042; Mon, 31 Aug 2026 11:59:17 +0800
+rEcEiVeD: from fake043.lab.test by fake044.lab.test with ESMTP id V004-043; Mon, 31 Aug 2026 11:59:16 +0800
+rEcEiVeD: from fake044.lab.test by fake045.lab.test with ESMTP id V004-044; Mon, 31 Aug 2026 11:59:15 +0800
+rEcEiVeD: from fake045.lab.test by fake046.lab.test with ESMTP id V004-045; Mon, 31 Aug 2026 11:59:14 +0800
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [V004] received-experiment
+Message-ID: <V004@sender.lab.test>
+
+Phase 3A corpus body.
+

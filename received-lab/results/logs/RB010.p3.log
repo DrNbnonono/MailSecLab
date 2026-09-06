@@ -1,0 +1,17 @@
+Sep 05 10:35:29 postfix3 postfix/smtpd[191]: connect from postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:35:29 postfix3 postfix/smtpd[191]: F086D1F5451: client=postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:35:29 postfix3 postfix/cleanup[195]: F086D1F5451: resent-message-id=<resent-RB010-0000@sender.lab.test>
+Sep 05 10:35:29 postfix3 postfix/cleanup[195]: F086D1F5451: resent-message-id=<resent-RB010-0001@sender.lab.test>
+Sep 05 10:35:29 postfix3 postfix/cleanup[195]: F086D1F5451: resent-message-id=<resent-RB010-0002@sender.lab.test>
+Sep 05 10:35:29 postfix3 postfix/cleanup[195]: F086D1F5451: resent-message-id=<resent-RB010-0003@sender.lab.test>
+Sep 05 10:35:29 postfix3 postfix/cleanup[195]: F086D1F5451: resent-message-id=<resent-RB010-0004@sender.lab.test>
+Sep 05 10:35:29 postfix3 postfix/cleanup[195]: F086D1F5451: resent-message-id=<resent-RB010-0005@sender.lab.test>
+Sep 05 10:35:29 postfix3 postfix/cleanup[195]: F086D1F5451: resent-message-id=<resent-RB010-0006@sender.lab.test>
+Sep 05 10:35:29 postfix3 postfix/cleanup[195]: F086D1F5451: resent-message-id=<resent-RB010-0007@sender.lab.test>
+Sep 05 10:35:29 postfix3 postfix/cleanup[195]: F086D1F5451: resent-message-id=<resent-RB010-0008@sender.lab.test>
+Sep 05 10:35:29 postfix3 postfix/cleanup[195]: F086D1F5451: resent-message-id=<resent-RB010-0009@sender.lab.test>
+Sep 05 10:35:29 postfix3 postfix/cleanup[195]: F086D1F5451: message-id=<RB010@sender.lab.test>
+Sep 05 10:35:29 postfix3 postfix/qmgr[183]: F086D1F5451: from=<alice@sender.lab.test>, size=2681, nrcpt=1 (queue active)
+Sep 05 10:35:29 postfix3 postfix/smtpd[191]: disconnect from postfix2.received-lab_mailnet[172.22.0.5] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:35:29 postfix3 postfix/smtp[196]: F086D1F5451: to=<bob@receiver.lab.test>, relay=mailpit[172.22.0.2]:1025, delay=0.02, delays=0.01/0.01/0/0, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 2dKOhyEegIMuDKxEejWUhL)
+Sep 05 10:35:29 postfix3 postfix/qmgr[183]: F086D1F5451: removed

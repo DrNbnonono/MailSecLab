@@ -1,0 +1,4 @@
+2026-09-05 10:58:02 1x2o5y-000037-2A <= alice@sender.lab.test H=(client.lab.test) [172.22.0.3] P=esmtp S=2894 id=V010@sender.lab.test
+2026-09-05 10:58:02 exim user lost privilege for using -C option
+2026-09-05 10:58:02 1x2o5y-000037-2A => bob@receiver.lab.test R=smart_route T=to_mailpit H=mailpit [172.22.0.2] C="250 2.0.0 Ok: queued as 46iQYzFbPeyH0iSsKtYjzG"
+2026-09-05 10:58:02 1x2o5y-000037-2A Completed

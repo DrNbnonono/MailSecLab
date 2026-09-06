@@ -1,0 +1,5 @@
+path,N,osmtpd_code,final_delivered,exact,wsp,ci,node_received,notes
+PF,40,250 2.0.0 d968200f Message accepted for delivery,yes,,,,43,
+PF,100,250 2.0.0 eafb9ebd Message accepted for delivery,no,-,-,-,-,bounced(DSN in mailpit)
+EX,25,250 2.0.0 eed79e13 Message accepted for delivery,yes,,,,28,
+EX,100,250 2.0.0 9b25ef5e Message accepted for delivery,no,-,-,-,-,bounced(DSN in mailpit)

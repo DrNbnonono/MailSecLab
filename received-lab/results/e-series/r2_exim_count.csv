@@ -1,0 +1,7 @@
+N,smtp_reply,check
+26,250 OK id=1x2pI3-00001a-0W,DELIVERED: yes received_count=28 BOUNCE: no 
+27,250 OK id=1x2pI4-00001d-0H,DELIVERED: yes received_count=29 BOUNCE: no 
+28,250 OK id=1x2pI5-00001g-0L,DELIVERED: yes received_count=30 BOUNCE: no 
+29,250 OK id=1x2pI6-00001j-0I,DELIVERED: yes received_count=31 BOUNCE: no 
+30,250 OK id=1x2pI7-00001m-0s,DELIVERED: no BOUNCE: yes 
+31,250 OK id=1x2pIG-00001r-0F,DELIVERED: no BOUNCE: yes 

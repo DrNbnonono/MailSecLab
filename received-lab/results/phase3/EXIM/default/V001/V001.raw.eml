@@ -1,0 +1,18 @@
+Return-Path: <alice@sender.lab.test>
+Received: from exim.lab.test (exim.received-lab_mailnet. [172.22.0.9])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sat, 5 Sep 2026 10:57:00 +0000 (UTC)
+Received: from [172.22.0.3] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@sender.lab.test>)
+	id 1x2o4y-00000Z-11
+	for bob@receiver.lab.test;
+	Sat, 05 Sep 2026 10:57:00 +0000
+X-Case-ID: V001
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: [V001] received-experiment
+Message-ID: <V001@sender.lab.test>
+
+Phase 3A corpus body.
+

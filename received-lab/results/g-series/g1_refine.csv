@@ -1,0 +1,10 @@
+n,kb,hdr_bytes,file_bytes,score,action,MISSING_FROM,MISSING_TO,RCVD_COUNT_opts
+1,8,8192,9225,10.4,add header,Y,Y,0
+1,16,16384,17318,10.4,add header,Y,Y,0
+1,32,32768,33500,10.4,add header,Y,Y,0
+1,48,49152,49682,10.4,add header,Y,Y,0
+1,64,65536,65864,10.4,add header,Y,Y,0
+1,96,98304,99127,10.4,add header,Y,Y,0
+2,32,65536,66842,10.4,add header,Y,Y,0
+2,48,98304,99206,10.4,add header,Y,Y,0
+4,16,65536,68798,10.4,add header,Y,Y,0

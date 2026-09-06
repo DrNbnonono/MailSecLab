@@ -1,0 +1,95 @@
+{
+    "is_skipped": false,
+    "score": 3.400000,
+    "required_score": 15.0,
+    "action": "no action",
+    "symbols": {
+        "ARC_NA": {
+            "name": "ARC_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "ARC signature absent"
+        },
+        "TO_DN_ALL": {
+            "name": "TO_DN_ALL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "All the recipients have display names"
+        },
+        "FROM_HAS_DN": {
+            "name": "FROM_HAS_DN",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "From header has a display name"
+        },
+        "MISSING_DATE": {
+            "name": "MISSING_DATE",
+            "score": 1.0,
+            "metric_score": 1.0,
+            "description": "Message date is missing"
+        },
+        "MIME_GOOD": {
+            "name": "MIME_GOOD",
+            "score": -0.100000,
+            "metric_score": -0.100000,
+            "description": "Known content-type",
+            "options": [
+                "text/plain"
+            ]
+        },
+        "RCVD_COUNT_ZERO": {
+            "name": "RCVD_COUNT_ZERO",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message has no Received headers",
+            "options": [
+                "0"
+            ]
+        },
+        "R_DKIM_NA": {
+            "name": "R_DKIM_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Missing DKIM signature"
+        },
+        "MIME_TRACE": {
+            "name": "MIME_TRACE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "0:+"
+            ]
+        },
+        "RCPT_COUNT_ONE": {
+            "name": "RCPT_COUNT_ONE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "One recipient",
+            "options": [
+                "1"
+            ]
+        },
+        "MID_RHS_MATCH_FROM": {
+            "name": "MID_RHS_MATCH_FROM",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message-ID RHS matches From domain"
+        },
+        "HFILTER_HOSTNAME_UNKNOWN": {
+            "name": "HFILTER_HOSTNAME_UNKNOWN",
+            "score": 2.500000,
+            "metric_score": 2.500000,
+            "description": "Unknown client hostname (PTR or FCrDNS verification failed)"
+        }
+    },
+    "messages": {},
+    "message-id": "g@sender.lab.test",
+    "time_real": 0.004106,
+    "milter": {
+        "remove_headers": {
+            "X-Spam": 0
+        }
+    },
+    "filename": "/results/g-series/g1/G1V3-C1L900.eml",
+    "scan_time": 0.004000
+}

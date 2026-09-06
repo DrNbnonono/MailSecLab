@@ -1,0 +1,1 @@
+{"case":"V006","env":"PF11","policy":"fix_quietly","version":"3.11.6","smtp_final_code":"250","reject_node":"-","delivered":"yes","bounce":"no","raw_sha256":"8f107b1526774186fd95e10b81d3bc88245b30e1387d4ad46f14f0e459203a74","received_exact":"9","notes":"250 2.0.0 Ok: queued as CC42E1F6325;bounce=no"}

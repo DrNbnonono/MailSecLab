@@ -1,0 +1,6 @@
+Sep 05 10:52:37 postfix1n postfix/smtpd[393]: connect from mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:52:37 postfix1n postfix/smtpd[393]: 4ED591F6360: client=mail-client.received-lab_mailnet[172.22.0.3]
+Sep 05 10:52:37 postfix1n postfix/cleanup[397]: 4ED591F6360: reject: mime-error primary header was terminated with non-empty line: Receíved: from fake000.lab.test by fake001.lab.test; Mon, 31 Aug 2026 11:59:59 +0800 from mail-client.received-lab_mailnet[172.22.0.3]; from=<alice@sender.lab.test> to=<bob@receiver.lab.test>
+Sep 05 10:52:37 postfix1n postfix/cleanup[397]: 4ED591F6360: message-id=<>
+Sep 05 10:52:37 postfix1n postfix/cleanup[397]: 4ED591F6360: removed (canceled)
+Sep 05 10:52:37 postfix1n postfix/smtpd[393]: disconnect from mail-client.received-lab_mailnet[172.22.0.3] ehlo=1 mail=1 rcpt=1 data=0/1 quit=1 commands=4/5

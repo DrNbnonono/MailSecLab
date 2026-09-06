@@ -1,0 +1,1 @@
+{"_case":"V009","parser":"go-net-mail","version":"go1.19.8","parse_error":"malformed MIME header: missing colon: \"BROKEN_HEADER this line has no colon\"","defects":[],"header_entries":0,"received_count":0,"from_present":false,"subject_present":false,"message_id_present":false,"from_in_body":false,"subject_in_body":false}

@@ -1,0 +1,588 @@
+# -*- coding: utf-8 -*-
+"""Generate result/report.html from all experiment CSVs + evidence."""
+import csv, html, io, os, json, datetime
+
+BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")
+
+def read_csv(name, base=BASE):
+    with open(os.path.join(base, name), encoding="utf-8-sig") as f:
+        return list(csv.DictReader(f))
+
+def table(headers, rows, cls="", cellcls=None):
+    out = io.StringIO()
+    out.write(f'<table class="{cls}">')
+    out.write("<thead><tr>" + "".join(f"<th>{h}</th>" for h in headers) + "</tr></thead><tbody>")
+    for r in rows:
+        out.write("<tr>")
+        for i, c in enumerate(r):
+            k = f' class="{cellcls(i, c)}"' if cellcls and cellcls(i, c) else ""
+            out.write(f"<td{k}>{c}</td>")
+        out.write("</tr>")
+    out.write("</tbody></table>")
+    return out.getvalue()
+
+def esc(s): return html.escape(str(s if s is not None else "-"))
+
+def strip(v): return esc(v) if v not in ("", None) else "-"
+
+# ---------------- data ----------------
+scan50 = read_csv("scan_limit50.csv")
+scan8 = read_csv("scan_limit8.csv")
+variants = {n: read_csv(f"variants_{n}.csv") for n in ["xreceived", "receivedspf", "case_mixed", "case_upper"]}
+phase2 = read_csv("phase2.csv")
+m3 = read_csv(os.path.join("phase3", "matrix.csv"))
+pm = read_csv(os.path.join("phase3c", "parser_matrix.csv"))
+
+loop_log = open(os.path.join(BASE, "loop", "LOOP01.p1.log"), encoding="utf-8", errors="replace").read()
+loop_lines = [l for l in loop_log.splitlines() if "hopcount" in l or "status=" in l][-8:]
+
+def outcome_color(status):
+    if status == "delivered": return "ok"
+    if "bounced" in status: return "warn"
+    return "bad"
+
+# heat strip for a scan
+def heatstrip(rows, label):
+    cells = "".join(
+        f'<div class="cell {outcome_color(r["queue_status"])}" title="N={r["fake_received_count"]}: {esc(r["queue_status"])}">{r["fake_received_count"]}</div>'
+        for r in rows)
+    legend = ('<div class="legend"><span class="lg ok">delivered</span>'
+              '<span class="lg warn">bounced (DSN)</span><span class="lg bad">rejected at DATA (554)</span></div>')
+    return f'<h4>{esc(label)}</h4><div class="strip">{cells}</div>{legend}'
+
+CASE_DESC = {
+    "V001": "正常邮件（控制组）", "V002": "Received ×46（hopcount 临界内）",
+    "V003": "Received ×47（hopcount 临界外）", "V004": "rEcEiVeD ×46（大小写变体）",
+    "V005": "「Received<SP>:」×5（冒号前空格）", "V006": "「Received<TAB>:」×5（冒号前 TAB）",
+    "V007": "「Receíved:」×1（非 ASCII field-name，头区终结）", "V008": "「Receíved:」×50",
+    "V009": "BROKEN_HEADER（无冒号行）", "V010": "Subject ×50（RFC 5322 max-1 重复）",
+    "V011": "折叠 Received ~90KB", "V012": "折叠 Received ~150KB（> header_size_limit）",
+}
+
+# phase3A pivot
+policies = [("3.7.11", "default"), ("3.11.6", "default"), ("3.11.6", "fix_quietly"),
+            ("3.11.6", "add_header"), ("3.11.6", "reject")]
+m3a = {(r["case_id"], r["version"], r["policy"]): r for r in m3 if r["mta"] == "postfix"}
+rows3a = []
+for c in CASE_DESC:
+    row = [f'<b>{c}</b><span class="sub">{esc(CASE_DESC[c])}</span>']
+    for v, p in policies:
+        r = m3a.get((c, v, p))
+        if not r:
+            row.append("-"); continue
+        code = r["smtp_final_code"]
+        if code == "250":
+            me = r["mime_error_in_header"]
+            extra = " +MIME-Error" if me == "1" else ""
+            cls = "ok"
+            row.append(f'<span class="pill {cls}">250 投递{extra}</span>')
+        else:
+            rn = r["reject_node"]
+            cls = "bad"
+            row.append(f'<span class="pill {cls}">{esc(code)} 拒@{esc(rn)}</span>')
+    rows3a.append(row)
+tbl3a = table(["用例"] + [f"Postfix {v}<br><span class='sub'>{p}</span>" for v, p in policies], rows3a, cls="matrix")
+
+# phase3B pivot: postfix 3.7.11 default vs exim vs opensmtpd
+mtas = [("postfix", "3.7.11", "default", "Postfix 3.7.11"),
+        ("EXIM", "4.96", "-", "Exim 4.96"),
+        ("OSMTPD", "6.8.0p2", "-", "OpenSMTPD 6.8.0p2")]
+def m3b_cell(c, m, v, p):
+    r = next((x for x in m3 if x["case_id"] == c and x["mta"] == m and x["version"] == v), None)
+    if not r: return "-"
+    code = r["smtp_final_code"]
+    bits = []
+    if code == "250":
+        bits.append('<span class="pill ok">250</span>')
+        if r["received_in_body"] not in ("", "0", "-"):
+            bits.append(f'<span class="pill warn">正文含Received×{esc(r["received_in_body"])}</span>')
+        if r["mime_error_in_header"] == "1":
+            bits.append('<span class="pill">MIME-Error</span>')
+        if r["malformed_in_header"] not in ("0", "", "-"):
+            bits.append(f'<span class="pill">畸形行保留在头区</span>')
+        if r["subject_in_header"] == "0" and r["received_in_body"] in ("", "0", "-"):
+            bits.append('<span class="pill warn">Subject 掉出头区</span>')
+    else:
+        bits.append(f'<span class="pill bad">{esc(code)} 拒@{esc(r["reject_node"])}</span>')
+    return " ".join(bits)
+rows3b = []
+for c in CASE_DESC:
+    rows3b.append([f'<b>{c}</b><span class="sub">{esc(CASE_DESC[c])}</span>'] +
+                  [m3b_cell(c, m, v, p) for m, v, p, _ in mtas])
+tbl3b = table(["用例（同一字节流 .eml）"] + [t for _, _, _, t in mtas], rows3b, cls="matrix")
+
+# phase3C pivot
+parsers = ["python-email", "node-mailparser", "go-net-mail"]
+pmx = {(r["case_id"], r["parser"]): r for r in pm}
+rows3c = []
+for c in CASE_DESC:
+    row = [f'<b>{c}</b><span class="sub">{esc(CASE_DESC[c])}</span>']
+    for p in parsers:
+        r = pmx.get((c, p))
+        if not r: row.append("-"); continue
+        d = r["defects"]
+        he = r["header_entries"]
+        rc = r["received_count"]
+        cls = ""
+        if d: cls = "warn"
+        if he in ("0", "1") and c not in ("V001",): cls = "bad"
+        if c in ("V011", "V012"): cls = ""
+        row.append(f'<div class="{cls}"><b>{esc(he)}</b> 头字段 / {esc(rc)} Received' +
+                   (f'<br><span class="sub defect">{esc(d)}</span>' if d else "") + "</div>")
+    rows3c.append(row)
+tbl3c = table(["用例（同一字节流 .eml）", "Python email (stdlib)", "Node mailparser", "Go net/mail"],
+              rows3c, cls="matrix")
+
+# phase 1 tables
+def scan_rows(rows):
+    return [[r["case_id"], r["fake_received_count"], r["smtp_code"],
+             strip(r["postfix1_result"]), strip(r["postfix2_result"]), strip(r["postfix3_result"]),
+             strip(r["final_received_count"]),
+             f'<span class="pill {outcome_color(r["queue_status"])}">{esc(r["queue_status"])}</span>']
+            for r in rows]
+scan50_hdr = ["case", "N(伪造Received)", "SMTP", "postfix1", "postfix2", "postfix3", "最终Received", "结果"]
+# only show transition zone + summary for 50
+transition = [r for r in scan50 if 44 <= int(r["fake_received_count"]) <= 50]
+n_del = sum(1 for r in scan50 if r["queue_status"] == "delivered")
+n_bnc = sum(1 for r in scan50 if "bounced" in r["queue_status"])
+n_rej = sum(1 for r in scan50 if "rejected" in r["queue_status"])
+tbl50 = table(scan50_hdr, scan_rows(transition), cls="matrix")
+strip50 = heatstrip(scan50, "hopcount_limit=50，N=0–100 全扫描（101 用例）")
+strip8 = heatstrip(scan8, "hopcount_limit=8，N=0–12（边界线性缩放验证）")
+tbl8 = table(scan50_hdr, scan_rows(scan8), cls="matrix")
+
+# variants table
+vrows = []
+for key, label in [("xreceived", "X-Received ×100"), ("receivedspf", "Received-SPF ×100"),
+                   ("case_mixed", "rEcEiVeD 46/47"), ("case_upper", "RECEIVED 46/47")]:
+    for r in variants[key]:
+        vrows.append([f'<b>{esc(r["case_id"])}</b><span class="sub">{label}</span>', r["smtp_code"],
+                      strip(r["postfix1_result"]), strip(r["postfix2_result"]), strip(r["postfix3_result"]),
+                      strip(r["final_received_count"]),
+                      f'<span class="pill {outcome_color(r["queue_status"])}">{esc(r["queue_status"])}</span>'])
+tblvar = table(["case", "SMTP", "postfix1", "postfix2", "postfix3", "最终Received", "结果"], vrows, cls="matrix")
+
+# phase2 table
+p2rows = []
+for r in phase2:
+    dl = "yes" if r["delivered"] == "yes" else "no"
+    p2rows.append([f'<b>{esc(r["case_id"])}</b><span class="sub">{esc(r["description"])}</span>',
+                   r["smtp_code"],
+                   f'<span class="pill {"ok" if dl == "yes" else "bad"}">{dl}</span>',
+                   strip(r["received_exact"]), strip(r["received_ci"]), strip(r["received_in_body"]),
+                   strip(r["largest_header_bytes"]), esc(r["notes"])])
+tblp2 = table(["case", "SMTP", "投递", "Received(精确)", "Received(CI)", "正文中的Received", "最大单头B", "备注"],
+              p2rows, cls="matrix")
+
+# loop excerpt
+loop_html = "<pre class='log'>" + html.escape("\n".join(loop_lines)) + "</pre>"
+
+# environment facts
+env = [
+    ["Postfix 3.7.11 (PF37)", "debian:bookworm-slim（原 digest sha256:88200866…，本地代理环境降级为 tag 引用）", "3 跳链 postfix1→2→3"],
+    ["Postfix 3.11.6 (PF11)", "debian:sid（原 digest sha256:c1acdb10…，同上）", "postfix1n→2n→3n，non_empty_end_of_header_action 默认 fix_quietly"],
+    ["Exim 4.96", "debian:bookworm-slim", "单跳 smarthost → mailpit"],
+    ["OpenSMTPD 6.8.0p2", "debian:bookworm-slim", "单跳 smarthost → mailpit"],
+    ["Mailpit v1.31.0", "digest sha256:c96991d9…ce24（内容校验后离线 docker load）", "最终投递 + 原始报文取证"],
+    ["解析器", "Python 3 (stdlib email) / Node v26.8.1 + mailparser / Go 1.19.8 net/mail", "同一 corpus 字节流"],
+]
+tblenv = table(["组件", "版本/来源", "角色"], [[f"<b>{a}</b>", b, c] for a, b, c in env], cls="plain")
+
+css = """
+:root{--bg:#0f1420;--panel:#171e2e;--panel2:#1d2537;--fg:#dce3f2;--sub:#8b96ad;--acc:#5b9dff;
+--ok:#3fb96f;--warn:#d9a03a;--bad:#e05656;--line:#2a3350}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.65 "Segoe UI","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--fg)}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 20px 80px}
+header.hero{background:linear-gradient(135deg,#101a30,#1a2440 60%,#232f52);border:1px solid var(--line);
+border-radius:14px;padding:34px 34px 28px;margin-bottom:26px}
+h1{margin:0 0 6px;font-size:27px;letter-spacing:.3px}
+.hero p{margin:4px 0;color:var(--sub)}
+.badge{display:inline-block;background:#0d1322;border:1px solid var(--line);color:var(--acc);
+border-radius:20px;padding:2px 12px;font-size:12.5px;margin:8px 6px 0 0}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 30px}
+nav.toc a{color:var(--fg);text-decoration:none;background:var(--panel);border:1px solid var(--line);
+padding:6px 14px;border-radius:8px;font-size:13.5px}
+nav.toc a:hover{border-color:var(--acc);color:var(--acc)}
+section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 30px;margin-bottom:26px}
+h2{margin:0 0 14px;font-size:20px;color:#fff;border-bottom:1px solid var(--line);padding-bottom:10px}
+h3{font-size:16.5px;margin:22px 0 10px;color:#cfe0ff}
+h4{margin:14px 0 6px;font-size:14.5px;color:var(--sub)}
+p.note{color:var(--sub);font-size:13.5px}
+table{border-collapse:collapse;width:100%;font-size:13.2px;margin:10px 0 6px}
+th{background:var(--panel2);color:#aebad6;text-align:left;padding:8px 10px;border:1px solid var(--line);font-weight:600;vertical-align:bottom}
+td{padding:7px 10px;border:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#161d2d}
+tr:hover td{background:#1c2740}
+.sub{display:block;color:var(--sub);font-size:11.5px;font-weight:400;margin-top:2px}
+.pill{display:inline-block;border-radius:12px;padding:1px 9px;font-size:12px;white-space:nowrap}
+.pill.ok{background:#123822;color:#7fe0a8;border:1px solid #1e5c38}
+.pill.warn{background:#3a2f12;color:#f0c877;border:1px solid #6b5518}
+.pill.bad{background:#3a1518;color:#ff9c9c;border:1px solid #6b2226}
+.defect{color:var(--warn)}
+.strip{display:flex;flex-wrap:wrap;gap:2px;margin:8px 0 4px}
+.strip .cell{width:34px;height:30px;border-radius:4px;font-size:10.5px;color:#fff;
+display:flex;align-items:center;justify-content:center;opacity:.92}
+.cell.ok{background:var(--ok)} .cell.warn{background:var(--warn)} .cell.bad{background:var(--bad)}
+.legend{margin:4px 0 12px}
+.lg{display:inline-block;margin-right:14px;font-size:12.5px;color:var(--sub)}
+.lg::before{content:"■ ";font-size:13px}
+.lg.ok::before{color:var(--ok)} .lg.warn::before{color:var(--warn)} .lg.bad::before{color:var(--bad)}
+pre.log{background:#0b101c;border:1px solid var(--line);border-radius:10px;padding:14px 16px;
+font:12.3px/1.55 Consolas,monospace;overflow-x:auto;color:#9fd0a0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.kpi{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
+.kpi .k{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 18px;min-width:150px}
+.kpi .k b{display:block;font-size:22px;color:var(--acc)}
+.kpi .k span{color:var(--sub);font-size:12.5px}
+ul.findings li{margin:7px 0}
+code{background:#0d1322;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12.8px;color:#ffd28a}
+footer{color:var(--sub);font-size:12.5px;text-align:center;margin-top:34px}
+"""
+
+html_doc = f"""<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MailSecLab · Postfix/MTA 邮件头语义测量复现报告</title>
+<style>{css}</style></head><body><div class="wrap">
+
+<header class="hero">
+<h1>邮件传输链解析语义测量 — 全量复现报告</h1>
+<p>隔离 Docker 实验链：client → Postfix×3 → Mailpit（mailnet 内部网络，不出公网）</p>
+<p>复现时间：2026-09-05 · 分支 <code>research/received-trace</code> · 本页数据由 result/ 下原始 CSV 与证据文件生成</p>
+<div>
+<span class="badge">Postfix 3.7.11</span><span class="badge">Postfix 3.11.6</span>
+<span class="badge">Exim 4.96</span><span class="badge">OpenSMTPD 6.8.0p2</span>
+<span class="badge">Mailpit v1.31.0</span><span class="badge">Python email / Node mailparser / Go net/mail</span>
+</div>
+</header>
+
+<nav class="toc">
+<a href="#env">环境</a><a href="#p1">Phase 1 · hopcount</a><a href="#var">头名变体</a>
+<a href="#loop">真实 Loop</a><a href="#p2">Phase 2 · RFC 无界路径</a>
+<a href="#p3a">Phase 3A · 版本/策略</a><a href="#p3b">Phase 3B · MTA 差分</a>
+<a href="#p3c">Phase 3C · 解析器差分</a><a href="#find">核心结论</a><a href="#eseries">E 系列 · 限制面</a><a href="#fseries">F 系列 · 安全后果</a><a href="#gseries">G 系列 · 纠错归因</a><a href="#next">后续方向</a>
+</nav>
+
+<section id="env">
+<h2>0 · 实验环境</h2>
+<p class="note">全部镜像按 digest 离线校验后加载（本机代理拦截 registry 流量，详见页脚「环境修复记录」）。corpus 为字节级固定输入（V001–V012，含 sha256 manifest），所有 MTA/解析器吃完全相同的字节。</p>
+{tblenv}
+</section>
+
+<section id="p1">
+<h2>1 · Phase 1 — hopcount 临界与边界缩放</h2>
+<div class="kpi">
+<div class="k"><b>{n_del}</b><span>limit=50 投递 (N≤46)</span></div>
+<div class="k"><b>{n_bnc}</b><span>跨节点退信 (47/48)</span></div>
+<div class="k"><b>{n_rej}</b><span>DATA 554 (N≥49)</span></div>
+</div>
+{strip50}
+{tbl50}
+<p class="note">transition 区（N=44–50）明细；完整 101 行见 <code>result/scan_limit50.csv</code>。</p>
+{strip8}
+{tbl8}
+<h3>结论</h3>
+<ul class="findings">
+<li>hopcount 计数与 Postfix 拓扑严格耦合：边界出现在「伪造 N + 真实跳数 = limit」处，且随 limit 线性缩放（50→47/48/49 三段式；8→5/6/7）。</li>
+<li>拒绝位置随剩余 hops 逐级后移：N=47 时 P3 拒绝并由 P2 生成退信（DSN 进 Mailpit）；N=48 时 P2 拒绝 P1 退信；N≥49 P1 在 DATA 阶段直接 554。</li>
+</ul>
+</section>
+
+<section id="var">
+<h2>2 · 头字段名变体 — hopcount 只数「Received」</h2>
+{tblvar}
+<ul class="findings">
+<li><code>X-Received</code> / <code>Received-SPF</code> ×100 全部投递，最终 Received 保持 4 —— 非 Received 头不参与 hop 计数。</li>
+<li><code>rEcEiVeD</code> / <code>RECEIVED</code> 在 46/47 边界行为与标准 Received 完全一致 —— 计数大小写不敏感。</li>
+</ul>
+</section>
+
+<section id="loop">
+<h2>3 · 真实 Loop + DSN 终结</h2>
+<p>P3 relayhost 指回 P1、limit=8：原邮件绕到第 8 跳被 554 终止；退信（DSN）自绕一圈后由空发件人规则终结，Mailpit 全程零收到。</p>
+{loop_html}
+<p class="note">完整日志：result/loop/LOOP01.p1.log（含三节点日志与时间戳证据）。</p>
+</section>
+
+<section id="p2">
+<h2>4 · Phase 2 — RFC 无界增长路径（16 用例）</h2>
+{tblp2}
+<ul class="findings">
+<li><b>hop count ≠ header complexity</b>：Resent ×300（1200 头）、ARC-style ×100（300 头）、重复 Subject/Message-ID ×50 全部投递且 hopcount 无感。</li>
+<li>150KB 折叠单头被 <code>header_size_limit</code> 静默截断至 ~101701B，邮件照常投递（截断无告警）。</li>
+<li><code>Received :</code>（冒号前 WSP）×100 在规范化后被计数 → 554；×5 时可见「透传 + 计数」两种行为并存。</li>
+<li><b>ET050（「Receíved:」×50）</b>：非法非 ASCII field-name 触发 Postfix 3.7.11 对非空行头区终结的容错路径 —— 50 个头全部落入正文，From/To/Subject/Message-ID 全部降级为正文，但邮件仍投递。这是 Phase 3A 版本演化实验的靶点。</li>
+</ul>
+</section>
+
+<section id="p3a">
+<h2>5 · Phase 3A — 同一 corpus × 版本 × non_empty_end_of_header_action</h2>
+<p class="note">矩阵：PF37×default + PF11×{{default, fix_quietly, add_header, reject}}，共 60 行；每行均保存 input.eml / output raw.eml / sha256 / 各节点日志（result/phase3/&lt;ENV&gt;/&lt;POLICY&gt;/&lt;CASE&gt;/）。</p>
+{tbl3a}
+<ul class="findings">
+<li><b>版本兼容性</b>：3.7.11 default 与 3.11.6 default/fix_quietly 对全部 12 用例行为完全一致 —— fix_quietly 即旧版兼容语义。</li>
+<li><b>add_header</b>：V007–V009 仍投递，但生成 <code>MIME-Error</code> 头标记损坏边界（mime_error_in_header=1）。</li>
+<li><b>reject</b>：V007–V009 被 P1 以 <code>550 5.6.0</code> 当场拒绝 —— 新策略可关闭该容错路径。</li>
+<li>V002/V003 的 hopcount 边界与 V012 的 ~101700B 截断在所有轮次一致 —— 版本差分只出现在头区终结 parser 上。</li>
+</ul>
+</section>
+
+<section id="p3b">
+<h2>6 · Phase 3B — 同一 corpus × 不同 MTA</h2>
+<p class="note">Exim/OpenSMTPD 为单跳 smarthost→Mailpit（1+1 条真实 Received）；Postfix 为 3 跳链（3+1 条）。</p>
+{tbl3b}
+<ul class="findings">
+<li><b>头/体边界差分（核心发现）</b>：V007/V008（非 ASCII field-name 终结头区）——Postfix 把后续合法头降级为正文（received_in_body&gt;0）；<b>Exim 与 OpenSMTPD 全部保留为头</b>（malformed_in_header=1，Subject 仍在头区）。同一字节流，三种 MTA 对「这是不是头」给出不同答案。</li>
+<li><b>V009（无冒号行）</b>：OpenSMTPD 直接 <code>550</code> 拒绝；Exim 接受但 Subject 掉出头区；Postfix/PF11 接受且后续照常。拒绝策略同样是 MTA 相关的。</li>
+<li>Exim 对 <code>Received :</code> 变体计数（received_ci=7）且规范化（normalized=no/yes 列有差异）；OpenSMTPD 接受 47 条伪造 Received（单跳无 hopcount 拒绝压力）。</li>
+</ul>
+</section>
+
+<section id="p3c">
+<h2>7 · Phase 3C — 同一 corpus × 三个独立 MIME 解析器</h2>
+{tbl3c}
+<ul class="findings">
+<li><b>同样的字节，三种解释</b>：V005–V008（WSP 冒号 / 非 ASCII field-name）——Python stdlib email 触发 <code>MissingHeaderBodySeparatorDefect</code>，把 From/Subject 全部判为正文（header_entries=1）；Go net/mail 与 Node mailparser 则继续当头解析（10/6/55 个头字段，From/Subject 完好）。</li>
+<li><b>V009 三个 parser 三种答案</b>：Go 得 0 个头字段、Node 得 6 个且全部字段完好、Python 判为正文 —— 解析器差分的最干净样本。</li>
+<li>传输侧（Postfix 认为是 body）与解析侧（Go/Node 认为是 header）结论相反 —— <b>transport view ≠ parser view</b> 直接成立。</li>
+</ul>
+</section>
+
+<section id="find">
+<h2>8 · 核心结论</h2>
+<div class="grid2"><div>
+<h3>已证明</h3>
+<ul class="findings">
+<li>Phase 1：<b>Hop count ≠ header complexity</b>；边界三段式（DATA 554 / 跨节点退信 / 投递）随 limit 线性缩放。</li>
+<li>Phase 2：Postfix 的 loop 控制视图与消息头结构是两个独立维度；重复字段/Resent/ARC-style 不触发任何限制。</li>
+<li>Phase 3A：ET050 现象是版本演化中的<b>兼容行为</b>（fix_quietly），3.11.6 提供了 add_header / reject 两种收紧策略。</li>
+<li>Phase 3B：<b>MTA 差分存在且可复现</b>——头/体边界与畸形头拒绝策略均为实现相关。</li>
+<li>Phase 3C：<b>message interpretation is not a property of the byte stream alone</b>——取决于解析器与信任边界。</li>
+<li>E 系列：数量上有界（50/30/100，三种触发模式），字节上近乎无界（Postfix 9.09MB 头块 hopcount 失明通过），且存在 transport 盲 / parser 明的隐藏通道与 ~24× DSN 放大。</li>
+<li>F 系列：字节通道下游解析代价可忽略（rspamd 正常）；WSP 通道宽度 = 连续无计数 MTA 跳数（改写归因见 G3：PF/OSMTPD 改写、Exim 只计数）；数量/字节上限均为配置常数；DSN 放大率 31.9×→1。</li>
+</ul>
+</div><div>
+<h3>研究主线递进</h3>
+<pre class="log">Phase 1  数量边界(hopcount)  → 数量与复杂度解耦
+Phase 2  无界路径/畸形头     → 限制面出现缺口
+Phase 3  版本/MTA/解析器     → 解释差分
+E1–E5   上限/盲区/放大测绘   → 限制面完整图像
+Phase 5  Rspamd/DKIM         → 下游如何对待增长（下一步）</pre>
+</div></div>
+</section>
+
+<section id="next">
+<h2>9 · 下一步实验方向（围绕核心问题：Received 能否无限制增长）</h2>
+<p class="note">研究主轴确定为：<b>邮件传输过程中 <code>Received:</code> 头能否无限制增长</b>。目前已证明的是「Postfix 链内存在数量上限（hopcount=50）且数量与字节解耦」，但 FC500（5×90KB=450KB 头块投递）、OpenSMTPD 对 47 条无压力、ET050 计数盲区说明<b>真实的限制面远比 hopcount 宽松</b>。下一步用五个实验把「限制面」完整测绘出来。</p>
+
+<h3>E1 · 数量上限测绘：每个 MTA 的 Received 实际天花板</h3>
+<ul class="findings">
+<li>同一 N 递增 corpus（N=0–120）分别打进 PF37 / PF11 / Exim 4.96 / OpenSMTPD 6.8 / Mailpit，二分定位每台 MTA 的实际拒绝/截断/无上限边界。</li>
+<li>已知锚点：Postfix hopcount=50（N≥49 DATA 554）；Exim 存在 <code>received_headers_max</code>（默认 50，行为待实测：拒绝、丢弃还是放行）；OpenSMTPD 3B 中 47+2 条无任何压力（上限待测）；Mailpit 未测。</li>
+<li>产出：<b>MTA × 数量上限矩阵</b> —— 回答「链式传输中存在不存在没有数量上限的中继」。</li>
+</ul>
+
+<h3>E2 · 字节上限测绘：总头块能不能涨到 MB 级</h3>
+<ul class="findings">
+<li>折叠 90KB Received × N（N=1–120）逐台 MTA 扫描：已知 <code>header_size_limit</code>(100KB) 只作用于<b>单个</b>头（FC500 证明 450KB 头块投递），总头块的真实上限是 <code>message_size_limit</code>（Postfix 默认 10MB）还是 cleanup 阶段的其它阈值，待实测。</li>
+<li>同步记录：每跳 prepend 后的报文尺寸增长曲线、超限时的具体表现（截断 / 554 / 静默丢头）。</li>
+<li>产出：<b>单 MTA 总头字节天花板 + 尺寸增长曲线 f(N)</b> —— 回答「Received 字节数能否涨到 hopcount 无法表达的量级（~10MB）」。</li>
+</ul>
+
+<h3>E3 · 计数盲区扫描：绕过计数但仍被下游视为 Received 的形式</h3>
+<ul class="findings">
+<li>把变体集合（<code>rEcEiVeD</code> / <code>Received :</code>(WSP) / <code>Received<TAB>:</code> / <code>Receíved</code> / <code>X-Received</code> / Resent 块）× N=60–100 在<b>每台 MTA</b> 上跑，判定各 MTA 对每种形式「计数 / 不计数 / 拒绝」。</li>
+<li>对每个通过者，用 Phase 3C 的三个 parser（Python email / Node mailparser / Go net/mail）判定下游是否把它解释为 Received —— 重点是 ET050 型：<b>transport 计数失明但 parser 仍视为头</b>的「隐藏增长」集合。</li>
+<li>产出：<b>盲区矩阵（形式 × MTA × parser）</b> —— 回答「存在多少条 hopcount 看不见的增长通道」。</li>
+</ul>
+
+<h3>E4 · 异构链增长通道：让 Received 跨域继续涨</h3>
+<ul class="findings">
+<li>把链路改造成异构多跳（如 client → OpenSMTPD → Exim → Postfix → Mailpit，以及反向），预置 46–60 条 Received 后过链，观察总数能否越过任一单点上限继续增长。</li>
+<li>关键问题：单点上限是不是「全局」上限？一台无上限的 OpenSMTPD 在链中是否成为增长通道；Postfix 在链尾是否用 554 终止一切。</li>
+<li>产出：<b>跨域链增长曲线</b> —— 回答「真实互联网多域传输下，Received 是否事实上只受路径长度而非任何协议上限约束」。</li>
+</ul>
+
+<h3>E5 · 放大效应定量：loop / DSN 与大头的组合</h3>
+<ul class="findings">
+<li>loop_test.sh 参数化：预置头块大小（0/90KB/450KB）× loop 深度，测量队列字节、DSN 尺寸、投递时延曲线。</li>
+<li>已知：空头 loop 第 8 跳被 554 终止、DSN 自绕一圈后终结（Mailpit 零收到）；缺的是<b>大头块参与时</b>的放大率 f(limit, header_bytes)。</li>
+<li>产出：资源放大定量模型，作为「无限增长」研究的安全后果章节。</li>
+</ul>
+
+<h3>后续（依赖 E1–E4 结论）</h3>
+<ul class="findings">
+<li>Rspamd 信任边界实验保留，但定位改为「下游安全组件如何对待超长/盲区增长的 Received 链」（Phase 5）。</li>
+<li>DKIM l= 标签与 E3 盲区的组合（签名覆盖字节与验证者解析字节的错位）作为可选深化（Phase 6）。</li>
+<li>工程清理：代理恢复后还原 digest pin（原值在注释中），本轮镜像 ID 已记于 <code>result/phase3/env.json</code>。</li>
+</ul>
+</section>
+
+<section id="eseries">
+<h2>10 · E 系列 — Received 增长限制面测绘（2026-09-05）</h2>
+<p class="note">围绕核心问题「Received 能否无限制增长」的五组实验。E1/E2 用单跳拓扑（每台 MTA 独立测）；E4 用异构链 client→OpenSMTPD→Exim→Postfix→Mailpit。</p>
+
+<h3>E1 · 数量上限矩阵（N=0–120 扫描，二分复核）</h3>
+<table class="matrix">
+<thead><tr><th>MTA</th><th>数量上限</th><th>超限行为</th><th>证据</th></tr></thead>
+<tbody>
+<tr><td><b>Postfix 3.7.11 / 3.11.6</b></td><td>总数 &gt; 50（hopcount_limit）</td><td><span class="pill bad">DATA 554 内联拒绝</span></td><td>单跳 N≤48 投递（50 条含收端），N≥49 554；三跳链 N≥49/48/47 逐级后移</td></tr>
+<tr><td><b>Exim 4.96</b></td><td>总数 &gt; 30（received_headers_max=30）</td><td><span class="pill warn">250 接受后退信</span></td><td>日志 <code>Too many "Received" headers - suspected mail loop</code>；N≤29 投递、N≥30 生成 DSN —— 先收后退，DSN 即放大</td></tr>
+<tr><td><b>OpenSMTPD 6.8</b></td><td>到达数 ≥ 100</td><td><span class="pill bad">DATA 500 5.4.6 内联拒绝</span></td><td>N=99（101 条）投递，N=100 报 <code>Routing loop detected</code>（显示为 500 内部错误）</td></tr>
+<tr><td><b>Mailpit v1.31</b></td><td>无上限</td><td><span class="pill ok">全收</span></td><td>N=120（121 条）正常投递</td></tr>
+</tbody></table>
+
+<h3>E2 · 字节上限矩阵（折叠 90KB Received × N）</h3>
+<table class="matrix">
+<thead><tr><th>MTA</th><th>单头上限</th><th>总头块上限</th><th>实测天花板</th></tr></thead>
+<tbody>
+<tr><td><b>Postfix ×2</b></td><td>100KB/头（超出部分截断，无告警）</td><td>无独立总头上限 → message_size_limit=10.24MB</td><td>40×90KB=3.6MB 投递；N≥60 先触发 hopcount 554；N=120（11.1MB）552 超长</td></tr>
+<tr><td><b>Exim</b></td><td>—</td><td><b>header_maxsize=1MB 总头块</b></td><td>927KB 投递；1.85MB → <code>552 Message header is ridiculously long</code> 内联拒绝</td></tr>
+<tr><td><b>OpenSMTPD</b></td><td>—</td><td>未观察到字节上限</td><td>7.4MB 头块（82 条）投递；先被数量 100 卡住</td></tr>
+<tr><td><b>Mailpit</b></td><td>—</td><td>未观察到</td><td>11.1MB 头块（121 条）全收</td></tr>
+</tbody></table>
+
+<h3>R3 · 字节通道验证（Postfix，hopcount 盲区）—— G4 修正版</h3>
+<p>用折叠 <code>X-Received</code>（hopcount 不计数）绕开数量限制。原始 R3 的语料有折叠缺陷
+（双 CRLF，巨头首行后即终结），G4 用修复语料重做：<b>N=100 时真折叠头块 9,096,191 B
+经三跳 Postfix 链成功投递</b>（real Received 始终 4），Postfix 原样保留单头 90KB 的折叠
+（&lt; header_size_limit）。即 Postfix 的头块字节天花板 ≈ message_size_limit（~10MB），
+且可在 hopcount 完全失明的情况下达到。<span class="sub">原始 R3 与 F1 首轮结果因该语料缺陷作废，详见 result/g-series/RECORD.md 的纠错记录。</span></p>
+
+<h3>E3 · 计数盲区矩阵（变体 ×100，transport 计数 vs 下游 parser）</h3>
+<table class="matrix">
+<thead><tr><th>变体</th><th>PF37/PF11</th><th>Exim</th><th>OpenSMTPD</th><th>下游 parser 视角</th></tr></thead>
+<tbody>
+<tr><td><code>rEcEiVeD</code>（大小写）</td><td><span class="pill bad">554</span> 计数（大小写不敏感）</td><td><span class="pill warn">250 后退信</span>（计入 30 上限）</td><td><span class="pill bad">500</span>（计入 100）</td><td>全部视为 Received</td></tr>
+<tr><td><code>Received<SP>:</code> / <code>Received<TAB>:</code></td><td><span class="pill bad">554</span>（规范化后计数）</td><td><span class="pill warn">250 后退信</span>（计数）</td><td><span class="pill ok">250 投递</span>（<b>不计入</b> 100 上限）</td><td><b>Node mailparser 计 102 条 Received</b>；Python/Go 计 2 —— <b>transport 盲、parser 明的隐藏增长通道</b></td></tr>
+<tr><td><code>Receíved</code>（非 ASCII 同形）</td><td><span class="pill ok">250 投递</span>（头区终结，全部落入正文）</td><td><span class="pill ok">250 投递</span>（保留为头）</td><td><span class="pill ok">250 投递</span>（保留为头）</td><td>不计入（名字不同）；Postfix 路径下 From/Subject 降级为正文</td></tr>
+<tr><td><code>X-Received</code> ×100</td><td><span class="pill ok">250 投递</span>，hopcount 无感</td><td>250 投递</td><td>250 投递</td><td>名字不同不计入；可携带 MB 级字节（见 R3）</td></tr>
+<tr><td>Resent ×100 块（400 头）</td><td>250 投递</td><td>250 投递</td><td>250 投递</td><td>—</td></tr>
+</tbody></table>
+
+<h3>E4 · 异构链（client→OpenSMTPD→Exim→Postfix→Mailpit）</h3>
+<p>N=0/10 投递（4/14 条）；N=46–60 由 OpenSMTPD 250 接受后被 <b>Exim 的 30 上限</b>退信（DSN 生成）；N≥100 被 OpenSMTPD 内联 500。结论：<b>跨域增长被链上最严格的下游节点截断</b>，但 Exim 的「先收后退」模式把拒绝成本转化为 DSN 放大。</p>
+
+<h3>E5 · loop × 大头块放大定量（limit=8）</h3>
+<table class="matrix">
+<thead><tr><th>用例</th><th>原报文</th><th>循环圈尺寸增长</th><th>DSN 尺寸</th><th>放大率</th></tr></thead>
+<tbody>
+<tr><td>空头 loop（对照）</td><td>205 B</td><td>413 → 1032 → 1649 B（+~620 B/圈）</td><td>4,880 B</td><td><b>23.8×</b></td></tr>
+<tr><td>5×90KB 头块 loop</td><td>464,691 B</td><td>464,691 B（单圈观察窗）</td><td>467,915 B</td><td>1.007×（DSN 全文携带原报文）</td></tr>
+</tbody></table>
+<p class="note">DSN 绝对尺寸 ≈ 原报文 + ~3.2KB 封装；小报文场景 DSN 放大率 ~24×，大报文场景退信本身即是一次等尺寸复制（并继续参与 loop）。</p>
+
+<h3>E 系列总结：回答「能否无限制增长」</h3>
+<ul class="findings">
+<li><b>数量维度：不能无限</b> —— 三种 MTA 都有上限（50 / 30 / 100），但上限值与触发模式（内联 554/500 vs 先收后退信）完全不同；Mailpit 类存档组件无上限。</li>
+<li><b>字节维度：近乎可以</b> —— Postfix 的 hopcount 对字节完全失明，R3 证明 9.09MB 头块可在真实 Received 仅 4 条时通过；唯一约束是 message_size_limit（10MB）。</li>
+<li><b>盲区维度：存在通道</b> —— OpenSMTPD 对 WSP 冒号变体既不计数也不拒绝，且该报文在 Node mailparser 眼里是 102 条 Received：一条「transport 失明、下游可见」的通道。</li>
+<li><b>放大维度</b> —— Exim「先收后退信」和 loop-DSN 机制把拒绝转化为放大；小报文 loop 场景 DSN 放大率 ~24×。</li>
+</ul>
+</section>
+
+<section id="fseries">
+<h2>11 · F 系列 — 增长限制面的安全后果（2026-09-05）</h2>
+<p class="note">按价值顺序执行 E 系列遗留问题；完整实验记录（含事故与方法论教训）见 <code>result/f-series/RECORD.md</code>。新增 rspamd 3.4 容器（DNS 依赖检查禁用，离线确定性扫描）。</p>
+
+<h3>F1 · 字节通道下游成本（三 parser + rspamd）</h3>
+<table class="matrix">
+<thead><tr><th>输入</th><th>字节</th><th>Python</th><th>Node</th><th>Go</th><th>Rspamd</th></tr></thead>
+<tbody>
+<tr><td>折叠 X-Received ×100</td><td>9,088,749</td><td>515ms / rc0</td><td>511ms / rc0</td><td>182ms / rc0</td><td><b>1,172ms · 10.4 · add header</b></td></tr>
+<tr><td>WSP 隐藏通道产物</td><td>13,402</td><td>231ms / rc2</td><td>660ms / <b>rc102</b></td><td>142ms / rc2</td><td><b>249ms · 7.9 · BROKEN_HEADERS+8</b></td></tr>
+<tr><td>V007 头区终结（对照）</td><td>272</td><td>197ms</td><td>292ms</td><td>117ms</td><td>100ms · 3.4 · RCVD_COUNT_ZERO</td></tr>
+</tbody></table>
+<ul class="findings">
+<li><b>解析成本不构成 DoS 面</b>：9MB 报文所有 parser 均在 ~0.2–1.2s 内完成。</li>
+<li><span class="pill warn">已纠正</span> 首轮报称的 "rspamd 丢 9MB 头块（MISSING_*）" 系语料双 CRLF 缺陷所致的伪影 —— rspamd 是正确解析方。修正语料后的复测见 §12 G4：rspamd 对 9.07MB 真头块 56ms · 3.4 分 · 无 MISSING，三个 parser 与它完全一致。</li>
+<li><b>隐藏通道对 rspamd 不隐身</b>：WSP 产物被标 <code>BROKEN_HEADERS +8.0</code>（该条基于 send_received.py 语料，无缺陷，维持成立）。</li>
+</ul>
+
+<h3>F2 · 隐藏通道端到端（OSMTPD → PF/Exim → Mailpit）</h3>
+<table class="matrix">
+<thead><tr><th>路径</th><th>N</th><th>结果</th><th>最终头计数</th></tr></thead>
+<tbody>
+<tr><td>→ Postfix</td><td>40</td><td><span class="pill ok">投递</span></td><td>exact=43, <b>wsp=0</b>（WSP 被规范化转正，G3 归因：OSMTPD/PF 均会改写）</td></tr>
+<tr><td>→ Postfix</td><td>100</td><td><span class="pill warn">250 后退信</span></td><td>Postfix cleanup 判 hopcount exceeded → DSN</td></tr>
+<tr><td>→ Exim</td><td>25</td><td><span class="pill ok">投递</span></td><td>exact=28, wsp=0（转正来自第一跳 OSMTPD；Exim 本身不改写，见 G3E）</td></tr>
+<tr><td>→ Exim</td><td>100</td><td><span class="pill warn">250 后退信</span></td><td>计入 received_headers_max(30) → DSN</td></tr>
+</tbody></table>
+<p><b>结论：通道宽度 = 连续无计数 MTA 的跳数</b>。G3 单头归因实验进一步给出三台 MTA 的精确行为：
+Postfix 规范化所有 WSP 变体头且计数；Exim 只计数不改写；OpenSMTPD 不计数但改写。
+走私头经过任何一台会改写的 MTA 即被"转正"，随即落入对方 loop 防护；只有全盲链路上通道才存活。</p>
+
+<h3>F3 · 上限是配置常数，不是协议常数</h3>
+<table class="matrix">
+<thead><tr><th>旋钮</th><th>值</th><th>新边界</th><th>默认边界</th></tr></thead>
+<tbody>
+<tr><td>Postfix <code>hopcount_limit</code></td><td>100</td><td>N=98 投递 / N=99 → 554</td><td>48/49</td></tr>
+<tr><td>Exim <code>received_headers_max</code></td><td>60</td><td>N=59 投递 / N=60 → 退信</td><td>29/30</td></tr>
+<tr><td>Exim <code>header_maxsize</code></td><td>4MB</td><td>552 点移至 ~4.6MB</td><td>1MB（1.85MB 即拒）</td></tr>
+</tbody></table>
+
+<h3>F4 · DSN 放大网格（loop limit=8，hopcount 盲大报文）</h3>
+<table class="matrix">
+<thead><tr><th>X-Received 头数</th><th>原文</th><th>每圈增长</th><th>DSN</th><th>放大率</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>152 B</td><td>+620B/圈</td><td>4,853 B</td><td><b>31.9×</b></td></tr>
+<tr><td>1</td><td>91,036 B</td><td>+621B/圈</td><td>4,814 B</td><td>0.053</td></tr>
+<tr><td>20</td><td>1,817,854 B</td><td>+621B/圈</td><td>4,815 B</td><td>0.003</td></tr>
+</tbody></table>
+<p>DSN ≈ 原文头 + ~3.2KB 封装 + 每圈一条 Received；放大率随原文尺寸从 31.9× 衰减到 ~1，圈数受 E1 上限闭环约束。</p>
+
+<h3>F 系列总结</h3>
+<ul class="findings">
+<li>字节通道（9MB 真头块）的下游解析代价可忽略：rspamd 56ms / 3.4 分正常通过（§12 纠正；首轮 "rspamd 丢头" 为语料伪影）。</li>
+<li>WSP 隐藏通道宽度有限：经过首个带计数的 MTA 即被转正并拦截；但转正行为本身（把畸形行改写为合法 Received）值得关注。</li>
+<li>数量/字节上限均为配置常数；loop-DSN 放大与数量上限闭环，构成完整的「增长—限制—放大」图像。</li>
+</ul>
+</section>
+
+<section id="gseries">
+<h2>12 · G 系列 — 纠错与归因（2026-09-05 晚）</h2>
+<p class="note">G 系列在验证 F 系列遗留问题时发现了语料生成器的<b>双 CRLF 缺陷</b>（折叠巨头首行后意外终结头块），据此撤回并重做了 F1 的 "rspamd 丢头" 结论与 R3 的字节通道机制，同时完成了 WSP 规范化的单头归因。完整纠错过程见 <code>result/g-series/RECORD.md</code>。</p>
+
+<h3>纠错摘要</h3>
+<ul class="findings">
+<li><b>撤回</b>：F1 的 "rspamd 把 9MB 头块整体丢弃（MISSING_*、score 10.4）" —— 该语料里头块在第一个巨头首行后即终结，"(AAA…" 是正文，rspamd 的解析是对的，三个 parser 也与它一致。</li>
+<li><b>修正</b>：用修复语料重测 —— rspamd 对 9.07MB 真折叠头块 56ms · 3.4 分 · 无 MISSING；三个 parser 同样正常。<b>不构成 parser 差分，也不构成 DoS 面。</b></li>
+<li><b>修正</b>：R3 字节通道机制描述 —— 重做后确认真折叠头块 9,096,191B 过三跳链、Received 恒 4（见 §10 修正版）。E2 的字节上限测量使用的是无缺陷语料（send_received.py），维持成立。</li>
+</ul>
+
+<h3>G3 · WSP 规范化归因（单发单头，input vs stored 对比）</h3>
+<table class="matrix">
+<thead><tr><th>变体</th><th>Postfix</th><th>Exim</th><th>OpenSMTPD</th></tr></thead>
+<tbody>
+<tr><td><code>Received<SP>:</code></td><td><span class="pill warn">改写 + 计数</span>（stored exact=5, wsp=0）</td><td><span class="pill">不改写</span>（stored wsp=1 原样存活）但计数（30 上限）</td><td><span class="pill warn">改写</span>（stored wsp=0）但不计数</td></tr>
+<tr><td><code>Received<TAB>:</code></td><td>改写 + 计数</td><td>—</td><td>—</td></tr>
+<tr><td><code>Subject<SP>:</code></td><td><b>改写</b>为 <code>Subject:</code>（对所有头生效的 cleanup 行为）</td><td>保留 <code>Subject :</code> 原样</td><td>—</td></tr>
+</tbody></table>
+<p><b>三台 MTA 三种行为</b>：Postfix 全头规范化 + 计数；Exim 只计数不改写；OpenSMTPD 不计数但改写。
+F2 中 OSMTPD→PF/EX 路径的"转正"主要来自第一跳 OpenSMTPD。</p>
+
+<h3>G1/G2 · rspamd 丢头阈值（修正后结论）</h3>
+<p>修复语料后扫描 90KB–9.07MB 真折叠头块 ×〔折叠/非折叠、单折行/多折行、行长 100–5000、X-Received/X-Giant/Received〕共 20+ 变体：<b>未发现任何丢头阈值</b>，rspamd 与三个开源
+parser 在全部正确语料上一致。原 G1/G2 的"阈值/位置差分"均为语料伪影。</p>
+</section>
+
+<section id="appendix">
+<h2>附录 · 环境修复记录（复现性说明）</h2>
+<p class="note">本次复现所在机器的代理（fake-IP DNS）拦截了 Docker daemon 的 registry 出站流量，为不破坏实验语义做了如下工程处理（全部记录于 <code>result/phase3/env.json</code>）：</p>
+<ul class="findings">
+<li>基础镜像（debian:bookworm-slim / debian:sid / node:slim / mailpit v1.31.0）改为在宿主侧经 registry HTTP API 按 digest 逐 blob 下载、逐层 sha256 校验后 <code>docker load</code> —— 内容与 pin 值完全一致。</li>
+<li>构建期 apt/npm 经 <code>netsh portproxy</code>（0.0.0.0:17892 → 127.0.0.1:7892 的本机 HTTP 代理）+ <code>network: host</code> 完成。</li>
+<li>Dockerfile/compose 中 digest pin 暂降级为 tag（原 digest 均保留在注释中；本地无法伪造 RepoDigests，代理恢复后可还原）。</li>
+<li>仓库内所有 shell/python 源文件 CRLF → LF（原 CRLF 使容器 entrypoint 无法执行）。</li>
+<li><code>phase3c.sh</code> 为 parser-node 增加 <code>NODE_PATH=/app/node_modules</code>。</li>
+</ul>
+</section>
+
+<footer>MailSecLab · received-lab · 2026-09-05 · 由 gen_report.py 生成 · 数据文件与原始证据均在 result/ 目录</footer>
+</div></body></html>
+"""
+
+out = os.path.join(BASE, "report.html")
+open(out, "w", encoding="utf-8").write(html_doc)
+print("written", out, len(html_doc), "bytes")

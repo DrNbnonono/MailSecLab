@@ -1,0 +1,12 @@
+Sep 05 10:36:08 postfix2 postfix/smtpd[192]: connect from postfix1.received-lab_mailnet[172.22.0.6]
+Sep 05 10:36:08 postfix2 postfix/smtpd[192]: C255D1F5C12: client=postfix1.received-lab_mailnet[172.22.0.6]
+Sep 05 10:36:08 postfix2 postfix/cleanup[196]: C255D1F5C12: message-id=<RW047@sender.lab.test>
+Sep 05 10:36:08 postfix2 postfix/smtpd[192]: disconnect from postfix1.received-lab_mailnet[172.22.0.6] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:36:08 postfix2 postfix/qmgr[184]: C255D1F5C12: from=<alice@sender.lab.test>, size=9486, nrcpt=1 (queue active)
+Sep 05 10:36:08 postfix2 postfix/smtp[197]: C255D1F5C12: to=<bob@receiver.lab.test>, relay=postfix3[172.22.0.4]:25, delay=0.01, delays=0.01/0/0/0, dsn=5.4.0, status=bounced (host postfix3[172.22.0.4] said: 554 5.4.0 Error: too many hops (in reply to end of DATA command))
+Sep 05 10:36:08 postfix2 postfix/cleanup[196]: C81121F5C13: message-id=<20260905103608.C81121F5C13@postfix2.lab.test>
+Sep 05 10:36:08 postfix2 postfix/bounce[198]: C255D1F5C12: sender non-delivery notification: C81121F5C13
+Sep 05 10:36:08 postfix2 postfix/qmgr[184]: C81121F5C13: from=<>, size=11493, nrcpt=1 (queue active)
+Sep 05 10:36:08 postfix2 postfix/qmgr[184]: C255D1F5C12: removed
+Sep 05 10:36:08 postfix2 postfix/smtp[197]: C81121F5C13: to=<alice@sender.lab.test>, relay=postfix3[172.22.0.4]:25, delay=0.06, delays=0.03/0/0/0.03, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as CF6E91F5C11)
+Sep 05 10:36:08 postfix2 postfix/qmgr[184]: C81121F5C13: removed

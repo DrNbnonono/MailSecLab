@@ -1,0 +1,11 @@
+Sep 05 10:30:05 postfix3 postfix/smtpd[234]: connect from postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:30:05 postfix3 postfix/smtpd[234]: C13C510114: client=postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:30:05 postfix3 postfix/cleanup[238]: warning: C13C510114: message rejected: hopcount exceeded
+Sep 05 10:30:05 postfix3 postfix/smtpd[234]: disconnect from postfix2.received-lab_mailnet[172.22.0.5] ehlo=1 mail=1 rcpt=1 data=0/1 quit=1 commands=4/5
+Sep 05 10:30:05 postfix3 postfix/smtpd[234]: connect from postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:30:05 postfix3 postfix/smtpd[234]: C61B410114: client=postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:30:05 postfix3 postfix/cleanup[238]: C61B410114: message-id=<20260905103005.C3FA9188670@postfix2.lab.test>
+Sep 05 10:30:05 postfix3 postfix/smtpd[234]: disconnect from postfix2.received-lab_mailnet[172.22.0.5] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:30:05 postfix3 postfix/qmgr[232]: C61B410114: from=<>, size=3370, nrcpt=1 (queue active)
+Sep 05 10:30:05 postfix3 postfix/smtp[239]: C61B410114: to=<alice@sender.lab.test>, relay=mailpit[172.22.0.2]:1025, delay=0.01, delays=0.01/0/0/0, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 6BgDt8w3HDAzGMjTsaIiwt)
+Sep 05 10:30:05 postfix3 postfix/qmgr[232]: C61B410114: removed

@@ -1,0 +1,5 @@
+xreceived_n,message_bytes,cycles_seen,last_cycle_size,dsn_size,ratio_dsn_over_orig,notes
+0,152,3,1604,4853,31.928,
+1,91036,3,92589,4814,0.053,
+5,454572,3,456529,4814,0.011,
+20,1817854,3,1821326,4815,0.003,

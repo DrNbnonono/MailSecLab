@@ -1,0 +1,4 @@
+file,bytes,hdr_lines,hdr_bytes,py_ms,py_rc,py_from_present,node_ms,node_from_present,go_ms,go_from_present,rspamd_ms,rspamd_score,rspamd_action,rspamd_MISSING_FROM
+F1-XF001,,,,168,true,263,true,102,true,156,3.4,no,action -
+F1-XF020,,,,269,true,238,false,106,true,140,3.4,no,action -
+F1-XF100,,,,684,true,359,false,286,true,351,3.4,no,action -

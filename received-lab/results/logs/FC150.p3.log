@@ -1,0 +1,7 @@
+Sep 05 10:35:33 postfix3 postfix/smtpd[191]: connect from postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:35:33 postfix3 postfix/smtpd[191]: 5E6B614454A: client=postfix2.received-lab_mailnet[172.22.0.5]
+Sep 05 10:35:33 postfix3 postfix/cleanup[195]: 5E6B614454A: message-id=<FC150@sender.lab.test>
+Sep 05 10:35:33 postfix3 postfix/smtpd[191]: disconnect from postfix2.received-lab_mailnet[172.22.0.5] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Sep 05 10:35:33 postfix3 postfix/qmgr[183]: 5E6B614454A: from=<alice@sender.lab.test>, size=102639, nrcpt=1 (queue active)
+Sep 05 10:35:33 postfix3 postfix/smtp[196]: 5E6B614454A: to=<bob@receiver.lab.test>, relay=mailpit[172.22.0.2]:1025, delay=0.01, delays=0.01/0/0/0, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 2wFLPciBuyP4aDOFV4mpXm)
+Sep 05 10:35:33 postfix3 postfix/qmgr[183]: 5E6B614454A: removed

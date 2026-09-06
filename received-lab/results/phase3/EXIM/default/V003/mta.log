@@ -1,0 +1,9 @@
+2026-09-05 10:57:19 1x2o5H-000019-1K <= alice@sender.lab.test H=(client.lab.test) [172.22.0.3] P=esmtp S=5470 id=V003@sender.lab.test
+2026-09-05 10:57:19 exim user lost privilege for using -C option
+2026-09-05 10:57:19 1x2o5H-000019-1K ** bob@receiver.lab.test: Too many "Received" headers - suspected mail loop
+2026-09-05 10:57:19 exim user lost privilege for using -C option
+2026-09-05 10:57:19 1x2o5H-00001B-1R <= <> R=1x2o5H-000019-1K U=Debian-exim P=local S=6698
+2026-09-05 10:57:19 exim user lost privilege for using -C option
+2026-09-05 10:57:19 1x2o5H-000019-1K Completed
+2026-09-05 10:57:19 1x2o5H-00001B-1R => alice@sender.lab.test R=smart_route T=to_mailpit H=mailpit [172.22.0.2] C="250 2.0.0 Ok: queued as 6VY5xuaxld5jTgrXEPvXeF"
+2026-09-05 10:57:19 1x2o5H-00001B-1R Completed

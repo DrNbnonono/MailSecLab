@@ -1,0 +1,5 @@
+Sep 05 10:49:58 postfix2n postfix/smtpd[282]: connect from postfix1n.received-lab_mailnet[172.22.0.11]
+Sep 05 10:49:58 postfix2n postfix/smtpd[282]: 55DAC2CC132: client=postfix1n.received-lab_mailnet[172.22.0.11]
+Sep 05 10:49:58 postfix2n postfix/cleanup[286]: 55DAC2CC132: message-id=<V001@sender.lab.test>
+Sep 05 10:49:58 postfix2n postfix/qmgr[280]: 55DAC2CC132: from=<alice@sender.lab.test>, size=607, nrcpt=1 (queue active)
+Sep 05 10:49:58 postfix2n postfix/smtpd[282]: disconnect from postfix1n.received-lab_mailnet[172.22.0.11] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5

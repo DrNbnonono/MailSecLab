@@ -1,0 +1,1 @@
+{"_case":"V007","parser":"go-net-mail","version":"go1.19.8","parse_error":null,"defects":[],"header_entries":6,"received_count":0,"from_present":true,"subject_present":true,"message_id_present":true,"from_in_body":false,"subject_in_body":false}

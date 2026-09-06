@@ -1,0 +1,62 @@
+{
+  "V001": {
+    "description": "normal message",
+    "bytes": 185,
+    "sha256": "c80f29eb45aed13e70b3a05dda41e3f5fb1a868f88f8290406756d6c237f5e7d"
+  },
+  "V002": {
+    "description": "Received x46 (deliver boundary)",
+    "bytes": 5199,
+    "sha256": "1363d09e2c9677343e87f91d1cbd432a58116d9c1b8e9c828eba656cecfabe75"
+  },
+  "V003": {
+    "description": "Received x47 (P3 reject boundary)",
+    "bytes": 5308,
+    "sha256": "8fb131fbce319da19250adce3b23cd769cc7b2b530e332723c6f70d6bd29f89e"
+  },
+  "V004": {
+    "description": "rEcEiVeD x46 (case-insensitive counting)",
+    "bytes": 5199,
+    "sha256": "6af5e4b334c417f75114fa8db55a71b0a46479a2d0754f46c4307a7d6e5e207a"
+  },
+  "V005": {
+    "description": "'Received :' (space before colon) x5",
+    "bytes": 620,
+    "sha256": "42097a82a6efaa4bf74766ff60e477d762a4e9dc2e41e372d3f55649af7617b1"
+  },
+  "V006": {
+    "description": "'Received<TAB>:' x5",
+    "bytes": 620,
+    "sha256": "ed78a1fbec860737ccf1e095ca84ef51e70fdded1b8bf0d58549e919f9499f89"
+  },
+  "V007": {
+    "description": "Receíved: x1 (non-US-ASCII field-name)",
+    "bytes": 272,
+    "sha256": "fe179fa05b0c80fe8649bb5b707d6438a0772d88c096af90b81ef27a272a29b4"
+  },
+  "V008": {
+    "description": "Receíved: x50 (non-US-ASCII field-name)",
+    "bytes": 4535,
+    "sha256": "76ce8ab0af1eeec4e767b87400a4149ea0e64e1eecfdfe91f311ddb46785d6b8"
+  },
+  "V009": {
+    "description": "BROKEN_HEADER line without colon",
+    "bytes": 223,
+    "sha256": "aeadb9f9388a6bb00d483ea3f37512cc5c3b2e23c9e23a808a7840a150ecbe71"
+  },
+  "V010": {
+    "description": "Subject x50 (max-1 field duplicated)",
+    "bytes": 2735,
+    "sha256": "edee129f18a5b7f1bd851583e51fb8cac4407f48f94d25ae58c388b85923dfb2"
+  },
+  "V011": {
+    "description": "folded Received ~90KB x1",
+    "bytes": 92931,
+    "sha256": "745fcb48efe868e183da3eed37f7ac6eb1c330b1dde2d27110119405f6af972d"
+  },
+  "V012": {
+    "description": "folded Received ~150KB x1 (> header_size_limit)",
+    "bytes": 154063,
+    "sha256": "736ff7fd1e2541850c9283cac83bd26f189190c0e3b915e0921b0c9fea9db12d"
+  }
+}

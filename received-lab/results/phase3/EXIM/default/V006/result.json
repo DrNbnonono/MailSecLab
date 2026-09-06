@@ -1,0 +1,1 @@
+{"case":"V006","env":"EXIM","policy":"default","version":"4.96","smtp_final_code":"250","reject_node":"-","delivered":"yes","bounce":"no","raw_sha256":"629759337e83558c53b8a57fc8cec66bc1135f31f4acaa09be34994ed0ab12e0","received_exact":"2","notes":"250 OK id=1x2o5s-000021-2r;bounce=no"}

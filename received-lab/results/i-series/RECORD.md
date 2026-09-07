@@ -7,8 +7,8 @@
 OpenSMTPD 6.8.0p2、Mailpit v1.31.0、rspamd 3.4。
 **工具**：`scripts/probe_ehlo.py`（EHLO 能力探针）、`scripts/send_bdat.py`（BDAT 发送）、
 `scripts/send_raw_data.py`（裸字节 DATA 发送）、`scripts/mk_i1_payload.py`（走私 payload）、
-`scripts/mk_i2_msg.py`（链自洽伪造语料）。驱动：`run_i_series.sh` / `run_i1_v3.sh` /
-`run_i_final.sh` / `run_exim_v2.sh`。
+`scripts/mk_i2_msg.py`（链自洽伪造语料）。驱动：`experiments/i/run_i_series.sh` / `experiments/i/run_i1_v3.sh` /
+`experiments/i/run_i_final.sh` / `experiments/i/run_exim_v2.sh`。
 
 ## I0 · 能力与宽容性探针
 

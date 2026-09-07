@@ -8,7 +8,7 @@ F1 字节通道的下游成本；F2 隐藏通道端到端存留；F3 上限是�
 replies/url_redirector/attachments 的 DNS 依赖检查已禁用 —— 离线实验无真实 DNS，
 禁用配置烧录在镜像 /etc/rspamd/local.d/）。
 
-**工具**：`run_f_series.sh`（F1/F3/F4 主驱动）、`run_f2_only.sh`（F2 重跑）、
+**工具**：`experiments/f/run_f_series.sh`（F1/F3/F4 主驱动）、`experiments/f/run_f2_only.sh`（F2 重跑）、
 `scripts/gen_f1_corpus.py`（字节通道语料）、`scripts/send_folded_xreceived.py`
 （hopcount 盲大头注入）、`scripts/count_received.py`（头区变体计数）。
 
@@ -101,7 +101,7 @@ replies/url_redirector/attachments 的 DNS 依赖检查已禁用 —— 离线�
    在 **F4 中途崩溃且未执行恢复段** —— postfix1 残留 hopcount_limit=8 + loop 拓扑。
 2. **21:10 第二轮**：F2 在脏配置上运行，4 个用例全部被残留的 hopcount=8 弹回
    （日志 `cleanup: message rejected: hopcount exceeded`），结果无效。
-3. **修正**：`run_f2_only.sh` 增加**前置拓扑复位**（pre-reset）并在记录中打印复位后的
+3. **修正**：`experiments/f/run_f2_only.sh` 增加**前置拓扑复位**（pre-reset）并在记录中打印复位后的
    实际配置再开始发送；F2 重跑（21:20）结果有效。
    **教训：每组实验开始前复位并打印拓扑，而不是只依赖上一组结束时的恢复。**
 

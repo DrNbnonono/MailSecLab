@@ -2,7 +2,7 @@
 """Generate result/report.html from all experiment CSVs + evidence."""
 import csv, html, io, os, json, datetime
 
-BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")
+BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
 
 def read_csv(name, base=BASE):
     with open(os.path.join(base, name), encoding="utf-8-sig") as f:
@@ -665,7 +665,7 @@ parser 在全部正确语料上一致。原 G1/G2 的"阈值/位置差分"均为
 </ul>
 </section>
 
-<footer>MailSecLab · received-lab · 2026-09-05 · 由 gen_report.py 生成 · 数据文件与原始证据均在 result/ 目录</footer>
+<footer>MailSecLab · received-lab · 2026-09-05 · 由 tools/gen_report.py 生成 · 数据文件与原始证据均在 result/ 目录</footer>
 </div></body></html>
 """
 

@@ -66,19 +66,26 @@ mkdir client
 mkdir scripts
 ```
 
-最终:
+当前完整结构(阶段 1–3 + E/F/G/H/I/J 实验系列):
 
 ```text
 received-lab/
-├── docker-compose.yml
-├── postfix/
-│   ├── Dockerfile
-│   └── entrypoint.sh
-└── client/
-    └── Dockerfile
+├── docker-compose.yml        # 基础链 + pf11/mta3b/parsers/frspamd profiles
+├── postfix/ postfix-current/ exim/ opensmtpd/ rspamd/ parsers/ client/
+│   └── ...                   # 各 MTA/组件构建上下文(镜像层配置权限正确)
+├── scripts/                  # 容器侧工具(挂载为 /scripts;构造/发送/检查/解析)
+├── experiments/              # 宿主侧实验驱动,按系列分目录(E/F/G/H/I/J)
+│   ├── e/ f/ g/ h/ i/ j/
+│   └── README.md             # 每个系列的主驱动与结果位置索引
+├── tools/                    # gen_report.py(HTML 报告)、pull_image.py(离线拉镜像)
+├── results/                  # 全部实验数据/记录/HTML 报告(e/f/g/h/i/j-series, phase3...)
+│   └── report.html           # 自包含可视化总报告
+└── freeze/                   # PF37 环境冻结清单(postconf/镜像 digest/compose 快照)
 ```
 
-可用 `tree` 查看;若没有可 `sudo apt install tree`。
+可用 `tree` 查看;若没有可 `sudo apt install tree`。实验驱动与结果的对应关系见
+`experiments/README.md`;总报告由 `python tools/gen_report.py` 从 results/ 下
+CSV/JSON/RECORD 生成。
 
 ---
 

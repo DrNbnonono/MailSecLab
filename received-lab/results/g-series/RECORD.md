@@ -5,8 +5,8 @@
 被撤回并纠正；G3 归因完成且推翻了 F2 的一部分解释。本记录完整保留纠错过程。
 
 **工具**：`scripts/gen_g_corpus.py`、`scripts/gen_g_variant.py`、`scripts/send_g3.py`、
-`scripts/count_received.py`、`run_g_series.sh` / `run_g_refine.sh` / `run_g1_v2.sh` /
-`run_g1_v3.sh` / `run_g4_r3_v2.sh`（前两个脚本的中途版本有转义事故，已删除）。
+`scripts/count_received.py`、`experiments/g/run_g_series.sh` / `experiments/g/run_g_refine.sh` / `experiments/g/run_g1_v2.sh` /
+`experiments/g/run_g1_v3.sh` / `experiments/g/run_g4_r3_v2.sh`（前两个脚本的中途版本有转义事故，已删除）。
 
 ---
 

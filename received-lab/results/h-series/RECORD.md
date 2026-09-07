@@ -6,7 +6,7 @@
 **环境**：rspamd 3.4（Debian bookworm，网络隔离 `network_mode: none` —— 见下方稳定性
 事故；DNS 依赖模块 rbl/spf/surbl/dmarc/replies/url_redirector/attachments 已禁用）。
 语料：`scripts/gen_h_corpus.py`（伪造 Received 置于 DATA 顶部 = 最终链底部 = 时间序最早的
-"源"位置；公网 IP 三池轮转）。驱动：`run_h_final.sh` / `run_h_tail.sh`。
+"源"位置；公网 IP 三池轮转）。驱动：`experiments/h/run_h_final.sh` / `experiments/h/run_h_tail.sh`。
 
 ## 可观测性方案（插件尝试均失败，最终用 debug 日志）
 

@@ -1,0 +1,17 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ i=@lab.test; q=dns/txt; s=j1; t=1788957830; h=from : to : subject :
+ message-id; bh=Av4JG2j90/vyRrL1FR3Vo33eoZuCPn6mwbnlwdBaKbk=;
+ b=VbzcetKzVHtdRzlktmEaLeQAvSrqsEKtPHEUMx6zANzxPnEgkgasllnPFHjZIRGG6gNwu
+ 9xaoUeu6AONLTPj7PmeCjs5pRoql6e0wSoBy+zIbaOIjc1y0QTIyhzXzse1p6iNug5CEluK
+ 1UuGtg61TNhwZEjX7U4VVA7VO0c1P4KO7k/iozJfswXIEi84fMSAwitmRaJsmF+wWTEJRPb
+ mfn+EUYuWpItwxhUB+8ihhJX5sMyORk1RHoMPeGIefrmTzlZMfhB/toO15TaKzBLBduiY3c
+ HnczKA7S90dlKv7zMetbB5G6jAa+bQ5gtdM7frGV9PCVIsr0wfILHSp5Oy/g==
+X-Case-ID: KB3-rev
+From: Mallory <mallory@evil.example>
+To: Bob <bob@receiver.lab.test>
+Subject: KB3-reverse first=mallory
+Message-ID: <kb3rev@sender.lab.test>
+From: Alice <alice@sender.lab.test>
+Message-ID: <kb3rev2@sender.lab.test>
+
+KB3 reverse body.

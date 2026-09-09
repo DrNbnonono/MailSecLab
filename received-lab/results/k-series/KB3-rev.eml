@@ -1,0 +1,9 @@
+X-Case-ID: KB3-rev
+From: Mallory <mallory@evil.example>
+To: Bob <bob@receiver.lab.test>
+Subject: KB3-reverse first=mallory
+Message-ID: <kb3rev@sender.lab.test>
+From: Alice <alice@sender.lab.test>
+Message-ID: <kb3rev2@sender.lab.test>
+
+KB3 reverse body.

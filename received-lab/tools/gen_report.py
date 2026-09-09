@@ -660,16 +660,17 @@ parser 在全部正确语料上一致。原 G1/G2 的"阈值/位置差分"均为
 <thead><tr><th>语料</th><th>dkimpy</th><th>perl</th><th>go-msgauth</th><th>rspamd</th></tr></thead>
 <tbody>
 <tr><td>KB1 干净签名</td><td>pass</td><td>pass</td><td>pass</td><td>ALLOW</td></tr>
-<tr><td><b>KB2 签名后注入异常头</b></td><td><span class="pill bad">拒解析</span></td><td><span class="pill ok">pass</span></td><td><span class="pill ok">pass</span></td><td>—</td></tr>
+<tr><td><b>KB2 签名后注入异常头</b></td><td><span class="pill bad">拒解析</span></td><td><span class="pill ok">pass</span></td><td><span class="pill ok">pass</span></td><td><span class="pill warn">ALLOW (4.3) — 有效签名+伪造 Received 过检</span></td></tr>
 <tr><td><b>KB3 重复 From+Subject</b></td><td><span class="pill bad">FAIL</span></td><td><span class="pill ok">pass</span></td><td><span class="pill ok">pass</span></td><td><span class="pill bad">REJECT (11.4)</span></td></tr>
+<tr><td><b>KB3-rev first=mallory（选头实证）</b></td><td><span class="pill bad">FAIL</span></td><td><span class="pill ok">pass（mallory 的"有效签名"）</span></td><td><span class="pill ok">pass</span></td><td><span class="pill bad">REJECT</span></td></tr>
 <tr><td><b>KB5/j2 l= + 正文追加</b></td><td><span class="pill ok">pass</span></td><td><span class="pill ok">pass</span></td><td><span class="pill bad">Invalid（拒绝 l=）</span></td><td><span class="pill ok">ALLOW</span></td></tr>
 <tr><td>j1 截断后</td><td>FAIL</td><td>fail</td><td>Invalid</td><td>REJECT</td></tr>
 <tr><td>j3 淹没后</td><td>FAIL</td><td>none</td><td>无输出</td><td>NA (12.4)</td></tr>
 </tbody></table>
 <ul class="findings">
-<li><b>H2 选取差分成立</b>：重复 From 时 go/perl 验证第一实例（签名有效），dkimpy/rspamd 验证第二实例（未签名 → FAIL/REJECT）—— 攻击者可展示与签名不同的 From，命中宽松验证器。</li>
+<li><b>H2 选取差分成立并由 KB3-reverse 反转实证</b>：perl/go 验证第一实例、dkimpy/rspamd 验证最后一实例。KB3-rev（第一 From=mallory@evil.example）在 perl/go 判 pass —— 攻击者用自有域签名 + 展示任意 From，即可在宽松验证器同时获得"有效签名"与"伪造展示"。</li>
 <li><b>l= 攻击有效性因验证器而反</b>：追加攻击在 dkimpy/perl/rspamd 上全数放行（ALLOW），在 go-msgauth 上一律拒绝（insecure body length tag）。</li>
-<li><b>H1 边界差分成立</b>：异常头报文在 dkimpy 中"不存在签名"，在 go/perl 中"签名有效且伪造 Received 在头区"。</li>
+<li><b>H1 边界差分成立且攻击过检</b>：异常头报文在 dkimpy 中"不存在签名"；在 go/perl 中"签名有效"；在 rspamd 全栈扫描中 <b>DKIM_ALLOW + greylist 通过</b> —— 有效签名与伪造 Received 共存且不被反垃圾标记。</li>
 <li><b>四层分歧总图</b>：transport ≠ parser ≠ verifier ≠ security —— "是否带有有效签名"是 (字节流, 验证器) 二元组属性。</li>
 </ul>
 </section>

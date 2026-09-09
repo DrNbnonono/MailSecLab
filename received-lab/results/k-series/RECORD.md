@@ -139,3 +139,45 @@ resolver 在启动时读取）。
    （第二实例未签名）→ "有效签名"与否取决于验证器选头策略。
 2. l= 追加：go 一律拒绝，其余全部放行 → 追加攻击有效性因验证器而异。
 3. 淹没/截断：所有验证器一致失败，但失败形态不同（fail/none/无输出）。
+[20:43:33] == K4: matrix completion ==
+[20:43:49] == K4a: KB2-anomaly (valid signature + forged Received) on rspamd ==
+score 4.3 | action greylist | dkim {'R_DKIM_ALLOW': ['lab.test:s=j1'], 'DKIM_TRACE': ['lab.test:+']}
+[20:43:49] == K4b: KB3-reverse (first=mallory second=alice) selection probe ==
+/results/k-series/KB3-rev.eml 262 bytes (first From=mallory, second From=alice)
+signed 823 bytes l=False h=['from', 'to', 'subject', 'message-id']
+VERIFY: FAIL
+result: pass; pass
+2026/09/09 12:43:50 Valid signature for lab.test
+score 11.4 | dkim {'R_DKIM_REJECT': ['lab.test:s=j1'], 'DKIM_TRACE': ['lab.test:-']}
+[20:43:51] == K4 DONE ==
+
+## K4 · 矩阵补全与选头实证（2026-09-07）
+
+**K4a · KB2 × rspamd（补齐矩阵）**：异常头淹没报文（签名完好）在 rspamd 判
+`R_DKIM_ALLOW` / 4.3 / greylist —— **"有效 DKIM 签名 + 头区伪造 Received" 组合
+通过反垃圾 DKIM 层**（rspamd 与 perl/go 同为容忍派）。
+
+**K4b · KB3-reverse 选头实证**：反转语料（第一 From=mallory@evil.example、
+第二 From=alice），签名覆盖第一实例：
+
+| 验证器 | 结果 | 说明 |
+| --- | --- | --- |
+| perl / go | **pass** | 验证第一实例 → mallory 的"有效签名" |
+| dkimpy | FAIL | 验证最后一实例（alice）→ bh 失配 |
+| rspamd | REJECT (11.4) | 同上 |
+
+选头逻辑行为级确认：**perl/go = 第一实例，dkimpy/rspamd = 最后一实例**。
+攻击含义：攻击者自有域签名（d=attacker.example）+ 第一 From=attacker + 第二
+From=目标品牌，则在 perl/go 类验证器上同时获得"有效签名"与"品牌 From 展示"。
+
+## K 系列最终矩阵（含 K4 补全）
+
+| 语料 | dkimpy | perl | go | rspamd |
+| --- | --- | --- | --- | --- |
+| KB1 clean | pass | pass | pass | ALLOW |
+| KB2 异常头注入 | 拒解析 | pass | pass | **ALLOW (4.3)** |
+| KB3 dup-From（first=alice） | FAIL | pass | pass | REJECT (11.4) |
+| **KB3-rev（first=mallory）** | FAIL | **pass** | **pass** | REJECT (11.4) |
+| KB5/j2 l= 追加 | pass | pass | Invalid | ALLOW |
+| j1 截断 | FAIL | fail | Invalid | REJECT |
+| j3 淹没 | FAIL | none | 无输出 | NA |

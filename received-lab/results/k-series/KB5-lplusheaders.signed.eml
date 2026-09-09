@@ -1,0 +1,20 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ i=@lab.test; l=200; q=dns/txt; s=j1; t=1788954824; h=from : to :
+ subject : message-id; bh=F/nv1mqs5EK40pTxSuP6CiqpVkiAAb7Ra/KkKCfOJjQ=;
+ b=PzDLGtu3UlTxD5nygVt1qknLXXnzhlqaZXzuQIA4Z3wuqaYWIpMYV2Nv7SD1IzpBfcKPR
+ FQg14++TFJm4zqGsiRDKFW4ts4b2M1ebop5WnrPr0LsnkTqW3aKLfkIb3yaqrRCqH5X20n/
+ lEMCDSm22KD/VxWX5ZADK1sT0HyyCg0kBkdOhSrU8kZMRYPDjhFNYTYIHpzUfe54pRBmjnA
+ 5wLvhjtuibzs9sKuKftLRMTC3lt9xXPkR1di0ez9paGHmQXeLn5ckjNnvVjup8f1wR43Lmu
+ STv6+rcfNYxjo2hlzp4mV/f7LtRXGFc3zmtVFINqKG5Olzfl9w5ohmC69Vag==
+X-Case-ID: KB5-lplusheaders
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: K1 KB5-lplusheaders
+Message-ID: <kb5-lplusheaders@sender.lab.test>
+
+signed body per l=.
+From: Mallory <mallory@evil.example>
+Subject: FORGED HEADER-LOOKING LINES IN BODY
+Received: from evil.example by evil.example; Tue, 1 Jan 2030 00:00:00 +0000
+
+trailing body.

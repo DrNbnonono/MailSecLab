@@ -1,0 +1,8 @@
+X-Case-ID: KB3-dupfrom
+From: Alice <alice@sender.lab.test>
+From: Mallory <mallory@evil.example>
+To: Bob <bob@receiver.lab.test>
+Subject: K1 KB3-dupfrom SECOND INSTANCE
+Message-ID: <kb3b@sender.lab.test>
+
+K body.

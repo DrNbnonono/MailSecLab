@@ -1,0 +1,152 @@
+{
+    "is_skipped": false,
+    "score": 11.400000,
+    "required_score": 15.0,
+    "action": "add header",
+    "symbols": {
+        "ARC_NA": {
+            "name": "ARC_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "ARC signature absent"
+        },
+        "ASN_FAIL": {
+            "name": "ASN_FAIL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "200.2.0.192.asn.rspamd.com:server fail"
+            ]
+        },
+        "ONCE_RECEIVED": {
+            "name": "ONCE_RECEIVED",
+            "score": 0.0,
+            "metric_score": 0.100000,
+            "description": "One received header in a message"
+        },
+        "RDNS_NONE": {
+            "name": "RDNS_NONE",
+            "score": 0.0,
+            "metric_score": 1.0,
+            "description": "Cannot resolve reverse DNS for sender's IP"
+        },
+        "FROM_HAS_DN": {
+            "name": "FROM_HAS_DN",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "From header has a display name"
+        },
+        "R_DKIM_REJECT": {
+            "name": "R_DKIM_REJECT",
+            "score": 1.0,
+            "metric_score": 1.0,
+            "description": "DKIM verification failed",
+            "options": [
+                "lab.test:s=j1"
+            ]
+        },
+        "MULTIPLE_UNIQUE_HEADERS": {
+            "name": "MULTIPLE_UNIQUE_HEADERS",
+            "score": 7.0,
+            "metric_score": 7.0,
+            "description": "Repeated unique headers",
+            "options": [
+                "From"
+            ]
+        },
+        "MIME_GOOD": {
+            "name": "MIME_GOOD",
+            "score": -0.100000,
+            "metric_score": -0.100000,
+            "description": "Known content-type",
+            "options": [
+                "text/plain"
+            ]
+        },
+        "MISSING_DATE": {
+            "name": "MISSING_DATE",
+            "score": 0.0,
+            "metric_score": 1.0,
+            "description": "Message date is missing"
+        },
+        "RCPT_COUNT_ONE": {
+            "name": "RCPT_COUNT_ONE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "One recipient",
+            "options": [
+                "1"
+            ]
+        },
+        "TO_DN_ALL": {
+            "name": "TO_DN_ALL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "All the recipients have display names"
+        },
+        "DKIM_TRACE": {
+            "name": "DKIM_TRACE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "DKIM trace symbol",
+            "options": [
+                "lab.test:-"
+            ]
+        },
+        "RCVD_COUNT_ZERO": {
+            "name": "RCVD_COUNT_ZERO",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message has no Received headers",
+            "options": [
+                "0"
+            ]
+        },
+        "MULTIPLE_FROM": {
+            "name": "MULTIPLE_FROM",
+            "score": 1.0,
+            "metric_score": 8.0,
+            "description": "Multiple addresses in From",
+            "options": [
+                "<alice@sender.lab.test>",
+                "<mallory@evil.example>"
+            ]
+        },
+        "MIME_TRACE": {
+            "name": "MIME_TRACE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "0:+"
+            ]
+        },
+        "MID_RHS_MATCH_FROM": {
+            "name": "MID_RHS_MATCH_FROM",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message-ID RHS matches From domain"
+        },
+        "HFILTER_HOSTNAME_UNKNOWN": {
+            "name": "HFILTER_HOSTNAME_UNKNOWN",
+            "score": 2.500000,
+            "metric_score": 2.500000,
+            "description": "Unknown client hostname (PTR or FCrDNS verification failed)"
+        },
+        "RDNS_DNSFAIL": {
+            "name": "RDNS_DNSFAIL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "PTR verification DNS error"
+        }
+    },
+    "messages": {},
+    "message-id": "kb3b@sender.lab.test",
+    "time_real": 0.004620,
+    "milter": {
+        "remove_headers": {
+            "X-Spam": 0
+        }
+    },
+    "filename": "/results/k-series/KB3-dupfrom.signed.eml",
+    "scan_time": 0.004000
+}

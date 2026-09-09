@@ -1,0 +1,12 @@
+X-Case-ID: KB4-secondblock
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: K1 KB4-secondblock
+Message-ID: <kb4-secondblock@sender.lab.test>
+
+first body line.
+Bcc: hidden@evil.example
+From: Mallory <mallory@evil.example>
+Subject: INJECTED SECOND HEADER BLOCK
+
+second block body.

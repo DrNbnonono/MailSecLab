@@ -1,0 +1,9 @@
+corpus,dkimpy,perl-mail-dkim,go-msgauth
+KB1-clean,"pass ","result: pass; pass ","Valid signature for lab.test "
+KB2-anomaly-injected,"REFUSE-PARSE MessageFormatError("Unexpected characters in RFC822 header: b'Rece\\xc3\\xadved: from spoofer.lab.te ","result: pass; pass ","Valid signature for lab.test "
+KB3-dup-from-subject,"FAIL ","result: pass; pass ","Valid signature for lab.test "
+KB4-second-header-block,"pass ","result: pass; pass ","Valid signature for lab.test "
+KB5-l=+header-shaped-body,"pass ","result: pass; pass ","Invalid signature for lab.test: dkim: message contains an insecure body length tag "
+j1_stored-truncated,"FAIL ","result: fail; fail (message has been altered) ","Invalid signature for lab.test: dkim: signature did not verify: crypto/rsa: verification error "
+j2_appended-l=,"pass ","result: pass; pass ","Invalid signature for lab.test: dkim: message contains an insecure body length tag "
+j3_stored-drowned,"FAIL ","result: none; no signature found "," "

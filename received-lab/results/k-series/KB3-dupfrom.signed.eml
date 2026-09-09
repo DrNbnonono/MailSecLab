@@ -1,0 +1,16 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ i=@lab.test; q=dns/txt; s=j1; t=1788954823; h=from : to : subject :
+ message-id; bh=nbm370+FuJFV5//UjzHiz0JQiOfaodREw7iGKkh570Q=;
+ b=aVhwYTkbGyc3rA8LdTRuXaR/KWhCyrmJRwpwKzk4vjNMEp2m/tsVPuNlDrD51hOSpRLC3
+ mONx7gaDqTazEAUMLDA1GZ4BNbvH9btCPQjQW6vqwuSgU7GufzEcf5/3S/hoU6igr4qNeNV
+ GOsWWczpera0TMBBtvKUd3lQuSL3uIf7nFQTMSOGbKlIxVSXuREAHhqwoJ9lGSfiNR1VR+S
+ ptyzvSMQgCBOQ4ZHc36NS9ARuMtQy6beMYYVNYhOvrjWgB49dz1KrdeHTLoyO+d9wzimu6/
+ fgzldCUstmnd+EH04Vdo8TN44nEKc7eeca4AtL372r4J9we2u+eBlq/KnrQg==
+X-Case-ID: KB3-dupfrom
+From: Alice <alice@sender.lab.test>
+From: Mallory <mallory@evil.example>
+To: Bob <bob@receiver.lab.test>
+Subject: K1 KB3-dupfrom SECOND INSTANCE
+Message-ID: <kb3b@sender.lab.test>
+
+K body.

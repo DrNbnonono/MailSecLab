@@ -1,0 +1,163 @@
+{
+    "is_skipped": false,
+    "score": 12.400000,
+    "required_score": 15.0,
+    "action": "add header",
+    "symbols": {
+        "ARC_NA": {
+            "name": "ARC_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "ARC signature absent"
+        },
+        "ASN_FAIL": {
+            "name": "ASN_FAIL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "200.2.0.192.asn.rspamd.com:server fail"
+            ]
+        },
+        "MISSING_FROM": {
+            "name": "MISSING_FROM",
+            "score": 2.0,
+            "metric_score": 2.0,
+            "description": "Missing From: header"
+        },
+        "R_MISSING_CHARSET": {
+            "name": "R_MISSING_CHARSET",
+            "score": 0.0,
+            "metric_score": 0.500000,
+            "description": "Charset is missing in a message"
+        },
+        "MISSING_DATE": {
+            "name": "MISSING_DATE",
+            "score": 1.0,
+            "metric_score": 1.0,
+            "description": "Message date is missing"
+        },
+        "MIME_GOOD": {
+            "name": "MIME_GOOD",
+            "score": -0.100000,
+            "metric_score": -0.100000,
+            "description": "Known content-type",
+            "options": [
+                "text/plain"
+            ]
+        },
+        "PREVIOUSLY_DELIVERED": {
+            "name": "PREVIOUSLY_DELIVERED",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message either to a list or was forwarded",
+            "options": [
+                "bob@receiver.lab.test"
+            ]
+        },
+        "BROKEN_CONTENT_TYPE": {
+            "name": "BROKEN_CONTENT_TYPE",
+            "score": 1.500000,
+            "metric_score": 1.500000,
+            "description": "Message has part with broken content type"
+        },
+        "RCPT_COUNT_ONE": {
+            "name": "RCPT_COUNT_ONE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "One recipient",
+            "options": [
+                "1"
+            ]
+        },
+        "RCVD_COUNT_THREE": {
+            "name": "RCVD_COUNT_THREE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message has 3-5 Received headers",
+            "options": [
+                "3"
+            ]
+        },
+        "TO_DN_NONE": {
+            "name": "TO_DN_NONE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "None of the recipients have display names"
+        },
+        "MISSING_SUBJECT": {
+            "name": "MISSING_SUBJECT",
+            "score": 1.400000,
+            "metric_score": 2.0,
+            "description": "Subject header is missing"
+        },
+        "MISSING_TO": {
+            "name": "MISSING_TO",
+            "score": 2.0,
+            "metric_score": 2.0,
+            "description": "To header is missing"
+        },
+        "RDNS_NONE": {
+            "name": "RDNS_NONE",
+            "score": 0.0,
+            "metric_score": 1.0,
+            "description": "Cannot resolve reverse DNS for sender's IP"
+        },
+        "RCVD_NO_TLS_LAST": {
+            "name": "RCVD_NO_TLS_LAST",
+            "score": 0.100000,
+            "metric_score": 0.100000,
+            "description": "Last hop did not use encrypted transports"
+        },
+        "R_DKIM_NA": {
+            "name": "R_DKIM_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Missing DKIM signature"
+        },
+        "MIME_TRACE": {
+            "name": "MIME_TRACE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "0:+"
+            ]
+        },
+        "HFILTER_FROMHOST_NORES_A_OR_MX": {
+            "name": "HFILTER_FROMHOST_NORES_A_OR_MX",
+            "score": 1.500000,
+            "metric_score": 1.500000,
+            "description": "FROM host no resolve to A or MX",
+            "options": [
+                "sender.lab.test"
+            ]
+        },
+        "MID_RHS_NOT_FQDN": {
+            "name": "MID_RHS_NOT_FQDN",
+            "score": 0.500000,
+            "metric_score": 0.500000,
+            "description": "Message-ID RHS is not a fully-qualified domain name"
+        },
+        "HFILTER_HOSTNAME_UNKNOWN": {
+            "name": "HFILTER_HOSTNAME_UNKNOWN",
+            "score": 2.500000,
+            "metric_score": 2.500000,
+            "description": "Unknown client hostname (PTR or FCrDNS verification failed)"
+        },
+        "RDNS_DNSFAIL": {
+            "name": "RDNS_DNSFAIL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "PTR verification DNS error"
+        }
+    },
+    "messages": {},
+    "message-id": "4nZHAi99EZ3XfqpAOAIPSg@mailpit",
+    "time_real": 0.005763,
+    "milter": {
+        "remove_headers": {
+            "X-Spam": 0
+        }
+    },
+    "filename": "/results/j-series/j3_stored.eml",
+    "scan_time": 0.008000
+}

@@ -69,7 +69,7 @@ footer{color:var(--sub);font-size:12.5px;text-align:center;margin-top:34px}
 <a href="#env">环境</a><a href="#p1">Phase 1 · hopcount</a><a href="#var">头名变体</a>
 <a href="#loop">真实 Loop</a><a href="#p2">Phase 2 · RFC 无界路径</a>
 <a href="#p3a">Phase 3A · 版本/策略</a><a href="#p3b">Phase 3B · MTA 差分</a>
-<a href="#p3c">Phase 3C · 解析器差分</a><a href="#find">核心结论</a><a href="#eseries">E 系列 · 限制面</a><a href="#fseries">F 系列 · 安全后果</a><a href="#gseries">G 系列 · 纠错归因</a><a href="#hseries">H 系列 · 信任边界</a><a href="#iseries">I 系列 · 走私/链伪造</a><a href="#jseries">J 系列 · DKIM 交互</a><a href="#next">后续方向</a>
+<a href="#p3c">Phase 3C · 解析器差分</a><a href="#find">核心结论</a><a href="#eseries">E 系列 · 限制面</a><a href="#fseries">F 系列 · 安全后果</a><a href="#gseries">G 系列 · 纠错归因</a><a href="#hseries">H 系列 · 信任边界</a><a href="#iseries">I 系列 · 走私/链伪造</a><a href="#jseries">J 系列 · DKIM 交互</a><a href="#kseries">K 系列 · 验证器差分</a><a href="#next">后续方向</a>
 </nav>
 
 <section id="env">
@@ -463,6 +463,27 @@ parser 在全部正确语料上一致。原 G1/G2 的"阈值/位置差分"均为
 <li>J1+G4 合并：同一截断既是"完整性事件"（DKIM fail）也是"字节通道"（多出的字节照常投递）。</li>
 <li>J2+H 系列合并：带签名的垃圾（自签 l=）+ 伪造 source（无诚实中继时）= 攻击者可同时持有"有签名"与"任意源"两个表象。</li>
 <li>J3+3C 合并：异常头使认证缺失并加剧解析分裂 —— go/node 眼里有完整头（含 DKIM-Sig），postfix/python 眼里整封无头。</li>
+</ul>
+</section>
+
+<section id="kseries">
+<h2>16 · K 系列 — DKIM 验证器差分（2026-09-07）</h2>
+<p class="note">同一签名（同字节、同密钥）× 四个验证器：dkimpy / perl Mail::DKIM / go-msgauth / rspamd（经 lab dnsmasq 提供 DNS）。完整记录含 opendkim-testmsg 损坏、TXT 255 字节拆分、canary 定位等，见 <code>results/k-series/RECORD.md</code>。</p>
+<table class="matrix">
+<thead><tr><th>语料</th><th>dkimpy</th><th>perl</th><th>go-msgauth</th><th>rspamd</th></tr></thead>
+<tbody>
+<tr><td>KB1 干净签名</td><td>pass</td><td>pass</td><td>pass</td><td>ALLOW</td></tr>
+<tr><td><b>KB2 签名后注入异常头</b></td><td><span class="pill bad">拒解析</span></td><td><span class="pill ok">pass</span></td><td><span class="pill ok">pass</span></td><td>—</td></tr>
+<tr><td><b>KB3 重复 From+Subject</b></td><td><span class="pill bad">FAIL</span></td><td><span class="pill ok">pass</span></td><td><span class="pill ok">pass</span></td><td><span class="pill bad">REJECT (11.4)</span></td></tr>
+<tr><td><b>KB5/j2 l= + 正文追加</b></td><td><span class="pill ok">pass</span></td><td><span class="pill ok">pass</span></td><td><span class="pill bad">Invalid（拒绝 l=）</span></td><td><span class="pill ok">ALLOW</span></td></tr>
+<tr><td>j1 截断后</td><td>FAIL</td><td>fail</td><td>Invalid</td><td>REJECT</td></tr>
+<tr><td>j3 淹没后</td><td>FAIL</td><td>none</td><td>无输出</td><td>NA (12.4)</td></tr>
+</tbody></table>
+<ul class="findings">
+<li><b>H2 选取差分成立</b>：重复 From 时 go/perl 验证第一实例（签名有效），dkimpy/rspamd 验证第二实例（未签名 → FAIL/REJECT）—— 攻击者可展示与签名不同的 From，命中宽松验证器。</li>
+<li><b>l= 攻击有效性因验证器而反</b>：追加攻击在 dkimpy/perl/rspamd 上全数放行（ALLOW），在 go-msgauth 上一律拒绝（insecure body length tag）。</li>
+<li><b>H1 边界差分成立</b>：异常头报文在 dkimpy 中"不存在签名"，在 go/perl 中"签名有效且伪造 Received 在头区"。</li>
+<li><b>四层分歧总图</b>：transport ≠ parser ≠ verifier ≠ security —— "是否带有有效签名"是 (字节流, 验证器) 二元组属性。</li>
 </ul>
 </section>
 

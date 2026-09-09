@@ -1,0 +1,7 @@
+corpus,scan
+KB1-clean.signed,score=4.3 action=greylist dkim={'R_DKIM_ALLOW': ['lab.test:s=j1'], 'DKIM_TRACE': ['lab.test:+']}
+KB3-dup-from,score=11.4 action=add header dkim={'R_DKIM_REJECT': ['lab.test:s=j1'], 'DKIM_TRACE': ['lab.test:-']}
+KB5-l=,score=4.3 action=greylist dkim={'R_DKIM_ALLOW': ['lab.test:s=j1'], 'DKIM_TRACE': ['lab.test:+']}
+j2_appended-l=,score=4.3 action=greylist dkim={'R_DKIM_ALLOW': ['lab.test:s=j1'], 'DKIM_TRACE': ['lab.test:+']}
+j1_stored-truncated,score=7.0 action=add header dkim={'R_DKIM_REJECT': ['lab.test:s=j1'], 'DKIM_TRACE': ['lab.test:-']}
+j3_stored-drowned,score=12.4 action=add header dkim={'R_DKIM_NA': None}

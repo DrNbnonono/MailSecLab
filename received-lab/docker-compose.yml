@@ -174,16 +174,73 @@ services:
     profiles:
       - parsers
 
-  # ---- F-series: rspamd offline scanner (DNS-dependent checks disabled) ----
+  # ---- F/K-series: rspamd (maps pinned to 127.0.0.1 per K3 canary; DNS via lab dnsmasq) ----
   rspamd:
     build:
       context: ./rspamd
       network: host
     container_name: rspamd
+    extra_hosts:
+      - "maps.rspamd.com:127.0.0.1"
+    dns: 172.31.0.53
     volumes:
       - ./results:/results
     profiles:
       - frspamd
+
+  # ---- K-series verifiers + lab DNS ----
+  opendkim:
+    build:
+      context: ./opendkim
+      network: host
+    container_name: opendkim
+    dns: 172.31.0.53
+    networks:
+      - mailnet
+    volumes:
+      - ./results:/results
+    profiles:
+      - k1
+
+  perl-mail-dkim:
+    build:
+      context: ./perl-mail-dkim
+      network: host
+    container_name: perl-mail-dkim
+    dns: 172.31.0.53
+    networks:
+      - mailnet
+    volumes:
+      - ./results:/results
+    profiles:
+      - k1
+
+  go-msgauth:
+    build:
+      context: ./parsers/go-msgauth
+      network: host
+    container_name: go-msgauth
+    dns: 172.31.0.53
+    networks:
+      - mailnet
+    volumes:
+      - ./results:/results
+    profiles:
+      - k1
+
+  dns:
+    build:
+      context: ./dns
+      network: host
+    container_name: dns
+    volumes:
+      - ./results:/results
+      - ./dns/entrypoint.sh:/entrypoint.sh:ro
+    networks:
+      mailnet:
+        ipv4_address: 172.31.0.53
+    profiles:
+      - k1
 
 volumes:
   mailpit-data:
@@ -191,3 +248,6 @@ volumes:
 networks:
   mailnet:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.31.0.0/16

@@ -1,0 +1,15 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ i=@lab.test; q=dns/txt; s=j1; t=1788954822; h=from : to : subject :
+ message-id; bh=nbm370+FuJFV5//UjzHiz0JQiOfaodREw7iGKkh570Q=;
+ b=PwkyBVP3EaH6pTaJMtF+XBTmnANknXodc8fcicRUxAV8ywek0B8YRFWrdfj72U98+RzA7
+ vh66Y+1L/EqrQ3IzHMsz63tnkKuMpJGMS201ATI/CrBet/p2PNLo3LlZYOlIH8ERKYAOcmQ
+ /UCK7pUq8qwkbZJJXsjcpapbaux5YNeHbi+WW35gGTh9XUFAdAzPq/a7yZUcU0onPIcN4sO
+ 9d7aiPYBLQcyWu6oxg6UN3300btMfIswGBqjnXCTZmprHSKIRTMP0MkbH9hX4DUX6EjKgk6
+ 2HVLlrGVPuDVHhRUolUkQBAEpj6eyTa1eDbkimYEpsY+0dLp8Q/LyfdicYFg==
+X-Case-ID: KB1-clean
+From: Alice <alice@sender.lab.test>
+To: Bob <bob@receiver.lab.test>
+Subject: K1 KB1-clean
+Message-ID: <kb1-clean@sender.lab.test>
+
+K body.

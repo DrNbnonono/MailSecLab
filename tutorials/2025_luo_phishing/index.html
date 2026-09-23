@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Characterizing Networks Sending Enterprise Phishing Emails — Luo et al. 2025</title>
+<link rel="stylesheet" href="/tutorials/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <a href="/">MailSecLab</a>
+  <nav>
+    <a href="/2010_sanchez_sdp/">Sanchez 2010</a>
+    <a href="/2010_van_staden_forensic/">Van Staden 2010</a>
+    <a href="/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/2025_luo_phishing/" class="active">Luo 2025</a>
+    <a href="/2025_wang_smtp_smuggling/">Wang 2025</a>
+    <a href="/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
+  </nav>
+</header>
+<main>
+  <h1>Characterizing the Networks Sending Enterprise Phishing Emails</h1>
+  <p class="card-meta">Elisa Luo, Liane Young, Grant Ho, M.H. Afifi, Marco Schweighauser, Ethan Katz-Bassett, Asaf Cidon · PAM 2025 · arXiv 2412.12403</p>
+
+  <dl class="meta-grid">
+    <dt>Authors</dt><dd>Elisa Luo (Columbia / Barracuda), Liane Young (Columbia), Grant Ho (UCSD / Chicago), M.H. Afifi (Barracuda), Marco Schweighauser (Barracuda), Ethan Katz-Bassett (Columbia), Asaf Cidon (Columbia / Barracuda)</dd>
+    <dt>Venue</dt><dd>PAM 2025 (Passive and Active Measurement Conference); arXiv preprint DOI <code>10.48550/arXiv.2412.12403</code></dd>
+    <dt>Source PDF</dt><dd><a href="/references/2025_Luo_Characterizing_Enterprise_Phishing_Networks.pdf">/references/2025_Luo_Characterizing_Enterprise_Phishing_Networks.pdf</a></dd>
+    <dt>MailSecLab series</dt><dd>Modern counterpart to Sanchez 2010; informs H3 (FEMTA attribution beyond botnets) and I2 (self-consistent forged Received chains).</dd>
+  </dl>
+
+  <nav class="toc">
+    <h4>On this page</h4>
+    <ul>
+      <li><a href="#problem">1. Problem &amp; contributions</a></li>
+      <li><a href="#data">2. Dataset &amp; methodology</a></li>
+      <li><a href="#forgery">3. Forgery headroom (Received-source fidelity)</a></li>
+      <li><a href="#ip-as">4. Findings — IP- and AS-level distributions</a></li>
+      <li><a href="#conc">5. Phishing-concentration taxonomy</a></li>
+      <li><a href="#geo">6. Geographic routes</a></li>
+      <li><a href="#prod">7. Production classifier (3–5% recall gain)</a></li>
+      <li><a href="#limits">8. Limitations</a></li>
+      <li><a href="#mailseclab">9. How MailSecLab uses this paper</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="problem">1. Problem &amp; contributions</h2>
+  <blockquote>
+    Phishing attacks on enterprise employees present one of the most costly and potent threats
+    to organizations. We explore an under-studied facet of enterprise phishing attacks: the
+    email relay infrastructure behind successfully delivered phishing emails. (<a href="https://arxiv.org/abs/2412.12403" target="_blank" rel="noopener">Luo et al., 2025, Abstract</a>)
+  </blockquote>
+  <p>Two decades after Sanchez/Duan/Dong's botnet-era study, this paper asks the same
+  network-origins question on a much larger and more relevant corpus: emails actually
+  delivered into enterprise inboxes. Key contributions:</p>
+  <ul>
+    <li>Collaboration with Barracuda Networks to analyze the full set of SMTP headers
+        for one year across thousands of organizations on Office 365.</li>
+    <li>Characterizes phishing <em>by source network</em> rather than by content, and
+        introduces a taxonomy of "phishing-concentration" by ASN.</li>
+    <li>Deploys the conclusions as a real-time classifier in Barracuda's production
+        pipeline, retrieving a 3–5 % daily recall uplift over existing detectors with zero
+        false positives during the deployment period.</li>
+  </ul>
+
+  <h2 id="data">2. Dataset &amp; methodology</h2>
+  <h3>Dataset</h3>
+  <table>
+    <thead><tr><th>Statistic</th><th>Jan 2020</th><th>Oct 2020</th><th>Jan 2021</th></tr></thead>
+    <tbody>
+      <tr><td>Phishing emails</td><td>218,079</td><td>307,279</td><td>282,689</td></tr>
+      <tr><td>Phishing campaigns (FROM × subject)</td><td>67,176</td><td>80,703</td><td>73,925</td></tr>
+      <tr><td>Unique source IPs</td><td>16,027</td><td>20,596</td><td>12,743</td></tr>
+      <tr><td>Unique source ASes</td><td>2,808</td><td>3,317</td><td>2,075</td></tr>
+      <tr><td>Clean emails</td><td>≈ 2 B</td><td>≈ 1 B</td><td>≈ 1.3 B</td></tr>
+    </tbody>
+  </table>
+  <p>All customers use Microsoft Office 365; data is opt-in, IRB-approved, and stored
+  encrypted. Importantly, the corpus only contains emails that <b>passed</b> Barracuda's
+  pre-filter, so it represents what an enterprise inbox actually sees.</p>
+
+  <h3>FEMTA extraction</h3>
+  <ol>
+    <li>Resolve the recipient's MX from the historical DNS snapshot at delivery time.</li>
+    <li>Walk the <code>Received:</code> headers from the bottom up; the first hop whose
+        <code>by-domain</code> matches the MX is the FIMTA.</li>
+    <li>The very next hop (the upstream of FIMTA) is the FEMTA — its IP and domain are
+        reliably stamped by FIMTA.</li>
+    <li>Drop <code>Received:</code> headers whose IP is in a private/reserved range before
+        selecting the originating IP (the first hop whose IP is public and non-reserved).</li>
+    <li>Map each IP to ASN using Team Cymru's IP-to-ASN service.</li>
+  </ol>
+
+  <h2 id="forgery">3. Forgery headroom (Received-source fidelity)</h2>
+  <p>Before trusting the FEMTA label, Luo et al. ran four tests that flag probable
+  <code>Received:</code>-header tampering on a phishing email:</p>
+  <ol>
+    <li><b>66 %</b> of phishing emails: MX-identified sender IP and the purported
+        origin IP belong to the same AS → robust at AS level regardless of tampering.</li>
+    <li>Add <b>+16.2 %</b>: the same sender-IP / origin-IP pair has been observed in a
+        clean corpus from the same window.</li>
+    <li>Add <b>+2 %</b>: the entire relay path IP list exactly matches a path in clean
+        corpus (account takeover pattern).</li>
+    <li>Add <b>+6.4 %</b>: the recipient MX appears exactly once in
+        <code>Received:</code> and either equals the origin IP or shares its AS (an
+        single-AS sender pattern).</li>
+  </ol>
+  <p>Combined, ≥ <b>90.6 %</b> of phishing emails in the dataset do not show
+  evidence of tampered source IPs in ways that would distort AS-level analysis.
+  The remaining 9.4 % have path-length distributions identical to clean mail — i.e.
+  no detectable forgery. This is the modern analogue of Sanchez 2010's
+  "botnet-direct-to-MX" finding: when email reaches Barracuda customers,
+  <code>Received:</code> forgery is rare and only minor.</p>
+
+  <h2 id="ip-as">4. Findings — IP- and AS-level distributions</h2>
+  <h3>Source-IP concentration</h3>
+  <p>The top 200 source IPs send <b>≈ 50 %</b> of all phishing emails but &lt; 1 % of
+  clean email. This is the inverse of the spam-era pattern from
+  <a href="https://www.cs.fsu.edu/~duan/publications/2006_icc.pdf" target="_blank" rel="noopener">Ramachandran &amp; Feamster (SIGCOMM 2006)</a>,
+  where the same set of IPs sent most clean mail — for phishing, the relevant IPs
+  are nearly disjoint from the legitimate high-volume senders.</p>
+
+  <h3>Source-AS concentration</h3>
+  <p>Top 100 ASes by phishing volume:</p>
+  <ul>
+    <li>Carry ≈ <b>80 %</b> of phishing email and ≈ <b>70 %</b> of clean email.</li>
+    <li>The top 3 ASes alone send ≈ 60 % of all legitimate email — all three belong to
+        <b>Amazon (AS 14618, AS 16509)</b> and <b>Microsoft (AS 8075)</b>.</li>
+    <li>Excluding Amazon and Microsoft, the top-100 by phishing volume drop to
+        ~ &lt; 10 % of clean email. Hence: <b>excluding AWS / Azure,
+        network-based reputation is highly informative.</b></li>
+  </ul>
+
+  <h2 id="conc">5. Phishing-concentration taxonomy</h2>
+  <p>The defining per-AS metric is the "phishing probability"
+  <code>#phishing / #(phishing + clean)</code> sent by that AS. Three buckets:</p>
+  <table>
+    <thead><tr><th>Tier</th><th>Definition</th><th>Examples</th><th>Outlook of the paper</th></tr></thead>
+    <tbody>
+      <tr><td><b>Low</b></td><td>Phishing probability &lt; 0.1 % of AS outbound email</td><td>Amazon (14618/16509), Microsoft (8075)</td><td>Stable, high-volume but diluted by legit mail; can be a vector of compromised customers</td></tr>
+      <tr><td><b>Medium</b></td><td>0.1 % ≤ p &lt; 2 %</td><td>Smaller hosting providers</td><td>Use network reputation features carefully; balance FPs vs. recall</td></tr>
+      <tr><td><b>High</b></td><td>p ≥ 2 % <i>and</i> AS sent &gt; 150 phishing emails in the month</td><td>AS 206067 (Linode), AS 52000 (a small Russian host), AS 9009 (M247) etc.</td><td>Hard-block or strongly down-weight with low risk of false positives</td></tr>
+    </tbody>
+  </table>
+  <p>By tier share of all phishing email: Low ≈ <b>35.6 %</b>, Medium ≈ <b>19.7 %</b>,
+  High ≈ <b>39.7 %</b>. Time-stability differs sharply:</p>
+  <ul>
+    <li>The top-100 ASes by phishing volume are <b>stable</b>: 31 ASes persist across
+        all three months and contribute ≈ 44–51 % of monthly phishing volume.
+        26 of those 31 are hosting providers.</li>
+    <li>The "high-concentration" label is <b>transient</b>: only 9 ASes stay "high"
+        across all three months; most enter or leave the bucket between months —
+        a signal that attackers <b>burn</b> ASNs after compromising them.</li>
+  </ul>
+
+  <h2 id="geo">6. Geographic routes</h2>
+  <ul>
+    <li>Phishing emails traverse slightly more countries in their <code>Received:</code>
+        chain than clean mail; the bulk of both still concentrate in US-domestic paths.</li>
+    <li>The top-25 country-routes account for &gt; 60 % of phishing traffic. Country-level
+        features alone are weaker than AS-level features, but still useful (the top 5
+        high-phishing-probability countries listed in the paper: Japan, Vietnam, Greece,
+        Moldova, Croatia).</li>
+    <li>Email authentication (SPF/DKIM/DMARC) pass rates are themselves weak signals —
+        only <b>10.4 %</b> of phishing emails pass DMARC and only <b>30 %</b> of clean
+        emails do. Authentication headers are the <i>least</i> important features in the
+        classifier.</li>
+  </ul>
+
+  <h2 id="prod">7. Production classifier (3–5 % recall gain)</h2>
+  <p>Luo et al. deploy an online classifier at Barracuda that uses only two features
+  (per-day, per-IP):</p>
+  <ol>
+    <li><b>Phishing volume</b> — number of phishing emails sent from the IP that day.</li>
+    <li><b>Phishing probability</b> — ratio of phishing to clean from the IP in a
+        sliding window.</li>
+  </ol>
+  <p>The sliding window n was tuned offline (best at n &gt; 0 days, finer-grained beyond
+  30-minute micro-bursts proved noisy). Over a ~5-month deployment window:</p>
+  <blockquote>
+    Over a span of nearly 5 months, the new detector increased the number of emails
+    flagged as phishing by 3–5 % per day (beyond those detected by Barracuda's existing
+    detectors), with no false positives based on manual inspection. (<a href="https://arxiv.org/abs/2412.12403" target="_blank" rel="noopener">§6, Luo et al., 2025</a>)
+  </blockquote>
+  <p>Manual sampling of one day/week confirmed that newly-flagged emails were not only
+  phishing but also BEC / scam / spam that existing detectors had missed.</p>
+
+  <h2 id="limits">8. Limitations</h2>
+  <ul>
+    <li>Dataset is dominated by US/Europe enterprises on Office 365 → may not reflect
+        phishing infrastructure seen by Asian or Latin American organizations.</li>
+    <li>Barracuda's pre-filters have already removed the most obvious phishing before
+        the corpus is captured — the paper studies "successful" phishing, not the bulk
+        arrival rate.</li>
+    <li>Up to early 2021 corpus; static blocklists and cloud-provider abuse mitigations
+        have shifted since.</li>
+    <li>Few phishing emails come from Gmail/Outlook published IP ranges (rate limits
+        and outbound filtering makes user-account compromise harder to weaponize at
+        scale) — a structural blind spot in this study that nonetheless matches the
+        K-series DKIM work in MailSecLab.</li>
+  </ul>
+
+  <h2 id="mailseclab">9. How MailSecLab uses this paper</h2>
+  <ul>
+    <li><b>H-series</b>: confirms Sanchez 2010's "FEMTA is trustworthy" claim on a
+        corpus 1000× larger. MailSecLab's H1/H2 use Algorithm 1 verbatim and validate
+        it against Barracuda's femta labels. The 90.6 % non-forgery ceiling in
+        this paper is our upper bound for "honest" Received chain reconstruction in
+        I2.</li>
+    <li><b>I2 (forged Received chains)</b>: any synthetic chain must be consistent
+        with the AS-class prior — the top-100 phishing ASes, plus the 9 stable
+        "high-concentration" ASes, are the realistic forging targets.</li>
+    <li><b>K-series (DKIM verifier differential)</b>: 30 % clean DMARC pass rate and
+        10.4 % phishing DMARC pass rate quantify the difficulty that DKIM-only
+        experiments face. Authentication headers are too weak to be a label.</li>
+    <li><b>Outlook / O365 bias awareness</b>: the entire dataset is O365 mailboxes;
+        any generalization to other providers should be checked against this caveat.</li>
+  </ul>
+
+</main>
+<footer class="site">
+  Tutorial generated from the PAM 2025 camera-ready text at /references/2025_Luo_...pdf ·
+  Numerics cross-checked against Tables 1/3/4 of the paper.
+</footer>
+</body>
+</html>

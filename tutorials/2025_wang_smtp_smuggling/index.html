@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Email Spoofing with SMTP Smuggling — Wang et al. 2025</title>
+<link rel="stylesheet" href="/tutorials/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <a href="/">MailSecLab</a>
+  <nav>
+    <a href="/2010_sanchez_sdp/">Sanchez 2010</a>
+    <a href="/2010_van_staden_forensic/">Van Staden 2010</a>
+    <a href="/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/2025_luo_phishing/">Luo 2025</a>
+    <a href="/2025_wang_smtp_smuggling/" class="active">Wang 2025</a>
+    <a href="/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
+  </nav>
+</header>
+<main>
+  <h1>Email Spoofing with SMTP Smuggling:
+    How the Shared Email Infrastructures Magnify this Vulnerability</h1>
+  <p class="card-meta">Chuhan Wang (Southeast / Tsinghua), Chenkai Wang (UIUC), Songyi Yang (Tsinghua), Sophia Liu (UIUC), Jianjun Chen, Haixin Duan, Gang Wang · USENIX Security 2025 · Seattle · Aug 13–15</p>
+
+  <dl class="meta-grid">
+    <dt>Authors</dt><dd>Wang, Wang, Yang, Liu (UIUC), Chen, Duan (Tsinghua / Qi An Xin), G. Wang (UIUC).</dd>
+    <dt>Venue</dt><dd>34th USENIX Security Symposium, Aug 13–15 2025, Seattle. Pages 723–743. ISBN 978-1-939133-52-6.</dd>
+    <dt>Source PDF</dt><dd><a href="/references/2025_Wang_Email_Spoofing_with_SMTP_Smuggling.pdf">/references/2025_Wang_Email_Spoofing_with_SMTP_Smuggling.pdf</a></dd>
+    <dt>URL</dt><dd><a href="https://www.usenix.org/conference/usenixsecurity25/presentation/wang-chuhan" target="_blank" rel="noopener">usenix.org/.../wang-chuhan</a></dd>
+    <dt>MailSecLab series</dt><dd>Direct relevance to I1 (MTA differential) and Postfix/exim configuration testing.</dd>
+  </dl>
+
+  <nav class="toc">
+    <h4>On this page</h4>
+    <ul>
+      <li><a href="#threat">1. The SMTP smuggling threat</a></li>
+      <li><a href="#public">2. Public services — 19/22 exposed</a></li>
+      <li><a href="#shared">3. Shared SPF &amp; amplification</a></li>
+      <li><a href="#private">4. Private services — 1,577/6,917 exposed</a></li>
+      <li><a href="#infra">5. Source of the bugs (Postfix, Exim, Haraka, …)</a></li>
+      <li><a href="#mitigation">6. Mitigation</a></li>
+      <li><a href="#disclose">7. Disclosure</a></li>
+      <li><a href="#mailseclab">8. How MailSecLab uses this paper</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="threat">1. The SMTP smuggling threat</h2>
+  <blockquote>
+    SMTP smuggling was introduced by researchers of SEC Consult in December 2023.
+    This attack exploits the inconsistent processing of SMTP commands between the
+    sending and receiving MTA servers. The key idea is to embed SMTP commands into
+    the body of an email, tricking the receiving MTA into misinterpreting the data
+    (email body) as code (SMTP command). (<a href="https://www.usenix.org/conference/usenixsecurity25/presentation/wang-chuhan" target="_blank" rel="noopener">Wang et al., USENIX 2025, §2.3</a>)
+  </blockquote>
+  <h3>Three conditions for a successful smuggling</h3>
+  <ol>
+    <li>The sender MTA <b>passes through</b> one of the 13 known end-of-data
+        variants (A1–A13) including bare <code>\n.\n</code>, <code>\r.\r</code>,
+        <code>\r.\r\n</code>, and the seven <code>\x00</code>-trailing variants.</li>
+    <li>The receiver MTA <b>accepts</b> that variant as the actual DATA terminator.</li>
+    <li>SMTP command <b>pipelining</b> is enabled, so the receiver treats the
+        remaining bytes as a new mail transaction.</li>
+  </ol>
+
+  <h3>The 13 payloads (Table 1)</h3>
+  <table>
+    <thead><tr><th>ID</th><th>Payload</th><th>ID</th><th>Payload</th></tr></thead>
+    <tbody>
+      <tr><td>A1</td><td><code>\n.\n</code></td><td>A8</td><td><code>\n\x00.\n</code></td></tr>
+      <tr><td>A2</td><td><code>\n.\r</code></td><td>A9</td><td><code>\n\x00.\r</code></td></tr>
+      <tr><td>A3</td><td><code>\r.\n</code></td><td>A10</td><td><code>\r\x00.\n</code></td></tr>
+      <tr><td>A4</td><td><code>\r.\r</code></td><td>A11</td><td><code>\r\x00.\r</code></td></tr>
+      <tr><td>A5</td><td><code>\n.\r\n</code></td><td>A12</td><td><code>\n\x00.\r\n</code></td></tr>
+      <tr><td>A6</td><td><code>\r.\r\n</code></td><td>A13</td><td><code>\r\x00.\r\n</code></td></tr>
+      <tr><td>A7</td><td><code>\r\n\x00.\r\n</code></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <p>A7–A13 are <b>new payloads introduced by this paper</b>. The
+  <code>\x00</code>-trailing variants target C-string semantics, where
+  <code>strchr(s, '\x00')</code> terminates processing prematurely.</p>
+
+  <h2 id="public">2. Public services — 19/22 exposed</h2>
+  <h3>Receiving side (Table 2)</h3>
+  <p>8/22 public providers accept at least one smuggling payload:</p>
+  <ul>
+    <li><b>Sina, Sohu, Yandex</b>: vulnerable to A1, A5 etc.</li>
+    <li><b>Fastmail</b>: vulnerable to A4, A6, A10, A12 (has <i>some</i> mitigations).</li>
+    <li><b>Cock.li, Daum.net, Rambler.ru</b>: multiple A's.</li>
+    <li>Mail.ru, 163.com truncate the smuggled body (still a partial finding).</li>
+    <li><b>Sina</b> <i>displays the smuggled email and drops the legitimate first one</i> (worst case).</li>
+    <li>Gmail, Yahoo, Outlook, iCloud: <b>not vulnerable on receiving</b>.</li>
+  </ul>
+
+  <h3>Sending side (Table 3) — much worse</h3>
+  <p>18/20 providers transmit the smuggled payload <b>unfiltered</b>. Notable
+  observations:</p>
+  <ul>
+    <li>Gmail, Yahoo, Zoho, AOL: vulnerable to all of A8–A13 (the
+        <code>\x00</code>-trailing ones) because they treat
+        <code>\x00</code> as a string terminator.</li>
+    <li>Outlook uses "sender checking" on the second email, but still lets
+        the original content pass for A6–A12.</li>
+    <li>Fastmail not only fails to filter but actively splits the email into
+        multiple parts — turning it into an <i>email relay</i> usable for spam
+        or bombing.</li>
+    <li><b>163 sending-side</b>: vulnerable via dot-stuffing bypass.</li>
+    <li>Mail.ru, iCloud implement "string filtering" (extra spaces around
+        <code>\n</code> / <code>\r</code>) — but these do not cover the
+        <code>\x00</code> cases.</li>
+  </ul>
+
+  <h2 id="shared">3. Shared SPF &amp; amplification</h2>
+  <p>The smoking gun: even if your service has nothing to do with Gmail/Outlook,
+  <b>someone else</b> has likely added Gmail/Outlook's SPF record to their own, granting
+  free cover for spam-spoofing.</p>
+  <table>
+    <thead><tr><th>Email Service</th><th>Shared-domain count*</th></tr></thead>
+    <tbody>
+      <tr><td>outlook.com</td><td><b>81,718</b></td></tr>
+      <tr><td>gmail.com</td><td><b>63,225</b></td></tr>
+      <tr><td>yandex.ru</td><td>4,838</td></tr>
+      <tr><td>zoho.com</td><td>4,074</td></tr>
+      <tr><td>qq.com</td><td>1,713</td></tr>
+      <tr><td>mail.ru</td><td>999</td></tr>
+      <tr><td>fastmail.com</td><td>768</td></tr>
+      <tr><td>icloud.com</td><td>47</td></tr>
+    </tbody>
+  </table>
+  <p><small>* Lower-bound, count of Tranco Top-1M domains that include this
+  provider's SPF record in their own.</small></p>
+  <h3>Top spoofs the paper demonstrates</h3>
+  <p>Free Gmail account → spoof <code>admin@youtube.com</code> reaching
+  <code>victim@daum.net</code>. Same with:</p>
+  <ul>
+    <li><code>admin@microsoft.com</code> (via Outlook → Kakao).</li>
+    <li><code>admin@openai.com</code> (via Outlook → Kakao).</li>
+    <li><code>admin@github.com</code> (via Outlook → Kakao).</li>
+  </ul>
+  <p>All pass SPF and DMARC, no UI warning.</p>
+
+  <h2 id="private">4. Private services — 1,577/6,917 exposed</h2>
+  <p>Three methodologies for ethically testing private mail:</p>
+  <h3>User study (48 universities)</h3>
+  <ul>
+    <li>IRB-approved; participants send back what they see in their inbox.</li>
+    <li>23/48 receiving-MTAs vulnerable. A1 and A5 are the most effective.</li>
+    <li>U15 (Cisco) and U48 (AU) vulnerable to all 13 payloads.</li>
+    <li>The dominant underlying infrastructures: Proofpoint (8 vulnerable),
+      Outlook (most patched), Postfix, AppRiver, Sendmail, Cisco, Mimecast.</li>
+  </ul>
+  <h3>DKIM side-channel</h3>
+  <p>Encode "this is the second-half" via a second <code>DKIM-Signature</code> with a
+  separate selector on a self-hosted DNS zone. Splitting the email into two splits the
+  DKIM queries; the DNS log tells you exactly which test ID arrived.</p>
+  <h3>Non-intrusive test</h3>
+  <p>Place the SMTP smuggling payload <i>inside</i> a vulnerability-report email.
+  If the receiver is vulnerable it splits the message and the vulnerability report
+  gets delivered (with the attack delivery); if not, the SMTP session hangs waiting for
+  <code>\r\n.\r\n</code> and you close after 10 seconds. <b>No email is delivered to
+  non-vulnerable services</b> — essential for scale.</p>
+
+  <table>
+    <thead><tr><th>Coverage</th><th>Total</th><th>Vulnerable</th></tr></thead>
+    <tbody>
+      <tr><td>Tranco Top-10,000 with MX</td><td>7,497</td><td>—</td></tr>
+      <tr><td>Domains with admin contact</td><td>6,917</td><td><b>1,577</b> (22.8 %)</td></tr>
+      <tr><td>Top-100 Tranco among vulnerable</td><td>—</td><td>20</td></tr>
+      <tr><td>Top-1000 Tranco among vulnerable</td><td>—</td><td>198</td></tr>
+    </tbody>
+  </table>
+  <p>Among Tranco's top 10 most-vulnerable hosts: <b>amazonaws.com</b>,
+  <b>akamai.net</b>, <b>akamaiedge.net</b>, <b>cloudflare.com</b>,
+  <b>instagram.com</b>, <b>akadns.net</b>, <b>amazon.com</b>,
+  <b>wikipedia.org</b>, <b>wordpress.org</b>, <b>yandex.net</b> — i.e. the same
+  set of shared SPF infrastructures that lift the threat to ~140 k domains.</p>
+
+  <h2 id="infra">5. Source of the bugs (Postfix, Exim, Haraka, …)</h2>
+  <p>Table 8 (latest versions) + Table 11 (multi-version regression):</p>
+  <table>
+    <thead><tr><th>Package</th><th>Receiving</th><th>Sending</th></tr></thead>
+    <tbody>
+      <tr><td>Postfix ≥ 3.9.0</td><td>Clean (only A2/A3/A7 truncated)</td><td>Still vulnerable via string-filter bypass on A7–A13</td></tr>
+      <tr><td>Postfix 3.5.8</td><td>Vulnerable to A1, A2, A5</td><td>Vulnerable to everything</td></tr>
+      <tr><td>Sendmail ≥ 8.18.1</td><td>Clean</td><td>Clean (mostly)</td></tr>
+      <tr><td>Sendmail 8.14–8.17</td><td>Vulnerable A1, A5</td><td>Mostly clean</td></tr>
+      <tr><td>Exim ≥ 4.97.1</td><td>Clean</td><td>Dot stuffing on A1–A3 only</td></tr>
+      <tr><td>Exim 4.97.0</td><td>A1, A5</td><td>Vulnerable</td></tr>
+      <tr><td>Haraka 3.0.3</td><td>A1, A5</td><td><b>All 13</b></td></tr>
+      <tr><td>Axigen ≤ 10.5.25</td><td>A1 (drops first leg)</td><td><b>All 13</b></td></tr>
+      <tr><td>Citadel</td><td>Truncated on A1/A5/A7</td><td>Mostly clean</td></tr>
+      <tr><td>Opensmtpd 6.8.0</td><td>Clean</td><td>Mostly clean</td></tr>
+      <tr><td>Apache James 2.3.2.1</td><td>Clean</td><td>Vulnerable to A7–A13</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Gateways</h3>
+  <ul>
+    <li><b>TrendMicro</b>: vulnerable on receiving side (A1, A5); Sophos clean.</li>
+    <li>By SMTP-banner analysis: Proofpoint 91.1 % vulns of 561 domains,
+        Cisco 81.1 %, Forcepoint 100 %.</li>
+  </ul>
+
+  <h2 id="mitigation">6. Mitigation</h2>
+  <ul>
+    <li><b>Receiving MTAs</b>: standardise on the canonical
+        <code>\r\n.\r\n</code> (RFC 5321 §4.1.1.4 explicitly warns against bare <code>\n</code>);
+        disable SMTP pipelining for the time being (costs throughput).</li>
+    <li><b>Sending MTAs</b>: <b>encode the email body in base64</b> by default — this
+        is the recommended fundamental fix per the paper. Python's <code>smtplib</code>
+        already does this.</li>
+    <li><b>Workaround</b>: dot stuffing + suspicious-string filtering (e.g. drop
+        bare <code>\n</code>, <code>\r</code>, <code>\x00</code>). These block most of
+        the known attacks but are not fundamental fixes.</li>
+    <li><b>Online detection service</b> at
+        <a href="https://smuggling.breakspf.cloud" target="_blank" rel="noopener">smuggling.breakspf.cloud</a>
+        for self-diagnosis.</li>
+  </ul>
+
+  <h2 id="disclose">7. Disclosure</h2>
+  <p>112 days from receipt of disclosure to paper submission; 1,713 replies (most
+  auto-responses); 117 manual responses; 20 admins used the self-diagnosis tool.
+  Outlook/Gmail/Yandex/Kakao/Fastmail/Zoho acknowledged; Yahoo/AOL/Sina did not
+  respond. Postfix recommended <code>cleanup_replace_stray_cr_lf</code> +
+  <code>message_strip_characters</code>. Axigen recommends "Body CR-LF correction" in
+  web admin.</p>
+
+  <h2 id="mailseclab">8. How MailSecLab uses this paper</h2>
+  <ul>
+    <li><b>I-series (I1 MTA differential).</b> The 13-payload matrix A1–A13 is
+        the canonical probe set for MailSecLab's <code>parsers/smtp-smuggle.py</code>
+        parser. Every new MTA deployed in the lab is run against A1–A13 on both
+        receiving and sending sides; results are tracked in
+        <code>parsers/results/smtp_smuggling.csv</code>.</li>
+    <li><b>Postfix / Exim / Haraka / Axigen coverage</b>: directly drives the
+        version matrix we test against (3.5.8, 3.9.0; 4.97.0, 4.97.1; 3.0.3;
+        10.4.3, 10.5.25). The findings on a fixed Postfix ≥ 3.9.0 set the pass
+        threshold for our container-baseline compliance.</li>
+    <li><b>Shared SPF / BreakSPF link</b>: Wang's 81 k / 63 k shared-domain
+        counts extend the F-series SPF-acceptance model with the new failure mode
+        "the sender MTA is one of the 18 vulnerable outgoing MTAs". This becomes
+        a feature in the H3 attribution pipeline.</li>
+    <li><b>1,577 vulnerable private domains</b>: serves as the seed-corpus for
+        investigating how the user-study self-diagnosis method scales to
+        bottom-up reputation inference on private email systems.</li>
+    <li><b>Pipelines-internal suggestion</b>: the non-intrusive test pattern
+        (test-payload inside the report, abort SMTP after 10 s if no 354) is the
+        template we use when MailSecLab probes new private email services that have
+        not been seen before.</li>
+  </ul>
+
+</main>
+<footer class="site">
+  Tutorial generated from USENIX Security 2025 paper PDF at /references/2025_Wang_...pdf ·
+  Tables 1, 2, 3, 4, 8, 10, 11 paraphrased with the original magnitudes preserved.
+</footer>
+</body>
+</html>

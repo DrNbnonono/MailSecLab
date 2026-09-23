@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Composition Kills — Chen, Paxson, Jiang 2020</title>
+<link rel="stylesheet" href="/tutorials/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <a href="/">MailSecLab</a>
+  <nav>
+    <a href="/2010_sanchez_sdp/">Sanchez 2010</a>
+    <a href="/2010_van_staden_forensic/">Van Staden 2010</a>
+    <a href="/2020_chen_composition_kills/" class="active">Chen 2020</a>
+    <a href="/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/2025_luo_phishing/">Luo 2025</a>
+    <a href="/2025_wang_smtp_smuggling/">Wang 2025</a>
+    <a href="/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
+  </nav>
+</header>
+<main>
+  <h1>Composition Kills: A Case Study of Email Sender Authentication</h1>
+  <p class="card-meta">Jianjun Chen (ICSI), Vern Paxson (UC Berkeley / ICSI), Jian Jiang (Shape Security) · USENIX Security 2020 · pp. 2183–2199</p>
+
+  <dl class="meta-grid">
+    <dt>Authors</dt><dd>Chen @ ICSI, Paxson @ UC Berkeley + ICSI, Jiang @ Shape Security.</dd>
+    <dt>Venue</dt><dd>29th USENIX Security Symposium, August 12–14 2020. Pages 2183–2199. ISBN 978-1-939133-17-5.</dd>
+    <dt>Source PDF</dt><dd><a href="/references/2020_Chen_Composition_Kills_Email_Sender_Authentication.pdf">/references/2020_Chen_Composition_Kills_Email_Sender_Authentication.pdf</a></dd>
+    <dt>URL</dt><dd><a href="https://www.usenix.org/conference/usenixsecurity20/presentation/chen-jianjun" target="_blank" rel="noopener">usenix.org/.../chen-jianjun</a></dd>
+    <dt>Tool</dt><dd><a href="https://github.com/chenjj/espoofer" target="_blank" rel="noopener">github.com/chenjj/espoofer</a></dd>
+    <dt>MailSecLab series</dt><dd>Foundational for K-series (DKIM verifier differential), F-series (parser differential), and I-series (forged Received chains).</dd>
+  </dl>
+
+  <nav class="toc">
+    <h4>On this page</h4>
+    <ul>
+      <li><a href="#thesis">1. Core thesis — composition kills</a></li>
+      <li><a href="#pipeline">2. The four authentication stages</a></li>
+      <li><a href="#threat">3. Threat model</a></li>
+      <li><a href="#intra">4. Intra-server attacks (A1–A5)</a></li>
+      <li><a href="#ui">5. UI-mismatch attacks (A6–A13)</a></li>
+      <li><a href="#replay">6. Ambiguous-replay attacks (A14–A18)</a></li>
+      <li><a href="#scope">7. Scope of the impact</a></li>
+      <li><a href="#defense">8. Disclosure &amp; mitigations</a></li>
+      <li><a href="#mailseclab">9. How MailSecLab uses this paper</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="thesis">1. Core thesis — composition kills</h2>
+  <blockquote>
+    Component-based software design is a primary engineering approach for building modern
+    software systems. This programming paradigm, however, creates security concerns due to
+    the potential for inconsistent interpretations of messages between different components. In
+    this paper, we leverage such inconsistencies to identify vulnerabilities in email systems.
+    (<a href="https://www.usenix.org/conference/usenixsecurity20/presentation/chen-jianjun" target="_blank" rel="noopener">Chen, Paxson, Jiang, USENIX 2020, Abstract</a>)
+  </blockquote>
+  <p>The paper demonstrates <b>18 evasion exploits</b> against the SPF + DKIM + DMARC
+  authentication stack, tested against <b>10 popular email providers and 19 email clients</b>
+  (including web, Windows, macOS, Linux, Android, iOS). All tested systems proved
+  vulnerable to at least one attack.</p>
+
+  <h2 id="pipeline">2. The four authentication stages</h2>
+  <p>An email passes through at least <b>six components</b> before the user reads it:</p>
+  <ol>
+    <li>Sender MUA composes the message.</li>
+    <li>Sender MTA (authenticated by user; signs with DKIM if configured).</li>
+    <li>DNS — provides SPF / DKIM / DMARC records.</li>
+    <li>Receiving MTA — runs SPF, DKIM, DMARC, anti-spam, anti-virus.</li>
+    <li>Receiving MUA (web / desktop / mobile) — parses and displays.</li>
+    <li>The user — must make a trust decision from the rendered output.</li>
+  </ol>
+  <p>The paper's three attack classes exploit <i>inconsistencies</i> between these stages:</p>
+  <ul>
+    <li><b>Intra-server</b> (A1–A5): SPF, DKIM, DMARC, and DNS components inside one
+        provider disagree.</li>
+    <li><b>UI-mismatch</b> (A6–A13): the receiving MTA authenticates one From header,
+        the MUA displays a different one.</li>
+    <li><b>Ambiguous-replay</b> (A14–A18): A DKIM-signed email is replayed with
+        additional forged headers or body content that passes verification.</li>
+  </ul>
+
+  <h2 id="threat">3. Threat model</h2>
+  <p>Three attacker types:</p>
+  <ul>
+    <li><b>Forgery attacker</b> — sends arbitrary emails from their own server,
+        spoofing From to a legitimate domain.</li>
+    <li><b>Replay attacker</b> — has a legitimately DKIM-signed email (advertisement,
+        registration, mailing list) and replays it with crafted extras.</li>
+    <li><b>Account attacker</b> — has a real account at the target provider; uses a
+        custom MUA to bypass the provider's outbound From check.</li>
+  </ul>
+  <p>Assumption: legitimate sites configure SPF/DKIM/DMARC <b>correctly and strictly</b>.
+  The paper shows that even strict deployment is bypassable.</p>
+
+  <h2 id="intra">4. Intra-server attacks (A1–A5)</h2>
+  <table>
+    <thead><tr><th>ID</th><th>What</th><th>Affected providers</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>A1</b></td>
+        <td>MAIL FROM is a non-existent subdomain (e.g. <code>any@notexist.legitimate.com</code>).
+            SPF can't find a policy for it, so the verifier falls back to HELO.
+            DMARC alignment then uses <code>legitimate.com</code> (from From) — pass.</td>
+        <td>Several implementations that follow HELO fallback</td>
+      </tr>
+      <tr>
+        <td><b>A2</b></td>
+        <td>MAIL FROM contains an unclosed comment (e.g. <code>(any@legitimate.com</code>).
+            SPF parser sees empty MAIL FROM → HELO fallback. DMARC parser sees
+            <code>legitimate.com</code> from the comment → alignment OK.</td>
+        <td>Tutanota, Protonmail, Zoho, Mail.ru and others</td>
+      </tr>
+      <tr>
+        <td><b>A3</b></td>
+        <td>NUL byte (<code>\x00</code>) inside the DKIM selector splits the DNS query.
+            DKIM component asks for <code>selector._domainkey.legitimate.com</code> but
+            the resolver truncates at the NUL and queries
+            <code>selector._domainkey.attack.com</code> — attacker's key. Signature
+            "verifies" with <code>d=legitimate.com</code> but uses attacker's public key.</td>
+        <td><b>Gmail (fixed in 2020)</b>; exploitable when C-string semantics
+            differ from Perl/Python semantics</td>
+      </tr>
+      <tr>
+        <td><b>A4</b></td>
+        <td>DKIM-Signature <code>d=legitimate.com(.attacker.com</code> — DMARC parser
+            takes the part before <code>(</code> as the domain, DKIM parser uses
+            the full string to query the public key.</td>
+        <td>iCloud, Zoho, Naver, Tutanota, Protonmail, Mail.ru</td>
+      </tr>
+      <tr>
+        <td><b>A5</b></td>
+        <td>MAIL FROM contains the SPF-injection trick: <code>any@legitimate.com'@a.attack.com</code> —
+            the MTA's local parser sees a valid address under <code>attack.com</code>
+            (so it accepts the SMTP dialog), but the SPF parser uses the first
+            <code>@</code> and queries <code>legitimate.com</code>.</td>
+        <td>iCloud, Zoho, Tutanota, Protonmail, Mail.ru</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="ui">5. UI-mismatch attacks (A6–A13)</h2>
+  <p>The receiving MTA and the MUA disagree on which <code>From:</code> header to trust.
+  The paper catalogues 8 distinct attack vectors:</p>
+  <table>
+    <thead><tr><th>ID</th><th>Vector</th><th>Behaviours</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>A6</b></td>
+        <td>Multiple <code>From:</code> headers</td>
+        <td>19/29 implementations accept. iCloud Web + Mail (Win) display the
+            LAST; Mail (Mac) shows both; everyone else shows the FIRST. Server uses
+            the FIRST for DMARC.</td>
+      </tr>
+      <tr>
+        <td><b>A7</b></td>
+        <td>Space-surrounded <code>From:</code> (e.g. <code> From: …</code>)</td>
+        <td>3 edge cases (leading, trailing, folding). Bypasses Mail.ru,
+            rewrites in Fastmail forwarding, mis-parsed by Naver/Outlook.</td>
+      </tr>
+      <tr>
+        <td><b>A8</b></td>
+        <td>From alternative headers (Sender, Resent-From)</td>
+        <td>7 MUAs fall back to Sender/Resent-From when From is missing or
+            unrecognised. All servers use From only.</td>
+      </tr>
+      <tr>
+        <td><b>A9</b></td>
+        <td>Multiple email addresses in one From</td>
+        <td>5 distinct behaviours: first / last / all / none. Tutanota Web shows last.</td>
+      </tr>
+      <tr>
+        <td><b>A10</b></td>
+        <td>Base64 / quoted-printable address encoding
+            (e.g. <code>From: =?utf-8?B?YWRtaW5AbGlnaXRpbWF0ZS5jb20=?=, &lt;any@attack.com&gt;</code>)</td>
+        <td>Yahoo, Outlook, iCloud, Fastmail, Zoho, Tutanota servers do not
+            decode — they use <code>attack.com</code> for DMARC. Their web interfaces
+            and most MUAs decode — they display <code>admin@legitimate.com</code>.</td>
+      </tr>
+      <tr>
+        <td><b>A11</b></td>
+        <td>Route portion (<code>@a.com,@b.com:d@d.com</code>)</td>
+        <td>Fastmail Server ignores route; 10 MUAs also ignore → both show
+            <code>d@d.com</code> as real address. The <i>attack</i> is when the server uses one
+            portion and the client another.</td>
+      </tr>
+      <tr>
+        <td><b>A12</b></td>
+        <td>Quoted-pairs (<code>\</code> escaping)</td>
+        <td>Gmail + iCloud Web recognise escaped boundary; Mail (Win) + iCloud
+            Server don't.</td>
+      </tr>
+      <tr>
+        <td><b>A13</b></td>
+        <td>Precedence of <code>&lt;&gt;</code> vs <code>,</code></td>
+        <td>Mail.ru/Zoho DMARC: <code>&lt;</code> has higher priority → uses
+            <code>attack.com</code>. Outlook (Win) + 8 others: <code>,</code> separator → uses
+            <code>legitimate.com</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="replay">6. Ambiguous-replay attacks (A14–A18)</h2>
+  <table>
+    <thead><tr><th>ID</th><th>What</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>A14</b></td>
+        <td>Incomplete <code>h=</code> list. Real sites sign only some headers
+            (e.g. American Airlines: only <code>h=from</code>; Citi: <code>h=from:subject</code>).
+            Attacker appends Content-Disposition to make the legitimate body render
+            as an attachment.</td>
+      </tr>
+      <tr>
+        <td><b>A15</b></td>
+        <td>Multiple headers exploit: A site signs <code>h=subject</code> only.
+            Attacker appends a new <code>Subject:</code> header. Server uses the
+            original; MUA uses the appended one.</td>
+      </tr>
+      <tr>
+        <td><b>A16</b></td>
+        <td>Body spoofing via the <code>l=</code> tag. A site uses
+            <code>l=200</code> in DKIM-Signature so the body is only partially signed.
+            Attacker appends a new multipart boundary, redefines
+            <code>Content-Type:</code> to <code>multipart/mixed</code> with the new boundary,
+            and places a malicious message in the "preamble" (which RFC 2046
+            says is not displayed). Real sites vulnerable: discover.com, baidu.com,
+            akamai.com, manuscriptcentral.com, badoo.com, blizzard.com, Zoho.com.</td>
+      </tr>
+      <tr>
+        <td><b>A17</b></td>
+        <td>Provider-side From validation bypass. Attacker uses real account but
+            sends with <code>From: admin@legitimate.com\, &lt;real_user@legitimate.com&gt;</code>.
+            Provider checks the second address (matches authenticated user), DKIM-signs
+            it. Receiver sees the first address. Fastmail accepts arbitrary domains;
+            iCloud/Naver/Zoho accept multiple From and check the first; Gmail/Zoho/Mail.ru
+            accept the quoted-comma form and only check the second.</td>
+      </tr>
+      <tr>
+        <td><b>A18</b></td>
+        <td>Two-step replay vs. provider's DKIM signature. (1) Attacker uses
+            their own account to send a perfectly-formed email (with whatever
+            content they want — but the From must match the account).
+            (2) Attacker adds a second <code>From:</code> with the target's address and
+            resends. Receiver's DKIM verifier uses the original From → passes
+            DMARC alignment. MUA may use the second From.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="scope">7. Scope of the impact</h2>
+  <p>10 email providers (Gmail, iCloud, Outlook, Yahoo, Naver, Fastmail, Zoho, Tutanota,
+  Protonmail, Mail.ru) and 19 MUAs (Foxmail, Outlook, Thunderbird, eM Client, Apple Mail,
+  GMail mobile, …) tested:</p>
+  <ul>
+    <li><b>6/10</b> providers were affected by intra-server attacks (Table 1).</li>
+    <li><b>All 10</b> providers were vulnerable to UI-mismatch attacks (Table 2).</li>
+    <li><b>All 19</b> MUAs were vulnerable to UI-mismatch attacks.</li>
+    <li><b>All</b> providers were vulnerable to ambiguous-replay attacks (A18 specifically).</li>
+  </ul>
+  <p>The paper also found that the open-source tools <b>Postfix, OpenDKIM, OpenDMARC</b>
+  and <b>postfix-policyd-spf</b> (Python) all had at least one implementation
+  inconsistency that contributed to the attacks above.</p>
+
+  <h2 id="defense">8. Disclosure &amp; mitigations</h2>
+  <p>All findings reported to vendors and to CERT/CC. Outcomes:</p>
+  <ul>
+    <li><b>Gmail</b> — fixed A3 and A18 immediately, paid two cash rewards.</li>
+    <li><b>Zoho</b> — confirmed and mitigated, four bounty rewards.</li>
+    <li><b>Protonmail / Mail.ru / Naver / Fastmail / eM Client / iCloud / Tutanota / Thunderbird</b>
+        — acknowledged and engaged on fixes.</li>
+    <li><b>Microsoft</b> — disregarded the report (viewed as "social engineering").</li>
+    <li><b>Yahoo</b> — misunderstood the report; no further reply.</li>
+  </ul>
+  <p>Recommended mitigations from the paper:</p>
+  <ol>
+    <li><b>DKIM oversigning</b> — sign the same header twice
+        (<code>h=from:from:subject:subject:to:to:...</code>) and sign non-existent
+        headers (<code>h=subject</code> for messages without one). Only Yahoo
+        adopted this.</li>
+    <li><b>No <code>l=</code> tag</b> — sign the entire body, or none of it.</li>
+    <li><b>Display authentication results in MUAs</b> — most don't show
+        SPF/DKIM/DMARC status to the user.</li>
+    <li><b>Strict From-header validation at send time</b> — Outlook already does
+        this; only Naver's case remains.</li>
+    <li><b>Push auth status via IMAP extension</b> (proposed by eM Client) —
+        instead of relying on the MUA to re-parse, have the server report its
+        own verified identity.</li>
+    <li><b>Type systems</b> — pass typed data between internal components so
+        "data" cannot be confused with "control" (the A4 / A5 root cause).</li>
+  </ol>
+
+  <h2 id="mailseclab">9. How MailSecLab uses this paper</h2>
+  <ul>
+    <li><b>K-series (DKIM verifier differential):</b> A3, A4, A15, A16, A18 are the
+        canonical "DKIM parser differential" probes. Our K1–K13 matrices
+        (covering OpenDKIM, dkimpy, Python's email DKIM, Perl
+        <code>Mail::DKIM::Verifier</code>, rspamd, and the bundled <code>opendkim</code>)
+        are direct re-tests of A14–A16 against current software.</li>
+    <li><b>F-series (parser differential):</b> A6–A13 are the From-header versions
+        of Andarzian 2025's D1–D15. We use Chen 2020's attack list
+        (the simpler, classical "A1–A13" alphabet) as the F-series
+        baseline; the more recent D1–D15 are the F2 extensions.</li>
+    <li><b>I-series (forged Received chains):</b> A18's "replay with extra From"
+        is the basic primitive of our I2 self-consistent forged chain generator.
+        A16's <code>l=</code> body-spoof is the basis for I3 "body smuggling".</li>
+    <li><b>espoofer</b> (the authors' open-source tool) is incorporated as
+        <code>parsers/espoofer.py</code> in MailSecLab for replaying the
+        18 attack vectors against new providers.</li>
+    <li><b>DNS-validation</b> logic: A3 / A4 / A5 are precisely why
+        <code>parsers/dkim_dns_chain.py</code> validates DNS-query inputs
+        defensively (rejects NUL, splits on <code>(</code> / <code>@</code> /
+        control characters, etc.).</li>
+  </ul>
+
+</main>
+<footer class="site">
+  Tutorial generated from USENIX Security 2020 paper PDF at
+  /references/2020_Chen_...pdf · Tables 1, 2 reproduced; attacks A1–A18 summarised
+  from §4–§6.
+</footer>
+</body>
+</html>

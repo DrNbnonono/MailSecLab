@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Adding Digital Forensic Readiness to the Email Trace Header — Van Staden &amp; Venter 2010</title>
+<link rel="stylesheet" href="/tutorials/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <a href="/">MailSecLab</a>
+  <nav>
+    <a href="/2010_sanchez_sdp/">Sanchez 2010</a>
+    <a href="/2010_van_staden_forensic/" class="active">Van Staden 2010</a>
+    <a href="/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/2025_luo_phishing/">Luo 2025</a>
+    <a href="/2025_wang_smtp_smuggling/">Wang 2025</a>
+    <a href="/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
+  </nav>
+</header>
+<main>
+  <h1>Adding Digital Forensic Readiness to the Email Trace Header</h1>
+  <p class="card-meta">F.R. Van Staden &amp; H.S. Venter · Department of Computer Science, University of Pretoria, South Africa · IEEE ISSA 2010 · DOI 10.1109/ISSA.2010.5588291</p>
+
+  <dl class="meta-grid">
+    <dt>Authors</dt><dd>F.R. Van Staden and H.S. Venter, University of Pretoria.</dd>
+    <dt>Venue</dt><dd>IEEE Information Security for South Africa (ISSA) 2010. ISBN 978-1-4244-5494-5/10.</dd>
+    <dt>Source PDF</dt><dd><a href="/references/IEEE-2010-Adding%20digital%20forensic%20readiness.pdf">/references/IEEE-2010-Adding digital forensic readiness.pdf</a></dd>
+    <dt>URL</dt><dd><a href="https://ieeexplore.ieee.org/document/5588291" target="_blank" rel="noopener">ieeexplore.ieee.org/document/5588291</a></dd>
+    <dt>MailSecLab series</dt><dd>Foundational for H-series (Received authenticity) — particularly for FEMTA validation and Received-chain integrity.</dd>
+  </dl>
+
+  <nav class="toc">
+    <h4>On this page</h4>
+    <ul>
+      <li><a href="#thesis">1. The forensic-readiness gap</a></li>
+      <li><a href="#augmentation">2. Augmented Received-token rule</a></li>
+      <li><a href="#gap">3. Gap detection algorithm</a></li>
+      <li><a href="#trust">4. SMTP trust network</a></li>
+      <li><a href="#context">5. Position in the literature</a></li>
+      <li><a href="#mailseclab">6. How MailSecLab uses this paper</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="thesis">1. The forensic-readiness gap</h2>
+  <blockquote>
+    The information in the SMTP headers is stored in clear text. Therefore the information
+    can easily be edited. The possibility that the mail headers could have been edited makes
+    the information in the headers suspect. (<a href="https://ieeexplore.ieee.org/document/5588291" target="_blank" rel="noopener">Van Staden &amp; Venter, ISSA 2010, §II-A</a>)
+  </blockquote>
+  <p>The 2010 paper (a decade before Sanchez/Duan/Dong's empirical study and a
+  decade before Chen/Paxson/Jiang's "composition kills") takes a different angle: instead of
+  empirically measuring forgery, it <b>proposes an extension to RFC 5322</b> that
+  preserves forensic integrity of the Received: trace chain — even when MTAs do
+  not implement the extension.</p>
+
+  <h2 id="augmentation">2. Augmented Received-token rule</h2>
+  <p>The paper proposes two augmentations to the ABNF <code>received-token</code>
+  rule in RFC 5322 §3.6.7:</p>
+  <pre><code>received-token  = "from" &quot; (word / angle-addr / addr-spec / domain) &quot;;&quot; hash
+                 &quot;by&quot;  (word / angle-addr / addr-spec / domain) &quot;;&quot; hash</code></pre>
+  <p>Where:</p>
+  <ul>
+    <li>The first hash is <code>SHA-1(sending_domain || DNS_A(sending_domain))</code>.</li>
+    <li>The second hash is <code>SHA-1(receiving_host_domain || DNS_A(receiving_host_domain))</code>.</li>
+    <li>Both hashes are computed <i>by the receiving host at the moment of reception</i>
+        and recorded in the email envelope (cleartext, but bound to the receiver's
+        DNS view at that instant).</li>
+  </ul>
+  <p>And the augmented Received rule requires exactly <b>one</b> Received-token
+  per received header entry (to keep parsing simple and to make gap detection
+  deterministic).</p>
+
+  <h2 id="gap">3. Gap detection algorithm</h2>
+  <p>The algorithm walks the Received: chain from the most-recent (bottom)
+  hop to the oldest (top) hop, comparing each hop's <i>receiving host</i> with the
+  previous hop's <i>sending host</i>. If they match, the chain is "trusted"; if
+  they don't, the chain has a gap (some intermediate MTA didn't add a Received:
+  entry or didn't implement the augmentation).</p>
+  <ol>
+    <li>Store the received send-receive pairs from <i>last</i> entry to <i>first</i> in a queue.</li>
+    <li>Remember the receiving host of the first entry in the queue.</li>
+    <li>Look at the next send-receive pair. Compare sending host with stored
+        receiving host.</li>
+    <li>If equal: store receiving host in the <b>proven</b> list, continue.</li>
+    <li>If not equal: store the receiving host in <b>proven</b> list, store sending
+        host in <b>gap</b> list, set gap-found flag, continue.</li>
+    <li>If next pair is null: end. If <code>gap-found</code> → "gap detected", else
+        "no gap found".</li>
+  </ol>
+  <p>Output: two lists.</p>
+  <ul>
+    <li><b>proven</b> list — SMTP hosts that wrote augmented Received: entries.</li>
+    <li><b>gap</b> list — last-known hosts whose entries are missing.</li>
+  </ul>
+
+  <h2 id="trust">4. SMTP trust network</h2>
+  <p>Aggregating <b>proven</b> across many emails yields a <i>trust network</i>:
+  the subset of MTAs that implement the augmentation. The paper proposes:</p>
+  <ul>
+    <li>Assign a <b>trust value</b> to each MTA in the proven set.</li>
+    <li>For an email whose full chain is in the proven set, propagate trust to the
+        message.</li>
+    <li>Use the trust value to allocate anti-spam scan depth: high-trust messages
+        get cheaper scanning, low-trust get deep scanning.</li>
+  </ul>
+  <p>Similarly, the <b>gap</b> list can be mined for chronic offenders —
+  intermediate MTAs that repeatedly omit the Received: entry are candidates
+  for reputation downgrades.</p>
+
+  <h2 id="context">5. Position in the literature</h2>
+  <p>Compared to Sanchez/Duan/Dong 2010 (empirical, content-of-the-Received-chain)
+  and Chen/Paxson/Jiang 2020 (composition vulnerabilities that bypass SPF/DKIM/DMARC):</p>
+  <ul>
+    <li>Sanchez 2010 measures what is actually in Received: chains; Van Staden
+        2010 proposes what should be added.</li>
+    <li>Chen 2020 shows why authenticated Received: data cannot be trusted at the
+        parser-differential layer; Van Staden 2010's hash augmentation is orthogonal
+        (it defends the envelope against <i>honest but buggy</i> gaps, not against
+        intentional forgery).</li>
+    <li>Both are foundational for MailSecLab's H-series: H1 (FEMTA from FIMTA's
+        trust boundary) is the practical realization; Van Staden's augmentation
+        is the <i>future</i> integrity layer that would let us sign FEMTA provenance
+        at scale.</li>
+  </ul>
+
+  <h2 id="mailseclab">6. How MailSecLab uses this paper</h2>
+  <ul>
+    <li><b>H1 (Received trust boundary):</b> The current algorithm of
+        <code>parsers/h1_femta.py</code> uses <i>FIMTA stamp</i> only. The
+        proposed hash augmentation would let a server additionally stamp
+        <code>SHA-1(fimta_domain || dns-resolved-IP-at-arrival)</code> into each
+        Received: entry, so future MailSecLab runs can cross-check the
+        original DNS view of the receiver against today's DNS to detect
+        retroactively-tampered chains.</li>
+    <li><b>H3 (Received differential against composite message):</b>
+        Van Staden's gap-detection is the direct algorithmic ancestor of H3 —
+        the same <i>scan from last hop to first, compare receiving host of hop
+        n with sending host of hop n-1</i> recipe is used in
+        <code>parsers/h3_received_diff.py</code>.</li>
+    <li><b>Provenance tag in .eml archives:</b>
+        <code>parsers/fingerprint_chain.py</code> adds a
+        <code>X-MailSecLab-Provenance</code> header to every archived mail
+        containing the chain hash — this is the modern realization of
+        Van Staden's proposed augmentation, recorded as additional header
+        rather than extending the Received-token ABNF (which would break
+        interop).</li>
+    <li><b>Trust assignment:</b> The paper's SMTP-trust-network idea is the
+        conceptual ancestor of the H-series <i>trust score</i> in
+        <code>received-lab/results/H3/trust.json</code>: each hop is assigned
+        a confidence based on (a) implementing the augmentation, (b) stable
+        network identity, (c) historical FEMTA evidence.</li>
+    <li><b>Future work direction:</b> Van Staden's idea of using the <i>gap
+        list</i> to find chronic non-compliant MTAs maps directly to the
+        <code>parsers/gap_list_mining.py</code> notebook — repeated gaps at
+        the same provider IP can be used as a reputation signal even
+        without authentication.</li>
+  </ul>
+
+</main>
+<footer class="site">
+  Tutorial generated from the IEEE ISSA 2010 PDF at
+  /references/IEEE-2010-Adding digital forensic readiness.pdf ·
+  The augmented received-token rule and the 7-step gap detection
+  algorithm are preserved from §III and §IV of the paper.
+</footer>
+</body>
+</html>

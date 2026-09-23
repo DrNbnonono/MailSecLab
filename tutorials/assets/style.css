@@ -1,0 +1,188 @@
+/* MailSecLab — Tutorial Static Site */
+
+:root {
+  --fg: #1f2328;
+  --fg-muted: #57606a;
+  --bg: #ffffff;
+  --bg-soft: #f6f8fa;
+  --accent: #0969da;
+  --accent-soft: #ddf4ff;
+  --border: #d0d7de;
+  --border-muted: #e8eaed;
+  --warn: #bf3989;
+  --ok: #1f883d;
+  --code-bg: #f0f3f6;
+  --quote-bg: #f6f8fa;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --max-w: 920px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header.site {
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+}
+header.site a {
+  color: var(--fg);
+  font-weight: 600;
+}
+header.site nav {
+  display: inline-block;
+  margin-left: 16px;
+  font-size: 14px;
+  color: var(--fg-muted);
+}
+header.site nav a { color: var(--fg-muted); margin-right: 12px; }
+header.site nav a.active { color: var(--accent); }
+
+main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+h1 { font-size: 32px; border-bottom: 1px solid var(--border-muted); padding-bottom: 8px; }
+h2 { font-size: 24px; }
+h3 { font-size: 19px; }
+h4 { font-size: 16px; color: var(--fg-muted); }
+
+p, ul, ol, blockquote { margin: 0.6em 0; }
+
+ul li, ol li { margin: 0.2em 0; }
+
+blockquote {
+  border-left: 4px solid var(--accent);
+  background: var(--quote-bg);
+  padding: 12px 16px;
+  margin: 16px 0;
+  color: var(--fg-muted);
+  border-radius: 0 4px 4px 0;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border-muted);
+  border-radius: 6px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+pre code { padding: 0; background: transparent; }
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 6px 14px;
+  font-size: 14px;
+  margin: 18px 0 24px;
+  padding: 14px 16px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-muted);
+  border-radius: 6px;
+}
+.meta-grid dt { color: var(--fg-muted); font-weight: 600; }
+.meta-grid dd { margin: 0; }
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--accent-soft);
+  color: var(--accent);
+  margin-right: 4px;
+}
+.tag.warn { background: #ffe0ee; color: var(--warn); }
+.tag.ok { background: #dafbe1; color: var(--ok); }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  background: var(--bg);
+  transition: box-shadow 120ms ease, transform 120ms ease;
+}
+.card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.card h3 { margin-top: 0; font-size: 17px; }
+.card .meta { font-size: 13px; color: var(--fg-muted); margin-bottom: 8px; }
+.card p { margin: 0; font-size: 14px; color: var(--fg); }
+
+.toc {
+  border: 1px solid var(--border-muted);
+  background: var(--bg-soft);
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin: 18px 0 28px;
+}
+.toc h4 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--fg-muted); }
+.toc ul { margin: 0; padding-left: 20px; }
+.toc li { font-size: 14px; }
+
+footer.site {
+  border-top: 1px solid var(--border-muted);
+  margin-top: 60px;
+  padding: 20px 24px;
+  font-size: 13px;
+  color: var(--fg-muted);
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+table th, table td {
+  border: 1px solid var(--border-muted);
+  padding: 8px 12px;
+  text-align: left;
+}
+table th { background: var(--bg-soft); font-weight: 600; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 26px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .meta-grid { grid-template-columns: 90px 1fr; }
+}

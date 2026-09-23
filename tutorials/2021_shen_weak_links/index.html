@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Weak Links in Authentication Chains — Shen et al. 2021</title>
+<link rel="stylesheet" href="/tutorials/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <a href="/">MailSecLab</a>
+  <nav>
+    <a href="/2010_sanchez_sdp/">Sanchez 2010</a>
+    <a href="/2010_van_staden_forensic/">Van Staden 2010</a>
+    <a href="/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/2021_shen_weak_links/" class="active">Shen 2021</a>
+    <a href="/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/2025_luo_phishing/">Luo 2025</a>
+    <a href="/2025_wang_smtp_smuggling/">Wang 2025</a>
+    <a href="/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
+  </nav>
+</header>
+<main>
+  <h1>Weak Links in Authentication Chains:
+    A Large-scale Analysis of Email Sender Spoofing Attacks</h1>
+  <p class="card-meta">Shen, Wang, Guo, Zheng, Lu, Liu, Zhao, Hao, Duan, Pan, Yang · USENIX Security 2021 · Tsinghua / Qi An Xin / UT Dallas / Fudan / Coremail</p>
+
+  <dl class="meta-grid">
+    <dt>Authors</dt><dd>Kaiwen Shen, Chuhan Wang, Minglei Guo, Xiaofeng Zheng, Chaoyi Lu, Baojun Liu, Yuxuan Zhao, Shuang Hao, Haixin Duan, Qingfeng Pan, Min Yang.</dd>
+    <dt>Venue</dt><dd>30th USENIX Security Symposium, August 11–13 2021. Pages 3201–3217.</dd>
+    <dt>Source PDF</dt><dd><a href="/references/2021_Shen_Weak_Links_in_Authentication_Chains.pdf">/references/2021_Shen_Weak_Links_in_Authentication_Chains.pdf</a></dd>
+    <dt>URL</dt><dd><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/shen-kaiwen" target="_blank" rel="noopener">usenix.org/.../shen-kaiwen</a></dd>
+    <dt>MailSecLab series</dt><dd>Bible for the K-series (DKIM / ARC verifier differential) and F-series (header differential).</dd>
+  </dl>
+
+  <nav class="toc">
+    <h4>On this page</h4>
+    <ul>
+      <li><a href="#core">1. Core thesis — chain of weak links</a></li>
+      <li><a href="#pipeline">2. Where forgery can hide — 4 authentication stages</a></li>
+      <li><a href="#catalogue">3. Catalogue of 14 attacks (A1–A14)</a></li>
+      <li><a href="#scope">4. Scope — 30 services + 23 clients tested</a></li>
+      <li><a href="#cocktail">5. Cocktail attacks &amp; real impact</a></li>
+      <li><a href="#root">6. Root causes</a></li>
+      <li><a href="#mitigation">7. Mitigation &amp; disclosure</a></li>
+      <li><a href="#mailseclab">8. How MailSecLab uses this paper</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="core">1. Core thesis — chain of weak links</h2>
+  <blockquote>
+    The authenticity of an email depends on the weakest link in the authentication chain.
+    Even a harmless issue may cause unprecedented damages when it is integrated into a more
+    extensive system. (<a href="https://www.usenix.org/conference/usenixsecurity21/presentation/shen-kaiwen" target="_blank" rel="noopener">Shen et al., USENIX 2021, §1</a>)
+  </blockquote>
+  <p>The authors frame email "authenticity" as a chain distributed across <b>four roles</b>
+  and <b>multiple independent protocols</b>:</p>
+  <ul>
+    <li><b>Protocols</b>: SPF (RFC 7208), DKIM (RFC 6376), DMARC (RFC 7489),
+        plus the experimental ARC (RFC 8617).</li>
+    <li><b>Roles</b>: sender MUA, sender MTA, receiver MTA, forwarder MTA, receiver MUA
+        ("Email UI Rendering").</li>
+    <li><b>Failure modes</b>: weak links <b>among protocols</b> (their grammatical
+        edges leave ambiguity that different actors interpret differently), weak
+        links <b>among roles</b> (no contract says the forwarder must verify the sender),
+        and weak links <b>among services</b> (every provider wires the protocols with
+        different defaults).</li>
+  </ul>
+
+  <h2 id="pipeline">2. Where forgery can hide — 4 authentication stages</h2>
+  <table>
+    <thead><tr><th>Stage</th><th>Attack surface</th><th>Example paper attack</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. Email Sending Authentication</b></td><td>Composition of AUTH username, MAIL FROM, From, Sender at submit time</td><td>A1 (Auth ↔ MAIL FROM mismatch), A2 (MAIL FROM ↔ From mismatch)</td></tr>
+      <tr><td><b>2. Receiving Verification</b> (SPF / DKIM / DMARC)</td><td>Header parsing, DMARC alignment, MIME encoding</td><td>A3–A8 (see below)</td></tr>
+      <tr><td><b>3. Forwarding Verification</b></td><td>Open forwarding, signing DKIM on relayed mail, ARC trust</td><td>A9 (unauthorized forwarding), A10 (DKIM fraud), A11 (ARC errors)</td></tr>
+      <tr><td><b>4. Email UI Rendering</b></td><td>Display address parsing, IDN homograph, RTL override, encoding</td><td>A12–A14</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="catalogue">3. Catalogue of 14 attacks (A1–A14)</h2>
+  <h3>Sending-stage</h3>
+  <ul>
+    <li><b>A1 — Auth username ≠ MAIL FROM.</b> Self-hosted Zimbra / EwoMail allow
+        any combination; attacker can send as <code>alice@a.com</code> while the AUTH
+        login is <code>oscar@a.com</code>. Zoho, 139.com block it; the others did not at
+        measurement time.</li>
+    <li><b>A2 — MAIL FROM ≠ From.</b> Many webmail providers and 14 of 30 tested
+        services don't restrict this; the recipient MUA only shows <code>From</code> so no
+        warning fires.</li>
+  </ul>
+  <h3>Receiver-stage (parser / protocol gaps)</h3>
+  <ul>
+    <li><b>A3 — Empty MAIL FROM.</b> RFC 5321 allows an empty MAIL FROM (bounce-avoidance).
+        13 services (Yahoo, Yeah, 126, AOL …) treat this as SPF "<code>none</code>" instead of "<code>fail</code>"; the spoofed From then sails through DMARC.</li>
+    <li><b>A4 — Multiple <code>From</code> headers.</b> 19 services accept. The MUA displays
+        the first From; the MTA may use a different (attacker-controlled) From for DMARC
+        alignment → misalignment becomes alignment.</li>
+    <li><b>A5 — Multiple addresses in one From.</b> RFC 5322 allows it; 15 services accept
+        and 6 even show all of them.</li>
+    <li><b>A6 — Parsing-inconsistency attacks</b>:
+      <ul>
+        <li>Route portion <code>&lt;@a.com,@b.com:admin@c.com&gt;</code>.</li>
+        <li>Null mailbox-list <code>&lt;a@a.com&gt; ,&lt;b@b.com&gt;</code>.</li>
+        <li>Comment trickery <code>&lt;admin(username)@a.com(domain name)&gt;</code>.</li>
+        <li>Truncated parsers — NUL (<code>\x00</code>), invisible Unicode
+            (<code>＀–￿, \x81–\xff</code>), or semantic chars
+            (<code>[ ] { } , ; : \t \r \n</code>) cause the MTA to see a different
+            domain than the MUA renders.</li>
+      </ul>
+    </li>
+    <li><b>A7 — MIME-encoded address.</b> <code>From: =?utf-8?b?…?=</code> makes
+        DMARC extractor return "<code>none</code>" while the MUA shows the decoded address
+        <code>Alice@a.com</code>. 7 services impacted incl. Outlook and Office 365.</li>
+    <li><b>A8 — Subdomain attack.</b> <code>From: admin@mail.google.com</code> has no
+        SPF; the parent <code>google.com</code>'s strict policy doesn't help when
+        DMARC policy is checked at the subdomain. 13 services impacted.</li>
+  </ul>
+  <h3>Forwarder-stage</h3>
+  <ul>
+    <li><b>A9 — Open forwarding.</b> 12 services let an account forward to any
+        address with no recipient-side confirmation. Attackers register
+        <code>oscar@a.com</code>, configure forwarding to <code>bob@b.com</code>, and
+        bypass trust assumptions.</li>
+    <li><b>A10 — DKIM Signature Fraud.</b> Forwarder (a.com) naively re-signs every
+        forwarded message with <code>d=a.com</code>. An attacker that registers
+        <code>oscar@a.com</code>, configures forward to <code>oscar@c.com</code>,
+        sends a spoofed From=<code>Alice@a.com</code> → the From's DKIM is signed by
+        <code>a.com</code> → passes DMARC. Alibaba Cloud, Office 365, Yahoo confirmed
+        vulnerable.</li>
+    <li><b>A11 — ARC bugs.</b> Office 365 and Zoho produce or consume ARC
+        Authentication Results (AAR) incorrectly. Spoofed mail that Zoho auto-forwards
+        via Gmail shows a spurious <code>DMARC pass</code> in AAR, breaking the
+        ARC trust chain.</li>
+  </ul>
+  <h3>UI-rendering-stage</h3>
+  <ul>
+    <li><b>A12 — IDN homograph.</b> <code>paypal.com</code> vs.
+        <code>xn–aypal-uye.com</code> rendered identically when the address
+        bar applies no script detection. iCloud and Gmail render the latter
+        as "From: admin@paypal.com". 10 services affected.</li>
+    <li><b>A13 — Missing UI rendering.</b> Invisible characters
+        (<code>U+0000–U+001F</code>, <code>U+FF00–U+FFFF</code>) and semantic
+        characters (<code>@ : ; "</code>) silently truncate or remove parts of the
+        From header. 12 services affected incl. Zoho, 163, Sohu.</li>
+    <li><b>A14 — Right-to-left override.</b> <code>U+202E moc.a@‭alice</code>
+        displays as <code>Alice@a.com</code>. 11 services affected incl.
+        Outlook, Yahoo, Yandex.</li>
+  </ul>
+
+  <h2 id="scope">4. Scope — 30 services + 23 clients tested</h2>
+  <table>
+    <thead><tr><th>Bucket</th><th>Vendors</th><th>Coverage</th></tr></thead>
+    <tbody>
+      <tr><td>22 public email services</td><td>Gmail, Yahoo, Outlook, iCloud, QQ, 163, etc. (&gt; 1 B users cumulative)</td><td>All vulnerable to ≥ 1 attack</td></tr>
+      <tr><td>5 enterprise / regional</td><td>Office 365, Alibaba Cloud, Coremail, Exmail, etc.</td><td>All vulnerable to ≥ 1 attack</td></tr>
+      <tr><td>3 self-hosted</td><td>Zimbra, EwoMail, Roundcube</td><td>All vulnerable (Zimbra to A1+A2+A3+A5+A8+A9)</td></tr>
+      <tr><td>23 email clients</td><td>Foxmail, Outlook, Thunderbird, eM Client, Apple Mail, … (Win/macOS/Linux/Android/iOS)</td><td>Most lack sender-inconsistency checks</td></tr>
+    </tbody>
+  </table>
+  <p>Only <b>12 / 30</b> services perform Sender Inconsistency Checks (SIC) at the UI layer.
+  Many clients also lack SIC. All 30 vendors deployed SPF/DKIM/DMARC validation at the
+  receiving MTA, but most still allow at least one bypass.</p>
+
+  <h2 id="cocktail">5. Cocktail attacks &amp; real impact</h2>
+  <p>Single-stage attacks have a finite ceiling; combining two attacks at different
+  stages makes the spoofing email look entirely legitimate. The paper's two canonical
+  examples:</p>
+  <h3>Case 1 — Yahoo + iCloud + A2 + A4 (shared MTA model)</h3>
+  <ol>
+    <li>Attacker logs into Yahoo with their Yahoo account.</li>
+    <li>First <code>From: oscar@yahoo.com</code> passes Yahoo's same-domain check.</li>
+    <li>Second <code>From: admin@paypal.com</code> is appended; iCloud doesn't reject
+        multi-From.</li>
+    <li>iCloud uses <em>first</em> <code>From</code> for DMARC alignment (yahoo.com) and
+        displays <em>second</em> <code>From</code> (<code>admin@paypal.com</code>) to
+        the user.</li>
+    <li>Net effect: SPF=pass, DKIM=pass, DMARC=pass (yahoo alignment), UI shows
+        "From: admin@paypal.com", no SIC alert.</li>
+  </ol>
+
+  <h3>Case 2 — Alibaba + Gmail + A2+A3+A10 (direct + forward MTA)</h3>
+  <ol>
+    <li>Attacker sends via direct MTA a message with empty MAIL FROM and
+        From=<code>admin@aliyun.com</code> to their own Alibaba Cloud Mail account
+        (<code>oscar@aliyun.com</code>) → SPF fails (empty MAIL FROM), DKIM fails.</li>
+    <li>Alibaba Cloud accepts the message (no outbound FROM check) and forwards per
+        attacker's rule to <code>oscar@attack.com</code> — re-signs with
+        <code>d=aliyun.com</code>.</li>
+    <li>Attacker re-sends the spoofed email with
+        <code>MAIL FROM:admin@attack.com</code> directly to Gmail.</li>
+    <li>Gmail: SPF verifies attack.com (pass), DKIM verifies aliyun.com (pass), DMARC
+        alignment is satisfied because the original From=<code>admin@aliyun.com</code>
+        aligns with DKIM. No UI warning.</li>
+  </ol>
+
+  <p>The paper received positive responses from <b>11</b> vendors including
+  Gmail, Yahoo, iCloud, Alibaba Cloud, Coremail. Sina paid ≈ $90; Yandex paid $200;
+  Microsoft assigned severity "Important" and paid a bounty; Zoho shipped the
+  paper's UI notification scheme to production.</p>
+
+  <h2 id="root">6. Root causes</h2>
+  <ol>
+    <li><b>Weak links among multi-protocols</b>:
+        SPF/DKIM/DMARC each cover a subset; if any link fails the chain breaks.
+        Multiple <code>From</code> headers and MIME encoding exploit the
+        fact that no single specification author owns the cross-protocol grammar.</li>
+    <li><b>Weak links among multi-roles</b>: forwarders and UI renderers
+        have no standardized responsibility for verifying sender authenticity — they
+        inherit whatever the previous hop did.</li>
+    <li><b>Weak links among multi-services</b>: every provider wires SPF/DKIM/
+        ARC slightly differently, creating "trust but incompatible" interfaces.
+        Big providers tolerate bad mail to keep interop; small providers are
+        under-resourced to handle all RFC edge cases.</li>
+  </ol>
+
+  <h2 id="mitigation">7. Mitigation &amp; disclosure</h2>
+  <ul>
+    <li><b>More accurate RFC specifications</b> — e.g. DKIM should specify <i>when</i>
+        a forwarder is allowed to attach a new signature (never on mail that did not
+        verify at the upstream).</li>
+    <li><b>UI Notification scheme</b> — surface the inconsistency between AUTH
+        username, MAIL FROM, From, and DKIM <code>d=</code> in the MUA. Coremail
+        adopted the paper's recommended scheme; a Chrome extension
+        <a href="https://chrome.google.com/webstore/detail/nospoofing/ehidaopjcnapdglbbbjgeoagpophfjnp" target="_blank" rel="noopener">NoSpoofing</a>
+        implements it for Gmail.</li>
+    <li><b>Evaluation tool</b> — an open-source attacker-side fuzzer at
+        <a href="https://github.com/mo-xiaoxi/Email-SpoofingTestTool" target="_blank" rel="noopener">github.com/mo-xiaoxi/Email-SpoofingTestTool</a>
+        for self-audit.</li>
+    <li><b>Standardize the four roles</b>: especially forwarder responsibility and
+        minimum UI-side checks.</li>
+  </ul>
+
+  <h2 id="mailseclab">8. How MailSecLab uses this paper</h2>
+  <ul>
+    <li><b>K-series (DKIM verifier differential)</b>: A6 (parsing-inconsistency),
+        A7 (MIME-encoded), and A11 (ARC errors) are the standard paradigms we
+        stress-test across Postfix, Exim, OpenSMTPD, opendkim, perl-mail-dkim,
+        and rspamd. The paper's finding that "all 30 vendors are vulnerable to
+        ≥ 1 attack" sets our pass bar.</li>
+    <li><b>F-series (parser differential across mail utilities)</b>: A6 is the
+        reason F1 generates <code>\x00</code>, <code>￿</code>, and
+        <code>{\r,\n,\t}</code> probes — these are exactly the categories named
+        in §4.2.</li>
+    <li><b>I-series (synthetic trace &amp; forwarding experiments)</b>: A9 + A10 are
+        the minimum viable templates for "realistic spoofed mail that passes
+        DKIM+DMARC" — used as ground truth for I-series label quality.</li>
+    <li><b>H-series (Received trust boundary)</b>: A2 and A4 motivate why H2
+        must verify the <em>last</em> <code>Received:</code> hop (FIMTA) and never
+        trust <code>by-domain</code> values without corroborating
+        <code>from-address</code> from the next hop.</li>
+    <li><b>Disclosure harness</b>: MailSecLab runs an internal alert test using the
+        paper's "spoofing success = delivered to inbox + no SIC" definition,
+        exactly as the paper formalizes it in §3.4.</li>
+  </ul>
+
+</main>
+<footer class="site">
+  Tutorial generated from USENIX Security 2021 paper PDF at /references/2021_Shen_...pdf ·
+  Table 1 / Table 2 attack matrix preserved verbatim.
+</footer>
+</body>
+</html>

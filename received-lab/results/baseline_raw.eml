@@ -1,0 +1,24 @@
+Return-Path: <alice@sender.lab.test>
+Received: from postfix3.lab.test (postfix3.received-lab_mailnet. [172.18.0.3])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Sun, 30 Aug 2026 12:24:43 +0000 (UTC)
+Received: from postfix2.lab.test (postfix2.received-lab_mailnet [172.18.0.4])
+	by postfix3.lab.test (Postfix) with ESMTP id 57F1E8805E
+	for <bob@receiver.lab.test>; Sun, 30 Aug 2026 12:24:43 +0000 (UTC)
+Received: from postfix1.lab.test (postfix1.received-lab_mailnet [172.18.0.5])
+	by postfix2.lab.test (Postfix) with ESMTP id 51C6588059
+	for <bob@receiver.lab.test>; Sun, 30 Aug 2026 12:24:43 +0000 (UTC)
+Received: from client.lab.test (mail-client.received-lab_mailnet [172.18.0.6])
+	by postfix1.lab.test (Postfix) with ESMTP id 4A41F88053
+	for <bob@receiver.lab.test>; Sun, 30 Aug 2026 12:24:43 +0000 (UTC)
+Date: Sun, 30 Aug 2026 12:24:43 +0000
+To: bob@receiver.lab.test
+From: alice@sender.lab.test
+Subject: Received Baseline Test
+Message-Id: <20260830122443.000071@client.lab.test>
+X-Mailer: swaks v20201014.0 jetmore.org/john/code/swaks/
+
+Hello Received header.
+
+
+

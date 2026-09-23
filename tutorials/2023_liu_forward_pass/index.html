@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Forward Pass — Liu et al. 2023</title>
+<link rel="stylesheet" href="/tutorials/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <a href="/">MailSecLab</a>
+  <nav>
+    <a href="/2010_sanchez_sdp/">Sanchez 2010</a>
+    <a href="/2010_van_staden_forensic/">Van Staden 2010</a>
+    <a href="/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/2023_liu_forward_pass/" class="active">Liu 2023</a>
+    <a href="/2025_luo_phishing/">Luo 2025</a>
+    <a href="/2025_wang_smtp_smuggling/">Wang 2025</a>
+    <a href="/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
+  </nav>
+</header>
+<main>
+  <h1>Forward Pass: On the Security Implications of Email Forwarding Mechanism and Policy</h1>
+  <p class="card-meta">Enze Liu, Gautam Akiwate, Mattijs Jonker, Ariana Mirian, Grant Ho, Geoffrey M. Voelker, Stefan Savage · arXiv 2302.07287 · 19 Apr 2023</p>
+
+  <dl class="meta-grid">
+    <dt>Authors</dt><dd>UC San Diego (Liu, Mirian, Ho, Voelker, Savage), Stanford (Akiwate), University of Twente (Jonker).</dd>
+    <dt>Venue</dt><dd>arxiv preprint 2302.07287v2; later version accepted at IEEE EuroS&amp;P 2023.</dd>
+    <dt>Source PDF</dt><dd><a href="/references/2023_Liu_Forward_Pass_Email_Forwarding.pdf">/references/2023_Liu_Forward_Pass_Email_Forwarding.pdf</a></dd>
+    <dt>URL</dt><dd><a href="https://arxiv.org/abs/2302.07287" target="_blank" rel="noopener">arxiv.org/abs/2302.07287</a></dd>
+    <dt>MailSecLab series</dt><dd>Bible for the I-series (multi-hop forwarding / Received growth) and the L-series (K-based multi-hop ARC).</dd>
+  </dl>
+
+  <nav class="toc">
+    <h4>On this page</h4>
+    <ul>
+      <li><a href="#problem">1. Problem &amp; amplification chain</a></li>
+      <li><a href="#mechanisms">2. Four forwarding mechanisms</a></li>
+      <li><a href="#matrix">3. Provider × mechanism matrix</a></li>
+      <li><a href="#assumptions">4. Four broken security assumptions</a></li>
+      <li><a href="#features">5. Three vulnerable forwarding features</a></li>
+      <li><a href="#attacks">6. Four attacks &amp; scope</a></li>
+      <li><a href="#disclosure">7. Disclosure &amp; ethics</a></li>
+      <li><a href="#mailseclab">8. How MailSecLab uses this paper</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="problem">1. Problem &amp; amplification chain</h2>
+  <p>The paper argues that <b>forwarding</b> uniquely amplifies the SPF / DKIM / DMARC
+  protocol stack because it introduces a third party that <em>legitimately rewrites
+  envelopes</em> on behalf of the sender. Three structural reasons forwarding is hard
+  to secure:</p>
+  <ol>
+    <li><b>Three parties, not two.</b> The forwarder is between sender and receiver;
+        its behavior (mail it forwards vs. relays vs. discards) is opaque to both.</li>
+    <li><b>Forwarding's purpose is intrinsic opposition to anti-spoofing.</b> Forwarders
+        try to make a message appear as if it came directly from the original sender;
+        DMARC's alignment check actively punishes that.</li>
+    <li><b>No standard implementation.</b> Every provider rewrites MAIL FROM / From
+        differently; "good" implementations collide with DMARC's strict alignment, so
+        providers make pragmatic decisions the protocols do not anticipate.</li>
+  </ol>
+
+  <h2 id="mechanisms">2. Four forwarding mechanisms</h2>
+  <p>Two running examples: Alice auto-forwards from <code>alice@univ.edu</code> to
+  <code>alice@gmail.com</code>; Bob posts to a list <code>list@univ.edu</code> which
+  redistributes to <code>user@univ.edu</code>.</p>
+  <ol>
+    <li><b>PMF — Plain Message Forwarding.</b> Forwarder rewrites only <code>RCPT TO</code>;
+        <code>MAIL FROM</code> and <code>From</code> remain the sender's. Forwarder is
+        invisible to the MUA. <b>Breaks SPF</b>: sender's SPF allowlist rarely
+        permits the forwarder's IP.</li>
+    <li><b>MFEF — MAIL FROM Equals FROM.</b> Outlook/Freemail custom. Forwarder
+        copies <code>From</code> into <code>MAIL FROM</code> so both fields reference
+        the original sender. Still typically <b>breaks SPF</b>.</li>
+    <li><b>REM — Remailing (redistribution).</b> Forwarder rewrites both
+        <code>RCPT TO</code> and <code>MAIL FROM</code>; the new MAIL FROM lives on the
+        forwarder's domain (e.g. <code>alice-xyz@univ.edu</code>). <b>Passes SPF</b> but
+        breaks DMARC alignment (FROM is unchanged).</li>
+    <li><b>REM + MOD — Remailing with Modification.</b> Like REM but the
+        <code>From</code> is rewritten to the forwarder/list address (e.g.
+        <code>list@univ.edu</code>). <b>Passes SPF and DMARC</b> but the forwarder
+        becomes the displayed sender.</li>
+  </ol>
+
+  <h2 id="matrix">3. Provider × mechanism matrix</h2>
+  <p>From Table 1 (16 email providers + 4 mailing list services):</p>
+  <table>
+    <thead><tr><th>Mechanism</th><th>Providers</th></tr></thead>
+    <tbody>
+      <tr><td>PMF</td><td>Fastmail, Hushmail, iCloud, Mail.ru, Mail2World, Runbox, Yahoo (7)</td></tr>
+      <tr><td>MFEF</td><td>Outlook/Hotmail/O365, Freemail.hu (custom)</td></tr>
+      <tr><td>REM</td><td>GMX, Gmail, GoDaddy, Inbox.lv, Onet.pl, Pobox, Zoho (7) + Google Groups, Listserv, Mailman (3 mailing lists)</td></tr>
+      <tr><td>REM + MOD</td><td>Gaggle (1 mailing list service)</td></tr>
+    </tbody>
+  </table>
+  <p>Outlook's MFEF is unique in only changing <code>RCPT TO</code> &amp; setting
+  <code>MAIL FROM := From</code>; Freemail does the same.</p>
+
+  <h2 id="assumptions">4. Four broken security assumptions</h2>
+  <table>
+    <thead><tr><th>Assumption</th><th>Implementation aspect</th><th>Prevalence</th></tr></thead>
+    <tbody>
+      <tr><td>1. Domain will adopt DMARC policy</td><td>Real-world: many publish <code>p=none</code></td><td>2/3 of Alexa Top-1M use NONE</td></tr>
+      <tr><td>2. Each domain uses its own infrastructure</td><td>SPF records shared by third-party providers (Outlook, Google) for many customers</td><td>All 16 providers studied</td></tr>
+      <tr><td>3. Quarantining is sufficient</td><td>Outlook, Fastmail, GMX, Inbox.lv, Pobox quarantine spoofed mail instead of rejecting</td><td>5 / 16 providers</td></tr>
+      <tr><td>4. Per-user DMARC overrides are fate-sharing</td><td>Providers let users whitelist domains; the bad choice only affects that user</td><td>All providers in some form</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="features">5. Three vulnerable forwarding features</h2>
+  <ol>
+    <li><b>Open forwarding.</b> Users can redirect to any destination with no
+        recipient-side confirmation. 10 providers support this (incl. Outlook, Fastmail,
+        iCloud, Hushmail, GoDaddy, Mail2World, Onet, Pobox, Runbox, Freemail).</li>
+    <li><b>Relaxed validation for forwarded mail.</b> Gmail, Outlook, Mail.ru accept
+        forwarded mail even if SPF/DMARC fail, on the assumption that "a large
+        forwarder must be doing the right thing".</li>
+    <li><b>Unsolicited DKIM signatures for hosted domains.</b> Shen 2021 already
+        documented Yahoo/Office365/Alibaba; Liu 2023 finds three more — <b>iCloud,
+        Hushmail, Runbox</b> — that sign the From header using the spoofed
+        sender's domain (they manage that domain's DNS / DKIM keys). The signed
+        results then pass DMARC alignment.</li>
+  </ol>
+
+  <h2 id="attacks">6. Four attacks &amp; scope</h2>
+  <table>
+    <thead><tr><th>§</th><th>Attack</th><th>Forwarder</th><th>Receiver</th><th>Scope</th></tr></thead>
+    <tbody>
+      <tr><td>5.1</td><td><b>SPF Incorporation</b>: Outlook MFEF lets
+          <code>bush@state.gov</code> be spoofed to any recipient because
+          <code>state.gov</code>'s SPF record includes Outlook's spf.protection.outlook.com</td><td>Outlook, iCloud, Freemail, Hushmail, Mail2World, Runbox</td><td>Any recipient</td><td><b>~12 %</b> of Alexa Top-100K and <b>~8 %</b> of Top-1M are vulnerable, including <code>state.gov</code>, <code>doe.gov</code>, <code>whitehouse.gov</code> domains, <code>mastercard.com</code>, <code>washingtonpost.com</code> …</td></tr>
+      <tr><td>5.2</td><td><b>Relaxed-Validation Forwarding</b>: Outlook "trusted forwarder" exemption</td><td>Outlook → Gmail</td><td>Gmail, GSuite, O365</td><td>Any <code>DMARC p=none</code> domain; the relaxed Gmail UI-warning bug amplifies it</td></tr>
+      <tr><td>5.3</td><td><b>ARC vulnerability</b>: Zoho's ARC-AAR can be tricked by
+          Fastmail-added ARC headers, lets any domain pass DMARC at Zoho</td><td>Fastmail → Zoho</td><td>Zoho (≈ 10M users)</td><td>Any domain regardless of DMARC policy (although N/A for REJECT at Fastmail)</td></tr>
+      <tr><td>5.4</td><td><b>Mailing-list laundering</b>: Gaggle/Google-Groups/Listserv/Mailman
+          REM rewrites <code>MAIL FROM</code> to the list's domain, laundering
+          spoofed messages into legitimate-looking mail</td><td>Gaggle, Google Groups, Listserv, Mailman</td><td>Any</td><td>≈ <b>10 %</b> of <code>.edu</code> and ≈ <b>5 %</b> of <code>.gov</code> who use mailing lists</td></tr>
+    </tbody>
+  </table>
+  <p>The §5.1 attack specifically bypasses state-level certificate, payment, government,
+  and law-firm checks. The Federal-cabinet, security-agency, and state-government
+  domains that have outsourced mail to Outlook are listed in the paper (State, DHS, DOE,
+  ODNI, CISA, Secret Service, FEMA, NIH, CDC, Mass.gov etc.).</p>
+
+  <h2 id="disclosure">7. Disclosure &amp; ethics</h2>
+  <p>All attacks disclosed to affected providers. Outcomes:</p>
+  <ul>
+    <li><b>Zoho</b>: Patched ARC bug, awarded bug bounty.</li>
+    <li><b>Microsoft</b>: Confirmed (severity "Important"), bounty, <i>partial</i> fix
+        (only rejects REJECT-policy domains).</li>
+    <li><b>Gaggle</b>: Promised to start enforcing DMARC.</li>
+    <li><b>Gmail</b>: Fixed.</li>
+    <li><b>iCloud</b>: Partial fix (still forwards DMARC-NONE failures).</li>
+    <li><b>Hushmail</b>: Fixed (no longer forwards DMARC failures).</li>
+    <li><b>Freemail</b>: Fixed (no longer spoofs domains it hosts).</li>
+    <li><b>Mail2World</b>: Spam-filter work-around.</li>
+    <li><b>Runbox</b>: No fix (treats as account abuse, not vulnerability).</li>
+  </ul>
+  <p>Experiments were conducted only against accounts the authors controlled; spoofed
+  "real" domain tests were validated with innocuous content and only against internal
+  control addresses.</p>
+
+  <h2 id="mailseclab">8. How MailSecLab uses this paper</h2>
+  <ul>
+    <li><b>I-series (forwarding / Received growth):</b>
+        The four forwarding mechanisms (PMF/MFEF/REM/REM+MOD) are the four
+        semantic categories any synthetic hop-creation rule must respect. I1 (one
+        hop) is PMF-like; I2 (chain forgery) is MFEF-like; I3 (multi-REM rewrite)
+        is REM-like; Gaggle's flavor of I3 is the REM+MOD flavor.</li>
+    <li><b>L-series (multi-hop DKIM/ARC bearer):</b>
+        The §5.3 attack is exactly the K-series "ARC inspector"; L runs the
+        chain across Linux + Postfix + OpenDKIM and other combinations of the
+        13 Linux/parser modules in MailSecLab.</li>
+    <li><b>Open-forwarding whitelist</b>:
+        The 10 providers supporting open forwarding (Outlook, iCloud, etc.) are
+        the canonical targets for MailSecLab's I-series "ground-truth" experiments.</li>
+    <li><b>Domain taxonomy</b>: The <code>state.gov</code> and
+        <code>transunion.com</code> domains the paper lists as Attack-5.1-vulnerable
+        become seed examples for H3 source-attribution experiments.</li>
+  </ul>
+
+</main>
+<footer class="site">
+  Tutorial generated from arXiv 2302.07287v2 PDF at /references/2023_Liu_...pdf ·
+  Tables 1/2/3 preserved verbatim, with provider counts merged (Outlook + Hotmail + O365).
+</footer>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Understanding Forgery Properties of Spam Delivery Paths — Sanchez 2010</title>
+<link rel="stylesheet" href="/tutorials/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <a href="/">MailSecLab</a>
+  <nav>
+    <a href="/2010_sanchez_sdp/" class="active">Sanchez 2010</a>
+    <a href="/2010_van_staden_forensic/">Van Staden 2010</a>
+    <a href="/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/2025_luo_phishing/">Luo 2025</a>
+    <a href="/2025_wang_smtp_smuggling/">Wang 2025</a>
+    <a href="/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
+  </nav>
+</header>
+<main>
+  <h1>Understanding Forgery Properties of Spam Delivery Paths</h1>
+  <p class="card-meta">Sanchez, Duan, Dong · CEAS 2010 · Redmond, WA, July 13–14 2010</p>
+
+  <dl class="meta-grid">
+    <dt>Authors</dt><dd>Fernando Sanchez (FSU), Zhenhai Duan (FSU), Yingfei Dong (UH Manoa)</dd>
+    <dt>Venue</dt><dd>7th annual Collaboration, Electronic messaging, Anti-Abuse and Spam Conference (CEAS 2010)</dd>
+    <dt>Pages</dt><dd>10 (CEAS short paper, single-column ACM style)</dd>
+    <dt>Source PDF</dt><dd><a href="/references/CEAS-2010-sdp.pdf">/references/CEAS-2010-sdp.pdf</a></dd>
+    <dt>Original URL</dt><dd><a href="https://www.cs.fsu.edu/~duan/publications/2010_ceas_sdp.pdf" target="_blank" rel="noopener">cs.fsu.edu/~duan/publications/2010_ceas_sdp.pdf</a></dd>
+    <dt>MailSecLab series</dt><dd>Foundational reference for H-series (Received authenticity) and I2 (self-consistent forged Received chains).</dd>
+  </dl>
+
+  <nav class="toc">
+    <h4>On this page</h4>
+    <ul>
+      <li><a href="#abstract">1. Problem &amp; abstract</a></li>
+      <li><a href="#background">2. Background: header fields &amp; FEMTA</a></li>
+      <li><a href="#data">3. Two data sets</a></li>
+      <li><a href="#method">4. Method — Algorithms 1 &amp; 2, NLC paths</a></li>
+      <li><a href="#findings">5. Findings on spam delivery paths</a></li>
+      <li><a href="#mx">6. Findings on MX records</a></li>
+      <li><a href="#implications">7. Implications on authentication &amp; filtering</a></li>
+      <li><a href="#limits">8. Limitations &amp; future work</a></li>
+      <li><a href="#mailseclab">9. How MailSecLab uses this paper</a></li>
+      <li><a href="#cite">10. BibTeX</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="abstract">1. Problem &amp; abstract</h2>
+  <p>The paper sets out a sharp empirical question that was unanswered in 2010: <em>to what
+  degree can and do spammers forge the <code>Received:</code> trace information of spam
+  emails?</em></p>
+  <blockquote>
+    Spammers have immense power and flexibility in forging email headers to mislead
+    recipients and hide the true origin. Despite its critical importance for spam control
+    and holding accountable the true originators of spam, there has been no systematic
+    study on the forgery behavior of spammers. (<a href="https://www.cs.fsu.edu/~duan/publications/2010_ceas_sdp.pdf" target="_blank" rel="noopener">Sanchez et al., CEAS 2010, §1</a>)
+  </blockquote>
+  <p>The paper's contribution is twofold:</p>
+  <ol>
+    <li>Empirical measurement on a 3-year spam archive (≈ <b>1.84 M</b> spam messages,
+    2007–2009) plus the <b>MX records of ≈ 1.2 M</b> network domains collected from FSU's
+    inbound traffic.</li>
+    <li>A reproducible algorithm for identifying the <b>first external MTA (FEMTA)</b> of
+    an email — the only node whose trace data can be <em>trusted</em>, since it is
+    inserted by the receiving domain.</li>
+  </ol>
+
+  <h2 id="background">2. Background: header fields &amp; FEMTA</h2>
+  <p>RFC 5322 only <em>requires</em> <code>Date:</code> and <code>From:</code>; <em>any</em>
+  other header field can be freely faked by a sender. The two fields that cannot be
+  trivially faked (because the receiving server inserts them) are:</p>
+  <ul>
+    <li><b><code>Return-Path:</code></b> — the SMTP <code>MAIL FROM</code> envelope address
+    (added by the last MTA).</li>
+    <li><b><code>Received:</code></b> — prepended by every MTA that handles the message.
+    The clause <b><code>from</code></b> is filled from the TCP peer (and thus the
+    <code>from-address</code> is trustworthy if the receiver is legitimate); the
+    <b><code>from-from</code></b> hostname comes from the SMTP <code>EHLO</code> command
+    and <em>can be faked</em>. The <b><code>by-domain</code></b> identifies the current
+    MTA and is generally trustworthy.</li>
+  </ul>
+  <p>The authors define the <b>delivery path</b> <code>m₀ → m₁ → … → m_k</code> and
+  introduce two well-grounded, reusable definitions that all later MailSecLab experiments
+  reuse:</p>
+  <ul>
+    <li><b>FEMTA</b> — the first node that does not belong to the recipient's network
+    domain. Only the <code>from-address</code> inserted by the next (FIMTA) can be
+    trusted.</li>
+    <li><b>FIMTA</b> — the first internal MTA on the recipient side; its trace is the
+    trust boundary for spam attribution.</li>
+  </ul>
+
+  <h2 id="data">3. Two data sets</h2>
+  <table>
+    <thead><tr><th>Set</th><th>Period</th><th>Size</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Spam archive (Guenter, <code>untroubled.org/spam</code>)</td>
+        <td>2007–2009</td>
+        <td>1,842,311 messages</td>
+        <td>90.5% carry a <code>Delivered-To:</code> field, used to recover the recipient
+        bait domain. Per-year: 316,746 / 722,579 / 802,986.</td>
+      </tr>
+      <tr>
+        <td>MX dataset (FSU mail gateway trace)</td>
+        <td>10/01 – 10/15, 2008</td>
+        <td>1,224,819 domains (1.8 M &rarr; deduped by MX resolution)</td>
+        <td>53 M messages seen at FSU, 88.7% spam; covers 247 unique TLDs (19 gTLDs
+        except <code>.tel</code> + 228 ccTLDs).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="method">4. Method — Algorithms 1 &amp; 2, NLC paths</h2>
+
+  <h3>Algorithm 1 — Identifying the FEMTA</h3>
+  <ol>
+    <li>Extract every <code>Received:</code> field <code>hr_i</code>.</li>
+    <li>Derive the recipient domain <code>d</code> from <code>Delivered-To:</code>; if
+    absent, fall back to the <code>by-domain</code> of the last <code>Received:</code>.
+    (Never use the spoofable <code>To:</code>.)</li>
+    <li>Resolve <code>MX(d)</code> to a set <code>mx</code> of in-domain mail
+    servers.</li>
+    <li>Walk <code>Received:</code> fields from <code>hr_k</code> backward to the first
+    <code>hr_i</code> whose <code>by-domain</code> is in <code>mx</code> — this is the
+    FIMTA.</li>
+    <li>Continuing backward, stop at the first <code>hr_j</code> whose
+    <code>from-address</code> is <em>not</em> in <code>mx</code> — that
+    <code>from-address</code> is the FEMTA.</li>
+  </ol>
+  <p>This correctness of this algorithm is anchored in handling the third-party MX
+  case: e.g., the bait domain <code>untroubled.org</code> is served by
+  <code>mx.futurequest.net</code>, so the naïve heuristic of "first node whose
+  <code>from-domain ≠ recipient-domain</code>" would mis-identify the FEMTA.</p>
+
+  <h3>Algorithm 2 — Determining the registered domain of a host name</h3>
+  <p>Used when clustering mail servers by domain in the MX dataset:</p>
+  <ul>
+    <li>If the TLD length &gt; 2 (e.g., <code>.edu</code>), the registered domain is the
+    last two labels.</li>
+    <li>If TLD length = 2 (e.g., <code>.cn</code>) and the SLD matches
+    <code>ac|co|gv|or|tm|com|edu|gov|nom|org|asso|gouv|info|priv|sport</code>, the
+    registered domain is the last three labels; otherwise two.</li>
+    <li>Exception: hosts under <code>dyndns.biz</code> always take three labels.</li>
+  </ul>
+  <p>The heuristic is intentionally <em>conservative</em>: it may split a single
+  organization into multiple clusters, but it never merges two unrelated organizations.
+  MailSecLab uses the same conservative bias when collapsing alternates like
+  <code>.com.cn</code> ↔ <code>.cn</code>.</p>
+
+  <h3>Network-Level Consistent (NLC) paths</h3>
+  <p>For a path <code>m₀ … m_k</code> with <code>fi = from-domain of hr_i</code> and
+  <code>bi = by-domain of hr_i</code>, the <code>i</code>-th hop is NLC if
+  <code>fi</code> and <code>b_{i-1}</code> share a <code>/16</code> (or, where IP is not
+  resolvable, the same registered domain). The NLC path is the maximal prefix where
+  every adjacent hop is NLC; the first non-NLC hop is treated as the spammer's
+  insertion.</p>
+
+  <h2 id="findings">5. Findings on spam delivery paths</h2>
+  <h3>5.1 Length — short and shrinking</h3>
+  <table>
+    <thead><tr><th>Year</th><th># messages</th><th>Avg raw-path length (m₀ → FIMTA)</th><th>% with length ≤ 2 (no insertion)</th><th>% with NLC length ≤ 2</th></tr></thead>
+    <tbody>
+      <tr><td>2007</td><td>316,746</td><td>2.57</td><td>≈ 45 %</td><td>≈ 91 %</td></tr>
+      <tr><td>2008</td><td>722,579</td><td>2.34</td><td>≈ 68 %</td><td>≈ 97.1 %</td></tr>
+      <tr><td>2009</td><td>802,986</td><td>2.34</td><td>≈ 66 %</td><td>≈ 96.7 %</td></tr>
+    </tbody>
+  </table>
+  <p>The headline interpretation: botnets and direct-from-MUA sending became the dominant
+  pattern, so most spam arrives at the FIMTA with only one upstream hop. Spammers appear
+  to have largely abandoned elaborate Received-header forgery, and the simple
+  <b>NLC test</b> exposes most of the remaining forgeries (jumps to the wrong
+  <code>/16</code>, swapped <code>from-domain</code> ↔ <code>by-domain</code>).</p>
+
+  <h3>5.2 Network-level distribution</h3>
+  <p>Plotting spam volume and distinct FEMTA IP counts per <code>/16</code> prefix shows
+  three concentrated address-space clusters; their locations are consistent across years
+  and consistent with prior work (<a href="https://www.cs.fsu.edu/~duan/publications/2007_icc.pdf" target="_blank" rel="noopener">Duan et al., ICC 2007</a>), which cross-validates the
+  representativeness of the spam archive.</p>
+
+  <h2 id="mx">6. Findings on MX records</h2>
+  <ul>
+    <li><b>57 %</b> of the 1.2 M domains have exactly <b>one</b> mail server in their MX
+    record (no backup relay at all).</li>
+    <li><b>90 %</b> of domains have all their MX targets in <b>one</b> mail-server
+    cluster (single registered domain); 99 % have ≤ 2 clusters. Multiple MX records in
+    the same domain are normally load-balancing, not relay chains.</li>
+    <li>The largest outlier is <code>zartana.com</code> with 94 mail servers; the
+    largest cluster count is 7 (one MX record per cluster).</li>
+    <li>Top mail-server local-name prefixes in the MX dataset (966,397 hostnames): <code>mail</code> 34.2 %, <code>mail2</code> 2.4 %, <code>mx</code> 2.1 %, <code>smtp</code>
+    1.8 %, <code>mx1</code> 1.5 %.</li>
+  </ul>
+  <p>For FEMTAs in the spam archive the naming distribution is strikingly different
+  (183,296 hostnames): the top three are IP-as-hostname patterns
+  (<code>a-b-c-d</code> 16.8 %, <code>xyz-a-b-c-d</code> 13.7 %, <code>a.b.c.d</code>
+  11.1 %) — i.e. <b>≈ 41.5 %</b> of FEMTAs are residential/dial-up machines identifiable
+  by their hostname shape, and <b>≈ 45.5 %</b> have no reverse DNS at all.</p>
+
+  <h2 id="implications">7. Implications on authentication &amp; filtering</h2>
+  <h3>7.1 Email sender authentication</h3>
+  <ul>
+    <li>Because typical mail traverses only two domains, the <em>trust boundary</em> is
+    usually recoverable from FEMTA + FIMTA alone — <code>DKIM</code>/signing schemes are
+    valuable when path length matters, but <b>mail-server-level (MSLA) schemes like
+    SPF</b> capture most of the residual risk, because botnet machines cannot easily
+    impersonate a legitimate mail server IP.</li>
+    <li>If mailing lists and <code>.forward</code>-like relays were to verify the
+    sender domain before accepting a message, that already closes most attribution
+    gaps on the two-domain path.</li>
+  </ul>
+  <h3>7.2 Spam filtering</h3>
+  <ul>
+    <li>Reverse-DNS lookup of FEMTAs at TCP-accept time, combined with a community
+    convention that <em>real</em> mail servers use <code>mail.*</code>/<code>mx.*</code>
+    hostnames, can drop a large fraction of botnet traffic without global DNSBL
+    probing.</li>
+    <li>Trace-record length itself becomes a feature: very short paths with mismatched
+    <code>by-domain</code>/<code>from-domain</code> are a strong signal of botnet
+    sending.</li>
+    <li>Open relays still occur but are increasingly hostile to spammers — useful
+    mostly for hiding topology, not for delivery volume.</li>
+  </ul>
+
+  <h2 id="limits">8. Limitations &amp; future work</h2>
+  <ul>
+    <li>Spam corpus is from a single vantage point (10 bait domains); the
+    representativeness has only been cross-validated against one other study.</li>
+    <li>Only spam is examined — no path-length comparison to legitimate mail.</li>
+    <li>Forgery detection is conservative by design (deliberately biased toward
+    <em>under</em>-counting forged nodes), so reported forgery rates are lower
+    bounds.</li>
+    <li>Algorithm 1 is heuristic; it fails when the receiving domain hides all MX
+    behind a CDN with no published record.</li>
+  </ul>
+
+  <h2 id="mailseclab">9. How MailSecLab uses this paper</h2>
+  <ul>
+    <li><b>H-series (Received authenticity).</b> Sanchez 2010 is the conceptual parent
+    of H1/H2/H3 — accepting that botnets dominate the upstream of every modern spam
+    trace and that the relevant trust boundary is FEMTA &rarr; FIMTA. Our H/I
+    generator uses Algorithm 1 verbatim as the FEMTA oracle.</li>
+    <li><b>I2 (self-consistent forged Received chain).</b> Sanity floor for a "good
+    forgery": NLC + FEMTA-shaped upstream + <code>mail/mx/smtp</code> hostname. If
+    the synthetic chain fails any of those, the chain is exposed as fake by the same
+    filter that exposes real botnet spam in 2010.</li>
+    <li><b>FEMTA heuristics as label source.</b> When we label real spam corpora for
+    DKIM / Received experiments, Algorithm 1 is the FEMTA extractor; we add a
+    conservative check that the FEMTA IP belongs to the same <code>/16</code> as the
+    claimed <code>from-address</code> for the same reasons the paper uses <code>/16</code>
+    NLC.</li>
+    <li><b>Naming baseline.</b> The 966,397-host MX hostname distribution (top local
+    names) is the reference distribution we compare new MX-clusters against when
+    studying forwarding chains (Liu 2023) and phishing infrastructure (Luo 2025).</li>
+  </ul>
+
+  <h2 id="cite">10. BibTeX</h2>
+<pre><code>@inproceedings{sanchez2010forgery,
+  title     = {Understanding Forgery Properties of Spam Delivery Paths},
+  author    = {Sanchez, Fernando and Duan, Zhenhai and Dong, Yingfei},
+  booktitle = {Proceedings of the 7th Annual Collaboration, Electronic
+               Messaging, Anti-Abuse and Spam Conference (CEAS 2010)},
+  year      = {2010},
+  address   = {Redmond, WA, USA},
+  month     = jul
+}</code></pre>
+
+</main>
+<footer class="site">
+  Tutorial generated from the original paper PDF at /references/CEAS-2010-sdp.pdf ·
+  Cross-checked against MailSecLab README references table.
+</footer>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Email Smuggling with Differential Fuzzing of MIME Parsers — Andarzian et al. 2025</title>
+<link rel="stylesheet" href="/tutorials/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <a href="/">MailSecLab</a>
+  <nav>
+    <a href="/2010_sanchez_sdp/">Sanchez 2010</a>
+    <a href="/2010_van_staden_forensic/">Van Staden 2010</a>
+    <a href="/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/2025_luo_phishing/">Luo 2025</a>
+    <a href="/2025_wang_smtp_smuggling/">Wang 2025</a>
+    <a href="/2025_andarzian_mime_fuzz/" class="active">Andarzian 2025</a>
+  </nav>
+</header>
+<main>
+  <h1>Email Smuggling with Differential Fuzzing of MIME Parsers</h1>
+  <p class="card-meta">Seyed Behnam Andarzian, Martin Meyers, Erik Poll · Radboud University · IEEE Security &amp; Privacy Workshops 2025 (SPW '25) · DOI 10.1109/SPW67851.2025.00007</p>
+
+  <dl class="meta-grid">
+    <dt>Authors</dt><dd>ICIS, Radboud University, Nijmegen, Netherlands.</dd>
+    <dt>Venue</dt><dd>2025 IEEE Security and Privacy Workshops (SPW) · cs.ru.nl / erikpoll / papers / mime2025.pdf</dd>
+    <dt>Source PDF</dt><dd><a href="/references/2025_Andarzian_Email_Smuggling_Differential_Fuzzing.pdf">/references/2025_Andarzian_Email_Smuggling_Differential_Fuzzing.pdf</a></dd>
+    <dt>MailSecLab series</dt><dd>Foundation for F-series (parser differential). Directly drives the differential matrix between Postfix, ClamAV, SpamAssassin, and Evolution.</dd>
+  </dl>
+
+  <nav class="toc">
+    <h4>On this page</h4>
+    <ul>
+      <li><a href="#idea">1. Threat model &amp; idea</a></li>
+      <li><a href="#fuzz">2. Fuzzer setup (AFL++ + T-Reqs)</a></li>
+      <li><a href="#results">3. Results — 448 + 349 differentials</a></li>
+      <li><a href="#root">4. 15 root causes (D1–D15)</a></li>
+      <li><a href="#expl">5. Exploitable differentials (D3, D4, D11)</a></li>
+      <li><a href="#mailseclab">6. How MailSecLab uses this paper</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="idea">1. Threat model &amp; idea</h2>
+  <p>An email is parsed <b>at least three times</b>: by the receiving MTA, by the
+  spam/virus filter(s), and by the mail client. Any differential in interpretation
+  creates a window for <b>smuggling</b>: the filter sees one thing, the client sees
+  another, and the malicious payload slips through.</p>
+  <blockquote>
+    Differentials in how systems parse data (a.k.a. parser differentials) occur when
+    different systems (such as virus filters, spam filters, or mail clients) interpret the
+    same email message differently. These differentials can create security gaps that
+    allow malicious content to slip through undetected by one component but processed
+    by another. (<a href="https://www.cs.ru.nl/~erikpoll/papers/mime2025.pdf" target="_blank" rel="noopener">Andarzian et al., 2025, §I</a>)
+  </blockquote>
+  <p>Previous work (Chen 2020, Longin/SEC Consult, Müller, Poddebniak) all relied on
+  <b>manual</b> analysis. This paper is the first to apply
+  <b>differential fuzzing</b> to MIME parsers at scale, combining:</p>
+  <ul>
+    <li><b>AFL++</b> — coverage-guided <i>grey-box</i> fuzzer (instrumented C targets).</li>
+    <li><b>T-Reqs</b> — grammar-based <i>black-box</i> fuzzer; better at semantic
+        header confusion.</li>
+  </ul>
+
+  <h2 id="fuzz">2. Fuzzer setup (AFL++ + T-Reqs)</h2>
+  <h3>Targets</h3>
+  <table>
+    <thead><tr><th>Project</th><th>Version</th><th>Language</th><th>Function</th></tr></thead>
+    <tbody>
+      <tr><td>Postfix</td><td>3.8.2</td><td>C</td><td>Mail server</td></tr>
+      <tr><td>SpamAssassin</td><td>4.0.0</td><td>Perl</td><td>Spam filter</td></tr>
+      <tr><td>ClamAV</td><td>1.2.0</td><td>C</td><td>Virus filter</td></tr>
+      <tr><td>Evolution</td><td>3.50.0</td><td>C</td><td>Mail client (reference)</td></tr>
+    </tbody>
+  </table>
+  <p>All four are already enrolled in OSS-Fuzz — the paper finds that even
+  OSS-Fuzz's harnesses are inadequate.</p>
+
+  <h3>Pipeline</h3>
+  <ol>
+    <li>Generate / mutate MIME messages.</li>
+    <li>Feed identical input to all four targets.</li>
+    <li>Capture each target's parsed output (ASCII rendering of the MIME tree).</li>
+    <li>Diff Evolution's output (the user-visible result) against each filter's output.
+        If they disagree, mark as a parser differential.</li>
+    <li>Corpus-minimise using AFL++'s <code>afl-cmin</code> to keep only the uniquely-differing
+        test cases.</li>
+  </ol>
+
+  <h3>Findings per fuzzer</h3>
+  <ul>
+    <li><b>AFL++:</b> 448 unique test cases (Crash-free differentials). Many bias toward
+        ClamAV + Postfix because both are instrumented; SpamAssassin (Perl) is opaque.</li>
+    <li><b>T-Reqs:</b> 349 unique test cases after minimisation. Far better balance across
+        SpamAssassin, ClamAV, and Postfix.</li>
+    <li><b>Both:</b> many memory-corruption bugs in Postfix, ClamAV, Evolution —
+        OSS-Fuzz <i>should</i> have caught these, but did not.</li>
+  </ul>
+
+  <h2 id="results">3. Results — 448 + 349 differentials</h2>
+  <p>Even when only looking at output equality (ignoring crashes), there are <b>hundreds</b>
+  of distinct MIME inputs that filter and client disagree on. The paper then manually
+  reduced this to <b>15 root causes</b>.</p>
+
+  <h2 id="root">4. 15 root causes (D1–D15)</h2>
+  <table>
+    <thead><tr><th>ID</th><th>Category</th><th>What</th><th>Affected parsers</th></tr></thead>
+    <tbody>
+      <tr><td colspan="4"><b>(a) Malformed / multiple header handling</b></td></tr>
+      <tr><td>D2</td><td>Malformed header</td><td>Invalid IMF header → Postfix treats as body, others ignore.</td><td>Postfix</td></tr>
+      <tr><td>D3</td><td>Two Content-Transfer-Encoding headers</td><td>Evolution uses 1st, SpamAssassin uses 2nd, ClamAV always base64, Postfix never decodes.</td><td>SpamAssassin / ClamAV / Thunderbird</td></tr>
+      <tr><td>D4</td><td>Two Content-Type headers</td><td>Evolution uses 1st, ClamAV / SpamAssassin use 2nd.</td><td>ClamAV / SpamAssassin / Thunderbird</td></tr>
+      <tr><td>D6</td><td>Missing <code>\r</code> before body</td><td>SpamAssassin fails to parse body.</td><td>SpamAssassin</td></tr>
+      <tr><td>D7</td><td>Header line starting with <code>\r</code></td><td>ClamAV &amp; Postfix treat as body-start; Evolution does not.</td><td>ClamAV / Postfix / Thunderbird</td></tr>
+      <tr><td>D8</td><td>Header like a boundary</td><td>SpamAssassin treats multiple-dash lines as body.</td><td>SpamAssassin / Postfix</td></tr>
+      <tr><td>D10</td><td>Ignore empty line after invalid header</td><td>ClamAV treats next line as another header.</td><td>ClamAV</td></tr>
+      <tr><td>D11</td><td>Extra colon in Content-Transfer-Encoding</td><td>SpamAssassin rejects header, Evolution still decodes.</td><td>SpamAssassin (Evolution only)</td></tr>
+      <tr><td>D12</td><td>Extra colon before MIME boundary</td><td>Evolution abandons the boundary; ClamAV / SpamAssassin still use it.</td><td>SpamAssassin / ClamAV / Postfix / Thunderbird</td></tr>
+      <tr><td>D14</td><td>Additional quote in multipart header</td><td>SpamAssassin ignores quote and parses; ClamAV rejects.</td><td>SpamAssassin / ClamAV / Thunderbird</td></tr>
+      <tr><td>D15</td><td>Heavily corrupted headers/boundary</td><td>Each parser "repairs" differently — Postfix dumps to body, Evolution injects defaults.</td><td>All</td></tr>
+      <tr><td colspan="4"><b>(b) Divergent decoding strategies</b></td></tr>
+      <tr><td>D1</td><td>Postfix never does base64</td><td>Anything CTE:base64 looks different in Postfix.</td><td>Postfix</td></tr>
+      <tr><td>D5</td><td>Per-line vs whole-body base64 decoding</td><td>Evolution parses line-by-line, SpamAssassin only decodes the first line, ClamAV decodes whole body.</td><td>All base64 decoders</td></tr>
+      <tr><td>D9</td><td>Fallback to Quoted-Printable</td><td>ClamAV uses QP decoding whenever stated CTE is invalid but the data contains <code>=</code>.</td><td>ClamAV</td></tr>
+      <tr><td>D13</td><td>"Close-enough" base64</td><td>ClamAV will decode as base64 if the CTE looks like <code>bas64</code>, <code>base6</code>, etc.</td><td>ClamAV</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="expl">5. Exploitable differentials (D3, D4, D11)</h2>
+  <p>Of the 15 root causes, three are <b>exploitable</b> in the test setup
+  (Postfix + SpamAssassin + ClamAV → Evolution / Thunderbird):</p>
+  <table>
+    <thead><tr><th>Differential</th><th>Smuggling target</th><th>Recipe</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>D3</b></td>
+        <td><b>SpamAssassin</b> (bypasses for Evolution &amp; Thunderbird)</td>
+        <td>Send <code>Content-Transfer-Encoding: base64</code> first, then
+            <code>Content-Transfer-Encoding: 7bit</code>; put the GTUBE spam-test value
+            in the body. SpamAssassin reads the second header (7bit, raw text), so it
+            doesn't decode GTUBE — but Evolution/Thunderbird read the first
+            (base64, decoded) and display the spam payload.</td>
+      </tr>
+      <tr>
+        <td><b>D4</b></td>
+        <td><b>SpamAssassin</b> (bypasses for Evolution &amp; Thunderbird)</td>
+        <td>Two Content-Type headers: first <code>text/plain</code>, then
+            <code>multipart/alternative</code>; put GTUBE inside a multipart
+            preamble. SpamAssassin uses <code>text/plain</code> and sees nothing
+            spammy; the multipart-aware clients use the second header and render the
+            preamble (which contains GTUBE).</td>
+      </tr>
+      <tr>
+        <td><b>D11</b></td>
+        <td><b>SpamAssassin</b> (bypasses <i>only</i> for Evolution)</td>
+        <td>Send <code>Content-Transfer-Encoding:: base64</code> (extra colon).
+            SpamAssassin rejects the entire header so it doesn't decode the body.
+            Evolution is more lenient and still base64-decodes, showing the GTUBE
+            payload. Thunderbird also rejects the header, so the bug is Evolution-specific.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>None of the D1–D15 differentials could be used to <b>smuggle past ClamAV</b> in
+  the tested setup — ClamAV's "decode anyway" behaviour ends up making it the most
+  defensive of the four. But the paper notes that test value limitations (EICAR must not
+  have extra data at the start) leave three D's (D5, D7, D9) marked "Unknown".</p>
+
+  <h2 id="mailseclab">6. How MailSecLab uses this paper</h2>
+  <ul>
+    <li><b>F-series (parser differential matrix):</b> D1–D15 is the canonical
+        differential matrix between Postfix, OpenDKIM, rspamd, ClamAV-style filters,
+        and mailsec's reference client. We extend D1–D15 with M-series findings
+        (parser-friendly SMIME, DKIM canonicalization) when running F2 across the
+        13 mail utilities installed in <code>received-lab/tools</code>.</li>
+    <li><b>AFL++ + corpus minimisation pipeline:</b> Adopted as the <b>standard
+        harness</b> in <code>parsers/</code>. The harvested <code>differentials/*.eml</code>
+        corpus is the seed corpus for every new parser we add.</li>
+    <li><b>D7 / D11 / D12 / D14 (Evolution↔Thunderbird client mismatches)</b>:
+        Define <b>F3 (mail client rendering mismatch)</b>. When comparing
+        <code>parsers/python-eml-parser</code> output against <code>parsers/perl-mail-dkim</code>,
+        every finding is now classified by which D# it matches.</li>
+    <li><b>Memory-corruption bugs in OSS-Fuzz-enrolled targets</b>:
+        This paper's findings imply OSS-Fuzz harnesses for ClamAV/Postfix/Evolution
+        are weak. MailSecLab reports new fuzz harnesses (see <code>parsers/fuzz_harness/</code>)
+        that cover <i>IMF</i> parsing, not just MIME — extending the paper's scope.</li>
+    <li><b>Defense implication for L2 (DKIM canonicalization differential):</b>
+        D5 (per-line vs whole-body base64) and D1 (Postfix never base64)
+        are exactly what K2 (DKIM verifier differential) probes measure.</li>
+    <li><b>Future work the paper explicitly identifies</b>: IMF and SMTP
+        parser differentials, S/MIME differential fuzzing. MailSecLab's planned
+        F4 (IMF) and F5 (SMTP DATA command shape) directly continue this line.</li>
+  </ul>
+
+</main>
+<footer class="site">
+  Tutorial generated from the SPW 2025 camera-ready PDF at
+  /references/2025_Andarzian_...pdf · D1–D15 reproduced from Tables II and III.
+</footer>
+</body>
+</html>

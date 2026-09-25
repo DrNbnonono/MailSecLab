@@ -4,19 +4,21 @@
 <meta charset="utf-8">
 <title>Email Smuggling with Differential Fuzzing of MIME Parsers — Andarzian et al. 2025</title>
 <link rel="stylesheet" href="/tutorials/assets/style.css">
+<link rel="stylesheet" href="/tutorials/assets/play.css">
+<script src="/tutorials/assets/play.js?v=2" defer></script>
 </head>
 <body>
 <header class="site">
   <a href="/">MailSecLab</a>
   <nav>
-    <a href="/2010_sanchez_sdp/">Sanchez 2010</a>
-    <a href="/2010_van_staden_forensic/">Van Staden 2010</a>
-    <a href="/2020_chen_composition_kills/">Chen 2020</a>
-    <a href="/2021_shen_weak_links/">Shen 2021</a>
-    <a href="/2023_liu_forward_pass/">Liu 2023</a>
-    <a href="/2025_luo_phishing/">Luo 2025</a>
-    <a href="/2025_wang_smtp_smuggling/">Wang 2025</a>
-    <a href="/2025_andarzian_mime_fuzz/" class="active">Andarzian 2025</a>
+    <a href="/tutorials/2010_sanchez_sdp/">Sanchez 2010</a>
+    <a href="/tutorials/2010_van_staden_forensic/">Van Staden 2010</a>
+    <a href="/tutorials/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/tutorials/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/tutorials/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/tutorials/2025_luo_phishing/">Luo 2025</a>
+    <a href="/tutorials/2025_wang_smtp_smuggling/">Wang 2025</a>
+    <a href="/tutorials/2025_andarzian_mime_fuzz/" class="active">Andarzian 2025</a>
   </nav>
 </header>
 <main>
@@ -33,6 +35,7 @@
   <nav class="toc">
     <h4>On this page</h4>
     <ul>
+      <li><a href="#play">交互</a></li>
       <li><a href="#idea">1. Threat model &amp; idea</a></li>
       <li><a href="#fuzz">2. Fuzzer setup (AFL++ + T-Reqs)</a></li>
       <li><a href="#results">3. Results — 448 + 349 differentials</a></li>
@@ -41,6 +44,13 @@
       <li><a href="#mailseclab">6. How MailSecLab uses this paper</a></li>
     </ul>
   </nav>
+
+  <section class="lab" id="play" data-lab="mime">
+    <h2>交互：同一段 MIME，过滤器和客户端各看各的</h2>
+    <p class="lab-lead">在 D3、D4、D11 之间切换。这三类是论文认为在实验环境里可以走私到客户端的根因。编码示例只用单词 GTUBE 的 base64，不是论文的原始样本。</p>
+    <div class="lab-mount"></div>
+  </section>
+
 
   <h2 id="idea">1. Threat model &amp; idea</h2>
   <p>An email is parsed <b>at least three times</b>: by the receiving MTA, by the

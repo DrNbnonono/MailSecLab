@@ -4,19 +4,21 @@
 <meta charset="utf-8">
 <title>Characterizing Networks Sending Enterprise Phishing Emails — Luo et al. 2025</title>
 <link rel="stylesheet" href="/tutorials/assets/style.css">
+<link rel="stylesheet" href="/tutorials/assets/play.css">
+<script src="/tutorials/assets/play.js?v=2" defer></script>
 </head>
 <body>
 <header class="site">
   <a href="/">MailSecLab</a>
   <nav>
-    <a href="/2010_sanchez_sdp/">Sanchez 2010</a>
-    <a href="/2010_van_staden_forensic/">Van Staden 2010</a>
-    <a href="/2020_chen_composition_kills/">Chen 2020</a>
-    <a href="/2021_shen_weak_links/">Shen 2021</a>
-    <a href="/2023_liu_forward_pass/">Liu 2023</a>
-    <a href="/2025_luo_phishing/" class="active">Luo 2025</a>
-    <a href="/2025_wang_smtp_smuggling/">Wang 2025</a>
-    <a href="/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
+    <a href="/tutorials/2010_sanchez_sdp/">Sanchez 2010</a>
+    <a href="/tutorials/2010_van_staden_forensic/">Van Staden 2010</a>
+    <a href="/tutorials/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/tutorials/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/tutorials/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/tutorials/2025_luo_phishing/" class="active">Luo 2025</a>
+    <a href="/tutorials/2025_wang_smtp_smuggling/">Wang 2025</a>
+    <a href="/tutorials/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
   </nav>
 </header>
 <main>
@@ -33,6 +35,7 @@
   <nav class="toc">
     <h4>On this page</h4>
     <ul>
+      <li><a href="#play">交互</a></li>
       <li><a href="#problem">1. Problem &amp; contributions</a></li>
       <li><a href="#data">2. Dataset &amp; methodology</a></li>
       <li><a href="#forgery">3. Forgery headroom (Received-source fidelity)</a></li>
@@ -44,6 +47,13 @@
       <li><a href="#mailseclab">9. How MailSecLab uses this paper</a></li>
     </ul>
   </nav>
+
+  <section class="lab" id="play" data-lab="luo">
+    <h2>交互：先走出可信边界，再问这条来源能不能信</h2>
+    <p class="lab-lead">先沿 Received 找到 FIMTA 和 FEMTA，再用论文的四项累加检验看有多少封邮件的源 IP 经得起 AS 级分析。比例是论文给出的，不是这条教学链算出来的。</p>
+    <div class="lab-mount"></div>
+  </section>
+
 
   <h2 id="problem">1. Problem &amp; contributions</h2>
   <blockquote>

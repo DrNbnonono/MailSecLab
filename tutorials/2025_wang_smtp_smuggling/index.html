@@ -4,19 +4,21 @@
 <meta charset="utf-8">
 <title>Email Spoofing with SMTP Smuggling — Wang et al. 2025</title>
 <link rel="stylesheet" href="/tutorials/assets/style.css">
+<link rel="stylesheet" href="/tutorials/assets/play.css">
+<script src="/tutorials/assets/play.js?v=2" defer></script>
 </head>
 <body>
 <header class="site">
   <a href="/">MailSecLab</a>
   <nav>
-    <a href="/2010_sanchez_sdp/">Sanchez 2010</a>
-    <a href="/2010_van_staden_forensic/">Van Staden 2010</a>
-    <a href="/2020_chen_composition_kills/">Chen 2020</a>
-    <a href="/2021_shen_weak_links/">Shen 2021</a>
-    <a href="/2023_liu_forward_pass/">Liu 2023</a>
-    <a href="/2025_luo_phishing/">Luo 2025</a>
-    <a href="/2025_wang_smtp_smuggling/" class="active">Wang 2025</a>
-    <a href="/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
+    <a href="/tutorials/2010_sanchez_sdp/">Sanchez 2010</a>
+    <a href="/tutorials/2010_van_staden_forensic/">Van Staden 2010</a>
+    <a href="/tutorials/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/tutorials/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/tutorials/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/tutorials/2025_luo_phishing/">Luo 2025</a>
+    <a href="/tutorials/2025_wang_smtp_smuggling/" class="active">Wang 2025</a>
+    <a href="/tutorials/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
   </nav>
 </header>
 <main>
@@ -35,6 +37,7 @@
   <nav class="toc">
     <h4>On this page</h4>
     <ul>
+      <li><a href="#play">交互</a></li>
       <li><a href="#threat">1. The SMTP smuggling threat</a></li>
       <li><a href="#public">2. Public services — 19/22 exposed</a></li>
       <li><a href="#shared">3. Shared SPF &amp; amplification</a></li>
@@ -45,6 +48,13 @@
       <li><a href="#mailseclab">8. How MailSecLab uses this paper</a></li>
     </ul>
   </nav>
+
+  <section class="lab" id="play" data-lab="wang">
+    <h2>交互：结束符不一致时，一封信变成两封</h2>
+    <p class="lab-lead">三个条件默认都打开，所以一开始就能看见第二封信滑开。关掉任意一个，它就合不回去。A1 和 A7 只改变高亮的那一段字节。</p>
+    <div class="lab-mount"></div>
+  </section>
+
 
   <h2 id="threat">1. The SMTP smuggling threat</h2>
   <blockquote>

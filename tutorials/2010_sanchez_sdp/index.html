@@ -4,19 +4,21 @@
 <meta charset="utf-8">
 <title>Understanding Forgery Properties of Spam Delivery Paths — Sanchez 2010</title>
 <link rel="stylesheet" href="/tutorials/assets/style.css">
+<link rel="stylesheet" href="/tutorials/assets/play.css">
+<script src="/tutorials/assets/play.js?v=2" defer></script>
 </head>
 <body>
 <header class="site">
   <a href="/">MailSecLab</a>
   <nav>
-    <a href="/2010_sanchez_sdp/" class="active">Sanchez 2010</a>
-    <a href="/2010_van_staden_forensic/">Van Staden 2010</a>
-    <a href="/2020_chen_composition_kills/">Chen 2020</a>
-    <a href="/2021_shen_weak_links/">Shen 2021</a>
-    <a href="/2023_liu_forward_pass/">Liu 2023</a>
-    <a href="/2025_luo_phishing/">Luo 2025</a>
-    <a href="/2025_wang_smtp_smuggling/">Wang 2025</a>
-    <a href="/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
+    <a href="/tutorials/2010_sanchez_sdp/" class="active">Sanchez 2010</a>
+    <a href="/tutorials/2010_van_staden_forensic/">Van Staden 2010</a>
+    <a href="/tutorials/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/tutorials/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/tutorials/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/tutorials/2025_luo_phishing/">Luo 2025</a>
+    <a href="/tutorials/2025_wang_smtp_smuggling/">Wang 2025</a>
+    <a href="/tutorials/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
   </nav>
 </header>
 <main>
@@ -35,6 +37,7 @@
   <nav class="toc">
     <h4>On this page</h4>
     <ul>
+      <li><a href="#play">交互</a></li>
       <li><a href="#abstract">1. Problem &amp; abstract</a></li>
       <li><a href="#background">2. Background: header fields &amp; FEMTA</a></li>
       <li><a href="#data">3. Two data sets</a></li>
@@ -47,6 +50,13 @@
       <li><a href="#cite">10. BibTeX</a></li>
     </ul>
   </nav>
+
+  <section class="lab" id="play" data-lab="sanchez">
+    <h2>交互：从收件端往外走到 FEMTA</h2>
+    <p class="lab-lead">按论文算法一步步走。左边的地址是教学示例；右边三年的柱子用的是论文表格里的路径长度和 NLC 比例。</p>
+    <div class="lab-mount"></div>
+  </section>
+
 
   <h2 id="abstract">1. Problem &amp; abstract</h2>
   <p>The paper sets out a sharp empirical question that was unanswered in 2010: <em>to what

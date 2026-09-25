@@ -4,19 +4,21 @@
 <meta charset="utf-8">
 <title>Adding Digital Forensic Readiness to the Email Trace Header — Van Staden &amp; Venter 2010</title>
 <link rel="stylesheet" href="/tutorials/assets/style.css">
+<link rel="stylesheet" href="/tutorials/assets/play.css">
+<script src="/tutorials/assets/play.js?v=2" defer></script>
 </head>
 <body>
 <header class="site">
   <a href="/">MailSecLab</a>
   <nav>
-    <a href="/2010_sanchez_sdp/">Sanchez 2010</a>
-    <a href="/2010_van_staden_forensic/" class="active">Van Staden 2010</a>
-    <a href="/2020_chen_composition_kills/">Chen 2020</a>
-    <a href="/2021_shen_weak_links/">Shen 2021</a>
-    <a href="/2023_liu_forward_pass/">Liu 2023</a>
-    <a href="/2025_luo_phishing/">Luo 2025</a>
-    <a href="/2025_wang_smtp_smuggling/">Wang 2025</a>
-    <a href="/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
+    <a href="/tutorials/2010_sanchez_sdp/">Sanchez 2010</a>
+    <a href="/tutorials/2010_van_staden_forensic/" class="active">Van Staden 2010</a>
+    <a href="/tutorials/2020_chen_composition_kills/">Chen 2020</a>
+    <a href="/tutorials/2021_shen_weak_links/">Shen 2021</a>
+    <a href="/tutorials/2023_liu_forward_pass/">Liu 2023</a>
+    <a href="/tutorials/2025_luo_phishing/">Luo 2025</a>
+    <a href="/tutorials/2025_wang_smtp_smuggling/">Wang 2025</a>
+    <a href="/tutorials/2025_andarzian_mime_fuzz/">Andarzian 2025</a>
   </nav>
 </header>
 <main>
@@ -34,6 +36,7 @@
   <nav class="toc">
     <h4>On this page</h4>
     <ul>
+      <li><a href="#play">交互</a></li>
       <li><a href="#thesis">1. The forensic-readiness gap</a></li>
       <li><a href="#augmentation">2. Augmented Received-token rule</a></li>
       <li><a href="#gap">3. Gap detection algorithm</a></li>
@@ -43,17 +46,24 @@
     </ul>
   </nav>
 
+  <section class="lab" id="play" data-lab="vanstaden">
+    <h2>交互：下一跳的 from 是否接得上上一跳的 by</h2>
+    <p class="lab-lead">默认是一条接得上的链。去掉中间一跳后再逐步比对，proven 和 gap 会按论文的七步更新。哈希只是示意。</p>
+    <div class="lab-mount"></div>
+  </section>
+
+
   <h2 id="thesis">1. The forensic-readiness gap</h2>
   <blockquote>
     The information in the SMTP headers is stored in clear text. Therefore the information
     can easily be edited. The possibility that the mail headers could have been edited makes
     the information in the headers suspect. (<a href="https://ieeexplore.ieee.org/document/5588291" target="_blank" rel="noopener">Van Staden &amp; Venter, ISSA 2010, §II-A</a>)
   </blockquote>
-  <p>The 2010 paper (a decade before Sanchez/Duan/Dong's empirical study and a
-  decade before Chen/Paxson/Jiang's "composition kills") takes a different angle: instead of
-  empirically measuring forgery, it <b>proposes an extension to RFC 5322</b> that
-  preserves forensic integrity of the Received: trace chain — even when MTAs do
-  not implement the extension.</p>
+  <p>This paper is from the same year as Sanchez, Duan and Dong's measurement, and a
+  decade before Chen, Paxson and Jiang's composition attacks. It does not measure
+  forgery. It <b>proposes an extension to RFC 5322</b> that records forensic
+  material in the Received trace, including when some MTAs never implement the
+  extension.</p>
 
   <h2 id="augmentation">2. Augmented Received-token rule</h2>
   <p>The paper proposes two augmentations to the ABNF <code>received-token</code>
@@ -73,11 +83,12 @@
   deterministic).</p>
 
   <h2 id="gap">3. Gap detection algorithm</h2>
-  <p>The algorithm walks the Received: chain from the most-recent (bottom)
-  hop to the oldest (top) hop, comparing each hop's <i>receiving host</i> with the
-  previous hop's <i>sending host</i>. If they match, the chain is "trusted"; if
-  they don't, the chain has a gap (some intermediate MTA didn't add a Received:
-  entry or didn't implement the augmentation).</p>
+  <p>Step 1 stores send-receive pairs from the <i>last</i> Received entry to the
+  <i>first</i>. In a normal header the last line is the earlier hop, so the walk
+  runs forward in time. Each next hop's sending host is compared with the receiving
+  host remembered from the previous pair. A match extends <b>proven</b>; a mismatch
+  records the unmatched sending host in <b>gap</b>. The header stays cleartext, so a
+  gap-free chain is evidence of continuity, not proof that nobody edited it.</p>
   <ol>
     <li>Store the received send-receive pairs from <i>last</i> entry to <i>first</i> in a queue.</li>
     <li>Remember the receiving host of the first entry in the queue.</li>

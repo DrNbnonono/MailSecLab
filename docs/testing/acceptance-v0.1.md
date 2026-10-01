@@ -1,6 +1,6 @@
 # MailTrace 首版验收矩阵
 
-这里定义实施时必须通过的行为。当前仓库交付设计资料，没有声称下列产品测试已经通过。
+这里定义首版必须通过的行为。实现与边界回归测试已完成；实际验证环境与结果见 [验证记录](validation-v0.1.md)。此矩阵是行为约定，自动化测试以仓库 tests/ 为准。
 
 ## 稳定规则
 
@@ -93,4 +93,4 @@ python -m venv .venv
 .\.venv\Scripts\mailtrace.exe analyze .\tests\samples\basic.eml --json
 ```
 
-当前仅设计文档，以上安装目标尚不存在。验收通过后再把“设计用例”标为“已验证”，记录实际 Python/Pydantic 版本与命令结果。
+上述安装目标已实现，Windows/Python 3.13.12 环境已验证；其他 Python 版本与操作系统的验证状态见验证记录。

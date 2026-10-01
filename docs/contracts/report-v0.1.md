@@ -1,6 +1,6 @@
 # MailReport 0.1 数据契约
 
-本文件定义首版库、CLI、后续 HTTP API 与前端共享的结构。示例见 [report-v0.1.example.json](report-v0.1.example.json)，对应原始输入见 [basic-example.eml](basic-example.eml)。示例是设计样本，不是已实现分析器的输出。
+本文件定义首版库、CLI、后续 HTTP API 与前端共享的结构。示例见 [report-v0.1.example.json](report-v0.1.example.json)，对应原始输入见 [basic-example.eml](basic-example.eml)。该示例由设计阶段构造，现已与实际分析器及独立 wheel 安装的完整输出核对一致。
 
 ## 公共入口与稳定性
 
@@ -13,7 +13,7 @@ json_text = report.model_dump_json(by_alias=True, indent=2)
 json_data = report.model_dump(mode="json", by_alias=True)
 ```
 
-上述代码是拟定的接口。`raw_email` 为 bytes 或 str；`AnalysisOptions.chain_limit` 为正整数，默认 50。关键字 `options` 可省略，不把路径、DNS 客户端或 HTTP 请求传入核心入口。
+上述代码是首版公开接口。`raw_email` 为 bytes 或 str；`AnalysisOptions.chain_limit` 为正整数，默认 50。关键字 `options` 可省略，不把路径、DNS 客户端或 HTTP 请求传入核心入口。
 
 顶层 `schema_version` 固定为字符串 `"0.1"`。日期输出 ISO 8601，UTC 用 `Z`，其他偏移用 `±HH:MM`。未知值为 null；空集合为 []，不能省略约定的字段。列表保持证据顺序，标识按输入位置生成，重复分析不产生不同 ID。
 

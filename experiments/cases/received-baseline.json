@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1",
+  "name": "Received growth synthetic study",
+  "purpose": "Vary Received count while keeping every other parameter fixed. No SMTP transport is performed.",
+  "seed": 0,
+  "base_time": "2026-10-01T12:00:00Z",
+  "received_count": 2,
+  "topology": "chain",
+  "date_profile": "valid",
+  "received_position": "first",
+  "folding": "none",
+  "newline": "crlf",
+  "pre_colon_space": false,
+  "headers": [
+    {"name": "From", "value": "Alice <alice@sender.example>"},
+    {"name": "To", "value": "Bob <bob@recipient.example>"},
+    {"name": "Subject", "value": "MailTrace synthetic experiment"},
+    {"name": "Date", "value": "Thu, 01 Oct 2026 12:00:00 +0000"},
+    {"name": "Message-ID", "value": "<baseline@sender.example>"}
+  ],
+  "max_line_bytes": null,
+  "header_bytes": null
+}

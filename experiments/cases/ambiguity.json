@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1",
+  "name": "Header ambiguity synthetic study",
+  "purpose": "Repeated identity fields, obsolete colon whitespace and invalid Received dates.",
+  "seed": 0,
+  "base_time": "2026-10-01T12:00:00Z",
+  "received_count": 4,
+  "topology": "return",
+  "date_profile": "invalid",
+  "received_position": "last",
+  "folding": "tab",
+  "newline": "lf",
+  "pre_colon_space": true,
+  "headers": [
+    {"name": "Message-ID", "value": "<first@sender.example>"},
+    {"name": "From", "value": "Alice <alice@sender.example>"},
+    {"name": "From", "value": "Other <other@sender.example>"},
+    {"name": "Message-ID", "value": "<second@sender.example>"},
+    {"name": "Subject", "value": "Synthetic ambiguity"}
+  ]
+}

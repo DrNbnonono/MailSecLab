@@ -8,20 +8,25 @@ from starlette.concurrency import run_in_threadpool
 
 from .limits import MAX_INPUT_BYTES, RequestBodyLimit
 from .schemas import AnalyzeRequest
+from .lab import router as lab_router
 
-app = FastAPI(title="MailTrace API", version="0.4.0", description="本地邮件头调查接口。认证结果为头部声明，未主动验证。")
+app = FastAPI(title="MailTrace API", version="0.5.0", description="邮件头调查与自动归档研究接口。认证结果为头部声明，未主动验证。")
 app.add_middleware(RequestBodyLimit)
+app.include_router(lab_router)
 
 
 @app.exception_handler(RequestValidationError)
 async def invalid_request(request: Request, error: RequestValidationError):
     # FastAPI's default error includes input values; mail contents stay private.
-    return JSONResponse({"detail": "输入无效：请检查邮件内容、文件和正整数链长阈值。"}, status_code=422)
+    detail = "输入无效：请检查邮件内容、文件和正整数链长阈值。"
+    if request.url.path.startswith("/api/v1/lab/"):
+        detail = "研究参数无效：请检查用例模型、扫描值与有序字段列表；数量和尺寸使用范围内的整数，时间须含时区。"
+    return JSONResponse({"detail": detail}, status_code=422)
 
 
 @app.get("/api/v1/health")
 def health():
-    return {"status": "ok", "version": "0.4.0", "schema_version": "0.1"}
+    return {"status": "ok", "version": "0.5.0", "schema_version": "0.1", "experiment_schema_version":"0.1"}
 
 
 async def analyze_content(raw: str | bytes, chain_limit: int) -> MailReport:

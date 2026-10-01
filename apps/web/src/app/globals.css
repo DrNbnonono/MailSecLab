@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+.lab-back {
+  color: var(--green);
+  margin-left: auto;
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 :root {
   --paper: #f5f5f0;
   --surface: #fff;
@@ -1234,6 +1242,10 @@ textarea:disabled {
   .topbar {
     height: 64px;
     padding: 0 20px;
+    gap: 16px;
+  }
+  .topbar:has(.lab-back) .service-tag {
+    display: none;
   }
   .brand {
     font-size: 27px;

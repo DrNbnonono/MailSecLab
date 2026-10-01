@@ -5,14 +5,16 @@ import { Icon } from "./icons";
 export function EvidencePanel({
   field,
   hop,
+  id = "evidence-panel",
 }: {
   field: HeaderField | undefined;
   hop: MailHop | undefined;
+  id?: string;
 }) {
   return (
     <aside
       className="panel evidence-panel"
-      id="evidence-panel"
+      id={id}
       tabIndex={-1}
       aria-label="原始证据详情"
     >

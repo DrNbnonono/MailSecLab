@@ -143,9 +143,12 @@ export function Workbench() {
           </span>
         </a>
         <div className="topbar-subtitle">MAIL HEADER INTELLIGENCE</div>
+        <a className="lab-back" href="/lab">
+          研究工作台 ↗
+        </a>
         <span className="service-tag">
           <span className="status-dot" />
-          本地工作台 <span className="version">v0.4</span>
+          本地工作台 <span className="version">v0.5</span>
         </span>
       </header>
       <div className="workbench-layout">

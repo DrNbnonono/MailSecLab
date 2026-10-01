@@ -1,8 +1,8 @@
 export const MAX_REQUEST_BYTES = 12 * 1024 * 1024;
 
-export async function boundedBody(request: Request): Promise<Uint8Array> {
+export async function boundedBody(request: Request, maximum = MAX_REQUEST_BYTES): Promise<Uint8Array> {
   const length = request.headers.get("content-length");
-  if (length && (!/^\d+$/.test(length) || Number(length) > MAX_REQUEST_BYTES))
+  if (length && (!/^\d+$/.test(length) || Number(length) > maximum))
     throw new RangeError("请求过大");
   const reader = request.body?.getReader();
   if (!reader) return new Uint8Array();
@@ -13,7 +13,7 @@ export async function boundedBody(request: Request): Promise<Uint8Array> {
       const { done, value } = await reader.read();
       if (done) break;
       size += value.byteLength;
-      if (size > MAX_REQUEST_BYTES) {
+      if (size > maximum) {
         await reader.cancel();
         throw new RangeError("请求过大");
       }

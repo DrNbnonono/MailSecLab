@@ -1,0 +1,12 @@
+# Verified development dependencies on Python 3.13.12 (Windows).
+annotated-types==0.8.0
+colorama==0.4.6
+iniconfig==2.3.0
+packaging==26.3
+pluggy==1.6.0
+pydantic==2.13.5
+pydantic_core==2.46.5
+Pygments==2.21.0
+pytest==9.1.1
+typing-inspection==0.4.4
+typing_extensions==4.16.0

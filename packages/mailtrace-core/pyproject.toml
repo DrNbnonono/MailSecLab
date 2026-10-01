@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mailtrace-core"
+version = "0.1.0"
+description = "Offline, evidence-preserving email header analysis"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.10,<3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+mailtrace = "mailtrace.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

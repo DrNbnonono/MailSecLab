@@ -1,0 +1,6 @@
+Authentication-Results: mx.recipient.example; spf=fail smtp.mailfrom=sender.example; dkim=none; dmarc=fail header.from=sender.example
+From: alice@sender.example
+To: bob@recipient.example
+Subject: Declared authentication failure
+
+Synthetic fixture.

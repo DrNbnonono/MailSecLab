@@ -1,0 +1,15 @@
+Received: from relay.sender.example (relay.sender.example [192.0.2.25])
+ by mx.recipient.example with ESMTPS id route-002
+ for <bob@recipient.example>; Thu, 01 Oct 2026 12:00:00 +0000
+Received: from laptop.local ([192.168.1.10])
+ by relay.sender.example with ESMTP id route-001;
+ Thu, 01 Oct 2026 11:59:43 +0000
+Authentication-Results: mx.recipient.example; spf=pass smtp.mailfrom=sender.example
+From: Alice <alice@sender.example>
+To: Bob <bob@recipient.example>
+Subject: =?utf-8?b?6aG555uu6L+b5bqm?=
+Date: Thu, 01 Oct 2026 11:59:40 +0000
+Message-ID: <design-001@sender.example>
+Return-Path: <bounce@sender.example>
+
+Synthetic design fixture. Not a real message.

@@ -1,0 +1,5 @@
+Received : from a.example by b.example
+From: alice@sender.example
+Subject: Parser boundary example
+
+Synthetic malformed header.

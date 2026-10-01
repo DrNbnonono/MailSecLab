@@ -1,0 +1,281 @@
+{
+  "schema_version": "0.1",
+  "source": {
+    "input_kind": "bytes",
+    "input_sha256": "2505d7e6dd4a2689d04161f37536be79a40dab826ca778f506699728aa38851a",
+    "input_size_bytes": 678,
+    "header_sha256": "cc4dbe3cd15f8ac85857ece28b5dc48dcff889decded5f92855b53f0f92448b5",
+    "header_size_bytes": 629,
+    "header_base64": "UmVjZWl2ZWQ6IGZyb20gcmVsYXkuc2VuZGVyLmV4YW1wbGUgKHJlbGF5LnNlbmRlci5leGFtcGxlIFsxOTIuMC4yLjI1XSkNCiBieSBteC5yZWNpcGllbnQuZXhhbXBsZSB3aXRoIEVTTVRQUyBpZCByb3V0ZS0wMDINCiBmb3IgPGJvYkByZWNpcGllbnQuZXhhbXBsZT47IFRodSwgMDEgT2N0IDIwMjYgMTI6MDA6MDAgKzAwMDANClJlY2VpdmVkOiBmcm9tIGxhcHRvcC5sb2NhbCAoWzE5Mi4xNjguMS4xMF0pDQogYnkgcmVsYXkuc2VuZGVyLmV4YW1wbGUgd2l0aCBFU01UUCBpZCByb3V0ZS0wMDE7DQogVGh1LCAwMSBPY3QgMjAyNiAxMTo1OTo0MyArMDAwMA0KQXV0aGVudGljYXRpb24tUmVzdWx0czogbXgucmVjaXBpZW50LmV4YW1wbGU7IHNwZj1wYXNzIHNtdHAubWFpbGZyb209c2VuZGVyLmV4YW1wbGUNCkZyb206IEFsaWNlIDxhbGljZUBzZW5kZXIuZXhhbXBsZT4NClRvOiBCb2IgPGJvYkByZWNpcGllbnQuZXhhbXBsZT4NClN1YmplY3Q6ID0/dXRmLTg/Yj82YUc1NTV1dTZMK2I1YnFtPz0NCkRhdGU6IFRodSwgMDEgT2N0IDIwMjYgMTE6NTk6NDAgKzAwMDANCk1lc3NhZ2UtSUQ6IDxkZXNpZ24tMDAxQHNlbmRlci5leGFtcGxlPg0KUmV0dXJuLVBhdGg6IDxib3VuY2VAc2VuZGVyLmV4YW1wbGU+DQo=",
+    "has_body_separator": true,
+    "semantic_boundary_byte": 629
+  },
+  "message": {
+    "subject": "项目进度",
+    "from_addresses": [
+      {
+        "display_name": "Alice",
+        "address": "alice@sender.example",
+        "header_id": "header-004"
+      }
+    ],
+    "to_addresses": [
+      {
+        "display_name": "Bob",
+        "address": "bob@recipient.example",
+        "header_id": "header-005"
+      }
+    ],
+    "sender_addresses": [],
+    "return_paths": [
+      "<bounce@sender.example>"
+    ],
+    "message_ids": [
+      "<design-001@sender.example>"
+    ],
+    "date": "2026-10-01T11:59:40Z",
+    "date_raw": "Thu, 01 Oct 2026 11:59:40 +0000",
+    "subject_header_id": "header-006",
+    "date_header_id": "header-007"
+  },
+  "headers": [
+    {
+      "id": "header-001",
+      "name": "Received",
+      "raw": "Received: from relay.sender.example (relay.sender.example [192.0.2.25])\r\n by mx.recipient.example with ESMTPS id route-002\r\n for <bob@recipient.example>; Thu, 01 Oct 2026 12:00:00 +0000\r\n",
+      "value": "from relay.sender.example (relay.sender.example [192.0.2.25]) by mx.recipient.example with ESMTPS id route-002 for <bob@recipient.example>; Thu, 01 Oct 2026 12:00:00 +0000",
+      "recognized": true,
+      "syntax": "standard",
+      "start_byte": 0,
+      "end_byte": 187,
+      "start_line": 1,
+      "end_line": 3
+    },
+    {
+      "id": "header-002",
+      "name": "Received",
+      "raw": "Received: from laptop.local ([192.168.1.10])\r\n by relay.sender.example with ESMTP id route-001;\r\n Thu, 01 Oct 2026 11:59:43 +0000\r\n",
+      "value": "from laptop.local ([192.168.1.10]) by relay.sender.example with ESMTP id route-001; Thu, 01 Oct 2026 11:59:43 +0000",
+      "recognized": true,
+      "syntax": "standard",
+      "start_byte": 187,
+      "end_byte": 318,
+      "start_line": 4,
+      "end_line": 6
+    },
+    {
+      "id": "header-003",
+      "name": "Authentication-Results",
+      "raw": "Authentication-Results: mx.recipient.example; spf=pass smtp.mailfrom=sender.example\r\n",
+      "value": "mx.recipient.example; spf=pass smtp.mailfrom=sender.example",
+      "recognized": true,
+      "syntax": "standard",
+      "start_byte": 318,
+      "end_byte": 403,
+      "start_line": 7,
+      "end_line": 7
+    },
+    {
+      "id": "header-004",
+      "name": "From",
+      "raw": "From: Alice <alice@sender.example>\r\n",
+      "value": "Alice <alice@sender.example>",
+      "recognized": true,
+      "syntax": "standard",
+      "start_byte": 403,
+      "end_byte": 439,
+      "start_line": 8,
+      "end_line": 8
+    },
+    {
+      "id": "header-005",
+      "name": "To",
+      "raw": "To: Bob <bob@recipient.example>\r\n",
+      "value": "Bob <bob@recipient.example>",
+      "recognized": true,
+      "syntax": "standard",
+      "start_byte": 439,
+      "end_byte": 472,
+      "start_line": 9,
+      "end_line": 9
+    },
+    {
+      "id": "header-006",
+      "name": "Subject",
+      "raw": "Subject: =?utf-8?b?6aG555uu6L+b5bqm?=\r\n",
+      "value": "=?utf-8?b?6aG555uu6L+b5bqm?=",
+      "recognized": true,
+      "syntax": "standard",
+      "start_byte": 472,
+      "end_byte": 511,
+      "start_line": 10,
+      "end_line": 10
+    },
+    {
+      "id": "header-007",
+      "name": "Date",
+      "raw": "Date: Thu, 01 Oct 2026 11:59:40 +0000\r\n",
+      "value": "Thu, 01 Oct 2026 11:59:40 +0000",
+      "recognized": true,
+      "syntax": "standard",
+      "start_byte": 511,
+      "end_byte": 550,
+      "start_line": 11,
+      "end_line": 11
+    },
+    {
+      "id": "header-008",
+      "name": "Message-ID",
+      "raw": "Message-ID: <design-001@sender.example>\r\n",
+      "value": "<design-001@sender.example>",
+      "recognized": true,
+      "syntax": "standard",
+      "start_byte": 550,
+      "end_byte": 591,
+      "start_line": 12,
+      "end_line": 12
+    },
+    {
+      "id": "header-009",
+      "name": "Return-Path",
+      "raw": "Return-Path: <bounce@sender.example>\r\n",
+      "value": "<bounce@sender.example>",
+      "recognized": true,
+      "syntax": "standard",
+      "start_byte": 591,
+      "end_byte": 629,
+      "start_line": 13,
+      "end_line": 13
+    }
+  ],
+  "route": [
+    {
+      "id": "hop-001",
+      "header_id": "header-002",
+      "received_index": 2,
+      "route_index": 1,
+      "from": {
+        "hostname": "laptop.local",
+        "ip": "192.168.1.10",
+        "ip_candidates": [
+          "192.168.1.10"
+        ],
+        "ip_scope": "private"
+      },
+      "by": {
+        "hostname": "relay.sender.example",
+        "ip": null,
+        "ip_candidates": [],
+        "ip_scope": "unknown"
+      },
+      "protocol": "ESMTP",
+      "queue_id": "route-001",
+      "recipient": null,
+      "timestamp": "2026-10-01T11:59:43Z",
+      "timestamp_raw": "Thu, 01 Oct 2026 11:59:43 +0000",
+      "timezone_status": "known",
+      "delay_seconds": null,
+      "parse_status": "complete"
+    },
+    {
+      "id": "hop-002",
+      "header_id": "header-001",
+      "received_index": 1,
+      "route_index": 2,
+      "from": {
+        "hostname": "relay.sender.example",
+        "ip": "192.0.2.25",
+        "ip_candidates": [
+          "192.0.2.25"
+        ],
+        "ip_scope": "documentation"
+      },
+      "by": {
+        "hostname": "mx.recipient.example",
+        "ip": null,
+        "ip_candidates": [],
+        "ip_scope": "unknown"
+      },
+      "protocol": "ESMTPS",
+      "queue_id": "route-002",
+      "recipient": "bob@recipient.example",
+      "timestamp": "2026-10-01T12:00:00Z",
+      "timestamp_raw": "Thu, 01 Oct 2026 12:00:00 +0000",
+      "timezone_status": "known",
+      "delay_seconds": 17.0,
+      "parse_status": "complete"
+    }
+  ],
+  "route_summary": {
+    "candidate_received_count": 2,
+    "recognized_received_count": 2,
+    "complete_hop_count": 2,
+    "total_observed_delay_seconds": 17.0,
+    "chain_limit": 50
+  },
+  "authentication": {
+    "summary": {
+      "spf": {
+        "status": "reported",
+        "reported_results": [
+          "pass"
+        ],
+        "assertion_ids": [
+          "auth-001"
+        ],
+        "verified": false
+      },
+      "dkim": {
+        "status": "unknown",
+        "reported_results": [],
+        "assertion_ids": [],
+        "verified": false
+      },
+      "dmarc": {
+        "status": "unknown",
+        "reported_results": [],
+        "assertion_ids": [],
+        "verified": false
+      }
+    },
+    "assertions": [
+      {
+        "id": "auth-001",
+        "header_id": "header-003",
+        "authserv_id": "mx.recipient.example",
+        "method": "spf",
+        "result": "pass",
+        "properties": [
+          {
+            "name": "smtp.mailfrom",
+            "value": "sender.example"
+          }
+        ],
+        "reason": null,
+        "verified": false,
+        "trust": "unassessed"
+      }
+    ],
+    "received_spf": [],
+    "dkim_signatures": [],
+    "arc_headers": []
+  },
+  "warnings": [
+    {
+      "code": "PRIVATE_IP_EXPOSED",
+      "severity": "info",
+      "message": "Received 声明中出现私有地址 192.168.1.10。",
+      "header_ids": [
+        "header-002"
+      ],
+      "hop_ids": [
+        "hop-001"
+      ],
+      "details": {
+        "ip": "192.168.1.10",
+        "scope": "private"
+      }
+    }
+  ],
+  "defects": []
+}

@@ -42,3 +42,5 @@ API 测试覆盖 JSON 与核心报告一致、上传字节一致、空输入、�
 本地截图保存在忽略目录 `output/playwright/`（report-desktop.png、report-mobile.png、loop-timeline.png），浏览器控制记录位于 `.playwright-cli/`，均不提交含潜在用户输入的运行产物。
 
 独立代码审查已完成并复查中继元数据修复，未发现剩余重要问题。DNS、主动认证验证、可信接收节点配置、历史数据库与账户系统仍属于后续阶段。
+
+实现提交 `418a5b8` 已推送至 `origin/tool/mailtrace`。远端 `research/received-trace` 仍为 `7cc5ca7129ddc165bd2438b8a285092f6136f764`。

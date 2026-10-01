@@ -8,3 +8,9 @@ dist/
 local-mails/
 .coverage
 htmlcov/
+node_modules/
+.next/
+*.tsbuildinfo
+output/
+.playwright-cli/
+.env.local

@@ -13,4 +13,6 @@ Tech stack: Python/Pydantic/email/hashlib/pathlib/zipfile/csv, existing FastAPI 
 - [x] Add same-origin bounded lab proxy, generation/diff/history UI and two-sided evidence. Preserve existing workbench.
 - [x] Run Python regression, Node tests, TypeScript and production build; browser generation/sweep/compare/history/export/mobile/error validation.
 - [x] Independent review and fixes; document schema, sample cases, setup, actual verification and version locks.
-- [ ] Commit/push to tool/mailtrace; verify local/remote equality and unchanged research branch.
+- [x] Commit/push to tool/mailtrace; verify local/remote equality and unchanged research branch.
+
+Delivered implementation commit: e1dc21278202e51d02e519e5161af0f222788eab. Remote research/received-trace remains 7cc5ca7129ddc165bd2438b8a285092f6136f764. See docs/testing/validation-v0.5.md for verified results.

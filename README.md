@@ -1,2 +1,0 @@
-# MailSecLab
-Mail Security Laboratory

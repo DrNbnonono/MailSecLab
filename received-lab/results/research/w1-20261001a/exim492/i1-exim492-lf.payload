@@ -1,0 +1,19 @@
+X-Case-ID: i1-exim492-lf
+From: alice@sender.lab.test
+To: bob@receiver.lab.test
+Subject: I1 first i1-exim492-lf
+
+body of first message
+
+.
+MAIL FROM:<eve@evil.example>
+RCPT TO:<bob@receiver.lab.test>
+DATA
+X-Case-ID: SMUG-i1-exim492-lf
+From: eve@evil.example
+To: bob@receiver.lab.test
+Subject: I1 SMUGGLED i1-exim492-lf
+
+body of smuggled message
+.
+QUIT

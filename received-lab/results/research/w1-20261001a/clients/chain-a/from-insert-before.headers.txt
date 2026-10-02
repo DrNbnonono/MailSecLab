@@ -1,0 +1,6 @@
+X-Case-ID: chain-a-from-insert-before
+from: Attacker <attacker@evil.test>
+From: Author <author@lab.test>
+To: recipient@receiver.test
+Subject: Original subject
+X-Case-ID: base-from-relaxed-n1-h1

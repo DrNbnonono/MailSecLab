@@ -1,0 +1,31 @@
+{
+  "case": "legit",
+  "attacker": "none",
+  "sha256": "895efe75db68105732b8dbb29d44d42eac9d5de4ff35e0cc93746a601fb6ab09",
+  "smtp": {
+    "client_ip": "10.88.0.11",
+    "reply": "250 2.0.0 Ok: queued as 6190175C38",
+    "queued_id": "6190175C38",
+    "bytes": 736,
+    "sha256": "895efe75db68105732b8dbb29d44d42eac9d5de4ff35e0cc93746a601fb6ab09",
+    "accepted": true,
+    "banner_ok": true,
+    "ehlo_ok": true,
+    "mail_ok": true,
+    "rcpt_ok": true
+  },
+  "mailpit_id": "0DBXOhgBOJKbmRexqN2O94",
+  "delivery": "delivered",
+  "before": {
+    "dkimpy": "pass",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "pass"
+  },
+  "after": {
+    "dkimpy": "pass",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "none"
+  }
+}

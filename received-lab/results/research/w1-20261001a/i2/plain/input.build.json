@@ -1,0 +1,11 @@
+{
+  "case": "i2-plain",
+  "mode": "plain",
+  "client_ip_at_build": "10.88.0.11",
+  "bytes": 186,
+  "forged_addresses": [
+    "203.0.113.10",
+    "203.0.113.11"
+  ],
+  "address_policy": "RFC 5737 TEST-NET-3 plus the client IP read on this socket"
+}

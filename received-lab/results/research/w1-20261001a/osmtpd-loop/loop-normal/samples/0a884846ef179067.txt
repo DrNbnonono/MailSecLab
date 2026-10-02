@@ -1,0 +1,125 @@
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 0a884846
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:49 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id e714a062
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:48 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 3312661c
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:47 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 5eb8571e
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:47 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id a1b7e26a
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:46 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 74ebf911
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:45 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 58ad93c1
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:44 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 9ae11628
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:44 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 53f72a3a
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:43 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 1846c355
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:43 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 25a8499e
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:42 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id f5a8e731
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:41 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 718fac35
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:40 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 3401b1b3
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:40 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 61fb025b
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:39 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 2282ba5d
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:39 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 3f3268b0
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:38 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 431d053b
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:38 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 7b30e10f
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:37 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id f4fad96e
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:37 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 59b23551
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:36 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id b04be1ae
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:36 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 2cd23ab0
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:35 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 881ff417
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:35 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id daf6221d
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:34 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 9d8cacae
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:34 +0000 (UTC)
+Received: from 35daf5274e03 (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 909f597c
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:33 +0000 (UTC)
+Received: from 04318b68cc54 (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id ba8456ca
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:33 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 5fae645d
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:04:33 +0000 (UTC)
+X-Case-ID: loop-normal
+Received: from origin.example (origin.example [203.0.113.10]) by relay.example with ESMTP; Thu, 1 Oct 2026 00:00:00 +0000
+From: alice@lab.test
+To: bob@lab.test
+Subject: loop-normal
+Date: Thu, 1 Oct 2026 00:00:00 +0000
+Message-ID: <loop-normal@lab.test>
+
+loop

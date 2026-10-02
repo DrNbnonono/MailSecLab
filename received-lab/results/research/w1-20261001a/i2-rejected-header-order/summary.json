@@ -1,0 +1,114 @@
+[
+  {
+    "mode": "plain",
+    "delivery": "delivered",
+    "mailpit_id": "3BL6DDXgFjpLxEkLcIaAKz",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as C9C3A9C625",
+      "queued_id": "C9C3A9C625",
+      "bytes": 186,
+      "sha256": "3005f3aa34cea2bab946f89b375a07f37d39fbeb5093f7b01552692cc7c1a100",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true,
+      "exit_code": 0
+    },
+    "join_ok": true,
+    "join_reasons": [],
+    "rspamd": {
+      "input": {
+        "status": "none",
+        "action": "no action",
+        "score": 2.4,
+        "source": {}
+      },
+      "stored": {
+        "status": "none",
+        "action": "no action",
+        "score": 0.0,
+        "source": {}
+      }
+    }
+  },
+  {
+    "mode": "consistent",
+    "delivery": "delivered",
+    "mailpit_id": "7jZ0EobfPwMTNiCmwUPT3c",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as EB4C69C625",
+      "queued_id": "EB4C69C625",
+      "bytes": 590,
+      "sha256": "253098f1c4b0358cdba0035493c7655af545c4ace9471990b98d70a050d39d59",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true,
+      "exit_code": 0
+    },
+    "join_ok": false,
+    "join_reasons": [
+      "by-host relay.example != from-host client.lab.test",
+      "forged by-clause does not contain the client IP",
+      "forged hops are not strictly increasing in time",
+      "earlier forged hop is not in RFC 5737 TEST-NET-3"
+    ],
+    "rspamd": {
+      "input": {
+        "status": "none",
+        "action": "no action",
+        "score": 0.0,
+        "source": {}
+      },
+      "stored": {
+        "status": "none",
+        "action": "no action",
+        "score": 0.0,
+        "source": {}
+      }
+    }
+  },
+  {
+    "mode": "inconsistent",
+    "delivery": "delivered",
+    "mailpit_id": "4ucymT9t15JBcHg3y9wjF8",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as 30F4B9C625",
+      "queued_id": "30F4B9C625",
+      "bytes": 598,
+      "sha256": "193811dec8d8ba29107c6ee71e7482771f43a0be63d1353a641745c0631c07e5",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true,
+      "exit_code": 0
+    },
+    "join_ok": false,
+    "join_reasons": [
+      "by-host relay.example != from-host client.lab.test",
+      "forged by-clause does not contain the client IP",
+      "forged hops are not strictly increasing in time",
+      "earlier forged hop is not in RFC 5737 TEST-NET-3"
+    ],
+    "rspamd": {
+      "input": {
+        "status": "none",
+        "action": "no action",
+        "score": 0.0,
+        "source": {}
+      },
+      "stored": {
+        "status": "none",
+        "action": "no action",
+        "score": 0.0,
+        "source": {}
+      }
+    }
+  }
+]

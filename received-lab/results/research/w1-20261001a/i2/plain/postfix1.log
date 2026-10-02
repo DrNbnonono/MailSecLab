@@ -1,0 +1,17 @@
+Oct 01 15:12:42 postfix1 postfix/smtpd[186]: connect from msl-client.mailseclab-research-net[10.88.0.11]
+Oct 01 15:12:42 postfix1 postfix/smtpd[186]: lost connection after CONNECT from msl-client.mailseclab-research-net[10.88.0.11]
+Oct 01 15:12:42 postfix1 postfix/smtpd[186]: disconnect from msl-client.mailseclab-research-net[10.88.0.11] commands=0/0
+Oct 01 15:12:42 postfix1 postfix/smtpd[186]: connect from msl-client.mailseclab-research-net[10.88.0.11]
+Oct 01 15:12:42 postfix1 postfix/smtpd[186]: 648329C616: client=msl-client.mailseclab-research-net[10.88.0.11]
+Oct 01 15:12:42 postfix1 postfix/cleanup[189]: 648329C616: message-id=<smoke-plain@lab.test>
+Oct 01 15:12:42 postfix1 postfix/qmgr[184]: 648329C616: from=<alice@lab.test>, size=389, nrcpt=1 (queue active)
+Oct 01 15:12:42 postfix1 postfix/smtpd[186]: disconnect from msl-client.mailseclab-research-net[10.88.0.11] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Oct 01 15:12:42 postfix1 postfix/smtp[190]: 648329C616: to=<bob@lab.test>, relay=postfix2[10.88.0.22]:25, delay=0.11, delays=0.02/0.01/0.03/0.04, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 7C3CD9C65E)
+Oct 01 15:12:42 postfix1 postfix/qmgr[184]: 648329C616: removed
+Oct 01 15:12:43 postfix1 postfix/smtpd[186]: connect from msl-client.mailseclab-research-net[10.88.0.11]
+Oct 01 15:12:43 postfix1 postfix/smtpd[186]: 302549C616: client=msl-client.mailseclab-research-net[10.88.0.11]
+Oct 01 15:12:43 postfix1 postfix/cleanup[189]: 302549C616: message-id=<i2-plain@lab.test>
+Oct 01 15:12:43 postfix1 postfix/smtpd[186]: disconnect from msl-client.mailseclab-research-net[10.88.0.11] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Oct 01 15:12:43 postfix1 postfix/qmgr[184]: 302549C616: from=<alice@lab.test>, size=386, nrcpt=1 (queue active)
+Oct 01 15:12:43 postfix1 postfix/smtp[190]: 302549C616: to=<bob@lab.test>, relay=postfix2[10.88.0.22]:25, delay=0.02, delays=0.01/0/0/0, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 334BE9C65E)
+Oct 01 15:12:43 postfix1 postfix/qmgr[184]: 302549C616: removed

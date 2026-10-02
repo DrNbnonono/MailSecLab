@@ -1,0 +1,6 @@
+[23:44:11] starting delivery chain
+[23:44:14] DNS extra records written; recreating dns so evil.test is served
+[23:44:23] legit delivery=delivered before={'dkimpy': 'pass', 'perl': 'pass', 'go': 'pass', 'rspamd': 'pass'} after={'dkimpy': 'pass', 'perl': 'pass', 'go': 'pass', 'rspamd': 'none'}
+[23:44:25] mutate-only delivery=delivered before={'dkimpy': 'fail', 'perl': 'pass', 'go': 'pass', 'rspamd': 'fail'} after={'dkimpy': 'fail', 'perl': 'pass', 'go': 'pass', 'rspamd': 'none'}
+[23:44:28] unsigned delivery=delivered before={'dkimpy': 'none', 'perl': 'none', 'go': 'none', 'rspamd': 'none'} after={'dkimpy': 'none', 'perl': 'none', 'go': 'none', 'rspamd': 'none'}
+[23:44:30] own-key delivery=delivered before={'dkimpy': 'fail', 'perl': 'parse-error', 'go': 'fail', 'rspamd': 'fail'} after={'dkimpy': 'fail', 'perl': 'parse-error', 'go': 'fail', 'rspamd': 'none'}

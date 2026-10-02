@@ -1,0 +1,12 @@
+{
+  "case": "i2-consistent",
+  "mode": "consistent",
+  "client_ip_at_build": "10.88.0.11",
+  "bytes": 590,
+  "forged_addresses": [
+    "203.0.113.10",
+    "203.0.113.11",
+    "10.88.0.11"
+  ],
+  "address_policy": "RFC 5737 TEST-NET-3 plus the client IP read on this socket"
+}

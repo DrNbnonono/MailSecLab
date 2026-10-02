@@ -10,6 +10,9 @@ received-lab/_ep3/
 received-lab/results/f-series/f1/
 received-lab/results/g-series/g1/
 
+# --- PDF -> Markdown extraction intermediates (rebuilt by tools/pdfmd_extract.py) ---
+tmp/
+
 # --- python ---
 __pycache__/
 *.pyc
@@ -18,3 +21,8 @@ __pycache__/
 *.swp
 Thumbs.db
 notes/
+
+# --- research secrets and local scratch ---
+*.pem
+received-lab/results/research/**/keys/
+received-lab/research/**/.state/

@@ -1,0 +1,12 @@
+{
+  "exact_answer_has_key": true,
+  "other_answer_lacks_key": true,
+  "exact_query_logged": true,
+  "other_query_logged": true,
+  "queries": [
+    "cal._domainkey.lab.test",
+    "not-a-selector._domainkey.lab.test"
+  ],
+  "dig_exact_rc": 0,
+  "dig_other_rc": 0
+}

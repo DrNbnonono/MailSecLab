@@ -1,0 +1,123 @@
+{
+  "join_ok": false,
+  "reasons": [
+    "by-host relay.example != from-host client.lab.test",
+    "forged by-clause does not contain the client IP",
+    "forged hops are not strictly increasing in time",
+    "earlier forged hop is not in RFC 5737 TEST-NET-3"
+  ],
+  "genuine": {
+    "raw": "Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])\r\n\tby postfix1.lab.test (Postfix) with ESMTP id 30F4B9C625\r\n\tfor <bob@lab.test>; Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+    "unfolded": "Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11]) by postfix1.lab.test (Postfix) with ESMTP id 30F4B9C625 for <bob@lab.test>; Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+    "from_host": "client.lab.test",
+    "by_host": "postfix1.lab.test",
+    "protocol": "ESMTP",
+    "ips": [
+      "10.88.0.11"
+    ],
+    "date": "Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+    "date_iso": "2026-10-01T15:07:55+00:00"
+  },
+  "forged_below": {
+    "raw": "Received: from origin.example (origin.example [203.0.113.10])\r\n\tby relay.example (relay.example [203.0.113.11]) with ESMTP id forged0001\r\n\tfor <bob@lab.test>; Thu, 01 Oct 2026 15:04:54 +0000",
+    "unfolded": "Received: from origin.example (origin.example [203.0.113.10]) by relay.example (relay.example [203.0.113.11]) with ESMTP id forged0001 for <bob@lab.test>; Thu, 01 Oct 2026 15:04:54 +0000",
+    "from_host": "origin.example",
+    "by_host": "relay.example",
+    "protocol": "ESMTP",
+    "ips": [
+      "203.0.113.10",
+      "203.0.113.11"
+    ],
+    "date": "Thu, 01 Oct 2026 15:04:54 +0000",
+    "date_iso": "2026-10-01T15:04:54+00:00"
+  },
+  "earlier_forged": {
+    "raw": "Received: from relay.example (relay.example [203.0.113.11])\r\n\tby forged.example (forged.example [203.0.113.99]) with ESMTP id forged0002\r\n\tfor <bob@lab.test>; Thu, 01 Oct 2026 15:06:54 +0000",
+    "unfolded": "Received: from relay.example (relay.example [203.0.113.11]) by forged.example (forged.example [203.0.113.99]) with ESMTP id forged0002 for <bob@lab.test>; Thu, 01 Oct 2026 15:06:54 +0000",
+    "from_host": "relay.example",
+    "by_host": "forged.example",
+    "protocol": "ESMTP",
+    "ips": [
+      "203.0.113.11",
+      "203.0.113.99"
+    ],
+    "date": "Thu, 01 Oct 2026 15:06:54 +0000",
+    "date_iso": "2026-10-01T15:06:54+00:00"
+  },
+  "received": [
+    {
+      "raw": "Received: from postfix3.lab.test (msl-postfix3.mailseclab-research-net. [10.88.0.23])\r\n        by mailpit.lab.test (Mailpit) with SMTP\r\n        for <bob@lab.test>; Thu, 1 Oct 2026 15:07:55 +0000 (UTC)",
+      "unfolded": "Received: from postfix3.lab.test (msl-postfix3.mailseclab-research-net. [10.88.0.23]) by mailpit.lab.test (Mailpit) with SMTP for <bob@lab.test>; Thu, 1 Oct 2026 15:07:55 +0000 (UTC)",
+      "from_host": "postfix3.lab.test",
+      "by_host": "mailpit.lab.test",
+      "protocol": "SMTP",
+      "ips": [
+        "10.88.0.23"
+      ],
+      "date": "Thu, 1 Oct 2026 15:07:55 +0000 (UTC)",
+      "date_iso": "2026-10-01T15:07:55+00:00"
+    },
+    {
+      "raw": "Received: from postfix2.lab.test (msl-postfix2.mailseclab-research-net [10.88.0.22])\r\n\tby postfix3.lab.test (Postfix) with ESMTP id 363F99C625\r\n\tfor <bob@lab.test>; Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+      "unfolded": "Received: from postfix2.lab.test (msl-postfix2.mailseclab-research-net [10.88.0.22]) by postfix3.lab.test (Postfix) with ESMTP id 363F99C625 for <bob@lab.test>; Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+      "from_host": "postfix2.lab.test",
+      "by_host": "postfix3.lab.test",
+      "protocol": "ESMTP",
+      "ips": [
+        "10.88.0.22"
+      ],
+      "date": "Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+      "date_iso": "2026-10-01T15:07:55+00:00"
+    },
+    {
+      "raw": "Received: from postfix1.lab.test (msl-postfix1.mailseclab-research-net [10.88.0.21])\r\n\tby postfix2.lab.test (Postfix) with ESMTP id 33BC09C628\r\n\tfor <bob@lab.test>; Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+      "unfolded": "Received: from postfix1.lab.test (msl-postfix1.mailseclab-research-net [10.88.0.21]) by postfix2.lab.test (Postfix) with ESMTP id 33BC09C628 for <bob@lab.test>; Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+      "from_host": "postfix1.lab.test",
+      "by_host": "postfix2.lab.test",
+      "protocol": "ESMTP",
+      "ips": [
+        "10.88.0.21"
+      ],
+      "date": "Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+      "date_iso": "2026-10-01T15:07:55+00:00"
+    },
+    {
+      "raw": "Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])\r\n\tby postfix1.lab.test (Postfix) with ESMTP id 30F4B9C625\r\n\tfor <bob@lab.test>; Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+      "unfolded": "Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11]) by postfix1.lab.test (Postfix) with ESMTP id 30F4B9C625 for <bob@lab.test>; Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+      "from_host": "client.lab.test",
+      "by_host": "postfix1.lab.test",
+      "protocol": "ESMTP",
+      "ips": [
+        "10.88.0.11"
+      ],
+      "date": "Thu,  1 Oct 2026 15:07:55 +0000 (UTC)",
+      "date_iso": "2026-10-01T15:07:55+00:00"
+    },
+    {
+      "raw": "Received: from origin.example (origin.example [203.0.113.10])\r\n\tby relay.example (relay.example [203.0.113.11]) with ESMTP id forged0001\r\n\tfor <bob@lab.test>; Thu, 01 Oct 2026 15:04:54 +0000",
+      "unfolded": "Received: from origin.example (origin.example [203.0.113.10]) by relay.example (relay.example [203.0.113.11]) with ESMTP id forged0001 for <bob@lab.test>; Thu, 01 Oct 2026 15:04:54 +0000",
+      "from_host": "origin.example",
+      "by_host": "relay.example",
+      "protocol": "ESMTP",
+      "ips": [
+        "203.0.113.10",
+        "203.0.113.11"
+      ],
+      "date": "Thu, 01 Oct 2026 15:04:54 +0000",
+      "date_iso": "2026-10-01T15:04:54+00:00"
+    },
+    {
+      "raw": "Received: from relay.example (relay.example [203.0.113.11])\r\n\tby forged.example (forged.example [203.0.113.99]) with ESMTP id forged0002\r\n\tfor <bob@lab.test>; Thu, 01 Oct 2026 15:06:54 +0000",
+      "unfolded": "Received: from relay.example (relay.example [203.0.113.11]) by forged.example (forged.example [203.0.113.99]) with ESMTP id forged0002 for <bob@lab.test>; Thu, 01 Oct 2026 15:06:54 +0000",
+      "from_host": "relay.example",
+      "by_host": "forged.example",
+      "protocol": "ESMTP",
+      "ips": [
+        "203.0.113.11",
+        "203.0.113.99"
+      ],
+      "date": "Thu, 01 Oct 2026 15:06:54 +0000",
+      "date_iso": "2026-10-01T15:06:54+00:00"
+    }
+  ]
+}

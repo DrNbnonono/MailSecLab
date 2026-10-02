@@ -1,0 +1,29 @@
+[23:03:55] building dns, verifiers, rspamd
+[23:07:01] starting dns, verifiers, rspamd
+[23:07:27] calibrate legal: dkimpy=tool-error, perl=tool-error, go=tool-error, rspamd=pass
+[23:07:28] calibrate header-tamper: dkimpy=tool-error, perl=tool-error, go=tool-error, rspamd=fail
+[23:07:29] calibrate body-tamper: dkimpy=tool-error, perl=tool-error, go=tool-error, rspamd=fail
+[23:07:29] calibrate wrong-key: dkimpy=tool-error, perl=tool-error, go=tool-error, rspamd=fail
+[23:07:30] calibrate unsigned: dkimpy=tool-error, perl=tool-error, go=tool-error, rspamd=none
+[23:07:31] calibrate legal-lf: dkimpy=tool-error, perl=tool-error, go=tool-error, rspamd=pass
+[23:07:42] starting chain
+[23:07:53] I2 plain: delivery=delivered join=True reasons=[]
+[23:07:54] I2 consistent: delivery=delivered join=False reasons=['by-host relay.example != from-host client.lab.test', 'forged by-clause does not contain the client IP', 'forged hops are not strictly increasing in time', 'earlier forged hop is not in RFC 5737 TEST-NET-3']
+[23:07:55] I2 inconsistent: delivery=delivered join=False reasons=['by-host relay.example != from-host client.lab.test', 'forged by-clause does not contain the client IP', 'forged hops are not strictly increasing in time', 'earlier forged hop is not in RFC 5737 TEST-NET-3']
+[23:07:55] G4 legal folded headers
+[23:08:19] G4 G4-N1: reply=250 2.0.0 Ok: queued as 13B879C585 delivery=delivered gaps=[]
+[23:08:44] G4 G4-N50: reply=250 2.0.0 Ok: queued as D53689C635 delivery=delivered gaps=[]
+[23:09:10] G4 G4-N100: reply=250 2.0.0 Ok: queued as 0D2C89C63F delivery=delivered gaps=[]
+[23:09:16] gate passed=False
+[23:12:11] starting dns, verifiers, rspamd
+[23:12:17] calibrate legal: dkimpy=pass, perl=pass, go=tool-error, rspamd=pass
+[23:12:18] calibrate header-tamper: dkimpy=fail, perl=fail, go=tool-error, rspamd=fail
+[23:12:20] calibrate body-tamper: dkimpy=fail, perl=fail, go=tool-error, rspamd=fail
+[23:12:21] calibrate wrong-key: dkimpy=fail, perl=fail, go=tool-error, rspamd=fail
+[23:12:22] calibrate unsigned: dkimpy=fail, perl=none, go=none, rspamd=none
+[23:12:23] calibrate legal-lf: dkimpy=pass, perl=pass, go=tool-error, rspamd=pass
+[23:12:34] starting chain
+[23:12:43] I2 plain: delivery=delivered join=True reasons=[]
+[23:12:44] I2 consistent: delivery=delivered join=True reasons=[]
+[23:12:44] I2 inconsistent: delivery=delivered join=False reasons=['by-host forged.example != from-host client.lab.test', 'forged by-clause does not contain the client IP']
+[23:12:45] gate passed=False

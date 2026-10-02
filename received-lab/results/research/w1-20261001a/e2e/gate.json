@@ -1,0 +1,134 @@
+{
+  "stage": "e2e",
+  "passed": true,
+  "problems": [],
+  "rows": [
+    {
+      "case": "legit",
+      "attacker": "none",
+      "sha256": "895efe75db68105732b8dbb29d44d42eac9d5de4ff35e0cc93746a601fb6ab09",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 Ok: queued as 6190175C38",
+        "queued_id": "6190175C38",
+        "bytes": 736,
+        "sha256": "895efe75db68105732b8dbb29d44d42eac9d5de4ff35e0cc93746a601fb6ab09",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "mailpit_id": "0DBXOhgBOJKbmRexqN2O94",
+      "delivery": "delivered",
+      "before": {
+        "dkimpy": "pass",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "pass"
+      },
+      "after": {
+        "dkimpy": "pass",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "none"
+      }
+    },
+    {
+      "case": "mutate-only",
+      "attacker": "can mutate a signed message and does not have the lab.test private key",
+      "sha256": "dcdcf9553b11124a18afb5b4c091554b067eab013ecee916c9ad1981b444ac06",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 Ok: queued as 91EB975C38",
+        "queued_id": "91EB975C38",
+        "bytes": 801,
+        "sha256": "dcdcf9553b11124a18afb5b4c091554b067eab013ecee916c9ad1981b444ac06",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "mailpit_id": "2iuVYOrUvI9bkDAN6jcmxW",
+      "delivery": "delivered",
+      "before": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "fail"
+      },
+      "after": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "none"
+      }
+    },
+    {
+      "case": "unsigned",
+      "attacker": "no signature",
+      "sha256": "85a822dba5cec1e1533e80a1121a68df3bd6e8ff7a80835a29029a3616242ef0",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 Ok: queued as 4C0509C5F0",
+        "queued_id": "4C0509C5F0",
+        "bytes": 233,
+        "sha256": "85a822dba5cec1e1533e80a1121a68df3bd6e8ff7a80835a29029a3616242ef0",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "mailpit_id": "1N34K7sxJovYJ6uwlIdZvS",
+      "delivery": "delivered",
+      "before": {
+        "dkimpy": "none",
+        "perl": "none",
+        "go": "none",
+        "rspamd": "none"
+      },
+      "after": {
+        "dkimpy": "none",
+        "perl": "none",
+        "go": "none",
+        "rspamd": "none"
+      }
+    },
+    {
+      "case": "own-key",
+      "attacker": "holds only the evil.test key",
+      "sha256": "d3f84be98d1430f71813b782be4dcb9a1a7e2492a4684f15abd935df77a718f9",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 Ok: queued as 9C6FD75C38",
+        "queued_id": "9C6FD75C38",
+        "bytes": 783,
+        "sha256": "d3f84be98d1430f71813b782be4dcb9a1a7e2492a4684f15abd935df77a718f9",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "mailpit_id": "6yT8scaXpUtssXl3byD133",
+      "delivery": "delivered",
+      "before": {
+        "dkimpy": "fail",
+        "perl": "parse-error",
+        "go": "fail",
+        "rspamd": "fail"
+      },
+      "after": {
+        "dkimpy": "fail",
+        "perl": "parse-error",
+        "go": "fail",
+        "rspamd": "none"
+      }
+    }
+  ],
+  "client_gap": "Roundcube and SnappyMail were not started in this run; no DOM or screenshot is invented.",
+  "policy_note": "Lab DNS publishes DMARC p=none. That is the experimental zone, not a product default. rspamd in this image has SPF and DMARC modules disabled.",
+  "counts_as_finding": false
+}

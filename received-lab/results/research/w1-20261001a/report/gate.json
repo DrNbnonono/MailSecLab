@@ -1,0 +1,38 @@
+{
+  "stage": "report",
+  "passed": true,
+  "problems": [],
+  "repeats": [
+    {
+      "repeat": 1,
+      "statuses": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "fail"
+      }
+    },
+    {
+      "repeat": 2,
+      "statuses": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "fail"
+      }
+    },
+    {
+      "repeat": 3,
+      "statuses": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "fail"
+      }
+    }
+  ],
+  "stop_expansion": false,
+  "note": "Week 4 reported a method gain; expensive follow-ups still require the maintained-version freeze before they are cited.",
+  "disclosure_sent": false,
+  "counts_as_finding": false
+}

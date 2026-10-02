@@ -1,0 +1,40 @@
+[
+  {
+    "label": "loop-normal",
+    "a": {
+      "ok_deliveries": 51,
+      "ok_before_permfail": 49,
+      "permfail": 1
+    },
+    "b": {
+      "ok_deliveries": 51,
+      "ok_before_permfail": null,
+      "permfail": 0
+    },
+    "message": {
+      "strict_received": 101,
+      "obs_received": 0,
+      "newest_strict": "Received: from origin.example (origin.example [203.0.113.10]) by relay.example with ESMTP; Thu, 1 Oct 2026 00:00:00 +0000",
+      "file": "fc4a3cd1acc8f982.txt"
+    }
+  },
+  {
+    "label": "loop-obs",
+    "a": {
+      "ok_deliveries": 51,
+      "ok_before_permfail": null,
+      "permfail": 0
+    },
+    "b": {
+      "ok_deliveries": 51,
+      "ok_before_permfail": 49,
+      "permfail": 1
+    },
+    "message": {
+      "strict_received": 99,
+      "obs_received": 1,
+      "newest_strict": "Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])",
+      "file": "2210bfa701df4084.txt"
+    }
+  }
+]

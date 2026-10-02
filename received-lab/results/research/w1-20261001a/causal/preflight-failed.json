@@ -1,0 +1,10 @@
+{
+  "ok": false,
+  "reference": "pass",
+  "statuses": {
+    "dkimpy": "pass",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "tool-error"
+  }
+}

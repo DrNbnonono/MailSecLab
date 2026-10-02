@@ -1,0 +1,292 @@
+{
+  "row": {
+    "case": "message-id-simple-n1-h1-unchanged",
+    "field": "message-id",
+    "header_canon": "simple",
+    "body_canon": "relaxed",
+    "instances_at_sign": 1,
+    "h_repeats": 1,
+    "h": [
+      "from",
+      "message-id",
+      "to",
+      "date",
+      "subject"
+    ],
+    "operation": "unchanged",
+    "sha256": "022fedb6fdc04b08e6f81a4fc38dd29b2aec3635fbe7bc2ae75b18f0feef4d11",
+    "bytes": 773,
+    "reference_bottom": "pass",
+    "reference_top": "pass",
+    "selected_bottom": [
+      {
+        "name": "from",
+        "index": 1,
+        "start": 508,
+        "end": 540,
+        "canonical_sha256": "9d6a9c64795f8052696f14c944026aeaeaf5d6d696ea02db7e72e6f1452e5cef"
+      },
+      {
+        "name": "message-id",
+        "index": 5,
+        "start": 634,
+        "end": 667,
+        "canonical_sha256": "694c3499cc8769cf61f32e8b7cfd4669d89c9a9c88de43e1d15c2c8354f4efa8"
+      },
+      {
+        "name": "to",
+        "index": 2,
+        "start": 540,
+        "end": 569,
+        "canonical_sha256": "e766e3f7fdf44fe70c2475bd178cede2edbcd2e74f6c13415b3bb7f47e8fe2b4"
+      },
+      {
+        "name": "date",
+        "index": 3,
+        "start": 569,
+        "end": 607,
+        "canonical_sha256": "b4cfb46ae7dee2a9e657d1315139a11faf4be9ebcd3906a890904bf474ba6014"
+      },
+      {
+        "name": "subject",
+        "index": 4,
+        "start": 607,
+        "end": 634,
+        "canonical_sha256": "05ece3358686c78e41b1c59a71374909818b9186d6b0dc408df306e24fad1037"
+      }
+    ],
+    "selected_top": [
+      {
+        "name": "from",
+        "index": 1,
+        "start": 508,
+        "end": 540,
+        "canonical_sha256": "9d6a9c64795f8052696f14c944026aeaeaf5d6d696ea02db7e72e6f1452e5cef"
+      },
+      {
+        "name": "message-id",
+        "index": 5,
+        "start": 634,
+        "end": 667,
+        "canonical_sha256": "694c3499cc8769cf61f32e8b7cfd4669d89c9a9c88de43e1d15c2c8354f4efa8"
+      },
+      {
+        "name": "to",
+        "index": 2,
+        "start": 540,
+        "end": 569,
+        "canonical_sha256": "e766e3f7fdf44fe70c2475bd178cede2edbcd2e74f6c13415b3bb7f47e8fe2b4"
+      },
+      {
+        "name": "date",
+        "index": 3,
+        "start": 569,
+        "end": 607,
+        "canonical_sha256": "b4cfb46ae7dee2a9e657d1315139a11faf4be9ebcd3906a890904bf474ba6014"
+      },
+      {
+        "name": "subject",
+        "index": 4,
+        "start": 607,
+        "end": 634,
+        "canonical_sha256": "05ece3358686c78e41b1c59a71374909818b9186d6b0dc408df306e24fad1037"
+      }
+    ],
+    "verifiers": {
+      "dkimpy": "pass",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "pass"
+    },
+    "causes": {
+      "dkimpy": "both-oracles-agree",
+      "perl": "both-oracles-agree",
+      "go": "both-oracles-agree",
+      "rspamd": "both-oracles-agree"
+    },
+    "field_counts": {
+      "dkim-signature": 1,
+      "from": 1,
+      "to": 1,
+      "date": 1,
+      "subject": 1,
+      "message-id": 1,
+      "x-case-id": 1
+    },
+    "syntax": [
+      "modern"
+    ]
+  },
+  "bottom": {
+    "status": "pass",
+    "signatures": [
+      {
+        "status": "pass",
+        "body_hash_match": true,
+        "header_signature_match": true,
+        "h": [
+          "from",
+          "message-id",
+          "to",
+          "date",
+          "subject"
+        ],
+        "selected": [
+          {
+            "name": "from",
+            "index": 1,
+            "start": 508,
+            "end": 540,
+            "canonical_sha256": "9d6a9c64795f8052696f14c944026aeaeaf5d6d696ea02db7e72e6f1452e5cef"
+          },
+          {
+            "name": "message-id",
+            "index": 5,
+            "start": 634,
+            "end": 667,
+            "canonical_sha256": "694c3499cc8769cf61f32e8b7cfd4669d89c9a9c88de43e1d15c2c8354f4efa8"
+          },
+          {
+            "name": "to",
+            "index": 2,
+            "start": 540,
+            "end": 569,
+            "canonical_sha256": "e766e3f7fdf44fe70c2475bd178cede2edbcd2e74f6c13415b3bb7f47e8fe2b4"
+          },
+          {
+            "name": "date",
+            "index": 3,
+            "start": 569,
+            "end": 607,
+            "canonical_sha256": "b4cfb46ae7dee2a9e657d1315139a11faf4be9ebcd3906a890904bf474ba6014"
+          },
+          {
+            "name": "subject",
+            "index": 4,
+            "start": 607,
+            "end": 634,
+            "canonical_sha256": "05ece3358686c78e41b1c59a71374909818b9186d6b0dc408df306e24fad1037"
+          }
+        ],
+        "hash_input_sha256": "340f37998df84bda3b749b18c404ee64c6c1fa3cf2a229f3eaf8a18e8dad5d70",
+        "openssl_stdout": "Verified OK\n",
+        "openssl_stderr": ""
+      }
+    ],
+    "reference_scope": "modern controlled IMF; crypto only, no duplicate-From policy"
+  },
+  "top": {
+    "status": "pass",
+    "signatures": [
+      {
+        "status": "pass",
+        "body_hash_match": true,
+        "header_signature_match": true,
+        "h": [
+          "from",
+          "message-id",
+          "to",
+          "date",
+          "subject"
+        ],
+        "selected": [
+          {
+            "name": "from",
+            "index": 1,
+            "start": 508,
+            "end": 540,
+            "canonical_sha256": "9d6a9c64795f8052696f14c944026aeaeaf5d6d696ea02db7e72e6f1452e5cef"
+          },
+          {
+            "name": "message-id",
+            "index": 5,
+            "start": 634,
+            "end": 667,
+            "canonical_sha256": "694c3499cc8769cf61f32e8b7cfd4669d89c9a9c88de43e1d15c2c8354f4efa8"
+          },
+          {
+            "name": "to",
+            "index": 2,
+            "start": 540,
+            "end": 569,
+            "canonical_sha256": "e766e3f7fdf44fe70c2475bd178cede2edbcd2e74f6c13415b3bb7f47e8fe2b4"
+          },
+          {
+            "name": "date",
+            "index": 3,
+            "start": 569,
+            "end": 607,
+            "canonical_sha256": "b4cfb46ae7dee2a9e657d1315139a11faf4be9ebcd3906a890904bf474ba6014"
+          },
+          {
+            "name": "subject",
+            "index": 4,
+            "start": 607,
+            "end": 634,
+            "canonical_sha256": "05ece3358686c78e41b1c59a71374909818b9186d6b0dc408df306e24fad1037"
+          }
+        ],
+        "hash_input_sha256": "340f37998df84bda3b749b18c404ee64c6c1fa3cf2a229f3eaf8a18e8dad5d70",
+        "openssl_stdout": "Verified OK\n",
+        "openssl_stderr": ""
+      }
+    ],
+    "reference_scope": "modern controlled IMF; crypto only, no duplicate-From policy"
+  },
+  "verifiers": {
+    "dkimpy": {
+      "tool": "dkimpy",
+      "input_sha256": "022fedb6fdc04b08e6f81a4fc38dd29b2aec3635fbe7bc2ae75b18f0feef4d11",
+      "input_len": 773,
+      "perl_feed_sha256": "022fedb6fdc04b08e6f81a4fc38dd29b2aec3635fbe7bc2ae75b18f0feef4d11",
+      "perl_normalization": "identity",
+      "stdout": "status: pass\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "perl": {
+      "tool": "perl",
+      "input_sha256": "022fedb6fdc04b08e6f81a4fc38dd29b2aec3635fbe7bc2ae75b18f0feef4d11",
+      "input_len": 773,
+      "perl_feed_sha256": "022fedb6fdc04b08e6f81a4fc38dd29b2aec3635fbe7bc2ae75b18f0feef4d11",
+      "perl_normalization": "identity",
+      "library_fed_sha256": "022fedb6fdc04b08e6f81a4fc38dd29b2aec3635fbe7bc2ae75b18f0feef4d11",
+      "library_normalization": "identity",
+      "stdout": "input_sha256: 022fedb6fdc04b08e6f81a4fc38dd29b2aec3635fbe7bc2ae75b18f0feef4d11\ninput_len: 773\nfed_sha256: 022fedb6fdc04b08e6f81a4fc38dd29b2aec3635fbe7bc2ae75b18f0feef4d11\nfed_len: 773\nnormalization: identity\nsignature_count: 1\nresult: pass\ndetail: pass\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "go": {
+      "tool": "go",
+      "input_sha256": "022fedb6fdc04b08e6f81a4fc38dd29b2aec3635fbe7bc2ae75b18f0feef4d11",
+      "input_len": 773,
+      "perl_feed_sha256": "022fedb6fdc04b08e6f81a4fc38dd29b2aec3635fbe7bc2ae75b18f0feef4d11",
+      "perl_normalization": "identity",
+      "stdout": "",
+      "stderr": "2026/10/01 15:36:37 Valid signature for lab.test\n",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "rspamd": {
+      "status": "pass",
+      "action": "no action",
+      "score": 2.199999,
+      "symbols": [
+        "ARC_NA",
+        "DKIM_TRACE",
+        "FROM_HAS_DN",
+        "HFILTER_HOSTNAME_UNKNOWN",
+        "H_SOURCE_IP",
+        "MID_RHS_MATCH_FROM",
+        "MIME_GOOD",
+        "MIME_TRACE",
+        "RCPT_COUNT_ONE",
+        "RCVD_COUNT_ZERO",
+        "R_DKIM_ALLOW",
+        "TO_DN_NONE"
+      ]
+    }
+  }
+}

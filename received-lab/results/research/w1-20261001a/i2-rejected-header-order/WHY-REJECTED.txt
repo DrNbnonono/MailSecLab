@@ -1,0 +1,1 @@
+Rejected: forged Received hops were written oldest-first, so the hop under Postfix was not the client hop. Not a joined-chain result.

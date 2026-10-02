@@ -1,0 +1,8 @@
+From: Author <author@lab.test>
+To: Bob <bob@lab.test>
+Subject: auth-probe
+Message-ID: <auth-probe@lab.test>
+Date: Thu, 01 Oct 2026 12:00:00 +0000
+
+auth probe body
+X-Case-ID: auth-probe

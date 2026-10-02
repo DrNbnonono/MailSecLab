@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "problems": [],
+  "notes": [],
+  "bytes": 80240,
+  "header_bytes": 80221,
+  "x_received": 1,
+  "unfolded_lengths": [
+    78001
+  ],
+  "max_line": 78,
+  "syntax": "modern-folded",
+  "obs_received": false
+}

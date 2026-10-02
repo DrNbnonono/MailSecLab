@@ -1,0 +1,485 @@
+[
+  {
+    "statuses": {
+      "dkimpy": "parse-error",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "pass"
+    },
+    "candidates": [
+      {
+        "sha256": "2c56ce27b0f94d24da95b035584798cd035a71bb60a4d5e7923153c1942dc57b",
+        "times": 3520,
+        "stored": true,
+        "file": "chain/seed-0/split-2c56ce27b0f9.eml",
+        "signature_matches_parent": true,
+        "edit": "inserted-line",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "176e377beb1239fcdda5c41873cd6febc263055f3f94817bebe13653afe59b21",
+        "times": 3470,
+        "stored": true,
+        "file": "chain/seed-0/split-176e377beb12.eml",
+        "signature_matches_parent": true,
+        "edit": "inserted-line",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "7f724aa1443ce4da13eda7367c6fd1675fdf61e281ef9d29653234534ad7027b",
+        "times": 3421,
+        "stored": true,
+        "file": "chain/seed-0/split-7f724aa1443c.eml",
+        "signature_matches_parent": true,
+        "edit": "inserted-line",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "2029f617adede80405df82ecb42d641b60c406c41849edee23df3412112e9a9d",
+        "times": 3327,
+        "stored": true,
+        "file": "chain/seed-0/split-2029f617aded.eml",
+        "signature_matches_parent": true,
+        "edit": "inserted-line",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "aaf062b710c89c0508ad1dadf71e529d18d1a07fa34d3c0ee9d5d8be15c0e13a",
+        "times": 3291,
+        "stored": true,
+        "file": "chain/seed-0/split-aaf062b710c8.eml",
+        "signature_matches_parent": true,
+        "edit": "inserted-line",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "4822697c1c46917300ae11ee27804ef5b713a281f2502d5e267edc27a72d2eaf",
+        "times": 3223,
+        "stored": true,
+        "file": "chain/seed-0/split-4822697c1c46.eml",
+        "signature_matches_parent": true,
+        "edit": "inserted-line",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "09e42ceb123a158ca50da8c6c6cad4f85c523cdebeda77e1bec66c2dddbacfa1",
+        "times": 2,
+        "stored": false
+      },
+      {
+        "sha256": "3fd4e03e3d054a261ba18bee9eeaadc3886ab7e10e80371f99a5859ff26f178d",
+        "times": 2,
+        "stored": true,
+        "file": "byte/seed-1/split-3fd4e03e3d05.eml",
+        "signature_matches_parent": true,
+        "edit": "one-byte",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "715c828ce3982a37d28133642b3b4b581402ce350bd7b8a921ff46d02bad1f08",
+        "times": 2,
+        "stored": true,
+        "file": "byte/seed-1/split-715c828ce398.eml",
+        "signature_matches_parent": true,
+        "edit": "one-byte",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "50e9c249de48c08ae1449b96a2a3af921ae6c00157cc7385d7e5998bd44062b0",
+        "times": 2,
+        "stored": false
+      }
+    ]
+  },
+  {
+    "statuses": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+    },
+    "candidates": [
+      {
+        "sha256": "a5fdca03495671524a7f3a98ab6cddd0da2f951c386845e28510c5f9fad15879",
+        "times": 1549,
+        "stored": true,
+        "file": "chain/seed-0/split-a5fdca034956.eml",
+        "signature_matches_parent": true,
+        "edit": "inserted-line",
+        "reverified": {
+          "dkimpy": "fail",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "fail"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "e68b8961286ff23391dcaa00b051aeccc8f6707ac8f0dabd9c99e6b0bb02666f",
+        "times": 1490,
+        "stored": true,
+        "file": "chain/seed-0/split-e68b8961286f.eml",
+        "signature_matches_parent": true,
+        "edit": "inserted-line",
+        "reverified": {
+          "dkimpy": "fail",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "fail"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "087274ca3e7e4e2723e7fe1eb321f07918c2c56361b8ed257e4b81abf25d7da2",
+        "times": 1484,
+        "stored": true,
+        "file": "chain/seed-0/split-087274ca3e7e.eml",
+        "signature_matches_parent": true,
+        "edit": "inserted-line",
+        "reverified": {
+          "dkimpy": "fail",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "fail"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      }
+    ]
+  },
+  {
+    "statuses": {
+      "dkimpy": "parse-error",
+      "go": "fail",
+      "perl": "fail",
+      "rspamd": "fail"
+    },
+    "candidates": [
+      {
+        "sha256": "cb99fad13069b3862a9580c23269f37a0ad4d47745c3593b18ec4d241e70a559",
+        "times": 3,
+        "stored": false
+      },
+      {
+        "sha256": "a722607f1d778a93165e24a28ec2830ccf57871227a58a8529fbcbb917929241",
+        "times": 2,
+        "stored": true,
+        "file": "byte/seed-0/split-a722607f1d77.eml",
+        "signature_matches_parent": true,
+        "edit": "one-byte",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "fail",
+          "go": "fail",
+          "rspamd": "fail"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "b3f6035e961cebe1fadd46a18c9f0f020e54047864739c99058709f58ee8626d",
+        "times": 2,
+        "stored": true,
+        "file": "byte/seed-0/split-b3f6035e961c.eml",
+        "signature_matches_parent": true,
+        "edit": "one-byte",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "fail",
+          "go": "fail",
+          "rspamd": "fail"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "d6b881a12e0eb35713d6740c6cce89236765d0f20b19860e52058271154b2b29",
+        "times": 2,
+        "stored": true,
+        "file": "byte/seed-0/split-d6b881a12e0e.eml",
+        "signature_matches_parent": true,
+        "edit": "one-byte",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "fail",
+          "go": "fail",
+          "rspamd": "fail"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "836285ea38430af175a9dcab15d2afae5794afd934325c3753861049ca30d158",
+        "times": 2,
+        "stored": true,
+        "file": "byte/seed-0/split-836285ea3843.eml",
+        "signature_matches_parent": true,
+        "edit": "one-byte",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "fail",
+          "go": "fail",
+          "rspamd": "fail"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "efdbed398f1a3d88d11ca9e68142650d108db712e05300991e9b3dd1c3cf1e66",
+        "times": 2,
+        "stored": true,
+        "file": "byte/seed-0/split-efdbed398f1a.eml",
+        "signature_matches_parent": true,
+        "edit": "one-byte",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "fail",
+          "go": "fail",
+          "rspamd": "fail"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "2d6e532d556edf071d0c841bfab0c8951834651c7b5946372a45a9e4e50aeada",
+        "times": 2,
+        "stored": true,
+        "file": "byte/seed-0/split-2d6e532d556e.eml",
+        "signature_matches_parent": true,
+        "edit": "one-byte",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "fail",
+          "go": "fail",
+          "rspamd": "fail"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      },
+      {
+        "sha256": "6e26606ecc1dcf0df89c85bc564305d207509d081c611048c1c848db8d6d3015",
+        "times": 2,
+        "stored": false
+      },
+      {
+        "sha256": "287bea37b6e9e1ece53fff52e1c20e98efc4253228d2c752f09031a39e6462bb",
+        "times": 2,
+        "stored": false
+      },
+      {
+        "sha256": "3f6e91a4420bb7f534171ee586a1c7ae2bc35e15678ca13916bcb7bdcaaae538",
+        "times": 2,
+        "stored": true,
+        "file": "byte/seed-1/split-3f6e91a4420b.eml",
+        "signature_matches_parent": true,
+        "edit": "one-byte",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "fail",
+          "go": "fail",
+          "rspamd": "fail"
+        },
+        "split_reproduced": true,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      }
+    ]
+  },
+  {
+    "statuses": {
+      "dkimpy": "parse-error",
+      "go": "pass",
+      "perl": "timeout",
+      "rspamd": "pass"
+    },
+    "candidates": [
+      {
+        "sha256": "176e377beb1239fcdda5c41873cd6febc263055f3f94817bebe13653afe59b21",
+        "times": 1,
+        "stored": true,
+        "file": "chain/seed-0/split-176e377beb12.eml",
+        "signature_matches_parent": true,
+        "edit": "inserted-line",
+        "reverified": {
+          "dkimpy": "parse-error",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "split_reproduced": false,
+        "reverted": {
+          "dkimpy": "pass",
+          "perl": "pass",
+          "go": "pass",
+          "rspamd": "pass"
+        },
+        "minimal": true
+      }
+    ]
+  }
+]

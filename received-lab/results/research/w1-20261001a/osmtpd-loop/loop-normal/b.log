@@ -1,0 +1,1221 @@
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+info: OpenSMTPD 6.8.0p2 starting
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+setup_peer: klondike -> control[24] fd=4
+setup_peer: klondike -> pony express[26] fd=5
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+setup_peer: control -> klondike[23] fd=4
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+setup_peer: control -> lookup[25] fd=5
+setup_peer: control -> pony express[26] fd=6
+setup_peer: lookup -> control[24] fd=4
+setup_peer: lookup -> pony express[26] fd=5
+setup_peer: control -> queue[27] fd=7
+setup_peer: lookup -> queue[27] fd=6
+setup_peer: control -> scheduler[28] fd=8
+setup_proc: klondike done
+setup_done: ca[23] done
+setup_proc: control done
+setup_done: control[24] done
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+setup_peer: queue -> control[24] fd=4
+setup_peer: queue -> pony express[26] fd=5
+setup_proc: lookup done
+setup_done: lka[25] done
+setup_peer: queue -> lookup[25] fd=6
+setup_peer: queue -> scheduler[28] fd=7
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+setup_peer: pony express -> control[24] fd=4
+setup_peer: pony express -> klondike[23] fd=5
+setup_peer: pony express -> lookup[25] fd=6
+setup_peer: pony express -> queue[27] fd=7
+setup_proc: pony express done
+setup_done: pony[26] done
+setup_proc: queue done
+debug: rsa_engine_init: using RSA privsep engine
+debug: ecdsa_engine_init: using ECDSA privsep engine
+setup_done: queue[27] done
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+setup_peer: scheduler -> control[24] fd=4
+setup_peer: scheduler -> queue[27] fd=5
+setup_proc: scheduler done
+debug: bounce warning after 4h
+setup_done: scheduler[28] done
+smtpd: setup done
+warn: purge_task: opendir: No such file or directory
+debug: parent_send_config_ruleset: reloading
+debug: parent_send_config: configuring pony process
+debug: parent_send_config: configuring ca process
+debug: init private ssl-tree
+debug: smtp: listen on 0.0.0.0 port 25 flags 0x400 pki "" ca ""
+debug: smtp: will accept at most 524283 clients
+debug: queue: done loading queue into scheduler
+debug: smtpd: scanning offline queue...
+debug: smtpd: offline scanning done
+0613dabb4375fb4b smtp connected address=10.88.0.11 host=msl-client.mailseclab-research-net
+0613dabb4375fb4b smtp disconnected reason=disconnect
+0613dabc3b65bc36 smtp connected address=10.88.0.4 host=msl-osloop-a.mailseclab-research-net
+smtp: 0x5a990b9bd670: fd 13 from queue
+smtp: 0x5a990b9bd670: message fd 13
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=ba8456ca size=682 nrcpt=1 proto=ESMTP
+debug: scheduler: evp:ba8456cace40a166 scheduled (mta)
+0613dabc3b65bc36 smtp envelope evpid=ba8456cace40a166 from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for ba8456cace40a166: smtp://10.88.0.4:25
+debug: mta: received evp:ba8456cace40a166 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=1, ntask=1, nconnector=0, nconn=0
+debug: mta: querying MX for [relay:10.88.0.4,port=25,smtp,mx]...
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for MX
+debug: MXs for domain 10.88.0.4:
+	10.88.0.4 preference -1
+debug: mta: ... got mx (0x5a990b9beac0, 10.88.0.4, [relay:10.88.0.4,port=25,smtp,mx])
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=1, ntask=1, nconnector=0, nconn=0
+debug: mta: querying source for [relay:10.88.0.4,port=25,smtp,mx]...
+debug: mta: ... got source for [relay:10.88.0.4,port=25,smtp,mx]: []
+debug: mta: new [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x10000]
+debug: mta: connecting with [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]
+debug: mta-routing: searching new route for [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]...
+debug: mta-routing: selecting candidate route [] <-> 10.88.0.4
+debug: mta-routing: spawning new connection on [] <-> 10.88.0.4
+debug: mta: 0x5a990b9beb60: spawned for relay [relay:10.88.0.4,port=25,smtp,mx]
+debug: mta: connecting with [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]
+debug: mta: cannot use [relay:10.88.0.4,port=25,smtp,mx] before 2s
+debug: mta-routing: no route available for [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]: must wait a bit
+debug: mta: retrying to connect on [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0] in 2s...
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: scheduling relay [relay:10.88.0.4,port=25,smtp,mx] in 1s...
+0613dabf5d8f5016 mta connecting address=smtp://10.88.0.4:25 host=msl-osloop-a.mailseclab-research-net
+0613dabf5d8f5016 mta connected
+debug: mta-routing: route [] <-> 10.88.0.4 (msl-osloop-a.mailseclab-research-net) is now valid.
+debug: mta: connecting with [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x20000]
+debug: mta: cancelling connector timeout
+debug: mta: enough connections already
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=ba8456cace40a166 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 909f597c Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for ba8456cace40a166 (-> bob@lab.test)
+debug: mta: ... timeout for [relay:10.88.0.4,port=25,smtp,mx]
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=0, nconnector=1, nconn=1
+debug: mta: all done for [relay:10.88.0.4,port=25,smtp,mx]
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=9d8cacae size=1080 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=9d8cacaed319c8f2 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:9d8cacaed319c8f2 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 9d8cacaed319c8f2: smtp://10.88.0.4:25
+debug: mta: received evp:9d8cacaed319c8f2 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=1, nconnector=1, nconn=1
+debug: mta: querying source for [relay:10.88.0.4,port=25,smtp,mx]...
+debug: mta: ... got source for [relay:10.88.0.4,port=25,smtp,mx]: []
+debug: mta: connecting with [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]
+debug: mta: enough connections already
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: scheduling relay [relay:10.88.0.4,port=25,smtp,mx] in 10s...
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=9d8cacaed319c8f2 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 daf6221d Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 9d8cacaed319c8f2 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+debug: scheduler: evp:881ff41722f12915 scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=881ff417 size=1478 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=881ff41722f12915 from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 881ff41722f12915: smtp://10.88.0.4:25
+debug: mta: received evp:881ff41722f12915 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=881ff41722f12915 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 2cd23ab0 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 881ff41722f12915 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=b04be1ae size=1876 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=b04be1ae34b3ebc0 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:b04be1ae34b3ebc0 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for b04be1ae34b3ebc0: smtp://10.88.0.4:25
+debug: mta: received evp:b04be1ae34b3ebc0 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=b04be1ae34b3ebc0 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 59b23551 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for b04be1ae34b3ebc0 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+debug: scheduler: evp:f4fad96ed24922e7 scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=f4fad96e size=2274 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=f4fad96ed24922e7 from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for f4fad96ed24922e7: smtp://10.88.0.4:25
+debug: mta: received evp:f4fad96ed24922e7 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=f4fad96ed24922e7 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 7b30e10f Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for f4fad96ed24922e7 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=431d053b size=2672 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=431d053b629dbdcb from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:431d053b629dbdcb scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 431d053b629dbdcb: smtp://10.88.0.4:25
+debug: mta: received evp:431d053b629dbdcb for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=431d053b629dbdcb from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 3f3268b0 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 431d053b629dbdcb (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=2282ba5d size=3070 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=2282ba5da5796681 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:2282ba5da5796681 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 2282ba5da5796681: smtp://10.88.0.4:25
+debug: mta: received evp:2282ba5da5796681 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=2282ba5da5796681 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 61fb025b Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 2282ba5da5796681 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=3401b1b3 size=3468 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=3401b1b3123da3b1 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:3401b1b3123da3b1 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 3401b1b3123da3b1: smtp://10.88.0.4:25
+debug: mta: received evp:3401b1b3123da3b1 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=3401b1b3123da3b1 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 718fac35 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 3401b1b3123da3b1 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=f5a8e731 size=3866 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=f5a8e73184db85be from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:f5a8e73184db85be scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+debug: mta: ... got smarthost for f5a8e73184db85be: smtp://10.88.0.4:25
+debug: mta: received evp:f5a8e73184db85be for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=f5a8e73184db85be from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 25a8499e Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for f5a8e73184db85be (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=1846c355 size=4264 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=1846c355186d1e3c from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:1846c355186d1e3c scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 1846c355186d1e3c: smtp://10.88.0.4:25
+debug: mta: received evp:1846c355186d1e3c for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=1846c355186d1e3c from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 53f72a3a Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 1846c355186d1e3c (-> bob@lab.test)
+debug: mta: ... timeout for [relay:10.88.0.4,port=25,smtp,mx]
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=0, nconnector=1, nconn=1
+debug: mta: all done for [relay:10.88.0.4,port=25,smtp,mx]
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=9ae11628 size=4662 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=9ae11628f00ef62a from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:9ae11628f00ef62a scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 9ae11628f00ef62a: smtp://10.88.0.4:25
+debug: mta: received evp:9ae11628f00ef62a for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=1, nconnector=1, nconn=1
+debug: mta: querying source for [relay:10.88.0.4,port=25,smtp,mx]...
+debug: mta: ... got source for [relay:10.88.0.4,port=25,smtp,mx]: []
+debug: mta: connecting with [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]
+debug: mta: enough connections already
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: scheduling relay [relay:10.88.0.4,port=25,smtp,mx] in 10s...
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=9ae11628f00ef62a from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 58ad93c1 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 9ae11628f00ef62a (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=74ebf911 size=5060 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=74ebf9112a43bf23 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:74ebf9112a43bf23 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 74ebf9112a43bf23: smtp://10.88.0.4:25
+debug: mta: received evp:74ebf9112a43bf23 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=74ebf9112a43bf23 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 a1b7e26a Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 74ebf9112a43bf23 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=5eb8571e size=5458 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=5eb8571e4daedc20 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:5eb8571e4daedc20 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 5eb8571e4daedc20: smtp://10.88.0.4:25
+debug: mta: received evp:5eb8571e4daedc20 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=5eb8571e4daedc20 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 3312661c Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 5eb8571e4daedc20 (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=e714a062 size=5856 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=e714a0627e3140df from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:e714a0627e3140df scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for e714a0627e3140df: smtp://10.88.0.4:25
+debug: mta: received evp:e714a0627e3140df for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=e714a0627e3140df from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 0a884846 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for e714a0627e3140df (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=209e0f0f size=6254 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=209e0f0f400ee163 from=<alice@lab.test> to=<bob@lab.test>
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+debug: scheduler: evp:209e0f0f400ee163 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 209e0f0f400ee163: smtp://10.88.0.4:25
+debug: mta: received evp:209e0f0f400ee163 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=209e0f0f400ee163 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 f166e3ad Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 209e0f0f400ee163 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+debug: scheduler: evp:30ff7592b16811a5 scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=30ff7592 size=6652 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=30ff7592b16811a5 from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 30ff7592b16811a5: smtp://10.88.0.4:25
+debug: mta: received evp:30ff7592b16811a5 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=30ff7592b16811a5 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 af973dda Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 30ff7592b16811a5 (-> bob@lab.test)
+debug: mta: ... timeout for [relay:10.88.0.4,port=25,smtp,mx]
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=0, nconnector=1, nconn=1
+debug: mta: all done for [relay:10.88.0.4,port=25,smtp,mx]
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=743a947f size=7050 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=743a947f15a78154 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:743a947f15a78154 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 743a947f15a78154: smtp://10.88.0.4:25
+debug: mta: received evp:743a947f15a78154 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=1, nconnector=1, nconn=1
+debug: mta: querying source for [relay:10.88.0.4,port=25,smtp,mx]...
+debug: mta: ... got source for [relay:10.88.0.4,port=25,smtp,mx]: []
+debug: mta: connecting with [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]
+debug: mta: enough connections already
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: scheduling relay [relay:10.88.0.4,port=25,smtp,mx] in 10s...
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=743a947f15a78154 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 62191a26 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 743a947f15a78154 (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=ba677570 size=7448 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=ba6775703a02ef93 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:ba6775703a02ef93 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for ba6775703a02ef93: smtp://10.88.0.4:25
+debug: mta: received evp:ba6775703a02ef93 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=ba6775703a02ef93 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 4b3cb8a7 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for ba6775703a02ef93 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=3fc1c827 size=7846 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=3fc1c827d4d7ac14 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:3fc1c827d4d7ac14 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 3fc1c827d4d7ac14: smtp://10.88.0.4:25
+debug: mta: received evp:3fc1c827d4d7ac14 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=3fc1c827d4d7ac14 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 8a7c25ed Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 3fc1c827d4d7ac14 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=70e5f0d0 size=8244 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=70e5f0d0b71b96d1 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:70e5f0d0b71b96d1 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 70e5f0d0b71b96d1: smtp://10.88.0.4:25
+debug: mta: received evp:70e5f0d0b71b96d1 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=70e5f0d0b71b96d1 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 4acbd045 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 70e5f0d0b71b96d1 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+0613dabc3b65bc36 smtp message msgid=4b45c785 size=8642 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=4b45c785592db92a from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:4b45c785592db92a scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 4b45c785592db92a: smtp://10.88.0.4:25
+debug: mta: received evp:4b45c785592db92a for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=4b45c785592db92a from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 bb7f1da2 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 4b45c785592db92a (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=c7f87040 size=9040 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=c7f87040843fb9ad from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:c7f87040843fb9ad scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+debug: mta: ... got smarthost for c7f87040843fb9ad: smtp://10.88.0.4:25
+debug: mta: received evp:c7f87040843fb9ad for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=c7f87040843fb9ad from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 f02e1ad7 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for c7f87040843fb9ad (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=01b91979 size=9438 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=01b91979b6249746 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:01b91979b6249746 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 01b91979b6249746: smtp://10.88.0.4:25
+debug: mta: received evp:01b91979b6249746 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+debug: mta: ... timeout for [relay:10.88.0.4,port=25,smtp,mx]
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=1, nconnector=1, nconn=1
+debug: mta: querying source for [relay:10.88.0.4,port=25,smtp,mx]...
+debug: mta: ... got source for [relay:10.88.0.4,port=25,smtp,mx]: []
+debug: mta: connecting with [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]
+debug: mta: enough connections already
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: scheduling relay [relay:10.88.0.4,port=25,smtp,mx] in 10s...
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=01b91979b6249746 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 bb1449ad Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 01b91979b6249746 (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=64a15b02 size=9836 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=64a15b029292e4ee from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:64a15b029292e4ee scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 64a15b029292e4ee: smtp://10.88.0.4:25
+debug: mta: received evp:64a15b029292e4ee for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=64a15b029292e4ee from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 54d8e5aa Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 64a15b029292e4ee (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=53f31e90 size=10234 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=53f31e90242b2be8 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:53f31e90242b2be8 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 53f31e90242b2be8: smtp://10.88.0.4:25
+debug: mta: received evp:53f31e90242b2be8 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=53f31e90242b2be8 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 774008c3 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 53f31e90242b2be8 (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+debug: scheduler: evp:0470e34b364b9183 scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=0470e34b size=10632 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=0470e34b364b9183 from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 0470e34b364b9183: smtp://10.88.0.4:25
+debug: mta: received evp:0470e34b364b9183 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=0470e34b364b9183 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 db3c3cee Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 0470e34b364b9183 (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=cba9930d size=11030 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=cba9930d0b563b4f from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:cba9930d0b563b4f scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for cba9930d0b563b4f: smtp://10.88.0.4:25
+debug: mta: received evp:cba9930d0b563b4f for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=cba9930d0b563b4f from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 3514cc7c Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for cba9930d0b563b4f (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=bebae9e9 size=11428 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=bebae9e9b74e7732 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:bebae9e9b74e7732 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for bebae9e9b74e7732: smtp://10.88.0.4:25
+debug: mta: received evp:bebae9e9b74e7732 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+debug: mta: ... timeout for [relay:10.88.0.4,port=25,smtp,mx]
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=1, nconnector=1, nconn=1
+debug: mta: querying source for [relay:10.88.0.4,port=25,smtp,mx]...
+debug: mta: ... got source for [relay:10.88.0.4,port=25,smtp,mx]: []
+debug: mta: connecting with [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]
+debug: mta: enough connections already
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: scheduling relay [relay:10.88.0.4,port=25,smtp,mx] in 10s...
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=bebae9e9b74e7732 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 b8f50c27 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for bebae9e9b74e7732 (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+debug: scheduler: evp:58ce18ad5530cc4f scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=58ce18ad size=11826 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=58ce18ad5530cc4f from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 58ce18ad5530cc4f: smtp://10.88.0.4:25
+debug: mta: received evp:58ce18ad5530cc4f for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=58ce18ad5530cc4f from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 4b2fc693 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 58ce18ad5530cc4f (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=770a79c7 size=12224 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=770a79c794a6b89f from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:770a79c794a6b89f scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 770a79c794a6b89f: smtp://10.88.0.4:25
+debug: mta: received evp:770a79c794a6b89f for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=770a79c794a6b89f from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 3f716514 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 770a79c794a6b89f (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=0cd042a6 size=12622 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=0cd042a6358daed4 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:0cd042a6358daed4 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 0cd042a6358daed4: smtp://10.88.0.4:25
+debug: mta: received evp:0cd042a6358daed4 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=0cd042a6358daed4 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 b929835e Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 0cd042a6358daed4 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=086623cb size=13020 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=086623cb1c0dbe8f from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:086623cb1c0dbe8f scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 086623cb1c0dbe8f: smtp://10.88.0.4:25
+debug: mta: received evp:086623cb1c0dbe8f for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=086623cb1c0dbe8f from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 1951c8c0 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 086623cb1c0dbe8f (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=6cae68bd size=13418 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=6cae68bdbf9a7962 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:6cae68bdbf9a7962 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 6cae68bdbf9a7962: smtp://10.88.0.4:25
+debug: mta: received evp:6cae68bdbf9a7962 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=6cae68bdbf9a7962 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 215f9272 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 6cae68bdbf9a7962 (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+debug: scheduler: evp:654d8830b8ec4a34 scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=654d8830 size=13816 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=654d8830b8ec4a34 from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 654d8830b8ec4a34: smtp://10.88.0.4:25
+debug: mta: received evp:654d8830b8ec4a34 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+debug: mta: ... timeout for [relay:10.88.0.4,port=25,smtp,mx]
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=1, nconnector=1, nconn=1
+debug: mta: querying source for [relay:10.88.0.4,port=25,smtp,mx]...
+debug: mta: ... got source for [relay:10.88.0.4,port=25,smtp,mx]: []
+debug: mta: connecting with [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]
+debug: mta: enough connections already
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: scheduling relay [relay:10.88.0.4,port=25,smtp,mx] in 10s...
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=654d8830b8ec4a34 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 d379bac1 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 654d8830b8ec4a34 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+debug: scheduler: evp:6d3d7a6ec46a3032 scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=6d3d7a6e size=14214 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=6d3d7a6ec46a3032 from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 6d3d7a6ec46a3032: smtp://10.88.0.4:25
+debug: mta: received evp:6d3d7a6ec46a3032 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=6d3d7a6ec46a3032 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 bb6b859b Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 6d3d7a6ec46a3032 (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+debug: scheduler: evp:0913d051c181c5bf scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=0913d051 size=14612 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=0913d051c181c5bf from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 0913d051c181c5bf: smtp://10.88.0.4:25
+debug: mta: received evp:0913d051c181c5bf for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=0913d051c181c5bf from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 9461dec9 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 0913d051c181c5bf (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+debug: scheduler: evp:1758dab12fe5fc0e scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=1758dab1 size=15010 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=1758dab12fe5fc0e from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 1758dab12fe5fc0e: smtp://10.88.0.4:25
+debug: mta: received evp:1758dab12fe5fc0e for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=1758dab12fe5fc0e from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 78bc5af6 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 1758dab12fe5fc0e (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=e53269da size=15408 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=e53269daa7952d18 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:e53269daa7952d18 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for e53269daa7952d18: smtp://10.88.0.4:25
+debug: mta: received evp:e53269daa7952d18 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=e53269daa7952d18 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 e1ab28b7 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for e53269daa7952d18 (-> bob@lab.test)
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=fef35f2c size=15806 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=fef35f2c6ff7c595 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:fef35f2c6ff7c595 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for fef35f2c6ff7c595: smtp://10.88.0.4:25
+debug: mta: received evp:fef35f2c6ff7c595 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=fef35f2c6ff7c595 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=1s result="Ok" stat="250 2.0.0 b79b31ea Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for fef35f2c6ff7c595 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=262dfd9d size=16204 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=262dfd9da24d6189 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:262dfd9da24d6189 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 262dfd9da24d6189: smtp://10.88.0.4:25
+debug: mta: received evp:262dfd9da24d6189 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=262dfd9da24d6189 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 137e8bd0 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 262dfd9da24d6189 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=cf80cc55 size=16602 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=cf80cc5586a40278 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:cf80cc5586a40278 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for cf80cc5586a40278: smtp://10.88.0.4:25
+debug: mta: received evp:cf80cc5586a40278 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=cf80cc5586a40278 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 c7a1b220 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for cf80cc5586a40278 (-> bob@lab.test)
+debug: mta: ... timeout for [relay:10.88.0.4,port=25,smtp,mx]
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=0, nconnector=1, nconn=1
+debug: mta: all done for [relay:10.88.0.4,port=25,smtp,mx]
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+debug: scheduler: evp:f2c41eb37fce2df4 scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=f2c41eb3 size=17000 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=f2c41eb37fce2df4 from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for f2c41eb37fce2df4: smtp://10.88.0.4:25
+debug: mta: received evp:f2c41eb37fce2df4 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=1, nconnector=1, nconn=1
+debug: mta: querying source for [relay:10.88.0.4,port=25,smtp,mx]...
+debug: mta: ... got source for [relay:10.88.0.4,port=25,smtp,mx]: []
+debug: mta: connecting with [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]
+debug: mta: enough connections already
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: scheduling relay [relay:10.88.0.4,port=25,smtp,mx] in 10s...
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=f2c41eb37fce2df4 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 041e42e0 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for f2c41eb37fce2df4 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=8ceeec61 size=17398 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=8ceeec61930c0951 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:8ceeec61930c0951 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 8ceeec61930c0951: smtp://10.88.0.4:25
+debug: mta: received evp:8ceeec61930c0951 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=8ceeec61930c0951 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 d882a6cd Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 8ceeec61930c0951 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=4ad0fbd1 size=17796 nrcpt=1 proto=ESMTP
+debug: scheduler: evp:4ad0fbd1ad0465a8 scheduled (mta)
+0613dabc3b65bc36 smtp envelope evpid=4ad0fbd1ad0465a8 from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 4ad0fbd1ad0465a8: smtp://10.88.0.4:25
+debug: mta: received evp:4ad0fbd1ad0465a8 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=4ad0fbd1ad0465a8 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 bb2bdb4b Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 4ad0fbd1ad0465a8 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=e5669ecb size=18194 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=e5669ecb5892e966 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:e5669ecb5892e966 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for e5669ecb5892e966: smtp://10.88.0.4:25
+debug: mta: received evp:e5669ecb5892e966 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=e5669ecb5892e966 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 b87b2113 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for e5669ecb5892e966 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+debug: scheduler: evp:71275a7236c73da2 scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=71275a72 size=18592 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=71275a7236c73da2 from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 71275a7236c73da2: smtp://10.88.0.4:25
+debug: mta: received evp:71275a7236c73da2 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=71275a7236c73da2 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 b31dfbd8 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 71275a7236c73da2 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=64618496 size=18990 nrcpt=1 proto=ESMTP
+debug: scheduler: evp:64618496130b01ba scheduled (mta)
+0613dabc3b65bc36 smtp envelope evpid=64618496130b01ba from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 64618496130b01ba: smtp://10.88.0.4:25
+debug: mta: received evp:64618496130b01ba for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=64618496130b01ba from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 3da81611 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 64618496130b01ba (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+debug: scheduler: evp:176e51941e5adfe7 scheduled (mta)
+0613dabc3b65bc36 smtp message msgid=176e5194 size=19388 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=176e51941e5adfe7 from=<alice@lab.test> to=<bob@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 176e51941e5adfe7: smtp://10.88.0.4:25
+debug: mta: received evp:176e51941e5adfe7 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=176e51941e5adfe7 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 22b824f1 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 176e51941e5adfe7 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=402b85b7 size=19786 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=402b85b738e00569 from=<alice@lab.test> to=<bob@lab.test>
+debug: scheduler: evp:402b85b738e00569 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 402b85b738e00569: smtp://10.88.0.4:25
+debug: mta: received evp:402b85b738e00569 for <bob@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=402b85b738e00569 from=<alice@lab.test> to=<bob@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 8c2fbac7 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 402b85b738e00569 (-> bob@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+warn: loop detected
+debug: 0x5a990b9bd670: end of message, error=4
+0613dabc3b65bc36 smtp failed-command command="DATA" result="500 5.4.6 Routing loop detected: Loop detected"
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 9s
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 8s
+debug: mta: ... timeout for [relay:10.88.0.4,port=25,smtp,mx]
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=0, nconnector=1, nconn=1
+debug: mta: all done for [relay:10.88.0.4,port=25,smtp,mx]
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=d1c45676 size=21522 nrcpt=1 proto=ESMTP
+debug: scheduler: evp:d1c45676b505c26e scheduled (mta)
+0613dabc3b65bc36 smtp envelope evpid=d1c45676b505c26e from=<> to=<alice@lab.test>
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for d1c45676b505c26e: smtp://10.88.0.4:25
+debug: mta: received evp:d1c45676b505c26e for <alice@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=2, ntask=1, nconnector=1, nconn=1
+debug: mta: querying source for [relay:10.88.0.4,port=25,smtp,mx]...
+debug: mta: ... got source for [relay:10.88.0.4,port=25,smtp,mx]: []
+debug: mta: connecting with [connector:[]->[relay:10.88.0.4,port=25,smtp,mx],0x0]
+debug: mta: enough connections already
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: scheduling relay [relay:10.88.0.4,port=25,smtp,mx] in 10s...
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=d1c45676b505c26e from=<> to=<alice@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 a57ddae5 Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for d1c45676b505c26e (-> alice@lab.test)
+smtp: 0x5a990b9bd670: fd 14 from queue
+smtp: 0x5a990b9bd670: message fd 14
+smtp: 0x5a990b9bd670: message begin
+debug: 0x5a990b9bd670: end of message, error=0
+0613dabc3b65bc36 smtp message msgid=0553382f size=21924 nrcpt=1 proto=ESMTP
+0613dabc3b65bc36 smtp envelope evpid=0553382fed3e5f42 from=<> to=<alice@lab.test>
+debug: scheduler: evp:0553382fed3e5f42 scheduled (mta)
+debug: mta: querying smarthost for next:<dynamic:0>...
+debug: mta: querying smarthost
+debug: mta: ... got smarthost for 0553382fed3e5f42: smtp://10.88.0.4:25
+debug: mta: received evp:0553382fed3e5f42 for <alice@lab.test>
+debug: mta: draining [relay:10.88.0.4,port=25,smtp,mx] refcount=3, ntask=1, nconnector=1, nconn=1
+debug: mta: [relay:10.88.0.4,port=25,smtp,mx] waiting for connector
+mta: timeout for session hangon
+debug: mta: 0x5a990b9beb60: handling next task for relay [relay:10.88.0.4,port=25,smtp,mx]
+0613dabf5d8f5016 mta delivery evpid=0553382fed3e5f42 from=<> to=<alice@lab.test> rcpt=<-> source="10.88.0.5" relay="10.88.0.4 (msl-osloop-a.mailseclab-research-net)" delay=0s result="Ok" stat="250 2.0.0 15f7740e Message accepted for delivery"
+debug: mta: 0x5a990b9beb60: no task for relay [relay:10.88.0.4,port=25,smtp,mx]
+mta: debug: last connection: hanging on for 10s
+debug: mta: flush for 0553382fed3e5f42 (-> alice@lab.test)

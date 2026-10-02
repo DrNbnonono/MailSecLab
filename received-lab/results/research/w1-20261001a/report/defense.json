@@ -1,0 +1,56 @@
+{
+  "messages": 10000,
+  "family_counts": {
+    "direct": 2000,
+    "forward": 2000,
+    "list-rewrite": 2000,
+    "multilingual": 2000,
+    "folded": 2000
+  },
+  "development": {
+    "direct": {
+      "ambiguous": 0,
+      "bound": 0
+    },
+    "forward": {
+      "ambiguous": 0,
+      "bound": 0
+    },
+    "list-rewrite": {
+      "ambiguous": 1600,
+      "bound": 1600
+    },
+    "multilingual": {
+      "ambiguous": 0,
+      "bound": 0
+    },
+    "folded": {
+      "ambiguous": 0,
+      "bound": 0
+    }
+  },
+  "holdout": {
+    "direct": {
+      "ambiguous": 0,
+      "bound": 0
+    },
+    "forward": {
+      "ambiguous": 0,
+      "bound": 0
+    },
+    "list-rewrite": {
+      "ambiguous": 400,
+      "bound": 400
+    },
+    "multilingual": {
+      "ambiguous": 0,
+      "bound": 0
+    },
+    "folded": {
+      "ambiguous": 0,
+      "bound": 0
+    }
+  },
+  "list_rewrite_expected_signature_failure": true,
+  "product_rspamd_sample": "not run when week 4 stops expansion; the in-process rules are the measured defenses"
+}

@@ -1,0 +1,4 @@
+[19:04:33] loop-normal smtp accepted=True reply=250 2.0.0 5fae645d Message accepted for delivery
+[19:05:47] loop-normal stop=loop-detected accepts=102 before546=49 seconds=71.4
+[19:05:50] loop-obs smtp accepted=True reply=250 2.0.0 e92c752d Message accepted for delivery
+[19:06:44] loop-obs stop=loop-detected accepts=102 before546=50 seconds=50.7

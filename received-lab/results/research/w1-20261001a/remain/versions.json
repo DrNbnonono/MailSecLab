@@ -1,0 +1,14 @@
+{
+  "postfix37": [
+    "3.7.11"
+  ],
+  "postfix311": [
+    "3.11.6"
+  ],
+  "exim": [
+    "Exim version 4.96 #2 built 27-May-2026 16:52:26",
+    "Copyright (c) University of Cambridge, 1995 - 2018"
+  ],
+  "opensmtpd": "6.8.0p2 from the existing image; the previous 60s run did not relay",
+  "exim492": "no local image; positive control not run"
+}

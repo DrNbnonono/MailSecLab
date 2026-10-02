@@ -1,0 +1,93 @@
+Received: from 89d5cba2a23b (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id b92afe91
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:06:00 +0000 (UTC)
+Received: from 6f8aa8d79d2f (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id bea5bdcd
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:06:00 +0000 (UTC)
+Received: from 89d5cba2a23b (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id d0dc9fad
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:59 +0000 (UTC)
+Received: from 6f8aa8d79d2f (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id cfd2604e
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:59 +0000 (UTC)
+Received: from 89d5cba2a23b (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 1d81032b
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:58 +0000 (UTC)
+Received: from 6f8aa8d79d2f (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id da936fab
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:58 +0000 (UTC)
+Received: from 89d5cba2a23b (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id f5bbbc40
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:57 +0000 (UTC)
+Received: from 6f8aa8d79d2f (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id eeeb0482
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:57 +0000 (UTC)
+Received: from 89d5cba2a23b (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id d017b4a7
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:56 +0000 (UTC)
+Received: from 6f8aa8d79d2f (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 57b29f81
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:56 +0000 (UTC)
+Received: from 89d5cba2a23b (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id e782911e
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:55 +0000 (UTC)
+Received: from 6f8aa8d79d2f (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 096e8e28
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:55 +0000 (UTC)
+Received: from 89d5cba2a23b (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 50b6bf9c
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:54 +0000 (UTC)
+Received: from 6f8aa8d79d2f (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 1f832ae6
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:54 +0000 (UTC)
+Received: from 89d5cba2a23b (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 4082773d
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:53 +0000 (UTC)
+Received: from 6f8aa8d79d2f (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id c71c0877
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:53 +0000 (UTC)
+Received: from 89d5cba2a23b (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 7c510fb5
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:52 +0000 (UTC)
+Received: from 6f8aa8d79d2f (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id 174413ab
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:51 +0000 (UTC)
+Received: from 89d5cba2a23b (msl-osloop-b.mailseclab-research-net [10.88.0.5])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id 9e602781
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:50 +0000 (UTC)
+Received: from 6f8aa8d79d2f (msl-osloop-a.mailseclab-research-net [10.88.0.4])
+	by msl-osloop-b.lab.test (OpenSMTPD) with ESMTP id dcee6e33
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:50 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by msl-osloop-a.lab.test (OpenSMTPD) with ESMTP id e92c752d
+	for <bob@lab.test>;
+	Fri, 2 Oct 2026 11:05:50 +0000 (UTC)
+X-Case-ID: loop-obs
+Received : from origin.example (origin.example [203.0.113.10]) by relay.example; Thu, 1 Oct 2026 00:00:00 +0000
+From: alice@lab.test
+To: bob@lab.test
+Subject: loop-obs
+Date: Thu, 1 Oct 2026 00:00:00 +0000
+Message-ID: <loop-obs@lab.test>
+
+loop

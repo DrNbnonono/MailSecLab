@@ -1,0 +1,23 @@
+{
+  "case": "obs-from-before",
+  "series": "malformed-boundary",
+  "sha256": "07b18fbd0309944cba88a9540b0062786be3ce97b927da68ae34f103d4559518",
+  "issues": [],
+  "syntax": [
+    "modern",
+    "obs",
+    "modern",
+    "modern",
+    "modern",
+    "modern",
+    "modern",
+    "modern"
+  ],
+  "verifiers": {
+    "dkimpy": "pass",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "pass"
+  },
+  "reference": "parse-error"
+}

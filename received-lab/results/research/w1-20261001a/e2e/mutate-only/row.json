@@ -1,0 +1,31 @@
+{
+  "case": "mutate-only",
+  "attacker": "can mutate a signed message and does not have the lab.test private key",
+  "sha256": "dcdcf9553b11124a18afb5b4c091554b067eab013ecee916c9ad1981b444ac06",
+  "smtp": {
+    "client_ip": "10.88.0.11",
+    "reply": "250 2.0.0 Ok: queued as 91EB975C38",
+    "queued_id": "91EB975C38",
+    "bytes": 801,
+    "sha256": "dcdcf9553b11124a18afb5b4c091554b067eab013ecee916c9ad1981b444ac06",
+    "accepted": true,
+    "banner_ok": true,
+    "ehlo_ok": true,
+    "mail_ok": true,
+    "rcpt_ok": true
+  },
+  "mailpit_id": "2iuVYOrUvI9bkDAN6jcmxW",
+  "delivery": "delivered",
+  "before": {
+    "dkimpy": "fail",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "fail"
+  },
+  "after": {
+    "dkimpy": "fail",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "none"
+  }
+}

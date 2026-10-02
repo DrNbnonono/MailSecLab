@@ -1,0 +1,48 @@
+{
+  "canonicalization": "relaxed/relaxed",
+  "selector": "cal",
+  "domain": "lab.test",
+  "cases": {
+    "legal": {
+      "path": "/evidence/w1-20261001a/calibrate/legal.eml",
+      "sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+      "bytes": 766,
+      "gate": true
+    },
+    "header-tamper": {
+      "path": "/evidence/w1-20261001a/calibrate/header-tamper.eml",
+      "sha256": "94497de5f3842dc5a055d8fce86b6be204956adca94c000443f217aa7e2cc609",
+      "bytes": 768,
+      "gate": true
+    },
+    "body-tamper": {
+      "path": "/evidence/w1-20261001a/calibrate/body-tamper.eml",
+      "sha256": "4c787d35d599e7c78b7f13cfa4c5604fd42cff460fd5a21b7777287f1d5d54d8",
+      "bytes": 775,
+      "gate": true
+    },
+    "wrong-key": {
+      "path": "/evidence/w1-20261001a/calibrate/wrong-key.eml",
+      "sha256": "60f360c65038ab5154c756f077ce2c788f9ba1cfc4b9d40082a3cdf65b8b63fe",
+      "bytes": 774,
+      "gate": true
+    },
+    "unsigned": {
+      "path": "/evidence/w1-20261001a/calibrate/unsigned.eml",
+      "sha256": "9dcb730eda3ff0511705f7e0e6dc6a436dae50dc7e4a1ed86e31f2bbdf4b7670",
+      "bytes": 203,
+      "gate": true
+    },
+    "legal-lf": {
+      "path": "/evidence/w1-20261001a/calibrate/legal-lf.eml",
+      "sha256": "96ded8b8616d42be6a1af462a080e8b61cd520cdfbdd1ac90b7f0deb615888d9",
+      "bytes": 750,
+      "gate": false
+    }
+  },
+  "preimage": {
+    "path": "/evidence/w1-20261001a/calibrate/preimage.eml",
+    "sha256": "8c2f29c8988a8b9dbbd666d219029ef191e57e856a44300c5a8706afb0d7a7be",
+    "bytes": 197
+  }
+}

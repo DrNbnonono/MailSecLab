@@ -1,0 +1,14 @@
+Received: from relay.example (relay.example [203.0.113.11])
+	by forged.example (forged.example [203.0.113.99]) with ESMTP id forged0002
+	for <bob@lab.test>; Thu, 01 Oct 2026 15:11:44 +0000
+Received: from origin.example (origin.example [203.0.113.10])
+	by relay.example (relay.example [203.0.113.11]) with ESMTP id forged0001
+	for <bob@lab.test>; Thu, 01 Oct 2026 15:09:44 +0000
+X-Case-ID: i2-inconsistent
+From: Alice <alice@lab.test>
+To: Bob <bob@lab.test>
+Subject: i2-inconsistent
+Message-ID: <i2-inconsistent@lab.test>
+Date: Thu, 01 Oct 2026 12:00:00 +0000
+
+i2-body i2-inconsistent

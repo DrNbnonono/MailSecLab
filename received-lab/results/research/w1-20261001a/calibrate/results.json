@@ -1,0 +1,429 @@
+[
+  {
+    "case": "legal",
+    "verifiers": {
+      "dkimpy": {
+        "tool": "dkimpy",
+        "input_sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+        "input_len": 766,
+        "perl_feed_sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+        "perl_normalization": "identity",
+        "stdout": "status: pass\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "pass"
+      },
+      "perl": {
+        "tool": "perl",
+        "input_sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+        "input_len": 766,
+        "perl_feed_sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+        "perl_normalization": "identity",
+        "library_fed_sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+        "library_normalization": "identity",
+        "stdout": "input_sha256: 744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc\ninput_len: 766\nfed_sha256: 744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc\nfed_len: 766\nnormalization: identity\nsignature_count: 1\nresult: pass\ndetail: pass\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "pass"
+      },
+      "go": {
+        "tool": "go",
+        "input_sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+        "input_len": 766,
+        "perl_feed_sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+        "perl_normalization": "identity",
+        "stdout": "",
+        "stderr": "2026/10/01 15:12:17 Valid signature for lab.test\n",
+        "exit_code": 0,
+        "status": "pass",
+        "status_before_relabel": "tool-error"
+      },
+      "rspamd": {
+        "status": "pass",
+        "action": "no action",
+        "score": 2.199999,
+        "symbols": [
+          "ARC_NA",
+          "DKIM_TRACE",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_ALLOW",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM"
+        ]
+      }
+    },
+    "txt_queries": [
+      "lab.test",
+      "cal._domainkey.lab.test",
+      "not-a-selector._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test"
+    ],
+    "exact_query": true
+  },
+  {
+    "case": "header-tamper",
+    "verifiers": {
+      "dkimpy": {
+        "tool": "dkimpy",
+        "input_sha256": "94497de5f3842dc5a055d8fce86b6be204956adca94c000443f217aa7e2cc609",
+        "input_len": 768,
+        "perl_feed_sha256": "94497de5f3842dc5a055d8fce86b6be204956adca94c000443f217aa7e2cc609",
+        "perl_normalization": "identity",
+        "stdout": "status: fail\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "fail"
+      },
+      "perl": {
+        "tool": "perl",
+        "input_sha256": "94497de5f3842dc5a055d8fce86b6be204956adca94c000443f217aa7e2cc609",
+        "input_len": 768,
+        "perl_feed_sha256": "94497de5f3842dc5a055d8fce86b6be204956adca94c000443f217aa7e2cc609",
+        "perl_normalization": "identity",
+        "library_fed_sha256": "94497de5f3842dc5a055d8fce86b6be204956adca94c000443f217aa7e2cc609",
+        "library_normalization": "identity",
+        "stdout": "input_sha256: 94497de5f3842dc5a055d8fce86b6be204956adca94c000443f217aa7e2cc609\ninput_len: 768\nfed_sha256: 94497de5f3842dc5a055d8fce86b6be204956adca94c000443f217aa7e2cc609\nfed_len: 768\nnormalization: identity\nsignature_count: 1\nresult: fail\ndetail: fail (message has been altered)\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "fail"
+      },
+      "go": {
+        "tool": "go",
+        "input_sha256": "94497de5f3842dc5a055d8fce86b6be204956adca94c000443f217aa7e2cc609",
+        "input_len": 768,
+        "perl_feed_sha256": "94497de5f3842dc5a055d8fce86b6be204956adca94c000443f217aa7e2cc609",
+        "perl_normalization": "identity",
+        "stdout": "",
+        "stderr": "2026/10/01 15:12:18 Invalid signature for lab.test: dkim: signature did not verify: crypto/rsa: verification error\n",
+        "exit_code": 0,
+        "status": "fail",
+        "status_before_relabel": "tool-error"
+      },
+      "rspamd": {
+        "status": "fail",
+        "action": "no action",
+        "score": 3.4,
+        "symbols": [
+          "ARC_NA",
+          "DKIM_TRACE",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_REJECT",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM"
+        ]
+      }
+    },
+    "txt_queries": [
+      "cal._domainkey.lab.test",
+      "not-a-selector._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test"
+    ],
+    "exact_query": true
+  },
+  {
+    "case": "body-tamper",
+    "verifiers": {
+      "dkimpy": {
+        "tool": "dkimpy",
+        "input_sha256": "4c787d35d599e7c78b7f13cfa4c5604fd42cff460fd5a21b7777287f1d5d54d8",
+        "input_len": 775,
+        "perl_feed_sha256": "4c787d35d599e7c78b7f13cfa4c5604fd42cff460fd5a21b7777287f1d5d54d8",
+        "perl_normalization": "identity",
+        "stdout": "status: fail\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "fail"
+      },
+      "perl": {
+        "tool": "perl",
+        "input_sha256": "4c787d35d599e7c78b7f13cfa4c5604fd42cff460fd5a21b7777287f1d5d54d8",
+        "input_len": 775,
+        "perl_feed_sha256": "4c787d35d599e7c78b7f13cfa4c5604fd42cff460fd5a21b7777287f1d5d54d8",
+        "perl_normalization": "identity",
+        "library_fed_sha256": "4c787d35d599e7c78b7f13cfa4c5604fd42cff460fd5a21b7777287f1d5d54d8",
+        "library_normalization": "identity",
+        "stdout": "input_sha256: 4c787d35d599e7c78b7f13cfa4c5604fd42cff460fd5a21b7777287f1d5d54d8\ninput_len: 775\nfed_sha256: 4c787d35d599e7c78b7f13cfa4c5604fd42cff460fd5a21b7777287f1d5d54d8\nfed_len: 775\nnormalization: identity\nsignature_count: 1\nresult: fail\ndetail: fail (body has been altered)\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "fail"
+      },
+      "go": {
+        "tool": "go",
+        "input_sha256": "4c787d35d599e7c78b7f13cfa4c5604fd42cff460fd5a21b7777287f1d5d54d8",
+        "input_len": 775,
+        "perl_feed_sha256": "4c787d35d599e7c78b7f13cfa4c5604fd42cff460fd5a21b7777287f1d5d54d8",
+        "perl_normalization": "identity",
+        "stdout": "",
+        "stderr": "2026/10/01 15:12:19 Invalid signature for lab.test: dkim: body hash did not verify\n",
+        "exit_code": 0,
+        "status": "fail",
+        "status_before_relabel": "tool-error"
+      },
+      "rspamd": {
+        "status": "fail",
+        "action": "add header",
+        "score": 7.24,
+        "symbols": [
+          "ARC_NA",
+          "DKIM_TRACE",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_REJECT",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM",
+          "TRACKER_ID"
+        ]
+      }
+    },
+    "txt_queries": [
+      "cal._domainkey.lab.test",
+      "lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test"
+    ],
+    "exact_query": true
+  },
+  {
+    "case": "wrong-key",
+    "verifiers": {
+      "dkimpy": {
+        "tool": "dkimpy",
+        "input_sha256": "60f360c65038ab5154c756f077ce2c788f9ba1cfc4b9d40082a3cdf65b8b63fe",
+        "input_len": 774,
+        "perl_feed_sha256": "60f360c65038ab5154c756f077ce2c788f9ba1cfc4b9d40082a3cdf65b8b63fe",
+        "perl_normalization": "identity",
+        "stdout": "status: fail\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "fail"
+      },
+      "perl": {
+        "tool": "perl",
+        "input_sha256": "60f360c65038ab5154c756f077ce2c788f9ba1cfc4b9d40082a3cdf65b8b63fe",
+        "input_len": 774,
+        "perl_feed_sha256": "60f360c65038ab5154c756f077ce2c788f9ba1cfc4b9d40082a3cdf65b8b63fe",
+        "perl_normalization": "identity",
+        "library_fed_sha256": "60f360c65038ab5154c756f077ce2c788f9ba1cfc4b9d40082a3cdf65b8b63fe",
+        "library_normalization": "identity",
+        "stdout": "input_sha256: 60f360c65038ab5154c756f077ce2c788f9ba1cfc4b9d40082a3cdf65b8b63fe\ninput_len: 774\nfed_sha256: 60f360c65038ab5154c756f077ce2c788f9ba1cfc4b9d40082a3cdf65b8b63fe\nfed_len: 774\nnormalization: identity\nsignature_count: 1\nresult: fail\ndetail: fail (bad RSA signature)\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "fail"
+      },
+      "go": {
+        "tool": "go",
+        "input_sha256": "60f360c65038ab5154c756f077ce2c788f9ba1cfc4b9d40082a3cdf65b8b63fe",
+        "input_len": 774,
+        "perl_feed_sha256": "60f360c65038ab5154c756f077ce2c788f9ba1cfc4b9d40082a3cdf65b8b63fe",
+        "perl_normalization": "identity",
+        "stdout": "",
+        "stderr": "2026/10/01 15:12:21 Invalid signature for lab.test: dkim: signature did not verify: crypto/rsa: verification error\n",
+        "exit_code": 0,
+        "status": "fail",
+        "status_before_relabel": "tool-error"
+      },
+      "rspamd": {
+        "status": "fail",
+        "action": "no action",
+        "score": 3.4,
+        "symbols": [
+          "ARC_NA",
+          "DKIM_TRACE",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_REJECT",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM"
+        ]
+      }
+    },
+    "txt_queries": [
+      "cal._domainkey.lab.test",
+      "lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test"
+    ],
+    "exact_query": true
+  },
+  {
+    "case": "unsigned",
+    "verifiers": {
+      "dkimpy": {
+        "tool": "dkimpy",
+        "input_sha256": "9dcb730eda3ff0511705f7e0e6dc6a436dae50dc7e4a1ed86e31f2bbdf4b7670",
+        "input_len": 203,
+        "perl_feed_sha256": "9dcb730eda3ff0511705f7e0e6dc6a436dae50dc7e4a1ed86e31f2bbdf4b7670",
+        "perl_normalization": "identity",
+        "stdout": "status: fail\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "none",
+        "status_before_relabel": "fail",
+        "status_note": "dkim.verify returned false; the message has no DKIM-Signature header"
+      },
+      "perl": {
+        "tool": "perl",
+        "input_sha256": "9dcb730eda3ff0511705f7e0e6dc6a436dae50dc7e4a1ed86e31f2bbdf4b7670",
+        "input_len": 203,
+        "perl_feed_sha256": "9dcb730eda3ff0511705f7e0e6dc6a436dae50dc7e4a1ed86e31f2bbdf4b7670",
+        "perl_normalization": "identity",
+        "library_fed_sha256": "9dcb730eda3ff0511705f7e0e6dc6a436dae50dc7e4a1ed86e31f2bbdf4b7670",
+        "library_normalization": "identity",
+        "stdout": "input_sha256: 9dcb730eda3ff0511705f7e0e6dc6a436dae50dc7e4a1ed86e31f2bbdf4b7670\ninput_len: 203\nfed_sha256: 9dcb730eda3ff0511705f7e0e6dc6a436dae50dc7e4a1ed86e31f2bbdf4b7670\nfed_len: 203\nnormalization: identity\nsignature_count: 0\nresult: none\ndetail: no signature found\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "none"
+      },
+      "go": {
+        "tool": "go",
+        "input_sha256": "9dcb730eda3ff0511705f7e0e6dc6a436dae50dc7e4a1ed86e31f2bbdf4b7670",
+        "input_len": 203,
+        "perl_feed_sha256": "9dcb730eda3ff0511705f7e0e6dc6a436dae50dc7e4a1ed86e31f2bbdf4b7670",
+        "perl_normalization": "identity",
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "none",
+        "status_before_relabel": "none"
+      },
+      "rspamd": {
+        "status": "none",
+        "action": "no action",
+        "score": 2.4,
+        "symbols": [
+          "ARC_NA",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_NA",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM"
+        ]
+      }
+    },
+    "txt_queries": [
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "lab.test"
+    ],
+    "exact_query": true
+  },
+  {
+    "case": "legal-lf",
+    "verifiers": {
+      "dkimpy": {
+        "tool": "dkimpy",
+        "input_sha256": "96ded8b8616d42be6a1af462a080e8b61cd520cdfbdd1ac90b7f0deb615888d9",
+        "input_len": 750,
+        "perl_feed_sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+        "perl_normalization": "newline-rewritten",
+        "stdout": "status: pass\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "pass"
+      },
+      "perl": {
+        "tool": "perl",
+        "input_sha256": "96ded8b8616d42be6a1af462a080e8b61cd520cdfbdd1ac90b7f0deb615888d9",
+        "input_len": 750,
+        "perl_feed_sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+        "perl_normalization": "newline-rewritten",
+        "library_fed_sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+        "library_normalization": "newline-rewritten",
+        "stdout": "input_sha256: 96ded8b8616d42be6a1af462a080e8b61cd520cdfbdd1ac90b7f0deb615888d9\ninput_len: 750\nfed_sha256: 744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc\nfed_len: 766\nnormalization: newline-rewritten\nsignature_count: 1\nresult: pass\ndetail: pass\n",
+        "stderr": "",
+        "exit_code": 0,
+        "status": "pass"
+      },
+      "go": {
+        "tool": "go",
+        "input_sha256": "96ded8b8616d42be6a1af462a080e8b61cd520cdfbdd1ac90b7f0deb615888d9",
+        "input_len": 750,
+        "perl_feed_sha256": "744bccb262966832586ff40459a6c0009c0784bbc51f3a975d403e54e1f766bc",
+        "perl_normalization": "newline-rewritten",
+        "stdout": "",
+        "stderr": "2026/10/01 15:12:23 Valid signature for lab.test\n",
+        "exit_code": 0,
+        "status": "pass",
+        "status_before_relabel": "tool-error"
+      },
+      "rspamd": {
+        "status": "pass",
+        "action": "no action",
+        "score": 2.199999,
+        "symbols": [
+          "ARC_NA",
+          "DKIM_TRACE",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_ALLOW",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM"
+        ]
+      }
+    },
+    "txt_queries": [
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test"
+    ],
+    "exact_query": true
+  }
+]

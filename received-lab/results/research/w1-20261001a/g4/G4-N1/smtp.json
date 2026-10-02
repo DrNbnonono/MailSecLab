@@ -1,0 +1,13 @@
+{
+  "client_ip": "10.88.0.11",
+  "reply": "250 2.0.0 Ok: queued as 13B879C585",
+  "queued_id": "13B879C585",
+  "bytes": 80240,
+  "sha256": "7bfc3c3b109a76b3409042ad41a84668e0b4443d885721629b94b92ec12df9e0",
+  "accepted": true,
+  "banner_ok": true,
+  "ehlo_ok": true,
+  "mail_ok": true,
+  "rcpt_ok": true,
+  "exit_code": 0
+}

@@ -1,0 +1,13 @@
+Oct 01 15:08:53 postfix3 postfix/postfix-script[408]: refreshing the Postfix mail system
+Oct 01 15:08:53 postfix3 postfix/master[1]: reload -- version 3.7.11, configuration /etc/postfix
+Oct 01 15:09:03 postfix3 postfix/smtpd[420]: connect from msl-postfix2.mailseclab-research-net[10.88.0.22]
+Oct 01 15:09:03 postfix3 postfix/smtpd[420]: 589B79C632: client=msl-postfix2.mailseclab-research-net[10.88.0.22]
+Oct 01 15:09:03 postfix3 postfix/cleanup[424]: 589B79C632: message-id=<G4-N100@lab.test>
+Oct 01 15:09:03 postfix3 postfix/smtpd[420]: disconnect from msl-postfix2.mailseclab-research-net[10.88.0.22] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Oct 01 15:09:03 postfix3 postfix/qmgr[412]: 589B79C632: from=<alice@lab.test>, size=8001153, nrcpt=1 (queue active)
+Oct 01 15:09:03 postfix3 postfix/error[426]: 589B79C632: to=<bob@lab.test>, relay=none, delay=0.43, delays=0.41/0.01/0/0.01, dsn=4.3.2, status=deferred (deferred transport)
+Oct 01 15:09:07 postfix3 postfix/postfix-script[458]: refreshing the Postfix mail system
+Oct 01 15:09:07 postfix3 postfix/master[1]: reload -- version 3.7.11, configuration /etc/postfix
+Oct 01 15:09:07 postfix3 postfix/qmgr[462]: 589B79C632: from=<alice@lab.test>, size=8001153, nrcpt=1 (queue active)
+Oct 01 15:09:09 postfix3 postfix/smtp[477]: 589B79C632: to=<bob@lab.test>, relay=mailpit[10.88.0.25]:1025, delay=5.7, delays=4.5/0.09/0/1.1, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 76TRoo7AqCmg5lWSNfcvxE)
+Oct 01 15:09:09 postfix3 postfix/qmgr[462]: 589B79C632: removed

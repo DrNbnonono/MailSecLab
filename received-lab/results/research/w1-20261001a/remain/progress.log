@@ -1,0 +1,40 @@
+[12:55:45] versions
+[12:55:47] starting mailpit and client
+[12:55:50] path w5-osmtpd-postfix
+[12:56:37]   pending after=None
+[12:56:37] path w5-osmtpd-exim
+[12:58:34] versions
+[12:58:35] starting mailpit and client
+[12:58:49] path w5-osmtpd-postfix
+[12:58:54]   error after=None
+[12:58:54] path w5-osmtpd-exim
+[12:58:57]   error after=None
+[12:58:58] path w5-exim-postfix
+[12:59:45]   pending after=None
+[12:59:45] path w5-postfix-exim
+[13:00:35]   pending after=None
+[13:00:35] path w5-osmtpd-osmtpd
+[13:00:35]   error after=None
+[13:00:36] path w5-postfix311
+[13:01:23]   pending after=None
+[13:01:23] opensmtpd cap loop-normal
+[13:01:25] opensmtpd cap loop-obs
+[13:01:26] defense timing
+[13:02:36] versions
+[13:02:38] starting mailpit and client
+[13:02:51] path w5-osmtpd-postfix
+[13:03:01]   delivered after={'dkimpy': 'fail', 'perl': 'pass', 'go': 'pass', 'rspamd': 'none'} error=None
+[13:03:01] path w5-osmtpd-exim
+[13:03:06]   delivered after={'dkimpy': 'fail', 'perl': 'pass', 'go': 'pass', 'rspamd': 'none'} error=None
+[13:03:06] path w5-exim-postfix
+[13:03:17]   delivered after={'dkimpy': 'fail', 'perl': 'pass', 'go': 'pass', 'rspamd': 'none'} error=None
+[13:03:17] path w5-postfix-exim
+[13:03:26]   delivered after={'dkimpy': 'fail', 'perl': 'pass', 'go': 'pass', 'rspamd': 'none'} error=None
+[13:03:26] path w5-osmtpd-osmtpd
+[13:03:31]   delivered after={'dkimpy': 'fail', 'perl': 'pass', 'go': 'pass', 'rspamd': 'none'} error=None
+[13:03:32] path w5-postfix311
+[13:03:38]   delivered after={'dkimpy': 'fail', 'perl': 'pass', 'go': 'pass', 'rspamd': 'none'} error=None
+[13:03:38] opensmtpd cap loop-normal
+[13:04:42] opensmtpd cap loop-obs
+[13:05:46] defense timing
+[13:06:22] remain done

@@ -1,0 +1,51 @@
+{
+  "message_size_limit": 10240000,
+  "target_unfolded": 78000,
+  "rows": [
+    {
+      "case": "G4-N1",
+      "n": 1,
+      "input_bytes": 80240,
+      "input_sha256": "7bfc3c3b109a76b3409042ad41a84668e0b4443d885721629b94b92ec12df9e0",
+      "smtp_reply": "250 2.0.0 Ok: queued as 13B879C585",
+      "accepted": true,
+      "delivery": "delivered",
+      "mailpit_id": "5aJCzqOavjoZEJORbzgIp6",
+      "stored_bytes": 81081,
+      "stored_sha256": "074934b36eba75cc84db92e7c14754a2ef53de2452dfee05e37679da85c4ba7c",
+      "stored_x_received": 1,
+      "observation_gaps": [],
+      "syntax": "modern-folded"
+    },
+    {
+      "case": "G4-N50",
+      "n": 50,
+      "input_bytes": 4000391,
+      "input_sha256": "1e66e0796cb530adf7fe12d9dc26d2622f9365881e186db1801253615944d805",
+      "smtp_reply": "250 2.0.0 Ok: queued as D53689C635",
+      "accepted": true,
+      "delivery": "delivered",
+      "mailpit_id": "0AtBgR0I1UHDUPHT92BhuH",
+      "stored_bytes": 4001232,
+      "stored_sha256": "c7e61decf331d150538f9e2169ec3d7d8d05c0c0af0c787a2bbb9bc1eb4d901d",
+      "stored_x_received": 50,
+      "observation_gaps": [],
+      "syntax": "modern-folded"
+    },
+    {
+      "case": "G4-N100",
+      "n": 100,
+      "input_bytes": 8000545,
+      "input_sha256": "3ce07648dca53914b181eef6c719ddee3b611c75ee8da7130595f7f66592efab",
+      "smtp_reply": "250 2.0.0 Ok: queued as 0D2C89C63F",
+      "accepted": true,
+      "delivery": "delivered",
+      "mailpit_id": "76TRoo7AqCmg5lWSNfcvxE",
+      "stored_bytes": 8001386,
+      "stored_sha256": "a5951892f897c6b7279e7442b6be83a8beb49b41781249b8c5a12e12fa687998",
+      "stored_x_received": 100,
+      "observation_gaps": [],
+      "syntax": "modern-folded"
+    }
+  ]
+}

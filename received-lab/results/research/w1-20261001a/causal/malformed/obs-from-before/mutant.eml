@@ -1,0 +1,13 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=6ql3FSgZdE6A4n85S69lHQRNGjrlrx8yFMjv9Gx+aCE=; b=keTy4NgfR1OyLmaFbsJATN6okgnn75DjxqIIYBZH/vjfeAcgbZqU6h7h64cxqOrRtFSw5EK3G4CNHdk/vZvceEev61HCbf/J/0ogYGvUnwvtzdBBofeNjNasfSJz1quNodPH/99I9gseL2NfPY3udFoZvbeVzXBXlyUgz04tE1/M9ja2mvWrfGI+y5ZDdry3qRAwk0zLIQqKYDgJ2Si/ScW5WtLZSrqx6OZVWUdaT3x5m3xwghkU5Mrx7wBeDc1QEKqr17Su9KEWywaYUC8GPsdhG6OPeUS0QosuV+DbeObZ+SWW3+lVJMWm7BL2CP1N6RrPbkJBUlxZI26eJt4OxQ==
+From : Mallory <mallory@evil.test>
+From: Author <author@lab.test>
+To: recipient@receiver.test
+Date: Thu, 1 Oct 2026 00:00:00 +0000
+Subject: Original subject
+Message-ID: <original@lab.test>
+X-Case-ID: malformed-base
+
+Controlled research body.
+Case: malformed-base

@@ -1,0 +1,38 @@
+Oct  1 15:12:17 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:12:17 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:12:17 dnsmasq[1]: query[TXT] lab.test from 127.0.0.1
+Oct  1 15:12:17 dnsmasq[1]: config lab.test is <TXT>
+Oct  1 15:12:17 dnsmasq[1]: query[AAAA] maps.rspamd.com from 10.88.0.30
+Oct  1 15:12:17 dnsmasq[1]: config error is REFUSED (EDE: not ready)
+Oct  1 15:12:17 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:12:17 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:12:17 dnsmasq[1]: query[AAAA] maps.rspamd.com from 10.88.0.30
+Oct  1 15:12:17 dnsmasq[1]: config error is REFUSED (EDE: not ready)
+Oct  1 15:12:17 dnsmasq[1]: query[AAAA] maps.rspamd.com from 10.88.0.30
+Oct  1 15:12:17 dnsmasq[1]: config error is REFUSED (EDE: not ready)
+Oct  1 15:12:17 dnsmasq[1]: query[AAAA] maps.rspamd.com from 10.88.0.30
+Oct  1 15:12:17 dnsmasq[1]: config error is REFUSED (EDE: not ready)
+Oct  1 15:12:17 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:12:17 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:12:17 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.30
+Oct  1 15:12:17 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:12:17 dnsmasq[1]: query[AAAA] maps.rspamd.com from 10.88.0.30
+Oct  1 15:12:17 dnsmasq[1]: config error is REFUSED (EDE: not ready)
+Oct  1 15:12:18 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:12:18 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:12:18 dnsmasq[1]: query[AAAA] maps.rspamd.com from 10.88.0.30
+Oct  1 15:12:18 dnsmasq[1]: config error is REFUSED (EDE: not ready)
+Oct  1 15:12:18 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:12:18 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:12:18 dnsmasq[1]: query[AAAA] maps.rspamd.com from 10.88.0.30
+Oct  1 15:12:18 dnsmasq[1]: config error is REFUSED (EDE: not ready)
+Oct  1 15:12:18 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:12:18 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:12:19 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:12:19 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:12:19 dnsmasq[1]: query[TXT] lab.test from 127.0.0.1
+Oct  1 15:12:19 dnsmasq[1]: config lab.test is <TXT>
+Oct  1 15:12:19 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:12:19 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:12:19 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:12:19 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>

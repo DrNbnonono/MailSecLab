@@ -1,0 +1,98 @@
+rsyslogd: imklog: cannot open kernel log (/proc/kmsg): Operation not permitted.
+rsyslogd: activation of module imklog failed [v8.2302.0 try https://www.rsyslog.com/e/2145 ]
+====================================
+OpenSMTPD starting
+version: OpenSMTPD 6.8.0p2
+====================================
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+info: OpenSMTPD 6.8.0p2 starting
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+setup_peer: klondike -> control[17] fd=4
+setup_peer: klondike -> pony express[19] fd=5
+setup_proc: klondike done
+setup_done: ca[16] done
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+setup_peer: scheduler -> control[17] fd=4
+setup_peer: scheduler -> queue[20] fd=5
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+setup_peer: lookup -> control[17] fd=4
+setup_peer: lookup -> pony express[19] fd=5
+setup_peer: lookup -> queue[20] fd=6
+setup_peer: control -> klondike[16] fd=4
+setup_peer: control -> lookup[18] fd=5
+setup_peer: control -> pony express[19] fd=6
+setup_peer: control -> queue[20] fd=7
+setup_peer: control -> scheduler[21] fd=8
+setup_proc: control done
+setup_done: control[17] done
+setup_proc: lookup done
+setup_done: lka[18] done
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+setup_peer: queue -> control[17] fd=4
+setup_peer: queue -> pony express[19] fd=5
+setup_peer: queue -> lookup[18] fd=6
+setup_peer: queue -> scheduler[21] fd=7
+debug: init ssl-tree
+debug: init ca-tree
+debug: init ssl-tree
+debug: using "fs" queue backend
+debug: using "ramqueue" scheduler backend
+debug: using "ram" stat backend
+setup_peer: pony express -> control[17] fd=4
+setup_peer: pony express -> klondike[16] fd=5
+setup_peer: pony express -> lookup[18] fd=6
+setup_peer: pony express -> queue[20] fd=7
+setup_proc: pony express done
+setup_done: pony[19] done
+setup_proc: queue done
+setup_done: queue[20] done
+setup_proc: scheduler done
+setup_done: scheduler[21] done
+smtpd: setup done
+debug: bounce warning after 4h
+debug: rsa_engine_init: using RSA privsep engine
+debug: ecdsa_engine_init: using ECDSA privsep engine
+warn: purge_task: opendir: No such file or directory
+debug: parent_send_config_ruleset: reloading
+debug: parent_send_config: configuring pony process
+debug: parent_send_config: configuring ca process
+debug: init private ssl-tree
+debug: smtp: listen on 0.0.0.0 port 25 flags 0x400 pki "" ca ""
+debug: smtp: will accept at most 524283 clients
+debug: queue: done loading queue into scheduler
+debug: smtpd: scanning offline queue...
+debug: smtpd: offline scanning done
+68b42c0c8de11930 smtp connected address=10.88.0.11 host=msl-client.mailseclab-research-net
+68b42c0c8de11930 smtp bad-input result="500 5.5.1 Invalid command: Pipelining not supported"
+68b42c0c8de11930 smtp disconnected reason=quit

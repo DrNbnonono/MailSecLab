@@ -1,0 +1,125 @@
+[
+  {
+    "mode": "plain",
+    "delivery": "delivered",
+    "mailpit_id": "5Yog90xXnrIYLjqgOCEsdt",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as 302549C616",
+      "queued_id": "302549C616",
+      "bytes": 186,
+      "sha256": "3005f3aa34cea2bab946f89b375a07f37d39fbeb5093f7b01552692cc7c1a100",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true,
+      "exit_code": 0
+    },
+    "join_ok": true,
+    "join_reasons": [],
+    "rspamd": {
+      "input": {
+        "status": "none",
+        "action": "no action",
+        "score": 2.4,
+        "source": [
+          "NO_IP|nil"
+        ],
+        "rescan": "after H_SOURCE_IP registration; same stored bytes"
+      },
+      "stored": {
+        "status": "none",
+        "action": "no action",
+        "score": 0.0,
+        "source": [
+          "10.88.0.23|msl-postfix3.mailseclab-research-net."
+        ],
+        "rescan": "after H_SOURCE_IP registration; same stored bytes"
+      }
+    }
+  },
+  {
+    "mode": "consistent",
+    "delivery": "delivered",
+    "mailpit_id": "4M9ePBARhGRLSidSryxGkN",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as 0E9449C616",
+      "queued_id": "0E9449C616",
+      "bytes": 590,
+      "sha256": "990d1b0e0b7ace229ed1b3e7fc08984d4483060443238b08121fd63ed95d95cc",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true,
+      "exit_code": 0
+    },
+    "join_ok": true,
+    "join_reasons": [],
+    "rspamd": {
+      "input": {
+        "status": "none",
+        "action": "no action",
+        "score": 0.0,
+        "source": [
+          "203.0.113.11|relay.example"
+        ],
+        "rescan": "after H_SOURCE_IP registration; same stored bytes"
+      },
+      "stored": {
+        "status": "none",
+        "action": "no action",
+        "score": 0.0,
+        "source": [
+          "10.88.0.23|msl-postfix3.mailseclab-research-net."
+        ],
+        "rescan": "after H_SOURCE_IP registration; same stored bytes"
+      }
+    }
+  },
+  {
+    "mode": "inconsistent",
+    "delivery": "delivered",
+    "mailpit_id": "2cBPLAuAuSQkNgnFVNLhRi",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as 9DF0B9C616",
+      "queued_id": "9DF0B9C616",
+      "bytes": 598,
+      "sha256": "5287bd8adbb735af08928cfbc2fd94b6d29ceee10daa36b8e855fff9c6357c9d",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true,
+      "exit_code": 0
+    },
+    "join_ok": false,
+    "join_reasons": [
+      "by-host forged.example != from-host client.lab.test",
+      "forged by-clause does not contain the client IP"
+    ],
+    "rspamd": {
+      "input": {
+        "status": "none",
+        "action": "no action",
+        "score": 0.0,
+        "source": [
+          "203.0.113.11|relay.example"
+        ],
+        "rescan": "after H_SOURCE_IP registration; same stored bytes"
+      },
+      "stored": {
+        "status": "none",
+        "action": "no action",
+        "score": 0.0,
+        "source": [
+          "10.88.0.23|msl-postfix3.mailseclab-research-net."
+        ],
+        "rescan": "after H_SOURCE_IP registration; same stored bytes"
+      }
+    }
+  }
+]

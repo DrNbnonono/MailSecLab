@@ -1,0 +1,16 @@
+{
+  "case": "blank-line-before-from",
+  "series": "malformed-boundary",
+  "sha256": "8b1a00ba59a2c6a5e87a1f49a53b931d0a7e60b45cf002c8a1b799be51e9c290",
+  "issues": [],
+  "syntax": [
+    "modern"
+  ],
+  "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+  },
+  "reference": "fail"
+}

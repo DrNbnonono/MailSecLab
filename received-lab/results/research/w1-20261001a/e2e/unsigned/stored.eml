@@ -1,0 +1,23 @@
+Bcc: bob@lab.test
+Return-Path: <alice@lab.test>
+Received: from postfix3.lab.test (msl-postfix3.mailseclab-research-net. [10.88.0.23])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@lab.test>; Thu, 1 Oct 2026 15:44:27 +0000 (UTC)
+Received: from postfix2.lab.test (msl-postfix2.mailseclab-research-net [10.88.0.22])
+	by postfix3.lab.test (Postfix) with ESMTP id 4E82C9C5F0
+	for <bob@lab.test>; Thu,  1 Oct 2026 15:44:27 +0000 (UTC)
+Received: from postfix1.lab.test (msl-postfix1.mailseclab-research-net [10.88.0.21])
+	by postfix2.lab.test (Postfix) with ESMTP id 4D18D9C5F8
+	for <bob@lab.test>; Thu,  1 Oct 2026 15:44:27 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by postfix1.lab.test (Postfix) with ESMTP id 4C0509C5F0
+	for <bob@lab.test>; Thu,  1 Oct 2026 15:44:27 +0000 (UTC)
+From: Author <author@lab.test>
+To: recipient@receiver.test
+Date: Thu, 1 Oct 2026 00:00:00 +0000
+Subject: Original subject
+Message-ID: <original@lab.test>
+X-Case-ID: e2e-unsigned
+
+Controlled research body.
+Case: e2e-unsigned

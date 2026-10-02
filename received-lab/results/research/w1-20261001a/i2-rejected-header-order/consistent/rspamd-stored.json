@@ -1,0 +1,104 @@
+{
+    "is_skipped": false,
+    "score": 0.0,
+    "required_score": 15.0,
+    "action": "no action",
+    "symbols": {
+        "ARC_NA": {
+            "name": "ARC_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "ARC signature absent"
+        },
+        "TO_DN_ALL": {
+            "name": "TO_DN_ALL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "All the recipients have display names"
+        },
+        "RCVD_COUNT_FIVE": {
+            "name": "RCVD_COUNT_FIVE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message has 5-7 Received headers",
+            "options": [
+                "6"
+            ]
+        },
+        "FROM_HAS_DN": {
+            "name": "FROM_HAS_DN",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "From header has a display name"
+        },
+        "MIME_TRACE": {
+            "name": "MIME_TRACE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "0:+"
+            ]
+        },
+        "RCVD_NO_TLS_LAST": {
+            "name": "RCVD_NO_TLS_LAST",
+            "score": 0.100000,
+            "metric_score": 0.100000,
+            "description": "Last hop did not use encrypted transports"
+        },
+        "FROM_EQ_ENVFROM": {
+            "name": "FROM_EQ_ENVFROM",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "From address is the same as the envelope"
+        },
+        "PREVIOUSLY_DELIVERED": {
+            "name": "PREVIOUSLY_DELIVERED",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message either to a list or was forwarded",
+            "options": [
+                "bob@lab.test"
+            ]
+        },
+        "MIME_GOOD": {
+            "name": "MIME_GOOD",
+            "score": -0.100000,
+            "metric_score": -0.100000,
+            "description": "Known content-type",
+            "options": [
+                "text/plain"
+            ]
+        },
+        "RCPT_COUNT_ONE": {
+            "name": "RCPT_COUNT_ONE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "One recipient",
+            "options": [
+                "1"
+            ]
+        },
+        "MID_RHS_MATCH_FROM": {
+            "name": "MID_RHS_MATCH_FROM",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message-ID RHS matches From domain"
+        },
+        "TO_DOM_EQ_FROM_DOM": {
+            "name": "TO_DOM_EQ_FROM_DOM",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "To domain is the same as the From domain"
+        }
+    },
+    "messages": {},
+    "message-id": "i2-consistent@lab.test",
+    "time_real": 0.002928,
+    "milter": {
+        "remove_headers": {
+            "X-Spam": 0
+        }
+    },
+    "filename": "/evidence/w1-20261001a/i2/consistent/stored.eml",
+    "scan_time": 0.008000
+}

@@ -1,0 +1,31 @@
+{
+  "case": "own-key",
+  "attacker": "holds only the evil.test key",
+  "sha256": "d3f84be98d1430f71813b782be4dcb9a1a7e2492a4684f15abd935df77a718f9",
+  "smtp": {
+    "client_ip": "10.88.0.11",
+    "reply": "250 2.0.0 Ok: queued as 9C6FD75C38",
+    "queued_id": "9C6FD75C38",
+    "bytes": 783,
+    "sha256": "d3f84be98d1430f71813b782be4dcb9a1a7e2492a4684f15abd935df77a718f9",
+    "accepted": true,
+    "banner_ok": true,
+    "ehlo_ok": true,
+    "mail_ok": true,
+    "rcpt_ok": true
+  },
+  "mailpit_id": "6yT8scaXpUtssXl3byD133",
+  "delivery": "delivered",
+  "before": {
+    "dkimpy": "fail",
+    "perl": "parse-error",
+    "go": "fail",
+    "rspamd": "fail"
+  },
+  "after": {
+    "dkimpy": "fail",
+    "perl": "parse-error",
+    "go": "fail",
+    "rspamd": "none"
+  }
+}

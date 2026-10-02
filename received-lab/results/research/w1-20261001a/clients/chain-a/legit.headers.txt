@@ -1,0 +1,5 @@
+X-Case-ID: chain-a-legit
+From: Author <author@lab.test>
+To: recipient@receiver.test
+Subject: Original subject
+X-Case-ID: preflight

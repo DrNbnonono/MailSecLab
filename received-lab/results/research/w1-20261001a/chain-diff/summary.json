@@ -1,0 +1,65 @@
+{
+  "stage": "chain-diff",
+  "passed": true,
+  "rows": [
+    {
+      "case": "from-insert-before",
+      "sha256": "a335ff413abd2aa6b543eb38529e7854ca592d58b7a58d6074178d991b1a9a6d",
+      "smtp_accepted": true,
+      "delivery": "delivered",
+      "mailpit_id": "5YugcVcopORNofuF9leUyr",
+      "before": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "fail"
+      },
+      "after": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "none"
+      }
+    },
+    {
+      "case": "subject-insert-before",
+      "sha256": "bc6e45ab459d27893b17ad75e7f9415c62f1237aea43407060b4ce8b4f6ffa1d",
+      "smtp_accepted": true,
+      "delivery": "delivered",
+      "mailpit_id": "7YTu2BizbKb5BUkf1TXFpD",
+      "before": {
+        "dkimpy": "pass",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "fail"
+      },
+      "after": {
+        "dkimpy": "pass",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "none"
+      }
+    },
+    {
+      "case": "from-insert-after",
+      "sha256": "d637ad1ff8607850ae8ef650b76c8382fb3b5292e6fbe01de490e5c96cf90b02",
+      "smtp_accepted": true,
+      "delivery": "delivered",
+      "mailpit_id": "6HVcrz5x4CYlZ8eXM9ugym",
+      "before": {
+        "dkimpy": "fail",
+        "perl": "fail",
+        "go": "fail",
+        "rspamd": "fail"
+      },
+      "after": {
+        "dkimpy": "fail",
+        "perl": "fail",
+        "go": "fail",
+        "rspamd": "none"
+      }
+    }
+  ],
+  "unchanged_verdicts": [],
+  "note": "This is the SMTP chain the fuzz arm named chain did not run. Added X-Case-ID is outside h=."
+}

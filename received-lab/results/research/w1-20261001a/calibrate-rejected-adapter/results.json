@@ -1,0 +1,309 @@
+[
+  {
+    "case": "legal",
+    "verifiers": {
+      "dkimpy": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 125, in main\n    out, err = run_dkimpy(raw)\n               ^^^^^^^^^^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 88, in run_dkimpy\n    import dns.resolve\nModuleNotFoundError: No module named 'dns.resolve'\n",
+        "exit_code": 1
+      },
+      "perl": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "go": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "rspamd": {
+        "status": "pass",
+        "action": "no action",
+        "score": 2.199999,
+        "symbols": [
+          "ARC_NA",
+          "DKIM_TRACE",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_ALLOW",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM"
+        ]
+      }
+    },
+    "txt_queries": [
+      "cal._domainkey.lab.test",
+      "not-a-selector._domainkey.lab.test",
+      "lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test"
+    ],
+    "exact_query": true
+  },
+  {
+    "case": "header-tamper",
+    "verifiers": {
+      "dkimpy": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 125, in main\n    out, err = run_dkimpy(raw)\n               ^^^^^^^^^^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 88, in run_dkimpy\n    import dns.resolve\nModuleNotFoundError: No module named 'dns.resolve'\n",
+        "exit_code": 1
+      },
+      "perl": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "go": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "rspamd": {
+        "status": "fail",
+        "action": "no action",
+        "score": 3.4,
+        "symbols": [
+          "ARC_NA",
+          "DKIM_TRACE",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_REJECT",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM"
+        ]
+      }
+    },
+    "txt_queries": [
+      "cal._domainkey.lab.test",
+      "not-a-selector._domainkey.lab.test",
+      "lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test"
+    ],
+    "exact_query": true
+  },
+  {
+    "case": "body-tamper",
+    "verifiers": {
+      "dkimpy": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 125, in main\n    out, err = run_dkimpy(raw)\n               ^^^^^^^^^^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 88, in run_dkimpy\n    import dns.resolve\nModuleNotFoundError: No module named 'dns.resolve'\n",
+        "exit_code": 1
+      },
+      "perl": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "go": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "rspamd": {
+        "status": "fail",
+        "action": "add header",
+        "score": 7.24,
+        "symbols": [
+          "ARC_NA",
+          "DKIM_TRACE",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_REJECT",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM",
+          "TRACKER_ID"
+        ]
+      }
+    },
+    "txt_queries": [
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "lab.test",
+      "cal._domainkey.lab.test"
+    ],
+    "exact_query": true
+  },
+  {
+    "case": "wrong-key",
+    "verifiers": {
+      "dkimpy": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 125, in main\n    out, err = run_dkimpy(raw)\n               ^^^^^^^^^^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 88, in run_dkimpy\n    import dns.resolve\nModuleNotFoundError: No module named 'dns.resolve'\n",
+        "exit_code": 1
+      },
+      "perl": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "go": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "rspamd": {
+        "status": "fail",
+        "action": "no action",
+        "score": 3.4,
+        "symbols": [
+          "ARC_NA",
+          "DKIM_TRACE",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_REJECT",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM"
+        ]
+      }
+    },
+    "txt_queries": [
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test"
+    ],
+    "exact_query": true
+  },
+  {
+    "case": "unsigned",
+    "verifiers": {
+      "dkimpy": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 125, in main\n    out, err = run_dkimpy(raw)\n               ^^^^^^^^^^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 88, in run_dkimpy\n    import dns.resolve\nModuleNotFoundError: No module named 'dns.resolve'\n",
+        "exit_code": 1
+      },
+      "perl": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "go": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "rspamd": {
+        "status": "none",
+        "action": "no action",
+        "score": 2.4,
+        "symbols": [
+          "ARC_NA",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_NA",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM"
+        ]
+      }
+    },
+    "txt_queries": [
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test"
+    ],
+    "exact_query": true
+  },
+  {
+    "case": "legal-lf",
+    "verifiers": {
+      "dkimpy": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 125, in main\n    out, err = run_dkimpy(raw)\n               ^^^^^^^^^^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 88, in run_dkimpy\n    import dns.resolve\nModuleNotFoundError: No module named 'dns.resolve'\n",
+        "exit_code": 1
+      },
+      "perl": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "go": {
+        "status": "tool-error",
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/opt/research/lib/verify_one.py\", line 167, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/opt/research/lib/verify_one.py\", line 159, in main\n    record[\"stderr\"] = er\n                       ^^\nNameError: name 'er' is not defined. Did you mean: 'err'?\n",
+        "exit_code": 1
+      },
+      "rspamd": {
+        "status": "pass",
+        "action": "no action",
+        "score": 2.199999,
+        "symbols": [
+          "ARC_NA",
+          "DKIM_TRACE",
+          "FROM_HAS_DN",
+          "HFILTER_HOSTNAME_UNKNOWN",
+          "MID_RHS_MATCH_FROM",
+          "MIME_GOOD",
+          "MIME_TRACE",
+          "RCPT_COUNT_ONE",
+          "RCVD_COUNT_ZERO",
+          "R_DKIM_ALLOW",
+          "TO_DN_ALL",
+          "TO_DOM_EQ_FROM_DOM"
+        ]
+      }
+    },
+    "txt_queries": [
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test",
+      "lab.test",
+      "cal._domainkey.lab.test",
+      "cal._domainkey.lab.test"
+    ],
+    "exact_query": true
+  }
+]

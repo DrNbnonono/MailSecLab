@@ -1,0 +1,48 @@
+[
+  {
+    "separator": "crlf",
+    "case": "i1-exim492-crlf",
+    "payload_bytes": 377,
+    "smtp_tail": [
+      "250 Accepted",
+      "354 Enter message, ending with \".\" on a line by itself",
+      "250 OK id=1xCXYa-00000K-5Y",
+      "250 OK",
+      "250 Accepted",
+      "554 SMTP synchronization error"
+    ],
+    "first": 1,
+    "smuggled": 0,
+    "first_ids": [
+      {
+        "id": "1fp91jkwR1U9xP9QN2ry8l",
+        "bytes": 661,
+        "subject": "I1 first i1-exim492-crlf"
+      }
+    ],
+    "smuggled_ids": []
+  },
+  {
+    "separator": "lf",
+    "case": "i1-exim492-lf",
+    "payload_bytes": 367,
+    "smtp_tail": [
+      "250 HELP",
+      "250 OK",
+      "250 Accepted",
+      "354 Enter message, ending with \".\" on a line by itself",
+      "250 OK id=1xCXYd-00000O-2h",
+      "221 exim492.lab.test closing connection"
+    ],
+    "first": 0,
+    "smuggled": 1,
+    "first_ids": [],
+    "smuggled_ids": [
+      {
+        "id": "45DXYMs3fDmagXqdi5oqwG",
+        "bytes": 873,
+        "subject": "I1 first i1-exim492-lf"
+      }
+    ]
+  }
+]

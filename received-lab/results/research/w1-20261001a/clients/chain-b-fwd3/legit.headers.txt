@@ -1,0 +1,9 @@
+Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Authentication-Results: mail.lab.test;
+X-Case-ID: chain-b-fwd3-legit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+From: Author <author@lab.test>
+To: recipient@receiver.test
+Subject: Original subject
+X-Case-ID: preflight

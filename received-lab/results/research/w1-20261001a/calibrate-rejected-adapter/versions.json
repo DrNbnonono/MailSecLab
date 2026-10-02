@@ -1,0 +1,9 @@
+{
+  "dkimpy": "1.1.8",
+  "dkimpy_rc": 0,
+  "perl_pkg": "1.20230212-2~deb12u1",
+  "perl_pkg_rc": 0,
+  "go_mod": "/usr/local/bin/dkim-verify: go1.19.8\n\tpath\tgithub.com/emersion/go-msgauth/cmd/dkim-verify\n\tmod\tgithub.com/emersion/go-msgauth\tv0.6.8\th1:kW/0E9E8Zx5CdKsERC/WnAvnXvX7q9wTHia1OA4944A=\n\tdep\tgolang.org/x/crypto\tv0.15.0\th1:frVn1TEaCEaZcn3Tmd7Y2b5KKPaZ+I32Q2OA3kYp5TA=\n\tbuild\t-compiler=gc\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=amd64\n\tbuild\tGOOS=linux\n\tbuild\tGOAMD64=v1",
+  "go_mod_rc": 0,
+  "rspamd": "Rspamd daemon version 3.4"
+}

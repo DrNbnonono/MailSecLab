@@ -1,0 +1,7 @@
+{
+  "stage": "bootstrap",
+  "passed": true,
+  "problems": [],
+  "counts_as_finding": false,
+  "note": "Adapter failures, DNS failures and missing delivery are not findings."
+}

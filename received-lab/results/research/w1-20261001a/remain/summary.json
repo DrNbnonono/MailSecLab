@@ -1,0 +1,243 @@
+{
+  "versions": {
+    "postfix37": [
+      "3.7.11"
+    ],
+    "postfix311": [
+      "3.11.6"
+    ],
+    "exim": [
+      "Exim version 4.96 #2 built 27-May-2026 16:52:26",
+      "Copyright (c) University of Cambridge, 1995 - 2018"
+    ],
+    "opensmtpd": "6.8.0p2 from the existing image; the previous 60s run did not relay",
+    "exim492": "no local image; positive control not run"
+  },
+  "paths": [
+    {
+      "case": "w5-osmtpd-postfix",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 2563d186 Message accepted for delivery",
+        "queued_id": "",
+        "bytes": 831,
+        "sha256": "71e86cf30fab5039b76a11d54f82eae7b3539694636d3253517081632f3f6cce",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "mailpit_id": "60cJlS5ew1XJpltwaR1LPU",
+      "sha256": "71e86cf30fab5039b76a11d54f82eae7b3539694636d3253517081632f3f6cce",
+      "delivery": "delivered",
+      "after": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "none"
+      },
+      "received_headers": 3
+    },
+    {
+      "case": "w5-osmtpd-exim",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 b7eb6180 Message accepted for delivery",
+        "queued_id": "",
+        "bytes": 828,
+        "sha256": "d0ee577b70218e1b4d788a2a868a9dd489372f6eb3c568bfe8d16b39cf4be103",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "mailpit_id": "6hvSwPvF0I4Zslfk3zLwjH",
+      "sha256": "d0ee577b70218e1b4d788a2a868a9dd489372f6eb3c568bfe8d16b39cf4be103",
+      "delivery": "delivered",
+      "after": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "none"
+      },
+      "received_headers": 3
+    },
+    {
+      "case": "w5-exim-postfix",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 OK id=1xCVQR-00000G-1y",
+        "queued_id": "",
+        "bytes": 829,
+        "sha256": "855c8910a2086a1ed492c9169200cbabfc2b3bf59ea37592cb4608e97f036f1f",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "mailpit_id": "41bWy9eRz4tt1e0Dj0aAKX",
+      "sha256": "855c8910a2086a1ed492c9169200cbabfc2b3bf59ea37592cb4608e97f036f1f",
+      "delivery": "delivered",
+      "after": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "none"
+      },
+      "received_headers": 3
+    },
+    {
+      "case": "w5-postfix-exim",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 Ok: queued as C218B9C722",
+        "queued_id": "C218B9C722",
+        "bytes": 829,
+        "sha256": "2b17981215606744f5591f52cbc9dbaa93c878389877ffa2158ab526a34e1ef3",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "mailpit_id": "7Hs2Q6PyOQECvUw5aOQKiv",
+      "sha256": "2b17981215606744f5591f52cbc9dbaa93c878389877ffa2158ab526a34e1ef3",
+      "delivery": "delivered",
+      "after": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "none"
+      },
+      "received_headers": 3
+    },
+    {
+      "case": "w5-osmtpd-osmtpd",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 0319d2a5 Message accepted for delivery",
+        "queued_id": "",
+        "bytes": 830,
+        "sha256": "80696acad266e14af9f566700a326f64c05c4a78c1c43c379803a3f5dcf37cf4",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "mailpit_id": "1YUNZl1shJ2kSQgv8NMr9p",
+      "sha256": "80696acad266e14af9f566700a326f64c05c4a78c1c43c379803a3f5dcf37cf4",
+      "delivery": "delivered",
+      "after": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "none"
+      },
+      "received_headers": 3
+    },
+    {
+      "case": "w5-postfix311",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 Ok: queued as 80E229C6F9",
+        "queued_id": "80E229C6F9",
+        "bytes": 827,
+        "sha256": "9e24cbc5c25f9c976d89b1be4891088bf4167c8c6c17929d4e75862f044b0074",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "mailpit_id": "3XhcTFNcKCQ2OkMqpsbeic",
+      "sha256": "9e24cbc5c25f9c976d89b1be4891088bf4167c8c6c17929d4e75862f044b0074",
+      "delivery": "delivered",
+      "after": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "none"
+      },
+      "received_headers": 2
+    }
+  ],
+  "loops": [
+    {
+      "label": "loop-normal",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 e4a6432c Message accepted for delivery",
+        "queued_id": "",
+        "bytes": 153,
+        "sha256": "6d8a9de2d0ca297909f60ec1b2b5fd657ddb0102d61467aab2797c94c1b3035b",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "stopped_after_seconds": 60,
+      "log_bytes": 167158,
+      "relay_mentions": 924,
+      "queue": "",
+      "queue_rc": 0
+    },
+    {
+      "label": "loop-obs",
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 3ba129bc Message accepted for delivery",
+        "queued_id": "",
+        "bytes": 140,
+        "sha256": "f9d1ce33813dbbb75dc8a726cb33a31bc7dd7882594121200a438b761790ffb7",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true
+      },
+      "stopped_after_seconds": 60,
+      "log_bytes": 136679,
+      "relay_mentions": 799,
+      "queue": "",
+      "queue_rc": 0
+    }
+  ],
+  "perf": {
+    "python": {
+      "implementation": "in-process ambiguity and display-binding rules",
+      "warmup": 100,
+      "rounds": [
+        {
+          "seconds": 0.007634,
+          "messages": 500,
+          "flagged": 100
+        },
+        {
+          "seconds": 0.005915,
+          "messages": 500,
+          "flagged": 100
+        },
+        {
+          "seconds": 0.004289,
+          "messages": 500,
+          "flagged": 100
+        }
+      ]
+    },
+    "rspamd": {
+      "exit": 0,
+      "seconds_lines": [
+        "3",
+        "13",
+        "10",
+        "10"
+      ],
+      "stderr": ""
+    }
+  }
+}

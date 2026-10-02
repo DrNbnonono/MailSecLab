@@ -1,0 +1,12 @@
+{
+  "postfix_3_11_image": {
+    "image": "received-lab-postfix1n:latest",
+    "mail_version": "3.11.6",
+    "stderr": ""
+  },
+  "opensmtpd_bounded": {
+    "stopped_after_seconds": 60.5,
+    "log_bytes": 3496,
+    "cap": "60s or container stop, one injected message"
+  }
+}

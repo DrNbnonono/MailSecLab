@@ -1,0 +1,57 @@
+{
+  "signer": "independent-openssl-reference",
+  "canonicalization": "simple/relaxed",
+  "h": [
+    "from",
+    "from",
+    "to",
+    "date",
+    "subject",
+    "message-id"
+  ],
+  "selected_unsigned": [
+    {
+      "name": "from",
+      "index": 1,
+      "start": 32,
+      "end": 69,
+      "canonical_sha256": "46f3b72f207ed8d462c93b87bc3162d0115c8ed606f66ba33ca8179d1dfae89d"
+    },
+    {
+      "name": "from",
+      "index": 0,
+      "start": 0,
+      "end": 32,
+      "canonical_sha256": "9d6a9c64795f8052696f14c944026aeaeaf5d6d696ea02db7e72e6f1452e5cef"
+    },
+    {
+      "name": "to",
+      "index": 2,
+      "start": 69,
+      "end": 98,
+      "canonical_sha256": "e766e3f7fdf44fe70c2475bd178cede2edbcd2e74f6c13415b3bb7f47e8fe2b4"
+    },
+    {
+      "name": "date",
+      "index": 3,
+      "start": 98,
+      "end": 136,
+      "canonical_sha256": "b4cfb46ae7dee2a9e657d1315139a11faf4be9ebcd3906a890904bf474ba6014"
+    },
+    {
+      "name": "subject",
+      "index": 4,
+      "start": 136,
+      "end": 163,
+      "canonical_sha256": "05ece3358686c78e41b1c59a71374909818b9186d6b0dc408df306e24fad1037"
+    },
+    {
+      "name": "message-id",
+      "index": 5,
+      "start": 163,
+      "end": 196,
+      "canonical_sha256": "694c3499cc8769cf61f32e8b7cfd4669d89c9a9c88de43e1d15c2c8354f4efa8"
+    }
+  ],
+  "hash_input_sha256": "1cec2a1fb2dfed6f497c1203dc7eb6cdb93a22bb4311867137c1aa5b5301e31e"
+}

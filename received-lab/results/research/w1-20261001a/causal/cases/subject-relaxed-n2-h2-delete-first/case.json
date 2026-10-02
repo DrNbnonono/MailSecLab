@@ -1,0 +1,319 @@
+{
+  "row": {
+    "case": "subject-relaxed-n2-h2-delete-first",
+    "field": "subject",
+    "header_canon": "relaxed",
+    "body_canon": "relaxed",
+    "instances_at_sign": 2,
+    "h_repeats": 2,
+    "h": [
+      "from",
+      "subject",
+      "subject",
+      "to",
+      "date",
+      "message-id"
+    ],
+    "operation": "delete-first",
+    "sha256": "03961db764a1026d1741ac66e116084bb191eb96cc9166e87f41f4bc5fa363eb",
+    "bytes": 777,
+    "reference_bottom": "fail",
+    "reference_top": "fail",
+    "selected_bottom": [
+      {
+        "name": "from",
+        "index": 1,
+        "start": 517,
+        "end": 549,
+        "canonical_sha256": "1c7f8e524d85d5614451c76ef7f3a1642907239d814be8fde2e0a63617e57917"
+      },
+      {
+        "name": "subject",
+        "index": 4,
+        "start": 616,
+        "end": 642,
+        "canonical_sha256": "5fea0d3c61d898ebf9d4187676317852964d02ab781b821f1b9a421b5d708f7d"
+      },
+      {
+        "name": "subject",
+        "index": null,
+        "absent": true,
+        "canonical_sha256": "51e158597190a7f3b5209632865072fb41b8aa6d5dff56d9a4ea8cbbc937f963"
+      },
+      {
+        "name": "to",
+        "index": 2,
+        "start": 549,
+        "end": 578,
+        "canonical_sha256": "8d73e03c32fb4eaa1c08761003ec1d65852b797b65fd39777ed3b168f1e56a31"
+      },
+      {
+        "name": "date",
+        "index": 3,
+        "start": 578,
+        "end": 616,
+        "canonical_sha256": "72eae7490820ddec10912ee2fc6f7ae8009f6723b8a43b7e658420ed9998b6db"
+      },
+      {
+        "name": "message-id",
+        "index": 5,
+        "start": 642,
+        "end": 675,
+        "canonical_sha256": "65850bff91ade4d2d04d82b5261130aed09dff1d5f7d5cba5eb2ac59db3c587c"
+      }
+    ],
+    "selected_top": [
+      {
+        "name": "from",
+        "index": 1,
+        "start": 517,
+        "end": 549,
+        "canonical_sha256": "1c7f8e524d85d5614451c76ef7f3a1642907239d814be8fde2e0a63617e57917"
+      },
+      {
+        "name": "subject",
+        "index": 4,
+        "start": 616,
+        "end": 642,
+        "canonical_sha256": "5fea0d3c61d898ebf9d4187676317852964d02ab781b821f1b9a421b5d708f7d"
+      },
+      {
+        "name": "subject",
+        "index": null,
+        "absent": true,
+        "canonical_sha256": "51e158597190a7f3b5209632865072fb41b8aa6d5dff56d9a4ea8cbbc937f963"
+      },
+      {
+        "name": "to",
+        "index": 2,
+        "start": 549,
+        "end": 578,
+        "canonical_sha256": "8d73e03c32fb4eaa1c08761003ec1d65852b797b65fd39777ed3b168f1e56a31"
+      },
+      {
+        "name": "date",
+        "index": 3,
+        "start": 578,
+        "end": 616,
+        "canonical_sha256": "72eae7490820ddec10912ee2fc6f7ae8009f6723b8a43b7e658420ed9998b6db"
+      },
+      {
+        "name": "message-id",
+        "index": 5,
+        "start": 642,
+        "end": 675,
+        "canonical_sha256": "65850bff91ade4d2d04d82b5261130aed09dff1d5f7d5cba5eb2ac59db3c587c"
+      }
+    ],
+    "verifiers": {
+      "dkimpy": "fail",
+      "perl": "fail",
+      "go": "fail",
+      "rspamd": "fail"
+    },
+    "causes": {
+      "dkimpy": "both-oracles-agree",
+      "perl": "both-oracles-agree",
+      "go": "both-oracles-agree",
+      "rspamd": "both-oracles-agree"
+    },
+    "field_counts": {
+      "dkim-signature": 1,
+      "from": 1,
+      "to": 1,
+      "date": 1,
+      "subject": 1,
+      "message-id": 1,
+      "x-case-id": 1
+    },
+    "syntax": [
+      "modern"
+    ]
+  },
+  "bottom": {
+    "status": "fail",
+    "signatures": [
+      {
+        "status": "fail",
+        "body_hash_match": true,
+        "header_signature_match": false,
+        "h": [
+          "from",
+          "subject",
+          "subject",
+          "to",
+          "date",
+          "message-id"
+        ],
+        "selected": [
+          {
+            "name": "from",
+            "index": 1,
+            "start": 517,
+            "end": 549,
+            "canonical_sha256": "1c7f8e524d85d5614451c76ef7f3a1642907239d814be8fde2e0a63617e57917"
+          },
+          {
+            "name": "subject",
+            "index": 4,
+            "start": 616,
+            "end": 642,
+            "canonical_sha256": "5fea0d3c61d898ebf9d4187676317852964d02ab781b821f1b9a421b5d708f7d"
+          },
+          {
+            "name": "subject",
+            "index": null,
+            "absent": true,
+            "canonical_sha256": "51e158597190a7f3b5209632865072fb41b8aa6d5dff56d9a4ea8cbbc937f963"
+          },
+          {
+            "name": "to",
+            "index": 2,
+            "start": 549,
+            "end": 578,
+            "canonical_sha256": "8d73e03c32fb4eaa1c08761003ec1d65852b797b65fd39777ed3b168f1e56a31"
+          },
+          {
+            "name": "date",
+            "index": 3,
+            "start": 578,
+            "end": 616,
+            "canonical_sha256": "72eae7490820ddec10912ee2fc6f7ae8009f6723b8a43b7e658420ed9998b6db"
+          },
+          {
+            "name": "message-id",
+            "index": 5,
+            "start": 642,
+            "end": 675,
+            "canonical_sha256": "65850bff91ade4d2d04d82b5261130aed09dff1d5f7d5cba5eb2ac59db3c587c"
+          }
+        ],
+        "hash_input_sha256": "10b40b58f0abc59e6e61f1f80158fcee62de1822d3c7b39eb29bc5585be04208",
+        "openssl_stdout": "Verification failure\n",
+        "openssl_stderr": "40A7FA4A83700000:error:02000068:rsa routines:ossl_rsa_verify:bad signature:../crypto/rsa/rsa_sign.c:430:\n40A7FA4A83700000:error:1C880004:Provider routines:rsa_verify:RSA lib:../providers/implementations/signature/rsa_sig.c:774:\n"
+      }
+    ],
+    "reference_scope": "modern controlled IMF; crypto only, no duplicate-From policy"
+  },
+  "top": {
+    "status": "fail",
+    "signatures": [
+      {
+        "status": "fail",
+        "body_hash_match": true,
+        "header_signature_match": false,
+        "h": [
+          "from",
+          "subject",
+          "subject",
+          "to",
+          "date",
+          "message-id"
+        ],
+        "selected": [
+          {
+            "name": "from",
+            "index": 1,
+            "start": 517,
+            "end": 549,
+            "canonical_sha256": "1c7f8e524d85d5614451c76ef7f3a1642907239d814be8fde2e0a63617e57917"
+          },
+          {
+            "name": "subject",
+            "index": 4,
+            "start": 616,
+            "end": 642,
+            "canonical_sha256": "5fea0d3c61d898ebf9d4187676317852964d02ab781b821f1b9a421b5d708f7d"
+          },
+          {
+            "name": "subject",
+            "index": null,
+            "absent": true,
+            "canonical_sha256": "51e158597190a7f3b5209632865072fb41b8aa6d5dff56d9a4ea8cbbc937f963"
+          },
+          {
+            "name": "to",
+            "index": 2,
+            "start": 549,
+            "end": 578,
+            "canonical_sha256": "8d73e03c32fb4eaa1c08761003ec1d65852b797b65fd39777ed3b168f1e56a31"
+          },
+          {
+            "name": "date",
+            "index": 3,
+            "start": 578,
+            "end": 616,
+            "canonical_sha256": "72eae7490820ddec10912ee2fc6f7ae8009f6723b8a43b7e658420ed9998b6db"
+          },
+          {
+            "name": "message-id",
+            "index": 5,
+            "start": 642,
+            "end": 675,
+            "canonical_sha256": "65850bff91ade4d2d04d82b5261130aed09dff1d5f7d5cba5eb2ac59db3c587c"
+          }
+        ],
+        "hash_input_sha256": "10b40b58f0abc59e6e61f1f80158fcee62de1822d3c7b39eb29bc5585be04208",
+        "openssl_stdout": "Verification failure\n",
+        "openssl_stderr": "40D7B5AE8F7C0000:error:02000068:rsa routines:ossl_rsa_verify:bad signature:../crypto/rsa/rsa_sign.c:430:\n40D7B5AE8F7C0000:error:1C880004:Provider routines:rsa_verify:RSA lib:../providers/implementations/signature/rsa_sig.c:774:\n"
+      }
+    ],
+    "reference_scope": "modern controlled IMF; crypto only, no duplicate-From policy"
+  },
+  "verifiers": {
+    "dkimpy": {
+      "tool": "dkimpy",
+      "input_sha256": "03961db764a1026d1741ac66e116084bb191eb96cc9166e87f41f4bc5fa363eb",
+      "input_len": 777,
+      "perl_feed_sha256": "03961db764a1026d1741ac66e116084bb191eb96cc9166e87f41f4bc5fa363eb",
+      "perl_normalization": "identity",
+      "stdout": "status: fail\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "fail"
+    },
+    "perl": {
+      "tool": "perl",
+      "input_sha256": "03961db764a1026d1741ac66e116084bb191eb96cc9166e87f41f4bc5fa363eb",
+      "input_len": 777,
+      "perl_feed_sha256": "03961db764a1026d1741ac66e116084bb191eb96cc9166e87f41f4bc5fa363eb",
+      "perl_normalization": "identity",
+      "library_fed_sha256": "03961db764a1026d1741ac66e116084bb191eb96cc9166e87f41f4bc5fa363eb",
+      "library_normalization": "identity",
+      "stdout": "input_sha256: 03961db764a1026d1741ac66e116084bb191eb96cc9166e87f41f4bc5fa363eb\ninput_len: 777\nfed_sha256: 03961db764a1026d1741ac66e116084bb191eb96cc9166e87f41f4bc5fa363eb\nfed_len: 777\nnormalization: identity\nsignature_count: 1\nresult: fail\ndetail: fail (message has been altered)\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "fail"
+    },
+    "go": {
+      "tool": "go",
+      "input_sha256": "03961db764a1026d1741ac66e116084bb191eb96cc9166e87f41f4bc5fa363eb",
+      "input_len": 777,
+      "perl_feed_sha256": "03961db764a1026d1741ac66e116084bb191eb96cc9166e87f41f4bc5fa363eb",
+      "perl_normalization": "identity",
+      "stdout": "",
+      "stderr": "2026/10/01 15:35:28 Invalid signature for lab.test: dkim: signature did not verify: crypto/rsa: verification error\n",
+      "exit_code": 0,
+      "status": "fail"
+    },
+    "rspamd": {
+      "status": "fail",
+      "action": "no action",
+      "score": 3.4,
+      "symbols": [
+        "ARC_NA",
+        "DKIM_TRACE",
+        "FROM_HAS_DN",
+        "HFILTER_HOSTNAME_UNKNOWN",
+        "H_SOURCE_IP",
+        "MID_RHS_MATCH_FROM",
+        "MIME_GOOD",
+        "MIME_TRACE",
+        "RCPT_COUNT_ONE",
+        "RCVD_COUNT_ZERO",
+        "R_DKIM_REJECT",
+        "TO_DN_NONE"
+      ]
+    }
+  }
+}

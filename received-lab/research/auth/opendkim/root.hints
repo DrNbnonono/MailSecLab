@@ -1,0 +1,2 @@
+.       3600 IN NS lab-dns.
+lab-dns. 3600 IN A  10.88.0.53

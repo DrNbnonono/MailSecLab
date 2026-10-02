@@ -1,0 +1,21 @@
+Return-Path: <alice@lab.test>
+Received: from postfix3.lab.test (msl-postfix3.mailseclab-research-net. [10.88.0.23])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@lab.test>; Thu, 1 Oct 2026 15:12:43 +0000 (UTC)
+Received: from postfix2.lab.test (msl-postfix2.mailseclab-research-net [10.88.0.22])
+	by postfix3.lab.test (Postfix) with ESMTP id 35A6C9C616
+	for <bob@lab.test>; Thu,  1 Oct 2026 15:12:43 +0000 (UTC)
+Received: from postfix1.lab.test (msl-postfix1.mailseclab-research-net [10.88.0.21])
+	by postfix2.lab.test (Postfix) with ESMTP id 334BE9C65E
+	for <bob@lab.test>; Thu,  1 Oct 2026 15:12:43 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by postfix1.lab.test (Postfix) with ESMTP id 302549C616
+	for <bob@lab.test>; Thu,  1 Oct 2026 15:12:43 +0000 (UTC)
+X-Case-ID: i2-plain
+From: Alice <alice@lab.test>
+To: Bob <bob@lab.test>
+Subject: i2-plain
+Message-ID: <i2-plain@lab.test>
+Date: Thu, 01 Oct 2026 12:00:00 +0000
+
+i2-body i2-plain

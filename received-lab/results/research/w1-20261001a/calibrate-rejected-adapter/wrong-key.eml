@@ -1,0 +1,16 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ i=@lab.test; q=dns/txt; s=cal; t=1790867227; h=from : to : subject :
+ message-id : date; bh=Ms4W4kyTboE3xegF8Krz3zp/1exLnKs+tRAJlmBpFD8=;
+ b=NPsfFvwUjXW7KH//kMQLaTO+O4BVihYP2w7gp08f5KR0DIt0LP8wQ1ZwhJFeCQBAt9pWz
+ LaKtjt7A+QophCoZRfYOsJRRKDKB9afHH9XtCWDqTCFSypaJ6NNAstsjme070Co1t9uIdLY
+ uyFW1FHacYTsQXM5SrRh0pK7iSvM/vFziYglq28+Lb4robhQr43tzFpCu1BELz8scGqEfpF
+ pYP4kE/Si2gHWQuN0DzafdlvQusCttWVovQESsM8UCudZPVAkVe6aaqT1oopf0YLqf4tkn6
+ cpscvhBIPMuzFG/JGPRaoO0yegXdl4YDsZ7i3q47k6FoRau6/4KeXjJMz7Tg==
+X-Case-ID: cal-wrong-key
+From: Alice <alice@lab.test>
+To: Bob <bob@lab.test>
+Subject: calibration legal
+Message-ID: <cal-wrong-key@lab.test>
+Date: Thu, 01 Oct 2026 12:00:00 +0000
+
+calibration-body

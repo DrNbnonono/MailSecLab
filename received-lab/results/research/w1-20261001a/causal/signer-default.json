@@ -1,0 +1,5 @@
+{
+  "rc": 0,
+  "stdout": "{\"tool\": \"dkimpy\", \"version\": \"1.1.8\", \"default_h\": \"from : to : date : subject : message-id : from\"}\n",
+  "stderr": ""
+}

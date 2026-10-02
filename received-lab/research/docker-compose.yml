@@ -1,0 +1,188 @@
+name: mailseclab-research
+
+# Independent stack. Container names, network and volume are not the historical
+# received-lab project. Do not point this file at the old Mailpit volume.
+
+services:
+  dns:
+    build: ./dns
+    image: mailseclab-research-dns
+    container_name: msl-dns
+    hostname: dns.lab.test
+    environment:
+      RUN_ID: ${RUN_ID:?set RUN_ID}
+      SELECTOR: cal
+    volumes:
+      - ../results/research:/evidence
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.53
+    mem_limit: 128m
+    cpus: 0.10
+    restart: "no"
+    healthcheck:
+      test: ["CMD", "dig", "@127.0.0.1", "lab.test", "TXT", "+time=2", "+tries=1"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+  verifiers:
+    build: ./verifiers
+    image: mailseclab-research-verifiers
+    container_name: msl-verifiers
+    hostname: verifiers.lab.test
+    dns:
+      - 10.88.0.53
+    environment:
+      RUN_ID: ${RUN_ID:?set RUN_ID}
+    volumes:
+      - ./:/opt/research
+      - ../results/research:/evidence
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.20
+    depends_on:
+      dns:
+        condition: service_healthy
+    mem_limit: 768m
+    cpus: 0.70
+    restart: "no"
+    command: ["sleep", "infinity"]
+
+  rspamd:
+    build: ./rspamd
+    image: mailseclab-research-rspamd
+    container_name: msl-rspamd
+    hostname: rspamd.lab.test
+    dns:
+      - 10.88.0.53
+    extra_hosts:
+      - "maps.rspamd.com:127.0.0.1"
+    volumes:
+      - ../results/research:/evidence
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.30
+    depends_on:
+      dns:
+        condition: service_healthy
+    mem_limit: 768m
+    cpus: 0.70
+    restart: "no"
+
+  postfix1:
+    image: received-lab-postfix1:latest
+    container_name: msl-postfix1
+    hostname: postfix1.lab.test
+    dns:
+      - 10.88.0.53
+    environment:
+      MYHOSTNAME: postfix1.lab.test
+      RELAYHOST: "[postfix2]:25"
+      HOPCOUNT_LIMIT: "50"
+      HEADER_SIZE_LIMIT: "102400"
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.21
+    depends_on:
+      dns:
+        condition: service_healthy
+      postfix2:
+        condition: service_started
+    mem_limit: 512m
+    cpus: 0.40
+    restart: "no"
+
+  postfix2:
+    image: received-lab-postfix2:latest
+    container_name: msl-postfix2
+    hostname: postfix2.lab.test
+    dns:
+      - 10.88.0.53
+    environment:
+      MYHOSTNAME: postfix2.lab.test
+      RELAYHOST: "[postfix3]:25"
+      HOPCOUNT_LIMIT: "50"
+      HEADER_SIZE_LIMIT: "102400"
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.22
+    depends_on:
+      dns:
+        condition: service_healthy
+      postfix3:
+        condition: service_started
+    mem_limit: 512m
+    cpus: 0.40
+    restart: "no"
+
+  postfix3:
+    image: received-lab-postfix3:latest
+    container_name: msl-postfix3
+    hostname: postfix3.lab.test
+    dns:
+      - 10.88.0.53
+    environment:
+      MYHOSTNAME: postfix3.lab.test
+      RELAYHOST: "[mailpit]:1025"
+      HOPCOUNT_LIMIT: "50"
+      HEADER_SIZE_LIMIT: "102400"
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.23
+    depends_on:
+      dns:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+    mem_limit: 512m
+    cpus: 0.40
+    restart: "no"
+
+  mailpit:
+    image: axllent/mailpit:v1.31.0
+    container_name: msl-mailpit
+    hostname: mailpit.lab.test
+    environment:
+      MP_DATA_FILE: /data/mailpit.db
+    volumes:
+      - mailpit-data:/data
+    ports:
+      - "127.0.0.1:18025:8025"
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.25
+    mem_limit: 256m
+    cpus: 0.20
+    restart: "no"
+
+  client:
+    image: received-lab-client:latest
+    container_name: msl-client
+    hostname: client.lab.test
+    dns:
+      - 10.88.0.53
+    volumes:
+      - ./:/opt/research
+      - ../results/research:/evidence
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.11
+    depends_on:
+      postfix1:
+        condition: service_started
+    mem_limit: 384m
+    cpus: 0.40
+    restart: "no"
+    command: ["sleep", "infinity"]
+
+networks:
+  mslnet:
+    name: mailseclab-research-net
+    ipam:
+      config:
+        - subnet: 10.88.0.0/24
+
+volumes:
+  mailpit-data:
+    name: mailseclab-research-mailpit

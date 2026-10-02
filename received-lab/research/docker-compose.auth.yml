@@ -1,0 +1,109 @@
+name: mailseclab-research
+
+services:
+  auth-postfix:
+    image: received-lab-postfix1:latest
+    container_name: msl-auth-postfix
+    hostname: auth-postfix.lab.test
+    environment:
+      MYHOSTNAME: auth-postfix.lab.test
+      HOPCOUNT_LIMIT: "50"
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.43
+    mem_limit: 384m
+    cpus: 0.30
+    restart: "no"
+
+  dovecot:
+    build: ./auth/dovecot
+    image: mailseclab-research-dovecot
+    container_name: msl-dovecot
+    hostname: dovecot.lab.test
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.40
+    mem_limit: 256m
+    cpus: 0.25
+    restart: "no"
+
+  opendkim:
+    build: ./auth/opendkim
+    image: mailseclab-research-opendkim
+    container_name: msl-opendkim
+    hostname: opendkim.lab.test
+    dns:
+      - 10.88.0.53
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.41
+    mem_limit: 192m
+    cpus: 0.20
+    restart: "no"
+
+  opendmarc:
+    build: ./auth/opendmarc
+    image: mailseclab-research-opendmarc
+    container_name: msl-opendmarc
+    hostname: opendmarc.lab.test
+    dns:
+      - 10.88.0.53
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.42
+    mem_limit: 128m
+    cpus: 0.15
+    restart: "no"
+
+  roundcube:
+    image: roundcube/roundcubemail:1.6.19-apache
+    container_name: msl-roundcube
+    hostname: roundcube.lab.test
+    depends_on:
+      - dovecot
+    environment:
+      ROUNDCUBEMAIL_DEFAULT_HOST: msl-dovecot
+      ROUNDCUBEMAIL_DEFAULT_PORT: "143"
+      ROUNDCUBEMAIL_SMTP_SERVER: msl-auth-postfix
+      ROUNDCUBEMAIL_SMTP_PORT: "25"
+      ROUNDCUBEMAIL_DB_TYPE: sqlite
+      ROUNDCUBEMAIL_SKIN: elastic
+      ROUNDCUBEMAIL_UPLOAD_MAX_FILESIZE: 10M
+    ports:
+      - "127.0.0.1:18080:80"
+    networks:
+      - mslnet
+    mem_limit: 512m
+    cpus: 0.40
+    restart: "no"
+
+  snappymail:
+    image: djmaze/snappymail:v2.38.2
+    container_name: msl-snappymail
+    hostname: snappymail.lab.test
+    depends_on:
+      - dovecot
+    ports:
+      - "127.0.0.1:18081:8888"
+    networks:
+      - mslnet
+    mem_limit: 256m
+    cpus: 0.25
+    restart: "no"
+
+  exim492:
+    build: ./auth/exim492
+    image: mailseclab-research-exim492
+    container_name: msl-exim492
+    hostname: exim492.lab.test
+    networks:
+      mslnet:
+        ipv4_address: 10.88.0.44
+    mem_limit: 256m
+    cpus: 0.25
+    restart: "no"
+
+networks:
+  mslnet:
+    external: true
+    name: mailseclab-research-net

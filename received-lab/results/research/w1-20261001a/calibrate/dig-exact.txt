@@ -1,0 +1,21 @@
+
+; <<>> DiG 9.18.49-1~deb12u2-Debian <<>> +time=3 +tries=1 TXT cal._domainkey.lab.test
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 1171
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;cal._domainkey.lab.test.	IN	TXT
+
+;; ANSWER SECTION:
+cal._domainkey.lab.test. 0	IN	TXT	"v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0QtgEJDuvXQookEyroxfOykEURsEOONwvdt7OKjTOq1ACFVQTgzLRr/Z6DI22g+9CEjJLkeWhfYomsbDTpoDym9o6Owv3wQzRTUSqHifcuakY/ZEZ0J+UHEZS5XJ14fmXbbTdmGn2tMvCOdJsAIF5W8ILPt3wA" "aaZUlj8QTvpKFFzgbUaiN1KseWZxnTjHnstgg40PMwm7FfpFEyLckO9yghoitqL8jiRNR0+Gq/Pe93BkDeTKdVhWLljJJBQzCNvfzBEghtfxW+WUY61DlTMON+0R50cd+cEuZKkl2Rmn1dS9K6YTjV3aEo286pYcBv5+gibvyqrFR9S2hgcR6tLQIDAQAB"
+
+;; Query time: 7 msec
+;; SERVER: 127.0.0.11#53(127.0.0.11) (UDP)
+;; WHEN: Thu Oct 01 15:12:16 UTC 2026
+;; MSG SIZE  rcvd: 476
+
+

@@ -1,0 +1,13 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/relaxed; d=lab.test;
+ s=cal; h=from:subject:to:date:message-id;
+ bh=0yYx3DbwyVU1bwhDBMJCJek8npZyKFkpOMnPMYYUyrI=; b=T68QCtKYVAPKJGn86SB1JGJPLWtPx9YTNO6LlyoxhhlxLYogq9daavOLByDHWeBUdYRjMdgqxePJDSkhzh0Y54uRBkfqzhukxXJaQyM19FoqnAYL1RMj/otfPRvTokFcaLFf6XpX1+bGm1O5n/lxye0mgODMp5STjtN704yb/S3iThHB4aZIj5kUwYe1deTmj4HVA5vpk4V9rdHORorJjp7uChtbwqY1TCIHSJTY6hYz+oJRcyOZej8rsFODKIfgkLmnR0YNnbLC2kYntcXVx+ksQNKsVwaB9/W8HUW7MJpBfY9GyAPCIWVRIwRIsPd6cfxn47ZzGuuosGzuUwfJ0w==
+From: Author <author@lab.test>
+To: recipient@receiver.test
+Date: Thu, 1 Oct 2026 00:00:00 +0000
+subject: Changed subject
+Subject: Original subject
+Message-ID: <original@lab.test>
+X-Case-ID: base-subject-simple-n1-h1
+
+Controlled research body.
+Case: base-subject-simple-n1-h1

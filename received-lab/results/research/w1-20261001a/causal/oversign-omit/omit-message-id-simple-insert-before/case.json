@@ -1,0 +1,71 @@
+{
+  "case": "omit-message-id-simple-insert-before",
+  "field": "message-id",
+  "header_canon": "simple",
+  "operation": "insert-before",
+  "signing": "dkimpy-compatible-omit-missing-h-name",
+  "sha256": "010fb5313e362846e49043c32625d9b319166dcfa5fce8e1a8845f78f0bdcb4e",
+  "reference": "fail",
+  "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+  },
+  "sign_meta": {
+    "signer": "independent-openssl-reference",
+    "canonicalization": "simple/relaxed",
+    "h": [
+      "from",
+      "message-id",
+      "message-id",
+      "to",
+      "date",
+      "subject"
+    ],
+    "selected_unsigned": [
+      {
+        "name": "from",
+        "index": 0,
+        "start": 0,
+        "end": 32,
+        "canonical_sha256": "9d6a9c64795f8052696f14c944026aeaeaf5d6d696ea02db7e72e6f1452e5cef"
+      },
+      {
+        "name": "message-id",
+        "index": 4,
+        "start": 126,
+        "end": 159,
+        "canonical_sha256": "694c3499cc8769cf61f32e8b7cfd4669d89c9a9c88de43e1d15c2c8354f4efa8"
+      },
+      {
+        "name": "message-id",
+        "index": null,
+        "absent": true,
+        "omitted": true
+      },
+      {
+        "name": "to",
+        "index": 1,
+        "start": 32,
+        "end": 61,
+        "canonical_sha256": "e766e3f7fdf44fe70c2475bd178cede2edbcd2e74f6c13415b3bb7f47e8fe2b4"
+      },
+      {
+        "name": "date",
+        "index": 2,
+        "start": 61,
+        "end": 99,
+        "canonical_sha256": "b4cfb46ae7dee2a9e657d1315139a11faf4be9ebcd3906a890904bf474ba6014"
+      },
+      {
+        "name": "subject",
+        "index": 3,
+        "start": 99,
+        "end": 126,
+        "canonical_sha256": "05ece3358686c78e41b1c59a71374909818b9186d6b0dc408df306e24fad1037"
+      }
+    ],
+    "hash_input_sha256": "6001d1cb29b4ba98dc8d14214b1f78e6cd8a707a6fdeb00f4f55ee40836b9238"
+  }
+}

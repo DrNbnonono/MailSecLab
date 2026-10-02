@@ -1,0 +1,120 @@
+{
+    "is_skipped": false,
+    "score": 0.0,
+    "required_score": 15.0,
+    "action": "no action",
+    "symbols": {
+        "ARC_NA": {
+            "name": "ARC_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "ARC signature absent"
+        },
+        "ASN_FAIL": {
+            "name": "ASN_FAIL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "11.113.0.203.asn.rspamd.com:server fail"
+            ]
+        },
+        "FROM_HAS_DN": {
+            "name": "FROM_HAS_DN",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "From header has a display name"
+        },
+        "MIME_GOOD": {
+            "name": "MIME_GOOD",
+            "score": -0.100000,
+            "metric_score": -0.100000,
+            "description": "Known content-type",
+            "options": [
+                "text/plain"
+            ]
+        },
+        "PREVIOUSLY_DELIVERED": {
+            "name": "PREVIOUSLY_DELIVERED",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message either to a list or was forwarded",
+            "options": [
+                "bob@lab.test"
+            ]
+        },
+        "RCPT_COUNT_ONE": {
+            "name": "RCPT_COUNT_ONE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "One recipient",
+            "options": [
+                "1"
+            ]
+        },
+        "TO_DN_ALL": {
+            "name": "TO_DN_ALL",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "All the recipients have display names"
+        },
+        "H_SOURCE_IP": {
+            "name": "H_SOURCE_IP",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "203.0.113.11|relay.example"
+            ]
+        },
+        "RCVD_NO_TLS_LAST": {
+            "name": "RCVD_NO_TLS_LAST",
+            "score": 0.100000,
+            "metric_score": 0.100000,
+            "description": "Last hop did not use encrypted transports"
+        },
+        "R_DKIM_NA": {
+            "name": "R_DKIM_NA",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Missing DKIM signature"
+        },
+        "MIME_TRACE": {
+            "name": "MIME_TRACE",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "options": [
+                "0:+"
+            ]
+        },
+        "RCVD_COUNT_TWO": {
+            "name": "RCVD_COUNT_TWO",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message has two Received headers",
+            "options": [
+                "2"
+            ]
+        },
+        "MID_RHS_MATCH_FROM": {
+            "name": "MID_RHS_MATCH_FROM",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "Message-ID RHS matches From domain"
+        },
+        "TO_DOM_EQ_FROM_DOM": {
+            "name": "TO_DOM_EQ_FROM_DOM",
+            "score": 0.0,
+            "metric_score": 0.0,
+            "description": "To domain is the same as the From domain"
+        }
+    },
+    "messages": {},
+    "message-id": "i2-inconsistent@lab.test",
+    "time_real": 0.002324,
+    "milter": {
+        "remove_headers": {
+            "X-Spam": 0
+        }
+    },
+    "filename": "/evidence/w1-20261001a/i2/inconsistent/input.eml",
+    "scan_time": 0.004000
+}

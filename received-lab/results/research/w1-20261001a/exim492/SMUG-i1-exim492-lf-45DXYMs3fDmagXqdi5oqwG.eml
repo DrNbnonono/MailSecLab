@@ -1,0 +1,25 @@
+Message-ID: <4Sb9p8aeFa8HRamAYV0vQh@mailpit>
+Return-Path: <alice@sender.lab.test>
+Received: from exim492.lab.test (msl-exim492.mailseclab-research-net. [10.88.0.44])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <bob@receiver.lab.test>; Fri, 2 Oct 2026 07:19:51 +0000 (UTC)
+Received: from [10.88.0.11] (helo=client.lab.test)
+	by exim492.lab.test with esmtp (Exim 4.92)
+	(envelope-from <alice@sender.lab.test>)
+	id 1xCXYd-00000O-2h
+	for bob@receiver.lab.test; Fri, 02 Oct 2026 07:19:51 +0000
+X-Case-ID: i1-exim492-lf
+From: alice@sender.lab.test
+To: bob@receiver.lab.test
+Subject: I1 first i1-exim492-lf
+
+body of first message
+ . MAIL FROM:<eve@evil.example>
+RCPT TO:<bob@receiver.lab.test>
+DATA
+X-Case-ID: SMUG-i1-exim492-lf
+From: eve@evil.example
+To: bob@receiver.lab.test
+Subject: I1 SMUGGLED i1-exim492-lf
+
+body of smuggled message

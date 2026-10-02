@@ -1,0 +1,12 @@
+Oct  1 15:07:29 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:07:29 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:07:29 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:07:29 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:07:29 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:07:29 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:07:31 dnsmasq[1]: query[TXT] lab.test from 127.0.0.1
+Oct  1 15:07:31 dnsmasq[1]: config lab.test is <TXT>
+Oct  1 15:07:31 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:07:31 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>
+Oct  1 15:07:31 dnsmasq[1]: query[TXT] cal._domainkey.lab.test from 10.88.0.20
+Oct  1 15:07:31 dnsmasq[1]: config cal._domainkey.lab.test is <TXT>

@@ -1,0 +1,10 @@
+[14:35:41] starting three-hop chain
+[14:35:46] from-insert-before pending before={'dkimpy': 'fail', 'perl': 'pass', 'go': 'pass', 'rspamd': 'fail'} after={}
+[14:35:47] subject-insert-before pending before={'dkimpy': 'pass', 'perl': 'pass', 'go': 'pass', 'rspamd': 'fail'} after={}
+[14:35:51] from-insert-after delivered before={'dkimpy': 'fail', 'perl': 'fail', 'go': 'fail', 'rspamd': 'fail'} after={'dkimpy': 'fail', 'perl': 'fail', 'go': 'fail', 'rspamd': 'none'}
+[14:35:51] chain-diff passed=False
+[14:36:31] starting three-hop chain
+[14:36:36] from-insert-before delivered before={'dkimpy': 'fail', 'perl': 'pass', 'go': 'pass', 'rspamd': 'fail'} after={'dkimpy': 'fail', 'perl': 'pass', 'go': 'pass', 'rspamd': 'none'}
+[14:36:39] subject-insert-before delivered before={'dkimpy': 'pass', 'perl': 'pass', 'go': 'pass', 'rspamd': 'fail'} after={'dkimpy': 'pass', 'perl': 'pass', 'go': 'pass', 'rspamd': 'none'}
+[14:36:41] from-insert-after delivered before={'dkimpy': 'fail', 'perl': 'fail', 'go': 'fail', 'rspamd': 'fail'} after={'dkimpy': 'fail', 'perl': 'fail', 'go': 'fail', 'rspamd': 'none'}
+[14:36:41] chain-diff passed=True

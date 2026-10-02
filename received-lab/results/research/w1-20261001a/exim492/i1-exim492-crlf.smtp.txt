@@ -1,0 +1,15 @@
+220 exim492.lab.test ESMTP Exim 4.92 Fri, 02 Oct 2026 07:19:48 +0000
+250-exim492.lab.test Hello client.lab.test [10.88.0.11]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-CHUNKING
+250-STARTTLS
+250 HELP
+250 OK
+250 Accepted
+354 Enter message, ending with "." on a line by itself
+250 OK id=1xCXYa-00000K-5Y
+250 OK
+250 Accepted
+554 SMTP synchronization error

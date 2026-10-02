@@ -1,0 +1,152 @@
+[
+  {
+    "case": "w5-osmtpd-postfix",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 2563d186 Message accepted for delivery",
+      "queued_id": "",
+      "bytes": 831,
+      "sha256": "71e86cf30fab5039b76a11d54f82eae7b3539694636d3253517081632f3f6cce",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    },
+    "mailpit_id": "60cJlS5ew1XJpltwaR1LPU",
+    "sha256": "71e86cf30fab5039b76a11d54f82eae7b3539694636d3253517081632f3f6cce",
+    "delivery": "delivered",
+    "after": {
+      "dkimpy": "fail",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "none"
+    },
+    "received_headers": 3
+  },
+  {
+    "case": "w5-osmtpd-exim",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 b7eb6180 Message accepted for delivery",
+      "queued_id": "",
+      "bytes": 828,
+      "sha256": "d0ee577b70218e1b4d788a2a868a9dd489372f6eb3c568bfe8d16b39cf4be103",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    },
+    "mailpit_id": "6hvSwPvF0I4Zslfk3zLwjH",
+    "sha256": "d0ee577b70218e1b4d788a2a868a9dd489372f6eb3c568bfe8d16b39cf4be103",
+    "delivery": "delivered",
+    "after": {
+      "dkimpy": "fail",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "none"
+    },
+    "received_headers": 3
+  },
+  {
+    "case": "w5-exim-postfix",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 OK id=1xCVQR-00000G-1y",
+      "queued_id": "",
+      "bytes": 829,
+      "sha256": "855c8910a2086a1ed492c9169200cbabfc2b3bf59ea37592cb4608e97f036f1f",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    },
+    "mailpit_id": "41bWy9eRz4tt1e0Dj0aAKX",
+    "sha256": "855c8910a2086a1ed492c9169200cbabfc2b3bf59ea37592cb4608e97f036f1f",
+    "delivery": "delivered",
+    "after": {
+      "dkimpy": "fail",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "none"
+    },
+    "received_headers": 3
+  },
+  {
+    "case": "w5-postfix-exim",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as C218B9C722",
+      "queued_id": "C218B9C722",
+      "bytes": 829,
+      "sha256": "2b17981215606744f5591f52cbc9dbaa93c878389877ffa2158ab526a34e1ef3",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    },
+    "mailpit_id": "7Hs2Q6PyOQECvUw5aOQKiv",
+    "sha256": "2b17981215606744f5591f52cbc9dbaa93c878389877ffa2158ab526a34e1ef3",
+    "delivery": "delivered",
+    "after": {
+      "dkimpy": "fail",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "none"
+    },
+    "received_headers": 3
+  },
+  {
+    "case": "w5-osmtpd-osmtpd",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 0319d2a5 Message accepted for delivery",
+      "queued_id": "",
+      "bytes": 830,
+      "sha256": "80696acad266e14af9f566700a326f64c05c4a78c1c43c379803a3f5dcf37cf4",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    },
+    "mailpit_id": "1YUNZl1shJ2kSQgv8NMr9p",
+    "sha256": "80696acad266e14af9f566700a326f64c05c4a78c1c43c379803a3f5dcf37cf4",
+    "delivery": "delivered",
+    "after": {
+      "dkimpy": "fail",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "none"
+    },
+    "received_headers": 3
+  },
+  {
+    "case": "w5-postfix311",
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as 80E229C6F9",
+      "queued_id": "80E229C6F9",
+      "bytes": 827,
+      "sha256": "9e24cbc5c25f9c976d89b1be4891088bf4167c8c6c17929d4e75862f044b0074",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    },
+    "mailpit_id": "3XhcTFNcKCQ2OkMqpsbeic",
+    "sha256": "9e24cbc5c25f9c976d89b1be4891088bf4167c8c6c17929d4e75862f044b0074",
+    "delivery": "delivered",
+    "after": {
+      "dkimpy": "fail",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "none"
+    },
+    "received_headers": 2
+  }
+]

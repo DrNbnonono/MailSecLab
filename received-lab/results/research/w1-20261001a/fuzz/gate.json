@@ -1,0 +1,212 @@
+{
+  "stage": "fuzz",
+  "passed": true,
+  "problems": [],
+  "rows": [
+    {
+      "method": "byte",
+      "seed": 0,
+      "seen": 2638,
+      "valid": 2492,
+      "valid_ratio": 0.9446550416982562,
+      "verified": 2492,
+      "cause_keys": 4,
+      "seconds_to_first_split": 62.206
+    },
+    {
+      "method": "byte",
+      "seed": 1,
+      "seen": 2626,
+      "valid": 2488,
+      "valid_ratio": 0.9474485910129474,
+      "verified": 2488,
+      "cause_keys": 4,
+      "seconds_to_first_split": 34.477
+    },
+    {
+      "method": "byte",
+      "seed": 2,
+      "seen": 2381,
+      "valid": 2258,
+      "valid_ratio": 0.9483410331793364,
+      "verified": 2258,
+      "cause_keys": 4,
+      "seconds_to_first_split": 150.549
+    },
+    {
+      "method": "byte",
+      "seed": 3,
+      "seen": 2377,
+      "valid": 2259,
+      "valid_ratio": 0.950357593605385,
+      "verified": 2259,
+      "cause_keys": 4,
+      "seconds_to_first_split": 31.52
+    },
+    {
+      "method": "byte",
+      "seed": 4,
+      "seen": 2661,
+      "valid": 2522,
+      "valid_ratio": 0.9477639984968057,
+      "verified": 2522,
+      "cause_keys": 4,
+      "seconds_to_first_split": 99.368
+    },
+    {
+      "method": "syntax",
+      "seed": 0,
+      "seen": 2173,
+      "valid": 2173,
+      "valid_ratio": 1.0,
+      "verified": 2173,
+      "cause_keys": 3,
+      "seconds_to_first_split": 10.783
+    },
+    {
+      "method": "syntax",
+      "seed": 1,
+      "seen": 2175,
+      "valid": 2175,
+      "valid_ratio": 1.0,
+      "verified": 2175,
+      "cause_keys": 3,
+      "seconds_to_first_split": 2.029
+    },
+    {
+      "method": "syntax",
+      "seed": 2,
+      "seen": 2166,
+      "valid": 2166,
+      "valid_ratio": 1.0,
+      "verified": 2166,
+      "cause_keys": 3,
+      "seconds_to_first_split": 1.934
+    },
+    {
+      "method": "syntax",
+      "seed": 3,
+      "seen": 2166,
+      "valid": 2166,
+      "valid_ratio": 1.0,
+      "verified": 2166,
+      "cause_keys": 3,
+      "seconds_to_first_split": 1.934
+    },
+    {
+      "method": "syntax",
+      "seed": 4,
+      "seen": 2379,
+      "valid": 2379,
+      "valid_ratio": 1.0,
+      "verified": 2379,
+      "cause_keys": 3,
+      "seconds_to_first_split": 4.581
+    },
+    {
+      "method": "static",
+      "seed": 0,
+      "seen": 5650,
+      "valid": 5650,
+      "valid_ratio": 1.0,
+      "verified": 2204,
+      "cause_keys": 1,
+      "seconds_to_first_split": 2.411
+    },
+    {
+      "method": "static",
+      "seed": 1,
+      "seen": 5383,
+      "valid": 5383,
+      "valid_ratio": 1.0,
+      "verified": 2197,
+      "cause_keys": 2,
+      "seconds_to_first_split": 2.418
+    },
+    {
+      "method": "static",
+      "seed": 2,
+      "seen": 5712,
+      "valid": 5712,
+      "valid_ratio": 1.0,
+      "verified": 2225,
+      "cause_keys": 1,
+      "seconds_to_first_split": 1.835
+    },
+    {
+      "method": "static",
+      "seed": 3,
+      "seen": 5685,
+      "valid": 5685,
+      "valid_ratio": 1.0,
+      "verified": 2224,
+      "cause_keys": 1,
+      "seconds_to_first_split": 1.974
+    },
+    {
+      "method": "static",
+      "seed": 4,
+      "seen": 6087,
+      "valid": 6087,
+      "valid_ratio": 1.0,
+      "verified": 2382,
+      "cause_keys": 1,
+      "seconds_to_first_split": 1.599
+    },
+    {
+      "method": "chain",
+      "seed": 0,
+      "seen": 2304,
+      "valid": 2304,
+      "valid_ratio": 1.0,
+      "verified": 2304,
+      "cause_keys": 3,
+      "seconds_to_first_split": 11.452
+    },
+    {
+      "method": "chain",
+      "seed": 1,
+      "seen": 2304,
+      "valid": 2304,
+      "valid_ratio": 1.0,
+      "verified": 2304,
+      "cause_keys": 3,
+      "seconds_to_first_split": 2.113
+    },
+    {
+      "method": "chain",
+      "seed": 2,
+      "seen": 2372,
+      "valid": 2372,
+      "valid_ratio": 1.0,
+      "verified": 2372,
+      "cause_keys": 3,
+      "seconds_to_first_split": 1.938
+    },
+    {
+      "method": "chain",
+      "seed": 3,
+      "seen": 2372,
+      "valid": 2372,
+      "valid_ratio": 1.0,
+      "verified": 2372,
+      "cause_keys": 3,
+      "seconds_to_first_split": 1.99
+    },
+    {
+      "method": "chain",
+      "seed": 4,
+      "seen": 2389,
+      "valid": 2389,
+      "valid_ratio": 1.0,
+      "verified": 2389,
+      "cause_keys": 3,
+      "seconds_to_first_split": 3.945
+    }
+  ],
+  "new_mechanism": false,
+  "method_gain": true,
+  "stop_expansion": false,
+  "note": "Mutations rediscover header-instance and syntax differences already in the week-2 matrix. stop_expansion follows the week-4 gate when there is no method gain.",
+  "counts_as_finding": false
+}

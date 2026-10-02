@@ -1,0 +1,70 @@
+{
+  "stage": "causal",
+  "passed": true,
+  "problems": [],
+  "joints": [
+    {
+      "field": "from",
+      "header_canon": "relaxed",
+      "pattern": {
+        "dkimpy": "fails-when-either-instance-is-added",
+        "perl": "bottom-up-instance",
+        "go": "bottom-up-instance",
+        "rspamd": "fails-when-either-instance-is-added"
+      }
+    },
+    {
+      "field": "from",
+      "header_canon": "simple",
+      "pattern": {
+        "dkimpy": "fails-when-either-instance-is-added",
+        "perl": "bottom-up-instance",
+        "go": "bottom-up-instance",
+        "rspamd": "fails-when-either-instance-is-added"
+      }
+    },
+    {
+      "field": "subject",
+      "header_canon": "relaxed",
+      "pattern": {
+        "dkimpy": "bottom-up-instance",
+        "perl": "bottom-up-instance",
+        "go": "bottom-up-instance",
+        "rspamd": "fails-when-either-instance-is-added"
+      }
+    },
+    {
+      "field": "subject",
+      "header_canon": "simple",
+      "pattern": {
+        "dkimpy": "bottom-up-instance",
+        "perl": "bottom-up-instance",
+        "go": "bottom-up-instance",
+        "rspamd": "fails-when-either-instance-is-added"
+      }
+    },
+    {
+      "field": "message-id",
+      "header_canon": "relaxed",
+      "pattern": {
+        "dkimpy": "bottom-up-instance",
+        "perl": "bottom-up-instance",
+        "go": "bottom-up-instance",
+        "rspamd": "fails-when-either-instance-is-added"
+      }
+    },
+    {
+      "field": "message-id",
+      "header_canon": "simple",
+      "pattern": {
+        "dkimpy": "bottom-up-instance",
+        "perl": "bottom-up-instance",
+        "go": "bottom-up-instance",
+        "rspamd": "fails-when-either-instance-is-added"
+      }
+    }
+  ],
+  "oversign_rfc_null_rejected": true,
+  "counts_as_finding": false,
+  "note": "Instance selection and the extra-From failure are mechanisms already discussed around RFC 6376 section 5.4.2. They are recorded here with fixed signatures."
+}

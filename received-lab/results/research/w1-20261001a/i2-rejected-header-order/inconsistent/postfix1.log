@@ -1,0 +1,7 @@
+Oct 01 15:07:55 postfix1 postfix/smtpd[194]: connect from msl-client.mailseclab-research-net[10.88.0.11]
+Oct 01 15:07:55 postfix1 postfix/smtpd[194]: 30F4B9C625: client=msl-client.mailseclab-research-net[10.88.0.11]
+Oct 01 15:07:55 postfix1 postfix/cleanup[197]: 30F4B9C625: message-id=<i2-inconsistent@lab.test>
+Oct 01 15:07:55 postfix1 postfix/qmgr[192]: 30F4B9C625: from=<alice@lab.test>, size=798, nrcpt=1 (queue active)
+Oct 01 15:07:55 postfix1 postfix/smtpd[194]: disconnect from msl-client.mailseclab-research-net[10.88.0.11] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Oct 01 15:07:55 postfix1 postfix/smtp[198]: 30F4B9C625: to=<bob@lab.test>, relay=postfix2[10.88.0.22]:25, delay=0.02, delays=0/0/0.01/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 33BC09C628)
+Oct 01 15:07:55 postfix1 postfix/qmgr[192]: 30F4B9C625: removed

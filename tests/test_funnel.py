@@ -85,11 +85,16 @@ def test_phase_corpus_rerun_wipes_stale_files(tmp_path, monkeypatch):
     assert len(sorted(corpus.glob("*.eml"))) == 2
 
 
-def test_cli_report_stub_exit_2(capsys):
-    # stage2 已在任务 6 接线（真跑需要 docker 研究栈，不在单测里）；
-    # report 仍是任务 7 的桩。
-    assert gf.main(["t-run", "--phase", "report"]) == 2
-    assert "任务 7" in capsys.readouterr().out
+def test_cli_report_runs_phase_report(tmp_path, monkeypatch):
+    # report 已在任务 7 实现：真跑 phase_report（真数据需 docker 栈，
+    # 单测覆盖见 test_phase_report_*）；无 stage2.json 时报缺不静默。
+    monkeypatch.setattr(gf, "RUN_ROOT", tmp_path)
+    try:
+        gf.main(["t-run", "--phase", "report"])
+    except RuntimeError as exc:
+        assert "stage2.json" in str(exc)
+    else:
+        raise AssertionError("缺 stage2.json 必须报错")
 
 
 def test_imap_tokens_handles_literals_quotes_and_escapes():
@@ -123,3 +128,188 @@ def test_first_from_value_and_addr_extraction():
     assert gf._addr_from_value(val) == "security@bank.test"          # 第一实例
     assert gf._addr_from_value("From: plain@x.test") == "plain@x.test"
     assert gf._addr_from_value(None) is None
+
+
+def test_fold_wsp_and_display_approx():
+    # 任务 6 遗留的归一化不对称：ENVELOPE 字面量保留原始 tab，头区抽取折叠
+    # 空白，Dovecot 组地址时又丢 token 间空白——统一折到零空白再比。
+    assert gf._fold_wsp("a@b\tc  d\r\n e") == "a@bcde"
+    assert gf._fold_wsp(None) is None
+    assert gf._fold_wsp("") == ""
+    assert gf._display_approx("y&@[\t\tsw  ]", "y&@[ sw ]") is True   # 仅空白
+    assert gf._display_approx("a@%.~", "a@ %.~") is True              # 折叠丢空格
+    assert gf._display_approx("attacker@x.test", "bank@y.test") is False
+    assert gf._display_approx(None, "a@b") is False
+    assert gf._display_approx("a@b", "a@b") is False                  # 无差异
+
+
+def test_classify_d_excludes_whitespace_only():
+    views = {"python": (0, True, 5), "go": (0, True, 5), "node": (0, True, 5)}
+    approx = dict(views=views, envelope_from="y&@[\tsw ]",
+                  header_from_first="y&@[ sw ]", display_approx=True)
+    assert gf.classify(approx) == ["U"]                      # 仅空白差异不算 D
+    real = dict(views=views, envelope_from="attacker@x.test",
+                header_from_first="bank@y.test")
+    assert gf.classify(real) == ["D"]
+    none_hdr = dict(views=views, envelope_from="missing_mailbox@missing_domain",
+                    header_from_first=None)
+    assert gf.classify(none_hdr) == ["D"]                    # 头区抽不到 From 仍算 D
+
+
+def test_dedup_and_cap_survivors_over_cap_mixed_views():
+    # 全量首跑回归（2026-10-03）：10119 幸存者 > cap 才首次走进去重路径，
+    # ("error",) 与 (0, True, 5) 经 JSON 往返后是混型 list，直接 sorted 抛
+    # TypeError。规范化键修复后：同视图集合去重、按入口等额抽样。
+    views_a = {"python": ["error"], "go": [0, True, 5], "node": [25, True, 5]}
+    views_b = {"python": [0, True, 5], "go": [0, True, 5], "node": [0, True, 5]}
+    rows = {}
+    survivors = []
+    for i in range(30):
+        case = "c%03d" % i
+        entry = ("from", "received")[i % 2]
+        if i % 4 == 0:      # 8 例同视图形态 b：验证语义去重
+            views = views_b
+        else:               # 22 例各自带独特 received_count：验证不去重
+            views = dict(views_a, node=[i, True, 5])
+        rows[case] = {"entry": entry, "views": views}
+        survivors.append(case)
+    capped = gf._dedup_and_cap(rows, survivors, 10)
+    assert len(capped) == 10
+    assert len(set(capped)) == 10                       # 无重复
+    assert all(c in rows for c in capped)
+    # 语义去重：同 (entry, 视图集合) 只留首个——8 例 views_b 全是 from 入口
+    # 只留 1 例，22 例独特视图全保留（from 7 + received 15）→ uniq 共 23
+    uniq = []
+    seen = set()
+    for case in survivors:
+        key = (rows[case]["entry"], tuple(sorted(json.dumps(v)
+                                                 for v in rows[case]["views"].values())))
+        if key not in seen:
+            seen.add(key)
+            uniq.append(case)
+    assert len(uniq) == 23
+    assert set(capped) <= set(uniq)
+    # 分层：两入口轮流，capped 前两个应分属不同入口
+    assert rows[capped[0]]["entry"] != rows[capped[1]]["entry"]
+
+
+def test_dedup_and_cap_under_cap_returns_all():
+    rows = {"c1": {"entry": "from", "views": {"python": ["error"],
+                                              "go": [0, True, 5]}},
+            "c2": {"entry": "from", "views": {"python": [0, False, 3],
+                                              "go": [0, True, 5]}}}
+    assert gf._dedup_and_cap(rows, ["c1", "c2"], 400) == ["c1", "c2"]
+
+
+def _mk_stage(tmp_path):
+    stage = tmp_path / "t-run" / "gramfuzz"
+    for d in ("corpus", "relay/postfix", "relay/exim", "relay/osmtpd",
+              "sign", "imap"):
+        (stage / d).mkdir(parents=True)
+    return stage
+
+
+def test_phase_report_gates_and_evidence(tmp_path, monkeypatch):
+    monkeypatch.setattr(gf, "RUN_ROOT", tmp_path)
+    stage = _mk_stage(tmp_path)
+    raw = b"From: a@lab.test\r\nSubject: c\r\n\r\nx\r\n"
+    sha = hashlib.sha256(raw).hexdigest()
+    for case in ("c1", "c2", "c3"):
+        (stage / "corpus" / ("%s.eml" % case)).write_bytes(raw)
+    for t in ("postfix", "exim"):
+        (stage / "relay" / t / "c1.smtp.txt").write_bytes(b"220 t\r\n")
+        (stage / "relay" / t / "c1.stored.raw").write_bytes(b"stored")
+    (stage / "relay" / "osmtpd" / "c1.smtp.txt").write_bytes(b"220 t\r\n")
+    rows = [
+        # T：证据四件套齐 → lab_confirmed
+        {"case": "c1", "entry": "from", "op": "guided.fold-line",
+         "input_sha256": sha,
+         "views": {"python": (0, True, 5), "go": (0, True, 5), "node": (1, True, 5)},
+         "relay": {"postfix": {"captured": True, "gen_preserved": False,
+                               "smtp_code": "250"},
+                   "exim": {"captured": True, "gen_preserved": True,
+                            "smtp_code": "250"},
+                   "osmtpd": {"captured": False, "smtp_code": "550"}},
+         "series": ["P", "T"]},
+        # 纯 P：留在 stage1.json，不进 candidates
+        {"case": "c2", "entry": "from", "op": None, "input_sha256": sha,
+         "views": {"python": (0, True, 5), "go": (0, True, 5), "node": (1, True, 5)},
+         "relay": {}, "series": ["P"]},
+        # T 但 sha 对不上 + 无转录 → 证据缺件，lab_confirmed=false
+        {"case": "c3", "entry": "from", "op": "byte.flip",
+         "input_sha256": "0" * 64,
+         "views": {"python": (0, True, 5), "go": (0, True, 5), "node": (0, True, 5)},
+         "relay": {"postfix": {"captured": True, "gen_preserved": True},
+                   "exim": {"captured": True, "gen_preserved": True}},
+         "series": ["T"]},
+    ]
+    (stage / "stage2.json").write_text(json.dumps(rows), encoding="utf-8")
+    out = gf.phase_report("t-run")
+    assert out["candidates_total"] == 2
+    assert out["lab_confirmed_total"] == 1
+    assert out["counts"] == {"P": 2, "T": 2, "X": 0, "D": 0, "U": 0}
+    by_case = {c["case"]: c for c in out["candidates"]}
+    assert "c2" not in by_case                        # 纯 P 排除
+    c1 = by_case["c1"]
+    assert c1["lab_confirmed"] is True and c1["missing_evidence"] == []
+    assert c1["evidence"]["input"] == "corpus/c1.eml"
+    assert c1["evidence"]["relay"]["postfix"]["stored_raw"] == \
+        "relay/postfix/c1.stored.raw"
+    assert "stored_raw" not in c1["evidence"]["relay"]["osmtpd"]  # 未捕获
+    assert c1["root_cause"] is None and c1["review_flag"] is None
+    assert c1["summary"].startswith("from（op=guided.fold-line）")
+    c3 = by_case["c3"]
+    assert c3["lab_confirmed"] is False
+    assert "input-sha256-mismatch" in c3["missing_evidence"]
+    assert "relay-postfix-transcript" in c3["missing_evidence"]
+    disk = json.loads((stage / "candidates.json").read_text(encoding="utf-8"))
+    assert disk["gate_for"] and disk["generated_at"] and disk["run_id"] == "t-run"
+    assert len(disk["candidates"]) == 2
+
+
+def test_phase_report_x_and_d_evidence(tmp_path, monkeypatch):
+    monkeypatch.setattr(gf, "RUN_ROOT", tmp_path)
+    stage = _mk_stage(tmp_path)
+    raw = b"From: a@lab.test\r\nSubject: c\r\n\r\nx\r\n"
+    sha = hashlib.sha256(raw).hexdigest()
+    (stage / "corpus" / "x1.eml").write_bytes(raw)
+    (stage / "corpus" / "d1.eml").write_bytes(raw)
+    for fname in ("x1-sign.eml", "x1-sign.smtp.txt", "x1-sign.stored.raw"):
+        (stage / "sign" / fname).write_bytes(b"x")
+    for fname in ("d1.smtp.txt", "d1.stored.raw", "d1.envelope.json"):
+        (stage / "imap" / fname).write_bytes(b"x")
+    rows = [
+        {"case": "x1", "entry": "dkim-tags", "op": "guided.space-colon",
+         "input_sha256": sha,
+         "views": {"python": (0, True, 5), "go": (0, True, 5), "node": (0, True, 5)},
+         "relay": {}, "series": ["X"],
+         "sign": {"sign_case": "x1-sign",
+                  "file": {"dkimpy": "parse-error", "perl": "pass",
+                           "go": "pass", "rspamd": "pass"},
+                  "postfix": {"captured": True,
+                              "verdicts": {"dkimpy": "pass", "perl": "pass",
+                                           "go": "pass", "rspamd": "pass"}}}},
+        {"case": "d1", "entry": "from", "op": "guided.dup-line",
+         "input_sha256": sha,
+         "views": {"python": (0, True, 5), "go": (0, True, 5), "node": (0, True, 5)},
+         "relay": {}, "series": ["D"],
+         "imap": {"uid": "42", "locator": "header"},
+         "envelope_from": "attacker@x.test", "header_from_first": "bank@y.test"},
+    ]
+    (stage / "stage2.json").write_text(json.dumps(rows), encoding="utf-8")
+    out = gf.phase_report("t-run")
+    assert out["counts"] == {"P": 0, "T": 0, "X": 1, "D": 1, "U": 0}
+    by_case = {c["case"]: c for c in out["candidates"]}
+    x1 = by_case["x1"]
+    assert x1["lab_confirmed"] is True
+    assert x1["evidence"]["sign"]["stored_raw"] == "sign/x1-sign.stored.raw"
+    assert x1["evidence"]["verdicts"]["dkimpy@postfix"] == "pass"
+    assert "parse-error" in x1["summary"] or "dkimpy" in x1["summary"]
+    assert by_case["d1"]["lab_confirmed"] is True
+    assert by_case["d1"]["evidence"]["imap"]["envelope"] == "imap/d1.envelope.json"
+    # X 行缺签名存档 → 缺件不确认
+    (stage / "sign" / "x1-sign.stored.raw").unlink()
+    out2 = gf.phase_report("t-run")
+    x1b = {c["case"]: c for c in out2["candidates"]}["x1"]
+    assert x1b["lab_confirmed"] is False
+    assert "sign-stored_raw" in x1b["missing_evidence"]

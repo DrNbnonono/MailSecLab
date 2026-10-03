@@ -3,7 +3,7 @@
     python3 -m gramfuzz.funnel <run_id> --phase corpus [--smoke | --per-entry N]
     python3 -m gramfuzz.funnel <run_id> --phase stage1
     python3 -m gramfuzz.funnel <run_id> --phase stage2   # 三臂：中继/签名/IMAP
-    python3 -m gramfuzz.funnel <run_id> --phase report   # 任务 7 未实现
+    python3 -m gramfuzz.funnel <run_id> --phase report   # 任务 7：candidates.json
 
 终点是 candidates.json——实验室确认的差分清单，作为 4-5 号工作（真实服务
 验证与披露）的决策门。本引擎不做任何对外动作。
@@ -36,6 +36,7 @@ import tarfile
 import tempfile
 import time
 from collections import Counter
+from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -437,7 +438,9 @@ def classify(row: dict) -> list[str]:
     P 识别差分：stage1 三家 views 元组不一致。
     T 变换差分：中继间 gen_preserved 不一致，或全部不保留（生成头被改写）。
     X 信任差分：四验证器判定集合不一致（文件级 + postfix 路径合并视图）。
-    D 展示差分：IMAP ENVELOPE From 槽 ≠ 头区第一 From 实例。
+    D 展示差分：IMAP ENVELOPE From 槽 ≠ 头区第一 From 实例，且不是仅空白
+      差异（display_approx，任务 7 的归一化修正——ENVELOPE 字面量按原始
+      字节保留 tab，头区抽取折叠空白，两边不归一就会把纯空白差记成 D）。
     """
     series = []
     if len({tuple(v) for v in row.get("views", {}).values()}) > 1:
@@ -448,7 +451,8 @@ def classify(row: dict) -> list[str]:
         series.append("T")
     if len({v for v in row.get("verdicts", {}).values()}) > 1:
         series.append("X")
-    if row.get("envelope_from") and row.get("envelope_from") != row.get("header_from_first"):
+    if row.get("envelope_from") and row.get("envelope_from") != row.get("header_from_first") \
+            and not row.get("display_approx"):
         series.append("D")
     return series or ["U"]
 
@@ -465,7 +469,11 @@ def _dedup_and_cap(rows_by_case: dict, survivors: list[str], cap: int) -> list[s
     seen, uniq = set(), []
     for case in survivors:
         r = rows_by_case[case]
-        key = (r["entry"], tuple(sorted(tuple(v) for v in r["views"].values())))
+        # 视图元组经 JSON 往返后是 list，且 ("error",) 与 (0, True, 5) 元素
+        # 类型混排不能直接 sorted（str vs int 不可比，10119 幸存者首跑踩中）；
+        # 用 json.dumps 做规范化键，语义不变（同元组集合同键）。
+        key = (r["entry"], tuple(sorted(json.dumps(v, ensure_ascii=False)
+                                        for v in r["views"].values())))
         if key not in seen:
             seen.add(key)
             uniq.append(case)
@@ -825,6 +833,26 @@ def _addr_from_value(value: str | None) -> str | None:
     return cand or None
 
 
+def _fold_wsp(s: str | None) -> str | None:
+    """D 对照用的 WSP 统一折叠：去全部空白（任务 7 的归一化修正）。
+
+    两条抽取路径的空白处理不对称（任务 6 遗留）：ENVELOPE 字面量按原始
+    字节保留（tab 原样进 from_slot），头区抽取 _addr_from_value 已把
+    \\s+ 折成单空格，而 Dovecot 组装地址结构时又会丢弃 token 间空白。
+    比较前两边统一折叠到零空白；折叠后相等即「仅空白差异」。
+    """
+    if s is None:
+        return None
+    return re.sub(r"\s+", "", s)
+
+
+def _display_approx(env: str | None, hdr: str | None) -> bool:
+    """仅空白差异判定：ENVELOPE 与头区第一实例折空白后相等 → approx。"""
+    if not env or env == hdr:
+        return False
+    return _fold_wsp(env) == _fold_wsp(hdr)
+
+
 def _body_from_parts(parts: list[bytes]) -> bytes:
     if not parts:
         return b""
@@ -909,6 +937,7 @@ def _imap_arm(run_id: str, stage: Path, cases: list[str], index: dict,
         row["header_from_first"] = hdr_addr
         row["header_from_raw"] = header_first
         row["envelope_detail"] = env
+        row["display_approx"] = _display_approx(env_addr, hdr_addr)
         row["stored_sha256"] = hashlib.sha256(raw).hexdigest()
         if env_addr:
             queries.append(["%s|env" % case, base64.b64encode(
@@ -978,7 +1007,7 @@ def phase_stage2(run_id: str, pt: PriorityTable, cap: int = 400) -> dict:
         irow = imap_rows.get(case)
         if irow is not None:
             row["imap"] = irow
-            for k in ("envelope_from", "header_from_first"):
+            for k in ("envelope_from", "header_from_first", "display_approx"):
                 if irow.get(k) is not None:
                     row[k] = irow[k]
         row["arm_error"] = bool(
@@ -1038,8 +1067,10 @@ def phase_stage2(run_id: str, pt: PriorityTable, cap: int = 400) -> dict:
             "locator_body": sum(1 for r in imap_sel
                                 if (r.get("imap") or {}).get("locator") == "body"),
             "mismatch": sum(1 for r in imap_sel
-                            if r.get("envelope_from") and r.get("header_from_first")
-                            and r["envelope_from"] != r["header_from_first"]),
+                            if r.get("envelope_from")
+                            and r.get("envelope_from") != r.get("header_from_first")
+                            and not r.get("display_approx")),
+            "mismatch_approx": sum(1 for r in imap_sel if r.get("display_approx")),
             "search_self_hit_env": sum(
                 1 for r in imap_sel
                 if ((r.get("imap") or {}).get("search_env") or {}).get("self_hit")),
@@ -1056,6 +1087,161 @@ def phase_stage2(run_id: str, pt: PriorityTable, cap: int = 400) -> dict:
           % (len(rows), summary["series"], len(problems)))
     return summary
 
+
+# ---- phase: report（任务 7 Step 7.2：candidates.json——4-5 号工作的门）----
+
+GATE_FOR = "真实服务验证（4）与披露（5）——负责人决策，未授权不执行"
+
+
+def _candidate_summary(row: dict) -> str:
+    """从 stage2 行生成事实性摘要（只陈述测量值，不含人工判断）。"""
+    bits = ["%s%s" % (row.get("entry"), "（op=%s）" % row["op"] if row.get("op") else "（fresh）")]
+    pres = {t: v.get("gen_preserved") for t, v in (row.get("relay") or {}).items()
+            if v.get("captured")}
+    if pres:
+        bits.append("中继保留 " + " / ".join(
+            "%s=%s" % (t, {True: "Y", False: "N"}.get(p, "?"))
+            for t, p in sorted(pres.items())))
+    sign = row.get("sign") or {}
+    verdicts = dict(sign.get("file") or {},
+                    **{"%s@postfix" % k: v for k, v in
+                       ((sign.get("postfix") or {}).get("verdicts") or {}).items()})
+    if verdicts:
+        bits.append("验证器 " + " / ".join(
+            "%s=%s" % (k, v) for k, v in sorted(verdicts.items())))
+    if row.get("envelope_from"):
+        bits.append("ENVELOPE=%r vs 头区第一实例=%r%s"
+                    % (row.get("envelope_from"), row.get("header_from_first"),
+                       "（仅空白差异，approx）" if row.get("display_approx") else ""))
+    return "；".join(bits)
+
+
+def _evidence(stage: Path, row: dict) -> tuple[dict, list[str]]:
+    """四件套证据收集 + 缺件清单（文件一律核存在，输入另核 sha256）。
+
+    四件套按系列落到具体臂：
+      1. 输入 eml + sha256（corpus/<case>.eml，重算哈希对索引）；
+      2. SMTP 转录（T→中继臂逐目标；X→签名臂；D→消费臂）；
+      3. 存档 raw（同一批臂的 stored.raw）；
+      4. 验证器/消费输出（X→四验证器判定；D→ENVELOPE 记录；T 的臂输出
+         即逐目标的保留判定，锚在各目标存档字节）。
+    """
+    case = row["case"]
+    series = row.get("series") or []
+    missing: list[str] = []
+    ev: dict = {"input": "corpus/%s.eml" % case,
+                "input_sha256": row.get("input_sha256")}
+    eml = stage / "corpus" / ("%s.eml" % case)
+    if not eml.is_file():
+        missing.append("input-eml")
+    elif hashlib.sha256(eml.read_bytes()).hexdigest() != row.get("input_sha256"):
+        missing.append("input-sha256-mismatch")
+
+    relay_ev = {}
+    for target, trow in sorted((row.get("relay") or {}).items()):
+        if "error" in trow:
+            continue        # 该目标臂未跑成（corpus_check 拦截等），无转录可核
+        rel = {"transcript": "relay/%s/%s.smtp.txt" % (target, case)}
+        if not (stage / "relay" / target / ("%s.smtp.txt" % case)).is_file():
+            missing.append("relay-%s-transcript" % target)
+        if trow.get("captured"):
+            rel["stored_raw"] = "relay/%s/%s.stored.raw" % (target, case)
+            if not (stage / "relay" / target / ("%s.stored.raw" % case)).is_file():
+                missing.append("relay-%s-stored-raw" % target)
+        relay_ev[target] = rel
+    if relay_ev:
+        ev["relay"] = relay_ev
+    if "T" in series:
+        graded = [t for t, r in (row.get("relay") or {}).items()
+                  if r.get("captured") and r.get("gen_preserved") is not None]
+        if len(graded) < 2:
+            missing.append("relay-output")    # T 的差分输出=逐目标保留判定
+
+    if "X" in series:
+        sign = row.get("sign") or {}
+        sign_case = sign.get("sign_case") or ("%s-sign" % case)
+        ev["sign"] = {"input": "sign/%s.eml" % sign_case,
+                      "transcript": "sign/%s.smtp.txt" % sign_case,
+                      "stored_raw": "sign/%s.stored.raw" % sign_case}
+        for key, fname in (("input", "%s.eml" % sign_case),
+                           ("transcript", "%s.smtp.txt" % sign_case),
+                           ("stored_raw", "%s.stored.raw" % sign_case)):
+            if not (stage / "sign" / fname).is_file():
+                missing.append("sign-%s" % key)
+        verdicts = dict(sign.get("file") or {},
+                        **{"%s@postfix" % k: v for k, v in
+                           ((sign.get("postfix") or {}).get("verdicts") or {}).items()})
+        if not verdicts:
+            missing.append("verdicts")
+        else:
+            ev["verdicts"] = verdicts
+
+    if "D" in series:
+        ev["imap"] = {"transcript": "imap/%s.smtp.txt" % case,
+                      "stored_raw": "imap/%s.stored.raw" % case,
+                      "envelope": "imap/%s.envelope.json" % case}
+        for key, fname in (("transcript", "%s.smtp.txt" % case),
+                           ("stored_raw", "%s.stored.raw" % case),
+                           ("envelope", "%s.envelope.json" % case)):
+            if not (stage / "imap" / fname).is_file():
+                missing.append("imap-%s" % key)
+        if not ((row.get("imap") or {}).get("uid")):
+            missing.append("imap-consumer-output")
+    return ev, missing
+
+
+def phase_report(run_id: str) -> dict:
+    """读 stage1/stage2 → candidates.json（计划 Step 7.2 判定规则）。
+
+    - 进 candidates：系列含 T/X/D 之一。纯 P（只有 parser 不一致、无下游
+      后果）保留在 stage1.json 不进——它们是 L1 素材；U（无信号）同不进。
+    - lab_confirmed=true：系列含 T/X/D 且四件套证据齐全（磁盘核验，缺件
+      记 missing_evidence，不静默降级）。
+    - root_cause 置 null：根因是人工判定（任务 8），classify 只给系列。
+    """
+    stage = RUN_ROOT / run_id / "gramfuzz"
+    stage2_path = stage / "stage2.json"
+    if not stage2_path.exists():
+        raise RuntimeError("缺少 %s——先跑 --phase stage2" % stage2_path)
+    rows = json.loads(stage2_path.read_text(encoding="utf-8"))
+    counts = {"P": 0, "T": 0, "X": 0, "D": 0, "U": 0}
+    candidates = []
+    for row in rows:
+        series = row.get("series") or []
+        for s in counts:
+            if s in series:
+                counts[s] += 1
+        if not any(s in series for s in ("T", "X", "D")):
+            continue
+        ev, missing = _evidence(stage, row)
+        candidates.append({
+            "case": row["case"],
+            "entry": row.get("entry"),
+            "op": row.get("op"),
+            "series": series,
+            "root_cause": None,           # 人工判定（任务 8）
+            "summary": _candidate_summary(row),
+            "evidence": ev,
+            "lab_confirmed": not missing,
+            "missing_evidence": missing,
+            "review_flag": None,          # 任务 7 人工抽样复核填
+        })
+    out = {
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "run_id": run_id,
+        "gate_for": GATE_FOR,
+        "counts": counts,
+        "stage2_rows": len(rows),
+        "candidates_total": len(candidates),
+        "lab_confirmed_total": sum(1 for c in candidates if c["lab_confirmed"]),
+        "candidates": candidates,
+    }
+    (stage / "candidates.json").write_text(
+        json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("report: %d candidates（lab_confirmed=%d）；counts=%s"
+          % (len(candidates), out["lab_confirmed_total"], counts))
+    return out
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="gramfuzz 语法差分漏斗")
     ap.add_argument("run_id", help="如 w4-20261003a")
@@ -1070,12 +1256,11 @@ def main(argv: list[str] | None = None) -> int:
                          % (FRESH_PER_ENTRY, MUTATED_PER_ENTRY))
     args = ap.parse_args(argv)
 
-    if args.phase == "report":
-        print("任务 7 未实现：report 属任务 7（campaign 与 candidates.json）")
-        return 2
-
     stage = RUN_ROOT / args.run_id / "gramfuzz"
     stage.mkdir(parents=True, exist_ok=True)
+    if args.phase == "report":
+        phase_report(args.run_id)
+        return 0
     if args.phase == "stage2":
         # 权重表与 corpus phase 共用同一份（stage-2 的 reward/punish 落同文件）。
         pt = PriorityTable(stage / "weights.json")

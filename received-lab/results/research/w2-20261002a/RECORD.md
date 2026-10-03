@@ -70,7 +70,7 @@
 **三 MTA × 八形态环路判决矩阵**（N=55 触发 pf/exim 阈值，N=105 触发 osmtpd）：
 1. 同一封 55 条 obs Received 信 → Postfix 554 / Exim 退信 / OpenSMTPD 投递（三种判决）。
 2. **普适计数盲区族**（CFWS 名/注释名/8-bit 名/tab 名）：留在头区可见、对 ≥2/3 家计数器不可见——**计数器免疫的 trace 伪造**（H 系列取证直接相关）。
-3. 跨 MTA 计数分歧：obs（exim 计/osmtpd 不计）、无冒号（exim 计/pf 不计）、tab（pf+exim 计/osmtpd 不计）。
+3. 跨 MTA 计数分歧：obs（exim 计/osmtpd 不计）、tab（pf+exim 计/osmtpd 不计）。（更正 2026-10-03 w3 diffrun：「无冒号（exim 计）」为误读——exim 在 N=55 投递 v03、不计 nocolon；当时 mainlog 队列 id 映射有误且投递件无主题导致按主题捕获漏抓。exim 计数集合=plain/obs/case/tab，见 w3 `diffrun/RECORD.md`。）
 4. 诚实定级：不使真实环不死（AGENTS P6）；后果=trace 伪造免疫+判决不确定性+DSN 放大面。
 5. 证据：recfuzz2/matrix.json + facts 系（*.stored.raw 原始捕获）+ exim mainlog 退信行 + N=105 六例 smtp 转录。
 

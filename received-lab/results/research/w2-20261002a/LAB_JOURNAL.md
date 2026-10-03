@@ -163,7 +163,7 @@ U-label 核心已 CVE 化，转入自由探针模式。本轮三个快探针 + �
 
 ### 2026-10-03 recfuzz2 结果：hopcount 计数分裂矩阵（recfuzz2/，24 例 + N=105 六例）
 
-**设计**：每台中继直投 mailpit 原始捕获（隔离末跳依赖）；N=55 堆叠触发 Postfix(50)/Exim(30) 阈值；osmtpd 补 N=105 轮触发其 ~100 阈值。exim 退信原因经 DSN+mainlog 双确认：`Too many "Received" headers - suspected mail loop`。
+**设计**：每台中继直投 mailpit 原始捕获（隔离末跳依赖）；N=55 堆叠触发 Postfix(50)/Exim(30) 阈值；osmtpd 补 N=105 轮触发其 ~100 阈值。exim 退信原因经 DSN+mainlog 双确认：`Too many "Received" headers - suspected mail loop`。（2026-10-03 更正：五个 mainlog 队列 id 中两个是 v00 重试，v03-exim 实际投递且不计 nocolon；投递件无主题导致按主题捕获漏抓——见 w3 diffrun。）
 
 **三 MTA × 八形态判决矩阵**（REJ=554/5.4.6，BOUNCE=接受后退信，ACC=投递成功）：
 

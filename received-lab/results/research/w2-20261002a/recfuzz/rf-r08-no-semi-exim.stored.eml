@@ -1,0 +1,28 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id mBtfM5lxwGqdBQAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 03:08:09 +0000
+Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=bank.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from exim.lab.test (exim.mailseclab-research-net [10.88.0.4])
+	by auth-postfix.lab.test (Postfix) with ESMTP id BACC0AA760
+	for <bob@lab.test>; Sat,  3 Oct 2026 03:08:09 +0000 (UTC)
+Received: from [10.88.0.11] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@lab.test>)
+	id 1xCq6b-00007W-2K
+	for bob@lab.test;
+	Sat, 03 Oct 2026 03:08:09 +0000
+Received: from a.lab.test (a.lab.test [203.0.113.1]) by b.lab.test with ESMTP id X
+From: Bank Security <security@bank.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:00:00 +0000
+Subject: recfuzz r08-no-semi
+Message-ID: <rf-r08-no-semi-exim@lab.test>
+X-Case-ID: rf-r08-no-semi-exim
+X-Spam: Yes
+
+Please confirm the payment.

@@ -1,0 +1,9 @@
+rEcEiVeD: from a.lab.test (a.lab.test [203.0.113.1]) by b.lab.test; Sat, 03 Oct 2026 20:00:00 +0000
+From: Bank Security <security@bank.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:00:00 +0000
+Subject: recfuzz r03-case
+Message-ID: <rf-r03-case-osmtpd@lab.test>
+X-Case-ID: rf-r03-case-osmtpd
+
+Please confirm the payment.

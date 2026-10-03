@@ -1,0 +1,35 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id 0L/rLrpxwGqdBQAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 03:08:42 +0000
+Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=bank.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from opensmtpd.lab.test (opensmtpd.mailseclab-research-net [10.88.0.5])
+	by auth-postfix.lab.test (Postfix) with ESMTP id A56B0AA777
+	for <bob@lab.test>; Sat,  3 Oct 2026 03:08:42 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id 25d2f2c6
+	for <bob@lab.test>;
+	Sat, 3 Oct 2026 03:08:42 +0000 (UTC)
+Received: from h0.lab.test by h1.lab.test; Sat, 03 Oct 2026 19:00:00 +0000
+Received: from h1.lab.test by h2.lab.test; Sat, 03 Oct 2026 19:01:00 +0000
+Received: from h2.lab.test by h3.lab.test; Sat, 03 Oct 2026 19:02:00 +0000
+Received: from h3.lab.test by h4.lab.test; Sat, 03 Oct 2026 19:03:00 +0000
+Received: from h4.lab.test by h5.lab.test; Sat, 03 Oct 2026 19:04:00 +0000
+Received: from h5.lab.test by h6.lab.test; Sat, 03 Oct 2026 19:05:00 +0000
+Received: from h6.lab.test by h7.lab.test; Sat, 03 Oct 2026 19:06:00 +0000
+Received: from h7.lab.test by h8.lab.test; Sat, 03 Oct 2026 19:07:00 +0000
+Received: from h8.lab.test by h9.lab.test; Sat, 03 Oct 2026 19:08:00 +0000
+Received: from h9.lab.test by h10.lab.test; Sat, 03 Oct 2026 19:09:00 +0000
+From: Bank Security <security@bank.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:00:00 +0000
+Subject: recfuzz r12-many
+Message-ID: <rf-r12-many-osmtpd@lab.test>
+X-Case-ID: rf-r12-many-osmtpd
+X-Spam: Yes
+
+Please confirm the payment.

@@ -1,0 +1,12 @@
+CLIENT_IP 10.88.0.11
+PAYLOAD_SHA256 d46b0f78466bcdc1b04f103e8eb22fdbd4d6e991208e8d2fa4042720308dd84a
+PAYLOAD_BYTES 271
+S 220 auth-postfix.lab.test ESMTP Postfix (Debian/GNU) | 
+C EHLO client.lab.test
+S 250-auth-postfix.lab.test | 250-PIPELINING | 250-SIZE 10240000 | 250-VRFY | 250-ETRN | 250-ENHANCEDSTATUSCODES | 250-8BITMIME | 250-DSN | 250-SMTPUTF8 | 250 CHUNKING | 
+C MAIL FROM:<security@münchen.bank.test>
+S 501 5.1.7 Bad sender address syntax | 
+C RCPT TO:<bob@lab.test>
+S 503 5.5.1 Error: need MAIL command | 
+C DATA
+S 503 5.5.1 Error: need RCPT command | 

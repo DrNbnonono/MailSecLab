@@ -1,0 +1,337 @@
+{
+ "rows": [
+  {
+   "variant": "v00-plain",
+   "mta": "postfix",
+   "smtp_code": "554",
+   "smtp": "554 5.4.0 Error: too many hops",
+   "captured": false,
+   "facts": {},
+   "sha256": "e6c0f16e406d1de899d445cdb354b003c833675824f27246ccf40fb4f5b3486f"
+  },
+  {
+   "variant": "v00-plain",
+   "mta": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCqR8-00000L-03",
+   "captured": false,
+   "facts": {},
+   "sha256": "e9a173e081d6d05b50dd4fd908df47eeecc444c9b320e04b559c79604d98a604"
+  },
+  {
+   "variant": "v00-plain",
+   "mta": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 6202470c Message accepted for delivery",
+   "captured": true,
+   "facts": {
+    "rec_exact": 57,
+    "rec_obs": 0,
+    "rec_case": 0,
+    "rec_cfws": 0,
+    "rec_8bit_total": 0,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 70
+   },
+   "sha256": "2352eb42e5103a7c9cb13ce14ee4295b25bd9e762fa4dda62de2f5e4109f5e9c"
+  },
+  {
+   "variant": "v01-obs-colon",
+   "mta": "postfix",
+   "smtp_code": "554",
+   "smtp": "554 5.4.0 Error: too many hops",
+   "captured": false,
+   "facts": {},
+   "sha256": "5e3987eccf244fcc1d9f9c5aa3d1d9f289cf8766e9347a742f12845329c2171a"
+  },
+  {
+   "variant": "v01-obs-colon",
+   "mta": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCqRi-00000S-0Z",
+   "captured": false,
+   "facts": {},
+   "sha256": "23f53847adfab697a32f78172fea8b3522de9c4d6f27cb511c079d19315babd4"
+  },
+  {
+   "variant": "v01-obs-colon",
+   "mta": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 302a9276 Message accepted for delivery",
+   "captured": true,
+   "facts": {
+    "rec_exact": 2,
+    "rec_obs": 55,
+    "rec_case": 0,
+    "rec_cfws": 0,
+    "rec_8bit_total": 0,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 70
+   },
+   "sha256": "c672b8c9fbe3c123e2a7e65714e1f3e1046f5b228eb27c421d406d1f2abcfafb"
+  },
+  {
+   "variant": "v02-case",
+   "mta": "postfix",
+   "smtp_code": "554",
+   "smtp": "554 5.4.0 Error: too many hops",
+   "captured": false,
+   "facts": {},
+   "sha256": "877346dd746e28b1c47e038d87c634cf111fff7632e1de36d421d8999c10b39f"
+  },
+  {
+   "variant": "v02-case",
+   "mta": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCqSI-00000Z-2n",
+   "captured": false,
+   "facts": {},
+   "sha256": "8ff583f44a4b861ae0238e9988e303cb39e726175d12471e10695e97de9a1e39"
+  },
+  {
+   "variant": "v02-case",
+   "mta": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 88ebaaef Message accepted for delivery",
+   "captured": true,
+   "facts": {
+    "rec_exact": 57,
+    "rec_obs": 0,
+    "rec_case": 55,
+    "rec_cfws": 0,
+    "rec_8bit_total": 0,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 70
+   },
+   "sha256": "ef06458f10e50ee6294c6866b32926abc84a0a1c51a2eaec85dbb957a58d74d8"
+  },
+  {
+   "variant": "v03-nocolon",
+   "mta": "postfix",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as 313CB8CDA9",
+   "captured": false,
+   "facts": {},
+   "sha256": "499f4da514ea252249e652caa55dcc863c6aedae89d9aa5accd0f56c8a33e9dd"
+  },
+  {
+   "variant": "v03-nocolon",
+   "mta": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCqTQ-00000g-0A",
+   "captured": false,
+   "facts": {},
+   "sha256": "9327c789dd110a1d49885b2e45202ad4a65ccb40e1a7883447745edb6b43ca07"
+  },
+  {
+   "variant": "v03-nocolon",
+   "mta": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 48b2a55e Message accepted for delivery",
+   "captured": true,
+   "facts": {
+    "rec_exact": 2,
+    "rec_obs": 0,
+    "rec_case": 0,
+    "rec_cfws": 0,
+    "rec_8bit_total": 0,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 70
+   },
+   "sha256": "be112dfedf785d440a3d59d502dbc625af826b7e0ffd9950909eccb077b065d9"
+  },
+  {
+   "variant": "v04-8bit-name",
+   "mta": "postfix",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as 74DA48CD81",
+   "captured": false,
+   "facts": {},
+   "sha256": "c6b7415b3d35f20d10dce72ec7075275943872b965b8fe4f02418f7daf232525"
+  },
+  {
+   "variant": "v04-8bit-name",
+   "mta": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCqUX-00000k-12",
+   "captured": true,
+   "facts": {
+    "rec_exact": 2,
+    "rec_obs": 0,
+    "rec_case": 0,
+    "rec_cfws": 0,
+    "rec_8bit_total": 55,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 72
+   },
+   "sha256": "34e15872597e3e6234bd9f50d694bb09204e30aeee66736f32fb7e3b2d7cdeb0"
+  },
+  {
+   "variant": "v04-8bit-name",
+   "mta": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 1f563151 Message accepted for delivery",
+   "captured": true,
+   "facts": {
+    "rec_exact": 2,
+    "rec_obs": 0,
+    "rec_case": 0,
+    "rec_cfws": 0,
+    "rec_8bit_total": 55,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 70
+   },
+   "sha256": "60acc0d4130022f5977ce6bb602438e2e2b1587c11f05d321a4df67d7b664b9c"
+  },
+  {
+   "variant": "v05-cfws-name",
+   "mta": "postfix",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as 4A698A65E2",
+   "captured": true,
+   "facts": {
+    "rec_exact": 2,
+    "rec_obs": 0,
+    "rec_case": 0,
+    "rec_cfws": 55,
+    "rec_8bit_total": 0,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 72
+   },
+   "sha256": "d78cd7d858811e46e3595a71faf12f967bb87bcf42a29d7707411b7e94ad216f"
+  },
+  {
+   "variant": "v05-cfws-name",
+   "mta": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCqUb-00000o-2e",
+   "captured": true,
+   "facts": {
+    "rec_exact": 2,
+    "rec_obs": 0,
+    "rec_case": 0,
+    "rec_cfws": 55,
+    "rec_8bit_total": 0,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 72
+   },
+   "sha256": "a2f7c534c10dddf68fbbf142e923a20f1ae793b78eb12638c4c40d1a8d9453dd"
+  },
+  {
+   "variant": "v05-cfws-name",
+   "mta": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 975b8147 Message accepted for delivery",
+   "captured": true,
+   "facts": {
+    "rec_exact": 2,
+    "rec_obs": 0,
+    "rec_case": 0,
+    "rec_cfws": 55,
+    "rec_8bit_total": 0,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 70
+   },
+   "sha256": "68bfa37cbaa603538967779cf30534f49fde55c00be1119377e42d026bfd7b00"
+  },
+  {
+   "variant": "v06-comment-name",
+   "mta": "postfix",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as EFAAE8CDA9",
+   "captured": true,
+   "facts": {
+    "rec_exact": 2,
+    "rec_obs": 0,
+    "rec_case": 0,
+    "rec_cfws": 0,
+    "rec_8bit_total": 0,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 72
+   },
+   "sha256": "01817b48f059d1f159b97968ed28162bb98d9ffd02a782b6085ae211d3326d6e"
+  },
+  {
+   "variant": "v06-comment-name",
+   "mta": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCqUh-00000s-1Q",
+   "captured": true,
+   "facts": {
+    "rec_exact": 2,
+    "rec_obs": 0,
+    "rec_case": 0,
+    "rec_cfws": 0,
+    "rec_8bit_total": 0,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 72
+   },
+   "sha256": "da99e69779d5eea80775924ba9ef1a49c59aba4976fd2ab19b038838a900165e"
+  },
+  {
+   "variant": "v06-comment-name",
+   "mta": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 996071ed Message accepted for delivery",
+   "captured": true,
+   "facts": {
+    "rec_exact": 2,
+    "rec_obs": 0,
+    "rec_case": 0,
+    "rec_cfws": 0,
+    "rec_8bit_total": 0,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 70
+   },
+   "sha256": "910173ba4fdd0de5f626f9bdb9fd4fb4f805f691e1f358610fc7fb5936c80a09"
+  },
+  {
+   "variant": "v07-tab-name",
+   "mta": "postfix",
+   "smtp_code": "554",
+   "smtp": "554 5.4.0 Error: too many hops",
+   "captured": false,
+   "facts": {},
+   "sha256": "918c841ceac3535996c4946ff94c2276e9655cbf9705fcf0497becf6019d29fa"
+  },
+  {
+   "variant": "v07-tab-name",
+   "mta": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCqUl-00000w-0q",
+   "captured": false,
+   "facts": {},
+   "sha256": "fbfa6642ffd5bc83cec659c1478427eae41d6b7e4ed5239315c31715e8bf8154"
+  },
+  {
+   "variant": "v07-tab-name",
+   "mta": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 1ee4ae68 Message accepted for delivery",
+   "captured": true,
+   "facts": {
+    "rec_exact": 2,
+    "rec_obs": 0,
+    "rec_case": 0,
+    "rec_cfws": 0,
+    "rec_8bit_total": 0,
+    "relay_added": 1,
+    "nocolon_body": 0,
+    "zone_lines": 70
+   },
+   "sha256": "af1faade649360ec50e66de44d1d2f90a5ebeb3df11316b89a3aeb110f8c8c12"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "t0": "10:59:54",
+ "rows": [
+  {
+   "case": "e1-ulabel-env-param",
+   "mail_ok": true,
+   "mail_reply": "250 2.1.0 Ok",
+   "reply": "250 2.0.0 Ok: queued as 8B289AA678",
+   "delivered": false,
+   "spf": "absent",
+   "dmarc": "absent",
+   "return_path": []
+  },
+  {
+   "case": "e2-ulabel-both",
+   "mail_ok": true,
+   "mail_reply": "250 2.1.0 Ok",
+   "reply": "250 2.0.0 Ok: queued as 2EFF8AA67C",
+   "delivered": false,
+   "spf": "absent",
+   "dmarc": "absent",
+   "return_path": []
+  },
+  {
+   "case": "e3-ulabel-env-noparam",
+   "mail_ok": false,
+   "mail_reply": "501 5.1.7 Bad sender address syntax",
+   "reply": "503 5.5.1 Error: need RCPT command",
+   "delivered": false,
+   "spf": "absent",
+   "dmarc": "absent",
+   "return_path": []
+  },
+  {
+   "case": "e4-ascii-env-ulabel-from",
+   "mail_ok": true,
+   "mail_reply": "250 2.1.0 Ok",
+   "reply": "250 2.0.0 Ok: queued as ECB62AA67C",
+   "delivered": true,
+   "spf": "fail",
+   "dmarc": "none",
+   "return_path": [
+    "Return-Path: <alice@lab.test>"
+   ]
+  },
+  {
+   "case": "e5-utf8-local",
+   "mail_ok": true,
+   "mail_reply": "250 2.1.0 Ok",
+   "reply": "250 2.0.0 Ok: queued as 9CE67AA71C",
+   "delivered": false,
+   "spf": "absent",
+   "dmarc": "absent",
+   "return_path": []
+  }
+ ]
+}

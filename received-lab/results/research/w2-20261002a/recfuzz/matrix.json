@@ -1,0 +1,328 @@
+{
+ "rows": [
+  {
+   "case": "r01-good",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as D7D8726F7",
+   "delivered": true,
+   "facts": {},
+   "sha256": "911d7d7da56fba126cacb1e3a6ad2f7b70df5c3bdf7b0a916adeb47c70787a8e"
+  },
+  {
+   "case": "r01-good",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq5p-000074-1y",
+   "delivered": true,
+   "facts": {},
+   "sha256": "fcc286c8703a23da85b5e06b767f33a1858c96a7c2ae818c12989c898d6bb9a3"
+  },
+  {
+   "case": "r01-good",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 705661b5 Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "f8e36609742d93dcf3e286da732c8eef4538bb9c7c72b6d4aa365d5c43efb012"
+  },
+  {
+   "case": "r02-obs-colon",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as 9527BAA67D",
+   "delivered": true,
+   "facts": {},
+   "sha256": "adfe3026fc35f5a45ea20d9616d536be50c8f590a2894ed78b92cc87eba1fb24"
+  },
+  {
+   "case": "r02-obs-colon",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq5u-000078-0j",
+   "delivered": true,
+   "facts": {},
+   "sha256": "17f25686b5024e4466288b279abb51447cd6e77035c79e7e9119209c58185f05"
+  },
+  {
+   "case": "r02-obs-colon",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 909ee0ab Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "679167523e9f973abd2da0a62222b0f326e60eb5c28bddd90b4963af38705735"
+  },
+  {
+   "case": "r03-case",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as A44BEAA72F",
+   "delivered": true,
+   "facts": {},
+   "sha256": "c009345b41d981c041ed81ba2a32b79d9c40e4fea2b37641bd40049719f59a3c"
+  },
+  {
+   "case": "r03-case",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq62-00007C-0I",
+   "delivered": true,
+   "facts": {},
+   "sha256": "1f0da53585fa6cd56806f008ad23a5838f04b2a269d5c981c8f2999fe4117585"
+  },
+  {
+   "case": "r03-case",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 37db35fe Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "260df9c103f216554fd066183a4751d4525f5b22863211e5c3bf8306f422071f"
+  },
+  {
+   "case": "r04-nocolon",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as 5D197AA72F",
+   "delivered": true,
+   "facts": {},
+   "sha256": "7e896a1b986401a29469cdef10e311af179787aaef26656e6c5193fde7150b87"
+  },
+  {
+   "case": "r04-nocolon",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq69-00007G-2l",
+   "delivered": true,
+   "facts": {},
+   "sha256": "063c65d1dc2cae00e02462c7c25fd0708d375000cb8cfa127b665a103d5738bb"
+  },
+  {
+   "case": "r04-nocolon",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 d12e767c Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "ada0de46466a777eb5bf7b1f16135c54aa649c697ba0ffbf7345298e5d1097af"
+  },
+  {
+   "case": "r05-empty",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as 6F5C3AA738",
+   "delivered": true,
+   "facts": {},
+   "sha256": "30d774c0a670b4c61199f6dd26fa5ad9b49b095820c29f2a8e67260d0d688ccf"
+  },
+  {
+   "case": "r05-empty",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq6H-00007K-2n",
+   "delivered": true,
+   "facts": {},
+   "sha256": "8e3702b85ca42b5d6c49dd418146123dbea968b229af0893e466302b1fa51b01"
+  },
+  {
+   "case": "r05-empty",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 9a3ae3eb Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "f4c6c94c78c56d0310f04c5e2bbdbc33a2ce4fa793582e414d9f1e57b3160499"
+  },
+  {
+   "case": "r06-8bit-value",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as 0DF0EAA73D",
+   "delivered": true,
+   "facts": {},
+   "sha256": "7200d7cf6994848eaf26d9613c29e19a7f0c06bd004216ccd197886acc3803fa"
+  },
+  {
+   "case": "r06-8bit-value",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq6P-00007O-1d",
+   "delivered": true,
+   "facts": {},
+   "sha256": "9486a83a6f77a1957b0f990e509804e16f2bc2acce0c3eca87db689a251760b0"
+  },
+  {
+   "case": "r06-8bit-value",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 2ea5df3e Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "fb32c14cbee6bdb7bfe6502cf7051d19e38c47378faa0c762e0af12c3e95e9ca"
+  },
+  {
+   "case": "r07-8bit-name",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as CB094AA749",
+   "delivered": true,
+   "facts": {},
+   "sha256": "2b3d18d36c80a824c5f02c3bcb6245f8a04abf1a66849471d660e977bbc94cf6"
+  },
+  {
+   "case": "r07-8bit-name",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq6X-00007S-0i",
+   "delivered": true,
+   "facts": {},
+   "sha256": "16cc7afeeb6e9d51176f5ca2a4554a81a07c1786e85db8226d54e51364cdc7c6"
+  },
+  {
+   "case": "r07-8bit-name",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 2b7d32a0 Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "acf7a87ffc34c11d540fbbd680967443ebca12cecebbe40b4173f8e3730654e1"
+  },
+  {
+   "case": "r08-no-semi",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as 3D5CAAA753",
+   "delivered": true,
+   "facts": {},
+   "sha256": "4ad799008d3675ae034d911ffeef6bd8f9bc3c95d34bd9324db9105d8b4d71d6"
+  },
+  {
+   "case": "r08-no-semi",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq6b-00007W-2K",
+   "delivered": true,
+   "facts": {},
+   "sha256": "567cf4a854f5fa998cd962bdc22f8bb032d969d12092e3149dc20d7f2df1d019"
+  },
+  {
+   "case": "r08-no-semi",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 5bc64139 Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "c8e8660526deeda3a99fbfc06d6acf24aaebad437a95245b0c5d0b13f987f025"
+  },
+  {
+   "case": "r09-double-semi",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as DCB7BAA75C",
+   "delivered": true,
+   "facts": {},
+   "sha256": "3f11dd2975d28814b64971a5df63c862ea0c14e7cfa80587a5328bbdb9b24564"
+  },
+  {
+   "case": "r09-double-semi",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq6j-00007a-1K",
+   "delivered": true,
+   "facts": {},
+   "sha256": "9f529f8755ca1595134c792033e8648fcffab2ae339b926d29c920b2b92586ab"
+  },
+  {
+   "case": "r09-double-semi",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 07df591d Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "bca3c33b3d490da3a88946ae65570e108a65cb2eb16ac397cc73642f1014a3d3"
+  },
+  {
+   "case": "r10-comment-nest",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as 93D2BAA760",
+   "delivered": true,
+   "facts": {},
+   "sha256": "6bcc2a13abcba0783dbf47dc4e491867425f7594fb2adf527cf460a8211ed758"
+  },
+  {
+   "case": "r10-comment-nest",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq6r-00007e-0A",
+   "delivered": true,
+   "facts": {},
+   "sha256": "ec64d3478a4979a237f1c4a615b8ef47644ec44b9575bc0e5c2117aa59ec9324"
+  },
+  {
+   "case": "r10-comment-nest",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 9ae7667a Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "d738d3eca7fd46928b0c05691663edde2e7bd2d97e56b711814414a06a1ca175"
+  },
+  {
+   "case": "r11-fold-long",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as 72963AA76A",
+   "delivered": true,
+   "facts": {},
+   "sha256": "f0db774aea39eb2e2a83c521443bd0390bc64351fce9a8826162cbfbadcf1c2b"
+  },
+  {
+   "case": "r11-fold-long",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq6z-00007i-0W",
+   "delivered": true,
+   "facts": {},
+   "sha256": "ee013ee26019e7f832bda762071c183df49202349c0e29fb30485cbd1347ef3d"
+  },
+  {
+   "case": "r11-fold-long",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 15fe1425 Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "b2922855362afbed7206a2f6cf0b7e0540a0fa31adc63fab6765cc6186a91827"
+  },
+  {
+   "case": "r12-many",
+   "path": "direct",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 Ok: queued as 6B28BAA76A",
+   "delivered": true,
+   "facts": {},
+   "sha256": "883e0fba55c3d6d9d787d8bc592d2e4a43d578998c5532d7fe41611722a5d932"
+  },
+  {
+   "case": "r12-many",
+   "path": "exim",
+   "smtp_code": "250",
+   "smtp": "250 OK id=1xCq76-00007m-2Y",
+   "delivered": true,
+   "facts": {},
+   "sha256": "263fa92fb8f6aace9086df2e43afe4e14ab1e9c7ed6c7662f5ca473eafb474b0"
+  },
+  {
+   "case": "r12-many",
+   "path": "osmtpd",
+   "smtp_code": "250",
+   "smtp": "250 2.0.0 25d2f2c6 Message accepted for ",
+   "delivered": true,
+   "facts": {},
+   "sha256": "2efc5b8b635b7b06f663a23f2e7f82732628a18119d256f744f35e013cc07e8e"
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id qNatFJVxwGqdBQAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 03:08:05 +0000
+Received: from exim.lab.test (exim.mailseclab-research-net [10.88.0.4])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 3D10BAA757
+	for <bob@lab.test>; Sat,  3 Oct 2026 03:08:05 +0000 (UTC)
+Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)
+Received: from [10.88.0.11] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@lab.test>)
+	id 1xCq6X-00007S-0i
+	for bob@lab.test;
+	Sat, 03 Oct 2026 03:08:05 +0000
+X-Spam: Yes
+
+Receíved: from a.lab.test by b.lab.test; Sat, 03 Oct 2026 20:00:00 +0000
+From: Bank Security <security@bank.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:00:00 +0000
+Subject: recfuzz r07-8bit-name
+Message-ID: <rf-r07-8bit-name-exim@lab.test>
+X-Case-ID: rf-r07-8bit-name-exim
+
+Please confirm the payment.

@@ -1,0 +1,9 @@
+Received: from a.lab.test ((comment) [203.0.113.1] (x)) by b.lab.test; Sat, 03 Oct 2026 20:00:00 +0000
+From: Bank Security <security@bank.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:00:00 +0000
+Subject: recfuzz r10-comment-nest
+Message-ID: <rf-r10-comment-nest-exim@lab.test>
+X-Case-ID: rf-r10-comment-nest-exim
+
+Please confirm the payment.

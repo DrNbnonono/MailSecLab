@@ -1,6 +1,8 @@
 {
   "exim_container": "exim",
   "parse": {
-    "python": {"container": "msl-client", "cmd": ["python3", "/opt/research/parsers/parse.py"]}
+    "python": {"container": "msl-client", "cmd": ["python3", "/opt/research/parsers/parse.py"]},
+    "go": {"container": "msl-verifiers", "cmd": ["go", "run", "/opt/research/parsers/parse.go"]},
+    "node": {"container": "parser-node", "cmd": ["node", "/opt/research/parsers/parse.js"]}
   }
 }

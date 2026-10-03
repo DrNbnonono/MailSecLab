@@ -1,12 +1,12 @@
 Bcc: capture@lab.test
-Message-ID: <6Ck7Hx0rQBargta6JeNzNH@mailpit>
+Message-ID: <62BafXdZOhY2NDcuQD8Pph@mailpit>
 Return-Path: <alice@lab.test>
 Received: from auth-postfix.lab.test (msl-auth-postfix.mailseclab-research-net. [10.88.0.43])
         by mailpit.lab.test (Mailpit) with SMTP
-        for <capture@lab.test>; Sat, 3 Oct 2026 04:40:40 +0000 (UTC)
+        for <capture@lab.test>; Sat, 3 Oct 2026 04:50:25 +0000 (UTC)
 Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
-	by auth-postfix.lab.test (Postfix) with ESMTP id A3144AA69F
-	for <capture@lab.test>; Sat,  3 Oct 2026 04:40:40 +0000 (UTC)
+	by auth-postfix.lab.test (Postfix) with ESMTP id 64072AA8E3
+	for <capture@lab.test>; Sat,  3 Oct 2026 04:50:25 +0000 (UTC)
 Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)
 X-Spam: Yes
 

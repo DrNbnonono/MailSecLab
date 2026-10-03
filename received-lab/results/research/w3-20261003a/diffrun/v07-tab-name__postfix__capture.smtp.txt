@@ -10,6 +10,6 @@ C RCPT TO:<capture@lab.test>
 S 250 2.1.5 Ok | 
 C DATA
 S 354 End data with <CR><LF>.<CR><LF> | 
-S 250 2.0.0 Ok: queued as 64C50AA69F | 
+S 250 2.0.0 Ok: queued as 28FA9AA8FF | 
 C QUIT
 S 221 2.0.0 Bye | 

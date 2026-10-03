@@ -20,10 +20,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as A3CB3AA60D",
+   "smtp": "250 2.0.0 Ok: queued as 4D7FAAA8E3",
    "captured": true,
    "facts": {
-    "sha256": "3f53642fc6fc4e17deaa45f490fe1dfd90474b0e97112f5801d314b0132fdc52",
+    "sha256": "708fbafebdf30a901363687c8f54999cd7d965e384cf10d5b7171f3ceea4120d",
     "total_bytes": 4004,
     "zone_end": 3975,
     "body_bytes": 29,
@@ -47,10 +47,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 3afcac8a Message accepted for delivery",
+   "smtp": "250 2.0.0 b4c951b5 Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "e118d93b1d2150bec94b72ef5e960dc89edd18ce2710044a6e23d1833337b26e",
+    "sha256": "92ab80e4bbb35dd08db21b13f38aa13a6d8cb3d03354b15ea24a7c72e64a8421",
     "total_bytes": 7596,
     "zone_end": 7567,
     "body_bytes": 29,
@@ -74,10 +74,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 8cb5c7c6 Message accepted for delivery",
+   "smtp": "250 2.0.0 c65d24cf Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "b6db07ad81de2ec7528907fa858ecdf243cf9a96058b9608ba6739594470f362",
+    "sha256": "82090e8b0892e188a7ae5bc27e6d55e4b9bb80f0509c3a992e2e8cbd653346da",
     "total_bytes": 3810,
     "zone_end": 3781,
     "body_bytes": 29,
@@ -101,7 +101,7 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrVj-00001a-0N",
+   "smtp": "250 OK id=1xCrf2-00002o-1G",
    "captured": false,
    "facts": {},
    "input_sha256": "14f4f798329adb2b489d6ec5ca92058bbf149d721681189d03c5d8fb3329751d",
@@ -114,10 +114,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrWO-00001h-2l",
+   "smtp": "250 OK id=1xCrfi-00002v-0H",
    "captured": true,
    "facts": {
-    "sha256": "333962c78a10ed40fb593625f2ca33c890230cd49e451036b0e3f87d20106234",
+    "sha256": "8966bd25c9f11abca752541be37d741a83367f6f3bb63abb14f2c12a45c3aff4",
     "total_bytes": 3797,
     "zone_end": 3768,
     "body_bytes": 29,
@@ -141,10 +141,39 @@
    "arm": "parse",
    "captured": true,
    "view": {
-    "error": "python3: can't open file '/opt/research/parsers/parse.py': [Errno 2] No such file or directory\n"
+    "received_count": 25,
+    "from_in_headers": true,
+    "defects": []
    },
    "input_sha256": "377fd21efcc9138bcec4f2f34b52a250f716957381723254cc48c2720b4ba50d",
-   "known": true
+   "known": false
+  },
+  {
+   "case": "v00-plain__go__parse",
+   "variant": "v00-plain",
+   "target": "go",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 25
+   },
+   "input_sha256": "377fd21efcc9138bcec4f2f34b52a250f716957381723254cc48c2720b4ba50d",
+   "known": false
+  },
+  {
+   "case": "v00-plain__node__parse",
+   "variant": "v00-plain",
+   "target": "node",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "received_count": 25,
+    "from_in_headers": true
+   },
+   "input_sha256": "377fd21efcc9138bcec4f2f34b52a250f716957381723254cc48c2720b4ba50d",
+   "known": false
   },
   {
    "case": "v01-obs-colon__postfix__threshold",
@@ -166,10 +195,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as 8E69EAA69F",
+   "smtp": "250 2.0.0 Ok: queued as 3CF2CAA8FF",
    "captured": true,
    "facts": {
-    "sha256": "0de8ea7691bac31808ab1af4ed7eac2c6740bfa22910850c4502125deb6636cb",
+    "sha256": "5f7bb4dd565440edfa165a9860770d167fa1261a523243c8b1e59719de3b48c1",
     "total_bytes": 4016,
     "zone_end": 3987,
     "body_bytes": 29,
@@ -193,10 +222,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 1d20da5a Message accepted for delivery",
+   "smtp": "250 2.0.0 2aaa800c Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "b6585a7570593a0c4af219b7d8ae20a896f93c7a3bb98a11aea4b606c580fd70",
+    "sha256": "67b7982fafa0ff2a3105dcdbbedcb663c1773a90601ec59bdd4ecdc21070f510",
     "total_bytes": 7663,
     "zone_end": 7634,
     "body_bytes": 29,
@@ -221,10 +250,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 930f8319 Message accepted for delivery",
+   "smtp": "250 2.0.0 13ed8054 Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "3577c1c8e95559b212594d97b262e7edc8bdf2a1b834ad4de959eaba176e0512",
+    "sha256": "34dc198cf6e9708448308048f34e4ae347b4f9b5db47aefe0411b2eae55842e2",
     "total_bytes": 3847,
     "zone_end": 3818,
     "body_bytes": 29,
@@ -249,7 +278,7 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrWV-00001l-2a",
+   "smtp": "250 OK id=1xCrfq-00002z-2b",
    "captured": false,
    "facts": {},
    "input_sha256": "12763f13d4f8e56a939d91041d959e05572bde7daa46a47227b0cdcedc5630ae",
@@ -262,10 +291,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrXB-00001s-1k",
+   "smtp": "250 OK id=1xCrgW-000036-2z",
    "captured": true,
    "facts": {
-    "sha256": "e2f7504a2b9369888908c692bbb7c2a85dbb98c91ade5c04991c566bcf668249",
+    "sha256": "23aab5e2271b634bb25e515ef316e57e8f4c0ce5cfc6e4d30dc29c904569b890",
     "total_bytes": 3834,
     "zone_end": 3805,
     "body_bytes": 29,
@@ -290,10 +319,41 @@
    "arm": "parse",
    "captured": true,
    "view": {
-    "error": "python3: can't open file '/opt/research/parsers/parse.py': [Errno 2] No such file or directory\n"
+    "received_count": 0,
+    "from_in_headers": false,
+    "defects": [
+     "MissingHeaderBodySeparatorDefect"
+    ]
    },
    "input_sha256": "2a3498ddb710d3a2cce2f598d46f9b34f612e39105a23059ac74bbf21b7613de",
-   "known": true
+   "known": false
+  },
+  {
+   "case": "v01-obs-colon__go__parse",
+   "variant": "v01-obs-colon",
+   "target": "go",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 0
+   },
+   "input_sha256": "2a3498ddb710d3a2cce2f598d46f9b34f612e39105a23059ac74bbf21b7613de",
+   "known": false
+  },
+  {
+   "case": "v01-obs-colon__node__parse",
+   "variant": "v01-obs-colon",
+   "target": "node",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "received_count": 25,
+    "from_in_headers": true
+   },
+   "input_sha256": "2a3498ddb710d3a2cce2f598d46f9b34f612e39105a23059ac74bbf21b7613de",
+   "known": false
   },
   {
    "case": "v02-case__postfix__threshold",
@@ -315,10 +375,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as 23D9DAA60D",
+   "smtp": "250 2.0.0 Ok: queued as 28278AA8E3",
    "captured": true,
    "facts": {
-    "sha256": "a5f0488ccbb92af69660c0d6d34db3048d61b67e8e0d0e800247a5883109043a",
+    "sha256": "c43da89973c86d0973f122df3a4aca6ee28b04bb23d1e8041067fceb7c2da60c",
     "total_bytes": 4001,
     "zone_end": 3972,
     "body_bytes": 29,
@@ -343,10 +403,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 63c79067 Message accepted for delivery",
+   "smtp": "250 2.0.0 2149c93e Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "f41ba4b4ccfd0f2fef585ae496d81802126dfb4db6a62dfa349aab24c65520e7",
+    "sha256": "f390d5bf65069e13919f2b5d80769893a09ace220c53d2de40661d861a5a5b12",
     "total_bytes": 7593,
     "zone_end": 7564,
     "body_bytes": 29,
@@ -371,10 +431,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 978dfd7a Message accepted for delivery",
+   "smtp": "250 2.0.0 7da5820f Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "d41639ac2a93118e76296cf28165101c35e00d274fa2d12df82ad5fcc785df68",
+    "sha256": "788775f8ab4c5588a95e3351771a7783d5760814d1fa9a5bbd82ca7864687493",
     "total_bytes": 3807,
     "zone_end": 3778,
     "body_bytes": 29,
@@ -399,7 +459,7 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrXI-00001w-0C",
+   "smtp": "250 OK id=1xCrgf-00003A-2R",
    "captured": false,
    "facts": {},
    "input_sha256": "8805d29b5f7c4824b78ef44bccf046352be9db145ed0b688913e38ce8ea85860",
@@ -412,10 +472,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrXx-000023-2r",
+   "smtp": "250 OK id=1xCrhL-00003H-1b",
    "captured": true,
    "facts": {
-    "sha256": "a0044f8d5df3867afcc5dfa19e7d6b457fae4aeb91265311184cd7dff12b4ac9",
+    "sha256": "d7e2b6508bf72a85e8349bcdfd7e1508b82a38bbb70571174720f25793491a0b",
     "total_bytes": 3794,
     "zone_end": 3765,
     "body_bytes": 29,
@@ -440,10 +500,39 @@
    "arm": "parse",
    "captured": true,
    "view": {
-    "error": "python3: can't open file '/opt/research/parsers/parse.py': [Errno 2] No such file or directory\n"
+    "received_count": 25,
+    "from_in_headers": true,
+    "defects": []
    },
    "input_sha256": "8deb1dcdeae388c499c3fa6bad94532d1809e750c3965c5c4e52d5a27fedac06",
-   "known": true
+   "known": false
+  },
+  {
+   "case": "v02-case__go__parse",
+   "variant": "v02-case",
+   "target": "go",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 25
+   },
+   "input_sha256": "8deb1dcdeae388c499c3fa6bad94532d1809e750c3965c5c4e52d5a27fedac06",
+   "known": false
+  },
+  {
+   "case": "v02-case__node__parse",
+   "variant": "v02-case",
+   "target": "node",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "received_count": 25,
+    "from_in_headers": true
+   },
+   "input_sha256": "8deb1dcdeae388c499c3fa6bad94532d1809e750c3965c5c4e52d5a27fedac06",
+   "known": false
   },
   {
    "case": "v03-nocolon__postfix__threshold",
@@ -452,10 +541,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as B2F24AA69F",
+   "smtp": "250 2.0.0 Ok: queued as 9BDEFAA8E3",
    "captured": true,
    "facts": {
-    "sha256": "329d034333de6870b8690d8ca71061d09da5f80f9bd779cff34dd0b4ca19dfc1",
+    "sha256": "eb1d54bdf943f9ebe86ac796ef9e584918550c19a104f0d1783bc14ff0207449",
     "total_bytes": 7709,
     "zone_end": 622,
     "body_bytes": 7087,
@@ -470,7 +559,7 @@
     "empty_zone_lines": 0
    },
    "input_sha256": "26f0881b62a8776aa9510d5b14d12ed665e825a605a35dea2eeee3436a3fc708",
-   "known": false
+   "known": true
   },
   {
    "case": "v03-nocolon__postfix__capture",
@@ -479,10 +568,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as 22161AA69F",
+   "smtp": "250 2.0.0 Ok: queued as 0FF2FAA8E3",
    "captured": true,
    "facts": {
-    "sha256": "c98e2d6b7c551db7cbac2cf28fb27df1fdf213965c34875723fb1ec4d90ab9da",
+    "sha256": "8ae185d506ab1d8059ee27de9006f5f3465946809816b0412cabeff0dcacf8a9",
     "total_bytes": 3953,
     "zone_end": 622,
     "body_bytes": 3331,
@@ -497,7 +586,7 @@
     "empty_zone_lines": 0
    },
    "input_sha256": "f01c31c522461615c0949b95b0e55aa3ed7a626dba0aa098bc70ff5d4a2d6fe6",
-   "known": false
+   "known": true
   },
   {
    "case": "v03-nocolon__osmtpd__threshold",
@@ -506,10 +595,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 0c5e42ba Message accepted for delivery",
+   "smtp": "250 2.0.0 7368e956 Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "f03a45a0f4705f03690f0d0cbff4fb7a062f3d2af0607c1dcb29fabfdeedd135",
+    "sha256": "6dc9d5114d5b8ece8053980a9e86601836e5230f3a2790352a5574aa71c1cda7",
     "total_bytes": 7547,
     "zone_end": 7518,
     "body_bytes": 29,
@@ -534,10 +623,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 13e3fba2 Message accepted for delivery",
+   "smtp": "250 2.0.0 2a581fe9 Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "9fa82ec21ea75ad820713044e677e116ef6137660e3bc511e3d2cd4cdbcde0eb",
+    "sha256": "04a74ff715dda7e4f5e2bbeadcd138d4e4ff568dbdeaf9f43b0e18edcfef719d",
     "total_bytes": 3791,
     "zone_end": 3762,
     "body_bytes": 29,
@@ -562,10 +651,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrY5-000027-0K",
+   "smtp": "250 OK id=1xCrhU-00003L-0m",
    "captured": true,
    "facts": {
-    "sha256": "ac569ccfd2304e883acabd04709877a1a94c83f04c130dfd92edc7167f86a880",
+    "sha256": "ac07ad8bcee74336abd4f0756bb88ecaf26ea6dcff73085ec88e88979c3332cb",
     "total_bytes": 7582,
     "zone_end": 504,
     "body_bytes": 7078,
@@ -580,7 +669,7 @@
     "empty_zone_lines": 0
    },
    "input_sha256": "be200ace067e7a48cce4c4eb194a06b172d3475d50e1a377222347f59a867ced",
-   "known": false
+   "known": true
   },
   {
    "case": "v03-nocolon__exim__capture",
@@ -589,10 +678,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrY6-00002B-2Y",
+   "smtp": "250 OK id=1xCrhV-00003P-3B",
    "captured": true,
    "facts": {
-    "sha256": "875fc545858a1346e8722afe048e2de1b70e37930d27d9644161095b082159d8",
+    "sha256": "9a346d2564e7eb6dc5dee63953299792dff53bc5b461379841e050ede28c9bfa",
     "total_bytes": 3826,
     "zone_end": 504,
     "body_bytes": 3322,
@@ -607,7 +696,7 @@
     "empty_zone_lines": 0
    },
    "input_sha256": "eb5ede3bb3d8aa924687ab80fff215f45f93e8329a9b5a3d7f789e457a52825e",
-   "known": false
+   "known": true
   },
   {
    "case": "v03-nocolon__python__parse",
@@ -616,10 +705,41 @@
    "arm": "parse",
    "captured": true,
    "view": {
-    "error": "python3: can't open file '/opt/research/parsers/parse.py': [Errno 2] No such file or directory\n"
+    "received_count": 0,
+    "from_in_headers": false,
+    "defects": [
+     "MissingHeaderBodySeparatorDefect"
+    ]
    },
    "input_sha256": "8191e936aba03f2ad308b1a551e6b31cc02f8784301c9fb6c1d7b7be61272da4",
-   "known": true
+   "known": false
+  },
+  {
+   "case": "v03-nocolon__go__parse",
+   "variant": "v03-nocolon",
+   "target": "go",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 0
+   },
+   "input_sha256": "8191e936aba03f2ad308b1a551e6b31cc02f8784301c9fb6c1d7b7be61272da4",
+   "known": false
+  },
+  {
+   "case": "v03-nocolon__node__parse",
+   "variant": "v03-nocolon",
+   "target": "node",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "received_count": 0,
+    "from_in_headers": true
+   },
+   "input_sha256": "8191e936aba03f2ad308b1a551e6b31cc02f8784301c9fb6c1d7b7be61272da4",
+   "known": false
   },
   {
    "case": "v04-8bit-name__postfix__threshold",
@@ -628,10 +748,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as A3144AA69F",
+   "smtp": "250 2.0.0 Ok: queued as 64072AA8E3",
    "captured": true,
    "facts": {
-    "sha256": "3b711d030e4e85346697f0610e64738a04b723bfcea3c2f2f5357490a7cf0dc2",
+    "sha256": "a6b1e2aa969322243274627c9d82585daacec07a5aa797199f4bff1677629009",
     "total_bytes": 7825,
     "zone_end": 622,
     "body_bytes": 7203,
@@ -646,7 +766,7 @@
     "empty_zone_lines": 0
    },
    "input_sha256": "f32a040d6be5fe6d3c3740fa7b864c9376cb92878539549dd2977623d92ed595",
-   "known": false
+   "known": true
   },
   {
    "case": "v04-8bit-name__postfix__capture",
@@ -655,10 +775,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as 3C9DEAA69F",
+   "smtp": "250 2.0.0 Ok: queued as DB4E7AA8E3",
    "captured": true,
    "facts": {
-    "sha256": "d5c5a625b34666086ce9e795bbd8d714710db283bf508cde7318ba532468a4f3",
+    "sha256": "703c842ba3ecb410e184b11805240e21eb55428038ffae204578e919f938dda9",
     "total_bytes": 4009,
     "zone_end": 622,
     "body_bytes": 3387,
@@ -673,7 +793,7 @@
     "empty_zone_lines": 0
    },
    "input_sha256": "dfdbfa1c8e442d33459e38bac31aa5b27759df1d784254898cdf17670869317c",
-   "known": false
+   "known": true
   },
   {
    "case": "v04-8bit-name__osmtpd__threshold",
@@ -682,10 +802,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 ec21ac39 Message accepted for delivery",
+   "smtp": "250 2.0.0 fa6eecdb Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "21d1302116973757774fe1c5006f1b476652980cd9a692e623f0a77142e01dea",
+    "sha256": "aaabc3cdad06ab219bea90daefe13cba12ecbaa46a36028472333e7dc4bb2c1c",
     "total_bytes": 7663,
     "zone_end": 7634,
     "body_bytes": 29,
@@ -710,10 +830,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 e6cbc36e Message accepted for delivery",
+   "smtp": "250 2.0.0 ac0f664e Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "9ae06ce77c2db45a6305ad4ca925615f65d390c9a6f6d33d23f83e486b093b99",
+    "sha256": "40cf7d705aed9cf608efce9c1f772e1c15790e98d022c430d6265d32f5d06f42",
     "total_bytes": 3847,
     "zone_end": 3818,
     "body_bytes": 29,
@@ -738,10 +858,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrYE-00002F-1I",
+   "smtp": "250 OK id=1xCrhf-00003T-0w",
    "captured": true,
    "facts": {
-    "sha256": "53cc51cfc62dfc8792538883ddda1aeb38f9da7600c0ee666feb8c1e03bd7089",
+    "sha256": "be25a3696bd0c54a7472175773c32d36929b34f004c3616b8f37fcc833010a9e",
     "total_bytes": 7650,
     "zone_end": 7621,
     "body_bytes": 29,
@@ -766,10 +886,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrYF-00002J-31",
+   "smtp": "250 OK id=1xCrhg-00003X-2w",
    "captured": true,
    "facts": {
-    "sha256": "6c851aa3fed3ab1e476919549d2e29462bfe4c1b8ef63619bf054ffd749a887d",
+    "sha256": "b3f4c68a42300c6b590d7e582803775940b59d841c3a3c13da7a28c17cd468f3",
     "total_bytes": 3834,
     "zone_end": 3805,
     "body_bytes": 29,
@@ -794,10 +914,41 @@
    "arm": "parse",
    "captured": true,
    "view": {
-    "error": "python3: can't open file '/opt/research/parsers/parse.py': [Errno 2] No such file or directory\n"
+    "received_count": 0,
+    "from_in_headers": false,
+    "defects": [
+     "MissingHeaderBodySeparatorDefect"
+    ]
    },
    "input_sha256": "9b0167fc48dfee343e22a8287f7414851567b6f902088e2534a88fa3c370ad1a",
-   "known": true
+   "known": false
+  },
+  {
+   "case": "v04-8bit-name__go__parse",
+   "variant": "v04-8bit-name",
+   "target": "go",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 0
+   },
+   "input_sha256": "9b0167fc48dfee343e22a8287f7414851567b6f902088e2534a88fa3c370ad1a",
+   "known": false
+  },
+  {
+   "case": "v04-8bit-name__node__parse",
+   "variant": "v04-8bit-name",
+   "target": "node",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "received_count": 0,
+    "from_in_headers": true
+   },
+   "input_sha256": "9b0167fc48dfee343e22a8287f7414851567b6f902088e2534a88fa3c370ad1a",
+   "known": false
   },
   {
    "case": "v05-cfws-name__postfix__threshold",
@@ -806,10 +957,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as B33E8AA69F",
+   "smtp": "250 2.0.0 Ok: queued as 19B97AA8E3",
    "captured": true,
    "facts": {
-    "sha256": "1857e9ac8d56365223e7e493f4f9f0d733a69c08a4f4b1a95981b10f91fd387a",
+    "sha256": "b081736ad9dfeb2ce9060164051d744157405a05c110d60007349ee27a06d5ea",
     "total_bytes": 8242,
     "zone_end": 8213,
     "body_bytes": 29,
@@ -834,10 +985,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as 1F9DBAA69F",
+   "smtp": "250 2.0.0 Ok: queued as B6789AA8E3",
    "captured": true,
    "facts": {
-    "sha256": "b9257049fc77853d2c2ddacfddeb8de84358e86c358c473b65d3b5c354348eca",
+    "sha256": "37cbed5edea44c21857f77c6c6873a4d9d93fd44c246a62485a8fc669b1ab628",
     "total_bytes": 4216,
     "zone_end": 4187,
     "body_bytes": 29,
@@ -862,7 +1013,7 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 f5b08426 Message accepted for delivery",
+   "smtp": "250 2.0.0 32cee6cf Message accepted for delivery",
    "captured": true,
    "facts": {
     "sha256": "21c832fc3a9c1ce5ada36d1455c847705f3fe8b8be9b906433fae54778a456f0",
@@ -890,10 +1041,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 3848b637 Message accepted for delivery",
+   "smtp": "250 2.0.0 2851bbdf Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "668675215b6215bc23c37a5b702cceb0c12dcc0bb6e8158da7b2b96a69690b97",
+    "sha256": "8722204645ebb427a179dd1e3911b3deec91dfe7b09f67987a6111264eb47cf5",
     "total_bytes": 4022,
     "zone_end": 3993,
     "body_bytes": 29,
@@ -918,10 +1069,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrYN-00002N-0V",
+   "smtp": "250 OK id=1xCrhp-00003b-2t",
    "captured": true,
    "facts": {
-    "sha256": "436d926004c00dff4ff10c681c5822dd129f3fa0828172f8a8663452524f6efa",
+    "sha256": "c88931139f83c740d78b695d1c84a5bb855cfd8e266526e9d6dfcb081aba65b6",
     "total_bytes": 8035,
     "zone_end": 8006,
     "body_bytes": 29,
@@ -946,10 +1097,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrYO-00002R-1x",
+   "smtp": "250 OK id=1xCrhr-00003f-2M",
    "captured": true,
    "facts": {
-    "sha256": "dcb34e546970838c8ff91b075d841d05bfac8b1b35de7d01e426160498426608",
+    "sha256": "7c24a901ab46ac12c7dcff6691d9bed50fed3c0140960c428d867ddff9b4eb18",
     "total_bytes": 4009,
     "zone_end": 3980,
     "body_bytes": 29,
@@ -974,10 +1125,39 @@
    "arm": "parse",
    "captured": true,
    "view": {
-    "error": "python3: can't open file '/opt/research/parsers/parse.py': [Errno 2] No such file or directory\n"
+    "received_count": 0,
+    "from_in_headers": true,
+    "defects": []
    },
    "input_sha256": "16e5a5658eaacf895bfcd6d087a0c518a92eef43362e4445bb5558971a076299",
-   "known": true
+   "known": false
+  },
+  {
+   "case": "v05-cfws-name__go__parse",
+   "variant": "v05-cfws-name",
+   "target": "go",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 0
+   },
+   "input_sha256": "16e5a5658eaacf895bfcd6d087a0c518a92eef43362e4445bb5558971a076299",
+   "known": false
+  },
+  {
+   "case": "v05-cfws-name__node__parse",
+   "variant": "v05-cfws-name",
+   "target": "node",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "received_count": 0,
+    "from_in_headers": true
+   },
+   "input_sha256": "16e5a5658eaacf895bfcd6d087a0c518a92eef43362e4445bb5558971a076299",
+   "known": false
   },
   {
    "case": "v06-comment-name__postfix__threshold",
@@ -986,10 +1166,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as 3C4DDAA69F",
+   "smtp": "250 2.0.0 Ok: queued as 65FF4AA8E3",
    "captured": true,
    "facts": {
-    "sha256": "bd4e0b597c79975229b21eb4246fd01684fcb74d2c46dc4bc21d37ab73ee559b",
+    "sha256": "ebc77246a003d9803e17105e070e705ceecfc19b4cea5cf2d5c7856d72fa50a4",
     "total_bytes": 7976,
     "zone_end": 7947,
     "body_bytes": 29,
@@ -1014,10 +1194,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as D8E45AA69F",
+   "smtp": "250 2.0.0 Ok: queued as 051C6AA8E3",
    "captured": true,
    "facts": {
-    "sha256": "287683134e694559c40251eef2297d67e12bf106d37649a467830823732ece78",
+    "sha256": "fd115b1846143084fd94ea8f0ae3024ae7e75d6361990233d8fc4e53a3bc8a59",
     "total_bytes": 4100,
     "zone_end": 4071,
     "body_bytes": 29,
@@ -1042,10 +1222,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 55a8217b Message accepted for delivery",
+   "smtp": "250 2.0.0 6eda2bda Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "9fcbcb50423cab701590684885e4922dab04055f8ca1a5c2c5fa6989992c1fec",
+    "sha256": "74eac3b2261deb6146eb924b8830ab724a3c0a5c5cb17b9d6533ba03cd50e52d",
     "total_bytes": 7782,
     "zone_end": 7753,
     "body_bytes": 29,
@@ -1070,10 +1250,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 f7094b55 Message accepted for delivery",
+   "smtp": "250 2.0.0 78ecf2ce Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "ba9da1bae75a3d73d4785153cb325fc9692017b61cfdf054dcd6155fdd4c296f",
+    "sha256": "d0c228f5a0b4631cefe8cca217bf40b7a9223860e246724d89ea62753d4c6774",
     "total_bytes": 3906,
     "zone_end": 3877,
     "body_bytes": 29,
@@ -1098,10 +1278,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrYW-00002V-0V",
+   "smtp": "250 OK id=1xCri0-00003j-0N",
    "captured": true,
    "facts": {
-    "sha256": "2c2dade90dd37f00010a43ca366478b8490c31d1dadd2f9d4800cfa51f2922ad",
+    "sha256": "144ef297eb0c5ab3cab98bc8ca032e2cbf6d4b77f46d3c2990d2f4b478e1a2f9",
     "total_bytes": 7769,
     "zone_end": 7740,
     "body_bytes": 29,
@@ -1126,10 +1306,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrYX-00002Z-2U",
+   "smtp": "250 OK id=1xCri1-00003n-2w",
    "captured": true,
    "facts": {
-    "sha256": "94b442c5ee915035ec2509920046e68705e1d1572b8e8f5a6bae79eb9ffee325",
+    "sha256": "96caddc7569daafe94b54dec44a36c9d2e235297233d24d7eb94f152fa90a08c",
     "total_bytes": 3893,
     "zone_end": 3864,
     "body_bytes": 29,
@@ -1154,10 +1334,39 @@
    "arm": "parse",
    "captured": true,
    "view": {
-    "error": "python3: can't open file '/opt/research/parsers/parse.py': [Errno 2] No such file or directory\n"
+    "received_count": 0,
+    "from_in_headers": true,
+    "defects": []
    },
    "input_sha256": "75c4baf7cd2b900d916ddc413d8a4f59828bb9278269b2f9d7179e2ffe3cd0ec",
-   "known": true
+   "known": false
+  },
+  {
+   "case": "v06-comment-name__go__parse",
+   "variant": "v06-comment-name",
+   "target": "go",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 0
+   },
+   "input_sha256": "75c4baf7cd2b900d916ddc413d8a4f59828bb9278269b2f9d7179e2ffe3cd0ec",
+   "known": false
+  },
+  {
+   "case": "v06-comment-name__node__parse",
+   "variant": "v06-comment-name",
+   "target": "node",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "received_count": 0,
+    "from_in_headers": true
+   },
+   "input_sha256": "75c4baf7cd2b900d916ddc413d8a4f59828bb9278269b2f9d7179e2ffe3cd0ec",
+   "known": false
   },
   {
    "case": "v07-tab-name__postfix__threshold",
@@ -1179,10 +1388,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 Ok: queued as 64C50AA69F",
+   "smtp": "250 2.0.0 Ok: queued as 28FA9AA8FF",
    "captured": true,
    "facts": {
-    "sha256": "be6c0c98a1232c195d4e3fcc6bff58877350019a3d6cfa9a3b3a3f11113a8506",
+    "sha256": "d15e683980c3add7e3e8dd3963823d94fbadc6899e9a2c1775c434684bb2a9ad",
     "total_bytes": 4013,
     "zone_end": 3984,
     "body_bytes": 29,
@@ -1206,10 +1415,10 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 b9f3fef5 Message accepted for delivery",
+   "smtp": "250 2.0.0 8ff897b4 Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "9280969d5b8a6e02d5467e78ad85991d3c79f3d96ef6a6e9c7012fb409a541b9",
+    "sha256": "54c0dc1b762c6b7ef7a189925190d811b41936043301c2ae8e34d692750af3fd",
     "total_bytes": 7660,
     "zone_end": 7631,
     "body_bytes": 29,
@@ -1234,10 +1443,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 2.0.0 2ef8c625 Message accepted for delivery",
+   "smtp": "250 2.0.0 dda27f4c Message accepted for delivery",
    "captured": true,
    "facts": {
-    "sha256": "8e567de09365748dbc4814cf2043544b31caddf1e160395f9dd54ae6af584ed7",
+    "sha256": "ab62d3539cd72964e05a65b79c32fa2167b98584a60e50c41e59fcad724f537c",
     "total_bytes": 3844,
     "zone_end": 3815,
     "body_bytes": 29,
@@ -1262,7 +1471,7 @@
    "arm": "threshold",
    "n": 55,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrYe-00002d-1s",
+   "smtp": "250 OK id=1xCriA-00003r-1d",
    "captured": false,
    "facts": {},
    "input_sha256": "d520b40dbddae413256e80c87c1ccba6fa3b3217ee311fba705ff26a299784f7",
@@ -1275,10 +1484,10 @@
    "arm": "capture",
    "n": 25,
    "smtp_code": "250",
-   "smtp": "250 OK id=1xCrZK-00002k-0x",
+   "smtp": "250 OK id=1xCriq-00003y-0g",
    "captured": true,
    "facts": {
-    "sha256": "2ab5c4a5d22983f9ef1f9f1bb3c37629d3b3a799e3655c30e55f9165926a536e",
+    "sha256": "082689cb1f9e8a3196fb889f4106e2325c3150ea7ba47f1b6acccf657c4796d9",
     "total_bytes": 3831,
     "zone_end": 3802,
     "body_bytes": 29,
@@ -1303,10 +1512,41 @@
    "arm": "parse",
    "captured": true,
    "view": {
-    "error": "python3: can't open file '/opt/research/parsers/parse.py': [Errno 2] No such file or directory\n"
+    "received_count": 0,
+    "from_in_headers": false,
+    "defects": [
+     "MissingHeaderBodySeparatorDefect"
+    ]
    },
    "input_sha256": "d9d64c7568cff1dbe5b6b90f9d25f36261060c413c03424d23692a3ad03f68ff",
-   "known": true
+   "known": false
+  },
+  {
+   "case": "v07-tab-name__go__parse",
+   "variant": "v07-tab-name",
+   "target": "go",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 0
+   },
+   "input_sha256": "d9d64c7568cff1dbe5b6b90f9d25f36261060c413c03424d23692a3ad03f68ff",
+   "known": false
+  },
+  {
+   "case": "v07-tab-name__node__parse",
+   "variant": "v07-tab-name",
+   "target": "node",
+   "arm": "parse",
+   "captured": true,
+   "view": {
+    "received_count": 25,
+    "from_in_headers": true
+   },
+   "input_sha256": "d9d64c7568cff1dbe5b6b90f9d25f36261060c413c03424d23692a3ad03f68ff",
+   "known": false
   }
  ]
 }

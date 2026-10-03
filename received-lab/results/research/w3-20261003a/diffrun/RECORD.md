@@ -29,3 +29,21 @@ Runner：`research/lib/diffrun.py`（发送-捕获-计数循环，事实一律�
 - 修复两处仪器 bug：fetch 按主题取最新（同主题多封时曾取到旧信）；无主题回退扫描（头区终结语料经中继后主题沉没）。
 - 计划自带代码的两处 bug 修复：tracefacts 的 8-bit 名 ASCII 骨架子序列判定（Receíved→receved 缺 i）；diffrun 测试首行无前置 CRLF 的计数断言。
 - 既有 test_runtime.py 的 5 个失败与本次无关（未触碰）。
+
+## parser 三列 L1 矩阵（任务 5，24 行 parse rows）
+
+| 形态 | python email | Go net/mail | Node mailparser |
+| --- | --- | --- | --- |
+| plain | 25, from=T | 25, T | 25, T |
+| obs-colon | 0, **from=F（头区死亡）** | 0, T | **25**, T |
+| case | 25, T | 25, T | 25, T |
+| nocolon | 0, F | 0, T | 0, T |
+| 8bit-name | 0, F | 0, T | 0, T |
+| cfws-name | 0, T | 0, T | 0, T |
+| comment-name | 0, T | 0, T | 0, T |
+| tab-name | 0, F | 0, T | **25**, T |
+
+- E3 手工结论自动化复现：obs 语料 python=0/go=0/node=25 ✓。
+- 新数据点（v04/v06/v07 行）：**python email 对 obs/nocolon/8bit/tab 在首条不合规行处终结头区**（`MissingHeaderBodySeparatorDefect`，From 判不在头区）；对合法字段名变体（cfws/comment）头区存活但不计。**Go net/mail 八形态头区全部存活**（边界最容忍），只计 strict+case。**Node mailparser 把 obs-colon 和 tab 都计入**（计数字典与 MTA 又不同）。
+- 同一 obs 字节三家三种命运：python 头区死亡 / go 忽略 / node 计入——L1 识别差分的 parser 轴首次自动化入矩阵。
+- 工具路径：python=msl-client、go=msl-verifiers（`go run`，仅标准库、离线可编译）、node=parser-node 容器（旧镜像 received-lab-parser-node + NODE_PATH=/app/node_modules）。

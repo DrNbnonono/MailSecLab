@@ -2,11 +2,11 @@ Bcc: capture@lab.test
 Return-Path: <alice@lab.test>
 Received: from opensmtpd.lab.test (opensmtpd.mailseclab-research-net. [10.88.0.5])
         by mailpit.lab.test (Mailpit) with SMTP
-        for <capture@lab.test>; Sat, 3 Oct 2026 04:27:46 +0000 (UTC)
+        for <capture@lab.test>; Sat, 3 Oct 2026 04:38:10 +0000 (UTC)
 Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
-	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id f831b719
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id 8cb5c7c6
 	for <capture@lab.test>;
-	Sat, 3 Oct 2026 04:27:45 +0000 (UTC)
+	Sat, 3 Oct 2026 04:38:09 +0000 (UTC)
 Received: from h0.lab.test (h0.lab.test [203.0.113.0]) by h1.lab.test with ESMTP id X0; Sat, 03 Oct 2026 21:0:00 +0000
 Received: from h1.lab.test (h1.lab.test [203.0.113.1]) by h2.lab.test with ESMTP id X1; Sat, 03 Oct 2026 21:1:00 +0000
 Received: from h2.lab.test (h2.lab.test [203.0.113.2]) by h3.lab.test with ESMTP id X2; Sat, 03 Oct 2026 21:2:00 +0000

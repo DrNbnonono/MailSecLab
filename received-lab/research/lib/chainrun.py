@@ -466,7 +466,8 @@ def run_chain(run_id: str, sequences: dict[str, tuple[str, ...]] | None = None,
                 ctl_raw = build_control("v00-plain", 1, ctl_cid)
                 ctl_row = _send_one(stage, ev_stage, SEEDS["v00-plain"],
                                     ctl_cid, ctl_raw, plan[0]["name"], arm)
-                ctl_row.update({"sequence": seq_name, "control": True})
+                # 控制信行用独立 seed 标识，避免与常规 v00-plain 行同键
+                ctl_row.update({"seed": "ctl-v00", "sequence": seq_name, "control": True})
                 delta_ok = (ctl_row["delivered"] and
                             ctl_row["facts"].get("received_zone_total") ==
                             1 + expected_relay_delta(len(kinds), arm))
@@ -512,7 +513,9 @@ def run_chain(run_id: str, sequences: dict[str, tuple[str, ...]] | None = None,
                     raw = build_control(variant, n, cid)
                     row = _send_one(stage, ev_stage, SEEDS[variant], cid, raw,
                                     plan[0]["name"], arm)
-                    row.update({"sequence": seq_name, "threshold_probe": f"{variant}/n={n}"})
+                    row.update({"sequence": seq_name,
+                                "seed": f"thr-{variant}-n{n}",  # 阈值探针独立 seed，避免与常规行同键
+                                "threshold_probe": f"{variant}/n={n}"})
                     key = known_key(row)
                     row["known"] = key in known
                     known.add(key)

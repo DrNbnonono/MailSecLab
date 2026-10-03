@@ -2,6 +2,8 @@
 
 一句话：邮件的安全语义不是 message bytes 的唯一函数，而是 message × implementation 的函数。四类语义角色（transport / parser / verifier / security & display consumer）对同一字节各持一套 trace 与身份解释。
 
+层级映射：L1=P、L2=T+X、L3=X+D——攻击原语逐条见 `TAXONOMY.md`（24 条，含 w4 语法 campaign 新增 T5/T6/X7/X8/D5）。
+
 ## L1 识别差分（同一字节里有哪些字段、边界在哪）
 
 - Postfix：obs-colon 规范化（含中继出口改写，w3 diffrun 字节级证明）并计数；tab 名规范化并计数；8-bit 字段名终结头区（后续字段沉正文）；CFWS/注释名保留不计；无冒号行沉正文不计。

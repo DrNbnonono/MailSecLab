@@ -1,0 +1,165 @@
+{
+ "series": {
+  "P": "识别差分",
+  "T": "变换差分",
+  "X": "信任差分",
+  "D": "展示/消费差分"
+ },
+ "root_causes": [
+  "tolerance",
+  "repair",
+  "trust-boundary",
+  "normalization"
+ ],
+ "rules": [
+  "系列=首个分歧动词位置；跨系列记链",
+  "纯 P 不入表（stage1 素材）",
+  "新发现先 classify 归系列、root_cause 人工判定"
+ ],
+ "primitives": [
+  {
+   "id": "P1",
+   "series": "P",
+   "root_cause": "tolerance",
+   "evidence": "w3 diffrun; E3"
+  },
+  {
+   "id": "P2",
+   "series": "P",
+   "root_cause": "tolerance",
+   "evidence": "w3 diffrun"
+  },
+  {
+   "id": "P3",
+   "series": "P",
+   "root_cause": "tolerance",
+   "evidence": "w2 eai A-3; V007"
+  },
+  {
+   "id": "P4",
+   "series": "P",
+   "root_cause": "tolerance",
+   "evidence": "w3 diffrun parse; w4 stage1.json"
+  },
+  {
+   "id": "P5",
+   "series": "P",
+   "root_cause": "normalization",
+   "evidence": "w2 keyprobe/dmarcfuzz/align2"
+  },
+  {
+   "id": "T1",
+   "series": "T",
+   "root_cause": "repair",
+   "evidence": "w3 diffrun; w4 relay"
+  },
+  {
+   "id": "T2",
+   "series": "T",
+   "root_cause": "repair",
+   "evidence": "w3 sigprobe2 s2"
+  },
+  {
+   "id": "T3",
+   "series": "T",
+   "root_cause": "repair",
+   "evidence": "w2 repair"
+  },
+  {
+   "id": "T4",
+   "series": "T",
+   "root_cause": "repair",
+   "evidence": "w3 sigprobe2 s1"
+  },
+  {
+   "id": "T5",
+   "series": "T",
+   "root_cause": "repair",
+   "evidence": "w4 sign gf-obs-from-fresh-000{0,2} (7)"
+  },
+  {
+   "id": "T6",
+   "series": "T",
+   "root_cause": "repair",
+   "evidence": "w4 relay (23)"
+  },
+  {
+   "id": "X1",
+   "series": "X",
+   "root_cause": "normalization",
+   "evidence": "w1 causal"
+  },
+  {
+   "id": "X2",
+   "series": "X",
+   "root_cause": "normalization",
+   "evidence": "w2 eai A"
+  },
+  {
+   "id": "X3",
+   "series": "X",
+   "root_cause": "trust-boundary",
+   "evidence": "w2 eai-enforce"
+  },
+  {
+   "id": "X4",
+   "series": "X",
+   "root_cause": "trust-boundary",
+   "evidence": "w2 arsurv"
+  },
+  {
+   "id": "X5",
+   "series": "X",
+   "root_cause": "trust-boundary",
+   "evidence": "w1 i2"
+  },
+  {
+   "id": "X6",
+   "series": "X",
+   "root_cause": "normalization",
+   "evidence": "w2 void/hdrfuzz3"
+  },
+  {
+   "id": "X7",
+   "series": "X",
+   "root_cause": "normalization",
+   "evidence": "w4 sign (15)"
+  },
+  {
+   "id": "X8",
+   "series": "X",
+   "root_cause": "tolerance",
+   "evidence": "w4 sign (13)"
+  },
+  {
+   "id": "D1",
+   "series": "D",
+   "root_cause": "normalization",
+   "evidence": "w1 causal+clients"
+  },
+  {
+   "id": "D2",
+   "series": "D",
+   "root_cause": "normalization",
+   "evidence": "w2 display"
+  },
+  {
+   "id": "D3",
+   "series": "D",
+   "root_cause": "normalization",
+   "evidence": "w2 exec"
+  },
+  {
+   "id": "D4",
+   "series": "D",
+   "root_cause": "normalization",
+   "evidence": "w2 rua"
+  },
+  {
+   "id": "D5",
+   "series": "D",
+   "root_cause": "normalization",
+   "evidence": "w4 imap (12)"
+  }
+ ]
+}

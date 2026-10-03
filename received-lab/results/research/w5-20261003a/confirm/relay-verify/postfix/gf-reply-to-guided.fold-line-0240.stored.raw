@@ -1,0 +1,21 @@
+Bcc: capture@lab.test
+Message-ID: <70huzSnG8KW1AlfWpEz9IK@mailpit>
+Return-Path: <alice@lab.test>
+Received: from auth-postfix.lab.test (msl-auth-postfix.mailseclab-research-net. [10.88.0.43])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 16:17:06 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 8EEC9AAE7D
+	for <capture@lab.test>; Sat,  3 Oct 2026 16:17:06 +0000 (UTC)
+Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)
+X-Spam: Yes
+
+o
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-reply-to-guided.fold-line-0240
+Message-ID: <gf-reply-to-guided.fold-line-0240@lab.test>
+X-Case-ID: gf-reply-to-guided.fold-line-0240
+
+Please confirm the payment.

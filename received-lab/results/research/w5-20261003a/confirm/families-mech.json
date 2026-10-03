@@ -1,0 +1,6196 @@
+{
+ "level": "mech",
+ "n_families": 119,
+ "n_rows": 236,
+ "families": [
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    "other"
+   ],
+   "representative": "gf-sender-guided.tab-colon-0000",
+   "members": [
+    "gf-sender-guided.tab-colon-0000",
+    "gf-sender-guided.tab-colon-0004",
+    "gf-sender-guided.tab-colon-0011",
+    "gf-sender-guided.tab-colon-0017",
+    "gf-sender-guided.tab-colon-0044",
+    "gf-reply-to-guided.tab-colon-0000",
+    "gf-reply-to-guided.space-colon-0004",
+    "gf-reply-to-guided.space-colon-0006",
+    "gf-reply-to-guided.tab-colon-0014",
+    "gf-reply-to-guided.tab-colon-0038",
+    "gf-resent-from-guided.tab-colon-0009",
+    "gf-resent-from-guided.space-colon-0011",
+    "gf-resent-from-guided.tab-colon-0022"
+   ],
+   "n": 13,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-aar-guided.tab-colon-0001",
+   "members": [
+    "gf-arc-aar-guided.tab-colon-0001",
+    "gf-arc-aar-guided.space-colon-0015",
+    "gf-arc-aar-guided.space-colon-0031",
+    "gf-arc-ams-guided.tab-colon-0002",
+    "gf-arc-ams-guided.tab-colon-0005",
+    "gf-arc-ams-guided.space-colon-0017",
+    "gf-arc-ams-guided.tab-colon-0033",
+    "gf-arc-as-guided.space-colon-0000",
+    "gf-arc-as-guided.tab-colon-0004",
+    "gf-arc-as-guided.space-colon-0035"
+   ],
+   "n": 10,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-aar-line.del-0100",
+   "members": [
+    "gf-arc-aar-line.del-0100",
+    "gf-arc-aar-line.del-0220",
+    "gf-arc-ams-line.del-0004",
+    "gf-arc-ams-line.del-0591",
+    "gf-arc-as-line.del-0048",
+    "gf-arc-as-line.del-0329"
+   ],
+   "n": 6,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-from-byte.flip-0435",
+   "members": [
+    "gf-obs-from-byte.flip-0435",
+    "gf-sender-byte.flip-1163",
+    "gf-sender-byte.flip-1345",
+    "gf-reply-to-byte.flip-0800",
+    "gf-reply-to-byte.insert-0977",
+    "gf-resent-from-byte.flip-0542"
+   ],
+   "n": 6,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-guided.space-colon-0004",
+   "members": [
+    "gf-received-guided.space-colon-0004",
+    "gf-received-guided.space-colon-0022",
+    "gf-received-guided.space-colon-0100",
+    "gf-obs-received-guided.space-colon-0174",
+    "gf-obs-received-guided.space-colon-0247",
+    "gf-obs-received-guided.space-colon-0479"
+   ],
+   "n": 6,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "byte",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-aar-byte.flip-0888",
+   "members": [
+    "gf-arc-aar-byte.flip-0888",
+    "gf-arc-aar-byte.delete-1314",
+    "gf-arc-ams-byte.flip-0077",
+    "gf-arc-ams-byte.flip-0147",
+    "gf-arc-as-byte.flip-0051"
+   ],
+   "n": 5,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-aar-guided.tab-colon-0012",
+   "members": [
+    "gf-arc-aar-guided.tab-colon-0012",
+    "gf-arc-aar-guided.space-colon-0073",
+    "gf-arc-ams-guided.space-colon-0020",
+    "gf-arc-as-guided.tab-colon-0009",
+    "gf-arc-as-guided.space-colon-0020"
+   ],
+   "n": 5,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-return-path-guided.tab-colon-0005",
+   "members": [
+    "gf-return-path-guided.tab-colon-0005",
+    "gf-return-path-guided.tab-colon-0006",
+    "gf-return-path-guided.space-colon-0018",
+    "gf-return-path-guided.tab-colon-0030",
+    "gf-return-path-guided.tab-colon-0062"
+   ],
+   "n": 5,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-aar-guided.tab-colon-0004",
+   "members": [
+    "gf-arc-aar-guided.tab-colon-0004",
+    "gf-arc-aar-guided.tab-colon-0020",
+    "gf-arc-ams-guided.tab-colon-0001",
+    "gf-arc-as-guided.tab-colon-0013"
+   ],
+   "n": 4,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-authres-byte.flip-0917",
+   "members": [
+    "gf-authres-byte.flip-0917",
+    "gf-arc-ams-byte.flip-0704",
+    "gf-arc-ams-byte.flip-1159",
+    "gf-arc-as-byte.flip-1342"
+   ],
+   "n": 4,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "byte",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-authres-byte.flip-1467",
+   "members": [
+    "gf-authres-byte.flip-1467",
+    "gf-arc-aar-byte.flip-0276",
+    "gf-arc-ams-byte.flip-0059",
+    "gf-arc-as-byte.flip-0196"
+   ],
+   "n": 4,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "dkim",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-dkim-tags-guided.tab-colon-0006",
+   "members": [
+    "gf-dkim-tags-guided.tab-colon-0006",
+    "gf-dkim-tags-guided.tab-colon-0019",
+    "gf-dkim-tags-guided.tab-colon-0042",
+    "gf-dkim-tags-guided.space-colon-0054"
+   ],
+   "n": 4,
+   "series_union": [
+    "P",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "obs-colon",
+    [
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-guided.tab-colon-0011",
+   "members": [
+    "gf-obs-received-guided.tab-colon-0011",
+    "gf-obs-received-guided.space-colon-0033",
+    "gf-obs-received-guided.tab-colon-0065",
+    "gf-obs-received-guided.space-colon-0420"
+   ],
+   "n": 4,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-guided.space-colon-0009",
+   "members": [
+    "gf-received-guided.space-colon-0009",
+    "gf-received-guided.tab-colon-0172",
+    "gf-obs-received-guided.tab-colon-0197",
+    "gf-obs-received-guided.space-colon-0596"
+   ],
+   "n": 4,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-guided.tab-colon-0010",
+   "members": [
+    "gf-received-guided.tab-colon-0010",
+    "gf-received-guided.tab-colon-0011",
+    "gf-obs-received-guided.tab-colon-0230",
+    "gf-obs-received-guided.space-colon-0415"
+   ],
+   "n": 4,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-sender-byte.flip-0688",
+   "members": [
+    "gf-sender-byte.flip-0688",
+    "gf-reply-to-byte.flip-0548",
+    "gf-return-path-byte.flip-0745",
+    "gf-resent-from-byte.flip-0189"
+   ],
+   "n": 4,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    "other"
+   ],
+   "representative": "gf-sender-guided.space-colon-0042",
+   "members": [
+    "gf-sender-guided.space-colon-0042",
+    "gf-reply-to-guided.tab-colon-0017",
+    "gf-reply-to-guided.space-colon-0022",
+    "gf-resent-from-guided.space-colon-0040"
+   ],
+   "n": 4,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    "other"
+   ],
+   "representative": "gf-sender-line.del-0003",
+   "members": [
+    "gf-sender-line.del-0003",
+    "gf-reply-to-line.del-0037",
+    "gf-resent-from-line.del-0008",
+    "gf-resent-from-line.del-0029"
+   ],
+   "n": 4,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "fold",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-aar-guided.fold-line-0040",
+   "members": [
+    "gf-arc-aar-guided.fold-line-0040",
+    "gf-arc-ams-guided.fold-line-0035",
+    "gf-arc-as-guided.fold-line-0074"
+   ],
+   "n": 3,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-aar-guided.tab-colon-0054",
+   "members": [
+    "gf-arc-aar-guided.tab-colon-0054",
+    "gf-arc-ams-guided.space-colon-0038",
+    "gf-arc-as-guided.tab-colon-0132"
+   ],
+   "n": 3,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-ams-byte.flip-0711",
+   "members": [
+    "gf-arc-ams-byte.flip-0711",
+    "gf-arc-as-byte.flip-0113",
+    "gf-arc-as-byte.flip-0461"
+   ],
+   "n": 3,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-authres-guided.tab-colon-0001",
+   "members": [
+    "gf-authres-guided.tab-colon-0001",
+    "gf-authres-guided.tab-colon-0007",
+    "gf-authres-guided.space-colon-0023"
+   ],
+   "n": 3,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-from-guided.fold-line-0196",
+   "members": [
+    "gf-from-guided.fold-line-0196",
+    "gf-from-guided.fold-line-0256",
+    "gf-reply-to-guided.fold-line-1310"
+   ],
+   "n": 3,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-from-guided.tab-colon-0282",
+   "members": [
+    "gf-obs-from-guided.tab-colon-0282",
+    "gf-obs-from-guided.tab-colon-0305",
+    "gf-obs-from-guided.tab-colon-0362"
+   ],
+   "n": 3,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-from-line.del-0450",
+   "members": [
+    "gf-obs-from-line.del-0450",
+    "gf-obs-from-line.del-0647",
+    "gf-return-path-line.del-0903"
+   ],
+   "n": 3,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "line",
+    [
+     "fc-min=n",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-line.del-0067",
+   "members": [
+    "gf-obs-received-line.del-0067",
+    "gf-obs-received-guided.dup-line-0412",
+    "gf-obs-received-line.del-1280"
+   ],
+   "n": 3,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "fold",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-reply-to-guided.fold-line-0240",
+   "members": [
+    "gf-reply-to-guided.fold-line-0240",
+    "gf-return-path-guided.fold-line-0024",
+    "gf-resent-from-guided.fold-line-0103"
+   ],
+   "n": 3,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-return-path-guided.space-colon-0032",
+   "members": [
+    "gf-return-path-guided.space-colon-0032",
+    "gf-return-path-guided.tab-colon-0090",
+    "gf-return-path-guided.space-colon-0277"
+   ],
+   "n": 3,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-aar-byte.flip-0042",
+   "members": [
+    "gf-arc-aar-byte.flip-0042",
+    "gf-arc-ams-byte.flip-0093"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-aar-guided.fold-line-0610",
+   "members": [
+    "gf-arc-aar-guided.fold-line-0610",
+    "gf-arc-as-guided.fold-line-0267"
+   ],
+   "n": 2,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-authres-guided.tab-colon-0003",
+   "members": [
+    "gf-authres-guided.tab-colon-0003",
+    "gf-authres-guided.tab-colon-0018"
+   ],
+   "n": 2,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-authres-guided.tab-colon-0017",
+   "members": [
+    "gf-authres-guided.tab-colon-0017",
+    "gf-authres-guided.space-colon-0025"
+   ],
+   "n": 2,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "dkim",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-dkim-tags-guided.tab-colon-0002",
+   "members": [
+    "gf-dkim-tags-guided.tab-colon-0002",
+    "gf-dkim-tags-guided.space-colon-0059"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "dkim",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-dkim-tags-line.del-0087",
+   "members": [
+    "gf-dkim-tags-line.del-0087",
+    "gf-dkim-tags-line.del-0349"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "fc-min=g+n"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-from-byte.delete-0844",
+   "members": [
+    "gf-from-byte.delete-0844",
+    "gf-sender-byte.flip-1468"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-from-byte.flip-0396",
+   "members": [
+    "gf-from-byte.flip-0396",
+    "gf-obs-from-byte.flip-0177"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "placeholder"
+   ],
+   "representative": "gf-from-guided.tab-colon-0036",
+   "members": [
+    "gf-from-guided.tab-colon-0036",
+    "gf-obs-from-guided.space-colon-0011"
+   ],
+   "n": 2,
+   "series_union": [
+    "D",
+    "P",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-from-guided.fold-line-0560",
+   "members": [
+    "gf-obs-from-guided.fold-line-0560",
+    "gf-obs-from-guided.fold-line-1300"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "tool-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "none"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "none"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "none"
+     ]
+    ],
+    "other"
+   ],
+   "representative": "gf-obs-from-guided.tab-colon-0018",
+   "members": [
+    "gf-obs-from-guided.tab-colon-0018",
+    "gf-obs-from-guided.tab-colon-0036"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "tool-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "none"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "none"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "none"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-obs-from-guided.tab-colon-0095",
+   "members": [
+    "gf-obs-from-guided.tab-colon-0095",
+    "gf-obs-from-guided.space-colon-0106"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-byte.flip-0331",
+   "members": [
+    "gf-received-byte.flip-0331",
+    "gf-received-byte.flip-0335"
+   ],
+   "n": 2,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "byte",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-byte.insert-1179",
+   "members": [
+    "gf-received-byte.insert-1179",
+    "gf-obs-received-byte.flip-0350"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "fold",
+    [
+     "err-g",
+     "fb",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-guided.fold-line-0167",
+   "members": [
+    "gf-received-guided.fold-line-0167",
+    "gf-obs-received-guided.fold-line-0264"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-line.del-0035",
+   "members": [
+    "gf-received-line.del-0035",
+    "gf-obs-received-line.del-0229"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    "other"
+   ],
+   "representative": "gf-sender-guided.tab-colon-0009",
+   "members": [
+    "gf-sender-guided.tab-colon-0009",
+    "gf-resent-from-guided.tab-colon-0028"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-sender-guided.tab-colon-0136",
+   "members": [
+    "gf-sender-guided.tab-colon-0136",
+    "gf-resent-from-guided.tab-colon-0077"
+   ],
+   "n": 2,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-sender-line.del-0559",
+   "members": [
+    "gf-sender-line.del-0559",
+    "gf-reply-to-line.del-0106"
+   ],
+   "n": 2,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "byte",
+    [
+     "fc-min=g+n"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-aar-byte.flip-0219",
+   "members": [
+    "gf-arc-aar-byte.flip-0219"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-ams-guided.fold-line-1003",
+   "members": [
+    "gf-arc-ams-guided.fold-line-1003"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-ams-guided.tab-colon-0094",
+   "members": [
+    "gf-arc-ams-guided.tab-colon-0094"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "line",
+    [
+     "fc-min=n"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-arc-as-line.move-0006",
+   "members": [
+    "gf-arc-as-line.move-0006"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "byte",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-authres-byte.flip-0516",
+   "members": [
+    "gf-authres-byte.flip-0516"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "fold",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-authres-guided.fold-line-0112",
+   "members": [
+    "gf-authres-guided.fold-line-0112"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-authres-guided.fold-line-0602",
+   "members": [
+    "gf-authres-guided.fold-line-0602"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-authres-guided.fold-line-0638",
+   "members": [
+    "gf-authres-guided.fold-line-0638"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-authres-guided.space-colon-0038",
+   "members": [
+    "gf-authres-guided.space-colon-0038"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "ar",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-authres-line.del-0093",
+   "members": [
+    "gf-authres-line.del-0093"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "dkim",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-dkim-tags-byte.flip-0029",
+   "members": [
+    "gf-dkim-tags-byte.flip-0029"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "dkim",
+    "byte",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-dkim-tags-byte.flip-0256",
+   "members": [
+    "gf-dkim-tags-byte.flip-0256"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "dkim",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-dkim-tags-byte.flip-0490",
+   "members": [
+    "gf-dkim-tags-byte.flip-0490"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "dkim",
+    "fold",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-dkim-tags-guided.fold-line-0023",
+   "members": [
+    "gf-dkim-tags-guided.fold-line-0023"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "dkim",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-dkim-tags-guided.fold-line-1026",
+   "members": [
+    "gf-dkim-tags-guided.fold-line-1026"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "dkim",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-dkim-tags-guided.tab-colon-0001",
+   "members": [
+    "gf-dkim-tags-guided.tab-colon-0001"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "dkim",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-dkim-tags-guided.tab-colon-0008",
+   "members": [
+    "gf-dkim-tags-guided.tab-colon-0008"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "placeholder"
+   ],
+   "representative": "gf-from-byte.flip-0004",
+   "members": [
+    "gf-from-byte.flip-0004"
+   ],
+   "n": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "other"
+   ],
+   "representative": "gf-from-byte.flip-0035",
+   "members": [
+    "gf-from-byte.flip-0035"
+   ],
+   "n": 1,
+   "series_union": [
+    "D",
+    "P",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-from-byte.flip-0038",
+   "members": [
+    "gf-from-byte.flip-0038"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-from-byte.flip-0338",
+   "members": [
+    "gf-from-byte.flip-0338"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "line",
+    [
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-from-guided.dup-line-0080",
+   "members": [
+    "gf-from-guided.dup-line-0080"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "syntax_error"
+   ],
+   "representative": "gf-from-guided.space-colon-0000",
+   "members": [
+    "gf-from-guided.space-colon-0000"
+   ],
+   "n": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p+n"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "other"
+   ],
+   "representative": "gf-from-guided.space-colon-0005",
+   "members": [
+    "gf-from-guided.space-colon-0005"
+   ],
+   "n": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "other"
+   ],
+   "representative": "gf-from-guided.tab-colon-0001",
+   "members": [
+    "gf-from-guided.tab-colon-0001"
+   ],
+   "n": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "syntax_error"
+   ],
+   "representative": "gf-from-guided.tab-colon-0008",
+   "members": [
+    "gf-from-guided.tab-colon-0008"
+   ],
+   "n": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "syntax_error"
+   ],
+   "representative": "gf-from-guided.tab-colon-0014",
+   "members": [
+    "gf-from-guided.tab-colon-0014"
+   ],
+   "n": 1,
+   "series_union": [
+    "D",
+    "P",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-from-guided.tab-colon-0047",
+   "members": [
+    "gf-from-guided.tab-colon-0047"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-from-guided.tab-colon-0174",
+   "members": [
+    "gf-from-guided.tab-colon-0174"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-from-line.del-0106",
+   "members": [
+    "gf-from-line.del-0106"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-from-line.del-0118",
+   "members": [
+    "gf-from-line.del-0118"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-from-byte.flip-0974",
+   "members": [
+    "gf-obs-from-byte.flip-0974"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-from-byte.flip-1299",
+   "members": [
+    "gf-obs-from-byte.flip-1299"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "fresh",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "parse-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "placeholder"
+   ],
+   "representative": "gf-obs-from-fresh-0000",
+   "members": [
+    "gf-obs-from-fresh-0000"
+   ],
+   "n": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "fresh",
+    [
+     "fc-min=p+n"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "tool-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "none"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "none"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "none"
+     ]
+    ],
+    "other"
+   ],
+   "representative": "gf-obs-from-fresh-0002",
+   "members": [
+    "gf-obs-from-fresh-0002"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "parse-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "syntax_error"
+   ],
+   "representative": "gf-obs-from-guided.space-colon-0007",
+   "members": [
+    "gf-obs-from-guided.space-colon-0007"
+   ],
+   "n": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-from-guided.space-colon-0187",
+   "members": [
+    "gf-obs-from-guided.space-colon-0187"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-from-guided.space-colon-0240",
+   "members": [
+    "gf-obs-from-guided.space-colon-0240"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "tool-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "none"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "none"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "none"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-obs-from-guided.tab-colon-0116",
+   "members": [
+    "gf-obs-from-guided.tab-colon-0116"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-obs-from-guided.tab-colon-0154",
+   "members": [
+    "gf-obs-from-guided.tab-colon-0154"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "line",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "parse-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "syntax_error"
+   ],
+   "representative": "gf-obs-from-line.del-0006",
+   "members": [
+    "gf-obs-from-line.del-0006"
+   ],
+   "n": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "line",
+    [
+     "fc-min=p+n"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "tool-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "none"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "none"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "none"
+     ]
+    ],
+    "other"
+   ],
+   "representative": "gf-obs-from-line.del-0033",
+   "members": [
+    "gf-obs-from-line.del-0033"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "line",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "parse-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-obs-from-line.del-0081",
+   "members": [
+    "gf-obs-from-line.del-0081"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "line",
+    [
+     "fc-min=p+n"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-from-line.del-0158",
+   "members": [
+    "gf-obs-from-line.del-0158"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "byte",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-byte.flip-1098",
+   "members": [
+    "gf-obs-received-byte.flip-1098"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "fresh",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-fresh-0000",
+   "members": [
+    "gf-obs-received-fresh-0000"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "fresh",
+    [
+     "fb",
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-fresh-0001",
+   "members": [
+    "gf-obs-received-fresh-0001"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "fresh",
+    [
+     "fc-min=n",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-fresh-0005",
+   "members": [
+    "gf-obs-received-fresh-0005"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-guided.space-colon-0031",
+   "members": [
+    "gf-obs-received-guided.space-colon-0031"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p+n",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-guided.space-colon-0615",
+   "members": [
+    "gf-obs-received-guided.space-colon-0615"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "obs-colon",
+    [
+     "fc-min=p+n",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-guided.space-colon-0624",
+   "members": [
+    "gf-obs-received-guided.space-colon-0624"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-guided.tab-colon-0071",
+   "members": [
+    "gf-obs-received-guided.tab-colon-0071"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-guided.tab-colon-0355",
+   "members": [
+    "gf-obs-received-guided.tab-colon-0355"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "line",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-line.del-0012",
+   "members": [
+    "gf-obs-received-line.del-0012"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "line",
+    [
+     "fb",
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-line.del-0025",
+   "members": [
+    "gf-obs-received-line.del-0025"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "line",
+    [
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-line.del-0039",
+   "members": [
+    "gf-obs-received-line.del-0039"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "line",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-obs-received-line.del-0214",
+   "members": [
+    "gf-obs-received-line.del-0214"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "byte",
+    [
+     "fc-min=g+n"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-byte.delete-0317",
+   "members": [
+    "gf-received-byte.delete-0317"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-byte.flip-0692",
+   "members": [
+    "gf-received-byte.flip-0692"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "byte",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      null
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      null
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-byte.insert-0116",
+   "members": [
+    "gf-received-byte.insert-0116"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-guided.fold-line-0044",
+   "members": [
+    "gf-received-guided.fold-line-0044"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-guided.tab-colon-0038",
+   "members": [
+    "gf-received-guided.tab-colon-0038"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "line",
+    [],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-line.dup-0599",
+   "members": [
+    "gf-received-line.dup-0599"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "trace",
+    "line",
+    [
+     "fc-min=n",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-received-line.move-0532",
+   "members": [
+    "gf-received-line.move-0532"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-reply-to-byte.flip-1135",
+   "members": [
+    "gf-reply-to-byte.flip-1135"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-reply-to-guided.tab-colon-0066",
+   "members": [
+    "gf-reply-to-guided.tab-colon-0066"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    "other"
+   ],
+   "representative": "gf-resent-from-guided.space-colon-0042",
+   "members": [
+    "gf-resent-from-guided.space-colon-0042"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-resent-from-guided.tab-colon-0064",
+   "members": [
+    "gf-resent-from-guided.tab-colon-0064"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-return-path-byte.delete-0585",
+   "members": [
+    "gf-return-path-byte.delete-0585"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "representative": "gf-return-path-byte.flip-1443",
+   "members": [
+    "gf-return-path-byte.flip-1443"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-return-path-line.del-0029",
+   "members": [
+    "gf-return-path-line.del-0029"
+   ],
+   "n": 1,
+   "series_union": [
+    "P",
+    "T"
+   ]
+  },
+  {
+   "level": "mech",
+   "key": [
+    "identity",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "representative": "gf-sender-guided.fold-line-0428",
+   "members": [
+    "gf-sender-guided.fold-line-0428"
+   ],
+   "n": 1,
+   "series_union": [
+    "P"
+   ]
+  }
+ ]
+}

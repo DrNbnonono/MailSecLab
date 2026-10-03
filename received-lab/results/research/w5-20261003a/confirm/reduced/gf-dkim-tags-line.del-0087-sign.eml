@@ -1,0 +1,12 @@
+DKIM-Signature: 
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=jd+BYOiRnO7/dnwnE4NTUIGCxh9G9+QFVa1GmxhTwrtQDPHYGg5n3fbGaMeqQ8xMzj1p6RKf7/eFzQq8c8gWlILjfs5mypwp2OpEaIfb8bOQprC6Xr+MmB9FYAIEvsb+tS5Aplh+iopqpyZRjbQQ9Ya9bcVif0E/aG6hel/lpZu+h5dVkL8B4G62fJDvnwV/E2+u+suys0Z3C8dcbmeaN9ShQfWG2iW6KyajNbDuGGs8oraAt5UQEtPOQxM8pS4Z3hacLEQa2XRjzBV8bma8vY/vFF6dwKx7hU38SyEzGOksEChLlFVwqMikvw4FHAf9q2HTysy42vK/bKAY3uTooQ==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-dkim-tags-line.del-0087-sign
+Message-ID: <gf-dkim-tags-line.del-0087-sign@lab.test>
+X-Case-ID: gf-dkim-tags-line.del-0087-sign
+
+Please confirm the payment.

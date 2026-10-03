@@ -1,0 +1,618 @@
+{
+ "gf-dkim-tags-guided.tab-colon-0006": {
+  "family": "gf-dkim-tags-guided.tab-colon-0006",
+  "original_bytes": 819,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 36,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 809,
+  "product": "reduced/gf-dkim-tags-guided.tab-colon-0006-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "parse-error",
+   "go": "fail",
+   "rspamd": "pass"
+  }
+ },
+ "gf-dkim-tags-guided.tab-colon-0002": {
+  "family": "gf-dkim-tags-guided.tab-colon-0002",
+  "original_bytes": 819,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 51,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 809,
+  "product": "reduced/gf-dkim-tags-guided.tab-colon-0002-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "parse-error",
+   "go": "fail",
+   "rspamd": "pass"
+  }
+ },
+ "gf-dkim-tags-line.del-0087": {
+  "family": "gf-dkim-tags-line.del-0087",
+  "original_bytes": 847,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 48,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 786,
+  "product": "reduced/gf-dkim-tags-line.del-0087-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "parse-error",
+   "go": "fail",
+   "rspamd": "pass"
+  }
+ },
+ "gf-from-guided.tab-colon-0036": {
+  "family": "gf-from-guided.tab-colon-0036",
+  "original_bytes": 896,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 37,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 784,
+  "product": "reduced/gf-from-guided.tab-colon-0036-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-obs-from-guided.tab-colon-0018": {
+  "family": "gf-obs-from-guided.tab-colon-0018",
+  "original_bytes": 932,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 29,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 792,
+  "product": "reduced/gf-obs-from-guided.tab-colon-0018-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "tool-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  }
+ },
+ "gf-obs-from-guided.tab-colon-0095": {
+  "family": "gf-obs-from-guided.tab-colon-0095",
+  "original_bytes": 844,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 14,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 792,
+  "product": "reduced/gf-obs-from-guided.tab-colon-0095-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "tool-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  }
+ },
+ "gf-dkim-tags-byte.flip-0029": {
+  "family": "gf-dkim-tags-byte.flip-0029",
+  "original_bytes": 869,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 47,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 789,
+  "product": "reduced/gf-dkim-tags-byte.flip-0029-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "parse-error",
+   "go": "fail",
+   "rspamd": "pass"
+  }
+ },
+ "gf-dkim-tags-byte.flip-0256": {
+  "family": "gf-dkim-tags-byte.flip-0256",
+  "original_bytes": 829,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 33,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 789,
+  "product": "reduced/gf-dkim-tags-byte.flip-0256-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "parse-error",
+   "go": "fail",
+   "rspamd": "pass"
+  }
+ },
+ "gf-dkim-tags-guided.fold-line-0023": {
+  "family": "gf-dkim-tags-guided.fold-line-0023",
+  "original_bytes": 864,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 36,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 810,
+  "product": "reduced/gf-dkim-tags-guided.fold-line-0023-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "parse-error",
+   "go": "fail",
+   "rspamd": "pass"
+  }
+ },
+ "gf-dkim-tags-guided.tab-colon-0001": {
+  "family": "gf-dkim-tags-guided.tab-colon-0001",
+  "original_bytes": 842,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 42,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 810,
+  "product": "reduced/gf-dkim-tags-guided.tab-colon-0001-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "parse-error",
+   "go": "fail",
+   "rspamd": "pass"
+  }
+ },
+ "gf-dkim-tags-guided.tab-colon-0008": {
+  "family": "gf-dkim-tags-guided.tab-colon-0008",
+  "original_bytes": 839,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 74,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 812,
+  "product": "reduced/gf-dkim-tags-guided.tab-colon-0008-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "parse-error",
+   "go": "fail",
+   "rspamd": "pass"
+  }
+ },
+ "gf-from-byte.flip-0004": {
+  "family": "gf-from-byte.flip-0004",
+  "original_bytes": 859,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 35,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 763,
+  "product": "reduced/gf-from-byte.flip-0004-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-from-byte.flip-0035": {
+  "family": "gf-from-byte.flip-0035",
+  "original_bytes": 819,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 38,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 763,
+  "product": "reduced/gf-from-byte.flip-0035-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-from-byte.flip-0038": {
+  "family": "gf-from-byte.flip-0038",
+  "original_bytes": 923,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 34,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 763,
+  "product": "reduced/gf-from-byte.flip-0038-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-from-guided.dup-line-0080": {
+  "family": "gf-from-guided.dup-line-0080",
+  "original_bytes": 870,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 14,
+  "seeded_from_p_min": true,
+  "minimized_bytes": 781,
+  "product": "reduced/gf-from-guided.dup-line-0080-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-from-guided.space-colon-0000": {
+  "family": "gf-from-guided.space-colon-0000",
+  "original_bytes": 885,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 26,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 790,
+  "product": "reduced/gf-from-guided.space-colon-0000-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-from-guided.space-colon-0005": {
+  "family": "gf-from-guided.space-colon-0005",
+  "original_bytes": 913,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 35,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 790,
+  "product": "reduced/gf-from-guided.space-colon-0005-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-from-guided.tab-colon-0001": {
+  "family": "gf-from-guided.tab-colon-0001",
+  "original_bytes": 873,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 37,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 784,
+  "product": "reduced/gf-from-guided.tab-colon-0001-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-from-guided.tab-colon-0008": {
+  "family": "gf-from-guided.tab-colon-0008",
+  "original_bytes": 849,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 32,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 784,
+  "product": "reduced/gf-from-guided.tab-colon-0008-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-from-guided.tab-colon-0014": {
+  "family": "gf-from-guided.tab-colon-0014",
+  "original_bytes": 869,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 35,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 784,
+  "product": "reduced/gf-from-guided.tab-colon-0014-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-from-guided.tab-colon-0047": {
+  "family": "gf-from-guided.tab-colon-0047",
+  "original_bytes": 843,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 35,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 784,
+  "product": "reduced/gf-from-guided.tab-colon-0047-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-from-line.del-0106": {
+  "family": "gf-from-line.del-0106",
+  "original_bytes": 869,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 42,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 760,
+  "product": "reduced/gf-from-line.del-0106-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-from-line.del-0118": {
+  "family": "gf-from-line.del-0118",
+  "original_bytes": 831,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 25,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 760,
+  "product": "reduced/gf-from-line.del-0118-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-obs-from-fresh-0000": {
+  "family": "gf-obs-from-fresh-0000",
+  "original_bytes": 898,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 6,
+  "seeded_from_p_min": true,
+  "minimized_bytes": 759,
+  "product": "reduced/gf-obs-from-fresh-0000-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "parse-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  }
+ },
+ "gf-obs-from-fresh-0002": {
+  "family": "gf-obs-from-fresh-0002",
+  "original_bytes": 783,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 10,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 759,
+  "product": "reduced/gf-obs-from-fresh-0002-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "tool-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  }
+ },
+ "gf-obs-from-guided.space-colon-0007": {
+  "family": "gf-obs-from-guided.space-colon-0007",
+  "original_bytes": 958,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 8,
+  "seeded_from_p_min": true,
+  "minimized_bytes": 798,
+  "product": "reduced/gf-obs-from-guided.space-colon-0007-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "parse-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  }
+ },
+ "gf-obs-from-guided.tab-colon-0116": {
+  "family": "gf-obs-from-guided.tab-colon-0116",
+  "original_bytes": 978,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 11,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 792,
+  "product": "reduced/gf-obs-from-guided.tab-colon-0116-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "tool-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  }
+ },
+ "gf-obs-from-guided.tab-colon-0154": {
+  "family": "gf-obs-from-guided.tab-colon-0154",
+  "original_bytes": 852,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 37,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 796,
+  "product": "reduced/gf-obs-from-guided.tab-colon-0154-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "fail",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "fail"
+  }
+ },
+ "gf-obs-from-line.del-0006": {
+  "family": "gf-obs-from-line.del-0006",
+  "original_bytes": 877,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 6,
+  "seeded_from_p_min": true,
+  "minimized_bytes": 768,
+  "product": "reduced/gf-obs-from-line.del-0006-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "parse-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  }
+ },
+ "gf-obs-from-line.del-0033": {
+  "family": "gf-obs-from-line.del-0033",
+  "original_bytes": 996,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 17,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 768,
+  "product": "reduced/gf-obs-from-line.del-0033-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "tool-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  }
+ },
+ "gf-obs-from-line.del-0081": {
+  "family": "gf-obs-from-line.del-0081",
+  "original_bytes": 887,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 8,
+  "seeded_from_p_min": true,
+  "minimized_bytes": 768,
+  "product": "reduced/gf-obs-from-line.del-0081-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "parse-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  }
+ },
+ "gf-sign-anchor-kb2": {
+  "family": "gf-sign-anchor-kb2",
+  "original_bytes": 803,
+  "status": "confirmed",
+  "failure_reason": null,
+  "steps": 18,
+  "seeded_from_p_min": false,
+  "minimized_bytes": 732,
+  "product": "reduced/gf-sign-anchor-kb2-sign.eml",
+  "x_verify": true,
+  "verdicts_replay": {
+   "dkimpy": "parse-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  },
+  "unconstrained_observation": "无约束最小子把注入行缩到非头行仍呈同一形态（dkimpy 对签名上方任意非头行 parse-error 的更广触发类）；约束锚见 constrained_minimized_bytes",
+  "constrained_minimized_bytes": 741,
+  "constrained_gen_block_hex": "5265636569766564203a0d0a",
+  "constrained_x_verify": true,
+  "constrained_verdicts_replay": {
+   "dkimpy": "parse-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  },
+  "anchor_variants": {
+   "Received-alone": {
+    "gen_block": "Received",
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": true
+   },
+   "Received-obs-colon-empty": {
+    "gen_block": "Received :",
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": true
+   },
+   "Received-strict-colon-empty": {
+    "gen_block": "Received:",
+    "verdicts": {
+     "dkimpy": "pass",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": false
+   },
+   "Received-obs-colon-full": {
+    "gen_block": "Received : from x by y; Sat, 3 Oct 2026 00:00:00 +0000",
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": true
+   },
+   "junk-line-X": {
+    "gen_block": "X",
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": true
+   },
+   "space-continuation": {
+    "gen_block": " ",
+    "verdicts": {
+     "dkimpy": "tool-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": false
+   }
+  }
+ }
+}

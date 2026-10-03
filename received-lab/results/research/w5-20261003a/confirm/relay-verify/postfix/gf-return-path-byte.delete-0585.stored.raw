@@ -1,0 +1,21 @@
+Bcc: capture@lab.test
+Message-ID: <1N4PyPdk8p3qKC4RT2C8xQ@mailpit>
+Return-Path: <alice@lab.test>
+Received: from auth-postfix.lab.test (msl-auth-postfix.mailseclab-research-net. [10.88.0.43])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 16:22:29 +0000 (UTC)
+Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 62921AA8C5
+	for <capture@lab.test>; Sat,  3 Oct 2026 16:22:29 +0000 (UTC)
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-return-path-byte.delete-0585
+X-Spam: Yes
+
+>
+X-Case-ID: gf-return-path-byte.delete-0585
+
+Please confirm the payment.

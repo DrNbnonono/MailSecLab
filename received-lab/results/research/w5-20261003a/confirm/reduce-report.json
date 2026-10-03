@@ -1,0 +1,10678 @@
+{
+ "run_w4": "w4-20261003a",
+ "run_w5": "w5-20261003a",
+ "interpretation_notes": {
+  "t_drift": "T 漂移主因是 P 差分触发字节与中继改写触发字节基本独立（如 P 最小子只剩单个 tab 行时 exim/postfix 无可改写、osmtpd 拒收却普遍存活）——P 谓词 ddmin 会砍掉 T6 类改写触发字节。漂移族按任务纪律记 failed，不硬凑。",
+  "vacuous_gen": "min_gen 为空的族（P 差分落在 keep 行突变上）gen 存活判据空转，t_drift 里标 vacuous=true。"
+ },
+ "clustering": {
+  "fine": {
+   "n_families": 236,
+   "note": "计划原键；w4 实测全单例（field_count 字节噪声）"
+  },
+  "mid": {
+   "n_families": 186,
+   "note": "计划粗化（field_count 降级）；仍 >60，噪声在 rc/fc 深度"
+  },
+  "mech": {
+   "n_families": 119,
+   "note": "机制级操作键：入口类×算子类×P 差分特征×保留三元组×X 形态×D 形态"
+  }
+ },
+ "sanity": {
+  "p_exact_and_pred_ok": 119,
+  "p_checked": 119,
+  "x_ok": 31,
+  "x_checked": 31,
+  "kb2_anchor": {
+   "file": "sign/gf-sign-anchor-kb2.eml",
+   "expect": {
+    "dkimpy": "parse-error",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "pass"
+   },
+   "got": {
+    "dkimpy": "parse-error",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "pass"
+   },
+   "ok": true
+  }
+ },
+ "kb2_anchor_minimal": {
+  "family": "gf-sign-anchor-kb2",
+  "mechanism": "obs-Received（`Received :`）注入于已签 DKIM-Signature 之上",
+  "predicate_shape": {
+   "dkimpy": "parse-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  },
+  "product": "reduced/gf-sign-anchor-kb2-sign.eml",
+  "original_bytes": 803,
+  "unconstrained_minimized_bytes": 732,
+  "unconstrained_observation": "无约束最小子把注入行缩到非头行仍呈同一形态（dkimpy 对签名上方任意非头行 parse-error 的更广触发类）；约束锚见 constrained_minimized_bytes",
+  "constrained_minimized_bytes": 741,
+  "constrained_gen_block": "Received :\r\n",
+  "constrained_x_verify": true,
+  "constrained_verdicts_replay": {
+   "dkimpy": "parse-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  },
+  "anchor_variants": {
+   "Received-alone": {
+    "gen_block": "Received",
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": true
+   },
+   "Received-obs-colon-empty": {
+    "gen_block": "Received :",
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": true
+   },
+   "Received-strict-colon-empty": {
+    "gen_block": "Received:",
+    "verdicts": {
+     "dkimpy": "pass",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": false
+   },
+   "Received-obs-colon-full": {
+    "gen_block": "Received : from x by y; Sat, 3 Oct 2026 00:00:00 +0000",
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": true
+   },
+   "junk-line-X": {
+    "gen_block": "X",
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": true
+   },
+   "space-continuation": {
+    "gen_block": " ",
+    "verdicts": {
+     "dkimpy": "tool-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "kb2_shape": false
+   }
+  }
+ },
+ "relay": {
+  "t_families": 81,
+  "t_ok": 15,
+  "d_families": 11,
+  "d_ok": 3,
+  "rollback_clean": true,
+  "t_drift_directions": {
+   "exim: want=False got=True": 46,
+   "postfix: want=False got=True": 30,
+   "postfix: want=True got=False": 14,
+   "osmtpd: want=False got=True": 12,
+   "osmtpd: want=False got=None": 4,
+   "exim: want=False got=None": 4,
+   "postfix: want=False got=None": 3,
+   "osmtpd: want=True got=None": 3,
+   "postfix: want=True got=None": 2,
+   "exim: want=True got=None": 1,
+   "exim: want=True got=False": 1
+  }
+ },
+ "families": [
+  {
+   "family": "gf-sender-guided.tab-colon-0000",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    "other"
+   ],
+   "n_members": 13,
+   "members": [
+    "gf-sender-guided.tab-colon-0000",
+    "gf-sender-guided.tab-colon-0004",
+    "gf-sender-guided.tab-colon-0011",
+    "gf-sender-guided.tab-colon-0017",
+    "gf-sender-guided.tab-colon-0044",
+    "gf-reply-to-guided.tab-colon-0000",
+    "gf-reply-to-guided.space-colon-0004",
+    "gf-reply-to-guided.space-colon-0006",
+    "gf-reply-to-guided.tab-colon-0014",
+    "gf-reply-to-guided.tab-colon-0038",
+    "gf-resent-from-guided.tab-colon-0009",
+    "gf-resent-from-guided.space-colon-0011",
+    "gf-resent-from-guided.tab-colon-0022"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "sender",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 369,
+   "minimized_bytes": 271,
+   "product": "reduced/gf-sender-guided.tab-colon-0000.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-arc-aar-guided.tab-colon-0001",
+   "mech_key": [
+    "ar",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 10,
+   "members": [
+    "gf-arc-aar-guided.tab-colon-0001",
+    "gf-arc-aar-guided.space-colon-0015",
+    "gf-arc-aar-guided.space-colon-0031",
+    "gf-arc-ams-guided.tab-colon-0002",
+    "gf-arc-ams-guided.tab-colon-0005",
+    "gf-arc-ams-guided.space-colon-0017",
+    "gf-arc-ams-guided.tab-colon-0033",
+    "gf-arc-as-guided.space-colon-0000",
+    "gf-arc-as-guided.tab-colon-0004",
+    "gf-arc-as-guided.space-colon-0035"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "arc-aar",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 421,
+   "minimized_bytes": 240,
+   "product": "reduced/gf-arc-aar-guided.tab-colon-0001.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-arc-aar-line.del-0100",
+   "mech_key": [
+    "ar",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 6,
+   "members": [
+    "gf-arc-aar-line.del-0100",
+    "gf-arc-aar-line.del-0220",
+    "gf-arc-ams-line.del-0004",
+    "gf-arc-ams-line.del-0591",
+    "gf-arc-as-line.del-0048",
+    "gf-arc-as-line.del-0329"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "arc-aar",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 393,
+   "minimized_bytes": 252,
+   "product": "reduced/gf-arc-aar-line.del-0100.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-byte.flip-0435",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 6,
+   "members": [
+    "gf-obs-from-byte.flip-0435",
+    "gf-sender-byte.flip-1163",
+    "gf-sender-byte.flip-1345",
+    "gf-reply-to-byte.flip-0800",
+    "gf-reply-to-byte.insert-0977",
+    "gf-resent-from-byte.flip-0542"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-from",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g",
+      "fb"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 340,
+   "minimized_bytes": 258,
+   "product": "reduced/gf-obs-from-byte.flip-0435.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-received-guided.space-colon-0004",
+   "mech_key": [
+    "trace",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 6,
+   "members": [
+    "gf-received-guided.space-colon-0004",
+    "gf-received-guided.space-colon-0022",
+    "gf-received-guided.space-colon-0100",
+    "gf-obs-received-guided.space-colon-0174",
+    "gf-obs-received-guided.space-colon-0247",
+    "gf-obs-received-guided.space-colon-0479"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "received",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 504,
+   "minimized_bytes": 283,
+   "product": "reduced/gf-received-guided.space-colon-0004.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-arc-aar-byte.flip-0888",
+   "mech_key": [
+    "ar",
+    "byte",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 5,
+   "members": [
+    "gf-arc-aar-byte.flip-0888",
+    "gf-arc-aar-byte.delete-1314",
+    "gf-arc-ams-byte.flip-0077",
+    "gf-arc-ams-byte.flip-0147",
+    "gf-arc-as-byte.flip-0051"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "arc-aar",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g",
+      "fb"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 437,
+   "minimized_bytes": 255,
+   "product": "reduced/gf-arc-aar-byte.flip-0888.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-arc-aar-guided.tab-colon-0012",
+   "mech_key": [
+    "ar",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 5,
+   "members": [
+    "gf-arc-aar-guided.tab-colon-0012",
+    "gf-arc-aar-guided.space-colon-0073",
+    "gf-arc-ams-guided.space-colon-0020",
+    "gf-arc-as-guided.tab-colon-0009",
+    "gf-arc-as-guided.space-colon-0020"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "arc-aar",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 382,
+   "minimized_bytes": 240,
+   "product": "reduced/gf-arc-aar-guided.tab-colon-0012.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-return-path-guided.tab-colon-0005",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 5,
+   "members": [
+    "gf-return-path-guided.tab-colon-0005",
+    "gf-return-path-guided.tab-colon-0006",
+    "gf-return-path-guided.space-colon-0018",
+    "gf-return-path-guided.tab-colon-0030",
+    "gf-return-path-guided.tab-colon-0062"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "return-path",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 302,
+   "minimized_bytes": 286,
+   "product": "reduced/gf-return-path-guided.tab-colon-0005.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "osmtpd": {
+     "want": false,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "exim": {
+     "want": false,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-arc-aar-guided.tab-colon-0004",
+   "mech_key": [
+    "ar",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 4,
+   "members": [
+    "gf-arc-aar-guided.tab-colon-0004",
+    "gf-arc-aar-guided.tab-colon-0020",
+    "gf-arc-ams-guided.tab-colon-0001",
+    "gf-arc-as-guided.tab-colon-0013"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "arc-aar",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 463,
+   "minimized_bytes": 260,
+   "product": "reduced/gf-arc-aar-guided.tab-colon-0004.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-authres-byte.flip-0917",
+   "mech_key": [
+    "ar",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 4,
+   "members": [
+    "gf-authres-byte.flip-0917",
+    "gf-arc-ams-byte.flip-0704",
+    "gf-arc-ams-byte.flip-1159",
+    "gf-arc-as-byte.flip-1342"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "authres",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 285,
+   "minimized_bytes": 252,
+   "product": "reduced/gf-authres-byte.flip-0917.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-authres-byte.flip-1467",
+   "mech_key": [
+    "ar",
+    "byte",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 4,
+   "members": [
+    "gf-authres-byte.flip-1467",
+    "gf-arc-aar-byte.flip-0276",
+    "gf-arc-ams-byte.flip-0059",
+    "gf-arc-as-byte.flip-0196"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "authres",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 493,
+   "minimized_bytes": 259,
+   "product": "reduced/gf-authres-byte.flip-1467.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-dkim-tags-guided.tab-colon-0006",
+   "mech_key": [
+    "dkim",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 4,
+   "members": [
+    "gf-dkim-tags-guided.tab-colon-0006",
+    "gf-dkim-tags-guided.tab-colon-0019",
+    "gf-dkim-tags-guided.tab-colon-0042",
+    "gf-dkim-tags-guided.space-colon-0054"
+   ],
+   "series_union": [
+    "P",
+    "X"
+   ],
+   "entry": "dkim-tags",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "fail",
+      "perl": "parse-error",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    }
+   },
+   "original_bytes": 307,
+   "minimized_bytes": 280,
+   "product": "reduced/gf-dkim-tags-guided.tab-colon-0006.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 819,
+   "sign_minimized_bytes": 809,
+   "sign_product": "reduced/gf-dkim-tags-guided.tab-colon-0006-sign.eml",
+   "x_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-guided.tab-colon-0011",
+   "mech_key": [
+    "trace",
+    "obs-colon",
+    [
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 4,
+   "members": [
+    "gf-obs-received-guided.tab-colon-0011",
+    "gf-obs-received-guided.space-colon-0033",
+    "gf-obs-received-guided.tab-colon-0065",
+    "gf-obs-received-guided.space-colon-0420"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "obs-received",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 300,
+   "minimized_bytes": 266,
+   "product": "reduced/gf-obs-received-guided.tab-colon-0011.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-received-guided.space-colon-0009",
+   "mech_key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 4,
+   "members": [
+    "gf-received-guided.space-colon-0009",
+    "gf-received-guided.tab-colon-0172",
+    "gf-obs-received-guided.tab-colon-0197",
+    "gf-obs-received-guided.space-colon-0596"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "received",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 630,
+   "minimized_bytes": 252,
+   "product": "reduced/gf-received-guided.space-colon-0009.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-received-guided.tab-colon-0010",
+   "mech_key": [
+    "trace",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 4,
+   "members": [
+    "gf-received-guided.tab-colon-0010",
+    "gf-received-guided.tab-colon-0011",
+    "gf-obs-received-guided.tab-colon-0230",
+    "gf-obs-received-guided.space-colon-0415"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "received",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 331,
+   "minimized_bytes": 263,
+   "product": "reduced/gf-received-guided.tab-colon-0010.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-sender-byte.flip-0688",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 4,
+   "members": [
+    "gf-sender-byte.flip-0688",
+    "gf-reply-to-byte.flip-0548",
+    "gf-return-path-byte.flip-0745",
+    "gf-resent-from-byte.flip-0189"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "sender",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 353,
+   "minimized_bytes": 256,
+   "product": "reduced/gf-sender-byte.flip-0688.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-sender-guided.space-colon-0042",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    "other"
+   ],
+   "n_members": 4,
+   "members": [
+    "gf-sender-guided.space-colon-0042",
+    "gf-reply-to-guided.tab-colon-0017",
+    "gf-reply-to-guided.space-colon-0022",
+    "gf-resent-from-guided.space-colon-0040"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "sender",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 326,
+   "minimized_bytes": 252,
+   "product": "reduced/gf-sender-guided.space-colon-0042.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-sender-line.del-0003",
+   "mech_key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    "other"
+   ],
+   "n_members": 4,
+   "members": [
+    "gf-sender-line.del-0003",
+    "gf-reply-to-line.del-0037",
+    "gf-resent-from-line.del-0008",
+    "gf-resent-from-line.del-0029"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "sender",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 265,
+   "minimized_bytes": 249,
+   "product": "reduced/gf-sender-line.del-0003.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-arc-aar-guided.fold-line-0040",
+   "mech_key": [
+    "ar",
+    "fold",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 3,
+   "members": [
+    "gf-arc-aar-guided.fold-line-0040",
+    "gf-arc-ams-guided.fold-line-0035",
+    "gf-arc-as-guided.fold-line-0074"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "arc-aar",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g",
+      "fb"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 400,
+   "minimized_bytes": 276,
+   "product": "reduced/gf-arc-aar-guided.fold-line-0040.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-arc-aar-guided.tab-colon-0054",
+   "mech_key": [
+    "ar",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 3,
+   "members": [
+    "gf-arc-aar-guided.tab-colon-0054",
+    "gf-arc-ams-guided.space-colon-0038",
+    "gf-arc-as-guided.tab-colon-0132"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "arc-aar",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 518,
+   "minimized_bytes": 278,
+   "product": "reduced/gf-arc-aar-guided.tab-colon-0054.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-arc-ams-byte.flip-0711",
+   "mech_key": [
+    "ar",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 3,
+   "members": [
+    "gf-arc-ams-byte.flip-0711",
+    "gf-arc-as-byte.flip-0113",
+    "gf-arc-as-byte.flip-0461"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "arc-ams",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 421,
+   "minimized_bytes": 205,
+   "product": "reduced/gf-arc-ams-byte.flip-0711.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-authres-guided.tab-colon-0001",
+   "mech_key": [
+    "ar",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 3,
+   "members": [
+    "gf-authres-guided.tab-colon-0001",
+    "gf-authres-guided.tab-colon-0007",
+    "gf-authres-guided.space-colon-0023"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "authres",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 340,
+   "minimized_bytes": 240,
+   "product": "reduced/gf-authres-guided.tab-colon-0001.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-guided.fold-line-0196",
+   "mech_key": [
+    "identity",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 3,
+   "members": [
+    "gf-from-guided.fold-line-0196",
+    "gf-from-guided.fold-line-0256",
+    "gf-reply-to-guided.fold-line-1310"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "from",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 343,
+   "minimized_bytes": 225,
+   "product": "reduced/gf-from-guided.fold-line-0196.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-from-guided.tab-colon-0282",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 3,
+   "members": [
+    "gf-obs-from-guided.tab-colon-0282",
+    "gf-obs-from-guided.tab-colon-0305",
+    "gf-obs-from-guided.tab-colon-0362"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "obs-from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 383,
+   "minimized_bytes": 243,
+   "product": "reduced/gf-obs-from-guided.tab-colon-0282.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-from-line.del-0450",
+   "mech_key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 3,
+   "members": [
+    "gf-obs-from-line.del-0450",
+    "gf-obs-from-line.del-0647",
+    "gf-return-path-line.del-0903"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-from",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 323,
+   "minimized_bytes": 255,
+   "product": "reduced/gf-obs-from-line.del-0450.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-received-line.del-0067",
+   "mech_key": [
+    "trace",
+    "line",
+    [
+     "fc-min=n",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 3,
+   "members": [
+    "gf-obs-received-line.del-0067",
+    "gf-obs-received-guided.dup-line-0412",
+    "gf-obs-received-line.del-1280"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "obs-received",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=n",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 237,
+   "minimized_bytes": 237,
+   "product": "reduced/gf-obs-received-line.del-0067.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-reply-to-guided.fold-line-0240",
+   "mech_key": [
+    "identity",
+    "fold",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 3,
+   "members": [
+    "gf-reply-to-guided.fold-line-0240",
+    "gf-return-path-guided.fold-line-0024",
+    "gf-resent-from-guided.fold-line-0103"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "reply-to",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g",
+      "fb"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 331,
+   "minimized_bytes": 279,
+   "product": "reduced/gf-reply-to-guided.fold-line-0240.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-return-path-guided.space-colon-0032",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 3,
+   "members": [
+    "gf-return-path-guided.space-colon-0032",
+    "gf-return-path-guided.tab-colon-0090",
+    "gf-return-path-guided.space-colon-0277"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "return-path",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 414,
+   "minimized_bytes": 296,
+   "product": "reduced/gf-return-path-guided.space-colon-0032.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-arc-aar-byte.flip-0042",
+   "mech_key": [
+    "ar",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-arc-aar-byte.flip-0042",
+    "gf-arc-ams-byte.flip-0093"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "arc-aar",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 355,
+   "minimized_bytes": 197,
+   "product": "reduced/gf-arc-aar-byte.flip-0042.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-arc-aar-guided.fold-line-0610",
+   "mech_key": [
+    "ar",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-arc-aar-guided.fold-line-0610",
+    "gf-arc-as-guided.fold-line-0267"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "arc-aar",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 427,
+   "minimized_bytes": 219,
+   "product": "reduced/gf-arc-aar-guided.fold-line-0610.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-authres-guided.tab-colon-0003",
+   "mech_key": [
+    "ar",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-authres-guided.tab-colon-0003",
+    "gf-authres-guided.tab-colon-0018"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "authres",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 346,
+   "minimized_bytes": 260,
+   "product": "reduced/gf-authres-guided.tab-colon-0003.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-authres-guided.tab-colon-0017",
+   "mech_key": [
+    "ar",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-authres-guided.tab-colon-0017",
+    "gf-authres-guided.space-colon-0025"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "authres",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 381,
+   "minimized_bytes": 240,
+   "product": "reduced/gf-authres-guided.tab-colon-0017.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-dkim-tags-guided.tab-colon-0002",
+   "mech_key": [
+    "dkim",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-dkim-tags-guided.tab-colon-0002",
+    "gf-dkim-tags-guided.space-colon-0059"
+   ],
+   "series_union": [
+    "P",
+    "X"
+   ],
+   "entry": "dkim-tags",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "fail",
+      "perl": "parse-error",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    }
+   },
+   "original_bytes": 307,
+   "minimized_bytes": 246,
+   "product": "reduced/gf-dkim-tags-guided.tab-colon-0002.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 819,
+   "sign_minimized_bytes": 809,
+   "sign_product": "reduced/gf-dkim-tags-guided.tab-colon-0002-sign.eml",
+   "x_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-dkim-tags-line.del-0087",
+   "mech_key": [
+    "dkim",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-dkim-tags-line.del-0087",
+    "gf-dkim-tags-line.del-0349"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "dkim-tags",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "fail",
+      "perl": "parse-error",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 315,
+   "minimized_bytes": 258,
+   "product": "reduced/gf-dkim-tags-line.del-0087.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 847,
+   "sign_minimized_bytes": 786,
+   "sign_product": "reduced/gf-dkim-tags-line.del-0087-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-byte.delete-0844",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "fc-min=g+n"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-from-byte.delete-0844",
+    "gf-sender-byte.flip-1468"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "from",
+   "op": "byte.delete",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=g+n"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 329,
+   "minimized_bytes": 248,
+   "product": "reduced/gf-from-byte.delete-0844.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "osmtpd": {
+     "want": true,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "exim": {
+     "want": false,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-byte.flip-0396",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-from-byte.flip-0396",
+    "gf-obs-from-byte.flip-0177"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "from",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 286,
+   "minimized_bytes": 253,
+   "product": "reduced/gf-from-byte.flip-0396.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-from-guided.tab-colon-0036",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "placeholder"
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-from-guided.tab-colon-0036",
+    "gf-obs-from-guided.space-colon-0011"
+   ],
+   "series_union": [
+    "D",
+    "P",
+    "X"
+   ],
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "d": {
+     "kind": "最小子投 bob@ + Dovecot ENVELOPE From 槽对照（批量收尾）",
+     "signature": "placeholder"
+    }
+   },
+   "original_bytes": 384,
+   "minimized_bytes": 265,
+   "product": "reduced/gf-from-guided.tab-colon-0036.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 896,
+   "sign_minimized_bytes": 784,
+   "sign_product": "reduced/gf-from-guided.tab-colon-0036-sign.eml",
+   "x_verify": true,
+   "d_verify": false,
+   "dshape_got": "other",
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-guided.fold-line-0560",
+   "mech_key": [
+    "identity",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-obs-from-guided.fold-line-0560",
+    "gf-obs-from-guided.fold-line-1300"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-from",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 436,
+   "minimized_bytes": 221,
+   "product": "reduced/gf-obs-from-guided.fold-line-0560.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-guided.tab-colon-0018",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "tool-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "none"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "none"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "none"
+     ]
+    ],
+    "other"
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-obs-from-guided.tab-colon-0018",
+    "gf-obs-from-guided.tab-colon-0036"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "obs-from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "tool-error",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 420,
+   "minimized_bytes": 277,
+   "product": "reduced/gf-obs-from-guided.tab-colon-0018.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 932,
+   "sign_minimized_bytes": 792,
+   "sign_product": "reduced/gf-obs-from-guided.tab-colon-0018-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "osmtpd": {
+     "want": true,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "exim": {
+     "want": true,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-guided.tab-colon-0095",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "tool-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "none"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "none"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "none"
+     ]
+    ],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-obs-from-guided.tab-colon-0095",
+    "gf-obs-from-guided.space-colon-0106"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "obs-from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "tool-error",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 332,
+   "minimized_bytes": 243,
+   "product": "reduced/gf-obs-from-guided.tab-colon-0095.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 844,
+   "sign_minimized_bytes": 792,
+   "sign_product": "reduced/gf-obs-from-guided.tab-colon-0095-sign.eml",
+   "x_verify": true,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-received-byte.flip-0331",
+   "mech_key": [
+    "trace",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-received-byte.flip-0331",
+    "gf-received-byte.flip-0335"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "received",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 350,
+   "minimized_bytes": 240,
+   "product": "reduced/gf-received-byte.flip-0331.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-received-byte.insert-1179",
+   "mech_key": [
+    "trace",
+    "byte",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-received-byte.insert-1179",
+    "gf-obs-received-byte.flip-0350"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "received",
+   "op": "byte.insert",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g",
+      "fb"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 472,
+   "minimized_bytes": 264,
+   "product": "reduced/gf-received-byte.insert-1179.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-received-guided.fold-line-0167",
+   "mech_key": [
+    "trace",
+    "fold",
+    [
+     "err-g",
+     "fb",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-received-guided.fold-line-0167",
+    "gf-obs-received-guided.fold-line-0264"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "received",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g",
+      "fb",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 378,
+   "minimized_bytes": 294,
+   "product": "reduced/gf-received-guided.fold-line-0167.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-received-line.del-0035",
+   "mech_key": [
+    "trace",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-received-line.del-0035",
+    "gf-obs-received-line.del-0229"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "received",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 498,
+   "minimized_bytes": 255,
+   "product": "reduced/gf-received-line.del-0035.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-sender-guided.tab-colon-0009",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    "other"
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-sender-guided.tab-colon-0009",
+    "gf-resent-from-guided.tab-colon-0028"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "sender",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 311,
+   "minimized_bytes": 275,
+   "product": "reduced/gf-sender-guided.tab-colon-0009.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-sender-guided.tab-colon-0136",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-sender-guided.tab-colon-0136",
+    "gf-resent-from-guided.tab-colon-0077"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "sender",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 317,
+   "minimized_bytes": 237,
+   "product": "reduced/gf-sender-guided.tab-colon-0136.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-sender-line.del-0559",
+   "mech_key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 2,
+   "members": [
+    "gf-sender-line.del-0559",
+    "gf-reply-to-line.del-0106"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "sender",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 326,
+   "minimized_bytes": 249,
+   "product": "reduced/gf-sender-line.del-0559.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-arc-aar-byte.flip-0219",
+   "mech_key": [
+    "ar",
+    "byte",
+    [
+     "fc-min=g+n"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-arc-aar-byte.flip-0219"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "arc-aar",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=g+n"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 355,
+   "minimized_bytes": 252,
+   "product": "reduced/gf-arc-aar-byte.flip-0219.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-arc-ams-guided.fold-line-1003",
+   "mech_key": [
+    "ar",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-arc-ams-guided.fold-line-1003"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "arc-ams",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 361,
+   "minimized_bytes": 219,
+   "product": "reduced/gf-arc-ams-guided.fold-line-1003.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-arc-ams-guided.tab-colon-0094",
+   "mech_key": [
+    "ar",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-arc-ams-guided.tab-colon-0094"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "arc-ams",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 326,
+   "minimized_bytes": 240,
+   "product": "reduced/gf-arc-ams-guided.tab-colon-0094.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-arc-as-line.move-0006",
+   "mech_key": [
+    "ar",
+    "line",
+    [
+     "fc-min=n"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-arc-as-line.move-0006"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "arc-as",
+   "op": "line.move",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=n"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 367,
+   "minimized_bytes": 253,
+   "product": "reduced/gf-arc-as-line.move-0006.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-authres-byte.flip-0516",
+   "mech_key": [
+    "ar",
+    "byte",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-authres-byte.flip-0516"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "authres",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g",
+      "fb"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 342,
+   "minimized_bytes": 255,
+   "product": "reduced/gf-authres-byte.flip-0516.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-authres-guided.fold-line-0112",
+   "mech_key": [
+    "ar",
+    "fold",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-authres-guided.fold-line-0112"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "authres",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g",
+      "fb"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 390,
+   "minimized_bytes": 276,
+   "product": "reduced/gf-authres-guided.fold-line-0112.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-authres-guided.fold-line-0602",
+   "mech_key": [
+    "ar",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-authres-guided.fold-line-0602"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "authres",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 364,
+   "minimized_bytes": 219,
+   "product": "reduced/gf-authres-guided.fold-line-0602.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-authres-guided.fold-line-0638",
+   "mech_key": [
+    "ar",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-authres-guided.fold-line-0638"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "authres",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 314,
+   "minimized_bytes": 231,
+   "product": "reduced/gf-authres-guided.fold-line-0638.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-authres-guided.space-colon-0038",
+   "mech_key": [
+    "ar",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-authres-guided.space-colon-0038"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "authres",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 377,
+   "minimized_bytes": 284,
+   "product": "reduced/gf-authres-guided.space-colon-0038.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-authres-line.del-0093",
+   "mech_key": [
+    "ar",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-authres-line.del-0093"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "authres",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 263,
+   "minimized_bytes": 252,
+   "product": "reduced/gf-authres-line.del-0093.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-dkim-tags-byte.flip-0029",
+   "mech_key": [
+    "dkim",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-dkim-tags-byte.flip-0029"
+   ],
+   "series_union": [
+    "P",
+    "X"
+   ],
+   "entry": "dkim-tags",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "fail",
+      "perl": "parse-error",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    }
+   },
+   "original_bytes": 356,
+   "minimized_bytes": 207,
+   "product": "reduced/gf-dkim-tags-byte.flip-0029.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 869,
+   "sign_minimized_bytes": 789,
+   "sign_product": "reduced/gf-dkim-tags-byte.flip-0029-sign.eml",
+   "x_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-dkim-tags-byte.flip-0256",
+   "mech_key": [
+    "dkim",
+    "byte",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-dkim-tags-byte.flip-0256"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "dkim-tags",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "fail",
+      "perl": "parse-error",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 316,
+   "minimized_bytes": 262,
+   "product": "reduced/gf-dkim-tags-byte.flip-0256.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 829,
+   "sign_minimized_bytes": 789,
+   "sign_product": "reduced/gf-dkim-tags-byte.flip-0256-sign.eml",
+   "x_verify": true,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-dkim-tags-byte.flip-0490",
+   "mech_key": [
+    "dkim",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-dkim-tags-byte.flip-0490"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "dkim-tags",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 302,
+   "minimized_bytes": 209,
+   "product": "reduced/gf-dkim-tags-byte.flip-0490.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-dkim-tags-guided.fold-line-0023",
+   "mech_key": [
+    "dkim",
+    "fold",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-dkim-tags-guided.fold-line-0023"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "dkim-tags",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g",
+      "fb"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "fail",
+      "perl": "parse-error",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 354,
+   "minimized_bytes": 282,
+   "product": "reduced/gf-dkim-tags-guided.fold-line-0023.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 864,
+   "sign_minimized_bytes": 810,
+   "sign_product": "reduced/gf-dkim-tags-guided.fold-line-0023-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-dkim-tags-guided.fold-line-1026",
+   "mech_key": [
+    "dkim",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-dkim-tags-guided.fold-line-1026"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "dkim-tags",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 414,
+   "minimized_bytes": 223,
+   "product": "reduced/gf-dkim-tags-guided.fold-line-1026.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-dkim-tags-guided.tab-colon-0001",
+   "mech_key": [
+    "dkim",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-dkim-tags-guided.tab-colon-0001"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "dkim-tags",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "fail",
+      "perl": "parse-error",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 330,
+   "minimized_bytes": 266,
+   "product": "reduced/gf-dkim-tags-guided.tab-colon-0001.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 842,
+   "sign_minimized_bytes": 810,
+   "sign_product": "reduced/gf-dkim-tags-guided.tab-colon-0001-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-dkim-tags-guided.tab-colon-0008",
+   "mech_key": [
+    "dkim",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "fail"
+     ],
+     [
+      "go@postfix",
+      "fail"
+     ],
+     [
+      "perl",
+      "parse-error"
+     ],
+     [
+      "perl@postfix",
+      "parse-error"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-dkim-tags-guided.tab-colon-0008"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "dkim-tags",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "fail",
+      "perl": "parse-error",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 327,
+   "minimized_bytes": 284,
+   "product": "reduced/gf-dkim-tags-guided.tab-colon-0008.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 839,
+   "sign_minimized_bytes": 812,
+   "sign_product": "reduced/gf-dkim-tags-guided.tab-colon-0008-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-byte.flip-0004",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "placeholder"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-byte.flip-0004"
+   ],
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "from",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    },
+    "d": {
+     "kind": "最小子投 bob@ + Dovecot ENVELOPE From 槽对照（批量收尾）",
+     "signature": "placeholder"
+    }
+   },
+   "original_bytes": 346,
+   "minimized_bytes": 256,
+   "product": "reduced/gf-from-byte.flip-0004.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 859,
+   "sign_minimized_bytes": 763,
+   "sign_product": "reduced/gf-from-byte.flip-0004-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "d_verify": true,
+   "dshape_got": "placeholder",
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-byte.flip-0035",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "other"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-byte.flip-0035"
+   ],
+   "series_union": [
+    "D",
+    "P",
+    "X"
+   ],
+   "entry": "from",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "d": {
+     "kind": "最小子投 bob@ + Dovecot ENVELOPE From 槽对照（批量收尾）",
+     "signature": "other"
+    }
+   },
+   "original_bytes": 306,
+   "minimized_bytes": 243,
+   "product": "reduced/gf-from-byte.flip-0035.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 819,
+   "sign_minimized_bytes": 763,
+   "sign_product": "reduced/gf-from-byte.flip-0035-sign.eml",
+   "x_verify": true,
+   "d_verify": true,
+   "dshape_got": "other",
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-from-byte.flip-0038",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-byte.flip-0038"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "from",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 410,
+   "minimized_bytes": 246,
+   "product": "reduced/gf-from-byte.flip-0038.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 923,
+   "sign_minimized_bytes": 763,
+   "sign_product": "reduced/gf-from-byte.flip-0038-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-byte.flip-0338",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-byte.flip-0338"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "from",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 350,
+   "minimized_bytes": 213,
+   "product": "reduced/gf-from-byte.flip-0338.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-from-guided.dup-line-0080",
+   "mech_key": [
+    "identity",
+    "line",
+    [
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-guided.dup-line-0080"
+   ],
+   "series_union": [
+    "P",
+    "X"
+   ],
+   "entry": "from",
+   "op": "guided.dup-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    }
+   },
+   "original_bytes": 366,
+   "minimized_bytes": 268,
+   "product": "reduced/gf-from-guided.dup-line-0080.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 870,
+   "sign_minimized_bytes": 781,
+   "sign_product": "reduced/gf-from-guided.dup-line-0080-sign.eml",
+   "x_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-from-guided.space-colon-0000",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "syntax_error"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-guided.space-colon-0000"
+   ],
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "from",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    },
+    "d": {
+     "kind": "最小子投 bob@ + Dovecot ENVELOPE From 槽对照（批量收尾）",
+     "signature": "syntax_error"
+    }
+   },
+   "original_bytes": 373,
+   "minimized_bytes": 271,
+   "product": "reduced/gf-from-guided.space-colon-0000.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 885,
+   "sign_minimized_bytes": 790,
+   "sign_product": "reduced/gf-from-guided.space-colon-0000-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "osmtpd": {
+     "want": true,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "exim": {
+     "want": false,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    }
+   },
+   "d_verify": false,
+   "dshape_got": "other",
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-guided.space-colon-0005",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p+n"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "other"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-guided.space-colon-0005"
+   ],
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "from",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p+n"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    },
+    "d": {
+     "kind": "最小子投 bob@ + Dovecot ENVELOPE From 槽对照（批量收尾）",
+     "signature": "other"
+    }
+   },
+   "original_bytes": 401,
+   "minimized_bytes": 237,
+   "product": "reduced/gf-from-guided.space-colon-0005.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 913,
+   "sign_minimized_bytes": 790,
+   "sign_product": "reduced/gf-from-guided.space-colon-0005-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "d_verify": false,
+   "dshape_got": "missing",
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-guided.tab-colon-0001",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "other"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-guided.tab-colon-0001"
+   ],
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    },
+    "d": {
+     "kind": "最小子投 bob@ + Dovecot ENVELOPE From 槽对照（批量收尾）",
+     "signature": "other"
+    }
+   },
+   "original_bytes": 361,
+   "minimized_bytes": 231,
+   "product": "reduced/gf-from-guided.tab-colon-0001.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 873,
+   "sign_minimized_bytes": 784,
+   "sign_product": "reduced/gf-from-guided.tab-colon-0001-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "d_verify": true,
+   "dshape_got": "other",
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-guided.tab-colon-0008",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "syntax_error"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-guided.tab-colon-0008"
+   ],
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": false,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    },
+    "d": {
+     "kind": "最小子投 bob@ + Dovecot ENVELOPE From 槽对照（批量收尾）",
+     "signature": "syntax_error"
+    }
+   },
+   "original_bytes": 337,
+   "minimized_bytes": 251,
+   "product": "reduced/gf-from-guided.tab-colon-0008.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 849,
+   "sign_minimized_bytes": 784,
+   "sign_product": "reduced/gf-from-guided.tab-colon-0008-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "d_verify": false,
+   "dshape_got": "other",
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-guided.tab-colon-0014",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "syntax_error"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-guided.tab-colon-0014"
+   ],
+   "series_union": [
+    "D",
+    "P",
+    "X"
+   ],
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "d": {
+     "kind": "最小子投 bob@ + Dovecot ENVELOPE From 槽对照（批量收尾）",
+     "signature": "syntax_error"
+    }
+   },
+   "original_bytes": 357,
+   "minimized_bytes": 265,
+   "product": "reduced/gf-from-guided.tab-colon-0014.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 869,
+   "sign_minimized_bytes": 784,
+   "sign_product": "reduced/gf-from-guided.tab-colon-0014-sign.eml",
+   "x_verify": true,
+   "d_verify": false,
+   "dshape_got": "other",
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-guided.tab-colon-0047",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-guided.tab-colon-0047"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 331,
+   "minimized_bytes": 269,
+   "product": "reduced/gf-from-guided.tab-colon-0047.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 843,
+   "sign_minimized_bytes": 784,
+   "sign_product": "reduced/gf-from-guided.tab-colon-0047-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-guided.tab-colon-0174",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-guided.tab-colon-0174"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": false,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 384,
+   "minimized_bytes": 236,
+   "product": "reduced/gf-from-guided.tab-colon-0174.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-line.del-0106",
+   "mech_key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-line.del-0106"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "from",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 321,
+   "minimized_bytes": 243,
+   "product": "reduced/gf-from-line.del-0106.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 869,
+   "sign_minimized_bytes": 760,
+   "sign_product": "reduced/gf-from-line.del-0106-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": null,
+     "captured": false,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-from-line.del-0118",
+   "mech_key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-from-line.del-0118"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "from",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 276,
+   "minimized_bytes": 243,
+   "product": "reduced/gf-from-line.del-0118.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 831,
+   "sign_minimized_bytes": 760,
+   "sign_product": "reduced/gf-from-line.del-0118-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-byte.flip-0974",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-byte.flip-0974"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-from",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 312,
+   "minimized_bytes": 259,
+   "product": "reduced/gf-obs-from-byte.flip-0974.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-byte.flip-1299",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-byte.flip-1299"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-from",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 327,
+   "minimized_bytes": 207,
+   "product": "reduced/gf-obs-from-byte.flip-1299.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-fresh-0000",
+   "mech_key": [
+    "identity",
+    "fresh",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "parse-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "placeholder"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-fresh-0000"
+   ],
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "obs-from",
+   "op": null,
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "parse-error",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    },
+    "d": {
+     "kind": "最小子投 bob@ + Dovecot ENVELOPE From 槽对照（批量收尾）",
+     "signature": "placeholder"
+    }
+   },
+   "original_bytes": 385,
+   "minimized_bytes": 248,
+   "product": "reduced/gf-obs-from-fresh-0000.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 898,
+   "sign_minimized_bytes": 759,
+   "sign_product": "reduced/gf-obs-from-fresh-0000-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "d_verify": false,
+   "dshape_got": "other",
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-fresh-0002",
+   "mech_key": [
+    "identity",
+    "fresh",
+    [
+     "fc-min=p+n"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "tool-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "none"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "none"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "none"
+     ]
+    ],
+    "other"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-fresh-0002"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "obs-from",
+   "op": null,
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p+n"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "tool-error",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 270,
+   "minimized_bytes": 251,
+   "product": "reduced/gf-obs-from-fresh-0002.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 783,
+   "sign_minimized_bytes": 759,
+   "sign_product": "reduced/gf-obs-from-fresh-0002-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-guided.space-colon-0007",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "parse-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "syntax_error"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-guided.space-colon-0007"
+   ],
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "obs-from",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "parse-error",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    },
+    "d": {
+     "kind": "最小子投 bob@ + Dovecot ENVELOPE From 槽对照（批量收尾）",
+     "signature": "syntax_error"
+    }
+   },
+   "original_bytes": 446,
+   "minimized_bytes": 249,
+   "product": "reduced/gf-obs-from-guided.space-colon-0007.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 958,
+   "sign_minimized_bytes": 798,
+   "sign_product": "reduced/gf-obs-from-guided.space-colon-0007-sign.eml",
+   "x_verify": true,
+   "t_verify": true,
+   "d_verify": false,
+   "dshape_got": "missing",
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-guided.space-colon-0187",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-guided.space-colon-0187"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-from",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 467,
+   "minimized_bytes": 252,
+   "product": "reduced/gf-obs-from-guided.space-colon-0187.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-guided.space-colon-0240",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-guided.space-colon-0240"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-from",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 508,
+   "minimized_bytes": 253,
+   "product": "reduced/gf-obs-from-guided.space-colon-0240.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-guided.tab-colon-0116",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "tool-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "none"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "none"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "none"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-guided.tab-colon-0116"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "obs-from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "tool-error",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 466,
+   "minimized_bytes": 263,
+   "product": "reduced/gf-obs-from-guided.tab-colon-0116.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 978,
+   "sign_minimized_bytes": 792,
+   "sign_product": "reduced/gf-obs-from-guided.tab-colon-0116-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-guided.tab-colon-0154",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "fail"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "fail"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-guided.tab-colon-0154"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "obs-from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "fail",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "fail"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 340,
+   "minimized_bytes": 277,
+   "product": "reduced/gf-obs-from-guided.tab-colon-0154.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 852,
+   "sign_minimized_bytes": 796,
+   "sign_product": "reduced/gf-obs-from-guided.tab-colon-0154-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "osmtpd": {
+     "want": true,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "exim": {
+     "want": false,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-line.del-0006",
+   "mech_key": [
+    "identity",
+    "line",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "parse-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    "syntax_error"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-line.del-0006"
+   ],
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "obs-from",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "parse-error",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    },
+    "d": {
+     "kind": "最小子投 bob@ + Dovecot ENVELOPE From 槽对照（批量收尾）",
+     "signature": "syntax_error"
+    }
+   },
+   "original_bytes": 314,
+   "minimized_bytes": 207,
+   "product": "reduced/gf-obs-from-line.del-0006.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 877,
+   "sign_minimized_bytes": 768,
+   "sign_product": "reduced/gf-obs-from-line.del-0006-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "d_verify": false,
+   "dshape_got": "other",
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-line.del-0033",
+   "mech_key": [
+    "identity",
+    "line",
+    [
+     "fc-min=p+n"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "tool-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "none"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "none"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "none"
+     ]
+    ],
+    "other"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-line.del-0033"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "obs-from",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p+n"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "tool-error",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 433,
+   "minimized_bytes": 210,
+   "product": "reduced/gf-obs-from-line.del-0033.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 996,
+   "sign_minimized_bytes": 768,
+   "sign_product": "reduced/gf-obs-from-line.del-0033-sign.eml",
+   "x_verify": true,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-from-line.del-0081",
+   "mech_key": [
+    "identity",
+    "line",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "parse-error"
+     ],
+     [
+      "dkimpy@postfix",
+      "fail"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "fail"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-line.del-0081"
+   ],
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entry": "obs-from",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "x": {
+     "kind": "四验证器文件级判定形态重放（verify_one.py 同仪器）",
+     "signature_shape": {
+      "dkimpy": "parse-error",
+      "go": "pass",
+      "perl": "pass",
+      "rspamd": "pass"
+     },
+     "keep": "DKIM-Signature 及已签模板冻结（s2 注入结构）"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 333,
+   "minimized_bytes": 219,
+   "product": "reduced/gf-obs-from-line.del-0081.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "sign_original_bytes": 887,
+   "sign_minimized_bytes": 768,
+   "sign_product": "reduced/gf-obs-from-line.del-0081-sign.eml",
+   "x_verify": true,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-from-line.del-0158",
+   "mech_key": [
+    "identity",
+    "line",
+    [
+     "fc-min=p+n"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-from-line.del-0158"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-from",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p+n"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 462,
+   "minimized_bytes": 219,
+   "product": "reduced/gf-obs-from-line.del-0158.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-received-byte.flip-1098",
+   "mech_key": [
+    "trace",
+    "byte",
+    [
+     "err-g",
+     "fb"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-byte.flip-1098"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-received",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g",
+      "fb"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 279,
+   "minimized_bytes": 218,
+   "product": "reduced/gf-obs-received-byte.flip-1098.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-obs-received-fresh-0000",
+   "mech_key": [
+    "trace",
+    "fresh",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-fresh-0000"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-received",
+   "op": null,
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 267,
+   "minimized_bytes": 260,
+   "product": "reduced/gf-obs-received-fresh-0000.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-fresh-0001",
+   "mech_key": [
+    "trace",
+    "fresh",
+    [
+     "fb",
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-fresh-0001"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-received",
+   "op": null,
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 434,
+   "minimized_bytes": 268,
+   "product": "reduced/gf-obs-received-fresh-0001.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-fresh-0005",
+   "mech_key": [
+    "trace",
+    "fresh",
+    [
+     "fc-min=n",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-fresh-0005"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "obs-received",
+   "op": null,
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=n",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 266,
+   "minimized_bytes": 266,
+   "product": "reduced/gf-obs-received-fresh-0005.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-guided.space-colon-0031",
+   "mech_key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-guided.space-colon-0031"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-received",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 326,
+   "minimized_bytes": 274,
+   "product": "reduced/gf-obs-received-guided.space-colon-0031.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-guided.space-colon-0615",
+   "mech_key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p+n",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-guided.space-colon-0615"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "obs-received",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p+n",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 306,
+   "minimized_bytes": 272,
+   "product": "reduced/gf-obs-received-guided.space-colon-0615.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-guided.space-colon-0624",
+   "mech_key": [
+    "trace",
+    "obs-colon",
+    [
+     "fc-min=p+n",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-guided.space-colon-0624"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "obs-received",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p+n",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 306,
+   "minimized_bytes": 306,
+   "product": "reduced/gf-obs-received-guided.space-colon-0624.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-guided.tab-colon-0071",
+   "mech_key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-guided.tab-colon-0071"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-received",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 301,
+   "minimized_bytes": 255,
+   "product": "reduced/gf-obs-received-guided.tab-colon-0071.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-guided.tab-colon-0355",
+   "mech_key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-guided.tab-colon-0355"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "obs-received",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 300,
+   "minimized_bytes": 266,
+   "product": "reduced/gf-obs-received-guided.tab-colon-0355.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-line.del-0012",
+   "mech_key": [
+    "trace",
+    "line",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-line.del-0012"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-received",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 236,
+   "minimized_bytes": 227,
+   "product": "reduced/gf-obs-received-line.del-0012.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-line.del-0025",
+   "mech_key": [
+    "trace",
+    "line",
+    [
+     "fb",
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-line.del-0025"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-received",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 392,
+   "minimized_bytes": 236,
+   "product": "reduced/gf-obs-received-line.del-0025.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-line.del-0039",
+   "mech_key": [
+    "trace",
+    "line",
+    [
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-line.del-0039"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-received",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 247,
+   "minimized_bytes": 241,
+   "product": "reduced/gf-obs-received-line.del-0039.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-obs-received-line.del-0214",
+   "mech_key": [
+    "trace",
+    "line",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-obs-received-line.del-0214"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "obs-received",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": true,
+      "osmtpd": true,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 235,
+   "minimized_bytes": 228,
+   "product": "reduced/gf-obs-received-line.del-0214.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": true,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-received-byte.delete-0317",
+   "mech_key": [
+    "trace",
+    "byte",
+    [
+     "fc-min=g+n"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-received-byte.delete-0317"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "received",
+   "op": "byte.delete",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=g+n"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 310,
+   "minimized_bytes": 190,
+   "product": "reduced/gf-received-byte.delete-0317.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-received-byte.flip-0692",
+   "mech_key": [
+    "trace",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-received-byte.flip-0692"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "received",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 402,
+   "minimized_bytes": 190,
+   "product": "reduced/gf-received-byte.flip-0692.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-received-byte.insert-0116",
+   "mech_key": [
+    "trace",
+    "byte",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      null
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      null
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-received-byte.insert-0116"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "received",
+   "op": "byte.insert",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 471,
+   "minimized_bytes": 268,
+   "product": "reduced/gf-received-byte.insert-0116.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-received-guided.fold-line-0044",
+   "mech_key": [
+    "trace",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-received-guided.fold-line-0044"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "received",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 439,
+   "minimized_bytes": 221,
+   "product": "reduced/gf-received-guided.fold-line-0044.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-received-guided.tab-colon-0038",
+   "mech_key": [
+    "trace",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-received-guided.tab-colon-0038"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "received",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 344,
+   "minimized_bytes": 290,
+   "product": "reduced/gf-received-guided.tab-colon-0038.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-received-line.dup-0599",
+   "mech_key": [
+    "trace",
+    "line",
+    [],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-received-line.dup-0599"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "received",
+   "op": "line.dup",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 399,
+   "minimized_bytes": 280,
+   "product": "reduced/gf-received-line.dup-0599.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-received-line.move-0532",
+   "mech_key": [
+    "trace",
+    "line",
+    [
+     "fc-min=n",
+     "rc0"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-received-line.move-0532"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "received",
+   "op": "line.move",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=n",
+      "rc0"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 457,
+   "minimized_bytes": 267,
+   "product": "reduced/gf-received-line.move-0532.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-reply-to-byte.flip-1135",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-reply-to-byte.flip-1135"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "reply-to",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 312,
+   "minimized_bytes": 207,
+   "product": "reduced/gf-reply-to-byte.flip-1135.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-reply-to-guided.tab-colon-0066",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fb",
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-reply-to-guided.tab-colon-0066"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "reply-to",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fb",
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 323,
+   "minimized_bytes": 281,
+   "product": "reduced/gf-reply-to-guided.tab-colon-0066.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-resent-from-guided.space-colon-0042",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    "other"
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-resent-from-guided.space-colon-0042"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "resent-from",
+   "op": "guided.space-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": true,
+      "postfix": true
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 513,
+   "minimized_bytes": 278,
+   "product": "reduced/gf-resent-from-guided.space-colon-0042.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": true,
+     "got": false,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-resent-from-guided.tab-colon-0064",
+   "mech_key": [
+    "identity",
+    "obs-colon",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      true
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-resent-from-guided.tab-colon-0064"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "resent-from",
+   "op": "guided.tab-colon",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 588,
+   "minimized_bytes": 252,
+   "product": "reduced/gf-resent-from-guided.tab-colon-0064.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  },
+  {
+   "family": "gf-return-path-byte.delete-0585",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-return-path-byte.delete-0585"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "return-path",
+   "op": "byte.delete",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": null,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 300,
+   "minimized_bytes": 217,
+   "product": "reduced/gf-return-path-byte.delete-0585.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-return-path-byte.flip-1443",
+   "mech_key": [
+    "identity",
+    "byte",
+    [
+     "fc-min=p"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-return-path-byte.flip-1443"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "return-path",
+   "op": "byte.flip",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "fc-min=p"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 284,
+   "minimized_bytes": 264,
+   "product": "reduced/gf-return-path-byte.flip-1443.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "osmtpd": {
+     "want": false,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    },
+    "exim": {
+     "want": false,
+     "got": null,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": true
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-return-path-line.del-0029",
+   "mech_key": [
+    "identity",
+    "line",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      false
+     ],
+     [
+      "osmtpd",
+      false
+     ],
+     [
+      "postfix",
+      false
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-return-path-line.del-0029"
+   ],
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entry": "return-path",
+   "op": "line.del",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    },
+    "t": {
+     "kind": "最小子过三台中继（SURGERY.md 捕获路由，批量收尾）",
+     "signature": {
+      "exim": false,
+      "osmtpd": false,
+      "postfix": false
+     },
+     "rule": "captured 与 gen 存活形态 == 族保留三元组"
+    }
+   },
+   "original_bytes": 331,
+   "minimized_bytes": 264,
+   "product": "reduced/gf-return-path-line.del-0029.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "t_verify": false,
+   "t_drift": {
+    "postfix": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "osmtpd": {
+     "want": false,
+     "got": null,
+     "captured": false,
+     "smtp_code": null,
+     "vacuous": false
+    },
+    "exim": {
+     "want": false,
+     "got": true,
+     "captured": true,
+     "smtp_code": null,
+     "vacuous": false
+    }
+   },
+   "status": "failed"
+  },
+  {
+   "family": "gf-sender-guided.fold-line-0428",
+   "mech_key": [
+    "identity",
+    "fold",
+    [
+     "err-g"
+    ],
+    [
+     [
+      "exim",
+      true
+     ],
+     [
+      "osmtpd",
+      null
+     ],
+     [
+      "postfix",
+      true
+     ]
+    ],
+    [
+     [
+      "dkimpy",
+      "pass"
+     ],
+     [
+      "dkimpy@postfix",
+      "pass"
+     ],
+     [
+      "go",
+      "pass"
+     ],
+     [
+      "go@postfix",
+      "pass"
+     ],
+     [
+      "perl",
+      "pass"
+     ],
+     [
+      "perl@postfix",
+      "pass"
+     ],
+     [
+      "rspamd",
+      "pass"
+     ],
+     [
+      "rspamd@postfix",
+      "pass"
+     ]
+    ],
+    null
+   ],
+   "n_members": 1,
+   "members": [
+    "gf-sender-guided.fold-line-0428"
+   ],
+   "series_union": [
+    "P"
+   ],
+   "entry": "sender",
+   "op": "guided.fold-line",
+   "predicate": {
+    "p": {
+     "kind": "三 parser 元组差分重放（python email / Go net/mail / Node mailparser 批量探针，funnel._tuple 同口径）",
+     "signature_features": [
+      "err-g"
+     ],
+     "rule": "重放特征 == 族特征 且 三家元组不全同"
+    }
+   },
+   "original_bytes": 373,
+   "minimized_bytes": 217,
+   "product": "reduced/gf-sender-guided.fold-line-0428.eml",
+   "p_verify": true,
+   "failure_reason": null,
+   "status": "confirmed"
+  }
+ ],
+ "counts": {
+  "families": 119,
+  "confirmed": 50,
+  "failed": 69,
+  "incomplete": 0,
+  "p_confirmed": 119,
+  "x_families": 31,
+  "x_confirmed": 31,
+  "t_families": 81,
+  "t_confirmed": 15,
+  "d_families": 11,
+  "d_confirmed": 3
+ }
+}

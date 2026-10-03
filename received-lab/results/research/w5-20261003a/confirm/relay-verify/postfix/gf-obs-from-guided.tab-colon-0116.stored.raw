@@ -1,0 +1,19 @@
+Bcc: capture@lab.test
+Return-Path: <alice@lab.test>
+Received: from auth-postfix.lab.test (msl-auth-postfix.mailseclab-research-net. [10.88.0.43])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 16:20:35 +0000 (UTC)
+Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id C9327AA8C5
+	for <capture@lab.test>; Sat,  3 Oct 2026 16:20:35 +0000 (UTC)
+From: Bank Security <security@lab.test>
+o:
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-obs-from-guided.tab-colon-0116
+Message-ID: <gf-obs-from-guided.tab-colon-0116@lab.test>
+X-Case-ID: gf-obs-from-guided.tab-colon-0116
+X-Spam: Yes
+
+Please confirm the payment.

@@ -1,0 +1,3410 @@
+{
+ "n_groups": 38,
+ "n_families": 119,
+ "groups": [
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-sender-guided.tab-colon-0000",
+    "gf-arc-aar-guided.tab-colon-0001",
+    "gf-received-guided.space-colon-0004",
+    "gf-arc-aar-guided.tab-colon-0012",
+    "gf-obs-received-guided.tab-colon-0011",
+    "gf-received-guided.space-colon-0009",
+    "gf-sender-guided.space-colon-0042",
+    "gf-arc-aar-guided.tab-colon-0054",
+    "gf-obs-from-guided.tab-colon-0282",
+    "gf-authres-guided.tab-colon-0003",
+    "gf-authres-guided.tab-colon-0017",
+    "gf-sender-guided.tab-colon-0009",
+    "gf-sender-guided.tab-colon-0136",
+    "gf-authres-guided.space-colon-0038",
+    "gf-obs-from-guided.space-colon-0187",
+    "gf-obs-received-guided.space-colon-0031",
+    "gf-obs-received-guided.space-colon-0615",
+    "gf-obs-received-guided.space-colon-0624",
+    "gf-obs-received-guided.tab-colon-0071",
+    "gf-obs-received-guided.tab-colon-0355",
+    "gf-received-guided.tab-colon-0038",
+    "gf-reply-to-guided.tab-colon-0066",
+    "gf-resent-from-guided.tab-colon-0064"
+   ],
+   "members_total": 70,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "arc-aar",
+    "authres",
+    "obs-from",
+    "obs-received",
+    "received",
+    "reply-to",
+    "resent-from",
+    "sender"
+   ],
+   "ops": [
+    "guided.space-colon",
+    "guided.tab-colon"
+   ],
+   "p_mods": [
+    "from-flip",
+    "rc0"
+   ],
+   "d_subshapes": [
+    "other"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [
+    "gf-obs-received-guided.space-colon-0031",
+    "gf-obs-received-guided.tab-colon-0071"
+   ],
+   "t_drift_families": [
+    "gf-arc-aar-guided.tab-colon-0054",
+    "gf-sender-guided.tab-colon-0009",
+    "gf-authres-guided.space-colon-0038",
+    "gf-obs-from-guided.space-colon-0187",
+    "gf-received-guided.tab-colon-0038",
+    "gf-reply-to-guided.tab-colon-0066"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-sender-guided.tab-colon-0000": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-arc-aar-guided.tab-colon-0001": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-received-guided.space-colon-0004": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-arc-aar-guided.tab-colon-0012": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-received-guided.tab-colon-0011": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-received-guided.space-colon-0009": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-sender-guided.space-colon-0042": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-arc-aar-guided.tab-colon-0054": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-from-guided.tab-colon-0282": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-authres-guided.tab-colon-0003": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-authres-guided.tab-colon-0017": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-sender-guided.tab-colon-0009": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-sender-guided.tab-colon-0136": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-authres-guided.space-colon-0038": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-from-guided.space-colon-0187": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-received-guided.space-colon-0031": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift",
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-received-guided.space-colon-0615": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-received-guided.space-colon-0624": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-received-guided.tab-colon-0071": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-received-guided.tab-colon-0355": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-received-guided.tab-colon-0038": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-reply-to-guided.tab-colon-0066": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-resent-from-guided.tab-colon-0064": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G01",
+   "n_families": 23
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "go-whole-error",
+    "who_rewrites_true": "e+p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-obs-from-byte.flip-0435",
+    "gf-arc-aar-byte.flip-0888",
+    "gf-arc-ams-byte.flip-0711",
+    "gf-from-byte.flip-0396",
+    "gf-received-byte.flip-0331",
+    "gf-received-byte.insert-1179",
+    "gf-authres-byte.flip-0516",
+    "gf-dkim-tags-byte.flip-0490",
+    "gf-from-byte.flip-0338",
+    "gf-obs-from-byte.flip-1299",
+    "gf-obs-received-byte.flip-1098",
+    "gf-reply-to-byte.flip-1135",
+    "gf-return-path-byte.delete-0585"
+   ],
+   "members_total": 27,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "arc-aar",
+    "arc-ams",
+    "authres",
+    "dkim-tags",
+    "from",
+    "obs-from",
+    "obs-received",
+    "received",
+    "reply-to",
+    "return-path"
+   ],
+   "ops": [
+    "byte.delete",
+    "byte.flip",
+    "byte.insert"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [
+    "gf-obs-from-byte.flip-0435",
+    "gf-arc-aar-byte.flip-0888",
+    "gf-arc-ams-byte.flip-0711",
+    "gf-from-byte.flip-0396",
+    "gf-received-byte.flip-0331",
+    "gf-received-byte.insert-1179",
+    "gf-authres-byte.flip-0516",
+    "gf-dkim-tags-byte.flip-0490",
+    "gf-from-byte.flip-0338",
+    "gf-obs-from-byte.flip-1299",
+    "gf-obs-received-byte.flip-1098",
+    "gf-reply-to-byte.flip-1135",
+    "gf-return-path-byte.delete-0585"
+   ],
+   "t_ok_families": [
+    "gf-from-byte.flip-0396"
+   ],
+   "t_drift_families": [
+    "gf-obs-from-byte.flip-0435",
+    "gf-arc-aar-byte.flip-0888",
+    "gf-received-byte.insert-1179",
+    "gf-authres-byte.flip-0516",
+    "gf-obs-from-byte.flip-1299",
+    "gf-obs-received-byte.flip-1098",
+    "gf-reply-to-byte.flip-1135",
+    "gf-return-path-byte.delete-0585"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-obs-from-byte.flip-0435": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-arc-aar-byte.flip-0888": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-arc-ams-byte.flip-0711": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-from-byte.flip-0396": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-received-byte.flip-0331": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-received-byte.insert-1179": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-authres-byte.flip-0516": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-dkim-tags-byte.flip-0490": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-from-byte.flip-0338": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-obs-from-byte.flip-1299": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-obs-received-byte.flip-1098": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-reply-to-byte.flip-1135": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-return-path-byte.delete-0585": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite",
+       "return-path-final-delivery",
+       "wsp-line-drop"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite",
+       "return-path-final-delivery",
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    }
+   },
+   "group_id": "G02",
+   "n_families": 13
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "go-whole-error",
+    "who_rewrites_true": "none",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-arc-aar-line.del-0100",
+    "gf-sender-line.del-0003",
+    "gf-obs-from-line.del-0450",
+    "gf-received-line.del-0035",
+    "gf-sender-line.del-0559",
+    "gf-authres-line.del-0093",
+    "gf-return-path-line.del-0029"
+   ],
+   "members_total": 19,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "arc-aar",
+    "authres",
+    "obs-from",
+    "received",
+    "return-path",
+    "sender"
+   ],
+   "ops": [
+    "line.del"
+   ],
+   "p_mods": [],
+   "d_subshapes": [
+    "other"
+   ],
+   "osmtpd_reject_families": [
+    "gf-arc-aar-line.del-0100",
+    "gf-sender-line.del-0003",
+    "gf-obs-from-line.del-0450",
+    "gf-received-line.del-0035",
+    "gf-sender-line.del-0559",
+    "gf-authres-line.del-0093"
+   ],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-arc-aar-line.del-0100",
+    "gf-sender-line.del-0003",
+    "gf-obs-from-line.del-0450",
+    "gf-received-line.del-0035",
+    "gf-sender-line.del-0559",
+    "gf-authres-line.del-0093",
+    "gf-return-path-line.del-0029"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-arc-aar-line.del-0100": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-sender-line.del-0003": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-obs-from-line.del-0450": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-received-line.del-0035": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-sender-line.del-0559": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-authres-line.del-0093": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-return-path-line.del-0029": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G03",
+   "n_families": 7
+  },
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-arc-aar-guided.tab-colon-0004",
+    "gf-received-guided.tab-colon-0010",
+    "gf-authres-guided.tab-colon-0001",
+    "gf-return-path-guided.space-colon-0032",
+    "gf-arc-ams-guided.tab-colon-0094",
+    "gf-obs-from-guided.space-colon-0240",
+    "gf-resent-from-guided.space-colon-0042"
+   ],
+   "members_total": 17,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "arc-aar",
+    "arc-ams",
+    "authres",
+    "obs-from",
+    "received",
+    "resent-from",
+    "return-path"
+   ],
+   "ops": [
+    "guided.space-colon",
+    "guided.tab-colon"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [
+    "other"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-arc-aar-guided.tab-colon-0004",
+    "gf-received-guided.tab-colon-0010",
+    "gf-authres-guided.tab-colon-0001",
+    "gf-return-path-guided.space-colon-0032",
+    "gf-arc-ams-guided.tab-colon-0094",
+    "gf-obs-from-guided.space-colon-0240",
+    "gf-resent-from-guided.space-colon-0042"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-arc-aar-guided.tab-colon-0004": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-received-guided.tab-colon-0010": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-authres-guided.tab-colon-0001": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-return-path-guided.space-colon-0032": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "bare-CR/control-char-repair",
+       "content-rewrite",
+       "return-path-final-delivery",
+       "wsp-line-drop"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "bare-CR/control-char-repair",
+       "content-rewrite",
+       "return-path-final-delivery",
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-arc-ams-guided.tab-colon-0094": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-from-guided.space-colon-0240": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-resent-from-guided.space-colon-0042": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G04",
+   "n_families": 7
+  },
+  {
+   "group_key": {
+    "op": "fold",
+    "p_primary": "go-whole-error",
+    "who_rewrites_true": "e+p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-from-guided.fold-line-0196",
+    "gf-arc-aar-guided.fold-line-0610",
+    "gf-obs-from-guided.fold-line-0560",
+    "gf-arc-ams-guided.fold-line-1003",
+    "gf-authres-guided.fold-line-0602",
+    "gf-authres-guided.fold-line-0638",
+    "gf-dkim-tags-guided.fold-line-1026",
+    "gf-received-guided.fold-line-0044",
+    "gf-sender-guided.fold-line-0428"
+   ],
+   "members_total": 13,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "arc-aar",
+    "arc-ams",
+    "authres",
+    "dkim-tags",
+    "from",
+    "obs-from",
+    "received",
+    "sender"
+   ],
+   "ops": [
+    "guided.fold-line"
+   ],
+   "p_mods": [],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [
+    "gf-from-guided.fold-line-0196",
+    "gf-arc-aar-guided.fold-line-0610",
+    "gf-obs-from-guided.fold-line-0560",
+    "gf-arc-ams-guided.fold-line-1003",
+    "gf-authres-guided.fold-line-0602",
+    "gf-authres-guided.fold-line-0638",
+    "gf-dkim-tags-guided.fold-line-1026",
+    "gf-received-guided.fold-line-0044",
+    "gf-sender-guided.fold-line-0428"
+   ],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-obs-from-guided.fold-line-0560",
+    "gf-arc-ams-guided.fold-line-1003",
+    "gf-authres-guided.fold-line-0638",
+    "gf-dkim-tags-guided.fold-line-1026"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-from-guided.fold-line-0196": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-arc-aar-guided.fold-line-0610": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-obs-from-guided.fold-line-0560": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-arc-ams-guided.fold-line-1003": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-authres-guided.fold-line-0602": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-authres-guided.fold-line-0638": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-dkim-tags-guided.fold-line-1026": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-received-guided.fold-line-0044": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-sender-guided.fold-line-0428": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    }
+   },
+   "group_id": "G05",
+   "n_families": 9
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-authres-byte.flip-0917",
+    "gf-authres-byte.flip-1467",
+    "gf-arc-aar-byte.flip-0042",
+    "gf-received-byte.flip-0692"
+   ],
+   "members_total": 11,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "arc-aar",
+    "authres",
+    "received"
+   ],
+   "ops": [
+    "byte.flip"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [
+    "gf-authres-byte.flip-1467"
+   ],
+   "t_drift_families": [
+    "gf-arc-aar-byte.flip-0042"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-authres-byte.flip-0917": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "bare-CR/control-char-repair"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "bare-CR/control-char-repair"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-authres-byte.flip-1467": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite",
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-arc-aar-byte.flip-0042": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite",
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-received-byte.flip-0692": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "bare-CR/control-char-repair"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "bare-CR/control-char-repair"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G06",
+   "n_families": 4
+  },
+  {
+   "group_key": {
+    "op": "fold",
+    "p_primary": "go-whole-error",
+    "who_rewrites_true": "none",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-arc-aar-guided.fold-line-0040",
+    "gf-reply-to-guided.fold-line-0240",
+    "gf-received-guided.fold-line-0167",
+    "gf-authres-guided.fold-line-0112"
+   ],
+   "members_total": 9,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "arc-aar",
+    "authres",
+    "received",
+    "reply-to"
+   ],
+   "ops": [
+    "guided.fold-line"
+   ],
+   "p_mods": [
+    "from-flip",
+    "rc0"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [
+    "gf-arc-aar-guided.fold-line-0040",
+    "gf-reply-to-guided.fold-line-0240",
+    "gf-received-guided.fold-line-0167",
+    "gf-authres-guided.fold-line-0112"
+   ],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-arc-aar-guided.fold-line-0040",
+    "gf-reply-to-guided.fold-line-0240",
+    "gf-received-guided.fold-line-0167",
+    "gf-authres-guided.fold-line-0112"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-arc-aar-guided.fold-line-0040": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-reply-to-guided.fold-line-0240": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-received-guided.fold-line-0167": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    },
+    "gf-authres-guided.fold-line-0112": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    }
+   },
+   "group_id": "G07",
+   "n_families": 4
+  },
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "perl-solo-parse-error"
+   },
+   "families": [
+    "gf-dkim-tags-guided.tab-colon-0006",
+    "gf-dkim-tags-guided.tab-colon-0002",
+    "gf-dkim-tags-guided.tab-colon-0008"
+   ],
+   "members_total": 7,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "dkim-tags"
+   ],
+   "ops": [
+    "guided.tab-colon"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-dkim-tags-guided.tab-colon-0008"
+   ],
+   "x_ok_families": [
+    "gf-dkim-tags-guided.tab-colon-0006",
+    "gf-dkim-tags-guided.tab-colon-0002",
+    "gf-dkim-tags-guided.tab-colon-0008"
+   ],
+   "relay_truth": {
+    "gf-dkim-tags-guided.tab-colon-0006": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-dkim-tags-guided.tab-colon-0002": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-dkim-tags-guided.tab-colon-0008": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G08",
+   "n_families": 3
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "node-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-obs-received-line.del-0067",
+    "gf-arc-as-line.move-0006",
+    "gf-received-line.move-0532"
+   ],
+   "members_total": 5,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "arc-as",
+    "obs-received",
+    "received"
+   ],
+   "ops": [
+    "line.del",
+    "line.move"
+   ],
+   "p_mods": [
+    "rc0"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-arc-as-line.move-0006",
+    "gf-received-line.move-0532"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-obs-received-line.del-0067": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-arc-as-line.move-0006": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-received-line.move-0532": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G09",
+   "n_families": 3
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+o+p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-sender-byte.flip-0688",
+    "gf-return-path-byte.flip-1443"
+   ],
+   "members_total": 5,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "return-path",
+    "sender"
+   ],
+   "ops": [
+    "byte.flip"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [
+    "gf-sender-byte.flip-0688"
+   ],
+   "t_drift_families": [
+    "gf-return-path-byte.flip-1443"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-sender-byte.flip-0688": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "bare-CR/control-char-repair"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "bare-CR/control-char-repair"
+      ]
+     },
+     "osmtpd": {
+      "class": "rewrite",
+      "mechanisms": [
+       "bare-CR/control-char-repair"
+      ]
+     }
+    },
+    "gf-return-path-byte.flip-1443": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "bare-CR/control-char-repair",
+       "content-rewrite",
+       "return-path-final-delivery"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "bare-CR/control-char-repair",
+       "content-rewrite",
+       "return-path-final-delivery"
+      ]
+     },
+     "osmtpd": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite",
+       "return-path-final-delivery"
+      ]
+     }
+    }
+   },
+   "group_id": "G10",
+   "n_families": 2
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-obs-from-line.del-0158",
+    "gf-obs-received-line.del-0012",
+    "gf-obs-received-line.del-0025",
+    "gf-obs-received-line.del-0039",
+    "gf-obs-received-line.del-0214"
+   ],
+   "members_total": 5,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "obs-from",
+    "obs-received"
+   ],
+   "ops": [
+    "line.del"
+   ],
+   "p_mods": [
+    "from-flip",
+    "rc0"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [
+    "gf-obs-received-line.del-0012",
+    "gf-obs-received-line.del-0025",
+    "gf-obs-received-line.del-0039",
+    "gf-obs-received-line.del-0214"
+   ],
+   "t_drift_families": [
+    "gf-obs-from-line.del-0158"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-obs-from-line.del-0158": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-received-line.del-0012": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-received-line.del-0025": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-received-line.del-0039": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-received-line.del-0214": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G11",
+   "n_families": 5
+  },
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+o+p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-return-path-guided.tab-colon-0005"
+   ],
+   "members_total": 5,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "return-path"
+   ],
+   "ops": [
+    "guided.tab-colon"
+   ],
+   "p_mods": [],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-return-path-guided.tab-colon-0005"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-return-path-guided.tab-colon-0005": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize",
+       "return-path-final-delivery"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "return-path-final-delivery"
+      ]
+     },
+     "osmtpd": {
+      "class": "rewrite",
+      "mechanisms": [
+       "return-path-final-delivery"
+      ]
+     }
+    }
+   },
+   "group_id": "G12",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+p",
+    "x_shape": "dkimpy-rspamd-fail"
+   },
+   "families": [
+    "gf-from-guided.space-colon-0000",
+    "gf-from-guided.space-colon-0005",
+    "gf-from-guided.tab-colon-0001",
+    "gf-from-guided.tab-colon-0047",
+    "gf-obs-from-guided.tab-colon-0154"
+   ],
+   "members_total": 5,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "from",
+    "obs-from"
+   ],
+   "ops": [
+    "guided.space-colon",
+    "guided.tab-colon"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [
+    "other",
+    "syntax_error"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-from-guided.space-colon-0000",
+    "gf-from-guided.space-colon-0005",
+    "gf-from-guided.tab-colon-0001",
+    "gf-from-guided.tab-colon-0047",
+    "gf-obs-from-guided.tab-colon-0154"
+   ],
+   "x_ok_families": [
+    "gf-from-guided.space-colon-0000",
+    "gf-from-guided.space-colon-0005",
+    "gf-from-guided.tab-colon-0001",
+    "gf-from-guided.tab-colon-0047",
+    "gf-obs-from-guided.tab-colon-0154"
+   ],
+   "relay_truth": {
+    "gf-from-guided.space-colon-0000": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-from-guided.space-colon-0005": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-from-guided.tab-colon-0001": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-from-guided.tab-colon-0047": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-from-guided.tab-colon-0154": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G13",
+   "n_families": 5
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "go-zone-death",
+    "who_rewrites_true": "e+p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-from-byte.delete-0844",
+    "gf-arc-aar-byte.flip-0219",
+    "gf-received-byte.delete-0317"
+   ],
+   "members_total": 4,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "arc-aar",
+    "from",
+    "received"
+   ],
+   "ops": [
+    "byte.delete",
+    "byte.flip"
+   ],
+   "p_mods": [],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-from-byte.delete-0844"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-from-byte.delete-0844": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite",
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-arc-aar-byte.flip-0219": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-received-byte.delete-0317": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G14",
+   "n_families": 3
+  },
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "dkimpy-tool-error-drown"
+   },
+   "families": [
+    "gf-obs-from-guided.tab-colon-0018",
+    "gf-obs-from-guided.tab-colon-0095"
+   ],
+   "members_total": 4,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "obs-from"
+   ],
+   "ops": [
+    "guided.tab-colon"
+   ],
+   "p_mods": [],
+   "d_subshapes": [
+    "other"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [
+    "gf-obs-from-guided.tab-colon-0095"
+   ],
+   "t_drift_families": [
+    "gf-obs-from-guided.tab-colon-0018"
+   ],
+   "x_ok_families": [
+    "gf-obs-from-guided.tab-colon-0018",
+    "gf-obs-from-guided.tab-colon-0095"
+   ],
+   "relay_truth": {
+    "gf-obs-from-guided.tab-colon-0018": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-from-guided.tab-colon-0095": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G15",
+   "n_families": 2
+  },
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "dkimpy-rspamd-fail"
+   },
+   "families": [
+    "gf-from-guided.tab-colon-0036",
+    "gf-from-guided.tab-colon-0014"
+   ],
+   "members_total": 3,
+   "series_union": [
+    "D",
+    "P",
+    "X"
+   ],
+   "entries": [
+    "from"
+   ],
+   "ops": [
+    "guided.tab-colon"
+   ],
+   "p_mods": [],
+   "d_subshapes": [
+    "placeholder",
+    "syntax_error"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [],
+   "x_ok_families": [
+    "gf-from-guided.tab-colon-0036",
+    "gf-from-guided.tab-colon-0014"
+   ],
+   "relay_truth": {
+    "gf-from-guided.tab-colon-0036": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-from-guided.tab-colon-0014": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G16",
+   "n_families": 2
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "go-whole-error",
+    "who_rewrites_true": "none",
+    "x_shape": "dkimpy-rspamd-fail"
+   },
+   "families": [
+    "gf-from-line.del-0106",
+    "gf-from-line.del-0118"
+   ],
+   "members_total": 2,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "from"
+   ],
+   "ops": [
+    "line.del"
+   ],
+   "p_mods": [],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [
+    "gf-from-line.del-0118"
+   ],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-from-line.del-0106",
+    "gf-from-line.del-0118"
+   ],
+   "x_ok_families": [
+    "gf-from-line.del-0106",
+    "gf-from-line.del-0118"
+   ],
+   "relay_truth": {
+    "gf-from-line.del-0106": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-from-line.del-0118": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    }
+   },
+   "group_id": "G17",
+   "n_families": 2
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "go-whole-error",
+    "who_rewrites_true": "none",
+    "x_shape": "perl-solo-parse-error"
+   },
+   "families": [
+    "gf-dkim-tags-line.del-0087"
+   ],
+   "members_total": 2,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "dkim-tags"
+   ],
+   "ops": [
+    "line.del"
+   ],
+   "p_mods": [],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [
+    "gf-dkim-tags-line.del-0087"
+   ],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-dkim-tags-line.del-0087"
+   ],
+   "x_ok_families": [
+    "gf-dkim-tags-line.del-0087"
+   ],
+   "relay_truth": {
+    "gf-dkim-tags-line.del-0087": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    }
+   },
+   "group_id": "G18",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+p",
+    "x_shape": "perl-solo-parse-error"
+   },
+   "families": [
+    "gf-dkim-tags-byte.flip-0029",
+    "gf-dkim-tags-byte.flip-0256"
+   ],
+   "members_total": 2,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "dkim-tags"
+   ],
+   "ops": [
+    "byte.flip"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [
+    "gf-dkim-tags-byte.flip-0256"
+   ],
+   "t_drift_families": [],
+   "x_ok_families": [
+    "gf-dkim-tags-byte.flip-0029",
+    "gf-dkim-tags-byte.flip-0256"
+   ],
+   "relay_truth": {
+    "gf-dkim-tags-byte.flip-0029": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-dkim-tags-byte.flip-0256": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite",
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G19",
+   "n_families": 2
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "none",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-obs-from-byte.flip-0974",
+    "gf-received-byte.insert-0116"
+   ],
+   "members_total": 2,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "obs-from",
+    "received"
+   ],
+   "ops": [
+    "byte.flip",
+    "byte.insert"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-obs-from-byte.flip-0974"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-obs-from-byte.flip-0974": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-received-byte.insert-0116": {
+     "postfix": {
+      "class": "no-data"
+     },
+     "exim": {
+      "class": "no-data"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    }
+   },
+   "group_id": "G20",
+   "n_families": 2
+  },
+  {
+   "group_key": {
+    "op": "fresh",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-obs-received-fresh-0000",
+    "gf-obs-received-fresh-0001"
+   ],
+   "members_total": 2,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "obs-received"
+   ],
+   "ops": [
+    "None"
+   ],
+   "p_mods": [
+    "from-flip",
+    "rc0"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [
+    "gf-obs-received-fresh-0000",
+    "gf-obs-received-fresh-0001"
+   ],
+   "t_drift_families": [],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-obs-received-fresh-0000": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    },
+    "gf-obs-received-fresh-0001": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G21",
+   "n_families": 2
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "from-flip-only",
+    "who_rewrites_true": "p",
+    "x_shape": "dkimpy-rspamd-fail"
+   },
+   "families": [
+    "gf-from-guided.dup-line-0080"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "P",
+    "X"
+   ],
+   "entries": [
+    "from"
+   ],
+   "ops": [
+    "guided.dup-line"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [],
+   "x_ok_families": [
+    "gf-from-guided.dup-line-0080"
+   ],
+   "relay_truth": {
+    "gf-from-guided.dup-line-0080": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G22",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "go-whole-error",
+    "who_rewrites_true": "e+p",
+    "x_shape": "dkimpy-rspamd-fail"
+   },
+   "families": [
+    "gf-from-byte.flip-0038"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "from"
+   ],
+   "ops": [
+    "byte.flip"
+   ],
+   "p_mods": [],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [
+    "gf-from-byte.flip-0038"
+   ],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-from-byte.flip-0038"
+   ],
+   "x_ok_families": [
+    "gf-from-byte.flip-0038"
+   ],
+   "relay_truth": {
+    "gf-from-byte.flip-0038": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    }
+   },
+   "group_id": "G23",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "none",
+    "who_rewrites_true": "e+p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-received-line.dup-0599"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "received"
+   ],
+   "ops": [
+    "line.dup"
+   ],
+   "p_mods": [],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-received-line.dup-0599"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-received-line.dup-0599": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G24",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+o+p",
+    "x_shape": "dkimpy-rspamd-fail"
+   },
+   "families": [
+    "gf-from-byte.flip-0004"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "from"
+   ],
+   "ops": [
+    "byte.flip"
+   ],
+   "p_mods": [],
+   "d_subshapes": [
+    "placeholder"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-from-byte.flip-0004"
+   ],
+   "x_ok_families": [
+    "gf-from-byte.flip-0004"
+   ],
+   "relay_truth": {
+    "gf-from-byte.flip-0004": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "osmtpd": {
+      "class": "rewrite",
+      "mechanisms": [
+       "domain-append-reserialize"
+      ]
+     }
+    }
+   },
+   "group_id": "G25",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+p",
+    "x_shape": "dkimpy-parse-error-drown"
+   },
+   "families": [
+    "gf-obs-from-line.del-0006"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "obs-from"
+   ],
+   "ops": [
+    "line.del"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [
+    "syntax_error"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-obs-from-line.del-0006"
+   ],
+   "x_ok_families": [
+    "gf-obs-from-line.del-0006"
+   ],
+   "relay_truth": {
+    "gf-obs-from-line.del-0006": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G26",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+p",
+    "x_shape": "dkimpy-rspamd-fail"
+   },
+   "families": [
+    "gf-from-byte.flip-0035"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "D",
+    "P",
+    "X"
+   ],
+   "entries": [
+    "from"
+   ],
+   "ops": [
+    "byte.flip"
+   ],
+   "p_mods": [],
+   "d_subshapes": [
+    "other"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [],
+   "x_ok_families": [
+    "gf-from-byte.flip-0035"
+   ],
+   "relay_truth": {
+    "gf-from-byte.flip-0035": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "content-rewrite"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G27",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "dkimpy-parse-error-drown"
+   },
+   "families": [
+    "gf-obs-from-line.del-0081"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "obs-from"
+   ],
+   "ops": [
+    "line.del"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [
+    "gf-obs-from-line.del-0081"
+   ],
+   "t_drift_families": [],
+   "x_ok_families": [
+    "gf-obs-from-line.del-0081"
+   ],
+   "relay_truth": {
+    "gf-obs-from-line.del-0081": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G28",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "damage",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "dkimpy-tool-error-drown"
+   },
+   "families": [
+    "gf-obs-from-line.del-0033"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "obs-from"
+   ],
+   "ops": [
+    "line.del"
+   ],
+   "p_mods": [],
+   "d_subshapes": [
+    "other"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-obs-from-line.del-0033"
+   ],
+   "x_ok_families": [
+    "gf-obs-from-line.del-0033"
+   ],
+   "relay_truth": {
+    "gf-obs-from-line.del-0033": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G29",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "fold",
+    "p_primary": "go-whole-error",
+    "who_rewrites_true": "none",
+    "x_shape": "perl-solo-parse-error"
+   },
+   "families": [
+    "gf-dkim-tags-guided.fold-line-0023"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "dkim-tags"
+   ],
+   "ops": [
+    "guided.fold-line"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [
+    "gf-dkim-tags-guided.fold-line-0023"
+   ],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-dkim-tags-guided.fold-line-0023"
+   ],
+   "x_ok_families": [
+    "gf-dkim-tags-guided.fold-line-0023"
+   ],
+   "relay_truth": {
+    "gf-dkim-tags-guided.fold-line-0023": {
+     "postfix": {
+      "class": "preserved"
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "no-data"
+     }
+    }
+   },
+   "group_id": "G30",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "fresh",
+    "p_primary": "node-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-obs-received-fresh-0005"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "P"
+   ],
+   "entries": [
+    "obs-received"
+   ],
+   "ops": [
+    "None"
+   ],
+   "p_mods": [
+    "rc0"
+   ],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-obs-received-fresh-0005": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": []
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G31",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "fresh",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+p",
+    "x_shape": "dkimpy-parse-error-drown"
+   },
+   "families": [
+    "gf-obs-from-fresh-0000"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "obs-from"
+   ],
+   "ops": [
+    "None"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [
+    "placeholder"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-obs-from-fresh-0000"
+   ],
+   "x_ok_families": [
+    "gf-obs-from-fresh-0000"
+   ],
+   "relay_truth": {
+    "gf-obs-from-fresh-0000": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G32",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "fresh",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "dkimpy-tool-error-drown"
+   },
+   "families": [
+    "gf-obs-from-fresh-0002"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "obs-from"
+   ],
+   "ops": [
+    "None"
+   ],
+   "p_mods": [],
+   "d_subshapes": [
+    "other"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-obs-from-fresh-0002"
+   ],
+   "x_ok_families": [
+    "gf-obs-from-fresh-0002"
+   ],
+   "relay_truth": {
+    "gf-obs-from-fresh-0002": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G33",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+p",
+    "x_shape": "dkimpy-tool-error-drown"
+   },
+   "families": [
+    "gf-obs-from-guided.tab-colon-0116"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "obs-from"
+   ],
+   "ops": [
+    "guided.tab-colon"
+   ],
+   "p_mods": [],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-obs-from-guided.tab-colon-0116"
+   ],
+   "x_ok_families": [
+    "gf-obs-from-guided.tab-colon-0116"
+   ],
+   "relay_truth": {
+    "gf-obs-from-guided.tab-colon-0116": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G34",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "e+p",
+    "x_shape": "perl-solo-parse-error"
+   },
+   "families": [
+    "gf-dkim-tags-guided.tab-colon-0001"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "dkim-tags"
+   ],
+   "ops": [
+    "guided.tab-colon"
+   ],
+   "p_mods": [],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-dkim-tags-guided.tab-colon-0001"
+   ],
+   "x_ok_families": [
+    "gf-dkim-tags-guided.tab-colon-0001"
+   ],
+   "relay_truth": {
+    "gf-dkim-tags-guided.tab-colon-0001": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "rewrite",
+      "mechanisms": [
+       "wsp-line-drop"
+      ]
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G35",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "o+p",
+    "x_shape": "dkimpy-rspamd-fail"
+   },
+   "families": [
+    "gf-from-guided.tab-colon-0008"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "from"
+   ],
+   "ops": [
+    "guided.tab-colon"
+   ],
+   "p_mods": [],
+   "d_subshapes": [
+    "syntax_error"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-from-guided.tab-colon-0008"
+   ],
+   "x_ok_families": [
+    "gf-from-guided.tab-colon-0008"
+   ],
+   "relay_truth": {
+    "gf-from-guided.tab-colon-0008": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "rewrite",
+      "mechanisms": [
+       "domain-append-reserialize"
+      ]
+     }
+    }
+   },
+   "group_id": "G36",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "o+p",
+    "x_shape": "none"
+   },
+   "families": [
+    "gf-from-guided.tab-colon-0174"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "P",
+    "T"
+   ],
+   "entries": [
+    "from"
+   ],
+   "ops": [
+    "guided.tab-colon"
+   ],
+   "p_mods": [],
+   "d_subshapes": [],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [],
+   "t_drift_families": [
+    "gf-from-guided.tab-colon-0174"
+   ],
+   "x_ok_families": [],
+   "relay_truth": {
+    "gf-from-guided.tab-colon-0174": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "rewrite",
+      "mechanisms": [
+       "domain-append-reserialize"
+      ]
+     }
+    }
+   },
+   "group_id": "G37",
+   "n_families": 1
+  },
+  {
+   "group_key": {
+    "op": "obs-colon",
+    "p_primary": "py-zone-death",
+    "who_rewrites_true": "p",
+    "x_shape": "dkimpy-parse-error-drown"
+   },
+   "families": [
+    "gf-obs-from-guided.space-colon-0007"
+   ],
+   "members_total": 1,
+   "series_union": [
+    "D",
+    "P",
+    "T",
+    "X"
+   ],
+   "entries": [
+    "obs-from"
+   ],
+   "ops": [
+    "guided.space-colon"
+   ],
+   "p_mods": [
+    "from-flip"
+   ],
+   "d_subshapes": [
+    "syntax_error"
+   ],
+   "osmtpd_reject_families": [],
+   "t_ok_families": [
+    "gf-obs-from-guided.space-colon-0007"
+   ],
+   "t_drift_families": [],
+   "x_ok_families": [
+    "gf-obs-from-guided.space-colon-0007"
+   ],
+   "relay_truth": {
+    "gf-obs-from-guided.space-colon-0007": {
+     "postfix": {
+      "class": "rewrite",
+      "mechanisms": [
+       "mbox-lift",
+       "obs-colon-normalize"
+      ]
+     },
+     "exim": {
+      "class": "preserved"
+     },
+     "osmtpd": {
+      "class": "preserved"
+     }
+    }
+   },
+   "group_id": "G38",
+   "n_families": 1
+  }
+ ],
+ "note": "v3: who_rewrites_true 按实际输入 vs 存档的 difflib 行差分重算（gen_preserved 幻影更正后）"
+}

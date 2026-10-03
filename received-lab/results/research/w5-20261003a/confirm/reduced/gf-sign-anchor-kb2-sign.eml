@@ -1,0 +1,12 @@
+Received :
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=y+Toz5yGkuLmRy0k34wWJpitEe0pqzGPA4OTVTJ5e0emu2hW/CTyJdbE54OFhhdCwTiVVyODM0qmqJ/qyRBA6WxdTwqQLSELI7mD+zPyOeV5zwzMGsjlI2vdcXKMaDWPXJ+bZQwmbVlSloGp1wA+qdlBl5ehYjZWspd5LfRycB7N1DxplnjeJzlIwgHPUjIM5EGn5QV0LSBNAEDVABIAcjfxwGBOHbrQaBu0ch4feQjeRdhT4EwKwvD2W+q3O2ncv1Y7AvlpT1N/wa9mwfAdADU2NzkcB0ALHCbLBASk+GAXi3tQi8WqLBpUjK4Q7F07L204+xXCqb7fw2XdqXmdpA==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-sign-anchor-kb2
+Message-ID: <gf-sign-anchor-kb2@lab.test>
+X-Case-ID: gf-sign-anchor-kb2
+
+Please confirm the payment.

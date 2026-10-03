@@ -1,0 +1,19 @@
+Bcc: capture@lab.test
+Return-Path: <alice@lab.test>
+Received: from exim.lab.test (exim.mailseclab-research-net. [10.88.0.4])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 16:16:28 +0000 (UTC)
+Received: from [10.88.0.11] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@lab.test>)
+	id 1xD2PV-00000Y-0Z
+	for capture@lab.test;
+	Sat, 03 Oct 2026 16:16:28 +0000
+From: Bank Security <security@lab.test>
+o	:
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-arc-aar-guided.tab-colon-0004
+Message-ID: <gf-arc-aar-guided.tab-colon-0004@lab.test>
+X-Case-ID: gf-arc-aar-guided.tab-colon-0004
+
+Please confirm the payment.

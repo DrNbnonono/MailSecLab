@@ -84,6 +84,7 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 - diffrun（w3）：八形态 × 三 MTA × 两臂统一矩阵 + parser 三列（python/go/node）。Exim 捕获臂确认 obs 字节保留但计数；更正 recfuzz2 的「exim 计 nocolon」误读（实为投递不计数）。python email 对 obs/nocolon/8bit/tab 在首条不合规行终结头区，Go net/mail 八形态头区全存活，Node mailparser 把 obs 与 tab 都计入（w3 `diffrun/RECORD.md`）。
 - sigprobe2（w3）：对 obs 形态签名的 DKIM 12 格全灭（无验证器/路径验过）；签名后注入 obs——OpenSMTPD 保留它使 dkimpy 拒解析带进邮箱，Postfix 规范化它使 dkimpy 反而 pass（修复消除验证分裂的最干净实例）（w3 `sigprobe2/RECORD.md`）。
 - parsedmarc（w3）：DMARC 聚合报告消费端零来源认证——冒名 Google 的伪造报告（捏造 IP×5000 条）被完整摄入；结构残缺拒收。消费侧照单全收 + 发送侧 U-label 空洞 = 监控完整性缺口两半（w3 `parsedmarc-probe/`）。
+- gramfuzz 首轮 campaign（w4）：ABNF 语法驱动 39,000 样本（13 入口 × fresh/mutated）→ 三 parser 差分漏斗幸存 10,119 → 去重 236 入三臂 → **150 条实验室确认候选**（T=138/X=39/D=12，四件套证据链完整，20.7% 分层抽样复核 0 flag）。新原语四条：mbox `From ` 行歧义（一字节类别翻转 Postfix 整个处理路径，T5）、第二 DKIM-Signature 实例注入的四验证器新分裂（X7/X8）、Exim 尾部空白折行丢弃（T6）、Dovecot ENVELOPE 占位语义（D5）——分类学见 `results/research/TAXONOMY.md`（24 条）。工具在独立仓库 `E:\Gramfuzz`；corpus 不入库，CORPUS_SEED=20261003 可重放（w4 `gramfuzz/candidates.json`、`RECORD.md`）。
 
 ## 不要写成定论
 
@@ -118,7 +119,7 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 3. ~~DKIM 验证器 × obs-colon 交叉~~ 已关闭（w3 sigprobe2）。
 4. ~~OpenDKIM 公钥检索~~ 已关闭（w3 `opendkim-col/`）：根因=libunbound 构建的解析路径不出容器（unbound:probe A/B 对照：同信 key-not-found+零查询 vs libc 版 pass+有查询）；实例绑定列已补——OpenDKIM=底部选择。
 5. ~~parsedmarc 报告消费端~~ 已关闭（w3 `parsedmarc-probe/`）：parsedmarc 11.0.3 做结构校验、**不做来源认证**——冒名 reporter + 捏造行数据的伪造聚合报告被完整摄入（`verdict.json`: forged=true, origin_verification_seen=false）。与 w2 rua 发送侧空洞合拢为监控生态完整性缺口的两半。
-6. gramfuzz 全量 campaign（w4，进行中）：39,000 语法样本 → 三 parser 差分漏斗 → 中继/签名/消费三臂 → `results/research/w4-20261003a/gramfuzz/candidates.json`。分类学见 `results/research/TAXONOMY.md`。
+6. ~~gramfuzz 全量 campaign~~ 已关闭（w4）：39,000 样本 → 150 条 lab_confirmed 候选（`w4-20261003a/gramfuzz/candidates.json`），栈已回滚核对。
 7. 真实服务验证与披露（调研建议 4/5 号）：**门是 candidates.json 非空且证据链完整，负责人决策后另行计划**。未获授权不联系厂商、不公开发布、不出公网。
 
 改实验脚本时，比较的是同一字节流在不同组件上的解释。定位邮件用 `X-Case-ID`；头区可能被终结时，改为在整封 raw 里搜索。

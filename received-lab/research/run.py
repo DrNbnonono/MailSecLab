@@ -17,10 +17,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from lib.bootstrap import EVIDENCE, run_bootstrap
 from lib.causal import run_causal
+from lib.chainrun import run_chain
 from lib.diffrun import run_diff
 from lib.e2e import run_e2e
 
-STAGES = ("bootstrap", "causal", "e2e", "fuzz", "defense", "report", "diff")
+STAGES = ("bootstrap", "causal", "e2e", "fuzz", "defense", "report", "diff", "chain")
 NEEDS = {
     "causal": ("bootstrap",),
     "e2e": ("bootstrap", "causal"),
@@ -28,6 +29,7 @@ NEEDS = {
     "defense": ("bootstrap", "causal", "e2e", "fuzz"),
     "report": ("bootstrap", "causal", "e2e", "fuzz", "defense"),
     "diff": (),
+    "chain": (),
 }
 
 
@@ -55,7 +57,7 @@ def main() -> int:
             for item in missing:
                 print(" ", item)
             return 2
-        runners = {"causal": run_causal, "e2e": run_e2e, "diff": run_diff}
+        runners = {"causal": run_causal, "e2e": run_e2e, "diff": run_diff, "chain": run_chain}
         if args.stage not in runners:
             print(f"stage {args.stage} runner is not dispatched yet")
             return 2

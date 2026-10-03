@@ -1,0 +1,6 @@
+{
+  "exim_container": "exim",
+  "parse": {
+    "python": {"container": "msl-client", "cmd": ["python3", "/opt/research/parsers/parse.py"]}
+  }
+}

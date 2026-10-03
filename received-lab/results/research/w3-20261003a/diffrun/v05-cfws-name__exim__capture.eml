@@ -1,0 +1,33 @@
+Received(Router): from h0.lab.test (h0.lab.test [203.0.113.0]) by h1.lab.test with ESMTP id X0; Sat, 03 Oct 2026 21:0:00 +0000
+Received(Router): from h1.lab.test (h1.lab.test [203.0.113.1]) by h2.lab.test with ESMTP id X1; Sat, 03 Oct 2026 21:1:00 +0000
+Received(Router): from h2.lab.test (h2.lab.test [203.0.113.2]) by h3.lab.test with ESMTP id X2; Sat, 03 Oct 2026 21:2:00 +0000
+Received(Router): from h3.lab.test (h3.lab.test [203.0.113.3]) by h4.lab.test with ESMTP id X3; Sat, 03 Oct 2026 21:3:00 +0000
+Received(Router): from h4.lab.test (h4.lab.test [203.0.113.4]) by h5.lab.test with ESMTP id X4; Sat, 03 Oct 2026 21:4:00 +0000
+Received(Router): from h5.lab.test (h5.lab.test [203.0.113.5]) by h6.lab.test with ESMTP id X5; Sat, 03 Oct 2026 21:5:00 +0000
+Received(Router): from h6.lab.test (h6.lab.test [203.0.113.6]) by h7.lab.test with ESMTP id X6; Sat, 03 Oct 2026 21:6:00 +0000
+Received(Router): from h7.lab.test (h7.lab.test [203.0.113.7]) by h8.lab.test with ESMTP id X7; Sat, 03 Oct 2026 21:7:00 +0000
+Received(Router): from h8.lab.test (h8.lab.test [203.0.113.8]) by h9.lab.test with ESMTP id X8; Sat, 03 Oct 2026 21:8:00 +0000
+Received(Router): from h9.lab.test (h9.lab.test [203.0.113.9]) by h10.lab.test with ESMTP id X9; Sat, 03 Oct 2026 21:9:00 +0000
+Received(Router): from h10.lab.test (h10.lab.test [203.0.113.10]) by h11.lab.test with ESMTP id X10; Sat, 03 Oct 2026 21:10:00 +0000
+Received(Router): from h11.lab.test (h11.lab.test [203.0.113.11]) by h12.lab.test with ESMTP id X11; Sat, 03 Oct 2026 21:11:00 +0000
+Received(Router): from h12.lab.test (h12.lab.test [203.0.113.12]) by h13.lab.test with ESMTP id X12; Sat, 03 Oct 2026 21:12:00 +0000
+Received(Router): from h13.lab.test (h13.lab.test [203.0.113.13]) by h14.lab.test with ESMTP id X13; Sat, 03 Oct 2026 21:13:00 +0000
+Received(Router): from h14.lab.test (h14.lab.test [203.0.113.14]) by h15.lab.test with ESMTP id X14; Sat, 03 Oct 2026 21:14:00 +0000
+Received(Router): from h15.lab.test (h15.lab.test [203.0.113.15]) by h16.lab.test with ESMTP id X15; Sat, 03 Oct 2026 21:15:00 +0000
+Received(Router): from h16.lab.test (h16.lab.test [203.0.113.16]) by h17.lab.test with ESMTP id X16; Sat, 03 Oct 2026 21:16:00 +0000
+Received(Router): from h17.lab.test (h17.lab.test [203.0.113.17]) by h18.lab.test with ESMTP id X17; Sat, 03 Oct 2026 21:17:00 +0000
+Received(Router): from h18.lab.test (h18.lab.test [203.0.113.18]) by h19.lab.test with ESMTP id X18; Sat, 03 Oct 2026 21:18:00 +0000
+Received(Router): from h19.lab.test (h19.lab.test [203.0.113.19]) by h20.lab.test with ESMTP id X19; Sat, 03 Oct 2026 21:19:00 +0000
+Received(Router): from h20.lab.test (h20.lab.test [203.0.113.20]) by h21.lab.test with ESMTP id X20; Sat, 03 Oct 2026 21:20:00 +0000
+Received(Router): from h21.lab.test (h21.lab.test [203.0.113.21]) by h22.lab.test with ESMTP id X21; Sat, 03 Oct 2026 21:21:00 +0000
+Received(Router): from h22.lab.test (h22.lab.test [203.0.113.22]) by h23.lab.test with ESMTP id X22; Sat, 03 Oct 2026 21:22:00 +0000
+Received(Router): from h23.lab.test (h23.lab.test [203.0.113.23]) by h24.lab.test with ESMTP id X23; Sat, 03 Oct 2026 21:23:00 +0000
+Received(Router): from h24.lab.test (h24.lab.test [203.0.113.24]) by h25.lab.test with ESMTP id X24; Sat, 03 Oct 2026 21:24:00 +0000
+From: Bank Security <security@bank.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: v05-cfws-name__exim__capture
+Message-ID: <v05-cfws-name__exim__capture@lab.test>
+X-Case-ID: v05-cfws-name__exim__capture
+
+Please confirm the payment.

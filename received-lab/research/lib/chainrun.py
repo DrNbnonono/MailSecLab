@@ -60,11 +60,13 @@ SEQUENCES_V0 = {
 }
 
 # 计数组合探针（F3 已闭合的阈值背景下的组合轴，非重扫）：
-#   v00/49  单跳 pf 投递（49+1=50≤50），pf-pf 在第二跳 50+1>50 拒——纯组合效应锚
+#   v00/48  单跳 pf 投递（48+1=49≤50，w3 既有锚）；pf-pf 第二跳 49+1=50 触发
+#           554——纯组合效应锚（N=49 单跳即拒，故用 48）
 #   v00/55  w3 锚：单跳 pf 554 / ex 退信 / os 投递
-#   v01/29  obs 计数集合并集：os-ex（os 不计 obs，ex 计）vs pf-os（pf 先规范化）路径分岔
-#   v01/55  w3 锚的 obs 版
-THRESHOLD_PROBES = [("v00-plain", 49), ("v00-plain", 55),
+#   v01/29  obs 计数集合并集：os-ex（os 不计 obs、ex 计，29+1=30 边界接受）
+#           vs pf-os（pf 先把 obs 规范化成 strict）
+#   v01/55  w3 锚的 obs 版；ex 的退信 DSN 虽进 mailpit 但被 fetch 排除
+THRESHOLD_PROBES = [("v00-plain", 48), ("v00-plain", 55),
                     ("v01-obs-colon", 29), ("v01-obs-colon", 55)]
 
 # facts 的 relay 归因标记：ad-hoc OpenSMTPD 6.8 与 Mailpit 的 Received 行
@@ -259,6 +261,11 @@ def smtp_send_to(server: str, rcpt: str, ev_input: str, ev_transcript: str) -> d
 FETCH_MAILPIT = '''
 import json, sys, time, urllib.request
 token, out_path = sys.argv[1], sys.argv[2]
+DSN_MARKS = (b"report-type=delivery-status", b"mail delivery software")
+def want(raw):
+    # token 命中且不是退信 DSN——exim 计数退信的 DSN 带着原信 Subject 进
+    # mailpit，不排除会把退信误记成投递（本 run 实测：n55/ex 抓到 DSN）
+    return token.encode() in raw and not any(m in raw for m in DSN_MARKS)
 for _ in range(12):
     try:
         r = urllib.request.urlopen("http://msl-mailpit:8025/api/v1/messages?limit=100", timeout=5)
@@ -269,14 +276,14 @@ for _ in range(12):
             if token == (m.get("Subject") or ""):
                 raw = urllib.request.urlopen(
                     "http://msl-mailpit:8025/api/v1/message/%s/raw" % m["ID"], timeout=5).read()
-                if token.encode() in raw:
+                if want(raw):
                     cands.append((m.get("Created") or "", raw))
         # 慢路径：头区可能被终结、Subject 沉没——按原始字节匹配最近 40 封
         if not cands:
             for m in msgs[:40]:
                 raw = urllib.request.urlopen(
                     "http://msl-mailpit:8025/api/v1/message/%s/raw" % m["ID"], timeout=5).read()
-                if token.encode() in raw:
+                if want(raw):
                     cands.append((m.get("Created") or "", raw))
         # 重跑同名 case 时取最新一封（按 Created 排序）
         if cands:
@@ -303,8 +310,8 @@ def fetch_capture(case_id: str, out_container_path: str, host_path: Path) -> byt
 
 # ---------------------------------------------------------------- 行装配
 
-def _vector(ev_path: str, stored: bytes, arm: str, chain: dict,
-            cid: str | None) -> dict:
+def _vector(ev_path: str, stored: bytes, arm: str, cid: str | None,
+            chain: dict) -> dict:
     vec = {
         "dkim": verdicts.file_verdicts(ev_path),
         "ar": verdicts.ar_verdicts(stored) if arm == "exec" else {},

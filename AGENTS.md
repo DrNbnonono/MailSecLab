@@ -68,7 +68,7 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 - J1：`h=` 覆盖约 150KB 的 `X-Gen`。中继前 154,562 B 为 pass，三跳后 103,283 B 为 FAIL，SMTP 仍 250。
 - J2：`l=33` 再追加 101 B，dkimpy 前后都 pass。这是 RFC 6376 §3.7 的前缀语义，不是新的协议漏洞。`l=` 只管正文长度，不管头区。
 - J3：签名后插入 `Receíved`，dkimpy 拒解析；过 Postfix 后签名沉入正文。
-- K 的最终矩阵以 `received-lab/results/k-series/RECORD.md` 和 `k1_matrix.csv` 为准。KB1 四家都接受。KB2（签名后注入异常头）：dkimpy 拒解析，perl 与 go-msgauth pass，rspamd `R_DKIM_ALLOW`（分数 4.3，动作 greylist）。KB3（重复 From）：dkimpy FAIL，rspamd `R_DKIM_REJECT`，perl 与 go pass。`l=` 追加时 go-msgauth 报 insecure body length tag，另外三家接受。DKIM 实例选择已有 causal 证据（perl/go 自底向上、dkimpy/rspamd 双实例 fail、oversign 全 fail）；OpenDKIM 列因公钥检索问题缺失，不要补写 OpenDKIM 的选择方向。
+- K 的最终矩阵以 `received-lab/results/k-series/RECORD.md` 和 `k1_matrix.csv` 为准。KB1 四家都接受。KB2（签名后注入异常头）：dkimpy 拒解析，perl 与 go-msgauth pass，rspamd `R_DKIM_ALLOW`（分数 4.3，动作 greylist）。KB3（重复 From）：dkimpy FAIL，rspamd `R_DKIM_REJECT`，perl 与 go pass。`l=` 追加时 go-msgauth 报 insecure body length tag，另外三家接受。DKIM 实例选择已有 causal 证据（perl/go/OpenDKIM 自底向上、dkimpy/rspamd 双实例 fail、oversign 全 fail）。
 
 认证链与研究网（w1/w2，`received-lab/results/research/`）：
 
@@ -105,7 +105,7 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 1. ~~重跑 G4~~ 已关闭（w1）：`results/research/w1-20261001a/g4/`——78 字节折行语料，N1/N50/N100 全投递，N100 存档 8,000,545 B、100 条 X-Received 无缺口。旧 9,096,191 B 数字作废，不要再引用。
 2. ~~重做 I2~~ 已关闭（w1）：`results/research/w1-20261001a/i2/`——自洽伪造链在文件扫描时确实把 rspamd source 指到伪造 from-clause；过诚实中继后回到真实会话地址；不自洽链被 join 检出（by-host ≠ from-host）。
 3. ~~OpenSMTPD 同构环~~ 已关闭（w1）：`results/research/w1-20261001a/osmtpd-loop/`——普通与空白种子都在约 100 条普通 Received 处被 5.4.6 停住。空白变体保留原样、不计历史行，但中继自己新增的普通行仍计数，不破坏环路终止。
-4. ~~DKIM 重复字段选择~~ 已关闭（w1 causal + w2 exec）：perl/go 自底向上取实例；dkimpy/rspamd 对第二实例 From 直接 fail；h= 重复列出（oversign）四家全 fail。实例绑定全景：DKIM/OpenDKIM=底部、OpenDMARC=顶部、ENVELOPE=首元素、Roundcube=底部、SnappyMail=顶部。
+4. ~~DKIM 重复字段选择~~ 已关闭（w1 causal + w2 exec）：perl/go 自底向上取实例；dkimpy/rspamd 对第二实例 From 直接 fail；h= 重复列出（oversign）四家全 fail。实例绑定全景：DKIM/perl/go/OpenDKIM=底部、OpenDMARC=顶部、ENVELOPE=首元素、Roundcube=底部、SnappyMail=顶部（OpenDKIM 列=w3 `opendkim-col/`，上插 pass/下插 fail）。
 5. ~~Exim 4.92 阳性对照~~ 已关闭（w1 `exim492/`）：CRLF 载荷 554 同步错误、LF 载荷注入留在单个正文，与 I1 修补版阴性一致。
 
 当前真正开放的项目：
@@ -113,7 +113,7 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 1. recfuzz2 的 Exim 捕获臂（250 后退信路径未捕获转换事实）。
 2. ~~parser 三家~~ 已关闭（w3 diffrun parse 列）。
 3. ~~DKIM 验证器 × obs-colon 交叉~~ 已关闭（w3 sigprobe2）。
-4. OpenDKIM 2.11.0 不向实验室 DNS 查公钥（key not found），实例绑定矩阵缺该列。
-5. parsedmarc 离线装包受阻——按 opendmarc-reports 缺 Switch.pm 的先例记录为工具缺口。
+4. ~~OpenDKIM 公钥检索~~ 已关闭（w3 `opendkim-col/`）：根因=libunbound 构建的解析路径不出容器（unbound:probe A/B 对照：同信 key-not-found+零查询 vs libc 版 pass+有查询）；实例绑定列已补——OpenDKIM=底部选择。
+5. parsedmarc 离线装包仍受阻：wheel 已下载但全是 cp313-linux 平台 tag（容器 py3.11 不匹配），需按 cp311/manylinux 重下后补做报告消费端探针。
 
 改实验脚本时，比较的是同一字节流在不同组件上的解释。定位邮件用 `X-Case-ID`；头区可能被终结时，改为在整封 raw 里搜索。

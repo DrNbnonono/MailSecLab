@@ -246,8 +246,48 @@ def run_diff(run_id: str) -> dict:
     return {"passed": not problems, "problems": problems}
 
 
+def corpus_files(corpus_dir: Path) -> list[Path]:
+    """MailForge 归档或普通 .eml 目录。按文件名排序；manifest 存在时做
+    sha256 交叉核对，普通目录也可用。"""
+    return sorted(p for p in corpus_dir.rglob("*.eml"))
+
+
+def run_corpus(run_id: str, corpus_dir: Path) -> dict:
+    """--corpus 模式：外部字节（MailForge 产物）直接进 parse 臂 + 结构自检，
+    不经 SMTP（无需中继手术）。行写入 <run>/diffrun/corpus-matrix.json。"""
+    stage = RUN_ROOT / run_id / "diffrun"
+    stage.mkdir(parents=True, exist_ok=True)
+    _, parse_cfg = load_config()
+    problems, rows = [], []
+    for path in corpus_files(corpus_dir):
+        raw = path.read_bytes()
+        checks = corpus_check(raw)
+        row = {"file": str(path.relative_to(corpus_dir)), "bytes": len(raw),
+               "input_sha256": sha256_bytes(raw),
+               "corpus_check": checks, "facts": trace_facts(raw)}
+        for target, spec in parse_cfg.items():
+            prow = parse_arm(stage, Path(path.stem).name[:40], raw, target,
+                             spec["container"], spec["cmd"])
+            row[f"view_{target}"] = prow["view"]
+        rows.append(row)
+        print(json.dumps({"file": row["file"], "checks": checks,
+                          "received": row["facts"]["received"]}), flush=True)
+    (stage / "corpus-matrix.json").write_text(
+        json.dumps({"corpus_dir": str(corpus_dir), "rows": rows},
+                   ensure_ascii=False, indent=1), encoding="utf-8")
+    if not rows:
+        problems.append("corpus 目录里没有 .eml")
+    return {"passed": not problems, "problems": problems, "rows": len(rows)}
+
+
 if __name__ == "__main__":
-    report = run_diff(sys.argv[1] if len(sys.argv) > 1 else "w3-20261003a")
-    print("diff gate passed=", report["passed"])
-    for p in report["problems"]:
-        print(" -", p)
+    if len(sys.argv) >= 3 and sys.argv[1] == "--corpus":
+        report = run_corpus("w3-20261003a", Path(sys.argv[2]))
+        print("corpus rows=", report["rows"], "passed=", report["passed"])
+        for p in report["problems"]:
+            print(" -", p)
+    else:
+        report = run_diff(sys.argv[1] if len(sys.argv) > 1 else "w3-20261003a")
+        print("diff gate passed=", report["passed"])
+        for p in report["problems"]:
+            print(" -", p)

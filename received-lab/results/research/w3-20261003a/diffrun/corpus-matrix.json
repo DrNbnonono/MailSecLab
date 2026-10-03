@@ -1,0 +1,143 @@
+{
+ "corpus_dir": "/mnt/e/MailTrace/output/w3-corpus",
+ "rows": [
+  {
+   "file": "e003e964fa9b416bbdb4aaf5a1c73fd3/messages/snapshot-001.eml",
+   "bytes": 223,
+   "input_sha256": "8b20bd1aff8c0dbd4cbe2320fa7454cf91e6b2abf4ed7573db7b7f57fe4cbf60",
+   "corpus_check": [],
+   "facts": {
+    "sha256": "8b20bd1aff8c0dbd4cbe2320fa7454cf91e6b2abf4ed7573db7b7f57fe4cbf60",
+    "total_bytes": 223,
+    "zone_end": 190,
+    "body_bytes": 33,
+    "received": {},
+    "received_zone_total": 0,
+    "case_noncanonical": 0,
+    "relay_added": 0,
+    "no_colon_body": 0,
+    "body_headerish": 0,
+    "empty_zone_lines": 0
+   },
+   "view_python": {
+    "received_count": 0,
+    "from_in_headers": true,
+    "defects": []
+   },
+   "view_go": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 0
+   },
+   "view_node": {
+    "received_count": 0,
+    "from_in_headers": true
+   }
+  },
+  {
+   "file": "e003e964fa9b416bbdb4aaf5a1c73fd3/messages/snapshot-002.eml",
+   "bytes": 5854,
+   "input_sha256": "991e5c2ce89982d0e419c622211e7379469a74d0674e66baeac827b386b05934",
+   "corpus_check": [],
+   "facts": {
+    "sha256": "991e5c2ce89982d0e419c622211e7379469a74d0674e66baeac827b386b05934",
+    "total_bytes": 5854,
+    "zone_end": 5821,
+    "body_bytes": 33,
+    "received": {
+     "strict": 50
+    },
+    "received_zone_total": 50,
+    "case_noncanonical": 0,
+    "relay_added": 0,
+    "no_colon_body": 0,
+    "body_headerish": 0,
+    "empty_zone_lines": 0
+   },
+   "view_python": {
+    "received_count": 50,
+    "from_in_headers": true,
+    "defects": []
+   },
+   "view_go": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 50
+   },
+   "view_node": {
+    "received_count": 50,
+    "from_in_headers": true
+   }
+  },
+  {
+   "file": "e003e964fa9b416bbdb4aaf5a1c73fd3/messages/snapshot-003.eml",
+   "bytes": 5967,
+   "input_sha256": "d55fc530becc6e5fd7034ddd9d2befe9b1954d1a4f43f937bbde1c978c76b691",
+   "corpus_check": [],
+   "facts": {
+    "sha256": "d55fc530becc6e5fd7034ddd9d2befe9b1954d1a4f43f937bbde1c978c76b691",
+    "total_bytes": 5967,
+    "zone_end": 5934,
+    "body_bytes": 33,
+    "received": {
+     "strict": 51
+    },
+    "received_zone_total": 51,
+    "case_noncanonical": 0,
+    "relay_added": 0,
+    "no_colon_body": 0,
+    "body_headerish": 0,
+    "empty_zone_lines": 0
+   },
+   "view_python": {
+    "received_count": 51,
+    "from_in_headers": true,
+    "defects": []
+   },
+   "view_go": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 51
+   },
+   "view_node": {
+    "received_count": 51,
+    "from_in_headers": true
+   }
+  },
+  {
+   "file": "e003e964fa9b416bbdb4aaf5a1c73fd3/messages/snapshot-004.eml",
+   "bytes": 23005,
+   "input_sha256": "52424443bae309f7a8f92125aaaff1add9a8ef8c4e34868b3fed1cac8147a72f",
+   "corpus_check": [],
+   "facts": {
+    "sha256": "52424443bae309f7a8f92125aaaff1add9a8ef8c4e34868b3fed1cac8147a72f",
+    "total_bytes": 23005,
+    "zone_end": 22972,
+    "body_bytes": 33,
+    "received": {
+     "strict": 200
+    },
+    "received_zone_total": 200,
+    "case_noncanonical": 0,
+    "relay_added": 0,
+    "no_colon_body": 0,
+    "body_headerish": 0,
+    "empty_zone_lines": 0
+   },
+   "view_python": {
+    "received_count": 200,
+    "from_in_headers": true,
+    "defects": []
+   },
+   "view_go": {
+    "error": "",
+    "from_in_headers": true,
+    "received_count": 200
+   },
+   "view_node": {
+    "received_count": 200,
+    "from_in_headers": true
+   }
+  }
+ ]
+}

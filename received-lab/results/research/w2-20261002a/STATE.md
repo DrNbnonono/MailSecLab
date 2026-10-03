@@ -31,6 +31,12 @@ w2 run 总案例数 ≈ 2500（hdrfuzz 30 + hdrfuzz2 240 + hdrfuzz3 900 + hdrfuz
 - msl-mailpit 已接入研究网（SMTP 1025 / API 8025，容器内名 msl-mailpit）。
 - opensmtpd 路由=msl-auth-postfix:25（默认）。
 
+## 2026-10-03 任务 8/9 增量
+
+- 任务 8 桥：tracefacts+测试入 MailTrace（c656c5c，7/7 过）；diffrun 新增 `--corpus` 模式；forge received-counts 扫描 0/50/51/200 在 tracefacts 与三家 parser 计数一致、自检零告警。
+- 任务 9：unbound:probe A/B 对照闭环（根因=libunbound 解析路径不出容器）；OpenDKIM 列=底部（w3 opendkim-col）。当前 msl-opendkim 仍为 libc 版。
+- parser-node 容器仍在运行；wheels-venv（Windows，py3.13）建在 research/wheels-venv——装 parsedmarc 失败（wheel 为 linux cp313），可删。
+
 ## 回滚完成记录（2026-10-03 任务 7 收尾）
 
 - exim route→msl-auth-postfix:25 ✓、opensmtpd relay→msl-auth-postfix:25 ✓、postfix transport_maps 清空 ✓（capture 捕获路由已撤）。

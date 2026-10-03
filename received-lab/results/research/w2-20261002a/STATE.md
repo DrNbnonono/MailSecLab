@@ -24,6 +24,13 @@ M1 不可提取→无盖章（59）/ M2 EAI 空洞（25）/ M3 literal（15）/ 
 
 w2 run 总案例数 ≈ 2500（hdrfuzz 30 + hdrfuzz2 240 + hdrfuzz3 900 + hdrfuzz4 1008 全叉积 + hdrfuzz5 144 签名轴 + 定向探针 ~60）。工具族 + known-outcomes.json（29 元组）。两个披露候选：① rspamd 群组/domain-literal DMARC 静默；② 外域 AR 存活 + SnappyMail 徽章渲染。两个阴性关闭：Resent/Sender 显示替代、obs 路由地址。
 
+## 栈状态补充（2026-10-03 recfuzz2 后）
+
+- auth-postfix 新增 `transport_maps = hash:/etc/postfix/transport`（capture@lab.test → smtp:[msl-mailpit]:1025）——保留供原始捕获复用；恢复默认栈时删除并 reload。
+- exim 容器现由镜像 `received-lab-exim:v3` 运行（双网：received-lab_mailnet + 研究网），路由=msl-auth-postfix:25，日志在 `/var/log/exim4/main`（非 mainlog）。
+- msl-mailpit 已接入研究网（SMTP 1025 / API 8025，容器内名 msl-mailpit）。
+- opensmtpd 路由=msl-auth-postfix:25（默认）。
+
 ## 活动后台任务（勿忘）
 
 - **Windows 侧 WSL 保活**：exec_c1499e76（每 15s docker exec 防休眠）——实验全部结束后停掉。

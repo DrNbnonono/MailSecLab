@@ -161,6 +161,60 @@ U-label 核心已 CVE 化，转入自由探针模式。本轮三个快探针 + �
 
 `pip3 install --break-system-packages parsedmarc` → "from versions: none"（PyPI 不可达）。报告消费端脉继续被离线环境阻塞，需有网窗口装包或离线塞 wheel。
 
+### 2026-10-03 recfuzz2 结果：hopcount 计数分裂矩阵（recfuzz2/，24 例 + N=105 六例）
+
+**设计**：每台中继直投 mailpit 原始捕获（隔离末跳依赖）；N=55 堆叠触发 Postfix(50)/Exim(30) 阈值；osmtpd 补 N=105 轮触发其 ~100 阈值。exim 退信原因经 DSN+mainlog 双确认：`Too many "Received" headers - suspected mail loop`。
+
+**三 MTA × 八形态判决矩阵**（REJ=554/5.4.6，BOUNCE=接受后退信，ACC=投递成功）：
+
+| 形态 | Postfix 3.7 | Exim 4.96 | OpenSMTPD 6.8 | 头区去向 |
+|---|---|---|---|---|
+| plain | REJ（计数） | BOUNCE（计数） | REJ@105（计数） | 保留 |
+| obs `Received :` | REJ（规范化→计） | BOUNCE（计） | **ACC@105**（不计） | pf 规范化/osmtpd 保留 |
+| 大小写 | REJ | BOUNCE | ACC@105 | 保留 |
+| 无冒号 | **ACC**（沉正文→不计） | **BOUNCE（计！）** | ACC（保留在头区，不计） | pf 沉/osmtpd 留头区 |
+| 8-bit 名 | ACC（终结头区→不计） | **ACC（55 条留头区、不计）** | ACC | exim/osmtpd 留头区 |
+| `Received(Router):` CFWS | **ACC（55 条留头区、不计）** | ACC（同） | ACC（同） | 三家全保留 |
+| `Rece(c)ived:` 注释名 | ACC（留头区、不计） | ACC | ACC | 三家全保留 |
+| tab 名 `Received	:` | REJ（规范化→计） | BOUNCE（计） | **ACC@105（不计）** | osmtpd 保留 |
+
+**核心结论**：
+1. **同一封 55 条 obs Received 的信，三种 MTA 三种环路判决**（Postfix 554 / Exim 接受后退信 / OpenSMTPD 投递成功）——E3 的系统化+判决级版本。
+2. **普适计数盲区族**：CFWS 装饰名、注释名、8-bit 名（exim/osmtpd）、tab 名（osmtpd）——**保留在头区作为可见 trace 材料，但对 ≥2/3 家的 hopcount 计数器不可见**。任意条数的「可见但永远不计数」的伪造中继历史可预置。
+3. **跨 MTA 计数分歧**：obs（exim 计/osmtpd 不计）、无冒号（exim 计/postfix 不计）、tab（pf+exim 计/osmtpd 不计）——环路检测的语义是各 MTA 自定义的。
+4. **诚实定级（按 AGENTS P6 框架）**：预置不计数 trace **不使真实环不死**（每真实跳新增自己的规范 Received，仍会终止）。真实后果是：(a) **计数器免疫的 trace 伪造**——攻击者可预置任意长的伪造中继历史（任意主机/IP/时间戳），不被 hopcount 约束，直接影响 H 系列的来源取证路径；(b) 同一封信在不同品牌中继上得到相反环路判决（投递不确定性 + exim 侧 DSN 退信放大）；(c) 与 F 系列 DSN 放大、G 系列阈值语义形成完整叙事。
+- 修正早先两个误读（记录）：v03 无冒号在 OpenSMTPD 是**保留在头区**（第一轮的沉正文是末跳 Postfix 干的）；「8-bit 名终结头区」是 **Postfix 特有**（exim/osmtpd 保留在头区）。
+- 捕获异常备注：v03/v04-postfix 的 mailpit API 列表未见（postfix 日志 status=sent），结论以 postfix 日志+第一轮字节证据支撑；mailpit API 分页/搜索行为待查。
+- 部署恢复：exim/opensmtpd 路由已改回 msl-auth-postfix；postfix 保留 `transport_maps`（capture@lab.test→mailpit，为后续捕获复用），已记 STATE。
+
+### 2026-10-03 第二轮差分设计：中继原始捕获 + hopcount 计数分裂（recfuzz2/）
+
+**设计修正**（上轮方法论发现的落实）：每台中继直投到**原始捕获器**（后面无其他 MTA），隔离末跳依赖，看每台 MTA 自身对 Received 的变换。捕获器 = msl-mailpit（1025 SMTP + HTTP API 取原始字节），已在研究网。
+**新攻击轴（用户 idea）**：变形 Received 使其在某台 MTA 的**转发中被计入 hopcount、另一台不计**——hopcount 计数分裂。已知素材：E3 的 `Received :`（OpenSMTPD 保留不计入 vs Postfix 规范化后计入）是首个实例；本轮系统化：obs 冒号/大小写/无冒号（沉正文侧）/8-bit 名/注释变体/CFWS 变体 × 三 MTA + 邮件尾部堆叠近阈值数量。观测 = stored 形态 + SMTP 是否 5.4.6。
+判据：同一变形在 ≥2 台 MTA 产生不同的计入行为（一台拒 5.4.6 一台放行）= hopcount 分裂阳性。
+
+### 2026-10-03 攻击 3：SMTPUTF8 信封层（utf8env/）——同一标识符的三层命运
+
+工具：`research/lib/smtp_send_utf8.py`（支持 UTF-8 MAIL FROM + SMTPUTF8 参数）。五探针：
+- **e3（U-label 信封无参数）**：Postfix 在 MAIL 命令直接 `501 5.1.7 Bad sender address syntax`——声明强制存在（好卫生）。
+- **e1/e2/e5（带参数）**：SMTP 层 250 接受；**milter 层 rspamd 的 SPF=R_SPF_NA{no SPF record}——U-label 信封域的 SPF 查询落入与 From 侧同族的空洞**；但**投递层被 `5.6.7 SMTPUTF8 is required, but was not offered` 退信**——Dovecot 2.3.19 LMTP 的 LHLO 只声明 8BITMIME/CHUNKING/ENHANCEDSTATUSCODES/PIPELINING（无 SMTPUTF8）。
+- e4 对照：ASCII 信封 spf=fail + U-label From dmarc=none（From 侧空洞，已知）。
+- **结论**：同一 UTF-8 信封标识符在 MAIL 层（拒绝）、评估层（空洞）、投递层（不可投递）三种命运——CVE 家族在信封侧的边界刻画：空洞存在于评估（R_SPF_NA）但该栈内不可利用于投递（退信），除非下游投递路径声明 SMTPUTF8。
+- 附带部署事实：Dovecot 2.3.19 LMTP 默认不声明 SMTPUTF8。
+
+### 2026-10-03 用户 idea 实现：Received/IMF 差分模糊第一轮（recfuzz/，12 探针 × 3 路径 = 36 例）
+
+灵感来源：Andarzian 的 MIME 差分换成 Received/IMF。语料：good/obs 冒号/大小写/无冒号/空值/8-bit 值/8-bit 字段名/无分号/双分号/嵌套注释/超长折叠/10 连。三 MTA（direct=auth-postfix、exim v3、opensmtpd）。
+
+**结果（facts.json）**：全部 250 接受、无拒收无截断。四种命运在**全部三路径一致**：
+1. **obs `Received :` → 规范化为 `Received:`**（计数保留——与 E 系列一致，计入 hopcount）；
+2. **字段名大小写保留**（rEcEiVeD 原样透传）；
+3. **无冒号行沉入正文**（trace 条目退出头区——rec 计数减一、nc_body=1）；
+4. **8-bit 值保留；8-bit 字段名终结头区**（后续字段沉没——V007/J3 现象跨中继组合确认）。
+- r05/r08/r09/r10/r11 全部原样保留；r12 十连保留（远低于 hopcount 50）。
+- **设计发现（记录为方法论）**：所有路径都以 auth-postfix 为末跳，其 cleanup 的规范化在最后生效——**「修复类」变换是末跳依赖的**（与修复矩阵「位置依赖」结论同族：只有末跳获得改写字段的机会，中继只追加）。要隔离各 MTA 自身行为需每台中继直投原始捕获（无后续 MTA）——列为下一轮设计。
+- 工具坑：存档文件名前缀又双叒 mismatch（rf- 前缀）——离线重算修复；facts 键名 case 冲突已改 case_surv。
+
 ### 2026-10-03 exim 镜像修复 + 三列矩阵完成（repair/facts.json）
 
 **exim 三层根因与修复**（收到「构建正确的镜像」指令）：① 入口 `-C` 覆盖配置→投递子进程非 root 传 -C 丢权限——修法=配置放编译期默认搜索路径 `/etc/exim4/exim4.conf`（root:root 644）、入口改 `exec /usr/sbin/exim -bdf`；② transport `to_mailpit` 写死 `port=1025`——改 25；③ `docker commit` 继承临时容器的 entrypoint 覆盖——用 `--change "ENTRYPOINT"` 恢复。产出正确镜像 `received-lab-exim:v3`（配置+入口修复），容器双网（旧 mailnet + 研究网）。

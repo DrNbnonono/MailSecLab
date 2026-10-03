@@ -65,6 +65,21 @@
 3. **hdrfuzz5 签名轴 144 组合**：篡改检测 72/72 fail（防线上无绕过）；**oversign 防御在 OpenDKIM 上 36/36 验签失败**（防御不兼容，与 w1 dkimpy 结论连成一线）；尾点/重复 d= 行为在 12 形态复现。**对齐 caveat**：victim 是 lab.test 子域，relaxed 对齐按组织域全通过——后续对齐实验须用独立二级域。
 4. 环境事故：WSL/Docker 反复休眠毁掉两轮 h5；Windows 侧保活任务（exec_c1499e76）运行中，实验结束后停。
 
+## recfuzz2：hopcount 计数分裂矩阵（recfuzz2/，2026-10-03）
+
+**三 MTA × 八形态环路判决矩阵**（N=55 触发 pf/exim 阈值，N=105 触发 osmtpd）：
+1. 同一封 55 条 obs Received 信 → Postfix 554 / Exim 退信 / OpenSMTPD 投递（三种判决）。
+2. **普适计数盲区族**（CFWS 名/注释名/8-bit 名/tab 名）：留在头区可见、对 ≥2/3 家计数器不可见——**计数器免疫的 trace 伪造**（H 系列取证直接相关）。
+3. 跨 MTA 计数分歧：obs（exim 计/osmtpd 不计）、无冒号（exim 计/pf 不计）、tab（pf+exim 计/osmtpd 不计）。
+4. 诚实定级：不使真实环不死（AGENTS P6）；后果=trace 伪造免疫+判决不确定性+DSN 放大面。
+5. 证据：recfuzz2/matrix.json + facts 系（*.stored.raw 原始捕获）+ exim mainlog 退信行 + N=105 六例 smtp 转录。
+
+## 攻击 3 + Received 差分模糊（utf8env/、recfuzz/，2026-10-03）
+
+1. **SMTPUTF8 信封层**：无参数 U-label 信封被 `501 5.1.7` 拒（声明强制）；带参数时评估层 SPF 落入 no-record 空洞（R_SPF_NA）但投递层被 `5.6.7` 退信（Dovecot LMTP 不声明 SMTPUTF8）——同一标识符的三层命运，CVE 家族信封侧边界。
+2. **Received/IMF 差分第一轮（36 例）**：全接受无截断；四种命运跨三 MTA 一致（obs 规范化计数保留/大小写保留/无冒号沉正文/8-bit 名终结头区）——**修复类变换是末跳依赖**（末跳 cleanup 最后改写，中继只追加）。下一轮设计：每中继直投原始捕获以隔离各自行为。
+3. exim 正确镜像 `received-lab-exim:v3`（配置就位默认路径+免 -C+端口 25）产出，修复矩阵三列齐。
+
 ## 攻击 1：异构 MTA 修复矩阵（repair/，2026-10-03）
 
 **L1 框架（Forward Pass「单跳性质在转发下失效」）的第一个受控实验**：11 探针 × 直投/OpenSMTPD 中继（exim 列阻塞于 -C 配置信任，待办）。
@@ -72,6 +87,10 @@
 2. **空洞类性质对中继稳健**：U-label/群组/字面量/重复 From/外域 AR 存活/obs 签名存活全部透传保持——攻击者可跨中继依赖。
 3. 环境修正：删除 `address=/lab.test/` 通配（劫持容器名解析，曾使 exim 列实为直投）；exim 待办=update-exim4.conf 免 -C。证据：repair/facts.json（离线重算）、matrix.json、rp-*.stored.eml 22 份。
 4. 文献锚：LITERATURE_LEADS.md L1；对照 Chen 2020 图 6c（Fastmail 黑盒观测，本实验为受控复现+机制归因）。
+
+### parsedmarc 离线装包受阻（工具缺口）
+
+容器无网，parsedmarc 及其依赖无法离线安装（同 opendmarc-reports 缺 Switch.pm 先例）。报告消费端验证未做，不影响数据级结论；如需复测，先准备离线 wheel 目录再挂载。
 
 ## 四线冲刺（xssprobe/、keyprobe/、align2/、dmarcfuzz/，2026-10-03 深夜）
 

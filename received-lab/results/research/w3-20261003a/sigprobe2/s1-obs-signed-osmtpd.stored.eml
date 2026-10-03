@@ -1,0 +1,23 @@
+Bcc: capture@lab.test
+Return-Path: <alice@lab.test>
+Received: from opensmtpd.lab.test (opensmtpd.mailseclab-research-net. [10.88.0.5])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 05:08:59 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id 59383039
+	for <capture@lab.test>;
+	Sat, 3 Oct 2026 05:08:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date:received;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=ZNhiwPQzDeo7ciCVP89bSfWUG3ypMvSs75oaLd8e9a6cS5Ub/Jq+ZRJ9Z1XaVc7vhfQyidmKKDqNmnQQyOnu0rvi1Go9oIYTDk8T8/AF1E9M/E1Y7sqgKV8lViku8poP9enzN1DFvkI4b9upWqvoVTy9s78IuNJdK3ZU0zeVqcZn7ZT0I5xYCowNcsfk8DYDsDkEzAtJuxhdUWSRD2eg/f1iuNB19BqNI35HtOXCWZHiZ0QUIUPmbzHgZAg6BZ3/1IE1K/0Y0fMaXI7hdCPxhm8lAE2GzkMkDtK3YZ59QDJdi93fH9fv7UpVoz4zHUCDT6R+0F9q5XtTNEuIRLAxMA==
+Received : from h0.lab.test (h0.lab.test [203.0.113.0]) by h0x.lab.test with ESMTP id O0; Sat, 03 Oct 2026 22:10:00 +0000
+Received : from h1.lab.test (h1.lab.test [203.0.113.1]) by h1x.lab.test with ESMTP id O1; Sat, 03 Oct 2026 22:11:00 +0000
+Received : from h2.lab.test (h2.lab.test [203.0.113.2]) by h2x.lab.test with ESMTP id O2; Sat, 03 Oct 2026 22:12:00 +0000
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 22:30:00 +0000
+Subject: sigprobe2 s1-obs-signed
+Message-ID: <sp2-s1-obs-signed@lab.test>
+X-Case-ID: sp2-s1-obs-signed
+
+Please confirm the payment.

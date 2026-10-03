@@ -1,0 +1,151 @@
+{
+ "rows": [
+  {
+   "baseline": "s0-strict-signed",
+   "path": "norelay",
+   "stored": true,
+   "verifiers": {
+    "dkimpy": "pass",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "pass"
+   },
+   "rspamd_action": "no action",
+   "facts": {
+    "strict": 3
+   },
+   "input_sha256": "a51273ff8ea11e7f6a1ca98fa354e657382257b823e9affea53975b1522ecc2e"
+  },
+  {
+   "baseline": "s0-strict-signed",
+   "path": "osmtpd",
+   "stored": true,
+   "verifiers": {
+    "dkimpy": "pass",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "pass"
+   },
+   "rspamd_action": "add header",
+   "facts": {
+    "strict": 5
+   },
+   "input_sha256": "a51273ff8ea11e7f6a1ca98fa354e657382257b823e9affea53975b1522ecc2e"
+  },
+  {
+   "baseline": "s0-strict-signed",
+   "path": "postfix",
+   "stored": true,
+   "verifiers": {
+    "dkimpy": "pass",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "pass"
+   },
+   "rspamd_action": "add header",
+   "facts": {
+    "strict": 5
+   },
+   "input_sha256": "a51273ff8ea11e7f6a1ca98fa354e657382257b823e9affea53975b1522ecc2e"
+  },
+  {
+   "baseline": "s1-obs-signed",
+   "path": "norelay",
+   "stored": true,
+   "verifiers": {
+    "dkimpy": "parse-error",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "rspamd_action": "add header",
+   "facts": {
+    "obs-colon": 3
+   },
+   "input_sha256": "d593731dfa1055d690434d08ef98a39f8a7dac4e42519e64b278a298d930e920"
+  },
+  {
+   "baseline": "s1-obs-signed",
+   "path": "osmtpd",
+   "stored": true,
+   "verifiers": {
+    "dkimpy": "parse-error",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "rspamd_action": "add header",
+   "facts": {
+    "strict": 2,
+    "obs-colon": 3
+   },
+   "input_sha256": "d593731dfa1055d690434d08ef98a39f8a7dac4e42519e64b278a298d930e920"
+  },
+  {
+   "baseline": "s1-obs-signed",
+   "path": "postfix",
+   "stored": true,
+   "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "rspamd_action": "add header",
+   "facts": {
+    "strict": 5
+   },
+   "input_sha256": "d593731dfa1055d690434d08ef98a39f8a7dac4e42519e64b278a298d930e920"
+  },
+  {
+   "baseline": "s2-obs-injected",
+   "path": "norelay",
+   "stored": true,
+   "verifiers": {
+    "dkimpy": "parse-error",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "pass"
+   },
+   "rspamd_action": "add header",
+   "facts": {
+    "obs-colon": 1,
+    "strict": 3
+   },
+   "input_sha256": "58fe2fd3ba049bb9b51b21818406c6f6be2fe79bd029aaf7aab803f82caae5e3"
+  },
+  {
+   "baseline": "s2-obs-injected",
+   "path": "osmtpd",
+   "stored": true,
+   "verifiers": {
+    "dkimpy": "parse-error",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "pass"
+   },
+   "rspamd_action": "add header",
+   "facts": {
+    "strict": 5,
+    "obs-colon": 1
+   },
+   "input_sha256": "58fe2fd3ba049bb9b51b21818406c6f6be2fe79bd029aaf7aab803f82caae5e3"
+  },
+  {
+   "baseline": "s2-obs-injected",
+   "path": "postfix",
+   "stored": true,
+   "verifiers": {
+    "dkimpy": "pass",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "pass"
+   },
+   "rspamd_action": "add header",
+   "facts": {
+    "strict": 6
+   },
+   "input_sha256": "58fe2fd3ba049bb9b51b21818406c6f6be2fe79bd029aaf7aab803f82caae5e3"
+  }
+ ]
+}

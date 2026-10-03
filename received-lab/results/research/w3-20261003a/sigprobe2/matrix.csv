@@ -1,0 +1,10 @@
+baseline,path,dkimpy,perl,go,rspamd,received_facts
+s0-strict-signed,norelay,pass,pass,pass,pass,{'strict': 3}
+s0-strict-signed,osmtpd,pass,pass,pass,pass,{'strict': 5}
+s0-strict-signed,postfix,pass,pass,pass,pass,{'strict': 5}
+s1-obs-signed,norelay,parse-error,fail,fail,fail,{'obs-colon': 3}
+s1-obs-signed,osmtpd,parse-error,fail,fail,fail,{'strict': 2, 'obs-colon': 3}
+s1-obs-signed,postfix,fail,fail,fail,fail,{'strict': 5}
+s2-obs-injected,norelay,parse-error,pass,pass,pass,{'obs-colon': 1, 'strict': 3}
+s2-obs-injected,osmtpd,parse-error,pass,pass,pass,{'strict': 5, 'obs-colon': 1}
+s2-obs-injected,postfix,pass,pass,pass,pass,{'strict': 6}

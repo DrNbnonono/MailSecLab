@@ -79,6 +79,8 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 - 显示层把 A-label/NFC/NFD 三种 From 全部渲染为受害者 Unicode 品牌（w2 `display/`，5 张截图）。
 - repair matrix：七个单跳差分性质过 Exim/OpenSMTPD 中继后的 persist/break/created（w2 `repair/`）。
 - recfuzz2：`Received` 八种语法形态 × 三 MTA，OpenSMTPD 对 `Received :`×55 保留 55 条、只计 2 条普通行仍 250 投递（w2 `recfuzz2/matrix.json`）。
+- diffrun（w3）：八形态 × 三 MTA × 两臂统一矩阵 + parser 三列（python/go/node）。Exim 捕获臂确认 obs 字节保留但计数；更正 recfuzz2 的「exim 计 nocolon」误读（实为投递不计数）。python email 对 obs/nocolon/8bit/tab 在首条不合规行终结头区，Go net/mail 八形态头区全存活，Node mailparser 把 obs 与 tab 都计入（w3 `diffrun/RECORD.md`）。
+- sigprobe2（w3）：对 obs 形态签名的 DKIM 12 格全灭（无验证器/路径验过）；签名后注入 obs——OpenSMTPD 保留它使 dkimpy 拒解析带进邮箱，Postfix 规范化它使 dkimpy 反而 pass（修复消除验证分裂的最干净实例）（w3 `sigprobe2/RECORD.md`）。
 
 ## 不要写成定论
 
@@ -109,8 +111,8 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 当前真正开放的项目：
 
 1. recfuzz2 的 Exim 捕获臂（250 后退信路径未捕获转换事实）。
-2. parser 三家（Python/Go/Node）未进自动差分矩阵。
-3. DKIM 验证器 × obs-colon Received 交叉单元。
+2. ~~parser 三家~~ 已关闭（w3 diffrun parse 列）。
+3. ~~DKIM 验证器 × obs-colon 交叉~~ 已关闭（w3 sigprobe2）。
 4. OpenDKIM 2.11.0 不向实验室 DNS 查公钥（key not found），实例绑定矩阵缺该列。
 5. parsedmarc 离线装包受阻——按 opendmarc-reports 缺 Switch.pm 的先例记录为工具缺口。
 

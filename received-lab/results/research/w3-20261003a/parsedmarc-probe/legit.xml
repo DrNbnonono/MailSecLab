@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feedback>
+ <report_metadata>
+  <org_name>receiver.example</org_name>
+  <email>dmarc@receiver.example</email>
+  <extra_contact_info>dmarc-help@receiver.example</extra_contact_info>
+  <report_id>legit-20261003-001</report_id>
+  <date_range><begin>1790900000</begin><end>1790986400</end></date_range>
+ </report_metadata>
+ <policy_published>
+  <domain>xn--mnchen-3ya.bank.test</domain><adkim>r</adkim><aspf>r</aspf>
+  <p>reject</p><sp>reject</sp><pct>100</pct>
+ </policy_published>
+ <record>
+  <row>
+   <source_ip>10.88.0.11</source_ip><count>3</count>
+   <policy_evaluated><disposition>none</disposition><dkim>fail</dkim><spf>fail</spf></policy_evaluated>
+  </row>
+  <identifiers><header_from>xn--mnchen-3ya.bank.test</header_from></identifiers>
+  <auth_results>
+   <dkim><domain>xn--mnchen-3ya.bank.test</domain><result>fail</result></dkim>
+   <spf><domain>lab.test</domain><result>fail</result></spf>
+  </auth_results>
+ </record>
+</feedback>

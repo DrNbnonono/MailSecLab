@@ -81,6 +81,7 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 - recfuzz2：`Received` 八种语法形态 × 三 MTA，OpenSMTPD 对 `Received :`×55 保留 55 条、只计 2 条普通行仍 250 投递（w2 `recfuzz2/matrix.json`）。
 - diffrun（w3）：八形态 × 三 MTA × 两臂统一矩阵 + parser 三列（python/go/node）。Exim 捕获臂确认 obs 字节保留但计数；更正 recfuzz2 的「exim 计 nocolon」误读（实为投递不计数）。python email 对 obs/nocolon/8bit/tab 在首条不合规行终结头区，Go net/mail 八形态头区全存活，Node mailparser 把 obs 与 tab 都计入（w3 `diffrun/RECORD.md`）。
 - sigprobe2（w3）：对 obs 形态签名的 DKIM 12 格全灭（无验证器/路径验过）；签名后注入 obs——OpenSMTPD 保留它使 dkimpy 拒解析带进邮箱，Postfix 规范化它使 dkimpy 反而 pass（修复消除验证分裂的最干净实例）（w3 `sigprobe2/RECORD.md`）。
+- parsedmarc（w3）：DMARC 聚合报告消费端零来源认证——冒名 Google 的伪造报告（捏造 IP×5000 条）被完整摄入；结构残缺拒收。消费侧照单全收 + 发送侧 U-label 空洞 = 监控完整性缺口两半（w3 `parsedmarc-probe/`）。
 
 ## 不要写成定论
 
@@ -114,6 +115,6 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 2. ~~parser 三家~~ 已关闭（w3 diffrun parse 列）。
 3. ~~DKIM 验证器 × obs-colon 交叉~~ 已关闭（w3 sigprobe2）。
 4. ~~OpenDKIM 公钥检索~~ 已关闭（w3 `opendkim-col/`）：根因=libunbound 构建的解析路径不出容器（unbound:probe A/B 对照：同信 key-not-found+零查询 vs libc 版 pass+有查询）；实例绑定列已补——OpenDKIM=底部选择。
-5. parsedmarc 离线装包仍受阻：wheel 已下载但全是 cp313-linux 平台 tag（容器 py3.11 不匹配），需按 cp311/manylinux 重下后补做报告消费端探针。
+5. ~~parsedmarc 报告消费端~~ 已关闭（w3 `parsedmarc-probe/`）：parsedmarc 11.0.3 做结构校验、**不做来源认证**——冒名 reporter + 捏造行数据的伪造聚合报告被完整摄入（`verdict.json`: forged=true, origin_verification_seen=false）。与 w2 rua 发送侧空洞合拢为监控生态完整性缺口的两半。
 
 改实验脚本时，比较的是同一字节流在不同组件上的解释。定位邮件用 `X-Case-ID`；头区可能被终结时，改为在整封 raw 里搜索。

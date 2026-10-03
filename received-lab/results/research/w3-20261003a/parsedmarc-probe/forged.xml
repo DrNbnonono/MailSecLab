@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feedback>
+ <report_metadata>
+  <org_name>Google, Inc.</org_name>
+  <email>noreply-dmarc-support@google.com</email>
+  <report_id>9764825170338712501</report_id>
+  <date_range><begin>1790900000</begin><end>1790986400</end></date_range>
+ </report_metadata>
+ <policy_published>
+  <domain>xn--mnchen-3ya.bank.test</domain><adkim>r</adkim><aspf>r</aspf>
+  <p>reject</p><sp>reject</sp><pct>100</pct>
+ </policy_published>
+ <record>
+  <row>
+   <source_ip>198.51.100.66</source_ip><count>5000</count>
+   <policy_evaluated><disposition>none</disposition><dkim>fail</dkim><spf>fail</spf></policy_evaluated>
+  </row>
+  <identifiers><header_from>xn--mnchen-3ya.bank.test</header_from></identifiers>
+  <auth_results>
+   <dkim><domain>xn--mnchen-3ya.bank.test</domain><result>fail</result></dkim>
+   <spf><domain>xn--mnchen-3ya.bank.test</domain><result>fail</result></spf>
+  </auth_results>
+ </record>
+</feedback>

@@ -1,0 +1,35 @@
+{
+ "parsedmarc_version": "11.0.3",
+ "results": {
+  "legit": {
+   "accepted": true,
+   "org_name": "receiver.example",
+   "org_email": "dmarc@receiver.example",
+   "domain": "xn--mnchen-3ya.bank.test",
+   "rows": [
+    {
+     "source_ip": "10.88.0.11",
+     "count": 3,
+     "disposition": "none"
+    }
+   ]
+  },
+  "forged": {
+   "accepted": true,
+   "org_name": "Google, Inc.",
+   "org_email": "noreply-dmarc-support@google.com",
+   "domain": "xn--mnchen-3ya.bank.test",
+   "rows": [
+    {
+     "source_ip": "198.51.100.66",
+     "count": 5000,
+     "disposition": "none"
+    }
+   ]
+  },
+  "broken": {
+   "accepted": false,
+   "error": "InvalidAggregateReport: Missing field: 'report_id'"
+  }
+ }
+}

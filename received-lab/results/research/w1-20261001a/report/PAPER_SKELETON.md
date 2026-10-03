@@ -17,9 +17,13 @@ After a message is received, repaired, authenticated, and parsed, is the identit
 - Exim 4.92 #5, built 04-Jan-2024, stored one Mailpit message for the existing I1 CRLF payload and one for the LF payload. The CRLF dialogue then returned `554 SMTP synchronization error`. The LF payload left the injected SMTP text in that single body. Envelope sender stayed `alice@sender.lab.test`.
 - Three immediate repeats of the library mutant stayed `dkimpy=fail`, `perl=pass`, `go=pass`, `rspamd=fail`.
 
+- w2/w3 增量（研究网栈）：OpenDMARC U-label 空洞的评估器分裂与执行翻转、rua 报告空洞、显示层 Unicode 品牌归一化（5 张截图）、repair matrix（单跳性质过异构中继）、recfuzz2+diffrun 八形态×三 MTA 语法矩阵与 parser 三列、sigprobe2 的 obs 注入×中继×验证器九格（修复消除/传播验证分裂）。汇总见 `results/research/SYNTHESIS.md`。
+
 ## What it does not support
 
 These selection and oversign behaviors are the RFC 6376 section 3.5 and section 5.4.2 mechanisms, in the same family as the composition failures in Chen, Paxson, and Jiang (USENIX Security 2020). They are not reported here as a new vulnerability. The client difference is which From instance each program displays. Lab DNS used DMARC `p=none`. No Gmail or Exchange measurement was done. OpenDKIM did not retrieve the published key, so this run does not say how OpenDKIM treats the duplicate From once the key is in hand.
+
+OpenDKIM 列因公钥检索仪器问题缺失；parsedmarc 报告消费端未验证（离线装包受阻）；无 Gmail/Exchange 等真实服务测量；U-label 核心已被 CVE-2026-100891 覆盖（本实验室为独立复现，增量见 w2 UPSTREAM.md）。
 
 ## Disclosure draft (not sent)
 

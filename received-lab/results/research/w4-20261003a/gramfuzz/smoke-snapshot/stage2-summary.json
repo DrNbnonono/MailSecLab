@@ -1,0 +1,73 @@
+{
+ "survivors_in": 107,
+ "after_cap": 107,
+ "relay": {
+  "postfix": {
+   "sent": 107,
+   "captured": 106,
+   "smtp_250": 106,
+   "gen_preserved_true": 52,
+   "gen_preserved_false": 54,
+   "errors": 1,
+   "attribution_bad": 0
+  },
+  "exim": {
+   "sent": 107,
+   "captured": 106,
+   "smtp_250": 106,
+   "gen_preserved_true": 73,
+   "gen_preserved_false": 33,
+   "errors": 1,
+   "attribution_bad": 0
+  },
+  "osmtpd": {
+   "sent": 107,
+   "captured": 102,
+   "smtp_250": 102,
+   "gen_preserved_true": 87,
+   "gen_preserved_false": 15,
+   "errors": 1,
+   "attribution_bad": 0
+  }
+ },
+ "sign": {
+  "anchor_file": {
+   "dkimpy": "parse-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  },
+  "anchor_postfix": {
+   "dkimpy": "pass",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  },
+  "selected": 58,
+  "file_split": 33,
+  "postfix_split": 33,
+  "file_x": 33
+ },
+ "imap": {
+  "selected": 40,
+  "delivered": 39,
+  "locator_body": 12,
+  "mismatch": 14,
+  "search_self_hit_env": 16,
+  "search_self_hit_hdr": 16
+ },
+ "series": {
+  "P": 30,
+  "P+T": 44,
+  "P+T+X": 14,
+  "P+T+X+D": 12,
+  "P+X": 5,
+  "P+X+D": 2
+ },
+ "problems": [
+  "gf-resent-from-byte.insert-0013/postfix: smtp_arm 异常 gf-resent-from-byte.insert-0013: corpus 自检未通过 ['bare LF present in a CRLF corpus']",
+  "gf-resent-from-byte.insert-0013/osmtpd: smtp_arm 异常 gf-resent-from-byte.insert-0013: corpus 自检未通过 ['bare LF present in a CRLF corpus']",
+  "gf-resent-from-byte.insert-0013/exim: smtp_arm 异常 gf-resent-from-byte.insert-0013: corpus 自检未通过 ['bare LF present in a CRLF corpus']",
+  "gf-resent-from-byte.insert-0013: IMAP 臂 corpus_check 未过 ['bare LF present in a CRLF corpus']"
+ ]
+}

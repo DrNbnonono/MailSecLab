@@ -1,0 +1,17 @@
+Reply-To:(\)"! " 
+   
+ 	 
+		 
+ 		+5$  	
+	  :;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=ilNrclSXCQrAyeEK9DHzdoWDy67isO9Xux++rjqZGAzsJyPjjGMBmtWB0v9Fw0mdIfJCRIC2WIvS07RfEOIFiq8qnYIeV/td0U8F4l9JNnxdGoTC0CmWXINDIFOeZxOu8hXWRBnTvBRSDJMvqaYSZ/Hzeur8CX5Wek0o93d7Hg+/HiKBwMdcbCVM6TPvrvhqSZcO9tRkRjttYeacvJaDa6HYS9J5J3txr4vG37V7nNCiZHqsulZHNMNBYbEEriimbUKkJVEA536oRYqKCVx6GjQVMaU+UCukaDoRnrttbLyVsRdLMJcIkheDsNntHDY9D8MtnS/8FJeRJfODrmVHRg==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-reply-to-line.del-0106-sign
+Message-ID: <gf-reply-to-line.del-0106-sign@lab.test>
+X-Case-ID: gf-reply-to-line.del-0106-sign
+
+Please confirm the payment.

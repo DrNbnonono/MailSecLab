@@ -1,0 +1,29 @@
+From	 	:	(( 	 
+ 
+	
+ )) 
+  	
+	  
+	,,([())()!/%.<"		
+	L" 	
+	
+  
+ (\)(  )		
+	@[]		
+ 	>,( 	
+ 		
+		
+ 	(UB	 	
+ 	(\))		
+	),,
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=E9afR8qfFdV/CKq+FXRvF9roAqr54lDPI3B1vUObIqF43/GpA94OpL+PY22TcnYaISPtAudkROqOaOsUhv8eJLhHTGt76ug+99Z0/ouUcXmDDhfifH+BeO+9GY0jT8fofdNHZ68G7AZFPPiJNBQhHzpfHRt/vr1c9jlSMGjYq5HDnq4nVHEZ9Gpi6puD+hHC6Mg1ZV2RDC1nbRwVZZpCPE7GzAPUKxFkvfpz1akm1LrzD2IpO+PHlz0McLI9y77j/8YrvZRHubw0M8wyi5y5tV4AfaOutN4QW8ImPu5++CCYkNzhKlvuLTr7nccC166YqhYPV1hzed2l78PC4w3ssw==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-obs-from-guided.fold-line-0012-sign
+Message-ID: <gf-obs-from-guided.fold-line-0012-sign@lab.test>
+X-Case-ID: gf-obs-from-guided.fold-line-0012-sign
+
+Please confirm the payment.

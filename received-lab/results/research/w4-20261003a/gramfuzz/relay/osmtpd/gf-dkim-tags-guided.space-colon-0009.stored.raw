@@ -1,0 +1,26 @@
+Bcc: capture@lab.test
+Return-Path: <alice@lab.test>
+Received: from opensmtpd.lab.test (opensmtpd.mailseclab-research-net. [10.88.0.5])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 11:44:29 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id c470e8a9
+	for <capture@lab.test>;
+	Sat, 3 Oct 2026 11:44:28 +0000 (UTC)
+DKIM-Signature: r_W	=;Gq__=		
+			
+ 		 
+	
+  
+ 		;G_S_=	 	
+			
+	;		 F__=
+ 
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject : gf-dkim-tags-guided.space-colon-0009
+Message-ID: <gf-dkim-tags-guided.space-colon-0009@lab.test>
+X-Case-ID: gf-dkim-tags-guided.space-colon-0009
+
+Please confirm the payment.

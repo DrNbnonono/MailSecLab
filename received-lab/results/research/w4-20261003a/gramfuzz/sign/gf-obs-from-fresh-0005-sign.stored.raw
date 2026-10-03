@@ -1,0 +1,32 @@
+Bcc: capture@lab.test
+Return-Path: <alice@lab.test>
+Received: from auth-postfix.lab.test (msl-auth-postfix.mailseclab-research-net. [10.88.0.43])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 11:46:49 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id AEC4747B
+	for <capture@lab.test>; Sat,  3 Oct 2026 11:46:49 +0000 (UTC)
+Authentication-Results: mail.lab.test;
+	dkim=pass (2048-bit key; unprotected) header.d=lab.test header.i=@lab.test header.a=rsa-sha256 header.s=cal header.b=XgyL91hX
+From:( 	
+	   	
+ 
+	 v   
+ ) 
+			,  	
+	 
+	
+ 	 ,	 	
+	 "			"@=..H%.0*}
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=XgyL91hXhdj7i0qn1ha5h6nIxOL0QCpQ68dtJxQRws7G6zqsqygvPH5SKY+7clRVF6+S789q7uDCb2OqCfXUvuhL6uoiq2pu3EBdvEJa0fLLfsuiLAYi7fr+RtUPqpFiM/4L6gby8T7mKD/IujtcYQGhG/5FSxUBPswI4THcXyzkBVFzPoUelakXvDLW7LBmEknoQcsVAWlyrML7PMjBNkugUkFmEc4cySyf84f55qEUYZkF6z+44lNdxPLNrJ7CELlUZ1m5Ir+kKG9Y0scLt0nK5SCGqYtRCJtJ19eEepM/4ZFOmE+Ktf2/3bXdSrSV47rJEK96NmjcYunhH2c4BA==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-obs-from-fresh-0005-sign
+Message-ID: <gf-obs-from-fresh-0005-sign@lab.test>
+X-Case-ID: gf-obs-from-fresh-0005-sign
+X-Spam: Yes
+
+Please confirm the payment.

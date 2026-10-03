@@ -1,0 +1,18 @@
+Authentication-Results:		
+	
+   
+ 	 ()	 (\	\	((  ()f)		 
+ 	()) 	 
+ 	 )		 
+			;none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=kI6cwDxnxHxgTwBzWaVGSF1AFRtKeLwMOjeSLOfvmaVloFDRHtILZkuriYhFakEbvJ1qq1fvnPZC9bXUcGAZWwdB5Dz6c4dyAzn78FNkq0UgylNbCSdNfgboA8j/d6P+i1ghYsR8NUYGSNPVZYWYqebOWEvhqbBwo/o8T/tzahkF7Ort8YQksn+LGypAhbdigjiRTwTl0R7Z0kPmGXo7W+D3vyZh6QGIyaZuYodMOOIGiNO/s+89khInkc0EGFQIji8YzY++d4ONbeKcLxeglAmgMf2/+o59jS/4X16sdaeGZYxDd2qFbn2YWoF6PdQK5sMBLonbg+vmSmck7Wmq6Q==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-authres-byte.flip-0516-sign
+Message-ID: <gf-authres-byte.flip-0516-sign@lab.test>
+X-Case-ID: gf-authres-byte.flip-0516-sign
+
+Please confirm the payment.

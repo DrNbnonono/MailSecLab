@@ -1,0 +1,15 @@
+CLIENT_IP 10.88.0.11
+PAYLOAD_SHA256 bd6786be921f95012d559a853d3d062c73d59e697b2f3dd65717781d3f36aab2
+PAYLOAD_BYTES 305
+S 220 auth-postfix.lab.test ESMTP Postfix (Debian/GNU) | 
+C EHLO client.lab.test
+S 250-auth-postfix.lab.test | 250-PIPELINING | 250-SIZE 10240000 | 250-VRFY | 250-ETRN | 250-ENHANCEDSTATUSCODES | 250-8BITMIME | 250-DSN | 250-SMTPUTF8 | 250 CHUNKING | 
+C MAIL FROM:<alice@lab.test>
+S 250 2.1.0 Ok | 
+C RCPT TO:<capture@lab.test>
+S 250 2.1.5 Ok | 
+C DATA
+S 354 End data with <CR><LF>.<CR><LF> | 
+S 250 2.0.0 Ok: queued as A2E6B96D19 | 
+C QUIT
+S 221 2.0.0 Bye | 

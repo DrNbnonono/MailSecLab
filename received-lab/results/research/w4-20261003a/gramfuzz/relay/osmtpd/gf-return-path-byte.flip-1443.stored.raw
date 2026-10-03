@@ -1,0 +1,17 @@
+Bcc: capture@lab.test
+Message-ID: <3n7YfpHrfIUQxToReCklmE@mailpit>
+Received: from opensmtpd.lab.test (opensmtpd.mailseclab-research-net. [10.88.0.5])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 12:55:14 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id 2313b354
+	for <capture@lab.test>;
+	Sat, 3 Oct 2026 12:55:14 +0000 (UTC)
+Return-Path: <alice@lab.test>
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-return-path-byte.flip-1443Message-ID: <gf-return-path-byte.flip-1443@lab.test>
+X-Case-ID: gf-return-path-byte.flip-1443
+
+Please confirm the payment.

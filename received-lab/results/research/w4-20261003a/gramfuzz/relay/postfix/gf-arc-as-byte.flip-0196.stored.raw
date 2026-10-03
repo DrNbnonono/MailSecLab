@@ -1,0 +1,27 @@
+Bcc: capture@lab.test
+Return-Path: <alice@lab.test>
+Received: from auth-postfix.lab.test (msl-auth-postfix.mailseclab-research-net. [10.88.0.43])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 13:03:34 +0000 (UTC)
+Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 3D2F25122
+	for <capture@lab.test>; Sat,  3 Oct 2026 13:03:34 +0000 (UTC)
+ARC-Seal:   
+	  
+    ((\)9	\	)()i =64;  	
+  
+  N  =   
+ ; j2_5=
+  ; 	 
+		H= ;W_  =;
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-arc-as-byte.flip-0196
+Message-ID: <gf-arc-as-byte.flip-0196@lab.test>
+X-Case-ID: gf-arc-as-byte.flip-0196
+X-Spam: Yes
+
+Please confirm the payment.

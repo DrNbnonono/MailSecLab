@@ -1,0 +1,21 @@
+Authentication-Results:  	(   
+ )7( 
+ 	 )	
+ 
+		
+	 ( 	); 
+	  none 	
+		 
+	
+ 
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=bC3coXJD3ySTy96OJLIMs7Ny0dhIi1EcM6eJQPmPL+DKQNqF/fduwgaB++cQCYdeVvd5eropRutvw3FoVfhd9x84Y3i55nerViIon8VbmuD91012JgozHP7FImgKM8Ai5tMfO8MQ/51D4ShpinjPrTZd2OJMILJ3U3Un0znA2ACDMc2M95KTbfvEUYtpxScU3y76u3JIh85X7ryd3Unx5j3/gKsH/kciMAwu4fiRJO79dRkPtuAhzrP6SgN7bfxwQ+D9PYRTAHoVLFdZuIqPTTqbRBgV73EBjWpa0V4XJQxopz2irxt7Y1DHFmWL4GqlkJLh2+gqokKZZfRR9JJ82Q==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-authres-guided.space-colon-0023-sign
+Message-ID: <gf-authres-guided.space-colon-0023-sign@lab.test>
+X-Case-ID: gf-authres-guided.space-colon-0023-sign
+
+Please confirm the payment.

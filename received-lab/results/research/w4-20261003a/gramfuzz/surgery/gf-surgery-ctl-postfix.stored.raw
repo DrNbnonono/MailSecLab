@@ -1,0 +1,19 @@
+Return-Path: <alice@lab.test>
+Received: from auth-postfix.lab.test (msl-auth-postfix.mailseclab-research-net. [10.88.0.43])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 12:08:36 +0000 (UTC)
+Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=bank.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 42275CFD
+	for <capture@lab.test>; Sat,  3 Oct 2026 12:08:36 +0000 (UTC)
+Received: from ctrl0.lab.test (ctrl0.lab.test [203.0.113.7]) by ctrl1.lab.test with ESMTP id CTL1; Sat, 3 Oct 2026 10:45:00 +0000
+From: Bank Security <security@bank.test>
+To: capture@lab.test
+Date: Sat, 3 Oct 2026 10:45:00 +0000
+Subject: gf-surgery-ctl-postfix
+Message-ID: <gf-surgery-ctl-postfix@lab.test>
+X-Case-ID: gf-surgery-ctl-postfix
+X-Spam: Yes
+
+Surgery control letter.

@@ -1,0 +1,16 @@
+DKIM-Signature: Qu	=6I 	 
+ 	
+	 '[	:	0		
+	
+ ;z_C2=-AZ	,O :$X 		O*" 		
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=jGCZ36yAdCKRYTSDPzonnHpwWguUWe4jPcbmuHCW3R35o8dv2Bfs4JKxrMJ9JGiatzalEHpOUj/bTCj/9Pmc4LEhrhC0Ny2bn5RwmFv9EWy11qr5twHYp1+/6Ap/Xs+s3WJ4TqQGbjx14a+jwNB+Ku+YhczJH9cbCnNP13+W2tfgrRfZeoognvHhPAkaHK08w/rmTfkU1eLEhRi81QVMfxQSbcI9PLk8l2LR9Wc6+6QsTC09hA7yJIo5zJ+Tg2hoPS/Jvpkfv7YgV0RY4+QVHN2WoqkS0J2zvXWxqs96yb5g54C6QoSbtsnvN2Y9dy56hTSD/85PUhOVlBfVHNHPCw==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-dkim-tags-guided.tab-colon-0004-sign
+Message-ID: <gf-dkim-tags-guided.tab-colon-0004-sign@lab.test>
+X-Case-ID: gf-dkim-tags-guided.tab-colon-0004-sign
+
+Please confirm the payment.

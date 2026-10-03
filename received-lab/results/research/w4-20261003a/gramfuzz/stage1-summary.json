@@ -1,0 +1,33 @@
+{
+ "total": 39000,
+ "survivors": 10119,
+ "by_op": {
+  "guided.space-colon": 2060,
+  "guided.tab-colon": 3142,
+  "line.del": 722,
+  "guided.fold-line": 568,
+  "byte.insert": 36,
+  "byte.delete": 23,
+  "byte.flip": 192,
+  "line.move": 267,
+  "line.dup": 101,
+  "guided.dup-line": 393,
+  "null": 2403,
+  "guided.case-name": 212
+ },
+ "by_entry": {
+  "received": 472,
+  "obs-received": 2649,
+  "from": 429,
+  "obs-from": 2324,
+  "sender": 417,
+  "reply-to": 469,
+  "return-path": 435,
+  "resent-from": 473,
+  "authres": 518,
+  "dkim-tags": 463,
+  "arc-aar": 521,
+  "arc-ams": 476,
+  "arc-as": 473
+ }
+}

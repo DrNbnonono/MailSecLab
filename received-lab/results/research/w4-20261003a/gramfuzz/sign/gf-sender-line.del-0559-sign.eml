@@ -1,0 +1,17 @@
+Sender:`$(1)(j)(D_) 	
+	 	<,@	 	&`..$^, 	
+ 	
+			
+  @(()())(()W())^w.{.-?.^},  	
+ 		:	#_ 		(\)@}!>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=Ay+hgtpgQEc7n6retzjphBaZZwOgynadzO+g2XjPcq9YxAKXvEISI+rynZ1kx9EK78YcmKuwnBMXxp/VZgL1A6PkW3FnRF0siJmDlCu4bTCfp6hsMdfqleaq/bCSgLronQMNLCFZxMehBMpj0kWvu/VlKCi6aCZZwZ4zYevYsM57O2jOadlFBBPsPEQw/LhCE1jJkKVOAPX3qvVvM0GdM6WNvIa58a1fuc/s1Y8apPJwR+IzOECfOmhyD7D+i/bS27Fd2Fd37jucgUWQykgN2D0KG4eWWJdv1zdUnbqb5+/aecWmXVi/djIcYPOnB9k4myO8f6/qMoAXLuPKEV6clw==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-sender-line.del-0559-sign
+Message-ID: <gf-sender-line.del-0559-sign@lab.test>
+X-Case-ID: gf-sender-line.del-0559-sign
+
+Please confirm the payment.

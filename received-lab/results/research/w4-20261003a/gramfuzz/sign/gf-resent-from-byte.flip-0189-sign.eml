@@ -1,0 +1,21 @@
+Resent-From:( 	
+ 	
+ 	 \		5 
+ 	
+	)  	
+ ( 	 
+  
+   )  
+ 	
+ 	""@ $|.&|=.-
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=FHB/Pdej4plgcR7DYoOHcSDO0/hJHplx4LIwISOXIZlaucaTugOl7qn01I3eXkfs47A+o0oARwrY2pwxFL6wcZMxHd+1tOKLRXLvUEUiaHQsPsHTRiydzFih3vW9dQPvyAyiD6c128MrSQUJpxCi9uDUC/5deoyIVIhgUkS9cE/Ohghm/OVFQN2O3V036ynLZUqQftBRu0wg0hYwVb8YhXlekFCB0FtT/SE7rIZP9Xs37tZDge7kCsG/XtIPJduisCe3n4qZBO13dpjtCxExTE52hMmXCMMsb1lP23Y+3fmMtH3PSNTX2H3pYSZlP03FQ3PL+Qe2NHqn6wh55m8w7g==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-resent-from-byte.flip-0189-sign
+Message-ID: <gf-resent-from-byte.flip-0189-sign@lab.test>
+X-Case-ID: gf-resent-from-byte.flip-0189-sign
+
+Please confirm the payment.

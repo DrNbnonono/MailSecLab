@@ -1,0 +1,11 @@
+Authentication-Results:;none  	
+   
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-authres-guided.fold-line-0638
+Message-ID: <gf-authres-guided.fold-line-0638@lab.test>
+X-Case-I
+ D: gf-authres-guided.fold-line-0638
+
+Please confirm the payment.

@@ -1,0 +1,9 @@
+Received: from ctrl0.lab.test (ctrl0.lab.test [203.0.113.7]) by ctrl1.lab.test with ESMTP id CTL1; Sat, 3 Oct 2026 10:45:00 +0000
+From: Bank Security <security@bank.test>
+To: capture@lab.test
+Date: Sat, 3 Oct 2026 10:45:00 +0000
+Subject: gf-surgery-ctl-exim
+Message-ID: <gf-surgery-ctl-exim@lab.test>
+X-Case-ID: gf-surgery-ctl-exim
+
+Surgery control letter.

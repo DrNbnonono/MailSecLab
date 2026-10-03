@@ -1,0 +1,22 @@
+From:( \ 	*)		 <(()\ 	)
+	 	(IF()	 )  
+ 	 
+ 
+ /?.&=}.^  
+ 	 @	
+  	
+	
+	-{}.4}>		
+ 
+	 	
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=e0y2P9fVqUnMEyw+fd681N9A7guh5JKOdPfdZwbl3T0nc98bwCbChp3T66lCzH4ZKtE5szWgbDkVr/hVcmkU9vhN6dKDsxkB3cWNGklEuiJBzK25Mg5xioMFOgadkTYiJXA/hqjJFs9vB6TmyYMfWZwRzKi16ii9Y59PTFE71SwU0y20Z/UbFQkXKwMkSzlxHW7SkTPERj/uVx+zNjCbbp9nFv/jWFpIVLU/Pk6XcRcavkW/KQZLXDOf4kt7fZ7ZNoUjekfbseAeBPOQPM7Yo+GpFDgon2vqn0mXV5DINKbpedAZDM7SQkaJPpV0mK5YyocOXO/0qxcdaVTNxfusZA==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-from-guided.tab-colon-0001-sign
+Message-ID: <gf-from-guided.tab-colon-0001-sign@lab.test>
+X-Case-ID: gf-from-guided.tab-colon-0001-sign
+
+Please confirm the payment.

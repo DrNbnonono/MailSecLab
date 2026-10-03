@@ -1,0 +1,20 @@
+Sender:(  
+ 
+  	
+	\  
+   \	)"\ \ 
+	 	
+  
+ \		 "@	 	(\ 
+ 	)()?`.%$+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=ElOcb5wYcjh6Kwu3ZZITDFOC7Ayp7EwchPmkRIdrCHGRfcEOhb8S0vulKnKTnsfgkbaPAPTc9EmHqH7mrZg8m/mMrngj94N1HsMM1cZYrriPmdFUpbTexbEF7xNhYp7YyjqQlWIbSVkcsIZo1G/cU9tEJLIFCLYvdpq20N7lO6tZP3fPMomqsyzvM1apqK6nVrHEhTIXHI+FPkCN2/EnLI6IuNDWybJQWAI14irhmge+kbapY8fr+jWyo7/C84bYBfMY+1SsY3zGjyzR82pHaOoSLPrf6J4iJGYEQse3wzsPufBnO8e9nNCExLWOR/MXVWDnwc6tGhqENAPbwyTxaw==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-sender-guided.tab-colon-0007-sign
+Message-ID: <gf-sender-guided.tab-colon-0007-sign@lab.test>
+X-Case-ID: gf-sender-guided.tab-colon-0007-sign
+
+Please confirm the payment.

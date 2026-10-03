@@ -1,0 +1,849 @@
+{"case": "gf-received-guided.space-colon-0004", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.space-colon-0004", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.space-colon-0004", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.space-colon-0009", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.space-colon-0009", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-received-guided.space-colon-0009", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.tab-colon-0010", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.tab-colon-0010", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-received-guided.tab-colon-0010", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-guided.tab-colon-0011", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.tab-colon-0011", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-received-guided.tab-colon-0011", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-guided.space-colon-0022", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.space-colon-0022", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-received-guided.space-colon-0022", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-line.del-0035", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-line.del-0035", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-received-line.del-0035", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-guided.tab-colon-0038", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.tab-colon-0038", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-guided.tab-colon-0038", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-guided.fold-line-0044", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.fold-line-0044", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-received-guided.fold-line-0044", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.space-colon-0100", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.space-colon-0100", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-received-guided.space-colon-0100", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-byte.insert-0116", "target": "postfix", "code": null, "captured": null, "gen": null, "attr": null}
+{"case": "gf-received-byte.insert-0116", "target": "osmtpd", "code": null, "captured": null, "gen": null, "attr": null}
+{"case": "gf-received-byte.insert-0116", "target": "exim", "code": null, "captured": null, "gen": null, "attr": null}
+{"case": "gf-received-guided.fold-line-0167", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-guided.fold-line-0167", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-received-guided.fold-line-0167", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-guided.tab-colon-0172", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.tab-colon-0172", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-guided.tab-colon-0172", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-byte.delete-0317", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-byte.delete-0317", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-received-byte.delete-0317", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-byte.flip-0331", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-byte.flip-0331", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-received-byte.flip-0331", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-byte.flip-0335", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-byte.flip-0335", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-received-byte.flip-0335", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-received-line.move-0532", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-line.move-0532", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-line.move-0532", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-line.dup-0599", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-line.dup-0599", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-received-line.dup-0599", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-byte.flip-0692", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-byte.flip-0692", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-received-byte.flip-0692", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-received-byte.insert-1179", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-received-byte.insert-1179", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-received-byte.insert-1179", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-fresh-0000", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-fresh-0000", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-fresh-0000", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-fresh-0001", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-fresh-0001", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-fresh-0001", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-fresh-0005", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-fresh-0005", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-fresh-0005", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0011", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0011", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.tab-colon-0011", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0012", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0012", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-line.del-0012", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0025", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0025", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-line.del-0025", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0031", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0031", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.space-colon-0031", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0033", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0033", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0033", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0039", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0039", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-line.del-0039", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0065", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0065", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.tab-colon-0065", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0067", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0067", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-line.del-0067", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0071", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0071", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.tab-colon-0071", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0174", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0174", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.space-colon-0174", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0197", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0197", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.tab-colon-0197", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0214", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0214", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-line.del-0214", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0229", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-line.del-0229", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-obs-received-line.del-0229", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0230", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0230", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0230", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0247", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0247", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.space-colon-0247", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.fold-line-0264", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-guided.fold-line-0264", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-obs-received-guided.fold-line-0264", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-byte.flip-0350", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-byte.flip-0350", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-obs-received-byte.flip-0350", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0355", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0355", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.tab-colon-0355", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.dup-line-0412", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.dup-line-0412", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.dup-line-0412", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0415", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0415", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.space-colon-0415", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0420", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0420", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.space-colon-0420", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0479", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0479", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.space-colon-0479", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0596", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0596", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.space-colon-0596", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0615", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0615", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.space-colon-0615", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0624", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-guided.space-colon-0624", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-received-guided.space-colon-0624", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-byte.flip-1098", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-received-byte.flip-1098", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-obs-received-byte.flip-1098", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-line.del-1280", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-line.del-1280", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-received-line.del-1280", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.space-colon-0000", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.space-colon-0000", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-from-guided.space-colon-0000", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0001", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0001", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-from-guided.tab-colon-0001", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-byte.flip-0004", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-byte.flip-0004", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-from-byte.flip-0004", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-from-guided.space-colon-0005", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.space-colon-0005", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-from-guided.space-colon-0005", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0008", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0008", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-from-guided.tab-colon-0008", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0014", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0014", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-from-guided.tab-colon-0014", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-from-byte.flip-0035", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-byte.flip-0035", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-from-byte.flip-0035", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0036", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0036", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-from-guided.tab-colon-0036", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-byte.flip-0038", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-byte.flip-0038", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-from-byte.flip-0038", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0047", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0047", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-from-guided.tab-colon-0047", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-guided.dup-line-0080", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.dup-line-0080", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-from-guided.dup-line-0080", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-line.del-0106", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-line.del-0106", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-from-line.del-0106", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-from-line.del-0118", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-line.del-0118", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-from-line.del-0118", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0174", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0174", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-guided.tab-colon-0174", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.fold-line-0196", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.fold-line-0196", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-from-guided.fold-line-0196", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.fold-line-0256", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-guided.fold-line-0256", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-from-guided.fold-line-0256", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-byte.flip-0338", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-byte.flip-0338", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-from-byte.flip-0338", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-byte.flip-0396", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-byte.flip-0396", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-from-byte.flip-0396", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-from-byte.delete-0844", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-byte.delete-0844", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-from-byte.delete-0844", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-fresh-0000", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-fresh-0000", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-fresh-0000", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-fresh-0002", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-fresh-0002", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-fresh-0002", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-line.del-0006", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-line.del-0006", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-line.del-0006", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0007", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0007", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0007", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0011", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0011", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-guided.space-colon-0011", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0018", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0018", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0018", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-line.del-0033", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-line.del-0033", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-line.del-0033", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0036", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0036", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-guided.tab-colon-0036", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-line.del-0081", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-line.del-0081", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-line.del-0081", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0095", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0095", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-guided.tab-colon-0095", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0106", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0106", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-guided.space-colon-0106", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0116", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0116", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-guided.tab-colon-0116", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0154", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0154", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-guided.tab-colon-0154", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-obs-from-line.del-0158", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-line.del-0158", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-line.del-0158", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-byte.flip-0177", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-byte.flip-0177", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-obs-from-byte.flip-0177", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0187", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0187", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0187", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0240", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.space-colon-0240", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-guided.space-colon-0240", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0282", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0282", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0282", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0305", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0305", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-guided.tab-colon-0305", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0362", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.tab-colon-0362", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-obs-from-guided.tab-colon-0362", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-byte.flip-0435", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-byte.flip-0435", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-obs-from-byte.flip-0435", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-line.del-0450", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-line.del-0450", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-obs-from-line.del-0450", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.fold-line-0560", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.fold-line-0560", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-obs-from-guided.fold-line-0560", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-line.del-0647", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-line.del-0647", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-obs-from-line.del-0647", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-byte.flip-0974", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-byte.flip-0974", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-byte.flip-0974", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-obs-from-byte.flip-1299", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-byte.flip-1299", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-obs-from-byte.flip-1299", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-obs-from-guided.fold-line-1300", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-obs-from-guided.fold-line-1300", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-obs-from-guided.fold-line-1300", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0000", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0000", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0000", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-line.del-0003", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-line.del-0003", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-sender-line.del-0003", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0004", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0004", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0004", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0009", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0009", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-sender-guided.tab-colon-0009", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0011", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0011", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-sender-guided.tab-colon-0011", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-sender-guided.tab-colon-0017", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0017", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-sender-guided.tab-colon-0017", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.space-colon-0042", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.space-colon-0042", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-sender-guided.space-colon-0042", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0044", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0044", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-sender-guided.tab-colon-0044", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0136", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0136", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.tab-colon-0136", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.fold-line-0428", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-guided.fold-line-0428", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-sender-guided.fold-line-0428", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-line.del-0559", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-line.del-0559", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-sender-line.del-0559", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-byte.flip-0688", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-byte.flip-0688", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-byte.flip-0688", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-byte.flip-1163", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-byte.flip-1163", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-sender-byte.flip-1163", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-byte.flip-1345", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-byte.flip-1345", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-sender-byte.flip-1345", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-sender-byte.flip-1468", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-byte.flip-1468", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-sender-byte.flip-1468", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-guided.tab-colon-0000", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.tab-colon-0000", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-reply-to-guided.tab-colon-0000", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.space-colon-0004", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.space-colon-0004", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.space-colon-0004", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.space-colon-0006", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.space-colon-0006", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-reply-to-guided.space-colon-0006", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.tab-colon-0014", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.tab-colon-0014", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-reply-to-guided.tab-colon-0014", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.tab-colon-0017", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.tab-colon-0017", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-reply-to-guided.tab-colon-0017", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.space-colon-0022", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.space-colon-0022", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.space-colon-0022", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-line.del-0037", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-line.del-0037", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-reply-to-line.del-0037", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-guided.tab-colon-0038", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.tab-colon-0038", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-reply-to-guided.tab-colon-0038", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-reply-to-guided.tab-colon-0066", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.tab-colon-0066", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-reply-to-guided.tab-colon-0066", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-line.del-0106", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-line.del-0106", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-reply-to-line.del-0106", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-guided.fold-line-0240", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-guided.fold-line-0240", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-reply-to-guided.fold-line-0240", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-byte.flip-0548", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-byte.flip-0548", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-byte.flip-0548", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-byte.flip-0800", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-byte.flip-0800", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-reply-to-byte.flip-0800", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-byte.insert-0977", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-byte.insert-0977", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-reply-to-byte.insert-0977", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-byte.flip-1135", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-byte.flip-1135", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-reply-to-byte.flip-1135", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-reply-to-guided.fold-line-1310", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-reply-to-guided.fold-line-1310", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-reply-to-guided.fold-line-1310", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-return-path-guided.tab-colon-0005", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.tab-colon-0005", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.tab-colon-0005", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.tab-colon-0006", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.tab-colon-0006", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-return-path-guided.tab-colon-0006", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.space-colon-0018", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.space-colon-0018", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.space-colon-0018", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.fold-line-0024", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.fold-line-0024", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-return-path-guided.fold-line-0024", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-line.del-0029", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-line.del-0029", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-return-path-line.del-0029", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-return-path-guided.tab-colon-0030", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.tab-colon-0030", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-return-path-guided.tab-colon-0030", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.space-colon-0032", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.space-colon-0032", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.space-colon-0032", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.tab-colon-0062", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.tab-colon-0062", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-return-path-guided.tab-colon-0062", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.tab-colon-0090", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.tab-colon-0090", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-return-path-guided.tab-colon-0090", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.space-colon-0277", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-guided.space-colon-0277", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-return-path-guided.space-colon-0277", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-byte.delete-0585", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-byte.delete-0585", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-return-path-byte.delete-0585", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-byte.flip-0745", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-byte.flip-0745", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-byte.flip-0745", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-line.del-0903", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-line.del-0903", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-return-path-line.del-0903", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-byte.flip-1443", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-byte.flip-1443", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-return-path-byte.flip-1443", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-line.del-0008", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-line.del-0008", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-resent-from-line.del-0008", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-guided.tab-colon-0009", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.tab-colon-0009", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-resent-from-guided.tab-colon-0009", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-resent-from-guided.space-colon-0011", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.space-colon-0011", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-resent-from-guided.space-colon-0011", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.tab-colon-0022", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.tab-colon-0022", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-resent-from-guided.tab-colon-0022", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.tab-colon-0028", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.tab-colon-0028", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-resent-from-guided.tab-colon-0028", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-line.del-0029", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-line.del-0029", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-resent-from-line.del-0029", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-guided.space-colon-0040", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.space-colon-0040", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.space-colon-0040", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.space-colon-0042", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.space-colon-0042", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-resent-from-guided.space-colon-0042", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-guided.tab-colon-0064", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.tab-colon-0064", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.tab-colon-0064", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.tab-colon-0077", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.tab-colon-0077", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-resent-from-guided.tab-colon-0077", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-resent-from-guided.fold-line-0103", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-guided.fold-line-0103", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-resent-from-guided.fold-line-0103", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-byte.flip-0189", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-byte.flip-0189", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-resent-from-byte.flip-0189", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-byte.flip-0542", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-resent-from-byte.flip-0542", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-resent-from-byte.flip-0542", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0001", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0001", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0001", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0003", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0003", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-authres-guided.tab-colon-0003", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0007", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0007", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-authres-guided.tab-colon-0007", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-authres-guided.tab-colon-0017", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0017", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0017", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0018", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0018", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-authres-guided.tab-colon-0018", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.space-colon-0023", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.space-colon-0023", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-authres-guided.space-colon-0023", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-guided.space-colon-0025", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.space-colon-0025", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-authres-guided.space-colon-0025", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.space-colon-0038", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.space-colon-0038", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-authres-guided.space-colon-0038", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-line.del-0093", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-line.del-0093", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-authres-line.del-0093", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-guided.fold-line-0112", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-guided.fold-line-0112", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-authres-guided.fold-line-0112", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-byte.flip-0516", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-byte.flip-0516", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-authres-byte.flip-0516", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-guided.fold-line-0602", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.fold-line-0602", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-authres-guided.fold-line-0602", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.fold-line-0638", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.fold-line-0638", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-authres-guided.fold-line-0638", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-byte.flip-0917", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-byte.flip-0917", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-byte.flip-0917", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-byte.flip-1467", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-authres-byte.flip-1467", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-authres-byte.flip-1467", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0001", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0001", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0001", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0002", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0002", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-dkim-tags-guided.tab-colon-0002", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0006", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0006", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-dkim-tags-guided.tab-colon-0006", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-dkim-tags-guided.tab-colon-0008", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0008", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-dkim-tags-guided.tab-colon-0008", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0019", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0019", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-dkim-tags-guided.tab-colon-0019", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.fold-line-0023", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.fold-line-0023", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-dkim-tags-guided.fold-line-0023", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-byte.flip-0029", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-byte.flip-0029", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-byte.flip-0029", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0042", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.tab-colon-0042", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-dkim-tags-guided.tab-colon-0042", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.space-colon-0054", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.space-colon-0054", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.space-colon-0054", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.space-colon-0059", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.space-colon-0059", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-dkim-tags-guided.space-colon-0059", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-line.del-0087", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-line.del-0087", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-dkim-tags-line.del-0087", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-byte.flip-0256", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-byte.flip-0256", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-byte.flip-0256", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-line.del-0349", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-line.del-0349", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-dkim-tags-line.del-0349", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-dkim-tags-byte.flip-0490", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-byte.flip-0490", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-dkim-tags-byte.flip-0490", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.fold-line-1026", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-dkim-tags-guided.fold-line-1026", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-dkim-tags-guided.fold-line-1026", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-guided.tab-colon-0001", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.tab-colon-0001", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.tab-colon-0001", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.tab-colon-0004", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.tab-colon-0004", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-aar-guided.tab-colon-0004", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-guided.tab-colon-0012", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.tab-colon-0012", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-aar-guided.tab-colon-0012", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.space-colon-0015", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.space-colon-0015", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.space-colon-0015", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.tab-colon-0020", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.tab-colon-0020", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-aar-guided.tab-colon-0020", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-arc-aar-guided.space-colon-0031", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.space-colon-0031", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-aar-guided.space-colon-0031", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.fold-line-0040", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-guided.fold-line-0040", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-aar-guided.fold-line-0040", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-byte.flip-0042", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-byte.flip-0042", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-byte.flip-0042", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-guided.tab-colon-0054", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.tab-colon-0054", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-arc-aar-guided.tab-colon-0054", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-guided.space-colon-0073", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.space-colon-0073", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.space-colon-0073", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-line.del-0100", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-line.del-0100", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-aar-line.del-0100", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-byte.flip-0219", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-byte.flip-0219", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-byte.flip-0219", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-line.del-0220", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-line.del-0220", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-aar-line.del-0220", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-byte.flip-0276", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-byte.flip-0276", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-arc-aar-byte.flip-0276", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-guided.fold-line-0610", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-guided.fold-line-0610", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-aar-guided.fold-line-0610", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-aar-byte.flip-0888", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-byte.flip-0888", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-aar-byte.flip-0888", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-byte.delete-1314", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-aar-byte.delete-1314", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-aar-byte.delete-1314", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-guided.tab-colon-0001", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.tab-colon-0001", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-ams-guided.tab-colon-0001", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-arc-ams-guided.tab-colon-0002", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.tab-colon-0002", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-ams-guided.tab-colon-0002", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-line.del-0004", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-line.del-0004", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-ams-line.del-0004", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-guided.tab-colon-0005", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.tab-colon-0005", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.tab-colon-0005", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.space-colon-0017", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.space-colon-0017", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-ams-guided.space-colon-0017", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.space-colon-0020", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.space-colon-0020", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-ams-guided.space-colon-0020", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.tab-colon-0033", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.tab-colon-0033", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-ams-guided.tab-colon-0033", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.fold-line-0035", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-guided.fold-line-0035", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-ams-guided.fold-line-0035", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-guided.space-colon-0038", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.space-colon-0038", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-guided.space-colon-0038", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0059", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0059", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-arc-ams-byte.flip-0059", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0077", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0077", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-ams-byte.flip-0077", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0093", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0093", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0093", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-arc-ams-guided.tab-colon-0094", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.tab-colon-0094", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-ams-guided.tab-colon-0094", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0147", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0147", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-ams-byte.flip-0147", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-line.del-0591", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-line.del-0591", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-ams-line.del-0591", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0704", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0704", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0704", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0711", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-0711", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-ams-byte.flip-0711", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.fold-line-1003", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-guided.fold-line-1003", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-ams-guided.fold-line-1003", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-1159", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-1159", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-ams-byte.flip-1159", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.space-colon-0000", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.space-colon-0000", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-as-guided.space-colon-0000", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.tab-colon-0004", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.tab-colon-0004", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-as-guided.tab-colon-0004", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-line.move-0006", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-line.move-0006", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-arc-as-line.move-0006", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-guided.tab-colon-0009", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.tab-colon-0009", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-as-guided.tab-colon-0009", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.tab-colon-0013", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.tab-colon-0013", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-as-guided.tab-colon-0013", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-guided.space-colon-0020", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.space-colon-0020", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok-recovered"}
+{"case": "gf-arc-as-guided.space-colon-0020", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.space-colon-0035", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.space-colon-0035", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.space-colon-0035", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-line.del-0048", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-line.del-0048", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-as-line.del-0048", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-byte.flip-0051", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-byte.flip-0051", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-as-byte.flip-0051", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-guided.fold-line-0074", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-guided.fold-line-0074", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-as-guided.fold-line-0074", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-byte.flip-0113", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-byte.flip-0113", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-as-byte.flip-0113", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.tab-colon-0132", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.tab-colon-0132", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-guided.tab-colon-0132", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-byte.flip-0196", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-byte.flip-0196", "target": "osmtpd", "code": "250", "captured": true, "gen": false, "attr": "ok-recovered"}
+{"case": "gf-arc-as-byte.flip-0196", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-guided.fold-line-0267", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-guided.fold-line-0267", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-as-guided.fold-line-0267", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-line.del-0329", "target": "postfix", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-line.del-0329", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-as-line.del-0329", "target": "exim", "code": "250", "captured": true, "gen": false, "attr": "ok"}
+{"case": "gf-arc-as-byte.flip-0461", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-byte.flip-0461", "target": "osmtpd", "code": "550", "captured": false, "gen": null, "attr": null}
+{"case": "gf-arc-as-byte.flip-0461", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-byte.flip-1342", "target": "postfix", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-byte.flip-1342", "target": "osmtpd", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-arc-as-byte.flip-1342", "target": "exim", "code": "250", "captured": true, "gen": true, "attr": "ok"}
+{"case": "gf-authres-guided.tab-colon-0001", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-guided.tab-colon-0001", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-guided.space-colon-0000", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-fresh-0000", "file": {"dkimpy": "parse-error", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": false}
+{"case": "gf-reply-to-guided.tab-colon-0000", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-line.del-0008", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-guided.tab-colon-0005", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-guided.tab-colon-0000", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-guided.tab-colon-0003", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-guided.tab-colon-0002", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-guided.tab-colon-0001", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-fresh-0002", "file": {"dkimpy": "tool-error", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "none", "go": "none", "rspamd": "none"}, "gen": false}
+{"case": "gf-reply-to-guided.space-colon-0004", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-guided.tab-colon-0009", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-guided.tab-colon-0006", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-line.del-0003", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-guided.tab-colon-0007", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-guided.tab-colon-0006", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-byte.flip-0004", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-line.del-0006", "file": {"dkimpy": "parse-error", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": false}
+{"case": "gf-reply-to-guided.space-colon-0006", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-guided.space-colon-0011", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-guided.space-colon-0018", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-guided.tab-colon-0004", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-guided.tab-colon-0017", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-guided.tab-colon-0008", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-guided.space-colon-0005", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-guided.space-colon-0007", "file": {"dkimpy": "parse-error", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": false}
+{"case": "gf-reply-to-guided.tab-colon-0014", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-guided.tab-colon-0022", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-guided.fold-line-0024", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-guided.tab-colon-0009", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-guided.tab-colon-0018", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-guided.tab-colon-0019", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-guided.tab-colon-0008", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-guided.space-colon-0011", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-reply-to-guided.tab-colon-0017", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-guided.tab-colon-0028", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-line.del-0029", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-guided.tab-colon-0011", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-guided.space-colon-0023", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-guided.fold-line-0023", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-guided.tab-colon-0014", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-guided.tab-colon-0018", "file": {"dkimpy": "tool-error", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "none", "go": "none", "rspamd": "none"}, "gen": false}
+{"case": "gf-reply-to-guided.space-colon-0022", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-line.del-0029", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-guided.tab-colon-0030", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-guided.tab-colon-0017", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-guided.space-colon-0025", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-byte.flip-0029", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-byte.flip-0035", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-line.del-0033", "file": {"dkimpy": "tool-error", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "none", "go": "none", "rspamd": "none"}, "gen": false}
+{"case": "gf-reply-to-line.del-0037", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-guided.space-colon-0040", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-guided.space-colon-0032", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-guided.space-colon-0042", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-guided.space-colon-0038", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-guided.tab-colon-0042", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-guided.tab-colon-0036", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-guided.tab-colon-0036", "file": {"dkimpy": "tool-error", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "none", "go": "none", "rspamd": "none"}, "gen": false}
+{"case": "gf-reply-to-guided.tab-colon-0038", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-guided.space-colon-0042", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-guided.tab-colon-0062", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-guided.tab-colon-0044", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-line.del-0093", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-guided.space-colon-0054", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-byte.flip-0038", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-line.del-0081", "file": {"dkimpy": "parse-error", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": false}
+{"case": "gf-reply-to-guided.tab-colon-0066", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-guided.tab-colon-0064", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-guided.tab-colon-0090", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-guided.tab-colon-0136", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-guided.fold-line-0112", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-guided.space-colon-0059", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-guided.tab-colon-0047", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-guided.tab-colon-0095", "file": {"dkimpy": "tool-error", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "none", "go": "none", "rspamd": "none"}, "gen": false}
+{"case": "gf-reply-to-line.del-0106", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-guided.tab-colon-0077", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-guided.space-colon-0277", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-guided.fold-line-0428", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-byte.flip-0516", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-line.del-0087", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-guided.dup-line-0080", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-guided.space-colon-0106", "file": {"dkimpy": "tool-error", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "none", "go": "none", "rspamd": "none"}, "gen": false}
+{"case": "gf-reply-to-guided.fold-line-0240", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-guided.fold-line-0103", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-byte.delete-0585", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-line.del-0559", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-guided.fold-line-0602", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-byte.flip-0256", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-line.del-0106", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-guided.tab-colon-0116", "file": {"dkimpy": "tool-error", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "none", "go": "none", "rspamd": "none"}, "gen": false}
+{"case": "gf-reply-to-byte.flip-0548", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-resent-from-byte.flip-0189", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-return-path-byte.flip-0745", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": false}
+{"case": "gf-sender-byte.flip-0688", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-authres-guided.fold-line-0638", "file": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "postfix": {"dkimpy": "pass", "perl": "pass", "go": "pass", "rspamd": "pass"}, "gen": true}
+{"case": "gf-dkim-tags-line.del-0349", "file": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "postfix": {"dkimpy": "fail", "perl": "parse-error", "go": "fail", "rspamd": "pass"}, "gen": true}
+{"case": "gf-from-line.del-0118", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-obs-from-guided.tab-colon-0154", "file": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "postfix": {"dkimpy": "fail", "perl": "pass", "go": "pass", "rspamd": "fail"}, "gen": true}
+{"case": "gf-from-guided.space-colon-0000", "locator": "header", "env": "\t \t\t  \u0006\".()()()@syntax_error", "hdr": "\" \u0006\\\".()()()\"v \"@ '"}
+{"case": "gf-obs-from-fresh-0000", "locator": "header", "env": "missing_mailbox@missing_domain", "hdr": "\"\\ b \u000e \"@ |=`.?#.{s!"}
+{"case": "gf-reply-to-guided.tab-colon-0000", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-resent-from-line.del-0008", "locator": "body", "env": null, "hdr": null}
+{"case": "gf-sender-guided.tab-colon-0000", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-from-guided.tab-colon-0001", "locator": "header", "env": "/?.&=}.^@-{}.4}", "hdr": "(()\\ ) (if() ) /?.&=}.^ @ -{}.4}"}
+{"case": "gf-obs-from-fresh-0002", "locator": "body", "env": null, "hdr": null}
+{"case": "gf-reply-to-guided.space-colon-0004", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-resent-from-guided.tab-colon-0009", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-sender-line.del-0003", "locator": "body", "env": null, "hdr": null}
+{"case": "gf-from-byte.flip-0004", "locator": "body", "env": "missing_mailbox@missing_domain", "hdr": ",\" \"<, )"}
+{"case": "gf-obs-from-line.del-0006", "locator": "header", "env": "   \t \t ~ \t\t \t\f\t\t\t\u007f@syntax_error", "hdr": "\" ~ \\\u007f\"@ 1(!()()) (\\) () .{(()).(())~"}
+{"case": "gf-reply-to-guided.space-colon-0006", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-resent-from-guided.space-colon-0011", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-sender-guided.tab-colon-0004", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-from-guided.space-colon-0005", "locator": "header", "env": "|{*@missing_domain", "hdr": "\"\\\u007f! \"@7"}
+{"case": "gf-obs-from-guided.space-colon-0007", "locator": "header", "env": "\t\t\t  \t\t\t@syntax_error", "hdr": "\" \"@ (\\)(\\)('()() ) /^.%/$.+.^"}
+{"case": "gf-reply-to-guided.tab-colon-0014", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-resent-from-guided.tab-colon-0022", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-sender-guided.tab-colon-0009", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-from-guided.tab-colon-0008", "locator": "header", "env": "missing_mailbox@syntax_error", "hdr": ", @(())()?#*:\" \"@#(d())(l)()"}
+{"case": "gf-obs-from-guided.space-colon-0011", "locator": "header", "env": "missing_mailbox@missing_domain", "hdr": ") *. {~^ . *.~&$@ [ ], \"x \\\u0003 \" @[l ]"}
+{"case": "gf-reply-to-guided.tab-colon-0017", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-resent-from-guided.tab-colon-0028", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-sender-guided.tab-colon-0011", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-from-guided.tab-colon-0014", "locator": "header", "env": "missing_mailbox@syntax_error", "hdr": ",,,@()&|.5'.()&z, (`()) () (f) ,@()()=.}.&* :()\" \\\b t\"()()@(`\\)[c]"}
+{"case": "gf-obs-from-guided.tab-colon-0018", "locator": "body", "env": null, "hdr": null}
+{"case": "gf-reply-to-guided.space-colon-0022", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-resent-from-line.del-0029", "locator": "body", "env": null, "hdr": null}
+{"case": "gf-sender-guided.tab-colon-0017", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-from-byte.flip-0035", "locator": "header", "env": "y \t\t\t @/.`.+''", "hdr": "y \") @/.`.+''"}
+{"case": "gf-obs-from-line.del-0033", "locator": "body", "env": null, "hdr": null}
+{"case": "gf-reply-to-line.del-0037", "locator": "body", "env": null, "hdr": null}
+{"case": "gf-resent-from-guided.space-colon-0040", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-sender-guided.space-colon-0042", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-from-guided.tab-colon-0036", "locator": "header", "env": "missing_mailbox@missing_domain", "hdr": ",,@=.?%-./.* ,:\" \"@ (\\)(()())()[ ](\\) ()"}
+{"case": "gf-obs-from-guided.tab-colon-0036", "locator": "body", "env": null, "hdr": null}
+{"case": "gf-reply-to-guided.tab-colon-0038", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-resent-from-guided.space-colon-0042", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+{"case": "gf-sender-guided.tab-colon-0044", "locator": "header", "env": "security@lab.test", "hdr": "security@lab.test"}
+stage2: 236 rows; series={'P': 86, 'P+T': 111, 'P+T+X': 19, 'P+T+X+D': 8, 'P+X': 8, 'P+X+D': 4}; problems=3

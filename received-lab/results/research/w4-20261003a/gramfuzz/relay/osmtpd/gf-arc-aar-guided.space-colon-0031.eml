@@ -1,0 +1,10 @@
+ARC-Authentication-Results:
+ i=40;;none
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-arc-aar-guided.space-colon-0031
+Message-ID : <gf-arc-aar-guided.space-colon-0031@lab.test>
+X-Case-ID: gf-arc-aar-guided.space-colon-0031
+
+Please confirm the payment.

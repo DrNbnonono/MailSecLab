@@ -1,0 +1,18 @@
+DKIM-Signature: 	
+ 		
+	m= 	
+	 		
+			; W6=
+ 	 	 
+		
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=eK2ZSd46kGGR+5h6iZ7o/tr9tWdOpBbk9vRq+uxfdkiZ2UesDhEWzZSKVztQg2Ede6SjET4eVreWCfLL6xXOZh7E+CGdpEM2kbcgyOrwNA3wbjKPaAXXi0L1Xu8Umkr1eNHW/NG4iY0JqCQW+YODlvPtaltejq8Cab0KWla0pJcL0+I9+ZKR7cRegGUU/og9arot0SJcGcUCtq5LYh7nAwO7jvQz3zPOeW8dnEOydQGx99SIs2rioohXK/D4YYN8yd50d2v9GXtCaplI3wzroRmzM4q5ZV427B5aEeZ81ODHv+ee3moFOlrRFgN1O7Rlo1eax6TdkqQkIAQnW2+Fhg==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-dkim-tags-byte.flip-0256-sign
+Message-ID: <gf-dkim-tags-byte.flip-0256-sign@lab.test>
+X-Case-ID: gf-dkim-tags-byte.flip-0256-sign
+
+Please confirm the payment.

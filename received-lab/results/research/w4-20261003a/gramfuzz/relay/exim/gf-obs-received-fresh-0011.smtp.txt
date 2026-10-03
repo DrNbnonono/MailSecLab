@@ -1,0 +1,15 @@
+CLIENT_IP 10.88.0.11
+PAYLOAD_SHA256 4d5f3e025a34702f0731e52e81f758eef7fdf625c71c2d56499bcf3bbb40cc94
+PAYLOAD_BYTES 267
+S 220 exim.lab.test ESMTP Exim 4.96 Sat, 03 Oct 2026 11:36:55 +0000 | 
+C EHLO client.lab.test
+S 250-exim.lab.test Hello client.lab.test [10.88.0.11] | 250-SIZE 52428800 | 250-8BITMIME | 250-PIPELINING | 250-PIPECONNECT | 250-CHUNKING | 250-STARTTLS | 250-SMTPUTF8 | 250 HELP | 
+C MAIL FROM:<alice@lab.test>
+S 250 OK | 
+C RCPT TO:<capture@lab.test>
+S 250 Accepted | 
+C DATA
+S 354 Enter message, ending with "." on a line by itself | 
+S 250 OK id=1xCy3K-00008w-13 | 
+C QUIT
+S 221 exim.lab.test closing connection | 

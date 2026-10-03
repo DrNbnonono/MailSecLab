@@ -1,0 +1,6 @@
+{
+ "from_slot": "security@lab.test",
+ "from_group": [
+  "security@lab.test"
+ ]
+}

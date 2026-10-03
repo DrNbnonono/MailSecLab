@@ -1,0 +1,39 @@
+Bcc: capture@lab.test
+Return-Path: <alice@lab.test>
+Received: from opensmtpd.lab.test (opensmtpd.mailseclab-research-net. [10.88.0.5])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 12:50:04 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id ef2e3d21
+	for <capture@lab.test>;
+	Sat, 3 Oct 2026 12:50:03 +0000 (UTC)
+From 	:<	
+	
+   	 (()' 		)(  	)(\)   
+		@()()'	
+ 	
+	 
+		. 		|%+,:?}.*$^@[ 	 
+ 		
+ 	]	>,`/=@			[t 
+		]	 	,""@(()\  )  (n	)	
+		
+	
+ 	(\ 	 )		
+  2&/.?` 		, 
+	 <@()[		 
+	  
+	 
+  	
+ 
+	 
+		
+	]:'#()."d"()()()@()()|*#	 	
+  .()()0-~ 	.^->
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-obs-from-line.del-0158
+Message-ID: <gf-obs-from-line.del-0158@lab.test>
+X-Case-ID: gf-obs-from-line.del-0158
+
+Please confirm the payment.

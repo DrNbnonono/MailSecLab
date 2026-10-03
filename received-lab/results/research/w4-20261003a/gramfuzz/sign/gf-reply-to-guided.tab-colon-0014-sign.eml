@@ -1,0 +1,17 @@
+Reply-To:%|()()()`'_"!\  	 " 		<,(()\)(),@?`()()(),@#'#.+._==()(),()()(()),(())()@+/=.!/_: 	"  	\".}@[
+	 ; 		
+  	]>,*	 ()"	 
+ 	
+  	
+			} 	 ":;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=zxqFQoCypUdmmZ5hgyFQ+aqArfJ8M/nxLarZZG5qNAu4QBklQrN+/rXVij2s3/Jc9c9oGZwr3tUly1ukIJwinb4Nz3yGO8nGz5GRNXa6TkuPZe4PRGgCchgrvAhSfWUKQD8MU3Hznyw4ufc8Z2sXzw3rcdf0XeKFA1uZPXInSxoMZPxwfYcIZzgeZoFrOd62+FsnXJjo/tAQoqVs+EGeRsDAUqr455s+q22LLrTtL5L1na2P8I8ce7mKlBWmFBQCiio0Nd35npa7S1nMrRHWDSPPuK/osogq33TJ40qYpkZ2NGmS1S/rd8t8fqQ2PwD2mscgUu7E3KmSBuVrWMMWRA==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-reply-to-guided.tab-colon-0014-sign
+Message-ID: <gf-reply-to-guided.tab-colon-0014-sign@lab.test>
+X-Case-ID: gf-reply-to-guided.tab-colon-0014-sign
+
+Please confirm the payment.

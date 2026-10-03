@@ -1,0 +1,21 @@
+Resent-From:"  
+	\ 		!"@(	 (X)	\) 
+ 	[			
+ 	],-.	
+ 		@		_!|()	(()\	 )(o()()	 	) 		.()	 	(())()	 {#.	 
+ 
+		 
+ _-|	 
+	 
+	
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=AH/bJ087SFb4dajdsj6bHDyuUlb+/dzM7gtDIwyaRopmvKW0FArr4TKbC0UTPfkz66dr8WB7WCk1cS29kNwKdqVQ2j5N/Yz+raUq0s8dXPQi434EhlXfMuZNwVk5zWoEAfbb47jxmZoW9oDu0e7zthMBfm1d5pnay+zsyseSf1/hDzZDYVBR7hojbifNzMEY/vfc/P+cnnD3lUYVhQ69fdIqA2Y3giIs5MgpQmKlD3nMP+j1EsSxLLBD/vF6YDmdYPBH2URZyTHmOFabyja/SGMCmmPqfekR7/mHMNo2XVePLP7/Grai8SaqM+3hsQvjVm7HwnGJruy779mNZiiluQ==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-resent-from-byte.insert-0013-sign
+Message-ID: <gf-resent-from-byte.insert-0013-sign@lab.test>
+X-Case-ID: gf-resent-from-byte.insert-0013-sign
+
+Please confirm the payment.

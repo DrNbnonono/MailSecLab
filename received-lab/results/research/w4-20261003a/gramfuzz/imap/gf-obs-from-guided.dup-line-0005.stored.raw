@@ -1,0 +1,34 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id uJqPO/brwGoZBgAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 11:50:15 +0000
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id DB3B7331B
+	for <bob@lab.test>; Sat,  3 Oct 2026 11:50:14 +0000 (UTC)
+Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)
+X-Mailbox-Line: From :	  
+X-Spam: Yes
+
+ 	
+ 		"i"@|_{.{*w.G_,//.='@[9	 
+	  ]  	
+ 	, 
+ 	$<,@^0.|%}.=#=,()	,  
+	 	
+ 
+	  @_~#:"\ 	
+ 	"."			"@[  
+	](())()>  
+ 
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-obs-from-guided.dup-line-0005
+Message-ID: <gf-obs-from-guided.dup-line-0005@lab.test>
+X-Case-ID: gf-obs-from-guided.dup-line-0005
+X-Case-ID: gf-obs-from-guided.dup-line-0005
+
+Please confirm the payment.

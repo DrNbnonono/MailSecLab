@@ -1,0 +1,33 @@
+Resent-From:(()g)(+())/() 	 () 	(()\)		
+ 	
+	 
+	 	
+		
+  <@[ ](())(())(), 	,		 
+  ,:	(\) 	(h()#)(O\)-@[	 ^f 
+	](")>  ,(	 ) 
+ 
+	  
+	((()))"  
+		
+	  \  	 
+	
+ 	
+			" 
+ @ (\\		
+  	
+ 	 )()y}.!`,`%(()7\)		@   
+ ()(
+ )( {			#)/-%.{U.`.a$,/..*=@	
+		~9./$~.$=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=ZDFVpupiJzM3CALmrWnucLPyUMYJrmdVhU12KeTvTM7elIqcxscatmjX6jvDsn/5GDcdHyBlT57MWcdig21d+siPgLib9qPmpM0NRcvq7q4rVMMaYL2UPTpyurEOIRTijcnABtKWWiXrkYkIcaim+Zd5Al2OLKL5+L5aSYRzVcMLx0ZVTpSCqTSEjo6WgNMDi6RwhIuWAeyX8aM7j9K6RaLin7m95aGeD0ZnpJwIVQJjlytvSpMV9u2+eSU8NA2qEdhoSlx4t9Nafq/uVMkLbFy2hWLjoM30W8iBGFIHtMfrKYEb+fQ/Hl1BQvuVS0hxiMcXw8VA5sbQSrsIceVKzw==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-resent-from-line.del-0029-sign
+Message-ID: <gf-resent-from-line.del-0029-sign@lab.test>
+X-Case-ID: gf-resent-from-line.del-0029-sign
+
+Please confirm the payment.

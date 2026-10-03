@@ -1,0 +1,22 @@
+Reply-To: 		,,  	
+ 	 
+  	
+	 	( 	 \
+  	),		(	  
+	
+	  
+  \ ) 		
+  (@T (()#)  	) (()		 
+	)< (())	(") 	 (()\)"\ 	"()  (())@   ()('D#)[h \	 	]	 >,, 	
+		 
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=hKxaK3AG1500IqChVJoP5f67fSKryLguWNOo8ovucrKSBYg++Qqe8tzhu462tGIxqRElNp8ju2Yy2zZ60KoKHsl8l1bGQR9C1BT9PbgsHQ/K04SMTfUz1VN2rkXfbV64BA6vbIDUhDusMM4P8BSAtbwPnZd8b9ILhb4KzVbBSeuSKfXLRpNKdTLtxzjeOqTecdKZdG0QfG6Nip8EE32eOjnRSzlkAvIPzkepEJkPelTiYWrO2TlsrbpS5DMGlqagqBFFesc6jS+wfqdnWsg+lfaQTKD1N0hCd5YnoOx9YT3AesrNqRK5Jlb+8roEdtisYPE3/7fBV47N8KoOR/67GA==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-reply-to-byte.flip-0548-sign
+Message-ID: <gf-reply-to-byte.flip-0548-sign@lab.test>
+X-Case-ID: gf-reply-to-byte.flip-0548-sign
+
+Please confirm the payment.

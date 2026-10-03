@@ -1,0 +1,29 @@
+Bcc: capture@lab.test
+Message-ID: <4mBNvWMExeTcSiKE0DIPyx@mailpit>
+Return-Path: <alice@lab.test>
+Received: from exim.lab.test (exim.mailseclab-research-net. [10.88.0.4])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 12:58:42 +0000 (UTC)
+Received: from [10.88.0.11] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@lab.test>)
+	id 1xCzKx-0000Q6-0P
+	for capture@lab.test;
+	Sat, 03 Oct 2026 12:58:42 +0000
+DKIM-Signature: S2_ 
+ 
+	 
+	 	=10p 	1L6;	  
+	 F7M 		=8\M 	z	  
+ 
+	  
+   `	
+ 	 ;
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-dkim-tags-guided.space-colon-0054
+Message-ID : <gf-dkim-tags-guided.space-colon-0054@lab.test>
+X-Case-ID: gf-dkim-tags-guided.space-colon-0054
+
+Please confirm the payment.

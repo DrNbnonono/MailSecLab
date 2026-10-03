@@ -1,0 +1,1029 @@
+{
+ "run_id": "w4-20261003a",
+ "rate": 0.2,
+ "seed": 7,
+ "sampled": 31,
+ "flagged": 0,
+ "strata": {
+  "D+P+T+X": 8,
+  "D+P+X": 4,
+  "P+T": 111,
+  "P+T+X": 19,
+  "P+X": 8
+ },
+ "reviews": [
+  {
+   "case": "gf-obs-from-fresh-0000",
+   "series": [
+    "P",
+    "T",
+    "X",
+    "D"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail"
+    },
+    "d_recheck": {
+     "envelope_from": "missing_mailbox@missing_domain",
+     "header_from_first_recalc": "\"\\ b \u000e \"@ |=`.?#.{s!",
+     "recorded_env": "missing_mailbox@missing_domain",
+     "recorded_hdr": "\"\\ b \u000e \"@ |=`.?#.{s!",
+     "display_approx_recalc": false
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-guided.space-colon-0000",
+   "series": [
+    "P",
+    "T",
+    "X",
+    "D"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail"
+    },
+    "d_recheck": {
+     "envelope_from": "\t \t\t  \u0006\".()()()@syntax_error",
+     "header_from_first_recalc": "\" \u0006\\\".()()()\"v \"@ '",
+     "recorded_env": "\t \t\t  \u0006\".()()()@syntax_error",
+     "recorded_hdr": "\" \u0006\\\".()()()\"v \"@ '",
+     "display_approx_recalc": false
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.space-colon-0011",
+   "series": [
+    "P",
+    "X",
+    "D"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail"
+    },
+    "d_recheck": {
+     "envelope_from": "missing_mailbox@missing_domain",
+     "header_from_first_recalc": ") *. {~^ . *.~&$@ [ ], \"x \\\u0003 \" @[l ]",
+     "recorded_env": "missing_mailbox@missing_domain",
+     "recorded_hdr": ") *. {~^ . *.~&$@ [ ], \"x \\\u0003 \" @[l ]",
+     "display_approx_recalc": false
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-resent-from-byte.flip-0189",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "pass",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "pass",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-guided.tab-colon-0020",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-line.del-0220",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-sender-byte.flip-1163",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-received-guided.fold-line-0167",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-byte.flip-0093",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.fold-line-0560",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-received-line.move-0532",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-guided.tab-colon-0054",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-line.del-0039",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-as-line.del-0329",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-guided.fold-line-0040",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-byte.flip-0077",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-fresh-0000",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-byte.flip-0350",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-line.del-0100",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-authres-byte.flip-1467",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-guided.tab-colon-0006",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "pass",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "pass",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-received-guided.tab-colon-0011",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-byte.flip-1098",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-line.del-0029",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "pass",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "pass",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-received-line.del-0035",
+   "series": [
+    "P",
+    "T"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.tab-colon-0008",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass"
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-guided.tab-colon-0047",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail"
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.fold-line-0023",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass"
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.tab-colon-0018",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": false,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "tool-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "fail",
+     "perl": "none",
+     "go": "none",
+     "rspamd": "none"
+    },
+    "d_recheck": {
+     "envelope_from": null,
+     "header_from_first_recalc": null,
+     "recorded_env": null,
+     "recorded_hdr": null,
+     "display_approx_recalc": false
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-byte.flip-0029",
+   "series": [
+    "P",
+    "X"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass"
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.space-colon-0054",
+   "series": [
+    "P",
+    "X"
+   ],
+   "checks": {
+    "input_sha256": true,
+    "relay_exim": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_osmtpd": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "relay_postfix": {
+     "gen_in_stored": true,
+     "marker": true,
+     "case_id_in_stored": true
+    },
+    "verdicts_file_recheck": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass"
+    },
+    "verdicts_postfix_recheck": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass"
+    }
+   },
+   "issues": [],
+   "review_flag": null
+  }
+ ],
+ "manual": {
+  "method": "机器核对（review_sample.py：sha256 重算/gen-in-stored 逐目标重算/中继标记/定位键/验证器重跑/ENVELOPE 重算）+ 人工字节级深查 5 例 + D 全量新鲜度核对",
+  "deep_dives": [
+   {
+    "case": "gf-received-guided.tab-colon-0011",
+    "series": [
+     "P",
+     "T"
+    ],
+    "finding": "postfix/osmtpd 保留 111B 生成头逐字节；exim 丢弃尾部纯空白折行（gen 尾部 \r\n \r\n\t  \r\n 被折叠）——真实变换差分，非 fetch 伪影"
+   },
+   {
+    "case": "gf-arc-aar-guided.tab-colon-0020",
+    "series": [
+     "P",
+     "T"
+    ],
+    "finding": "ARC-Authentication-Results obs 头：postfix/osmtpd 逐字节保留、exim 同样尾折行丢弃"
+   },
+   {
+    "case": "gf-dkim-tags-guided.tab-colon-0008",
+    "series": [
+     "P",
+     "T",
+     "X"
+    ],
+    "finding": "畸形第二 DKIM-Signature 实例：四验证器 fail/parse-error/fail/pass 分裂；postfix 路径后同分裂（gen_preserved=True，差分非变换伪影）"
+   },
+   {
+    "case": "gf-obs-from-fresh-0000",
+    "series": [
+     "P",
+     "T",
+     "X",
+     "D"
+    ],
+    "finding": "全链：python 头区死亡；postfix 规范化 From\t\t\t:→From: 而 exim 尾折丢弃、osmtpd 保留；dkimpy parse-error→fail 且 rspamd pass→fail 过 postfix 翻转；Dovecot ENVELOPE 占位组（missing_mailbox@missing_domain ×7 元素含 security@lab.test）vs 头区垃圾抽取"
+   },
+   {
+    "case": "gf-obs-received-fresh-0001",
+    "series": [
+     "P",
+     "T"
+    ],
+    "finding": "P+T 补样（该层机器抽样 22/111=19.8%，补此例达 23/111=20.7%）：经典 T1 复现——postfix 把 Received :( 规范化为 Received:(，exim 逐字节保留"
+   }
+  ],
+  "d_freshness": "12 个 D 例 imap 存档顶部 Received 时间戳全部为本轮 13:11-13:12 UTC（smoke 为 11:25-11:51 UTC），无 stale smoke 抓取（w3 fetch 竞态教训核过）",
+  "review_flags": 0,
+  "notes_for_reviewer": [
+   "exim 的 gen_preserved=False 多为尾部纯空白折行丢弃（微机制），与 postfix 的 obs 冒号规范化（Received :→Received:）是两种不同改写机制，归 T 时应区分",
+   "relay/sign/imap 目录里残留 smoke 轮（编号 0000-0019）未被本轮重选的 case 的旧文件；candidates 证据路径全部由本轮 stage2 行驱动，构造上不受污染，但审阅单文件时注意区分",
+   "Dovecot ENVELOPE 的 missing_mailbox@missing_domain 是其不可解析 From 的占位输出，D 信号是『占位符 vs 头区实例』的差分本身"
+  ]
+ }
+}

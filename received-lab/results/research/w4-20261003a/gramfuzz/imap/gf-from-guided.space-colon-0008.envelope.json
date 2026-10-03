@@ -1,0 +1,8 @@
+{
+ "from_slot": "{$#@=1.|",
+ "from_group": [
+  "{$#@=1.|",
+  "missing_mailbox@missing_domain",
+  "security@lab.test"
+ ]
+}

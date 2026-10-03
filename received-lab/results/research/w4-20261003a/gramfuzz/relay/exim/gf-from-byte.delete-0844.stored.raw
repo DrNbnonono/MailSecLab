@@ -1,0 +1,22 @@
+Bcc: capture@lab.test
+Message-ID: <6QjhubHh999PpMs1TTYF0k@mailpit>
+Return-Path: <alice@lab.test>
+Received: from exim.lab.test (exim.mailseclab-research-net. [10.88.0.4])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 12:48:35 +0000 (UTC)
+Received: from [10.88.0.11] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@lab.test>)
+	id 1xCzB4-0000J4-1x
+	for capture@lab.test;
+	Sat, 03 Oct 2026 12:48:34 +0000
+From:,()		(\)"	 !  	\	 ""\		"<,@-&()():(()F\)   (\) ()	 && 	 @		()|
+		 >  
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-from-byte.delete-0844
+ Message-ID: <gf-from-byte.delete-0844@lab.test>
+X-Case-ID: gf-from-byte.delete-0844
+
+Please confirm the payment.

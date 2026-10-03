@@ -1,0 +1,39 @@
+From:<,@^/_. `|',(())	  (vh#) 
+ 	 :(())$.~@		
+   
+	 	${!.&/.`-(\)()>, 		(()) 		('\)(v<())?(()\)(')(()()G).%%_.`%=@	 	
+	 	()(() )	
+  
+ _.+u	
+	
+		
+	,} 
+			
+	
+	 < 	 
+ @		
+ 
+	
+ 	 [  
+ 	 
+ 
+			
+ 	.],@=~#.'}%.=:() "
+	 " 		
+ 
+	  
+ 		@()()()}0> 	
+	(		 
+	  )(	 	
+	)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=zXtjkz9fflq1cffIeuwLwdaidpKhRn4/EvPp6MPe11beuGye3uQz8kJ6vzbkQ3eguCGGpB4lqvLsb7beEbkE6g/TYsjxwFhq/rfJmuDgAxbGuyH1D6RuIzU66WRZkGkUdCH/68hl6s9S/wSXq5IYsgl5CxIw9Kyl65GaJ5zAh6/DZvqiatHM8EuGJ3aGLYQnFQRimiqpvETpcFPHANNWjpx18HYjaSz5Rcl9o8Ywnq7hoJgkGh4tiTuqPeouaIoMNOn2vkjK7gCrNOB/24TMk/be2U5jGZEGlRzBM+dOSq5NUtAhExBHYUahybMUh1TPbbukdB6t7d8kehXDnVR6yw==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-obs-from-guided.tab-colon-0009-sign
+Message-ID: <gf-obs-from-guided.tab-colon-0009-sign@lab.test>
+X-Case-ID: gf-obs-from-guided.tab-colon-0009-sign
+
+Please confirm the payment.

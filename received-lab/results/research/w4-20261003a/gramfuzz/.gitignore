@@ -1,0 +1,4 @@
+# corpus/（39,000 个生成样本，50MB）不入库：CORPUS_SEED=20261003 + weights.json 可逐字节重放
+# （cd /mnt/e/Gramfuzz && python3 -m gramfuzz.funnel w4-20261003a --phase corpus）。
+# 三臂证据链的输入 .eml 已随 relay/ sign/ 目录提交。
+corpus/

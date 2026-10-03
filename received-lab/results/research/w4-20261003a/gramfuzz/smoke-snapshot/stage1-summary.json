@@ -1,0 +1,32 @@
+{
+ "total": 390,
+ "survivors": 107,
+ "by_op": {
+  "guided.space-colon": 36,
+  "guided.tab-colon": 25,
+  "null": 27,
+  "line.del": 4,
+  "guided.fold-line": 4,
+  "byte.flip": 2,
+  "guided.dup-line": 4,
+  "guided.case-name": 1,
+  "line.move": 2,
+  "line.dup": 1,
+  "byte.insert": 1
+ },
+ "by_entry": {
+  "received": 5,
+  "obs-received": 28,
+  "from": 4,
+  "obs-from": 23,
+  "sender": 3,
+  "reply-to": 3,
+  "return-path": 5,
+  "resent-from": 7,
+  "authres": 7,
+  "dkim-tags": 6,
+  "arc-aar": 4,
+  "arc-ams": 5,
+  "arc-as": 7
+ }
+}

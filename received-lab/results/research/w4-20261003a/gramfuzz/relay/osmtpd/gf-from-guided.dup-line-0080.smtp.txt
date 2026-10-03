@@ -1,0 +1,15 @@
+CLIENT_IP 10.88.0.11
+PAYLOAD_SHA256 84b3cec09cc87f39e25f43a66be58d4854952f937dbb4a3a31c9bd31ecd5b812
+PAYLOAD_BYTES 366
+S 220 opensmtpd.lab.test ESMTP OpenSMTPD | 
+C EHLO client.lab.test
+S 250-opensmtpd.lab.test Hello client.lab.test [10.88.0.11], pleased to meet you | 250-8BITMIME | 250-ENHANCEDSTATUSCODES | 250-SIZE 36700160 | 250-DSN | 250 HELP | 
+C MAIL FROM:<alice@lab.test>
+S 250 2.0.0 Ok | 
+C RCPT TO:<capture@lab.test>
+S 250 2.1.5 Destination address valid: Recipient ok | 
+C DATA
+S 354 Enter mail, end with "." on a line by itself | 
+S 250 2.0.0 05c127a0 Message accepted for delivery | 
+C QUIT
+S 221 2.0.0 Bye | 

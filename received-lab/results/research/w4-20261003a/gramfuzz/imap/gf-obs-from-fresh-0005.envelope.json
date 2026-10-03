@@ -1,0 +1,9 @@
+{
+ "from_slot": "missing_mailbox@missing_domain",
+ "from_group": [
+  "missing_mailbox@missing_domain",
+  "missing_mailbox@missing_domain",
+  "\t\t\t@missing_domain",
+  "security@lab.test"
+ ]
+}

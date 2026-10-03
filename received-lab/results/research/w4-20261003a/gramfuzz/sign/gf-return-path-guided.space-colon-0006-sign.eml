@@ -1,0 +1,15 @@
+Return-Path:<( 		
+	 \ 
+	 
+ 	 )		 > 	
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=G3eeIIVgOFMGztLOR9wKKuXx5hpafXiLXr9nx0jIhneHwGPHJai5qdLRAXVD6jcdeAkDnlG8U4V68B32srbUN2zFNajUzzeSrLH/wqe9DVp8jr3YHcMtM3XMZ4IbcpURbBs5Ts75EDACtlMVZFJO7uSWn7G/NtpoqyF1Iyhgh3MOCrZX1/8bTOiDN6E0jUJ82IhTWlIYCnMCdGGf5xLFeEIQIe38UeELLrDn5mvVoXDxQWLhGLQvvfAi2On2HTbHBXKIPsgiQbDKRKL/EabwcQVV0FKx/GqGsYGzHaqfO/Rd0p1xwrNFRq7VTKwkreaz7E03m7kW0hkNZDP1WJPbqA==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-return-path-guided.space-colon-0006-sign
+Message-ID: <gf-return-path-guided.space-colon-0006-sign@lab.test>
+X-Case-ID: gf-return-path-guided.space-colon-0006-sign
+
+Please confirm the payment.

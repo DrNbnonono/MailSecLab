@@ -1,0 +1,35 @@
+Bcc: capture@lab.test
+Message-ID: <3NpbBlHuvGu84yh2BiFMDW@mailpit>
+Return-Path: <alice@lab.test>
+Received: from auth-postfix.lab.test (msl-auth-postfix.mailseclab-research-net. [10.88.0.43])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 12:53:53 +0000 (UTC)
+Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id A235443D
+	for <capture@lab.test>; Sat,  3 Oct 2026 12:53:53 +0000 (UTC)
+Reply-To:,(\			
+	 
+   
+	 ),,%/.(%)"*	 
+	\		
+		
+ 	":;(  	
+	
+	
+		\	() )  	
+  	
+ 		
+	  ,,()()"O"  "	!	  n	 	\":;
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-reply-to-guided.fold-line-1310
+X-Spam: Yes
+
+Message-ID
+ : <gf-reply-to-guided.fold-line-1310@lab.test>
+X-Case-ID: gf-reply-to-guided.fold-line-1310
+
+Please confirm the payment.

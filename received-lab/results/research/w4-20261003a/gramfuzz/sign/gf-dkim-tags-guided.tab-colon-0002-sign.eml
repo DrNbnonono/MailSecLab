@@ -1,0 +1,12 @@
+DKIM-Signature: m4i_=(H ;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=bIcJ4JUF1A3PCDkwYdLgMU9PMiDAXGmGMunATqv17dqx5K5Bo/vPpXkpg6QTRsHJ7JSZBJi7SP/I+N/us8Pt4MpCcDr8DLFF17yJsC8KVfy89MEjo5I4eVWMeTU9+Sb7MkhXcsteMzmURmJWyOB8xrVaGZGu2ck0LFkzF3GK3JBrsH0FypF9pmGXLsJIitGl6sSkywXqmFhXKKkcuysvoq6Xl3Fnhc3hXNxAOyXDgIQSHQDNq+QTFiGOLOIsszQeQQFO2vkzpSUpmEVdMlSy47LqNQkFAZaSPUtTIchzgu77NaKapYppVJ2HQy5xhEscBQgkSlwddkvX/br/PLAL1w==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-dkim-tags-guided.tab-colon-0002-sign
+Message-ID: <gf-dkim-tags-guided.tab-colon-0002-sign@lab.test>
+X-Case-ID: gf-dkim-tags-guided.tab-colon-0002-sign
+
+Please confirm the payment.

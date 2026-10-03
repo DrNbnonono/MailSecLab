@@ -1,0 +1,59 @@
+{
+ "sign_case": "gf-sign-anchor-kb2",
+ "file": {
+  "dkimpy": "parse-error",
+  "perl": "pass",
+  "go": "pass",
+  "rspamd": "pass"
+ },
+ "postfix": {
+  "case": "gf-sign-anchor-kb2",
+  "variant": "gf-sign-anchor-kb2",
+  "target": "postfix",
+  "arm": "sign",
+  "smtp_code": "250",
+  "smtp": "250 2.0.0 Ok: queued as 1A7BB5122",
+  "captured": true,
+  "facts": {
+   "sha256": "8e11605c2d37edaf733ecc54aac91f405cc8bd44b433a2871f14c3d97a79b35f",
+   "total_bytes": 1620,
+   "zone_end": 1591,
+   "body_bytes": 29,
+   "received": {
+    "strict": 3
+   },
+   "received_zone_total": 3,
+   "case_noncanonical": 0,
+   "relay_added": 1,
+   "no_colon_body": 0,
+   "body_headerish": 0,
+   "empty_zone_lines": 0
+  },
+  "input_sha256": "92427830e32b111e48641cfc82f0058369b88c1e3001bd62227efde8c122c4dd",
+  "verdicts": {
+   "dkimpy": "pass",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  },
+  "verdicts_detail": {
+   "dkimpy": {
+    "status": "pass",
+    "stdout": "status: pass\n"
+   },
+   "perl": {
+    "status": "pass",
+    "stdout": "input_sha256: 8e11605c2d37edaf733ecc54aac91f405cc8bd44b433a2871f14c3d97a79b35f\ninput_len: 1620\nfed_sha256: 8e11605c2d37edaf733ecc54aac91f405cc8bd44b433a2871f14c3d97a79b35f\nfed_len: 1620\nnormalization: identity\nsignature_count: 1\nresult: pass\ndetail: pass\n"
+   },
+   "go": {
+    "status": "pass",
+    "stderr": "2026/10/03 13:04:01 Valid signature for lab.test\n"
+   },
+   "rspamd": {
+    "status": "pass",
+    "action": "add header",
+    "score": 12.8
+   }
+  }
+ }
+}

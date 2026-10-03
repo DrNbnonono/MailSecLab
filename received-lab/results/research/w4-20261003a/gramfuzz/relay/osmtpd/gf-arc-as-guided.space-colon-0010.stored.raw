@@ -1,0 +1,27 @@
+Bcc: capture@lab.test
+Message-ID: <5J9CGZFngDrbdJdO2AJufe@mailpit>
+Return-Path: <alice@lab.test>
+Received: from opensmtpd.lab.test (opensmtpd.mailseclab-research-net. [10.88.0.5])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 11:46:00 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id 1a2ec645
+	for <capture@lab.test>;
+	Sat, 3 Oct 2026 11:45:59 +0000 (UTC)
+ARC-Seal:(( 		(()O) 	 \	v)) 	()	i=(\(()		
+ 	 s	  )(		 
+ \)  	
+ 	
+		)			
+ 		()()8
+	 ;HH0	
+	
+  =  c	  ;d_v=	u;
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-arc-as-guided.space-colon-0010
+Message-ID : <gf-arc-as-guided.space-colon-0010@lab.test>
+X-Case-ID: gf-arc-as-guided.space-colon-0010
+
+Please confirm the payment.

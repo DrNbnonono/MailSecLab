@@ -1,0 +1,12 @@
+ARC-Seal:		
+ 	 ( 	)
+	  i=8;	q5= 
+	
+ 	 ;
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000Subject: gf-arc-as-byte.flip-1342
+Message-ID: <gf-arc-as-byte.flip-1342@lab.test>
+X-Case-ID: gf-arc-as-byte.flip-1342
+
+Please confirm the payment.

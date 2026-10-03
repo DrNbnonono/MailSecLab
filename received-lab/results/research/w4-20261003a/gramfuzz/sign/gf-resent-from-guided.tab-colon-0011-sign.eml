@@ -1,0 +1,30 @@
+Resent-From:	
+		((\)		R	  
+ )( h)(3	 	) 	"!	
+	"	( 	)(,			
+ 	
+	
+			)(		
+ 
+	)	  
+ 		@[ 2]
+	,<  
+ 
+ 
+ 	 @{.-.$&|().()$,@{-.}?.&~%,:"
+  \	
+	 N	
+ 	
+  	\  "@()(){-		
+ 		>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=UYHGrkx53Qn2+YN4DUiTiM3AGM/G/+noNswCDPA3PM+FS5sVqVipQkBbLP3jQPLZr/OfCF6KeLhDFRSYvdc2Z5xPhy3uwuPCwOoMr/s7OAaqlBqIzx26izUWSeYvZs+7OVndBO1dUij1hD/S/m2LBI5V505VApIphY8hXUtUF0mojHC/gyx0rAE2vCyWVhNrPh+bXjcHU7g+wqefEXx0oGh3znlZuRBvQKZtCDUX+2L7AEl5+5U5xS7FxQ6avZT9DCYoPMYZzO0RVZmBApltC0jOrej2DmdyqWxbv/xj+SS7sHzErZ+wXhVpE84at9zPFIyhVXr/5sozga0/C9Wc+A==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-resent-from-guided.tab-colon-0011-sign
+Message-ID: <gf-resent-from-guided.tab-colon-0011-sign@lab.test>
+X-Case-ID: gf-resent-from-guided.tab-colon-0011-sign
+
+Please confirm the payment.

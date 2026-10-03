@@ -1,0 +1,34 @@
+From:	
+	  ,		
+	 	, 
+   
+	((
+  )	 ~
+	 	\		
+ 
+  	
+	 	)	 	(
+	( 
+	
+ 
+	 )())()	 
+  ,	<@[ 
+		
+		],	  
+  
+	 ,
+	@  [;	 ba]			:4		 
+ 		
+  	@[	
+ 	]>,,,
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=Jpnj9jZDWjv3vje9vxlS33ojgdXyFq5HSuM+bJZmRzToSnXeH6QWOoWozByNj8NqBC3NOGV5PKPJJFuWbTmLawIkSlGGsWxXjbuP/oE1zukbFPU4DKYfx8fzVMBeCQb2qoG33DfqSP0Xn5IirHbKLtyWhJe4ZZC/EFMiSnKhhCEMS6WvR7jmZ0QULvTffkogU8QEV3Cwj9+Txci6BMcbeljdIK+YPcOZHN324lDYHcFHeyd15oc30upS9UBRzgdzgvleGqivSKjgf3LI/y/DV0b8Nj//DHvHGviJrhcf68U+NuolMvwv5XM2d/ILvPSn3CoHL0qDdYeIyilIJiRXYg==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-from-byte.flip-0038-sign
+Message-ID: <gf-from-byte.flip-0038-sign@lab.test>
+X-Case-ID: gf-from-byte.flip-0038-sign
+
+Please confirm the payment.

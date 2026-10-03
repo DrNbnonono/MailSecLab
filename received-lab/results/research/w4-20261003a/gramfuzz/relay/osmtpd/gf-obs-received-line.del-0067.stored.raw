@@ -1,0 +1,17 @@
+Bcc: capture@lab.test
+Return-Path: <alice@lab.test>
+Received: from opensmtpd.lab.test (opensmtpd.mailseclab-research-net. [10.88.0.5])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 12:44:50 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id 11b7eb2e
+	for <capture@lab.test>;
+	Sat, 3 Oct 2026 12:44:49 +0000 (UTC)
+Received:
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Subject: gf-obs-received-line.del-0067
+Message-ID: <gf-obs-received-line.del-0067@lab.test>
+X-Case-ID: gf-obs-received-line.del-0067
+
+Please confirm the payment.

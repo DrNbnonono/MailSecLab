@@ -1,0 +1,92 @@
+{
+ "survivors_in": 107,
+ "after_cap": 107,
+ "relay": {
+  "postfix": {
+   "sent": 107,
+   "captured": 106,
+   "smtp_250": 106,
+   "gen_preserved_true": 52,
+   "gen_preserved_false": 54,
+   "errors": 1,
+   "attribution_bad": 0
+  },
+  "exim": {
+   "sent": 107,
+   "captured": 106,
+   "smtp_250": 106,
+   "gen_preserved_true": 69,
+   "gen_preserved_false": 33,
+   "errors": 1,
+   "attribution_bad": 4
+  },
+  "osmtpd": {
+   "sent": 107,
+   "captured": 102,
+   "smtp_250": 102,
+   "gen_preserved_true": 83,
+   "gen_preserved_false": 15,
+   "errors": 1,
+   "attribution_bad": 4
+  }
+ },
+ "sign": {
+  "anchor_file": {
+   "dkimpy": "parse-error",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  },
+  "anchor_postfix": {
+   "dkimpy": "pass",
+   "perl": "pass",
+   "go": "pass",
+   "rspamd": "pass"
+  },
+  "selected": 58,
+  "file_split": 33,
+  "postfix_split": 33,
+  "file_x": 33
+ },
+ "imap": {
+  "selected": 40,
+  "delivered": 27,
+  "mismatch": 14,
+  "search_self_hit_env": 0,
+  "search_self_hit_hdr": 0
+ },
+ "series": {
+  "P": 27,
+  "P+T": 47,
+  "P+T+X": 14,
+  "P+T+X+D": 12,
+  "P+X": 5,
+  "P+X+D": 2
+ },
+ "problems": [
+  "gf-received-guided.tab-colon-0012/osmtpd: 存档缺中继标记（误抓或投递异常），gen_preserved=未知",
+  "gf-received-guided.tab-colon-0012/exim: 存档缺中继标记（误抓或投递异常），gen_preserved=未知",
+  "gf-obs-received-guided.tab-colon-0002/osmtpd: 存档缺中继标记（误抓或投递异常），gen_preserved=未知",
+  "gf-obs-received-guided.tab-colon-0002/exim: 存档缺中继标记（误抓或投递异常），gen_preserved=未知",
+  "gf-sender-guided.tab-colon-0007/osmtpd: 存档缺中继标记（误抓或投递异常），gen_preserved=未知",
+  "gf-sender-guided.tab-colon-0007/exim: 存档缺中继标记（误抓或投递异常），gen_preserved=未知",
+  "gf-resent-from-byte.insert-0013/postfix: smtp_arm 异常 gf-resent-from-byte.insert-0013: corpus 自检未通过 ['bare LF present in a CRLF corpus']",
+  "gf-resent-from-byte.insert-0013/osmtpd: smtp_arm 异常 gf-resent-from-byte.insert-0013: corpus 自检未通过 ['bare LF present in a CRLF corpus']",
+  "gf-resent-from-byte.insert-0013/exim: smtp_arm 异常 gf-resent-from-byte.insert-0013: corpus 自检未通过 ['bare LF present in a CRLF corpus']",
+  "gf-arc-ams-guided.tab-colon-0007/osmtpd: 存档缺中继标记（误抓或投递异常），gen_preserved=未知",
+  "gf-arc-ams-guided.tab-colon-0007/exim: 存档缺中继标记（误抓或投递异常），gen_preserved=未知",
+  "gf-resent-from-byte.insert-0013: IMAP 臂 corpus_check 未过 ['bare LF present in a CRLF corpus']",
+  "gf-obs-from-fresh-0002: Dovecot INBOX 未检索到",
+  "gf-obs-from-fresh-0003: Dovecot INBOX 未检索到",
+  "gf-obs-from-fresh-0006: Dovecot INBOX 未检索到",
+  "gf-obs-from-fresh-0009: Dovecot INBOX 未检索到",
+  "gf-obs-from-fresh-0011: Dovecot INBOX 未检索到",
+  "gf-obs-from-fresh-0013: Dovecot INBOX 未检索到",
+  "gf-obs-from-fresh-0014: Dovecot INBOX 未检索到",
+  "gf-obs-from-guided.fold-line-0000: Dovecot INBOX 未检索到",
+  "gf-obs-from-guided.dup-line-0005: Dovecot INBOX 未检索到",
+  "gf-obs-from-guided.dup-line-0006: Dovecot INBOX 未检索到",
+  "gf-obs-from-guided.space-colon-0007: Dovecot INBOX 未检索到",
+  "gf-obs-from-line.dup-0013: Dovecot INBOX 未检索到"
+ ]
+}

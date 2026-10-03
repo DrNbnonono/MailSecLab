@@ -1,0 +1,30 @@
+Bcc: capture@lab.test
+Message-ID: <6HSG8vVVnq6Xa3fwP7ez97@mailpit>
+Return-Path: <alice@lab.test>
+Received: from exim.lab.test (exim.mailseclab-research-net. [10.88.0.4])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 13:03:28 +0000 (UTC)
+Received: from [10.88.0.11] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@lab.test>)
+	id 1xCzPa-0000TW-1S
+	for capture@lab.test;
+	Sat, 03 Oct 2026 13:03:28 +0000
+ARC-Seal:(
+			)		
+ 	 i=0;z_=9o	 ;RB=6'"			
+		
+ 
+			6i&	M9  
+  
+		 ; 		c1K=o 1#/		 =A		  
+				(z
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-arc-as-byte.flip-0113
+
+Message-IDz <gf-arc-as-byte.flip-0113@lab.test>
+X-Case-ID: gf-arc-as-byte.flip-0113
+
+Please confirm the payment.

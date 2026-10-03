@@ -1,0 +1,8 @@
+{
+ "from_slot": "missing_mailbox@syntax_error",
+ "from_group": [
+  "missing_mailbox@syntax_error",
+  "missing_mailbox@?#*",
+  "security@lab.test"
+ ]
+}

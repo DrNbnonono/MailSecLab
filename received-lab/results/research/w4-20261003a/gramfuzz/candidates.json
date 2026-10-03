@@ -1,0 +1,5444 @@
+{
+ "generated_at": "2026-10-03T13:14:25+00:00",
+ "run_id": "w4-20261003a",
+ "gate_for": "真实服务验证（4）与披露（5）——负责人决策，未授权不执行",
+ "counts": {
+  "P": 236,
+  "T": 138,
+  "X": 39,
+  "D": 12,
+  "U": 0
+ },
+ "stage2_rows": 236,
+ "candidates_total": 150,
+ "lab_confirmed_total": 150,
+ "candidates": [
+  {
+   "case": "gf-received-guided.tab-colon-0010",
+   "entry": "received",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "received（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-received-guided.tab-colon-0010.eml",
+    "input_sha256": "f58c9c8a458528e8d7d58b7d318658529d60ff18dde016407cb93ecf1814b3e4",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-received-guided.tab-colon-0010.smtp.txt",
+      "stored_raw": "relay/exim/gf-received-guided.tab-colon-0010.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-received-guided.tab-colon-0010.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-received-guided.tab-colon-0010.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-received-guided.tab-colon-0010.smtp.txt",
+      "stored_raw": "relay/postfix/gf-received-guided.tab-colon-0010.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-received-guided.tab-colon-0011",
+   "entry": "received",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "received（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-received-guided.tab-colon-0011.eml",
+    "input_sha256": "86e77e7a0755be300d9fcb8f20a00789a287cd9a50812f29d81d267d72852497",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-received-guided.tab-colon-0011.smtp.txt",
+      "stored_raw": "relay/exim/gf-received-guided.tab-colon-0011.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-received-guided.tab-colon-0011.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-received-guided.tab-colon-0011.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-received-guided.tab-colon-0011.smtp.txt",
+      "stored_raw": "relay/postfix/gf-received-guided.tab-colon-0011.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-received-line.del-0035",
+   "entry": "received",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "received（op=line.del）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-received-line.del-0035.eml",
+    "input_sha256": "9243c0e6d0a621addbb1b839a8f083852ab38f6234d35163b1e3dc3441fa9494",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-received-line.del-0035.smtp.txt",
+      "stored_raw": "relay/exim/gf-received-line.del-0035.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-received-line.del-0035.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-received-line.del-0035.smtp.txt",
+      "stored_raw": "relay/postfix/gf-received-line.del-0035.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-received-guided.tab-colon-0038",
+   "entry": "received",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "received（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-received-guided.tab-colon-0038.eml",
+    "input_sha256": "4f0a64ef4feec455e90635c4ca597a529dffa6d866251a77d15155d14166cb88",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-received-guided.tab-colon-0038.smtp.txt",
+      "stored_raw": "relay/exim/gf-received-guided.tab-colon-0038.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-received-guided.tab-colon-0038.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-received-guided.tab-colon-0038.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-received-guided.tab-colon-0038.smtp.txt",
+      "stored_raw": "relay/postfix/gf-received-guided.tab-colon-0038.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-received-guided.fold-line-0167",
+   "entry": "received",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "received（op=guided.fold-line）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-received-guided.fold-line-0167.eml",
+    "input_sha256": "6c11459038354dae3a72daef73ee22e0fab003875a7e88dec4c18ca60ab4d347",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-received-guided.fold-line-0167.smtp.txt",
+      "stored_raw": "relay/exim/gf-received-guided.fold-line-0167.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-received-guided.fold-line-0167.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-received-guided.fold-line-0167.smtp.txt",
+      "stored_raw": "relay/postfix/gf-received-guided.fold-line-0167.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-received-line.move-0532",
+   "entry": "received",
+   "op": "line.move",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "received（op=line.move）；中继保留 exim=N / osmtpd=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-received-line.move-0532.eml",
+    "input_sha256": "30098e2d3ad3761f00983ce961fc5d980f62c70f1a296a4f98f78da87b35d7c1",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-received-line.move-0532.smtp.txt",
+      "stored_raw": "relay/exim/gf-received-line.move-0532.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-received-line.move-0532.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-received-line.move-0532.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-received-line.move-0532.smtp.txt",
+      "stored_raw": "relay/postfix/gf-received-line.move-0532.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-received-line.dup-0599",
+   "entry": "received",
+   "op": "line.dup",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "received（op=line.dup）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-received-line.dup-0599.eml",
+    "input_sha256": "d391c3af5dcc0d8b42e993a6c08e9110d395cecae6e6352596f9023a39998732",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-received-line.dup-0599.smtp.txt",
+      "stored_raw": "relay/exim/gf-received-line.dup-0599.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-received-line.dup-0599.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-received-line.dup-0599.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-received-line.dup-0599.smtp.txt",
+      "stored_raw": "relay/postfix/gf-received-line.dup-0599.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-received-byte.insert-1179",
+   "entry": "received",
+   "op": "byte.insert",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "received（op=byte.insert）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-received-byte.insert-1179.eml",
+    "input_sha256": "14fa52e3cf2219632de3cb42779cbcb41686dd845ab2f9c6f499972e59e28d40",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-received-byte.insert-1179.smtp.txt",
+      "stored_raw": "relay/exim/gf-received-byte.insert-1179.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-received-byte.insert-1179.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-received-byte.insert-1179.smtp.txt",
+      "stored_raw": "relay/postfix/gf-received-byte.insert-1179.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-fresh-0000",
+   "entry": "obs-received",
+   "op": null,
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（fresh）；中继保留 exim=Y / osmtpd=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-fresh-0000.eml",
+    "input_sha256": "81549a3557cfd740205de87625c20d055e221f43188aac0cb9504eeea499cb0c",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-fresh-0000.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-fresh-0000.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-fresh-0000.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-received-fresh-0000.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-fresh-0000.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-fresh-0000.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-fresh-0001",
+   "entry": "obs-received",
+   "op": null,
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（fresh）；中继保留 exim=Y / osmtpd=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-fresh-0001.eml",
+    "input_sha256": "15428386543b091ccbe6632077034af737901d16d37d7bfa54a7e0b9ae8c399b",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-fresh-0001.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-fresh-0001.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-fresh-0001.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-received-fresh-0001.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-fresh-0001.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-fresh-0001.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-line.del-0012",
+   "entry": "obs-received",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=line.del）；中继保留 exim=Y / osmtpd=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-line.del-0012.eml",
+    "input_sha256": "7a2a17f85c7938cbdbfe599948043f965cbf9e7c4af6dcbb7ec5a482736196f2",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-line.del-0012.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-line.del-0012.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-line.del-0012.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-received-line.del-0012.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-line.del-0012.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-line.del-0012.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-line.del-0025",
+   "entry": "obs-received",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=line.del）；中继保留 exim=Y / osmtpd=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-line.del-0025.eml",
+    "input_sha256": "16f33c584789e7d6a869cf0ea673cf32f0917e52d733a23212e53084e573484b",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-line.del-0025.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-line.del-0025.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-line.del-0025.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-received-line.del-0025.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-line.del-0025.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-line.del-0025.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-guided.space-colon-0031",
+   "entry": "obs-received",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=guided.space-colon）；中继保留 exim=Y / osmtpd=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-guided.space-colon-0031.eml",
+    "input_sha256": "8ce78527c6613473047ae7e8698bdc49a0be1a7914da115ab86c14c316a20b99",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-guided.space-colon-0031.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-guided.space-colon-0031.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-guided.space-colon-0031.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-received-guided.space-colon-0031.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-guided.space-colon-0031.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-guided.space-colon-0031.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-line.del-0039",
+   "entry": "obs-received",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=line.del）；中继保留 exim=Y / osmtpd=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-line.del-0039.eml",
+    "input_sha256": "25b06391397c091ba8f900293b939219dfd196603330aaf1afe77cc6176e2dce",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-line.del-0039.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-line.del-0039.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-line.del-0039.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-received-line.del-0039.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-line.del-0039.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-line.del-0039.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-guided.tab-colon-0071",
+   "entry": "obs-received",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-guided.tab-colon-0071.eml",
+    "input_sha256": "3f1fc341e2bed61eccc00de16613f6398ffd4671f1b46d01aefef9da35802824",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-guided.tab-colon-0071.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-guided.tab-colon-0071.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-guided.tab-colon-0071.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-received-guided.tab-colon-0071.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-guided.tab-colon-0071.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-guided.tab-colon-0071.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-line.del-0214",
+   "entry": "obs-received",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=line.del）；中继保留 exim=Y / osmtpd=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-line.del-0214.eml",
+    "input_sha256": "7f6863c3acd2c3e58bee5f9c8f5f2a9b8c43c0ca240dea00625bf804a6b8d197",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-line.del-0214.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-line.del-0214.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-line.del-0214.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-received-line.del-0214.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-line.del-0214.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-line.del-0214.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-line.del-0229",
+   "entry": "obs-received",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=line.del）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-line.del-0229.eml",
+    "input_sha256": "5a3d70f9c0d2017f80e8493d2573561ec04d8c7b37e0ea77570708d339f270e3",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-line.del-0229.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-line.del-0229.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-line.del-0229.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-line.del-0229.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-line.del-0229.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-guided.tab-colon-0230",
+   "entry": "obs-received",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-obs-received-guided.tab-colon-0230.eml",
+    "input_sha256": "613c24223395a62c18af9b4744f67bf6cd1d7ed4ce6a583291df300193359aff",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-guided.tab-colon-0230.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-guided.tab-colon-0230.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-guided.tab-colon-0230.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-received-guided.tab-colon-0230.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-guided.tab-colon-0230.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-guided.tab-colon-0230.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-guided.fold-line-0264",
+   "entry": "obs-received",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=guided.fold-line）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-guided.fold-line-0264.eml",
+    "input_sha256": "29a69146d8be97a1ea92ad0cc8f16a02694aed0c5744d60c36879c35ecd59202",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-guided.fold-line-0264.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-guided.fold-line-0264.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-guided.fold-line-0264.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-guided.fold-line-0264.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-guided.fold-line-0264.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-byte.flip-0350",
+   "entry": "obs-received",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-byte.flip-0350.eml",
+    "input_sha256": "0d9ee7c8da21a353662448e92b04949ce04090859fd025cb9013237ba367268d",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-byte.flip-0350.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-byte.flip-0350.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-byte.flip-0350.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-byte.flip-0350.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-byte.flip-0350.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-guided.space-colon-0415",
+   "entry": "obs-received",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=guided.space-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-obs-received-guided.space-colon-0415.eml",
+    "input_sha256": "ef486668ff9850ca7943cbe1d7b5770270cf81717d5d75c6a4f29b41f24b9297",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-guided.space-colon-0415.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-guided.space-colon-0415.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-guided.space-colon-0415.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-received-guided.space-colon-0415.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-guided.space-colon-0415.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-guided.space-colon-0415.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-received-byte.flip-1098",
+   "entry": "obs-received",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-received（op=byte.flip）；中继保留 exim=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-received-byte.flip-1098.eml",
+    "input_sha256": "f5c2248b2cdec2546b797b1304f0b8994027f036b005d1ba071b10541fd38587",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-received-byte.flip-1098.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-received-byte.flip-1098.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-received-byte.flip-1098.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-received-byte.flip-1098.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-received-byte.flip-1098.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-guided.space-colon-0000",
+   "entry": "from",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "from（op=guided.space-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail；ENVELOPE='\\t \\t\\t  \\x06\".()()()@syntax_error' vs 头区第一实例='\" \\x06\\\\\".()()()\"v \"@ \\''",
+   "evidence": {
+    "input": "corpus/gf-from-guided.space-colon-0000.eml",
+    "input_sha256": "424806145b5745ecdff775f432b25c2431dfb147eb1faf1d488076b96dccceb1",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-guided.space-colon-0000.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-guided.space-colon-0000.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-guided.space-colon-0000.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-guided.space-colon-0000.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-guided.space-colon-0000.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-guided.space-colon-0000.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-guided.space-colon-0000-sign.eml",
+     "transcript": "sign/gf-from-guided.space-colon-0000-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-guided.space-colon-0000-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-from-guided.space-colon-0000.smtp.txt",
+     "stored_raw": "imap/gf-from-guided.space-colon-0000.stored.raw",
+     "envelope": "imap/gf-from-guided.space-colon-0000.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-guided.tab-colon-0001",
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "from（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail；ENVELOPE='/?.&=}.^@-{}.4}' vs 头区第一实例='(()\\\\ ) (if() ) /?.&=}.^ @ -{}.4}'",
+   "evidence": {
+    "input": "corpus/gf-from-guided.tab-colon-0001.eml",
+    "input_sha256": "23bfc6b1f61aac33112d02912686a0889b7536a2d80d0983c4aeba6d1bc465e9",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-guided.tab-colon-0001.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-guided.tab-colon-0001.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-guided.tab-colon-0001.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-guided.tab-colon-0001-sign.eml",
+     "transcript": "sign/gf-from-guided.tab-colon-0001-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-guided.tab-colon-0001-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-from-guided.tab-colon-0001.smtp.txt",
+     "stored_raw": "imap/gf-from-guided.tab-colon-0001.stored.raw",
+     "envelope": "imap/gf-from-guided.tab-colon-0001.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-byte.flip-0004",
+   "entry": "from",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "from（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail；ENVELOPE='missing_mailbox@missing_domain' vs 头区第一实例=',\" \"<, )'",
+   "evidence": {
+    "input": "corpus/gf-from-byte.flip-0004.eml",
+    "input_sha256": "b2cd7d2550481228be5d401fd3684d7a00c6d3777ec217b4d79409e43b73b128",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-byte.flip-0004.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-byte.flip-0004.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-byte.flip-0004.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-byte.flip-0004.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-byte.flip-0004.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-byte.flip-0004.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-byte.flip-0004-sign.eml",
+     "transcript": "sign/gf-from-byte.flip-0004-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-byte.flip-0004-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-from-byte.flip-0004.smtp.txt",
+     "stored_raw": "imap/gf-from-byte.flip-0004.stored.raw",
+     "envelope": "imap/gf-from-byte.flip-0004.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-guided.space-colon-0005",
+   "entry": "from",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "from（op=guided.space-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail；ENVELOPE='|{*@missing_domain' vs 头区第一实例='\"\\\\\\x7f! \"@7'",
+   "evidence": {
+    "input": "corpus/gf-from-guided.space-colon-0005.eml",
+    "input_sha256": "42c73194bb33bc8c16f1353c299857b1484e8ebd676b27d153d8b6b71bd5e9c1",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-guided.space-colon-0005.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-guided.space-colon-0005.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-guided.space-colon-0005.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-guided.space-colon-0005.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-guided.space-colon-0005.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-guided.space-colon-0005.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-guided.space-colon-0005-sign.eml",
+     "transcript": "sign/gf-from-guided.space-colon-0005-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-guided.space-colon-0005-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-from-guided.space-colon-0005.smtp.txt",
+     "stored_raw": "imap/gf-from-guided.space-colon-0005.stored.raw",
+     "envelope": "imap/gf-from-guided.space-colon-0005.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-guided.tab-colon-0008",
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "from（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=N / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail；ENVELOPE='missing_mailbox@syntax_error' vs 头区第一实例=', @(())()?#*:\" \"@#(d())(l)()'",
+   "evidence": {
+    "input": "corpus/gf-from-guided.tab-colon-0008.eml",
+    "input_sha256": "ace9c3fb221492804d8738e3aae3b6c42cd4c8316906d9fd8d17049ea67edf32",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-guided.tab-colon-0008.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-guided.tab-colon-0008.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-guided.tab-colon-0008.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-guided.tab-colon-0008.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-guided.tab-colon-0008.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-guided.tab-colon-0008.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-guided.tab-colon-0008-sign.eml",
+     "transcript": "sign/gf-from-guided.tab-colon-0008-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-guided.tab-colon-0008-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-from-guided.tab-colon-0008.smtp.txt",
+     "stored_raw": "imap/gf-from-guided.tab-colon-0008.stored.raw",
+     "envelope": "imap/gf-from-guided.tab-colon-0008.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-guided.tab-colon-0014",
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "from（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail；ENVELOPE='missing_mailbox@syntax_error' vs 头区第一实例=',,,@()&|.5\\'.()&z, (`()) () (f) ,@()()=.}.&* :()\" \\\\\\x08 t\"()()@(`\\\\)[c]'",
+   "evidence": {
+    "input": "corpus/gf-from-guided.tab-colon-0014.eml",
+    "input_sha256": "ecddb4318df26a8d661745ae0f84f7da0a18b26cff5c0b4b785c786822d924b0",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-guided.tab-colon-0014.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-guided.tab-colon-0014.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-guided.tab-colon-0014.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-guided.tab-colon-0014.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-guided.tab-colon-0014.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-guided.tab-colon-0014.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-guided.tab-colon-0014-sign.eml",
+     "transcript": "sign/gf-from-guided.tab-colon-0014-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-guided.tab-colon-0014-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-from-guided.tab-colon-0014.smtp.txt",
+     "stored_raw": "imap/gf-from-guided.tab-colon-0014.stored.raw",
+     "envelope": "imap/gf-from-guided.tab-colon-0014.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-byte.flip-0035",
+   "entry": "from",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "from（op=byte.flip）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail；ENVELOPE=\"y \\t\\t\\t @/.`.+''\" vs 头区第一实例='y \") @/.`.+\\'\\''",
+   "evidence": {
+    "input": "corpus/gf-from-byte.flip-0035.eml",
+    "input_sha256": "de0ea697e1e1c3e0ca06c8c8fca3ed57da89b2dd65ffea22c9e3eae17072bed4",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-byte.flip-0035.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-byte.flip-0035.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-byte.flip-0035.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-byte.flip-0035.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-byte.flip-0035.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-byte.flip-0035.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-byte.flip-0035-sign.eml",
+     "transcript": "sign/gf-from-byte.flip-0035-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-byte.flip-0035-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-from-byte.flip-0035.smtp.txt",
+     "stored_raw": "imap/gf-from-byte.flip-0035.stored.raw",
+     "envelope": "imap/gf-from-byte.flip-0035.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-guided.tab-colon-0036",
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "from（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail；ENVELOPE='missing_mailbox@missing_domain' vs 头区第一实例=',,@=.?%-./.* ,:\" \"@ (\\\\)(()())()[ ](\\\\) ()'",
+   "evidence": {
+    "input": "corpus/gf-from-guided.tab-colon-0036.eml",
+    "input_sha256": "f0a0bb85366bee670ed1f49fb2196238ff42b82744f70568442dadb443d02111",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-guided.tab-colon-0036.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-guided.tab-colon-0036.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-guided.tab-colon-0036.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-guided.tab-colon-0036.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-guided.tab-colon-0036.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-guided.tab-colon-0036.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-guided.tab-colon-0036-sign.eml",
+     "transcript": "sign/gf-from-guided.tab-colon-0036-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-guided.tab-colon-0036-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-from-guided.tab-colon-0036.smtp.txt",
+     "stored_raw": "imap/gf-from-guided.tab-colon-0036.stored.raw",
+     "envelope": "imap/gf-from-guided.tab-colon-0036.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-byte.flip-0038",
+   "entry": "from",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "from（op=byte.flip）；中继保留 exim=N / postfix=N；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail",
+   "evidence": {
+    "input": "corpus/gf-from-byte.flip-0038.eml",
+    "input_sha256": "0ecde43aeccd58846dfb149a7507878178ad26c97a84bfff1a6faa82a2a95757",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-byte.flip-0038.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-byte.flip-0038.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-byte.flip-0038.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-byte.flip-0038.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-byte.flip-0038.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-byte.flip-0038-sign.eml",
+     "transcript": "sign/gf-from-byte.flip-0038-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-byte.flip-0038-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-guided.tab-colon-0047",
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "from（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail",
+   "evidence": {
+    "input": "corpus/gf-from-guided.tab-colon-0047.eml",
+    "input_sha256": "574875c6f220727965644270e7e5a405dd1f4f1e02901df3435b3d85abc19921",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-guided.tab-colon-0047.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-guided.tab-colon-0047.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-guided.tab-colon-0047.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-guided.tab-colon-0047.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-guided.tab-colon-0047.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-guided.tab-colon-0047.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-guided.tab-colon-0047-sign.eml",
+     "transcript": "sign/gf-from-guided.tab-colon-0047-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-guided.tab-colon-0047-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-guided.dup-line-0080",
+   "entry": "from",
+   "op": "guided.dup-line",
+   "series": [
+    "P",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "from（op=guided.dup-line）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail",
+   "evidence": {
+    "input": "corpus/gf-from-guided.dup-line-0080.eml",
+    "input_sha256": "84b3cec09cc87f39e25f43a66be58d4854952f937dbb4a3a31c9bd31ecd5b812",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-guided.dup-line-0080.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-guided.dup-line-0080.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-guided.dup-line-0080.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-guided.dup-line-0080.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-guided.dup-line-0080.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-guided.dup-line-0080.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-guided.dup-line-0080-sign.eml",
+     "transcript": "sign/gf-from-guided.dup-line-0080-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-guided.dup-line-0080-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-line.del-0106",
+   "entry": "from",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "from（op=line.del）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail",
+   "evidence": {
+    "input": "corpus/gf-from-line.del-0106.eml",
+    "input_sha256": "17df0ae0f19d1420183f1690b0e72b1ef8933a0e85b8bbfd9167aa0e1829d69b",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-line.del-0106.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-line.del-0106.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-line.del-0106.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-line.del-0106.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-line.del-0106.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-line.del-0106.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-line.del-0106-sign.eml",
+     "transcript": "sign/gf-from-line.del-0106-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-line.del-0106-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-line.del-0118",
+   "entry": "from",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "from（op=line.del）；中继保留 exim=N / postfix=N；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail",
+   "evidence": {
+    "input": "corpus/gf-from-line.del-0118.eml",
+    "input_sha256": "ab20a515cc8dcdd5234e55ad0e790f1cad23d9d5cd41efa86bbe4dc4a0f25b97",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-line.del-0118.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-line.del-0118.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-line.del-0118.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-line.del-0118.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-line.del-0118.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-from-line.del-0118-sign.eml",
+     "transcript": "sign/gf-from-line.del-0118-sign.smtp.txt",
+     "stored_raw": "sign/gf-from-line.del-0118-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-guided.tab-colon-0174",
+   "entry": "from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "from（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=N / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-from-guided.tab-colon-0174.eml",
+    "input_sha256": "69acc42302da08c8b32743c8d6145a9e73f1d9fcfb3bf0eb52af65cdf6654f4f",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-guided.tab-colon-0174.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-guided.tab-colon-0174.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-guided.tab-colon-0174.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-guided.tab-colon-0174.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-guided.tab-colon-0174.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-guided.tab-colon-0174.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-byte.flip-0396",
+   "entry": "from",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "from（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-from-byte.flip-0396.eml",
+    "input_sha256": "b1fac8af55f3894fa37f70bdc3ec4389b02cc58b1fc05791682d064bde7cebe0",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-byte.flip-0396.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-byte.flip-0396.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-byte.flip-0396.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-byte.flip-0396.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-byte.flip-0396.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-from-byte.delete-0844",
+   "entry": "from",
+   "op": "byte.delete",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "from（op=byte.delete）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-from-byte.delete-0844.eml",
+    "input_sha256": "78a695a56e86c7861f1028dcc6e142ae9c7d8bc07e12a82bda03c8e09c5cdd63",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-from-byte.delete-0844.smtp.txt",
+      "stored_raw": "relay/exim/gf-from-byte.delete-0844.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-from-byte.delete-0844.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-from-byte.delete-0844.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-from-byte.delete-0844.smtp.txt",
+      "stored_raw": "relay/postfix/gf-from-byte.delete-0844.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-fresh-0000",
+   "entry": "obs-from",
+   "op": null,
+   "series": [
+    "P",
+    "T",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（fresh）；中继保留 exim=N / osmtpd=Y / postfix=N；验证器 dkimpy=parse-error / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=fail；ENVELOPE='missing_mailbox@missing_domain' vs 头区第一实例='\"\\\\ b \\x0e \"@ |=`.?#.{s!'",
+   "evidence": {
+    "input": "corpus/gf-obs-from-fresh-0000.eml",
+    "input_sha256": "ba8463450e2696048abc853c66f5d736808240edf29e09a37988c84eebd5c8ca",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-fresh-0000.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-fresh-0000.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-fresh-0000.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-fresh-0000.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-fresh-0000.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-fresh-0000.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-fresh-0000-sign.eml",
+     "transcript": "sign/gf-obs-from-fresh-0000-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-fresh-0000-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-obs-from-fresh-0000.smtp.txt",
+     "stored_raw": "imap/gf-obs-from-fresh-0000.stored.raw",
+     "envelope": "imap/gf-obs-from-fresh-0000.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-fresh-0002",
+   "entry": "obs-from",
+   "op": null,
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（fresh）；中继保留 exim=Y / osmtpd=Y / postfix=N；验证器 dkimpy=tool-error / dkimpy@postfix=fail / go=pass / go@postfix=none / perl=pass / perl@postfix=none / rspamd=pass / rspamd@postfix=none",
+   "evidence": {
+    "input": "corpus/gf-obs-from-fresh-0002.eml",
+    "input_sha256": "d22d0930a4ab504ff05969b0311e641700c07164facc856383f1827d9a9617a0",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-fresh-0002.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-fresh-0002.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-fresh-0002.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-fresh-0002.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-fresh-0002.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-fresh-0002.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-fresh-0002-sign.eml",
+     "transcript": "sign/gf-obs-from-fresh-0002-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-fresh-0002-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "tool-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "none",
+     "go@postfix": "none",
+     "rspamd@postfix": "none"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-line.del-0006",
+   "entry": "obs-from",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=line.del）；中继保留 exim=N / osmtpd=Y / postfix=N；验证器 dkimpy=parse-error / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=fail；ENVELOPE='   \\t \\t ~ \\t\\t \\t\\x0c\\t\\t\\t\\x7f@syntax_error' vs 头区第一实例='\" ~ \\\\\\x7f\"@ 1(!()()) (\\\\) () .{(()).(())~'",
+   "evidence": {
+    "input": "corpus/gf-obs-from-line.del-0006.eml",
+    "input_sha256": "a49af73b6927a6bd7d8d497fbb13a11c5fbcbb1dfe6708acf29041345de5fdd4",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-line.del-0006.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-line.del-0006.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-line.del-0006.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-line.del-0006.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-line.del-0006.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-line.del-0006.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-line.del-0006-sign.eml",
+     "transcript": "sign/gf-obs-from-line.del-0006-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-line.del-0006-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-obs-from-line.del-0006.smtp.txt",
+     "stored_raw": "imap/gf-obs-from-line.del-0006.stored.raw",
+     "envelope": "imap/gf-obs-from-line.del-0006.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.space-colon-0007",
+   "entry": "obs-from",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.space-colon）；中继保留 exim=Y / osmtpd=Y / postfix=N；验证器 dkimpy=parse-error / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=fail；ENVELOPE='\\t\\t\\t  \\t\\t\\t@syntax_error' vs 头区第一实例='\" \"@ (\\\\)(\\\\)(\\'()() ) /^.%/$.+.^'",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.space-colon-0007.eml",
+    "input_sha256": "dad8bea4d50924e08bb451237bfb08284bd3db4fa996e23dbfa9ea7d245e1bdc",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.space-colon-0007.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.space-colon-0007.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.space-colon-0007.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-guided.space-colon-0007.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.space-colon-0007.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.space-colon-0007.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-guided.space-colon-0007-sign.eml",
+     "transcript": "sign/gf-obs-from-guided.space-colon-0007-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-guided.space-colon-0007-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-obs-from-guided.space-colon-0007.smtp.txt",
+     "stored_raw": "imap/gf-obs-from-guided.space-colon-0007.stored.raw",
+     "envelope": "imap/gf-obs-from-guided.space-colon-0007.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.space-colon-0011",
+   "entry": "obs-from",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "X",
+    "D"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.space-colon）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail；ENVELOPE='missing_mailbox@missing_domain' vs 头区第一实例=') *. {~^ . *.~&$@ [ ], \"x \\\\\\x03 \" @[l ]'",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.space-colon-0011.eml",
+    "input_sha256": "ef68aaed7f7bd8475857379263993561a13da2f842d1b286d9b9eb8abc673fb8",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.space-colon-0011.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.space-colon-0011.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.space-colon-0011.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-guided.space-colon-0011.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.space-colon-0011.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.space-colon-0011.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-guided.space-colon-0011-sign.eml",
+     "transcript": "sign/gf-obs-from-guided.space-colon-0011-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-guided.space-colon-0011-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    },
+    "imap": {
+     "transcript": "imap/gf-obs-from-guided.space-colon-0011.smtp.txt",
+     "stored_raw": "imap/gf-obs-from-guided.space-colon-0011.stored.raw",
+     "envelope": "imap/gf-obs-from-guided.space-colon-0011.envelope.json"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.tab-colon-0018",
+   "entry": "obs-from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=Y / postfix=N；验证器 dkimpy=tool-error / dkimpy@postfix=fail / go=pass / go@postfix=none / perl=pass / perl@postfix=none / rspamd=pass / rspamd@postfix=none",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.tab-colon-0018.eml",
+    "input_sha256": "6b28315a646926dd932b5d9ba21be17d8752a566aed42f609f9808de107c950a",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.tab-colon-0018.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.tab-colon-0018.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.tab-colon-0018.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-guided.tab-colon-0018.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.tab-colon-0018.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.tab-colon-0018.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-guided.tab-colon-0018-sign.eml",
+     "transcript": "sign/gf-obs-from-guided.tab-colon-0018-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-guided.tab-colon-0018-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "tool-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "none",
+     "go@postfix": "none",
+     "rspamd@postfix": "none"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-line.del-0033",
+   "entry": "obs-from",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=line.del）；中继保留 exim=Y / osmtpd=Y / postfix=N；验证器 dkimpy=tool-error / dkimpy@postfix=fail / go=pass / go@postfix=none / perl=pass / perl@postfix=none / rspamd=pass / rspamd@postfix=none",
+   "evidence": {
+    "input": "corpus/gf-obs-from-line.del-0033.eml",
+    "input_sha256": "c8e58c2093415865c7cfec8724f1105277f4bbcd45fb67434adb2f589c37a0b4",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-line.del-0033.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-line.del-0033.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-line.del-0033.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-line.del-0033.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-line.del-0033.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-line.del-0033.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-line.del-0033-sign.eml",
+     "transcript": "sign/gf-obs-from-line.del-0033-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-line.del-0033-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "tool-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "none",
+     "go@postfix": "none",
+     "rspamd@postfix": "none"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.tab-colon-0036",
+   "entry": "obs-from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=Y / postfix=N；验证器 dkimpy=tool-error / dkimpy@postfix=fail / go=pass / go@postfix=none / perl=pass / perl@postfix=none / rspamd=pass / rspamd@postfix=none",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.tab-colon-0036.eml",
+    "input_sha256": "8c907a5b5a1e84d5f5cc3f05f85e61b0672a36ce71e5917fbbf72e0122784dae",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.tab-colon-0036.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.tab-colon-0036.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.tab-colon-0036.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-guided.tab-colon-0036.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.tab-colon-0036.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.tab-colon-0036.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-guided.tab-colon-0036-sign.eml",
+     "transcript": "sign/gf-obs-from-guided.tab-colon-0036-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-guided.tab-colon-0036-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "tool-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "none",
+     "go@postfix": "none",
+     "rspamd@postfix": "none"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-line.del-0081",
+   "entry": "obs-from",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=line.del）；中继保留 exim=Y / osmtpd=Y / postfix=N；验证器 dkimpy=parse-error / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=fail",
+   "evidence": {
+    "input": "corpus/gf-obs-from-line.del-0081.eml",
+    "input_sha256": "a41b77156ac2dce591994b77252da07c57da2ad8c86b619a49940077f88e3258",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-line.del-0081.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-line.del-0081.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-line.del-0081.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-line.del-0081.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-line.del-0081.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-line.del-0081.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-line.del-0081-sign.eml",
+     "transcript": "sign/gf-obs-from-line.del-0081-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-line.del-0081-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "parse-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.tab-colon-0095",
+   "entry": "obs-from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=Y / postfix=N；验证器 dkimpy=tool-error / dkimpy@postfix=fail / go=pass / go@postfix=none / perl=pass / perl@postfix=none / rspamd=pass / rspamd@postfix=none",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.tab-colon-0095.eml",
+    "input_sha256": "9392b9c258756861b6bd8d2eef5c529fd3a92f8b84c15687d67280bbb9ef1e21",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.tab-colon-0095.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.tab-colon-0095.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.tab-colon-0095.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-guided.tab-colon-0095.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.tab-colon-0095.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.tab-colon-0095.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-guided.tab-colon-0095-sign.eml",
+     "transcript": "sign/gf-obs-from-guided.tab-colon-0095-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-guided.tab-colon-0095-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "tool-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "none",
+     "go@postfix": "none",
+     "rspamd@postfix": "none"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.space-colon-0106",
+   "entry": "obs-from",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.space-colon）；中继保留 exim=Y / osmtpd=Y / postfix=N；验证器 dkimpy=tool-error / dkimpy@postfix=fail / go=pass / go@postfix=none / perl=pass / perl@postfix=none / rspamd=pass / rspamd@postfix=none",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.space-colon-0106.eml",
+    "input_sha256": "b2b8fad36c5f1820b4c15c658a16478d06a1cd8a338e014493619452d622ffeb",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.space-colon-0106.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.space-colon-0106.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.space-colon-0106.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-guided.space-colon-0106.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.space-colon-0106.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.space-colon-0106.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-guided.space-colon-0106-sign.eml",
+     "transcript": "sign/gf-obs-from-guided.space-colon-0106-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-guided.space-colon-0106-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "tool-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "none",
+     "go@postfix": "none",
+     "rspamd@postfix": "none"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.tab-colon-0116",
+   "entry": "obs-from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=N；验证器 dkimpy=tool-error / dkimpy@postfix=fail / go=pass / go@postfix=none / perl=pass / perl@postfix=none / rspamd=pass / rspamd@postfix=none",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.tab-colon-0116.eml",
+    "input_sha256": "861564ee6e771d5bcf0c7f003f3aa8e0865ce5566a8074f5c307aeeb81c1799d",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.tab-colon-0116.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.tab-colon-0116.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.tab-colon-0116.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-guided.tab-colon-0116.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.tab-colon-0116.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.tab-colon-0116.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-guided.tab-colon-0116-sign.eml",
+     "transcript": "sign/gf-obs-from-guided.tab-colon-0116-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-guided.tab-colon-0116-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "tool-error",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "none",
+     "go@postfix": "none",
+     "rspamd@postfix": "none"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.tab-colon-0154",
+   "entry": "obs-from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=fail / rspamd@postfix=fail",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.tab-colon-0154.eml",
+    "input_sha256": "6df61581c74aecd6b8bf1110c209900873c03528fe774f58fdb1559420ff508e",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.tab-colon-0154.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.tab-colon-0154.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.tab-colon-0154.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-guided.tab-colon-0154.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.tab-colon-0154.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.tab-colon-0154.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-obs-from-guided.tab-colon-0154-sign.eml",
+     "transcript": "sign/gf-obs-from-guided.tab-colon-0154-sign.smtp.txt",
+     "stored_raw": "sign/gf-obs-from-guided.tab-colon-0154-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "pass",
+     "go": "pass",
+     "rspamd": "fail",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "pass",
+     "go@postfix": "pass",
+     "rspamd@postfix": "fail"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-line.del-0158",
+   "entry": "obs-from",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=line.del）；中继保留 exim=Y / osmtpd=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-from-line.del-0158.eml",
+    "input_sha256": "40950cdf6f9c3f8064d56daa809a8678375b9d517d578329304ea8cdad4118cf",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-line.del-0158.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-line.del-0158.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-line.del-0158.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-line.del-0158.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-line.del-0158.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-line.del-0158.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-byte.flip-0177",
+   "entry": "obs-from",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-from-byte.flip-0177.eml",
+    "input_sha256": "44fc1f55a070c57feed2cd0a80c3499f485c9f36f9a848d533126d53ea9db6d0",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-byte.flip-0177.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-byte.flip-0177.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-byte.flip-0177.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-byte.flip-0177.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-byte.flip-0177.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.space-colon-0187",
+   "entry": "obs-from",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.space-colon）；中继保留 exim=Y / osmtpd=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.space-colon-0187.eml",
+    "input_sha256": "f724d83ef4593834c97b895429432d1d0e43045bdc2d87347939b59527e919e7",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.space-colon-0187.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.space-colon-0187.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.space-colon-0187.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-guided.space-colon-0187.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.space-colon-0187.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.space-colon-0187.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.space-colon-0240",
+   "entry": "obs-from",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.space-colon）；中继保留 exim=N / osmtpd=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.space-colon-0240.eml",
+    "input_sha256": "80a6d685675386ecfad2dee8cbded5624f0fa272bba297ff453c6dae281e08aa",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.space-colon-0240.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.space-colon-0240.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.space-colon-0240.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-guided.space-colon-0240.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.space-colon-0240.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.space-colon-0240.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-byte.flip-0435",
+   "entry": "obs-from",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-from-byte.flip-0435.eml",
+    "input_sha256": "2fabc9ad2a0af8875eb4df81ddbaacda07e8f7242993774e6db77a4036229f1c",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-byte.flip-0435.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-byte.flip-0435.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-byte.flip-0435.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-byte.flip-0435.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-byte.flip-0435.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-line.del-0450",
+   "entry": "obs-from",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=line.del）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-from-line.del-0450.eml",
+    "input_sha256": "5cfa5ab7add08143e68f64c43abb96608f0276c46462988a2fb2e4e848d47eca",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-line.del-0450.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-line.del-0450.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-line.del-0450.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-line.del-0450.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-line.del-0450.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.fold-line-0560",
+   "entry": "obs-from",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.fold-line）；中继保留 exim=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.fold-line-0560.eml",
+    "input_sha256": "ccc9ff7e43a3758684e2a2b2ca59ae7d83afc431780d7199e4560e4f8d27e68b",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.fold-line-0560.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.fold-line-0560.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.fold-line-0560.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.fold-line-0560.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.fold-line-0560.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-line.del-0647",
+   "entry": "obs-from",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=line.del）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-from-line.del-0647.eml",
+    "input_sha256": "3d0fa409d1a7b1b68c7c2040edf20aa60da5087c6ba55cd8e25e83aae6d84184",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-line.del-0647.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-line.del-0647.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-line.del-0647.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-line.del-0647.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-line.del-0647.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-byte.flip-0974",
+   "entry": "obs-from",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-from-byte.flip-0974.eml",
+    "input_sha256": "eebf2d9b1ea160c86412bda9d3aef814753cfc66951105a447cad3c9138cf7a3",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-byte.flip-0974.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-byte.flip-0974.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-byte.flip-0974.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-obs-from-byte.flip-0974.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-byte.flip-0974.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-byte.flip-0974.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-byte.flip-1299",
+   "entry": "obs-from",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=byte.flip）；中继保留 exim=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-from-byte.flip-1299.eml",
+    "input_sha256": "90104556d64d8b073e8d3b2ec2bb194be87947462a1442239813ee44b03ad31e",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-byte.flip-1299.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-byte.flip-1299.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-byte.flip-1299.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-byte.flip-1299.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-byte.flip-1299.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-obs-from-guided.fold-line-1300",
+   "entry": "obs-from",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "obs-from（op=guided.fold-line）；中继保留 exim=Y / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-obs-from-guided.fold-line-1300.eml",
+    "input_sha256": "98143dd6ee1f9111d51b0a3ad949f3f191842ee962a0979b7ab499aa76c8d0ef",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-obs-from-guided.fold-line-1300.smtp.txt",
+      "stored_raw": "relay/exim/gf-obs-from-guided.fold-line-1300.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-obs-from-guided.fold-line-1300.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-obs-from-guided.fold-line-1300.smtp.txt",
+      "stored_raw": "relay/postfix/gf-obs-from-guided.fold-line-1300.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-sender-line.del-0003",
+   "entry": "sender",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "sender（op=line.del）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-sender-line.del-0003.eml",
+    "input_sha256": "0371b9422f18ee458ebbbf52cc00453d89f553921efa700b207533632a8983b7",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-sender-line.del-0003.smtp.txt",
+      "stored_raw": "relay/exim/gf-sender-line.del-0003.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-sender-line.del-0003.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-sender-line.del-0003.smtp.txt",
+      "stored_raw": "relay/postfix/gf-sender-line.del-0003.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-sender-guided.tab-colon-0009",
+   "entry": "sender",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "sender（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=Y；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass；ENVELOPE='security@lab.test' vs 头区第一实例='security@lab.test'",
+   "evidence": {
+    "input": "corpus/gf-sender-guided.tab-colon-0009.eml",
+    "input_sha256": "7275673e5826628312a11479a237b28285de7f99f9f460db789bd0ac9ddd04a4",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-sender-guided.tab-colon-0009.smtp.txt",
+      "stored_raw": "relay/exim/gf-sender-guided.tab-colon-0009.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-sender-guided.tab-colon-0009.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-sender-guided.tab-colon-0009.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-sender-guided.tab-colon-0009.smtp.txt",
+      "stored_raw": "relay/postfix/gf-sender-guided.tab-colon-0009.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-sender-line.del-0559",
+   "entry": "sender",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "sender（op=line.del）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-sender-line.del-0559.eml",
+    "input_sha256": "43fa7f99c8ed918ff36348e134d82956958663df99a029fe13b7b24194c7bb67",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-sender-line.del-0559.smtp.txt",
+      "stored_raw": "relay/exim/gf-sender-line.del-0559.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-sender-line.del-0559.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-sender-line.del-0559.smtp.txt",
+      "stored_raw": "relay/postfix/gf-sender-line.del-0559.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-sender-byte.flip-0688",
+   "entry": "sender",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "sender（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-sender-byte.flip-0688.eml",
+    "input_sha256": "80d3c354df3d873e2df263485b22eff24fc9a2b045de0171494c2c3824fbd6e9",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-sender-byte.flip-0688.smtp.txt",
+      "stored_raw": "relay/exim/gf-sender-byte.flip-0688.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-sender-byte.flip-0688.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-sender-byte.flip-0688.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-sender-byte.flip-0688.smtp.txt",
+      "stored_raw": "relay/postfix/gf-sender-byte.flip-0688.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-sender-byte.flip-1163",
+   "entry": "sender",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "sender（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-sender-byte.flip-1163.eml",
+    "input_sha256": "1cd4a56f09957cadc4d46853f79c7025990e0fabed675aa30df1e8a7629aaf3f",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-sender-byte.flip-1163.smtp.txt",
+      "stored_raw": "relay/exim/gf-sender-byte.flip-1163.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-sender-byte.flip-1163.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-sender-byte.flip-1163.smtp.txt",
+      "stored_raw": "relay/postfix/gf-sender-byte.flip-1163.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-sender-byte.flip-1345",
+   "entry": "sender",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "sender（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-sender-byte.flip-1345.eml",
+    "input_sha256": "88d0be69598f565ea6f5decd6ddbd1a8de7098a3f81acbfa74b6ed9dd6e6cf00",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-sender-byte.flip-1345.smtp.txt",
+      "stored_raw": "relay/exim/gf-sender-byte.flip-1345.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-sender-byte.flip-1345.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-sender-byte.flip-1345.smtp.txt",
+      "stored_raw": "relay/postfix/gf-sender-byte.flip-1345.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-sender-byte.flip-1468",
+   "entry": "sender",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "sender（op=byte.flip）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-sender-byte.flip-1468.eml",
+    "input_sha256": "4c41dc156407ea60a4d9592a7e299dd0309989b3785e3c73279c50cd39ffbcf7",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-sender-byte.flip-1468.smtp.txt",
+      "stored_raw": "relay/exim/gf-sender-byte.flip-1468.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-sender-byte.flip-1468.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-sender-byte.flip-1468.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-sender-byte.flip-1468.smtp.txt",
+      "stored_raw": "relay/postfix/gf-sender-byte.flip-1468.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-reply-to-line.del-0037",
+   "entry": "reply-to",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "reply-to（op=line.del）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-reply-to-line.del-0037.eml",
+    "input_sha256": "7083182b1f9d6232d61474157c564d0fd0fedb8fee5c54417248d4574e2c7dd0",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-reply-to-line.del-0037.smtp.txt",
+      "stored_raw": "relay/exim/gf-reply-to-line.del-0037.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-reply-to-line.del-0037.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-reply-to-line.del-0037.smtp.txt",
+      "stored_raw": "relay/postfix/gf-reply-to-line.del-0037.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-reply-to-guided.tab-colon-0066",
+   "entry": "reply-to",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "reply-to（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=Y；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-reply-to-guided.tab-colon-0066.eml",
+    "input_sha256": "bc1e681e31b76b16b900999a79d6e90026d2566789ae390b95e9bc418bdaeaa0",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-reply-to-guided.tab-colon-0066.smtp.txt",
+      "stored_raw": "relay/exim/gf-reply-to-guided.tab-colon-0066.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-reply-to-guided.tab-colon-0066.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-reply-to-guided.tab-colon-0066.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-reply-to-guided.tab-colon-0066.smtp.txt",
+      "stored_raw": "relay/postfix/gf-reply-to-guided.tab-colon-0066.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-reply-to-line.del-0106",
+   "entry": "reply-to",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "reply-to（op=line.del）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-reply-to-line.del-0106.eml",
+    "input_sha256": "b0a674cf0ba57d2afc33a89463f6adbf30c7c7958ec7ba9535cf38d68018a57f",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-reply-to-line.del-0106.smtp.txt",
+      "stored_raw": "relay/exim/gf-reply-to-line.del-0106.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-reply-to-line.del-0106.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-reply-to-line.del-0106.smtp.txt",
+      "stored_raw": "relay/postfix/gf-reply-to-line.del-0106.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-reply-to-guided.fold-line-0240",
+   "entry": "reply-to",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "reply-to（op=guided.fold-line）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-reply-to-guided.fold-line-0240.eml",
+    "input_sha256": "12978c11541277c26d79243bb38f4cc0bd3859d81a0f76d2cec505a06ec4a209",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-reply-to-guided.fold-line-0240.smtp.txt",
+      "stored_raw": "relay/exim/gf-reply-to-guided.fold-line-0240.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-reply-to-guided.fold-line-0240.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-reply-to-guided.fold-line-0240.smtp.txt",
+      "stored_raw": "relay/postfix/gf-reply-to-guided.fold-line-0240.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-reply-to-byte.flip-0548",
+   "entry": "reply-to",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "reply-to（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-reply-to-byte.flip-0548.eml",
+    "input_sha256": "6de0a35208501df7ce3a9859e6743be4fb4a5b0a23dfd04d759e190467e61b38",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-reply-to-byte.flip-0548.smtp.txt",
+      "stored_raw": "relay/exim/gf-reply-to-byte.flip-0548.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-reply-to-byte.flip-0548.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-reply-to-byte.flip-0548.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-reply-to-byte.flip-0548.smtp.txt",
+      "stored_raw": "relay/postfix/gf-reply-to-byte.flip-0548.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-reply-to-byte.flip-0800",
+   "entry": "reply-to",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "reply-to（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-reply-to-byte.flip-0800.eml",
+    "input_sha256": "8d3d5cff3ae4bed4da50b2f09a92154e7fa07ba1a35d0f27c560da8d19b36e40",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-reply-to-byte.flip-0800.smtp.txt",
+      "stored_raw": "relay/exim/gf-reply-to-byte.flip-0800.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-reply-to-byte.flip-0800.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-reply-to-byte.flip-0800.smtp.txt",
+      "stored_raw": "relay/postfix/gf-reply-to-byte.flip-0800.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-reply-to-byte.insert-0977",
+   "entry": "reply-to",
+   "op": "byte.insert",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "reply-to（op=byte.insert）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-reply-to-byte.insert-0977.eml",
+    "input_sha256": "9a3f686908680f0a103020ff5662f52265136dbfbc441dcaf90bac433e8939b1",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-reply-to-byte.insert-0977.smtp.txt",
+      "stored_raw": "relay/exim/gf-reply-to-byte.insert-0977.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-reply-to-byte.insert-0977.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-reply-to-byte.insert-0977.smtp.txt",
+      "stored_raw": "relay/postfix/gf-reply-to-byte.insert-0977.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-reply-to-byte.flip-1135",
+   "entry": "reply-to",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "reply-to（op=byte.flip）；中继保留 exim=N / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-reply-to-byte.flip-1135.eml",
+    "input_sha256": "4e3e531ac9d8b9ac4e61ad4a14bcf12672c56714adc74f0c286c64b2de6b1eb8",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-reply-to-byte.flip-1135.smtp.txt",
+      "stored_raw": "relay/exim/gf-reply-to-byte.flip-1135.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-reply-to-byte.flip-1135.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-reply-to-byte.flip-1135.smtp.txt",
+      "stored_raw": "relay/postfix/gf-reply-to-byte.flip-1135.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-guided.tab-colon-0005",
+   "entry": "return-path",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-guided.tab-colon-0005.eml",
+    "input_sha256": "154cecf52f38c85ff8591413964747f30d1a43a101e6d12dc824ecb37296502c",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-guided.tab-colon-0005.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-guided.tab-colon-0005.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-guided.tab-colon-0005.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-return-path-guided.tab-colon-0005.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-guided.tab-colon-0005.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-guided.tab-colon-0005.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-guided.tab-colon-0006",
+   "entry": "return-path",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-guided.tab-colon-0006.eml",
+    "input_sha256": "70a7f588997445b868924fecf6442570c8720b3d2198b308db395cb18904f2d1",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-guided.tab-colon-0006.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-guided.tab-colon-0006.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-guided.tab-colon-0006.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-return-path-guided.tab-colon-0006.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-guided.tab-colon-0006.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-guided.tab-colon-0006.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-guided.space-colon-0018",
+   "entry": "return-path",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=guided.space-colon）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-guided.space-colon-0018.eml",
+    "input_sha256": "2913106829ba76239a6eafd0d98744002361a66eca6d17c14c41b8864ecd9597",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-guided.space-colon-0018.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-guided.space-colon-0018.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-guided.space-colon-0018.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-return-path-guided.space-colon-0018.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-guided.space-colon-0018.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-guided.space-colon-0018.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-guided.fold-line-0024",
+   "entry": "return-path",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=guided.fold-line）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-guided.fold-line-0024.eml",
+    "input_sha256": "a896eb8c989ed948630adee735258eb5e09b562927de87a3a28e3ff7dacce27f",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-guided.fold-line-0024.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-guided.fold-line-0024.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-guided.fold-line-0024.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-guided.fold-line-0024.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-guided.fold-line-0024.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-line.del-0029",
+   "entry": "return-path",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=line.del）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-line.del-0029.eml",
+    "input_sha256": "a1a01f5b4ddd3e466aa88d36c92eb0db2c8805af1bcabd84dadd736ceac21bd3",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-line.del-0029.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-line.del-0029.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-line.del-0029.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-return-path-line.del-0029.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-line.del-0029.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-line.del-0029.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-guided.tab-colon-0030",
+   "entry": "return-path",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-guided.tab-colon-0030.eml",
+    "input_sha256": "5388751280645fa347e9de085b6d4cf957ebdd3edb4ff6ce3084477c47d13582",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-guided.tab-colon-0030.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-guided.tab-colon-0030.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-guided.tab-colon-0030.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-return-path-guided.tab-colon-0030.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-guided.tab-colon-0030.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-guided.tab-colon-0030.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-guided.space-colon-0032",
+   "entry": "return-path",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=guided.space-colon）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-guided.space-colon-0032.eml",
+    "input_sha256": "b21d6fa1460450a33fc5cd3450b8661cf6d57edf7f12747d3c7c8f04efbbd881",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-guided.space-colon-0032.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-guided.space-colon-0032.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-guided.space-colon-0032.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-return-path-guided.space-colon-0032.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-guided.space-colon-0032.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-guided.space-colon-0032.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-guided.tab-colon-0062",
+   "entry": "return-path",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-guided.tab-colon-0062.eml",
+    "input_sha256": "a58b57d9ff4578515b0ed1c85f1a04395c2ba822bc662542f0398ff071a34a17",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-guided.tab-colon-0062.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-guided.tab-colon-0062.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-guided.tab-colon-0062.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-return-path-guided.tab-colon-0062.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-guided.tab-colon-0062.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-guided.tab-colon-0062.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-guided.tab-colon-0090",
+   "entry": "return-path",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-guided.tab-colon-0090.eml",
+    "input_sha256": "735386fae6856bc8e35b0d97d99234151b3d3600da485d3cad1d5fa502e7d22c",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-guided.tab-colon-0090.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-guided.tab-colon-0090.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-guided.tab-colon-0090.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-return-path-guided.tab-colon-0090.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-guided.tab-colon-0090.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-guided.tab-colon-0090.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-guided.space-colon-0277",
+   "entry": "return-path",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=guided.space-colon）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-guided.space-colon-0277.eml",
+    "input_sha256": "e23b3df4e6f7ad30f7f9bbb00f056ff9cb770861616602364de56e7f54f93366",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-guided.space-colon-0277.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-guided.space-colon-0277.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-guided.space-colon-0277.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-return-path-guided.space-colon-0277.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-guided.space-colon-0277.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-guided.space-colon-0277.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-byte.delete-0585",
+   "entry": "return-path",
+   "op": "byte.delete",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=byte.delete）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-byte.delete-0585.eml",
+    "input_sha256": "cfce43916ccddb9c14ffe8cec51d2e46e013059dc236955b628b32b529aa0ec9",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-byte.delete-0585.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-byte.delete-0585.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-byte.delete-0585.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-byte.delete-0585.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-byte.delete-0585.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-byte.flip-0745",
+   "entry": "return-path",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-return-path-byte.flip-0745.eml",
+    "input_sha256": "03f36d5209d39ed424689b89c7f738f3aa8909c2a346ad9cf4103bdd3f593e81",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-byte.flip-0745.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-byte.flip-0745.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-byte.flip-0745.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-return-path-byte.flip-0745.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-byte.flip-0745.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-byte.flip-0745.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-line.del-0903",
+   "entry": "return-path",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=line.del）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-return-path-line.del-0903.eml",
+    "input_sha256": "7e4fade78d32c7875dad06d6c65c803c155abe0cb4cfe3fd6111d873242d239d",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-line.del-0903.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-line.del-0903.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-line.del-0903.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-line.del-0903.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-line.del-0903.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-return-path-byte.flip-1443",
+   "entry": "return-path",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "return-path（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-return-path-byte.flip-1443.eml",
+    "input_sha256": "6c517c09750d953437e7208aab48e2719c6d36fbad53b6d78a2a795424b0dd10",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-return-path-byte.flip-1443.smtp.txt",
+      "stored_raw": "relay/exim/gf-return-path-byte.flip-1443.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-return-path-byte.flip-1443.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-return-path-byte.flip-1443.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-return-path-byte.flip-1443.smtp.txt",
+      "stored_raw": "relay/postfix/gf-return-path-byte.flip-1443.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-resent-from-line.del-0008",
+   "entry": "resent-from",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "resent-from（op=line.del）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-resent-from-line.del-0008.eml",
+    "input_sha256": "629d3c6ac61b87e5a249e06f5c20192ee354c27d2f25bb299705156d6db85c0d",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-resent-from-line.del-0008.smtp.txt",
+      "stored_raw": "relay/exim/gf-resent-from-line.del-0008.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-resent-from-line.del-0008.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-resent-from-line.del-0008.smtp.txt",
+      "stored_raw": "relay/postfix/gf-resent-from-line.del-0008.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-resent-from-guided.tab-colon-0028",
+   "entry": "resent-from",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "resent-from（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=Y；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass；ENVELOPE='security@lab.test' vs 头区第一实例='security@lab.test'",
+   "evidence": {
+    "input": "corpus/gf-resent-from-guided.tab-colon-0028.eml",
+    "input_sha256": "bde61fa440fcac2787cb79d6a322ea906f70879f1084cd0c1f77cf14b5b6fdce",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-resent-from-guided.tab-colon-0028.smtp.txt",
+      "stored_raw": "relay/exim/gf-resent-from-guided.tab-colon-0028.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-resent-from-guided.tab-colon-0028.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-resent-from-guided.tab-colon-0028.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-resent-from-guided.tab-colon-0028.smtp.txt",
+      "stored_raw": "relay/postfix/gf-resent-from-guided.tab-colon-0028.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-resent-from-line.del-0029",
+   "entry": "resent-from",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "resent-from（op=line.del）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-resent-from-line.del-0029.eml",
+    "input_sha256": "a72753e57361447bc814ca3dc1e128349ddd7c48bf6155999d3d09fbb8cf7643",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-resent-from-line.del-0029.smtp.txt",
+      "stored_raw": "relay/exim/gf-resent-from-line.del-0029.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-resent-from-line.del-0029.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-resent-from-line.del-0029.smtp.txt",
+      "stored_raw": "relay/postfix/gf-resent-from-line.del-0029.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-resent-from-guided.space-colon-0042",
+   "entry": "resent-from",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "resent-from（op=guided.space-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass；ENVELOPE='security@lab.test' vs 头区第一实例='security@lab.test'",
+   "evidence": {
+    "input": "corpus/gf-resent-from-guided.space-colon-0042.eml",
+    "input_sha256": "142643e0aa5cce3b8ac9da57016a256396505e2dc241d43b9c782314a6af6224",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-resent-from-guided.space-colon-0042.smtp.txt",
+      "stored_raw": "relay/exim/gf-resent-from-guided.space-colon-0042.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-resent-from-guided.space-colon-0042.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-resent-from-guided.space-colon-0042.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-resent-from-guided.space-colon-0042.smtp.txt",
+      "stored_raw": "relay/postfix/gf-resent-from-guided.space-colon-0042.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-resent-from-guided.fold-line-0103",
+   "entry": "resent-from",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "resent-from（op=guided.fold-line）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-resent-from-guided.fold-line-0103.eml",
+    "input_sha256": "43a7d193b1dacd8d98a47e71ac78ae9082d2fac1d6508fc96d2a0c889f97940f",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-resent-from-guided.fold-line-0103.smtp.txt",
+      "stored_raw": "relay/exim/gf-resent-from-guided.fold-line-0103.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-resent-from-guided.fold-line-0103.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-resent-from-guided.fold-line-0103.smtp.txt",
+      "stored_raw": "relay/postfix/gf-resent-from-guided.fold-line-0103.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-resent-from-byte.flip-0189",
+   "entry": "resent-from",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "resent-from（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-resent-from-byte.flip-0189.eml",
+    "input_sha256": "c6c5720615e7992135a674986b80f885ffb2a3ad5d65780971914eb86a46f8d9",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-resent-from-byte.flip-0189.smtp.txt",
+      "stored_raw": "relay/exim/gf-resent-from-byte.flip-0189.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-resent-from-byte.flip-0189.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-resent-from-byte.flip-0189.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-resent-from-byte.flip-0189.smtp.txt",
+      "stored_raw": "relay/postfix/gf-resent-from-byte.flip-0189.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-resent-from-byte.flip-0542",
+   "entry": "resent-from",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "resent-from（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-resent-from-byte.flip-0542.eml",
+    "input_sha256": "96cf39a3de74b4dc7d5fa65860d388343ffb2f755fed45063c8eeb2c30ebcff9",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-resent-from-byte.flip-0542.smtp.txt",
+      "stored_raw": "relay/exim/gf-resent-from-byte.flip-0542.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-resent-from-byte.flip-0542.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-resent-from-byte.flip-0542.smtp.txt",
+      "stored_raw": "relay/postfix/gf-resent-from-byte.flip-0542.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-authres-guided.tab-colon-0001",
+   "entry": "authres",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "authres（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-authres-guided.tab-colon-0001.eml",
+    "input_sha256": "489451b3c52b340ca61afac96c81eb54fca140fde778a1de41146a843a6a5215",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-authres-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/exim/gf-authres-guided.tab-colon-0001.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-authres-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-authres-guided.tab-colon-0001.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-authres-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/postfix/gf-authres-guided.tab-colon-0001.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-authres-guided.tab-colon-0007",
+   "entry": "authres",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "authres（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-authres-guided.tab-colon-0007.eml",
+    "input_sha256": "a37042a3131f33e3489ad4b905af3b0a0996d3e15f9061184a2ee3545b73addc",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-authres-guided.tab-colon-0007.smtp.txt",
+      "stored_raw": "relay/exim/gf-authres-guided.tab-colon-0007.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-authres-guided.tab-colon-0007.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-authres-guided.tab-colon-0007.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-authres-guided.tab-colon-0007.smtp.txt",
+      "stored_raw": "relay/postfix/gf-authres-guided.tab-colon-0007.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-authres-guided.space-colon-0023",
+   "entry": "authres",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "authres（op=guided.space-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-authres-guided.space-colon-0023.eml",
+    "input_sha256": "43b7fd573b0e71df7879be253234c917492ff6ececb6b6b3ddda5cc1881312a7",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-authres-guided.space-colon-0023.smtp.txt",
+      "stored_raw": "relay/exim/gf-authres-guided.space-colon-0023.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-authres-guided.space-colon-0023.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-authres-guided.space-colon-0023.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-authres-guided.space-colon-0023.smtp.txt",
+      "stored_raw": "relay/postfix/gf-authres-guided.space-colon-0023.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-authres-guided.space-colon-0038",
+   "entry": "authres",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "authres（op=guided.space-colon）；中继保留 exim=N / osmtpd=N / postfix=Y；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-authres-guided.space-colon-0038.eml",
+    "input_sha256": "67a041fbd21cc25bd8ab4627084c8a21c87296ff6281fc1b1bc18462eabb01ff",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-authres-guided.space-colon-0038.smtp.txt",
+      "stored_raw": "relay/exim/gf-authres-guided.space-colon-0038.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-authres-guided.space-colon-0038.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-authres-guided.space-colon-0038.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-authres-guided.space-colon-0038.smtp.txt",
+      "stored_raw": "relay/postfix/gf-authres-guided.space-colon-0038.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-authres-line.del-0093",
+   "entry": "authres",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "authres（op=line.del）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-authres-line.del-0093.eml",
+    "input_sha256": "9127277d4d553bc787b8312083901946b341a375516c927faa7eac9627c22a49",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-authres-line.del-0093.smtp.txt",
+      "stored_raw": "relay/exim/gf-authres-line.del-0093.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-authres-line.del-0093.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-authres-line.del-0093.smtp.txt",
+      "stored_raw": "relay/postfix/gf-authres-line.del-0093.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-authres-guided.fold-line-0112",
+   "entry": "authres",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "authres（op=guided.fold-line）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-authres-guided.fold-line-0112.eml",
+    "input_sha256": "4958921c52aaece05fa1267761f711b2addbb66e2c70752708db5a2e9d4cf572",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-authres-guided.fold-line-0112.smtp.txt",
+      "stored_raw": "relay/exim/gf-authres-guided.fold-line-0112.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-authres-guided.fold-line-0112.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-authres-guided.fold-line-0112.smtp.txt",
+      "stored_raw": "relay/postfix/gf-authres-guided.fold-line-0112.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-authres-byte.flip-0516",
+   "entry": "authres",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "authres（op=byte.flip）；中继保留 exim=N / postfix=N；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-authres-byte.flip-0516.eml",
+    "input_sha256": "e021391e949487b03f1aad2851bd41c3e77fe3452a53fb0e19d0146e1cea07d2",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-authres-byte.flip-0516.smtp.txt",
+      "stored_raw": "relay/exim/gf-authres-byte.flip-0516.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-authres-byte.flip-0516.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-authres-byte.flip-0516.smtp.txt",
+      "stored_raw": "relay/postfix/gf-authres-byte.flip-0516.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-authres-guided.fold-line-0638",
+   "entry": "authres",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "authres（op=guided.fold-line）；中继保留 exim=N / postfix=Y；验证器 dkimpy=pass / dkimpy@postfix=pass / go=pass / go@postfix=pass / perl=pass / perl@postfix=pass / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-authres-guided.fold-line-0638.eml",
+    "input_sha256": "d0ddaaa3cead988d73655e14c0bb3b1129ade6ddaa27d5adea2e3be1a811c4eb",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-authres-guided.fold-line-0638.smtp.txt",
+      "stored_raw": "relay/exim/gf-authres-guided.fold-line-0638.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-authres-guided.fold-line-0638.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-authres-guided.fold-line-0638.smtp.txt",
+      "stored_raw": "relay/postfix/gf-authres-guided.fold-line-0638.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-authres-byte.flip-1467",
+   "entry": "authres",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "authres（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-authres-byte.flip-1467.eml",
+    "input_sha256": "7632780f8b7a693dd28904c3c40cb60b05b43f21316ffba7099dbbb6e72033c1",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-authres-byte.flip-1467.smtp.txt",
+      "stored_raw": "relay/exim/gf-authres-byte.flip-1467.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-authres-byte.flip-1467.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-authres-byte.flip-1467.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-authres-byte.flip-1467.smtp.txt",
+      "stored_raw": "relay/postfix/gf-authres-byte.flip-1467.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.tab-colon-0001",
+   "entry": "dkim-tags",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-guided.tab-colon-0001.eml",
+    "input_sha256": "01fa3d49b7f9f964d07a1edda77bf16c384f20d4948391ff8efc891ff2a3aeed",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-guided.tab-colon-0001.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0001.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-guided.tab-colon-0001.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-guided.tab-colon-0001-sign.eml",
+     "transcript": "sign/gf-dkim-tags-guided.tab-colon-0001-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-guided.tab-colon-0001-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.tab-colon-0002",
+   "entry": "dkim-tags",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-guided.tab-colon-0002.eml",
+    "input_sha256": "fc86807e2729de04f425dd788488868a9536ee899b9e243dece773e5fda021b0",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-guided.tab-colon-0002.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-guided.tab-colon-0002.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0002.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0002.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-guided.tab-colon-0002.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-guided.tab-colon-0002.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-guided.tab-colon-0002-sign.eml",
+     "transcript": "sign/gf-dkim-tags-guided.tab-colon-0002-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-guided.tab-colon-0002-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.tab-colon-0006",
+   "entry": "dkim-tags",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-guided.tab-colon-0006.eml",
+    "input_sha256": "a92359f829de0a95575a69df6c644ecbb62c22b8991b8e3714fb2fbfc883c2a9",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-guided.tab-colon-0006.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-guided.tab-colon-0006.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0006.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0006.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-guided.tab-colon-0006.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-guided.tab-colon-0006.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-guided.tab-colon-0006-sign.eml",
+     "transcript": "sign/gf-dkim-tags-guided.tab-colon-0006-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-guided.tab-colon-0006-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.tab-colon-0008",
+   "entry": "dkim-tags",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-guided.tab-colon-0008.eml",
+    "input_sha256": "71b9a202cebd212a46160f2e1cd2fcdbe4dbeda5a31a54e13777b75bf99b76e0",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-guided.tab-colon-0008.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-guided.tab-colon-0008.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0008.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0008.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-guided.tab-colon-0008.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-guided.tab-colon-0008.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-guided.tab-colon-0008-sign.eml",
+     "transcript": "sign/gf-dkim-tags-guided.tab-colon-0008-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-guided.tab-colon-0008-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.tab-colon-0019",
+   "entry": "dkim-tags",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-guided.tab-colon-0019.eml",
+    "input_sha256": "11d25e7ad39030881c738d869c736bdbc1beffb0b5fe01ee37ade2819fa417ea",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-guided.tab-colon-0019.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-guided.tab-colon-0019.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0019.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0019.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-guided.tab-colon-0019.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-guided.tab-colon-0019.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-guided.tab-colon-0019-sign.eml",
+     "transcript": "sign/gf-dkim-tags-guided.tab-colon-0019-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-guided.tab-colon-0019-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.fold-line-0023",
+   "entry": "dkim-tags",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=guided.fold-line）；中继保留 exim=N / postfix=N；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-guided.fold-line-0023.eml",
+    "input_sha256": "8b3e0af5e2c05f5f8790179c6a81b0e3c9f942a884a6bb8b5ff01fecfc9c1fe0",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-guided.fold-line-0023.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-guided.fold-line-0023.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-guided.fold-line-0023.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-guided.fold-line-0023.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-guided.fold-line-0023.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-guided.fold-line-0023-sign.eml",
+     "transcript": "sign/gf-dkim-tags-guided.fold-line-0023-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-guided.fold-line-0023-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-byte.flip-0029",
+   "entry": "dkim-tags",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=byte.flip）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-byte.flip-0029.eml",
+    "input_sha256": "bae8e22ff53e1967d5ae335829f791b5f8df96bb439a52cf0271089b1c0a812e",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-byte.flip-0029.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-byte.flip-0029.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-byte.flip-0029.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-dkim-tags-byte.flip-0029.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-byte.flip-0029.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-byte.flip-0029.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-byte.flip-0029-sign.eml",
+     "transcript": "sign/gf-dkim-tags-byte.flip-0029-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-byte.flip-0029-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.tab-colon-0042",
+   "entry": "dkim-tags",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=guided.tab-colon）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-guided.tab-colon-0042.eml",
+    "input_sha256": "6a20161f61f75d620788b2cc2e88983f408913c27148bb564cb96b7cf31ece72",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-guided.tab-colon-0042.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-guided.tab-colon-0042.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0042.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-dkim-tags-guided.tab-colon-0042.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-guided.tab-colon-0042.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-guided.tab-colon-0042.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-guided.tab-colon-0042-sign.eml",
+     "transcript": "sign/gf-dkim-tags-guided.tab-colon-0042-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-guided.tab-colon-0042-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.space-colon-0054",
+   "entry": "dkim-tags",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=guided.space-colon）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-guided.space-colon-0054.eml",
+    "input_sha256": "b7d40a851885c74d46b334031a2572179e2a9ac6ac8feb7da4a880f5dda8a0ff",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-guided.space-colon-0054.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-guided.space-colon-0054.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-guided.space-colon-0054.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-dkim-tags-guided.space-colon-0054.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-guided.space-colon-0054.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-guided.space-colon-0054.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-guided.space-colon-0054-sign.eml",
+     "transcript": "sign/gf-dkim-tags-guided.space-colon-0054-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-guided.space-colon-0054-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.space-colon-0059",
+   "entry": "dkim-tags",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=guided.space-colon）；中继保留 exim=Y / osmtpd=Y / postfix=Y；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-guided.space-colon-0059.eml",
+    "input_sha256": "57142c68cedac99e7b72984b099c1b60d8f5029759f2748f83ef8eb384d8edd9",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-guided.space-colon-0059.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-guided.space-colon-0059.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-guided.space-colon-0059.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-dkim-tags-guided.space-colon-0059.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-guided.space-colon-0059.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-guided.space-colon-0059.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-guided.space-colon-0059-sign.eml",
+     "transcript": "sign/gf-dkim-tags-guided.space-colon-0059-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-guided.space-colon-0059-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-line.del-0087",
+   "entry": "dkim-tags",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=line.del）；中继保留 exim=N / postfix=N；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-line.del-0087.eml",
+    "input_sha256": "91ffd737c6e539b7b74ab550fe1666652dddcfaa183f1deefb86daa3649b4fa5",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-line.del-0087.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-line.del-0087.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-line.del-0087.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-line.del-0087.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-line.del-0087.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-line.del-0087-sign.eml",
+     "transcript": "sign/gf-dkim-tags-line.del-0087-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-line.del-0087-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-byte.flip-0256",
+   "entry": "dkim-tags",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-byte.flip-0256.eml",
+    "input_sha256": "f96442fb76ebdcbc2b15652d1c4a7a6de9a39c8c985601baeda55bfab63eaaf3",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-byte.flip-0256.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-byte.flip-0256.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-byte.flip-0256.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-dkim-tags-byte.flip-0256.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-byte.flip-0256.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-byte.flip-0256.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-byte.flip-0256-sign.eml",
+     "transcript": "sign/gf-dkim-tags-byte.flip-0256-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-byte.flip-0256-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-line.del-0349",
+   "entry": "dkim-tags",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T",
+    "X"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=line.del）；中继保留 exim=N / postfix=N；验证器 dkimpy=fail / dkimpy@postfix=fail / go=fail / go@postfix=fail / perl=parse-error / perl@postfix=parse-error / rspamd=pass / rspamd@postfix=pass",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-line.del-0349.eml",
+    "input_sha256": "bd6786be921f95012d559a853d3d062c73d59e697b2f3dd65717781d3f36aab2",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-line.del-0349.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-line.del-0349.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-line.del-0349.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-line.del-0349.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-line.del-0349.stored.raw"
+     }
+    },
+    "sign": {
+     "input": "sign/gf-dkim-tags-line.del-0349-sign.eml",
+     "transcript": "sign/gf-dkim-tags-line.del-0349-sign.smtp.txt",
+     "stored_raw": "sign/gf-dkim-tags-line.del-0349-sign.stored.raw"
+    },
+    "verdicts": {
+     "dkimpy": "fail",
+     "perl": "parse-error",
+     "go": "fail",
+     "rspamd": "pass",
+     "dkimpy@postfix": "fail",
+     "perl@postfix": "parse-error",
+     "go@postfix": "fail",
+     "rspamd@postfix": "pass"
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-dkim-tags-guided.fold-line-1026",
+   "entry": "dkim-tags",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "dkim-tags（op=guided.fold-line）；中继保留 exim=N / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-dkim-tags-guided.fold-line-1026.eml",
+    "input_sha256": "b8591d973a095a2d1892d6b828327134e85facef6b66fdadf7a2552e49638593",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-dkim-tags-guided.fold-line-1026.smtp.txt",
+      "stored_raw": "relay/exim/gf-dkim-tags-guided.fold-line-1026.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-dkim-tags-guided.fold-line-1026.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-dkim-tags-guided.fold-line-1026.smtp.txt",
+      "stored_raw": "relay/postfix/gf-dkim-tags-guided.fold-line-1026.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-guided.tab-colon-0004",
+   "entry": "arc-aar",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-aar（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-arc-aar-guided.tab-colon-0004.eml",
+    "input_sha256": "d12d39f53da8f94882955f91d34b801257f4e0b48f82aec88b93af96909b8980",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-aar-guided.tab-colon-0004.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-aar-guided.tab-colon-0004.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-aar-guided.tab-colon-0004.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-aar-guided.tab-colon-0004.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-aar-guided.tab-colon-0004.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-aar-guided.tab-colon-0004.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-guided.tab-colon-0020",
+   "entry": "arc-aar",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-aar（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-arc-aar-guided.tab-colon-0020.eml",
+    "input_sha256": "63c64833ab2eee446b89adb3eac0d84ca23e9bac122dab970256dfb6110e8784",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-aar-guided.tab-colon-0020.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-aar-guided.tab-colon-0020.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-aar-guided.tab-colon-0020.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-aar-guided.tab-colon-0020.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-aar-guided.tab-colon-0020.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-aar-guided.tab-colon-0020.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-guided.fold-line-0040",
+   "entry": "arc-aar",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-aar（op=guided.fold-line）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-aar-guided.fold-line-0040.eml",
+    "input_sha256": "6230d2293ae12f8e19bbe9cfadfc6eb1d1fb2f009b5e1f2170d20cce898a55d9",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-aar-guided.fold-line-0040.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-aar-guided.fold-line-0040.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-aar-guided.fold-line-0040.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-aar-guided.fold-line-0040.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-aar-guided.fold-line-0040.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-byte.flip-0042",
+   "entry": "arc-aar",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-aar（op=byte.flip）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-arc-aar-byte.flip-0042.eml",
+    "input_sha256": "f78e266a17d5d635a6f54a130bd1ac36e8735a276cf563b733209531e94a7df9",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-aar-byte.flip-0042.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-aar-byte.flip-0042.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-aar-byte.flip-0042.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-aar-byte.flip-0042.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-aar-byte.flip-0042.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-aar-byte.flip-0042.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-guided.tab-colon-0054",
+   "entry": "arc-aar",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-aar（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-arc-aar-guided.tab-colon-0054.eml",
+    "input_sha256": "036d079a1cb5e8c2158e7dbc71097bdf6cf77c22e238e848273eb1c616489b81",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-aar-guided.tab-colon-0054.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-aar-guided.tab-colon-0054.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-aar-guided.tab-colon-0054.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-aar-guided.tab-colon-0054.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-aar-guided.tab-colon-0054.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-aar-guided.tab-colon-0054.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-line.del-0100",
+   "entry": "arc-aar",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-aar（op=line.del）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-aar-line.del-0100.eml",
+    "input_sha256": "06cf5c4325067a81a416328ce3622031e3db0b1411d0897ffd0f08c01b8a5610",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-aar-line.del-0100.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-aar-line.del-0100.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-aar-line.del-0100.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-aar-line.del-0100.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-aar-line.del-0100.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-line.del-0220",
+   "entry": "arc-aar",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-aar（op=line.del）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-aar-line.del-0220.eml",
+    "input_sha256": "1e337c96c878014efb5abbb24030eed3b49ad13d37382c1b82b51fa770c148d3",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-aar-line.del-0220.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-aar-line.del-0220.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-aar-line.del-0220.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-aar-line.del-0220.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-aar-line.del-0220.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-byte.flip-0276",
+   "entry": "arc-aar",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-aar（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-aar-byte.flip-0276.eml",
+    "input_sha256": "49806dc261d6173f830a68e17fc3394332efa95ca3a31515c93af805361edded",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-aar-byte.flip-0276.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-aar-byte.flip-0276.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-aar-byte.flip-0276.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-aar-byte.flip-0276.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-aar-byte.flip-0276.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-aar-byte.flip-0276.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-byte.flip-0888",
+   "entry": "arc-aar",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-aar（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-aar-byte.flip-0888.eml",
+    "input_sha256": "f26f5505e1318bcbf5435b6c1dfa9ce1d6aef42c811607a2066d131a3f96050a",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-aar-byte.flip-0888.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-aar-byte.flip-0888.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-aar-byte.flip-0888.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-aar-byte.flip-0888.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-aar-byte.flip-0888.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-aar-byte.delete-1314",
+   "entry": "arc-aar",
+   "op": "byte.delete",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-aar（op=byte.delete）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-aar-byte.delete-1314.eml",
+    "input_sha256": "f2e232b8cde629e65917ef12dc18808ff926d6751a3dacef1ae8613e614e0402",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-aar-byte.delete-1314.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-aar-byte.delete-1314.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-aar-byte.delete-1314.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-aar-byte.delete-1314.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-aar-byte.delete-1314.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-guided.tab-colon-0001",
+   "entry": "arc-ams",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-ams（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-arc-ams-guided.tab-colon-0001.eml",
+    "input_sha256": "8f11d2a6cd5f95277ee8c5a1c00fbce901b58e04675f019d662a171f08a50cfd",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-ams-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-ams-guided.tab-colon-0001.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-ams-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-ams-guided.tab-colon-0001.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-ams-guided.tab-colon-0001.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-ams-guided.tab-colon-0001.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-line.del-0004",
+   "entry": "arc-ams",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-ams（op=line.del）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-ams-line.del-0004.eml",
+    "input_sha256": "da2fb5036297b6bba05c3d0cb4e8a800af0690fb0ce631164b437a4987831ba8",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-ams-line.del-0004.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-ams-line.del-0004.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-ams-line.del-0004.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-ams-line.del-0004.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-ams-line.del-0004.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-guided.fold-line-0035",
+   "entry": "arc-ams",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-ams（op=guided.fold-line）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-ams-guided.fold-line-0035.eml",
+    "input_sha256": "1e67b83e0b6768e82142b6d35dc8bb13c162ecefb912d201540b0306e731c83a",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-ams-guided.fold-line-0035.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-ams-guided.fold-line-0035.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-ams-guided.fold-line-0035.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-ams-guided.fold-line-0035.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-ams-guided.fold-line-0035.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-guided.space-colon-0038",
+   "entry": "arc-ams",
+   "op": "guided.space-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-ams（op=guided.space-colon）；中继保留 exim=N / osmtpd=N / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-arc-ams-guided.space-colon-0038.eml",
+    "input_sha256": "073003c414c2f0d8bfb2aa9fe61990fdd96cb22483de40eae3b471f59cf79d6a",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-ams-guided.space-colon-0038.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-ams-guided.space-colon-0038.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-ams-guided.space-colon-0038.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-ams-guided.space-colon-0038.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-ams-guided.space-colon-0038.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-ams-guided.space-colon-0038.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-byte.flip-0059",
+   "entry": "arc-ams",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-ams（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-ams-byte.flip-0059.eml",
+    "input_sha256": "64ec5926fa13fcb452c626615ec009b9bcbd2b2f2c31a17a0bbfa1e998df700d",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-ams-byte.flip-0059.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-ams-byte.flip-0059.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-ams-byte.flip-0059.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-ams-byte.flip-0059.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-ams-byte.flip-0059.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-ams-byte.flip-0059.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-byte.flip-0077",
+   "entry": "arc-ams",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-ams（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-ams-byte.flip-0077.eml",
+    "input_sha256": "1043d3c472a4f84e7f4e87f2736271115e9f07a52eac752436526c2f67c8b218",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-ams-byte.flip-0077.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-ams-byte.flip-0077.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-ams-byte.flip-0077.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-ams-byte.flip-0077.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-ams-byte.flip-0077.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-byte.flip-0093",
+   "entry": "arc-ams",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-ams（op=byte.flip）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-arc-ams-byte.flip-0093.eml",
+    "input_sha256": "aca6311285e01062de9e5227510dc56ce1e6979dccb319f08428008a83afcaae",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-ams-byte.flip-0093.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-ams-byte.flip-0093.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-ams-byte.flip-0093.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-ams-byte.flip-0093.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-ams-byte.flip-0093.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-ams-byte.flip-0093.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-guided.tab-colon-0094",
+   "entry": "arc-ams",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-ams（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-arc-ams-guided.tab-colon-0094.eml",
+    "input_sha256": "c317daf674f0a9308b59b9de47c1a8e325a4f760ebe97adc88850cea77c4c7fd",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-ams-guided.tab-colon-0094.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-ams-guided.tab-colon-0094.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-ams-guided.tab-colon-0094.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-ams-guided.tab-colon-0094.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-ams-guided.tab-colon-0094.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-ams-guided.tab-colon-0094.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-byte.flip-0147",
+   "entry": "arc-ams",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-ams（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-ams-byte.flip-0147.eml",
+    "input_sha256": "36b049bc8c36c2fcbb189bf1b26ad6443ec24a4f6efde4a2da4d44eaaf458177",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-ams-byte.flip-0147.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-ams-byte.flip-0147.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-ams-byte.flip-0147.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-ams-byte.flip-0147.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-ams-byte.flip-0147.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-line.del-0591",
+   "entry": "arc-ams",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-ams（op=line.del）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-ams-line.del-0591.eml",
+    "input_sha256": "0334f7174dfdb459291fe482ef2d9aa5aee0dc1325c327b93e5f8072326c6158",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-ams-line.del-0591.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-ams-line.del-0591.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-ams-line.del-0591.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-ams-line.del-0591.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-ams-line.del-0591.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-ams-guided.fold-line-1003",
+   "entry": "arc-ams",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-ams（op=guided.fold-line）；中继保留 exim=N / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-arc-ams-guided.fold-line-1003.eml",
+    "input_sha256": "145670c464903458119f8899da5158169838887b731394a852e2793a805951ce",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-ams-guided.fold-line-1003.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-ams-guided.fold-line-1003.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-ams-guided.fold-line-1003.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-ams-guided.fold-line-1003.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-ams-guided.fold-line-1003.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-as-line.move-0006",
+   "entry": "arc-as",
+   "op": "line.move",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-as（op=line.move）；中继保留 exim=N / osmtpd=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-as-line.move-0006.eml",
+    "input_sha256": "01f13ad30cbdd71e185b2691d0389f092f6395e27b38464d67d95ecb94743c63",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-as-line.move-0006.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-as-line.move-0006.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-as-line.move-0006.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-as-line.move-0006.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-as-line.move-0006.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-as-line.move-0006.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-as-guided.tab-colon-0013",
+   "entry": "arc-as",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-as（op=guided.tab-colon）；中继保留 exim=N / osmtpd=Y / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-arc-as-guided.tab-colon-0013.eml",
+    "input_sha256": "3607db5d8a45be8d8e994493825e6230ec5113f3b36d656a92403bc55f1d4c5b",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-as-guided.tab-colon-0013.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-as-guided.tab-colon-0013.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-as-guided.tab-colon-0013.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-as-guided.tab-colon-0013.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-as-guided.tab-colon-0013.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-as-guided.tab-colon-0013.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-as-line.del-0048",
+   "entry": "arc-as",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-as（op=line.del）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-as-line.del-0048.eml",
+    "input_sha256": "ddb514a601858088173b2f2d38108c4ef5d3dc7f976183fc7bd5a63118af509d",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-as-line.del-0048.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-as-line.del-0048.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-as-line.del-0048.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-as-line.del-0048.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-as-line.del-0048.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-as-byte.flip-0051",
+   "entry": "arc-as",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-as（op=byte.flip）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-as-byte.flip-0051.eml",
+    "input_sha256": "588eb77a61abfadadd53dd842c86b12f0ff4ec7d5e00158ed980791250b5b9ea",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-as-byte.flip-0051.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-as-byte.flip-0051.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-as-byte.flip-0051.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-as-byte.flip-0051.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-as-byte.flip-0051.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-as-guided.fold-line-0074",
+   "entry": "arc-as",
+   "op": "guided.fold-line",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-as（op=guided.fold-line）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-as-guided.fold-line-0074.eml",
+    "input_sha256": "4d403e4803a25b451fb37a4121fed577537112ba1115f3ac62b277910a6d8530",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-as-guided.fold-line-0074.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-as-guided.fold-line-0074.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-as-guided.fold-line-0074.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-as-guided.fold-line-0074.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-as-guided.fold-line-0074.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-as-guided.tab-colon-0132",
+   "entry": "arc-as",
+   "op": "guided.tab-colon",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-as（op=guided.tab-colon）；中继保留 exim=N / osmtpd=N / postfix=Y",
+   "evidence": {
+    "input": "corpus/gf-arc-as-guided.tab-colon-0132.eml",
+    "input_sha256": "e924fb963fd5d84ce691b27ae5df4717248538c7a0f60a775eba23cf35eab6e5",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-as-guided.tab-colon-0132.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-as-guided.tab-colon-0132.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-as-guided.tab-colon-0132.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-as-guided.tab-colon-0132.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-as-guided.tab-colon-0132.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-as-guided.tab-colon-0132.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-as-byte.flip-0196",
+   "entry": "arc-as",
+   "op": "byte.flip",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-as（op=byte.flip）；中继保留 exim=N / osmtpd=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-as-byte.flip-0196.eml",
+    "input_sha256": "10f3c294334b7326bfbb6343ee50d2335616c4648b5753bd02f2ef9021fc90ea",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-as-byte.flip-0196.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-as-byte.flip-0196.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-as-byte.flip-0196.smtp.txt",
+      "stored_raw": "relay/osmtpd/gf-arc-as-byte.flip-0196.stored.raw"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-as-byte.flip-0196.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-as-byte.flip-0196.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  },
+  {
+   "case": "gf-arc-as-line.del-0329",
+   "entry": "arc-as",
+   "op": "line.del",
+   "series": [
+    "P",
+    "T"
+   ],
+   "root_cause": null,
+   "summary": "arc-as（op=line.del）；中继保留 exim=N / postfix=N",
+   "evidence": {
+    "input": "corpus/gf-arc-as-line.del-0329.eml",
+    "input_sha256": "c550b5dbcf754da761d4a49213c2c5f87d653f23a5fc6b7216d4b3b50300e761",
+    "relay": {
+     "exim": {
+      "transcript": "relay/exim/gf-arc-as-line.del-0329.smtp.txt",
+      "stored_raw": "relay/exim/gf-arc-as-line.del-0329.stored.raw"
+     },
+     "osmtpd": {
+      "transcript": "relay/osmtpd/gf-arc-as-line.del-0329.smtp.txt"
+     },
+     "postfix": {
+      "transcript": "relay/postfix/gf-arc-as-line.del-0329.smtp.txt",
+      "stored_raw": "relay/postfix/gf-arc-as-line.del-0329.stored.raw"
+     }
+    }
+   },
+   "lab_confirmed": true,
+   "missing_evidence": [],
+   "review_flag": null
+  }
+ ]
+}

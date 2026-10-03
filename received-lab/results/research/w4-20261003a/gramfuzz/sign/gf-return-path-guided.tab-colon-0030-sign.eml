@@ -1,0 +1,21 @@
+Return-Path:<@
+		 __.&!  	
+	
+	 ,@  
+ *	:|.++&	 	(!) 	 
+			.^!/		
+ 	
+	  .=!@[/	 	 ] 	
+ 	>
+ 	
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=kz5Lus1mjXf9Ggbq/vlDSumnyAMjU2T+CjqWN6M3akmpcyZQNgFAfORNbp6kD69aRdRSQmsATnP8IL0HqCUl7RSKb07jpdGU7g0EWdU1T0YbbjxHrBHedRmCNbnv8wnQrGCnCJ+nNkl8tHk8rWcjUdjQzwtEiHeWS70kKdHFrYSa9UD6TbBiWky8G5to4EzyE7ZvxQ7blIWAaDqqm1TAI9Mjj1UB1+yTuPGMxpIkIGcKWqW+1WbqsLMQpXwACYSnkGHf4xXzyr9pJvk6sifS4eDwM1gv8glgg7r3aSpEb1jjEAnI4aP203rDrIBjyLKqhjB0KqZUWkHrjhggEWaq4Q==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-return-path-guided.tab-colon-0030-sign
+Message-ID: <gf-return-path-guided.tab-colon-0030-sign@lab.test>
+X-Case-ID: gf-return-path-guided.tab-colon-0030-sign
+
+Please confirm the payment.

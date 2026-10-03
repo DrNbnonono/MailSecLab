@@ -1,0 +1,14 @@
+From:(0)(())()		 $=()}!}()()().< 
+		 ,,@ ?-_()(). 	_|*.'{. 	*%	 ,,@	 	/!!.$~*.?_.$- 		,:=@[ 	z 	
+  ]> (),0&= @?$
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=Rpt/K64vLy1PfyZGa4fOaEMEIg6v2c3WcQAUAuTQ0/7/RpMFFXLvklRQWnosoBCAyUG5DI3t5NfRGfi+7P4UP8GaTkQGRRPaHgyW7f6bod9BUxeIdqnSb46+wuh4dMHSSKEwo4si5ty/YdPB7xtN3OjGK4zK9xfnhM0dPAE+NMdCpcfK0UiqYl934xgtSd+mDE7IhDWKgwpNl9WHM3YjaEeomtPTylo2XnXEZNJHuiO0HWbNH+Rb2drxs3F8Edbp7bEOo/o0qzGBhjIHSTqR4i6RCg54C2Ge23cnNnERhQfv9/YihoAK9Agh96ZNAj2rAtnhcta0bBZI8lE3dXriMQ==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-from-line.del-0106-sign
+Message-ID: <gf-from-line.del-0106-sign@lab.test>
+X-Case-ID: gf-from-line.del-0106-sign
+
+Please confirm the payment.

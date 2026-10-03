@@ -1,0 +1,42 @@
+Bcc: capture@lab.test
+Message-ID: <2eH6vEVz2NW6z30vt8GjXE@mailpit>
+Return-Path: <alice@lab.test>
+Received: from opensmtpd.lab.test (opensmtpd.mailseclab-research-net. [10.88.0.5])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 12:42:04 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id 9b612494
+	for <capture@lab.test>;
+	Sat, 3 Oct 2026 12:42:03 +0000 (UTC)
+Received:"]	 
+			".(()g	z		
+	)
+		(	  
+  )""."\	 	\	 "(			(#())) 
+ ()		
+	
+	  
+ 		(	)@||*		
+	 " 
+ 	"  ;		0  	Jul2351:57	+6603	
+			((	  
+ 	 
+ \ l		
+		 
+ 
+ 	) 	
+		((	)\	
+		)) 
+	
+			
+ (
+ 	\	
+		9)		
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-received-guided.space-colon-0004
+Message-ID : <gf-received-guided.space-colon-0004@lab.test>
+X-Case-ID: gf-received-guided.space-colon-0004
+
+Please confirm the payment.

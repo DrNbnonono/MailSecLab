@@ -1,0 +1,15 @@
+Resent-From:,,,"=		
+ 	
+	 \ 	
+ 	 \"@[ ],,
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=q8AxCCptk2kIfFDzQvrFTj8ohrKFDzsb2w3mQoAIExaXhnNqCJYOGN9oCgtbi0MAvGbfPTBXtjLY2Y4t9L8wQFdW9v0XcNzOLdx+ou3mlVZpZxg8toozd/DdDBV6z55ZfvyUdl4Mkdk9lMOrm4WXltQKi2GyHTNgU6Td5ekvqMEgAijVIPId3evArt0LyD9tNoAftmLLqPMvSDn9uWmx5/39txHniIsf+75S/78P48ZA3tIC20fCkD9QtNEDVCVy/KX+lI91DLKQh0Heapx+STzitlQ6vCLOoH07CwOK/AcfZT7apd9HgL0+Go5/P29A+oDKJBmaG3nZLThSgKBVNA==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-resent-from-guided.space-colon-0040-sign
+Message-ID: <gf-resent-from-guided.space-colon-0040-sign@lab.test>
+X-Case-ID: gf-resent-from-guided.space-colon-0040-sign
+
+Please confirm the payment.

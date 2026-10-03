@@ -1,0 +1,23 @@
+Sender:&()	
+	<!^M.$./!.?/^   
+ @ 		*+.^./|~> 
+	(
+	)((	
+   
+ 	 
+	 )$	
+	
+ 
+ 		)((  n.)
+	)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=wJbakf/QLweh5hUu3eIHchZqkCZlxGvvFHTgQYbjUVtT6cf7jnlEsXUI5JymPCgaAqqHAp20+kAJ4dv6nGt8dbQ+RlWeIVZAfo0hDc3kVSjOAuN/2y6YGtoAWIu8M0YGoIBswpEzONnP/VyKtXPc6ggv1Spe7KTHbVslpSHqTsSu/58Bpn5NLM1l4PEXCR+xkxIzhrKwCxQJmgkLD+uRjLCSBs3bwF5hO7YWrmsfKBtkkELGrlVcDWgdk1CzIh5vgkswWTENhv1L6yNZ5CPyCAFjlFp6NlnvnnJHznpJ0dZceRVIsXCQAhegQJhHa/cNfiXRz7gAfxg8pV0MMwvKiQ==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-sender-guided.fold-line-0428-sign
+Message-ID: <gf-sender-guided.fold-line-0428-sign@lab.test>
+X-Case-ID: gf-sender-guided.fold-line-0428-sign
+
+Please confirm the payment.

@@ -1,0 +1,20 @@
+Return-Path:<@/-|.	()3.{, 		,,	  
+ 	:((\)	
+		
+	 	\)"= 
+		"@|>	(((()))   
+ )  
+	 
+	 (	
+			)((\))
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=IJ211WXNGcIi/5ATQxm6L1XyfR426ghm/vwoKwUp5FiC7VaNuDJFn9enEIB5sChn+W2rNbg97Jsw6J3Wf+5ggDWmfxqLK0lKj12/BjZUKJxUoplCjoERNn+WO5uVc/p02y5XWSro4e11Tz0szXtuDalLiTG/4uESh7dH9thN+8p+5w9EXSn3O4Nk6UeH5Qv+8p1Y56CWdBWyXjhtlmFQFxFRHKjGkIX8qmJ7zfKf9c9oSvebwseiv6oHltC9p49WCRDMhjsywexUui40eJMxek3AQImNlh0oFD6dM3kPGFt8lTzTQarpcq1mZB6Z50SB9dzcGMeiNLMnw89fcLMaWA==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-return-path-line.del-0029-sign
+Message-ID: <gf-return-path-line.del-0029-sign@lab.test>
+X-Case-ID: gf-return-path-line.del-0029-sign
+
+Please confirm the payment.

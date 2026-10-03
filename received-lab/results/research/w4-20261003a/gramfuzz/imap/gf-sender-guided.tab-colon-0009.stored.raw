@@ -1,0 +1,24 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id QFPRNgz/wGofBgAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 13:11:40 +0000
+Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id C3E6E2A7B
+	for <bob@lab.test>; Sat,  3 Oct 2026 13:11:40 +0000 (UTC)
+Sender:`  
+ /..	 	<"  	
+	 "	@[i]>() 
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-sender-guided.tab-colon-0009
+Message-ID: <gf-sender-guided.tab-colon-0009@lab.test>
+X-Case-ID: gf-sender-guided.tab-colon-0009
+X-Spam: Yes
+
+Please confirm the payment.

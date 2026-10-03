@@ -1,0 +1,13 @@
+{
+ "byte.flip": 5.779999999999999,
+ "byte.insert": 0.9000000000000001,
+ "byte.delete": 1.1475,
+ "line.dup": 2.7,
+ "line.del": 8.0,
+ "line.move": 8.0,
+ "guided.space-colon": 3.269886300468749,
+ "guided.tab-colon": 8.0,
+ "guided.case-name": 4.5,
+ "guided.fold-line": 6.8,
+ "guided.dup-line": 8.0
+}

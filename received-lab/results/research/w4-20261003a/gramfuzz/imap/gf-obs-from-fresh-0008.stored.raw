@@ -1,0 +1,25 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id ICLcIuzrwGoZBgAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 11:50:04 +0000
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 815CD331B
+	for <bob@lab.test>; Sat,  3 Oct 2026 11:50:04 +0000 (UTC)
+From:
+		,,"!\ "@		
+ -+./~X.'~/.8{+,<,@ 	 |  	,:	 
+	
+		
+		 *'@/.^$'>,
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:30:00 +0000
+Subject: gf-obs-from-fresh-0008
+Message-ID: <gf-obs-from-fresh-0008@lab.test>
+X-Case-ID: gf-obs-from-fresh-0008
+X-Spam: Yes
+
+Please confirm the payment.

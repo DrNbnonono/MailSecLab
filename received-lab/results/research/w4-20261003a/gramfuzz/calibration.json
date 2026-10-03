@@ -1,0 +1,393 @@
+{
+ "generated_at": "2026-10-03T17:08:00",
+ "anchor": "w3-20261003a/diffrun parse 列（matrix.json；v0X__{python,go,node}__parse.eml 三家字节一致，sha256 已核）",
+ "metric": "(received_count, from_in_headers, field_count)，field_count=去重字段名数",
+ "rows": {
+  "v00-plain": {
+   "views": {
+    "python": {
+     "case": "v00-plain",
+     "received_count": 25,
+     "from_in_headers": true,
+     "field_count": 7,
+     "defects": 0
+    },
+    "go": {
+     "case": "v00-plain",
+     "field_count": 7,
+     "from_in_headers": true,
+     "received_count": 25
+    },
+    "node": {
+     "case": "v00-plain",
+     "received_count": 25,
+     "from_in_headers": true,
+     "field_count": 7
+    }
+   },
+   "tuples": {
+    "python": [
+     25,
+     true,
+     7
+    ],
+    "go": [
+     25,
+     true,
+     7
+    ],
+    "node": [
+     25,
+     true,
+     7
+    ]
+   },
+   "expected": {
+    "verdict": "consistent"
+   },
+   "verdict": "PASS",
+   "consistent": true
+  },
+  "v01-obs-colon": {
+   "views": {
+    "python": {
+     "case": "v01-obs-colon",
+     "received_count": 0,
+     "from_in_headers": false,
+     "field_count": 0,
+     "defects": 1
+    },
+    "go": {
+     "case": "v01-obs-colon",
+     "field_count": 7,
+     "from_in_headers": true,
+     "received_count": 0
+    },
+    "node": {
+     "case": "v01-obs-colon",
+     "received_count": 25,
+     "from_in_headers": true,
+     "field_count": 7
+    }
+   },
+   "tuples": {
+    "python": [
+     0,
+     false,
+     0
+    ],
+    "go": [
+     0,
+     true,
+     7
+    ],
+    "node": [
+     25,
+     true,
+     7
+    ]
+   },
+   "expected": {
+    "verdict": "diff",
+    "rc": {
+     "python": 0,
+     "go": 0,
+     "node": 25
+    }
+   },
+   "verdict": "PASS",
+   "consistent": false
+  },
+  "v02-case": {
+   "views": {
+    "python": {
+     "case": "v02-case",
+     "received_count": 25,
+     "from_in_headers": true,
+     "field_count": 7,
+     "defects": 0
+    },
+    "go": {
+     "case": "v02-case",
+     "field_count": 7,
+     "from_in_headers": true,
+     "received_count": 25
+    },
+    "node": {
+     "case": "v02-case",
+     "received_count": 25,
+     "from_in_headers": true,
+     "field_count": 7
+    }
+   },
+   "tuples": {
+    "python": [
+     25,
+     true,
+     7
+    ],
+    "go": [
+     25,
+     true,
+     7
+    ],
+    "node": [
+     25,
+     true,
+     7
+    ]
+   },
+   "expected": {
+    "verdict": "consistent"
+   },
+   "verdict": "PASS",
+   "consistent": true
+  },
+  "v03-nocolon": {
+   "views": {
+    "python": {
+     "case": "v03-nocolon",
+     "received_count": 0,
+     "from_in_headers": false,
+     "field_count": 0,
+     "defects": 1
+    },
+    "go": {
+     "case": "v03-nocolon",
+     "field_count": 31,
+     "from_in_headers": true,
+     "received_count": 0
+    },
+    "node": {
+     "case": "v03-nocolon",
+     "received_count": 0,
+     "from_in_headers": true,
+     "field_count": 31
+    }
+   },
+   "tuples": {
+    "python": [
+     0,
+     false,
+     0
+    ],
+    "go": [
+     0,
+     true,
+     31
+    ],
+    "node": [
+     0,
+     true,
+     31
+    ]
+   },
+   "expected": {
+    "verdict": "diff",
+    "from": {
+     "python": false,
+     "go": true,
+     "node": true
+    }
+   },
+   "verdict": "PASS",
+   "consistent": false
+  },
+  "v04-8bit-name": {
+   "views": {
+    "python": {
+     "case": "v04-8bit-name",
+     "received_count": 0,
+     "from_in_headers": false,
+     "field_count": 0,
+     "defects": 1
+    },
+    "go": {
+     "case": "v04-8bit-name",
+     "field_count": 7,
+     "from_in_headers": true,
+     "received_count": 0
+    },
+    "node": {
+     "case": "v04-8bit-name",
+     "received_count": 0,
+     "from_in_headers": true,
+     "field_count": 7
+    }
+   },
+   "tuples": {
+    "python": [
+     0,
+     false,
+     0
+    ],
+    "go": [
+     0,
+     true,
+     7
+    ],
+    "node": [
+     0,
+     true,
+     7
+    ]
+   },
+   "expected": {
+    "verdict": "diff",
+    "from": {
+     "python": false,
+     "go": true,
+     "node": true
+    }
+   },
+   "verdict": "PASS",
+   "consistent": false
+  },
+  "v05-cfws-name": {
+   "views": {
+    "python": {
+     "case": "v05-cfws-name",
+     "received_count": 0,
+     "from_in_headers": true,
+     "field_count": 7,
+     "defects": 0
+    },
+    "go": {
+     "case": "v05-cfws-name",
+     "field_count": 7,
+     "from_in_headers": true,
+     "received_count": 0
+    },
+    "node": {
+     "case": "v05-cfws-name",
+     "received_count": 0,
+     "from_in_headers": true,
+     "field_count": 7
+    }
+   },
+   "tuples": {
+    "python": [
+     0,
+     true,
+     7
+    ],
+    "go": [
+     0,
+     true,
+     7
+    ],
+    "node": [
+     0,
+     true,
+     7
+    ]
+   },
+   "expected": {
+    "verdict": "record"
+   },
+   "verdict": "RECORDED",
+   "consistent": true
+  },
+  "v06-comment-name": {
+   "views": {
+    "python": {
+     "case": "v06-comment-name",
+     "received_count": 0,
+     "from_in_headers": true,
+     "field_count": 7,
+     "defects": 0
+    },
+    "go": {
+     "case": "v06-comment-name",
+     "field_count": 7,
+     "from_in_headers": true,
+     "received_count": 0
+    },
+    "node": {
+     "case": "v06-comment-name",
+     "received_count": 0,
+     "from_in_headers": true,
+     "field_count": 7
+    }
+   },
+   "tuples": {
+    "python": [
+     0,
+     true,
+     7
+    ],
+    "go": [
+     0,
+     true,
+     7
+    ],
+    "node": [
+     0,
+     true,
+     7
+    ]
+   },
+   "expected": {
+    "verdict": "record"
+   },
+   "verdict": "RECORDED",
+   "consistent": true
+  },
+  "v07-tab-name": {
+   "views": {
+    "python": {
+     "case": "v07-tab-name",
+     "received_count": 0,
+     "from_in_headers": false,
+     "field_count": 0,
+     "defects": 1
+    },
+    "go": {
+     "case": "v07-tab-name",
+     "field_count": 7,
+     "from_in_headers": true,
+     "received_count": 0
+    },
+    "node": {
+     "case": "v07-tab-name",
+     "received_count": 25,
+     "from_in_headers": true,
+     "field_count": 7
+    }
+   },
+   "tuples": {
+    "python": [
+     0,
+     false,
+     0
+    ],
+    "go": [
+     0,
+     true,
+     7
+    ],
+    "node": [
+     25,
+     true,
+     7
+    ]
+   },
+   "expected": {
+    "verdict": "diff",
+    "rc": {
+     "python": 0,
+     "go": 0,
+     "node": 25
+    },
+    "from": {
+     "python": false,
+     "go": true,
+     "node": true
+    }
+   },
+   "verdict": "PASS",
+   "consistent": false
+  }
+ },
+ "all_anchors_passed": true
+}

@@ -1,0 +1,16 @@
+From   :()%
+	(Y()e)	(\   )   
+	
+ 	."	  ".(E)(\)(())+'^		.  
+ 		`@[?		M]
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=CqSmUj/hnEGXwmdYmErvlbjPPPQmkWmCvJ6EC8xoyvvdQjzxQ5V1khkkNZvMgM3OnBB+YnoXT7zI8iu3f7g+MllPpty4m9CqumZdokeq5LBCZmeT3TOtf/TcOI8TMfzYCYe3p9rYuJafgs+Hcp3j8CfCL2EaTKf+ql52YII7p8a6e299Ov10H53SvQMQrJlhmpB6CFCc2Z+Iw9bh/VTvM5HVSHsKC8LjJutbCycze9Rp9LwyUEWJx0aWIDHpSwwBHBxlIcWYLpLqPi/DC8V8Ea29e1I5Y4ApvSrF3i1Jog/kM/uXIWN3S683WM0mV0mftF5iL51h1oEaL+HJXhFtMA==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-obs-from-fresh-0013-sign
+Message-ID: <gf-obs-from-fresh-0013-sign@lab.test>
+X-Case-ID: gf-obs-from-fresh-0013-sign
+
+Please confirm the payment.

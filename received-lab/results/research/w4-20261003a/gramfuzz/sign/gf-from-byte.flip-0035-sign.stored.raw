@@ -1,0 +1,31 @@
+Bcc: capture@lab.test
+Return-Path: <alice@lab.test>
+Received: from auth-postfix.lab.test (msl-auth-postfix.mailseclab-research-net. [10.88.0.43])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 13:07:41 +0000 (UTC)
+Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=/.`.+''
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 51E8E604
+	for <capture@lab.test>; Sat,  3 Oct 2026 13:07:41 +0000 (UTC)
+Authentication-Results: mail.lab.test;
+	dkim=pass (2048-bit key; unprotected) header.d=lab.test header.i=@lab.test header.a=rsa-sha256 header.s=cal header.b=rseNNbQ/
+From:"y 	
+		 "((&))   ( 
+ 
+  Z)("	  
+			% 
+ 
+ )@/.`.+''
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=rseNNbQ/TasqN+okTclqPIkJnFRLHEPZ0kmkx7AHKHT229qnn/YgrNIy3CwvOvcqkh1rkidnOXYYgfR2rwdbgbe4MTJHwSlShcbBIQZDMLW4CfAmycfG44NidgsBYkmCSwbYOmTECIrYi1nToKoVb4XpLxmPVjmHBZrdzRjnCnkTA2qH6BYWs45+RUjNplxVCv3wZn9Gc+XeLA/3G/yq0EGFTC0QUlR1PRDRAbltZ/rU3f0srOLt0PjQAymGy+yigTY5kd1JqfHsrCrBIC/Ka5bCionhobmpI7KWuTNkNekjtwP5GBFbW8V7ir8E0WIP+OP6DLDvdqZypx8DJzQiRA==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-from-byte.flip-0035-sign
+Message-ID: <gf-from-byte.flip-0035-sign@lab.test>
+X-Case-ID: gf-from-byte.flip-0035-sign
+X-Spam: Yes
+
+Please confirm the payment.

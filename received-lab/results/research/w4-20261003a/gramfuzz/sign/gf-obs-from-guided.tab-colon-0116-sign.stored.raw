@@ -1,0 +1,39 @@
+Bcc: capture@lab.test
+Message-ID: <6nhTThHthmzes9hkc4iDIz@mailpit>
+Return-Path: <alice@lab.test>
+Received: from auth-postfix.lab.test (msl-auth-postfix.mailseclab-research-net. [10.88.0.43])
+        by mailpit.lab.test (Mailpit) with SMTP
+        for <capture@lab.test>; Sat, 3 Oct 2026 13:10:39 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id A72E815E5
+	for <capture@lab.test>; Sat,  3 Oct 2026 13:10:39 +0000 (UTC)
+Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)
+X-Mailbox-Line: From  	: (((());
+X-Spam: Yes
+
+		)	(!)	 
+   
+ 	 \) 
+  
+		 
+   ( 		)	
+  ((		) \ 		
+	 
+ )		 ,<@()(C)[](^)()(),   
+	 @()()()?%.!-.%,()@/%^,@[eRF   ] 		:	  `@--.{~{.!%.^&>	
+  	
+ 
+   , 
+ 	
+	 
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=aP2HCrgBlPVEv578C6KZyk0BtDDQAGyTwbTEiQKEbkRQiYjyXjRCUug8+jtKDeEOn4+Z2kbVeGyUjzufxvKYGLbIPMPMIZPYQiFbpG9YDH4Hu/dah0t1e5FqIw30rRAD2WqO33IbADpG82mWMZtm3puoSCGYZv0XxfWvgdYX0UQ0wsklszwYYly1RhVuVzmVT9iWl/bP8WmSlxAZ2ZkZ7TPOnOb36ijyjo91Fa8a71y+Xwsl5xxR+L/GUMZ8+/t9Fdar5Tbba79wI8dXSli43+w2qqe7avJX3We3vbh/DIaJ2nA/W1VEkfkRUvqYipptrNkjbLfEjDM9MIy0rrYd+A==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-obs-from-guided.tab-colon-0116-sign
+Message-ID: <gf-obs-from-guided.tab-colon-0116-sign@lab.test>
+X-Case-ID: gf-obs-from-guided.tab-colon-0116-sign
+
+Please confirm the payment.

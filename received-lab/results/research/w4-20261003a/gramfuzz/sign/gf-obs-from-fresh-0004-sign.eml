@@ -1,0 +1,14 @@
+From	: 
+	 ,,<,,@$R=.#=$ ,(()()),	 	()  	
+ @^.#-.?$  	,:		(!'\)c.x=.!?.+(()())		 @[ 	 E7]>,,,
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:subject:date;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=qVZlbGE+nmXjIppSyfyBWC/txK1TG1hIuy3Uxfc8IiN/fEvpskZR7Q9VmOOmAlm3ovfY5jD8gJqU4bLW+ai8bu0GVtZl3BwRifiApI5/iqlnIKrDAsv0ZGl6uPOJ84T8PRVKEdwII1cl7fFtFWe0HQ9+L3Zukc2y6qDFQV6qpRXysjnqrarLuGMPeFYYv0eQqtufIjEYaMvjBPCkop/ud54t7vdKKNQJhEMTuQPtW+duOTa0/9MPlpvux4UxHmpc5ahZiBCq5Izt3Dt2kgdI2IsnVuqT+faQrmLNMK0hN+tLVrP8LICvJ2hWHOj5VPDeZckEfudP3/kquuUe9ITIUA==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 23:59:00 +0000
+Subject: gf-obs-from-fresh-0004-sign
+Message-ID: <gf-obs-from-fresh-0004-sign@lab.test>
+X-Case-ID: gf-obs-from-fresh-0004-sign
+
+Please confirm the payment.

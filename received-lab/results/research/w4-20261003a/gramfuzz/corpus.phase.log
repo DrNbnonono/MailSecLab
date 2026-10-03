@@ -1,0 +1,14 @@
+entry received     fresh=1500  mutated=1500  seeds=3000   37.8s
+entry obs-received fresh=1500  mutated=1500  seeds=3000   20.3s
+entry from         fresh=1500  mutated=1500  seeds=3000   36.2s
+entry obs-from     fresh=1500  mutated=1500  seeds=3000   31.5s
+entry sender       fresh=1500  mutated=1500  seeds=3000   19.7s
+entry reply-to     fresh=1500  mutated=1500  seeds=3000   27.0s
+entry return-path  fresh=1500  mutated=1500  seeds=3000   15.6s
+entry resent-from  fresh=1500  mutated=1500  seeds=3000   31.8s
+entry authres      fresh=1500  mutated=1500  seeds=3003   48.2s
+entry dkim-tags    fresh=1500  mutated=1500  seeds=3000   15.3s
+entry arc-aar      fresh=1500  mutated=1500  seeds=3037   65.5s
+entry arc-ams      fresh=1500  mutated=1500  seeds=3000   18.6s
+entry arc-as       fresh=1500  mutated=1500  seeds=3000   16.4s
+corpus: 39000 files -> /mnt/e/MailSecLab/received-lab/results/research/w4-20261003a/gramfuzz/corpus

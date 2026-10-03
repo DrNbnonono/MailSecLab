@@ -55,11 +55,12 @@ def test_arm_endpoints():
 
 
 def test_expected_relay_delta():
-    # v00 控制信过链后 Received 总数增量：capture 臂 = 跳数（Mailpit 不加 Received）；
-    # exec 臂 = 跳数 + 1（msl-auth-postfix 是终点 MTA，自加一条）
-    assert expected_relay_delta(2, "capture") == 2
-    assert expected_relay_delta(2, "exec") == 3
-    assert expected_relay_delta(1, "capture") == 1
+    # v00 控制信过链后 Received 总数增量：
+    # capture = 跳数 + 1（Mailpit 收件自盖一条；w3 sigprobe2 strict=5 复核）
+    # exec = 跳数 + 2（auth-postfix 一条 + Dovecot LMTP 一条；w2 repair 直投存档）
+    assert expected_relay_delta(2, "capture") == 3
+    assert expected_relay_delta(2, "exec") == 4
+    assert expected_relay_delta(1, "capture") == 2
 
 
 def test_check_seed_corpus_blocks_unadmitted_problems():

@@ -67,8 +67,12 @@ SEQUENCES_V0 = {
 THRESHOLD_PROBES = [("v00-plain", 49), ("v00-plain", 55),
                     ("v01-obs-colon", 29), ("v01-obs-colon", 55)]
 
-# facts 的 relay 归因标记：本引擎容器 + 终点 + 旧标记（共享容器路径对照用）
-CHAIN_MARKERS = (b"by msl-cr-", b"by msl-auth-postfix", b"by msl-mailpit",
+# facts 的 relay 归因标记：ad-hoc OpenSMTPD 6.8 与 Mailpit 的 Received 行
+# 无 by 子句，msl-cr- 出现在 reverse-DNS 括注里（如
+# "from e55e50b6bea9 (msl-cr-os-os-1-os.mailseclab-research-net [10.88.0.8])"），
+# 故用裸 msl-cr- 前缀；hop1 的行只提 msl-client（不计入）——zone_total 才是
+# 控制信用的稳健度量，relay_added 只是辅助归因。
+CHAIN_MARKERS = (b"msl-cr-", b"by msl-auth-postfix", b"by msl-mailpit",
                  b"by exim", b"by opensmtpd", b"by msl-postfix")
 
 _REQUIRED_CONTAINERS = ("msl-client", "msl-mailpit", "msl-verifiers",
@@ -106,8 +110,16 @@ def check_seed_corpus(seed: Seed, raw: bytes) -> None:
 
 
 def expected_relay_delta(n_hops: int, arm: str) -> int:
-    """v00 控制信过链后的 Received 总数增量。"""
-    return n_hops + (1 if arm == "exec" else 0)
+    """v00 控制信过链后的 Received 总数增量。
+
+    capture 臂 = 跳数 + 1：Mailpit 在 SMTP 收件时自盖一条 Received
+    （证据：w3 sigprobe2 中 s0 三条签名经单跳后 strict=5 而非 4；
+    本 run os-os 控制信字节——顶部 from 191e7f9af35f 行即 Mailpit 所加）。
+    exec 臂 = 跳数 + 2：msl-auth-postfix 加一条 + Dovecot LMTP 再加一条
+    （证据：w2 repair 直投存档，种子 0 预置 → 2 条：
+    from client.lab.test + from auth-postfix.lab.test）。
+    """
+    return n_hops + (2 if arm == "exec" else 1)
 
 
 def known_key(row: dict) -> str:
@@ -251,19 +263,26 @@ for _ in range(12):
     try:
         r = urllib.request.urlopen("http://msl-mailpit:8025/api/v1/messages?limit=100", timeout=5)
         msgs = json.loads(r.read()).get("messages", [])
+        cands = []
         # 快路径：Subject 精确等于 token（diffrun/sigprobe2 族种子）
         for m in msgs:
             if token == (m.get("Subject") or ""):
                 raw = urllib.request.urlopen(
                     "http://msl-mailpit:8025/api/v1/message/%s/raw" % m["ID"], timeout=5).read()
                 if token.encode() in raw:
-                    open(out_path, "wb").write(raw); print("OK", len(raw)); sys.exit(0)
+                    cands.append((m.get("Created") or "", raw))
         # 慢路径：头区可能被终结、Subject 沉没——按原始字节匹配最近 40 封
-        for m in reversed(msgs[:40]):
-            raw = urllib.request.urlopen(
-                "http://msl-mailpit:8025/api/v1/message/%s/raw" % m["ID"], timeout=5).read()
-            if token.encode() in raw:
-                open(out_path, "wb").write(raw); print("OK-BYTES", len(raw)); sys.exit(0)
+        if not cands:
+            for m in msgs[:40]:
+                raw = urllib.request.urlopen(
+                    "http://msl-mailpit:8025/api/v1/message/%s/raw" % m["ID"], timeout=5).read()
+                if token.encode() in raw:
+                    cands.append((m.get("Created") or "", raw))
+        # 重跑同名 case 时取最新一封（按 Created 排序）
+        if cands:
+            cands.sort(key=lambda x: x[0], reverse=True)
+            open(out_path, "wb").write(cands[0][1])
+            print("OK", len(cands[0][1])); sys.exit(0)
     except Exception:
         pass
     time.sleep(1.2)

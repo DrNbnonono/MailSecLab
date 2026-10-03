@@ -35,6 +35,8 @@ Windows + WSL2 + Docker Desktop。命令在 WSL 里执行，工作目录是 `/mn
 
 Compose profile：默认三跳 Postfix；`mta3b` 为 Exim / OpenSMTPD；`pf11` 为 Postfix 3.11；`parsers` 为 Node / Go；`frspamd` 为 rspamd。
 
+第二套栈：研究网 `mailseclab-research-net`（msl-auth-postfix + OpenDKIM/OpenDMARC/rspamd milter + Dovecot + Roundcube/SnappyMail + msl-dns + msl-mailpit + Exim v3/OpenSMTPD），用于 w1/w2 认证链实验。当前栈状态与回滚表见 `received-lab/results/research/w2-20261002a/STATE.md`。
+
 E、I、J3 会改 `relayhost`。换实验前执行 `docker compose restart postfix1 postfix2 postfix3`，并核对三条路由都恢复。Docker Desktop 的 resource-saver 会停掉 WSL 虚拟机，长实验需要保活。
 
 新语料必须做头区结构自检。折叠生成器若在已有 CRLF 上再 `"\r\n".join()`，会造出双 CRLF，头区提前结束。`--style folded` 还可能在同一 Received 里放两个日期，不能当成严格合规的长 Received。
@@ -66,16 +68,28 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 - J1：`h=` 覆盖约 150KB 的 `X-Gen`。中继前 154,562 B 为 pass，三跳后 103,283 B 为 FAIL，SMTP 仍 250。
 - J2：`l=33` 再追加 101 B，dkimpy 前后都 pass。这是 RFC 6376 §3.7 的前缀语义，不是新的协议漏洞。`l=` 只管正文长度，不管头区。
 - J3：签名后插入 `Receíved`，dkimpy 拒解析；过 Postfix 后签名沉入正文。
-- K 的最终矩阵以 `received-lab/results/k-series/RECORD.md` 和 `k1_matrix.csv` 为准。KB1 四家都接受。KB2（签名后注入异常头）：dkimpy 拒解析，perl 与 go-msgauth pass，rspamd `R_DKIM_ALLOW`（分数 4.3，动作 greylist）。KB3（重复 From）：dkimpy FAIL，rspamd `R_DKIM_REJECT`，perl 与 go pass。`l=` 追加时 go-msgauth 报 insecure body length tag，另外三家接受。反转 From 后再签名只能说明分裂可重复，还不能单独证明「perl/go 取第一实例、dkimpy/rspamd 取最后实例」。
+- K 的最终矩阵以 `received-lab/results/k-series/RECORD.md` 和 `k1_matrix.csv` 为准。KB1 四家都接受。KB2（签名后注入异常头）：dkimpy 拒解析，perl 与 go-msgauth pass，rspamd `R_DKIM_ALLOW`（分数 4.3，动作 greylist）。KB3（重复 From）：dkimpy FAIL，rspamd `R_DKIM_REJECT`，perl 与 go pass。`l=` 追加时 go-msgauth 报 insecure body length tag，另外三家接受。DKIM 实例选择已有 causal 证据（perl/go 自底向上、dkimpy/rspamd 双实例 fail、oversign 全 fail）；OpenDKIM 列因公钥检索问题缺失，不要补写 OpenDKIM 的选择方向。
+
+认证链与研究网（w1/w2，`received-lab/results/research/`）：
+
+- OpenSMTPD 同构双中继环：普通与 `Received :` 种子都在约 100 条普通 Received 处被 5.4.6 停住（w1 `osmtpd-loop/`）。
+- DKIM 实例选择：perl/go 自底向上，dkimpy/rspamd 双 From 即 fail，oversign 四家全 fail；From-above 突变体三跳 Postfix 后 perl/go 仍 pass 且投递，Roundcube 显示 Author、SnappyMail 显示 Attacker（w1 `causal/`、`report/PAPER_SKELETON.md`）。
+- rspamd `get_from_ip()` 取顶部 Received 的 from-clause：自洽伪造链文件扫描时 source=伪造值，过诚实中继后恢复真实地址（w1 `i2/`）。
+- OpenDMARC 1.4.2 不做 U-label→A-label 转换（RFC 9989 §5.3.1），原始 UTF-8 qname 永远 NXDOMAIN；同一信 OpenDMARC `dmarc=none` vs rspamd `DMARC_POLICY_REJECT`；执行翻转 550 vs 250；rua 聚合永远看不到 U-label 事件（w2 A 线）。核心已由 CVE-2026-100891 覆盖，增量见 w2 `UPSTREAM.md`。
+- 显示层把 A-label/NFC/NFD 三种 From 全部渲染为受害者 Unicode 品牌（w2 `display/`，5 张截图）。
+- repair matrix：七个单跳差分性质过 Exim/OpenSMTPD 中继后的 persist/break/created（w2 `repair/`）。
+- recfuzz2：`Received` 八种语法形态 × 三 MTA，OpenSMTPD 对 `Received :`×55 保留 55 条、只计 2 条普通行仍 250 投递（w2 `recfuzz2/matrix.json`）。
 
 ## 不要写成定论
 
 - F1「rspamd 丢掉 9MB 头」已撤回。原因是语料双 CRLF，头区早就结束。纠正后的真折叠头块上，rspamd 约 56 ms、分数 3.4、无动作。
 - G 系列「OpenSMTPD 改写 `Received :` 但不计数」与 E3 原始邮件冲突。OpenSMTPD 是保留空白、不计数。
-- G4 的 9,096,191 B 三跳头块：`RECORD.md` 与 `r3_redo.csv` 相反，且没有对应的最终 stored `.eml`。重跑并保存输入、SMTP 回复、三跳日志和结构自检之前，不要引用这个字节数。
-- I2 不能证明「完全自洽的伪造链仍然失败」。consistent 语料写死 `172.22.0.3`，真实客户端是 `172.22.0.11`，只接上了主机名。伪造地址还用了不属于 RFC 5737 的 `192.0.113.x`。
+- G4 已由 w1 重跑关闭；只引用 w1 的 8,000,545 B 折行语料数字。
+- I2 已由 w1 重做关闭；注意结论是双向的：自洽伪造链在无诚实中继时确实能主导 rspamd 文件扫描的 source，诚实中继之后恢复真实地址。
 - 没有测过 Gmail、Exchange 等托管服务，也没有真实互联网测量。
-- 未做 OpenSMTPD 同构多跳或有限环，不能说空白变体能让真实环路一直转。
+- OpenSMTPD 同构环已做（w1）：空白变体不让真实环路越过 5.4.6。不要再写「未测环路」。
+- U-label 机制核心已被 CVE-2026-100891（2026-09-28）覆盖，本实验室为独立复现；增量（rua 报告空洞、NFD 阴性、显示层、服务端消费面）见 w2 UPSTREAM.md。不要写成全新漏洞。
+- w1/w2 的结论来自研究网栈（msl-auth-postfix/OpenDKIM/OpenDMARC/rspamd milter/Dovecot/Roundcube/SnappyMail/msl-dns），与默认三跳 Postfix 栈是两套环境，结论不要互相搬用。
 - 未向 Postfix、Exim、OpenSMTPD、rspamd、dkimpy 披露。K 的验证器差分和 J3 淹没不要直接写成漏洞。
 
 ## 文献与教程
@@ -86,12 +100,18 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 
 ## 后续开发
 
-优先补证据，而不是再扫更大的 N：
+1. ~~重跑 G4~~ 已关闭（w1）：`results/research/w1-20261001a/g4/`——78 字节折行语料，N1/N50/N100 全投递，N100 存档 8,000,545 B、100 条 X-Received 无缺口。旧 9,096,191 B 数字作废，不要再引用。
+2. ~~重做 I2~~ 已关闭（w1）：`results/research/w1-20261001a/i2/`——自洽伪造链在文件扫描时确实把 rspamd source 指到伪造 from-clause；过诚实中继后回到真实会话地址；不自洽链被 join 检出（by-host ≠ from-host）。
+3. ~~OpenSMTPD 同构环~~ 已关闭（w1）：`results/research/w1-20261001a/osmtpd-loop/`——普通与空白种子都在约 100 条普通 Received 处被 5.4.6 停住。空白变体保留原样、不计历史行，但中继自己新增的普通行仍计数，不破坏环路终止。
+4. ~~DKIM 重复字段选择~~ 已关闭（w1 causal + w2 exec）：perl/go 自底向上取实例；dkimpy/rspamd 对第二实例 From 直接 fail；h= 重复列出（oversign）四家全 fail。实例绑定全景：DKIM/OpenDKIM=底部、OpenDMARC=顶部、ENVELOPE=首元素、Roundcube=底部、SnappyMail=顶部。
+5. ~~Exim 4.92 阳性对照~~ 已关闭（w1 `exim492/`）：CRLF 载荷 554 同步错误、LF 载荷注入留在单个正文，与 I1 修补版阴性一致。
 
-1. 重跑 G4，留下输入 `.eml`、SMTP 回复、三跳日志、最终 stored `.eml` 和结构自检。
-2. 重做 I2：发送前读取真实客户端 IP，伪造地址只用 RFC 5737，并逐项核对主机名、IP、协议和时间是否衔接。
-3. OpenSMTPD 同构双跳和有限环，检验空白变体是否只是让旧式字段多活。
-4. DKIM 重复字段：只签一次，再分别改第一处或最后一处，对照 RFC 6376 §5.4.2。
-5. 未修补的 Exim 4.92 只作为 I1 的阳性对照，不要在已修补版本上继续穷举走私载荷。
+当前真正开放的项目：
+
+1. recfuzz2 的 Exim 捕获臂（250 后退信路径未捕获转换事实）。
+2. parser 三家（Python/Go/Node）未进自动差分矩阵。
+3. DKIM 验证器 × obs-colon Received 交叉单元。
+4. OpenDKIM 2.11.0 不向实验室 DNS 查公钥（key not found），实例绑定矩阵缺该列。
+5. parsedmarc 离线装包受阻——按 opendmarc-reports 缺 Switch.pm 的先例记录为工具缺口。
 
 改实验脚本时，比较的是同一字节流在不同组件上的解释。定位邮件用 `X-Case-ID`；头区可能被终结时，改为在整封 raw 里搜索。

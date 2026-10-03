@@ -1,0 +1,1406 @@
+# 顶层头语法差分引擎（gramfuzz）与攻击分类学实施计划
+
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** 把顶层头的发现方式从「手写 8 形态」升级为「RFC ABNF 语法驱动的系统化差分」：语法引擎 → 本地三 parser 差分漏斗 → 幸存者过中继/签名/消费三臂 → `candidates.json`（实验室确认差分清单，作为 4-5 号工作【真实服务验证与披露】的决策门），并把全部已有原语重整为 P/T/X/D 攻击分类学。
+
+**Architecture:** SIPCHIMERA 的 Extractor/Generator/Mutator 模式移植到 RFC 5322（含 obs 语法）+ 8601 + 6376 + 8617 + 6532（+5321 作交叉引用）。四层：`abnf.py`（规则文本→可执行文法）→ `gramgen.py`（入口符号派生样本）→ `grammut.py`（字节/行/引导变异 + MIMEminer 式优先级反馈）→ `gramfuzz.py`（漏斗编排）。发送/捕获/事实复用 w3 的 `diffrun.py` + `tracefacts.py`，不重建任何基础设施。
+
+**Tech Stack:** Python 3.11（stdlib only 的语法层）、Go 标准库 net/mail（msl-verifiers 容器）、Node mailparser（parser-node 容器）、Docker 研究网（复用 w3 栈手术记录）、pytest。
+
+**工作目录：** WSL `/mnt/e/MailSecLab/received-lab`；计划与 AGENTS.md 在 Windows 侧。
+
+---
+
+## 0. 范围、边界与不做
+
+**用户指示（2026-10-03）：只做调研结论中的 1–3 项。** 4（真实服务验证）与 5（披露）在本引擎产出**实验室确认的漏洞清单**（`candidates.json` 非空且证据链完整）后，由负责人另行决策。因此本计划的终点是 candidates.json + 分类学，不含任何对外动作。
+
+- **不出公网**：唯一例外是任务 1 下载 4 份 RFC 文本（rfc-editor.org 公开文档，与下载论文同性质）。
+- **ARC 只做 stage-1**：栈内没有 ARC 验证器（Oracle 缺口如实记录；rspamd 3.4 的 arc 模块作为后续候选记入缺口，不在本计划内启用）。
+- **不重做已关闭项**（见 AGENTS.md 与 GAP1-SURVEY-20261003.md 第 0 节）。
+- 预算：单人约 12 个工作日（见文末表）。
+
+**执行前提（w3 已交付的资产）：** `research/lib/diffrun.py`（smtp_arm/parse_arm/load_config/known 去重）、`research/lib/tracefacts.py`（facts/corpus_check）、`research/parsers/parse.{py,go,js}`（单样本探针）、`research/diffrun-targets.json`（exim 容器名动态解析）、w3 `diffrun/RECORD.md` 仪器记录（捕获路由手术与回滚）、w1 签名工具（`sign_cases.py`）与四验证器（`verify_one.py`）、KB2 锚（obs 注入 → dkimpy 拒解析 / perl、go、rspamd pass）。
+
+---
+
+## 任务 1：RFC 文本与 grammar 目录（0.5 天）
+
+**Files:**
+- Create: `references/rfc8601.txt`、`references/rfc6376.txt`、`references/rfc8617.txt`、`references/rfc6532.txt`
+- Create: `received-lab/research/grammar/`（空目录，放 entries.json）
+
+- [ ] **Step 1.1：下载四份 RFC 文本**
+
+```bash
+cd /mnt/e/MailSecLab/references
+for n in 8601 6376 8617 6532; do
+  curl -fsSL -o rfc$n.txt https://www.rfc-editor.org/rfc/rfc$n.txt
+done
+sha256sum rfc8601.txt rfc6376.txt rfc8617.txt rfc6532.txt
+```
+
+Expected: 四个文件存在，每个 ≥50KB（6376 最大，约 250KB）。`grep -c 'Authentication-Results' rfc8601.txt` ≥ 3。
+
+- [ ] **Step 2.2：发现 8601/8617/6376 的入口规则名（写入 entries.json 时用）**
+
+任务 2 完成后执行（依赖 abnf.py）：
+
+```bash
+cd /mnt/e/MailSecLab/received-lab
+python3 - <<'PY'
+import sys; sys.path.insert(0, ".")
+from research.lib.abnf import Grammar
+g = Grammar.load_files(["../references/rfc5322.txt", "../references/rfc8601.txt",
+                        "../references/rfc6376.txt", "../references/rfc8617.txt"])
+print("8601:", [n for n in g.rules if "auth" in n.lower() or "resinfo" in n.lower()])
+print("6376:", [n for n in g.rules if "tag-list" in n or "sig-" in n][:12])
+print("8617:", [n for n in g.rules if "arc" in n.lower()][:12])
+PY
+```
+
+Expected: 8601 列出含顶层头规则的候选名（含 "Authentication-Results:" 字面量的那条）；6376 列出 `tag-list`；8617 列出 arc 各头的规则名。把确定的名字填进任务 3 的 entries.json（不要猜——以本步输出为准）。
+
+- [ ] **Step 1.3：提交**
+
+```bash
+git add ../references/rfc8601.txt ../references/rfc6376.txt ../references/rfc8617.txt ../references/rfc6532.txt
+git commit -m "补充 RFC 8601/6376/8617/6532 文本（顶层头语法引擎输入）"
+```
+
+---
+
+## 任务 2：abnf.py —— ABNF 提取器（2 天）
+
+**Files:**
+- Create: `received-lab/research/lib/abnf.py`
+- Test: `received-lab/research/tests/test_abnf.py`
+
+- [ ] **Step 2.1：写失败测试**
+
+```python
+"""abnf 单测：微型内联文法锚定解析器，RFC 5322 锚定规则抽取。"""
+import sys
+from pathlib import Path
+
+sys.path.insert(0, "/mnt/e/MailSecLab/received-lab")
+from research.lib.abnf import ABNFError, Grammar
+
+RFC5322 = Path("/mnt/e/MailSecLab/references/rfc5322.txt")
+
+MINI = """
+demo   = "A:" 1*2WSP word CRLF
+word   = "x" / "y" / 1*VCHAR
+half   = %x41-43            ; A B C
+concat = %d97.98.99         ; abc
+either = [ "opt" ] "end"
+group  = ( "p" / "q" ) "tail"
+inc    = "u"
+inc    =/ "v"
+"""
+
+
+def test_mini_grammar_rules_and_shapes():
+    g = Grammar()
+    g.add_text(MINI)
+    assert set(g.rules) >= {"demo", "word", "half", "concat", "either", "group", "inc"}
+    assert len(g.rules["inc"].alts) == 2                    # =/ 增量合并
+    alt = g.rules["demo"].alts[0]
+    assert alt[0] == ("lit", "A:")
+    assert alt[1][0] == "rep" and alt[1][1] == 1 and alt[1][2] == 2
+    assert g.rules["half"].alts[0][0] == ("set", "ABC")     # 范围展开
+    assert g.rules["concat"].alts[0] == [("lit", "a"), ("lit", "b"), ("lit", "c")]
+    assert g.rules["either"].alts[0][0][0] == "rep" and g.rules["either"].alts[0][0][2] == 1
+    assert g.rules["group"].alts[0][0] == ("group", [[("lit", "p")], [("lit", "q")]])
+
+
+def test_rfc5322_core_rules_present():
+    g = Grammar()
+    g.add_text(RFC5322.read_text(encoding="utf-8", errors="replace"))
+    for name in ("from", "sender", "reply-to", "return", "received",
+                 "resent-from", "obs-received", "obs-from", "received-list"):
+        assert name in g.rules, name
+    assert g.rules["obs-received"], "obs-received 必须有至少一个 alt"
+
+
+def test_duplicate_rule_names_are_logged_not_merged():
+    g = Grammar()
+    g.add_text('a = "x"\na = "y"\n')
+    assert g.rules["a"].alts == [[("lit", "x")]]
+    assert g.conflicts == ["a"]
+```
+
+- [ ] **Step 2.2：跑测试确认失败**
+
+Run: `cd /mnt/e/MailSecLab/received-lab && python3 -m pytest research/tests/test_abnf.py -v`
+Expected: FAIL（ModuleNotFoundError）。
+
+- [ ] **Step 2.3：实现 abnf.py**
+
+```python
+"""ABNF 提取器：RFC 5234 风格规则文本 → 可执行文法（gramgen 的输入）。
+
+    g = Grammar.load_files(["references/rfc5322.txt", "references/rfc8601.txt"])
+    g.rules["obs-received"]        # Rule(name, alts=[[Token, ...], ...])
+
+Token 五类：
+  ("ref", name)            规则引用
+  ("lit", text)            引号字面量（prose `<...>` 视为空串终结符）
+  ("set", chars)           数值终端：范围展开为候选字符集
+  ("group", alts)          括号组；[...] 选项解析为 rep(0, 1, group)
+  ("rep", lo, hi, token)   重复，hi=None 表示无上界（生成时由 rep_cap 截断）
+
+多份 RFC 合并进同一 Grammar（5321/8617 会跨文档引用 5322/6376 的规则）。
+同名规则重复定义（非 =/ 增量）时保留先加载的并记入 conflicts；解析失败的
+规则跳过——生成器遇到缺失 ref 自然失败该分支，不影响其他规则。
+规则区之外的散文行可能被误认为规则（如正文里的 "x = 5"），这类假规则
+不被任何入口符号引用，惰性无害。
+"""
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass, field
+from pathlib import Path
+
+_RULE = re.compile(r"^([A-Za-z][A-Za-z0-9-]*)\s*(=/|=)\s*(.*)$")
+_NAME = re.compile(r"[A-Za-z][A-Za-z0-9-]*")
+_NUM = re.compile(r"%(d|x)([0-9A-Fa-f]+(?:-[0-9A-Fa-f]+)?(?:\.[0-9A-Fa-f]+(?:-[0-9A-Fa-f]+)?)*)")
+
+
+class ABNFError(ValueError):
+    pass
+
+
+@dataclass
+class Rule:
+    name: str
+    alts: list[list[tuple]] = field(default_factory=list)
+
+
+def _strip_comment(line: str) -> str:
+    out, inq = [], False
+    for ch in line:
+        if ch == '"':
+            inq = not inq
+        elif ch == ";" and not inq:
+            break
+        out.append(ch)
+    return "".join(out)
+
+
+class _Parser:
+    def __init__(self, s: str) -> None:
+        self.s, self.i = s, 0
+
+    def ws(self) -> None:
+        while self.i < len(self.s) and self.s[self.i] in " \t":
+            self.i += 1
+
+    def parse_alts(self, stop: str = "") -> list[list[tuple]]:
+        alts = [[]]
+        while True:
+            self.ws()
+            if self.i >= len(self.s):
+                break
+            if stop and self.s[self.i] in stop:
+                break
+            if self.s[self.i] == "/":
+                self.i += 1
+                alts.append([])
+                continue
+            tok = self.parse_item()
+            alts[-1].append(tok)
+        return [a for a in alts if a] or [[]]
+
+    def parse_item(self) -> tuple:
+        self.ws()
+        c = self.s[self.i]
+        m = re.match(r"(\d+)?\*(\d+)?", self.s[self.i:])
+        if m and m.group(0):
+            self.i += len(m.group(0))
+            lo = int(m.group(1)) if m.group(1) else 0
+            hi = int(m.group(2)) if m.group(2) else None
+            return ("rep", lo, hi, self.parse_item())
+        m = re.match(r"\d+", self.s[self.i:])
+        if m:
+            n = int(m.group(0))
+            self.i = m.end()
+            return ("rep", n, n, self.parse_item())
+        if c == '"':
+            j = self.s.index('"', self.i + 1)
+            lit = self.s[self.i + 1: j]
+            self.i = j + 1
+            return ("lit", lit)
+        if c == "%":
+            m = _NUM.match(self.s, self.i)
+            if not m:
+                raise ABNFError(f"bad % terminal at {self.i}")
+            base = 10 if m.group(1) == "d" else 16
+            self.i = m.end()
+            toks = []
+            for part in m.group(2).split("."):
+                if "-" in part:
+                    a, b = part.split("-", 1)
+                    lo, hi = int(a, base), int(b, base)
+                    if lo > hi or hi > 0x10FFFF:
+                        raise ABNFError(f"bad range {part}")
+                    toks.append(("set", "".join(chr(v) for v in range(lo, hi + 1))))
+                else:
+                    toks.append(("lit", chr(int(part, base))))
+            return toks[0] if len(toks) == 1 else ("group", [toks])
+        if c == "(":
+            self.i += 1
+            alts = self.parse_alts(stop=")")
+            self.i += 1
+            return ("group", alts)
+        if c == "[":
+            self.i += 1
+            alts = self.parse_alts(stop="]")
+            self.i += 1
+            return ("rep", 0, 1, ("group", alts))
+        if c == "<":
+            j = self.s.index(">", self.i)
+            self.i = j + 1
+            return ("lit", "")        # prose：按空终结符处理
+        m = _NAME.match(self.s, self.i)
+        if m:
+            self.i = m.end()
+            return ("ref", m.group(0))
+        raise ABNFError(f"unexpected {c!r} at {self.i}")
+
+
+class Grammar:
+    def __init__(self) -> None:
+        self.rules: dict[str, Rule] = {}
+        self.conflicts: list[str] = []
+
+    @classmethod
+    def load_files(cls, paths) -> "Grammar":
+        g = cls()
+        for p in paths:
+            g.add_text(Path(p).read_text(encoding="utf-8", errors="replace"))
+        return g
+
+    def add_text(self, text: str) -> None:
+        name, inc, parts = None, False, []
+        for raw in text.splitlines():
+            line = _strip_comment(raw).strip()
+            if not line:
+                self._flush(name, inc, parts)
+                name, inc, parts = None, False, []
+                continue
+            m = _RULE.match(line)
+            if m:
+                self._flush(name, inc, parts)
+                name, inc, parts = m.group(1), m.group(2) == "=/", [m.group(3)]
+            elif name is not None:
+                parts.append(line)
+        self._flush(name, inc, parts)
+
+    def _flush(self, name, inc, parts) -> None:
+        if name is None or not parts:
+            return
+        try:
+            alts = _Parser(" ".join(parts)).parse_alts()
+        except (ABNFError, ValueError):
+            return
+        rule = self.rules.get(name)
+        if rule is None:
+            self.rules[name] = Rule(name, alts)
+        elif inc:
+            rule.alts.extend(alts)
+        else:
+            self.conflicts.append(name)
+```
+
+- [ ] **Step 2.4：跑测试确认通过**
+
+Run: `cd /mnt/e/MailSecLab/received-lab && python3 -m pytest research/tests/test_abnf.py -v`
+Expected: 3 passed。若 `test_rfc5322_core_rules_present` 失败（规则名缺失），先 `grep -n "obs-received" ../references/rfc5322.txt` 核对真实规则名再改测试断言——以 RFC 文本为准，不以记忆为准。
+
+- [ ] **Step 2.5：提交**
+
+```bash
+git add research/lib/abnf.py research/tests/test_abnf.py
+git commit -m "加入 abnf 提取器：RFC 规则文本到可执行文法"
+```
+
+---
+
+## 任务 3：gramgen.py —— 语法生成器与入口配置（1.5 天）
+
+**Files:**
+- Create: `received-lab/research/lib/gramgen.py`
+- Create: `received-lab/research/grammar/entries.json`
+- Test: `received-lab/research/tests/test_gramgen.py`
+
+- [ ] **Step 3.1：写失败测试**
+
+```python
+"""gramgen 单测：派生可复现、入口前缀锚定、obs 热点可达、组装结构自检。"""
+import sys
+
+sys.path.insert(0, "/mnt/e/MailSecLab/received-lab")
+from research.lib.abnf import Grammar
+from research.lib.gramgen import build_message, generate_sample
+from research.lib.tracefacts import corpus_check
+
+G = Grammar.load_files(["/mnt/e/MailSecLab/references/rfc5322.txt"])
+
+
+def one(symbol, tries=400):
+    for seed in range(tries):
+        s = generate_sample(G, symbol, seed)
+        if s:
+            return s, seed
+    return None, None
+
+
+def test_entries_produce_expected_prefix():
+    for symbol, prefix in [("from", "From:"), ("sender", "Sender:"),
+                           ("reply-to", "Reply-To:"), ("return", "Return-Path:"),
+                           ("resent-from", "Resent-From:"), ("received", "Received:")]:
+        s, seed = one(symbol)
+        assert s is not None, symbol
+        assert s.startswith(prefix), (symbol, s[:40])
+
+
+def test_obs_received_can_produce_wsp_before_colon():
+    seen = [generate_sample(G, "obs-received", seed) for seed in range(600)]
+    seen = [s for s in seen if s]
+    assert seen, "obs-received 应可派生"
+    assert any(s.startswith("Received") and s[len("Received")] in " \t" for s in seen)
+
+
+def test_derivation_is_reproducible():
+    a = generate_sample(G, "from", 1234)
+    b = generate_sample(G, "from", 1234)
+    assert a == b
+
+
+def test_build_message_is_structurally_clean():
+    s, _ = one("from")
+    raw = build_message(s.encode("latin-1"), "gf-test-001")
+    assert b"X-Case-ID: gf-test-001" in raw
+    assert b"Subject: gf-test-001" in raw
+    assert corpus_check(raw) == [], corpus_check(raw)
+```
+
+- [ ] **Step 3.2：跑测试确认失败**
+
+Run: `cd /mnt/e/MailSecLab/received-lab && python3 -m pytest research/tests/test_gramgen.py -v`
+Expected: FAIL（ModuleNotFoundError: gramgen）。
+
+- [ ] **Step 3.3：实现 gramgen.py**
+
+```python
+"""语法驱动生成器：从 Grammar 入口符号派生样本，组装成差分语料。
+
+设计要点：
+- 返回 str，用 latin-1 编码保证字节忠实（ABNF 数值终端就是八位组）。
+- 深度超限后只允许"纯终结符 alt"，仍失败则该样本失败，外层换 seed 重试。
+- rep 无上界（hi=None）由 rep_cap 截断；样本长度由 max_len 截断。
+- build_message 把生成头放在模板 From/To/Date 之上（注入位，s2 模式）；
+  生成 From 族时天然形成重复实例场景——这是特性不是缺陷。
+"""
+from __future__ import annotations
+
+import random
+
+from research.lib.abnf import Grammar
+
+_TEMPLATE = [
+    "From: Bank Security <security@bank.test>",
+    "To: bob@lab.test",
+    "Date: Sat, 3 Oct 2026 23:30:00 +0000",
+]
+
+
+def _derive(g: Grammar, tok, rng: random.Random, out: list[str], depth: int,
+            max_depth: int, max_len: int, rep_cap: int) -> bool:
+    kind = tok[0]
+    if kind == "lit":
+        out.append(tok[1])
+        return sum(map(len, out)) <= max_len
+    if kind == "set":
+        out.append(rng.choice(tok[1]))
+        return True
+    if kind in ("ref", "group"):
+        if depth > max_depth + 4:
+            return False
+        if kind == "ref":
+            rule = g.rules.get(tok[1])
+            if rule is None:
+                return False
+            alts = rule.alts
+            if depth >= max_depth:
+                alts = [a for a in alts if all(t[0] in ("lit", "set") for t in a)] or alts
+        else:
+            alts = tok[1]
+        alt = rng.choice(alts)
+        return all(_derive(g, t, rng, out, depth + 1, max_depth, max_len, rep_cap)
+                   for t in alt)
+    if kind == "rep":
+        _, lo, hi, inner = tok
+        hi_eff = min(hi if hi is not None else lo + rep_cap, max(lo, rep_cap))
+        done = 0
+        for _ in range(rng.randint(lo, hi_eff)):
+            if not _derive(g, inner, rng, out, depth, max_depth, max_len, rep_cap):
+                return done >= lo
+            done += 1
+        return True
+    raise ValueError(kind)
+
+
+def generate_sample(g: Grammar, symbol: str, seed: int, *, max_depth: int = 14,
+                    max_len: int = 6000, rep_cap: int = 3, attempts: int = 25) -> str | None:
+    for attempt in range(attempts):
+        rng = random.Random((seed, symbol, attempt))
+        out: list[str] = []
+        if _derive(g, ("ref", symbol), rng, out, 0, max_depth, max_len, rep_cap):
+            s = "".join(out)
+            if s and len(s) <= max_len and "\x00" not in s:
+                return s
+    return None
+
+
+def build_message(generated: bytes, case_id: str, position: str = "top") -> bytes:
+    """generated：一或多个完整头行（规则自带结尾 CRLF）。position: top / bottom。"""
+    gen = generated if generated.endswith(b"\r\n") else generated + b"\r\n"
+    fixed = "\r\n".join([
+        "Subject: %s" % case_id,
+        "Message-ID: <%s@lab.test>" % case_id,
+        "X-Case-ID: %s" % case_id,
+    ]).encode()
+    head = ("\r\n".join(_TEMPLATE) + "\r\n").encode()
+    if position == "top":
+        block = gen + head + fixed
+    else:
+        block = head + gen + fixed
+    return block + b"\r\n\r\nPlease confirm the payment.\r\n"
+```
+
+- [ ] **Step 3.4：跑测试确认通过**
+
+Run: `cd /mnt/e/MailSecLab/received-lab && python3 -m pytest research/tests/test_gramgen.py -v`
+Expected: 4 passed。若 `test_obs_received_can_produce_wsp_before_colon` 失败，打印 `generate_sample(G, "obs-received", seed)` 的前 60 字符核对 obs-received 的真实产生式（`grep -A2 "obs-received" ../references/rfc5322.txt`），按实际产生式修正断言（WSP 可能是 `*WSP` 之外的写法）。
+
+- [ ] **Step 3.5：写入口配置 entries.json（8601/8617/6376 的规则名用任务 1 Step 1.2 的发现结果填充）**
+
+`received-lab/research/grammar/entries.json`：
+
+```json
+{
+  "entries": [
+    {"name": "received",      "symbol": "received",      "rfcs": ["rfc5322"]},
+    {"name": "obs-received",  "symbol": "obs-received",  "rfcs": ["rfc5322"]},
+    {"name": "from",          "symbol": "from",          "rfcs": ["rfc5322"]},
+    {"name": "obs-from",      "symbol": "obs-from",      "rfcs": ["rfc5322"]},
+    {"name": "sender",        "symbol": "sender",        "rfcs": ["rfc5322"]},
+    {"name": "reply-to",      "symbol": "reply-to",      "rfcs": ["rfc5322"]},
+    {"name": "return-path",   "symbol": "return",        "rfcs": ["rfc5322"]},
+    {"name": "resent-from",   "symbol": "resent-from",   "rfcs": ["rfc5322"]},
+    {"name": "authres",       "symbol": "<任务1发现>",    "prefix": null, "rfcs": ["rfc5322", "rfc8601"]},
+    {"name": "dkim-tags",     "symbol": "tag-list",      "prefix": "DKIM-Signature: ", "rfcs": ["rfc5322", "rfc6376"]},
+    {"name": "arc",           "symbol": "<任务1发现>",    "prefix": null, "rfcs": ["rfc5322", "rfc8617"], "stage2": false}
+  ]
+}
+```
+
+说明：`prefix` 非空表示该 RFC 的文法只覆盖值部分（DKIM tag-list），组装时手工加头名前缀。ARC 条目 `stage2:false`（oracle 缺口，只进 stage-1）。
+
+- [ ] **Step 3.6：提交**
+
+```bash
+git add research/lib/gramgen.py research/grammar/entries.json research/tests/test_gramgen.py
+git commit -m "加入 gramgen 语法生成器与顶层头入口配置"
+```
+
+---
+
+## 任务 4：grammut.py —— 变异器与优先级反馈（1 天）
+
+**Files:**
+- Create: `received-lab/research/lib/grammut.py`
+- Test: `received-lab/research/tests/test_grammut.py`
+
+- [ ] **Step 4.1：写失败测试**
+
+```python
+"""grammut 单测：算子可作用、不可作用时返回 None、优先级反馈有界且持久化。"""
+import sys
+from pathlib import Path
+
+sys.path.insert(0, "/mnt/e/MailSecLab/received-lab")
+from research.lib.grammut import ALL_OPS, PriorityTable, mutate
+
+RAW = (b"From: a@lab.test\r\nReceived: from x by y; Sat, 3 Oct 2026 00:00:00 +0000\r\n"
+       b"Subject: s\r\n\r\nbody\r\n")
+
+
+def test_guided_space_colon_creates_obs():
+    import random
+    out = ALL_OPS["guided.space-colon"](RAW, random.Random(0))
+    assert out is not None and b" :" in out.split(b"\r\n")[0] + b"\r\n" + out.split(b"\r\n")[1]
+    assert out != RAW
+
+
+def test_line_dup_duplicates_header_instance():
+    import random
+    out = ALL_OPS["line.dup"](RAW, random.Random(1))
+    assert out is not None and out.count(b"From: a@lab.test") == 2
+
+
+def test_mutate_returns_different_or_none():
+    import random
+    seen_none, seen_change = 0, False
+    for seed in range(50):
+        out = mutate(RAW, random.Random(seed), ops=("byte.flip",))
+        if out is None:
+            seen_none += 1
+        elif out != RAW:
+            seen_change = True
+    assert seen_change and seen_none >= 0     # flip 至少一次改变字节
+
+
+def test_priority_table_bounds_and_persistence(tmp_path=None):
+    p = Path("/tmp/grammut-test-weights.json")
+    p.unlink(missing_ok=True)
+    t = PriorityTable(p)
+    w0 = t.w["guided.space-colon"]
+    for _ in range(20):
+        t.reward("guided.space-colon")
+    assert t.w["guided.space-colon"] <= 8.0
+    for _ in range(60):
+        t.punish("guided.space-colon")
+    assert t.w["guided.space-colon"] >= 0.05
+    t2 = PriorityTable(p)
+    assert t2.w["guided.space-colon"] == t.w["guided.space-colon"]
+    p.unlink(missing_ok=True)
+```
+
+- [ ] **Step 4.2：跑测试确认失败**
+
+Run: `cd /mnt/e/MailSecLab/received-lab && python3 -m pytest research/tests/test_grammut.py -v`
+Expected: FAIL（ModuleNotFoundError）。
+
+- [ ] **Step 4.3：实现 grammut.py**
+
+```python
+"""变异器：字节级 + 行级 + 引导算子，MIMEminer 式 (selector, operator, priority) 反馈。
+
+行级算子对头块行操作（≈ MIMEminer 的节点级——头块的"节点"就是行/字段实例）。
+引导算子把 recfuzz 已证明的热点固化成原语（obs 冒号、大小写、折叠、重复实例），
+初始权重高于随机算子——引擎从已知盈利处起步，但不被它锁死（权重有界衰减）。
+所有算子只作用于头区（第一个 CRLFCRLF 之前），不可作用时返回 None。
+"""
+from __future__ import annotations
+
+import json
+import random
+import re
+from collections.abc import Callable
+from pathlib import Path
+
+_FIELD = re.compile(rb"(?m)^[!-9;-~]+:")
+
+
+def _zone_end(raw: bytes) -> int:
+    i = raw.find(b"\r\n\r\n")
+    return i if i >= 0 else len(raw)
+
+
+def _lines(raw: bytes):
+    end = _zone_end(raw)
+    zone, body = raw[:end], raw[end:]
+    return zone.split(b"\r\n"), body
+
+
+def _rebuild(lines_, body: bytes) -> bytes:
+    return b"\r\n".join(lines_) + body
+
+
+# ---- 引导算子（已知热点） ----
+
+def _before_colon(raw: bytes, rng, pad: bytes) -> bytes | None:
+    lines_, body = _lines(raw)
+    idx = [i for i, l in enumerate(lines_) if _FIELD.match(l)]
+    if not idx:
+        return None
+    i = rng.choice(idx)
+    colon = lines_[i].index(b":")
+    lines_[i] = lines_[i][:colon] + pad + lines_[i][colon:]
+    return _rebuild(lines_, body)
+
+
+def _case_name(raw: bytes, rng) -> bytes | None:
+    lines_, body = _lines(raw)
+    idx = [i for i, l in enumerate(lines_) if _FIELD.match(l)]
+    if not idx:
+        return None
+    i = rng.choice(idx)
+    name = lines_[i][:lines_[i].index(b":")]
+    flipped = bytes(b + 32 if 65 <= b <= 90 else b - 32 if 97 <= b <= 122 else b for b in name)
+    lines_[i] = flipped + lines_[i][len(name):]
+    return _rebuild(lines_, body)
+
+
+def _fold_line(raw: bytes, rng) -> bytes | None:
+    lines_, body = _lines(raw)
+    idx = [i for i, l in enumerate(lines_) if _FIELD.match(l) and len(l) > 8]
+    if not idx:
+        return None
+    i = rng.choice(idx)
+    pos = rng.randint(8, len(lines_[i]) - 1)
+    lines_[i] = lines_[i][:pos] + b"\r\n " + lines_[i][pos:]
+    return _rebuild(lines_, body)
+
+
+def _dup_line(raw: bytes, rng) -> bytes | None:
+    lines_, body = _lines(raw)
+    idx = [i for i, l in enumerate(lines_) if _FIELD.match(l)]
+    if not idx:
+        return None
+    i = rng.choice(idx)
+    lines_.insert(i, lines_[i])
+    return _rebuild(lines_, body)
+
+
+# ---- 随机算子 ----
+
+def _flip(raw: bytes, rng) -> bytes | None:
+    end = _zone_end(raw)
+    if end < 1:
+        return None
+    i = rng.randrange(end)
+    b = raw[i] ^ (1 << rng.randrange(8))
+    return raw[:i] + bytes([b]) + raw[i + 1:]
+
+
+def _ins(raw: bytes, rng) -> bytes | None:
+    end = _zone_end(raw)
+    i = rng.randrange(end + 1)
+    ch = bytes([rng.choice(b" \t:;()<>@,\\\"[]")) 
+    return raw[:i] + ch + raw[i:]
+
+
+def _del(raw: bytes, rng) -> bytes | None:
+    end = _zone_end(raw)
+    if end < 1:
+        return None
+    i = rng.randrange(end)
+    return raw[:i] + raw[i + 1:]
+
+
+def _ldup(raw: bytes, rng) -> bytes | None:
+    return _dup_line(raw, rng)
+
+
+def _ldel(raw: bytes, rng) -> bytes | None:
+    lines_, body = _lines(raw)
+    idx = [i for i, l in enumerate(lines_) if _FIELD.match(l)]
+    if not idx:
+        return None
+    i = rng.choice(idx)
+    del lines_[i]
+    return _rebuild(lines_, body)
+
+
+def _lmove(raw: bytes, rng) -> bytes | None:
+    lines_, body = _lines(raw)
+    idx = [i for i, l in enumerate(lines_) if _FIELD.match(l)]
+    if len(idx) < 2:
+        return None
+    a, b_ = rng.sample(idx, 2)
+    lines_[a], lines_[b_] = lines_[b_], lines_[a]
+    return _rebuild(lines_, body)
+
+
+GUIDED_OPS: dict[str, Callable] = {
+    "guided.space-colon": lambda r, rng: _before_colon(r, rng, b" "),
+    "guided.tab-colon": lambda r, rng: _before_colon(r, rng, b"\t"),
+    "guided.case-name": _case_name,
+    "guided.fold-line": _fold_line,
+    "guided.dup-line": _dup_line,
+}
+BYTE_OPS: dict[str, Callable] = {"byte.flip": _flip, "byte.insert": _ins, "byte.delete": _del}
+LINE_OPS: dict[str, Callable] = {"line.dup": _ldup, "line.del": _ldel, "line.move": _lmove}
+ALL_OPS = {**BYTE_OPS, **LINE_OPS, **GUIDED_OPS}
+
+DEFAULT_WEIGHTS = {
+    **{k: 0.4 for k in BYTE_OPS},
+    **{k: 0.8 for k in LINE_OPS},
+    **{k: 2.0 for k in GUIDED_OPS},
+}
+
+
+class PriorityTable:
+    """MIMEminer §4.3 的反馈：命中差分 → 权重×1.5（上限 8）；落空 → ×0.85（下限 0.05）。"""
+
+    def __init__(self, path: Path | None = None) -> None:
+        self.path = path
+        self.w = dict(DEFAULT_WEIGHTS)
+        if path and Path(path).exists():
+            self.w.update(json.loads(Path(path).read_text(encoding="utf-8")))
+
+    def pick(self, rng: random.Random) -> str:
+        return rng.choices(list(self.w), weights=list(self.w.values()))[0]
+
+    def reward(self, op: str) -> None:
+        self.w[op] = min(self.w[op] * 1.5, 8.0)
+        self._save()
+
+    def punish(self, op: str) -> None:
+        self.w[op] = max(self.w[op] * 0.85, 0.05)
+        self._save()
+
+    def _save(self) -> None:
+        if self.path:
+            Path(self.path).write_text(json.dumps(self.w, indent=1), encoding="utf-8")
+
+
+def mutate(raw: bytes, rng: random.Random, ops: tuple[str, ...] | None = None,
+           depth: int = 1) -> bytes | None:
+    """连续 depth 次随机算子；任一步不可作用则返回 None。"""
+    out = raw
+    for _ in range(depth):
+        pool = ops or tuple(ALL_OPS)
+        op = rng.choice(pool) if ops else None
+        if ops:
+            fn = ALL_OPS[op]
+        else:
+            op = PriorityTable().pick(rng)
+            fn = ALL_OPS[op]
+        nxt = fn(out, rng)
+        if nxt is None:
+            return None
+        out = nxt
+    return out
+```
+
+（实现注意：`mutate` 的非 ops 分支不要每次 new PriorityTable——gramfuzz 会显式传入选中的算子；此处保留 pick 接口供单测。）
+
+- [ ] **Step 4.4：跑测试确认通过**
+
+Run: `cd /mnt/e/MailSecLab/received-lab && python3 -m pytest research/tests/test_grammut.py -v`
+Expected: 4 passed。
+
+- [ ] **Step 4.5：提交**
+
+```bash
+git add research/lib/grammut.py research/tests/test_grammut.py
+git commit -m "加入 grammut 变异器：字节/行/引导算子与优先级反馈"
+```
+
+---
+
+## 任务 5：批量 parse 探针与 stage-1 漏斗（2 天）
+
+**Files:**
+- Create: `received-lab/research/parsers/parse_batch.py`、`parse_batch.go`、`parse_batch.js`
+- Create: `received-lab/research/lib/gramfuzz.py`
+- Modify: `received-lab/research/lib/diffrun.py`（`smtp_arm` 改为接收 raw）
+- Test: `received-lab/research/tests/test_gramfuzz_classify.py`
+
+**Stage-1 判定元组（三家一致的比较口径）**：`(received_count, from_in_headers, field_count)`，其中 `field_count` 一律为**去重字段名数**（小写）。任何两家不一致 = 差分；parser 报错与非报错也算不一致。
+
+- [ ] **Step 5.1：写三个批量探针**
+
+`research/parsers/parse_batch.py`（在 msl-client 内跑，语料经 /evidence 可见）：
+
+```python
+import email
+import json
+import sys
+from pathlib import Path
+
+for p in sorted(Path(sys.argv[1]).glob("*.eml")):
+    raw = p.read_bytes()
+    msg = email.message_from_bytes(raw)
+    print(json.dumps({
+        "case": p.stem,
+        "received_count": len(msg.get_all("Received") or []),
+        "from_in_headers": msg.get("From") is not None,
+        "field_count": len({k.lower() for k, _ in msg.items()}),
+        "defects": len(msg.defects),
+    }))
+```
+
+`research/parsers/parse_batch.go`：
+
+```go
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"net/mail"
+	"os"
+	"path/filepath"
+	"strings"
+)
+
+func main() {
+	files, _ := filepath.Glob(filepath.Join(os.Args[1], "*.eml"))
+	for _, f := range files {
+		raw, err := os.ReadFile(f)
+		out := map[string]any{"case": strings.TrimSuffix(filepath.Base(f), ".eml")}
+		if err != nil {
+			out["error"] = err.Error()
+		} else if m, err := mail.ReadMessage(bytes.NewReader(raw)); err != nil {
+			out["error"] = err.Error()
+		} else {
+			out["received_count"] = len(m.Header["Received"])
+			out["from_in_headers"] = m.Header.Get("From") != ""
+			out["field_count"] = len(m.Header)
+		}
+		b, _ := json.Marshal(out)
+		fmt.Println(string(b))
+	}
+}
+```
+
+`research/parsers/parse_batch.js`：
+
+```js
+const fs = require("fs");
+const path = require("path");
+const simpleParser = require("mailparser").simpleParser;
+
+(async () => {
+  const dir = process.argv[2];
+  for (const f of fs.readdirSync(dir).filter((x) => x.endsWith(".eml")).sort()) {
+    let out = { case: path.basename(f, ".eml") };
+    try {
+      const msg = await simpleParser(fs.readFileSync(path.join(dir, f)));
+      const rec = msg.headers.get("received");
+      let n = 0;
+      for (const _ of msg.headers) n++;
+      out.received_count = rec == null ? 0 : Array.isArray(rec) ? rec.length : 1;
+      out.from_in_headers = msg.headers.has("from");
+      out.field_count = n;
+    } catch (e) {
+      out.error = String(e);
+    }
+    console.log(JSON.stringify(out));
+  }
+})();
+```
+
+- [ ] **Step 5.2：diffrun.smtp_arm 重构（接收 raw 而非自建）**
+
+```python
+# research/lib/diffrun.py
+# 改签名：def smtp_arm(stage, ev_stage, variant, target, server, port, n, arm)
+#       → def smtp_arm(stage, ev_stage, case_id, target, server, port, raw, arm)
+# 函数体删除 build_raw 调用，直接用传入 raw；
+# run_diff 内改为：
+#     raw = build_raw(VARIANTS[variant], n=n, case_id=case_id)
+#     row = smtp_arm(stage, ev_stage, case_id, target, server, port, raw, arm)
+# 其余（corpus_check 门槛、发送、mailpit 捕获、facts、known 键）不动。
+```
+
+重构后跑既有回归：`python3 -m pytest research/tests/test_diffrun_variants.py -v` → 3 passed，再复跑一次 `python3 research/run.py --stage diff --run-id w3-20261003a` 的控制 case（v00-plain/postfix/threshold 期望 554，v01-obs-colon/osmtpd/capture 期望 obs-colon=25——known=true 应为 majority）。
+
+- [ ] **Step 5.3：gramfuzz.py 的 stage-1（生成 + 三 parser 批量差分）**
+
+`research/lib/gramfuzz.py` 核心（generate/stage1 两个 phase；stage2/report 在任务 6/7）：
+
+```python
+"""语法差分漏斗：corpus → stage1（本地三 parser 差分）→ stage2（中继/签名/消费）→ report。
+
+    python3 -m research.lib.gramfuzz <run_id> --phase corpus
+    python3 -m research.lib.gramfuzz <run_id> --phase stage1
+    python3 -m research.lib.gramfuzz <run_id> --phase stage2
+    python3 -m research.lib.gramfuzz <run_id> --phase report
+
+终点是 candidates.json——实验室确认的差分清单，作为 4-5 号工作（真实服务
+验证与披露）的决策门。本引擎不做任何对外动作。
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import random
+import subprocess
+import sys
+import tarfile
+import tempfile
+from pathlib import Path
+
+sys.path.insert(0, "/mnt/e/MailSecLab/received-lab")
+
+from research.lib import diffrun
+from research.lib.abnf import Grammar
+from research.lib.gramgen import build_message, generate_sample
+from research.lib.grammut import ALL_OPS, PriorityTable, mutate
+from research.lib.tracefacts import corpus_check, facts as trace_facts
+
+RESEARCH = Path("/mnt/e/MailSecLab/received-lab/research")
+RUN_ROOT = Path("/mnt/e/MailSecLab/received-lab/results/research")
+RFCS = ["/mnt/e/MailSecLab/references/rfc%s.txt" % n for n in ("5322", "5321", "8601", "6376", "8617", "6532")]
+
+FRESH_PER_ENTRY = 1500
+MUTATED_PER_ENTRY = 1500
+
+
+def _entries() -> list[dict]:
+    return json.loads((RESEARCH / "grammar" / "entries.json").read_text(encoding="utf-8"))["entries"]
+
+
+def phase_corpus(run_id: str, pt: PriorityTable) -> None:
+    g = Grammar.load_files(RFCS)
+    stage = RUN_ROOT / run_id / "gramfuzz"
+    corpus = stage / "corpus"
+    corpus.mkdir(parents=True, exist_ok=True)
+    rng = random.Random(20261003)
+    index = []
+    for entry in _entries():
+        symbol = entry["symbol"]
+        prefix = entry.get("prefix") or ""
+        made = 0
+        seed = 0
+        while made < FRESH_PER_ENTRY + MUTATED_PER_ENTRY and seed < 60000:
+            s = generate_sample(g, symbol, seed)
+            seed += 1
+            if s is None:
+                continue
+            gen = (prefix + s).encode("latin-1")
+            mutated = made >= FRESH_PER_ENTRY
+            op = pt.pick(rng) if mutated else None
+            case_id = ("gf-%s-%s-%04d" % (entry["name"], op, made) if mutated
+                       else "gf-%s-fresh-%04d" % (entry["name"], made))
+            base = build_message(gen, case_id)   # case_id 先定——Subject/X-Case-ID 即真实定位键
+            if corpus_check(base):
+                continue        # 生成伪影（双 CRLF 等）直接丢弃，F1 纪律
+            raw = mutate(base, rng, ops=(op,)) if mutated else base
+            if raw is None:
+                continue        # 该算子对此样本不可作用
+            # 变异样本不再过 corpus_check：结构异常（sink/折叠/重复实例）正是被测信号
+            (corpus / ("%s.eml" % case_id)).write_bytes(raw)
+            index.append({"case": case_id, "entry": entry["name"], "mutated": mutated,
+                          "op": op, "gen_bytes": gen.hex(),
+                          "input_sha256": hashlib.sha256(raw).hexdigest()})
+            made += 1
+    (stage / "corpus-index.json").write_text(json.dumps(index, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("corpus:", len(index), "files")
+```
+
+注意两点：`import hashlib` 加进顶部 import；**不要**用占位 case_id 再改写（Subject/Message-ID/X-Case-ID 必须一次写对，mailpit 按主题抓取依赖它）。
+
+
+def phase_stage1(run_id: str, pt: PriorityTable) -> None:
+    stage = RUN_ROOT / run_id / "gramfuzz"
+    corpus = stage / "corpus"
+    ev_corpus = "/evidence/%s/gramfuzz/corpus" % run_id
+    views = {"python": _run_python(ev_corpus), "go": _run_go(corpus), "node": _run_node(corpus)}
+    rows, survivors = [], []
+    for item in json.loads((stage / "corpus-index.json").read_text(encoding="utf-8")):
+        case = item["case"]
+        tv = {k: _tuple(v.get(case)) for k, v in views.items()}
+        diff = len({tv["python"], tv["go"], tv["node"]}) > 1
+        row = dict(item, views=tv, stage1_diff=diff)
+        rows.append(row)
+        if diff:
+            survivors.append(case)
+    (stage / "stage1.json").write_text(json.dumps(rows, ensure_ascii=False, indent=1), encoding="utf-8")
+    (stage / "survivors.json").write_text(json.dumps(survivors, indent=1), encoding="utf-8")
+    print("stage1: %d/%d survivors" % (len(survivors), len(rows)))
+
+
+def _tuple(v: dict) -> tuple:
+    if v is None or "error" in v:
+        return ("error",)
+    return (v["received_count"], v["from_in_headers"], v["field_count"])
+
+
+def _run_python(ev_corpus: str) -> dict:
+    code, out, _ = diffrun.sh(["docker", "exec", "msl-client", "python3",
+                               "/opt/research/parsers/parse_batch.py", ev_corpus], timeout=1800)
+    return {r["case"]: r for r in map(json.loads, out.splitlines()) if "case" in r}
+
+
+def _run_go(corpus: Path) -> dict:
+    return _container_batch(corpus, "go", ["sh", "-c", "cd /tmp/pb && go build -o pb parse_batch.go && ./pb /tmp/corpus"])
+
+
+def _run_node(corpus: Path) -> dict:
+    return _container_batch(corpus, "node", ["node", "/tmp/pb/parse_batch.js", "/tmp/corpus"])
+
+
+def _container_batch(corpus: Path, target: str, cmd: list[str]) -> dict:
+    cfg = json.loads((RESEARCH / "diffrun-targets.json").read_text(encoding="utf-8"))
+    container = cfg["parse"][target]["container"]
+    with tempfile.TemporaryDirectory() as td:
+        tgz = Path(td) / "c.tgz"
+        with tarfile.open(tgz, "w:gz") as tf:
+            tf.add(RESEARCH / "parsers" / ("parse_batch.%s" % ("go" if target == "go" else "js")),
+                   arcname="pb/parse_batch." + ("go" if target == "go" else "js"))
+            tf.add(corpus, arcname="corpus")
+        _ = diffrun.sh(["docker", "exec", container, "mkdir", "-p", "/tmp/pb"], timeout=60)
+        with open(tgz, "rb") as fh:
+            subprocess.run(["docker", "exec", "-i", container, "tar", "-xzf", "-", "-C", "/tmp"],
+                           stdin=fh, check=True, timeout=600)
+        code, out, err = diffrun.sh(["docker", "exec", container] + cmd, timeout=1800)
+        return {r["case"]: r for r in map(json.loads, out.splitlines()) if "case" in r}
+```
+
+实现自由度：`_run_go`/`_run_node` 的容器名沿用 diffrun-targets.json；go 容器若没有可写 /tmp 与 go build 离线能力，改用 `go run`（w3 已验证 msl-verifiers 可离线 `go run` 标准库）；node 容器按 w3 记录需要 `NODE_PATH=/app/node_modules`（docker exec 加 `-e NODE_PATH=/app/node_modules -w /app`）。**corpus 目录 ~3 万小文件，tar 一次、exec 一次，不要逐文件 exec。**
+
+- [ ] **Step 5.4：stage-1 校准测试（用 w3 已知结果锚定）**
+
+```python
+"""stage-1 校准：w3 diffrun parse 列的六个已知格必须复现。"""
+import sys
+from pathlib import Path
+
+sys.path.insert(0, "/mnt/e/MailSecLab/received-lab")
+from research.lib.gramfuzz import _tuple  # noqa: E402  (若尚未有 __init__ 导出则直接内联同样逻辑)
+
+
+W3 = Path("/mnt/e/MailSecLab/received-lab/results/research/w3-20261003a/diffrun")
+
+
+def _views_from_w3(case_prefix: str) -> dict:
+    """直接用 w3 存档跑三家批量探针（而不是重放 gramfuzz 语料）。"""
+    # 执行者注意：把 w3 的 v0X-<form>__corpus__capture.eml（或 parse 语料 .eml）
+    # 复制到临时目录后调用 gramfuzz 的 _run_python/_run_go/_run_node。
+    ...
+```
+
+**执行者操作**（这个测试是手工校准步骤，不是自动化断言）：把 w3 的 8 个 parse 语料 `.eml` 复制进临时目录，跑三个批量探针，人工核对下表并写入 `gramfuzz/calibration.json`：
+
+| 形态 | 预期（w3 diffrun parse 列锚定） |
+| --- | --- |
+| v00-plain | 三家一致 |
+| v02-case | 三家一致 |
+| v01-obs-colon | 不一致（python 0 / go 0 / node 25） |
+| v03-nocolon | 不一致（python from=F，go/node from=T） |
+| v04-8bit-name | 不一致（python from=F，go/node from=T） |
+| v07-tab-name | 不一致（python 0/F，go 0/T，node 25/T） |
+| v05-cfws / v06-comment | 记录实际值（w3 旧维度上一致；field_count 是新维度，结果记入 calibration.json，不预判） |
+
+任何一个预期格不符 → 先修批量探针/比较口径，不带病跑 3 万样本。
+
+- [ ] **Step 5.5：提交**
+
+```bash
+git add research/parsers/parse_batch.py research/parsers/parse_batch.go research/parsers/parse_batch.js \
+        research/lib/gramfuzz.py research/lib/diffrun.py research/tests/test_gramfuzz_classify.py
+git commit -m "加入 gramfuzz stage-1 漏斗：三 parser 批量差分与 w3 锚定校准"
+```
+
+---
+
+## 任务 6：stage-2 三臂接线（2 天）
+
+**Files:**
+- Modify: `received-lab/research/lib/gramfuzz.py`（加 phase_stage2 + classify）
+- Test: `received-lab/research/tests/test_gramfuzz_classify.py`
+
+**三臂定义：**
+
+| 臂 | 对象 | 观测 | 复用 |
+| --- | --- | --- | --- |
+| (a) 中继捕获臂 | 幸存者 × {postfix, exim, osmtpd} | SMTP 码 + 存档字节 → 生成头是否逐字节存活 | diffrun.smtp_arm（重构后）+ w3 捕获路由 |
+| (b) 签名验证臂 | 幸存者子集（identity/AR/DKIM 条目） | 固定签名 + 生成头注入 → 四验证器判定 | w1 sign_cases + verify_one，KB2 锚 |
+| (c) 消费臂 | 幸存者子集（from 族） | 投递到 bob@ 后 IMAP ENVELOPE | w2 identity_imap/imap_probe 模式 |
+
+- [ ] **Step 6.1：栈手术（重放 w3 的捕获路由，任务 7 结束后回滚）**
+
+按 w3 `diffrun/RECORD.md` 仪器记录重放：exim route→`msl-mailpit:1025`、opensmtpd relay→`msl-mailpit:1025`、auth-postfix `transport_maps` capture@→mailpit。启动 WSL 保活（同 w2 STATE.md 的做法）。全部手术与回滚写进本 run 的 STATE 增量段。
+
+- [ ] **Step 6.2：中继捕获臂（diffrun.smtp_arm 复用）**
+
+```python
+def phase_stage2(run_id: str, pt: PriorityTable, cap: int = 400) -> None:
+    stage = RUN_ROOT / run_id / "gramfuzz"
+    corpus = stage / "corpus"
+    survivors = json.loads((stage / "survivors.json").read_text(encoding="utf-8"))
+    # 语义去重 + 按入口分层抽样，硬上限 cap
+    survivors = _dedup_and_cap(stage, survivors, cap)
+    targets, _ = diffrun.load_config()
+    rows = []
+    for case in survivors:
+        raw = (corpus / ("%s.eml" % case)).read_bytes()
+        gen_hex = _gen_hex(stage, case)
+        row = {"case": case, "relay": {}}
+        for target, (server, port) in targets.items():
+            try:
+                r = diffrun.smtp_arm(stage, "/evidence/%s/gramfuzz" % run_id, case,
+                                     target, server, port, raw, "relay")
+                r["gen_preserved"] = bytes.fromhex(gen_hex) in (corpus.parent / "relay" / ("%s.%s.stored.raw" % (case, target))).read_bytes() if r.get("captured") else None
+                row["relay"][target] = r
+            except Exception as exc:
+                row["relay"][target] = {"error": str(exc)}
+        rows.append(row)
+    (stage / "stage2.json").write_text(json.dumps(rows, ensure_ascii=False, indent=1), encoding="utf-8")
+```
+
+（`_dedup_and_cap`/`_gen_hex` 为小工具函数：前者按 `(entry, views 元组)` 去重后按入口等额抽样；后者从 corpus-index 取生成头十六进制。diffrun.smtp_arm 的存档文件名规则以其实现为准——先读 diffrun.py 再对齐路径，不要猜。）
+
+- [ ] **Step 6.3：签名验证臂（KB2 锚定正确性）**
+
+执行者先读 `research/lib/sign_cases.py` 与 `research/lib/verify_one.py` 的函数签名再接线（计划不臆造 API）。流程：
+
+1. 模板信（From/To/Date/Subject + X-Case-ID）用 cal 密钥签名（relaxed/relaxed，h= 覆盖 from:to:subject:date）。
+2. 生成头插在 DKIM-Signature 之上（s2 模式），四验证器（dkimpy/perl/go/rspamd）文件级验证 + 过 auth-postfix 后再验证。
+3. **正确性锚（必须先过再跑批量）**：手工构造一条 `Received : from x by y; date` 注入行 → 必须复现 KB2（dkimpy parse-error / perl pass / go pass / rspamd pass）。锚不中 → 修接线。
+
+- [ ] **Step 6.4：消费臂（IMAP ENVELOPE）**
+
+幸存者中 from 族条目投递到 `bob@lab.test`（经 auth-postfix 标准链到 Dovecot），用 w2 `identity_imap.py` 模式取 ENVELOPE From 槽 + `SEARCH HEADER FROM`，与头区实际实例对照。预算：≤100 例。
+
+- [ ] **Step 6.5：classify（系列自动归类）+ 测试**
+
+```python
+def classify(row: dict) -> list[str]:
+    """按“首个分歧动词”归系列；跨系列记链。"""
+    series = []
+    if len({tuple(v) for v in row.get("views", {}).values()}) > 1:
+        series.append("P")
+    relay = row.get("relay", {})
+    preserved = [t.get("gen_preserved") for t in relay.values() if t.get("captured")]
+    if len(set(preserved)) > 1 or (preserved and not any(preserved)):
+        series.append("T")
+    if len({v for v in row.get("verdicts", {}).values()}) > 1:
+        series.append("X")
+    if row.get("envelope_from") and row.get("envelope_from") != row.get("header_from_first"):
+        series.append("D")
+    return series or ["U"]
+```
+
+`research/tests/test_gramfuzz_classify.py`：
+
+```python
+import sys
+sys.path.insert(0, "/mnt/e/MailSecLab/received-lab")
+from research.lib.gramfuzz import classify
+
+
+def test_p_only():
+    row = {"views": {"python": (0, False, 8), "go": (0, True, 7), "node": (25, True, 7)}}
+    assert classify(row) == ["P"]
+
+
+def test_t_chain_when_relay_disagrees_on_preservation():
+    row = {"views": {"python": (0, True, 8), "go": (0, True, 7), "node": (25, True, 7)},
+           "relay": {"postfix": {"captured": True, "gen_preserved": False},
+                     "exim": {"captured": True, "gen_preserved": True}}}
+    assert classify(row) == ["P", "T"]
+
+
+def test_u_when_no_signal():
+    assert classify({}) == ["U"]
+```
+
+- [ ] **Step 6.6：提交**
+
+```bash
+git add research/lib/gramfuzz.py research/tests/test_gramfuzz_classify.py
+git commit -m "接入 gramfuzz stage-2 三臂：中继捕获/签名验证/IMAP 消费"
+```
+
+---
+
+## 任务 7：首轮 campaign 与 candidates.json（1.5 天）
+
+**Files:**
+- Create: `received-lab/results/research/w4-<执行日期>a/gramfuzz/`（run_id 按实际日期，形如 w4-20261005a）
+- Create: `candidates.json`、`RECORD.md`（同目录）
+
+- [ ] **Step 7.1：全量跑**
+
+```bash
+cd /mnt/e/MailSecLab/received-lab
+RUN=w4-20261005a   # 按实际执行日期改
+python3 -m research.lib.gramfuzz $RUN --phase corpus
+python3 -m research.lib.gramfuzz $RUN --phase stage1
+python3 -m research.lib.gramfuzz $RUN --phase stage2
+python3 -m research.lib.gramfuzz $RUN --phase report
+```
+
+预算：corpus ~3 万文件（11 入口 × 3000）；stage-1 三个批量 exec（各 ≤30 分钟）；stage-2 幸存者 ≤400 × 3 目标 × 0.8s ≈ 16 分钟 + 签名臂 ≤100 + 消费臂 ≤100。全程保活；Docker resource-saver 检查。
+
+- [ ] **Step 7.2：report phase 产出 candidates.json（4-5 号工作的门）**
+
+```json
+{
+  "generated_at": "2026-10-05T…",
+  "gate_for": "真实服务验证（4）与披露（5）——负责人决策，未授权不执行",
+  "candidates": [
+    {
+      "case": "gf-from-guided.space-colon-0123",
+      "series": ["P", "T", "X"],
+      "root_cause": "repair",
+      "summary": "obs-From 注入：exim 保留、postfix 规范化，dkimpy 判定随路径相反",
+      "evidence": {"input": "corpus/….eml", "input_sha256": "…",
+                    "relay": {"postfix": "relay/….stored.raw", "exim": "…"},
+                    "verdicts": {"dkimpy": "…", "perl": "…", "go": "…", "rspamd": "…"}},
+      "lab_confirmed": true
+    }
+  ],
+  "counts": {"P": 0, "T": 0, "X": 0, "D": 0, "U": 0}
+}
+```
+
+判定规则：`lab_confirmed = true` 需同时满足（系列含 T/X/D 之一）且（证据链四件套齐：输入 eml+sha256、SMTP 转录、存档 raw、验证器/消费输出）。纯 P（只有 parser 不一致、无下游后果）的行保留在 stage1.json，不进 candidates——它们是 L1 素材，不是 4-5 的门材料。
+
+- [ ] **Step 7.3：人工复核与 RECORD.md**
+
+对 candidates 按系列抽样 ≥20% 人工复核（字节级确认存档差异真实、不是仪器伪影——w3 的 fetch 竞态与主题沉没教训）。RECORD.md 记：漏斗各层数量（corpus → survivors → relay 差分 → candidates）、按系列的分布表、新原语清单（与 TAXONOMY 既有条目对照，只列**新**的）、阴性面（哪些入口零差分）。
+
+- [ ] **Step 7.4：栈回滚**
+
+按 STATE 增量段回滚捕获路由三处手术；停保活；`docker compose ps` 核对。
+
+- [ ] **Step 7.5：提交**
+
+```bash
+git add results/research/w4-20261005a/gramfuzz research/grammar research/lib/gramfuzz.py
+git commit -m "记录 gramfuzz 首轮 campaign：漏斗统计与实验室确认差分清单"
+```
+
+---
+
+## 任务 8：TAXONOMY.md —— 攻击分类学（1 天）
+
+**Files:**
+- Create: `received-lab/results/research/TAXONOMY.md`
+- Create: `received-lab/results/research/taxonomy.json`
+
+- [ ] **Step 8.1：写 TAXONOMY.md（以下为完整内容，证据指针执行时逐条核对存在性）**
+
+```markdown
+# 邮件顶层头攻击分类学（P/T/X/D × 根因）
+
+组织规则：**系列 = 首个分歧动词在五阶段生命周期（生成→解析→变换→信任→展示）中的位置**；
+跨阶段的影响记为链（如 T→X）。根因四选一：tolerance（语法容错位置）/ repair（修复策略）/
+trust-boundary（信任边界假设）/ normalization（归一化与实例选择策略）。
+新发现（gramfuzz candidates）按同一规则入表，编号接续。
+阴性地图见 SYNTHESIS.md，不在本表重复。
+
+## P —— 识别差分（同字节，识别出的字段集合/边界/计数不同）
+
+| ID | 原语 | 根因 | 证据 |
+| --- | --- | --- | --- |
+| P1 | obs-colon 计数：Postfix 计 / Exim 计 / OpenSMTPD 不计（字节保留维度另见 T1） | tolerance | w3 diffrun；E3 |
+| P2 | 盲区族：nocolon/8bit/cfws/comment 四形态，三台环路计数器全盲 | tolerance | w3 diffrun |
+| P3 | 8-bit 字段名终结头区，后续字段沉正文 | tolerance | w2 A-3；V007 |
+| P4 | parser 三命运：python 头区死亡 / go 忽略 / node 计入 | tolerance | w3 diffrun parse 列 |
+| P5 | 末位 tag 优先：DKIM d= / 密钥 p= / DMARC p= 三层独立出现 | normalization | w2 keyprobe、dmarcfuzz、align2 |
+
+## T —— 变换差分（中继对字节的改写不同：规范化/保留/折叠/沉没/新增）
+
+| ID | 原语 | 根因 | 证据 |
+| --- | --- | --- | --- |
+| T1 | obs 行字节：Postfix 改写 / Exim 保留 / OpenSMTPD 保留（保留与计数为独立维度） | repair | w3 diffrun 捕获臂 |
+| T2 | 修复决定判决：同一注入信，osmtpd 保留使 dkimpy parse-error 入箱，postfix 规范化使其全 pass | repair | w3 sigprobe2 s2 |
+| T3 | 单跳性质过异构中继 persist/break/created（七个性质 × Exim/OpenSMTPD） | repair | w2 repair |
+| T4 | obs 形态不可签：12/12 格无验证器/路径验过（防御侧强结果） | repair | w3 sigprobe2 s1 |
+
+## X —— 信任差分（采信的身份/实例/结果不同 → 安全结论翻转）
+
+| ID | 原语 | 根因 | 证据 |
+| --- | --- | --- | --- |
+| X1 | 重复 From 实例选择：perl/go 自底向上 vs dkimpy/rspamd 直接 fail | normalization | w1 causal |
+| X2 | U-label 评估器分裂：OpenDMARC none vs rspamd REJECT（CVE-2026-100891 核心，独立复现） | normalization | w2 A 线 |
+| X3 | 执行翻转：同一欺骗信 A-label 550 / U-label 250 | trust-boundary | w2 eai-enforce |
+| X4 | 外域 AR 存活（本域被剥离、外域不剥）+ 下游渲染为可信徽章 | trust-boundary | w2 arsurv |
+| X5 | rspamd source 归因取顶部 Received from-clause，伪造链文件扫描可劫持；诚实中继后恢复 | trust-boundary | w1 i2 |
+| X6 | 群组/domain-literal From 使 rspamd DMARC 静默（OpenDMARC 同信正常 fail） | normalization | w2 void、hdrfuzz3 |
+
+## D —— 展示/消费差分（最终呈现给用户或下游系统的身份不同）
+
+| ID | 原语 | 根因 | 证据 |
+| --- | --- | --- | --- |
+| D1 | 同一突变体 Roundcube 显示底部实例（Author）、SnappyMail 显示顶部（Attacker） | normalization | w1 causal + clients |
+| D2 | A-label/NFC/NFD 三形态全部渲染为受害者 Unicode 品牌 | normalization | w2 display |
+| D3 | ENVELOPE 取首元素、SEARCH HEADER FROM 为 any-instance 语义 | normalization | w2 exec |
+| D4 | rua 聚合按 pdomain 分组，U-label 事件结构性缺席 | normalization | w2 rua |
+
+## 待归类（gramfuzz candidates 入口）
+
+w4 campaign 的新原语按上述规则编号入表（P6+、T5+、X7+、D5+），
+root_cause 由人工判定（classify 只给系列，不给根因）。
+```
+
+- [ ] **Step 8.2：taxonomy.json（机器可读索引，供 candidates 自动对齐）**
+
+```json
+{
+  "series": {"P": "识别差分", "T": "变换差分", "X": "信任差分", "D": "展示/消费差分"},
+  "root_causes": ["tolerance", "repair", "trust-boundary", "normalization"],
+  "primitives": [
+    {"id": "P1", "series": "P", "root_cause": "tolerance", "evidence": "w3 diffrun; E3"},
+    {"id": "T2", "series": "T", "root_cause": "repair", "evidence": "w3 sigprobe2 s2"}
+  ]
+}
+```
+
+（primitives 数组含全部 19 条，内容与 TAXONOMY.md 表一致——写全，不要省略号。）
+
+- [ ] **Step 8.3：核对与提交**
+
+每行证据指针用 `ls`/`grep` 核对存在；与 SYNTHESIS.md 的三级结构交叉引用（SYNTHESIS 的 L1/L2/L3 对应本表的 P/T+X/D，在两文档各加一行说明映射关系）。
+
+```bash
+git add results/research/TAXONOMY.md results/research/taxonomy.json results/research/SYNTHESIS.md
+git commit -m "建立 P/T/X/D 攻击分类学与三级结构映射"
+```
+
+---
+
+## 任务 9：AGENTS.md 与运行手册（0.5 天）
+
+**Files:**
+- Modify: `E:\MailSecLab\AGENTS.md`
+- Create: `received-lab/research/grammar/README.md`
+
+- [ ] **Step 9.1：AGENTS.md 三处更新**
+
+1. 「环境与操作」表后加一行：`语法引擎：research/lib/{abnf,gramgen,grammut,gramfuzz}.py，入口配置 research/grammar/entries.json，RFC 文本 references/rfc*.txt。` 
+2. 「已可引用的结果」加 gramfuzz 首轮 campaign 的结论行（以 RECORD.md 为准填写，无结果不预写）。
+3. 「后续开发」更新开放项：新增 `4/5 号工作（真实服务验证与披露）——门是 results/research/w4-*/gramfuzz/candidates.json 非空且证据链完整，负责人决策后另行计划`。
+
+- [ ] **Step 9.2：research/grammar/README.md（运行手册）**
+
+内容：四 phase 命令、栈手术与回滚指针（w3 仪器记录）、校准步骤（w3 六锚）、优先级权重文件位置与语义、candidates 判定规则（lab_confirmed 四件套）。
+
+- [ ] **Step 9.3：提交**
+
+```bash
+git add AGENTS.md research/grammar/README.md
+git commit -m "登记 gramfuzz 语法引擎与 4-5 号工作决策门"
+```
+
+---
+
+## 验收与停止规则
+
+- 每个阶段有门槛：stage-1 校准六锚不中 → 停，修比较口径；KB2 锚不中 → 停，修签名臂接线；w3 控制信不中 → 停，修捕获路由。**不带病跑批量。**
+- 事实只出自 tracefacts；比较元组只在 `_tuple` 一处定义。
+- 语料发送前必过 corpus_check（生成伪影丢弃，F1 纪律）；定位用 X-Case-ID；头区可能被终结时在整封 raw 里搜。
+- stage-2 速率 ≥0.8s/封；栈手术记录进 STATE 增量段并在 campaign 后回滚核对。
+- candidates 的 lab_confirmed 需人工抽样 ≥20% 字节级复核。
+- 阴性入口（零差分）照记进 RECORD——它们是分类学的边界，不是失败。
+- 4-5 号工作未获负责人授权不得启动；本计划终点是 candidates.json。
+
+## 时间预算（单人）
+
+| 任务 | 预算 |
+| --- | --- |
+| 1 RFC 文本与规则名发现 | 0.5 天 |
+| 2 abnf.py | 2 天 |
+| 3 gramgen.py + entries | 1.5 天 |
+| 4 grammut.py | 1 天 |
+| 5 批量探针 + stage-1 漏斗 | 2 天 |
+| 6 stage-2 三臂 | 2 天 |
+| 7 首轮 campaign | 1.5 天 |
+| 8 TAXONOMY | 1 天 |
+| 9 AGENTS.md + 手册 | 0.5 天 |
+| **合计** | **约 12 天** |
+
+关键路径：1→2→3→4→5→6→7；任务 8 可与 5–7 并行。

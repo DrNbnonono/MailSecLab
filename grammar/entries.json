@@ -1,0 +1,17 @@
+{
+  "entries": [
+    {"name": "received",      "symbol": "received",      "rfcs": ["rfc5322"]},
+    {"name": "obs-received",  "symbol": "obs-received",  "rfcs": ["rfc5322"]},
+    {"name": "from",          "symbol": "from",          "rfcs": ["rfc5322"]},
+    {"name": "obs-from",      "symbol": "obs-from",      "rfcs": ["rfc5322"]},
+    {"name": "sender",        "symbol": "sender",        "rfcs": ["rfc5322"]},
+    {"name": "reply-to",      "symbol": "reply-to",      "rfcs": ["rfc5322"]},
+    {"name": "return-path",   "symbol": "return",        "rfcs": ["rfc5322"]},
+    {"name": "resent-from",   "symbol": "resent-from",   "rfcs": ["rfc5322"]},
+    {"name": "authres",       "symbol": "authres-header-field", "prefix": null, "rfcs": ["rfc5322", "rfc8601"]},
+    {"name": "dkim-tags",     "symbol": "tag-list",      "prefix": "DKIM-Signature: ", "rfcs": ["rfc5322", "rfc6376"]},
+    {"name": "arc-aar",       "symbol": "arc-authres-header", "prefix": null, "rfcs": ["rfc5322", "rfc8617"], "stage2": false},
+    {"name": "arc-ams",       "symbol": "arc-message-signature", "prefix": null, "rfcs": ["rfc5322", "rfc8617"], "stage2": false},
+    {"name": "arc-as",        "symbol": "arc-seal",      "prefix": null, "rfcs": ["rfc5322", "rfc8617"], "stage2": false}
+  ]
+}

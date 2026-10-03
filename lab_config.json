@@ -1,0 +1,5 @@
+{
+  "mailseclab_root": "/mnt/e/MailSecLab/received-lab",
+  "run_root_relative": "results/research",
+  "note": "WSL 路径。工具代码独立于 MailSecLab，但共享设施（diffrun/tracefacts/evidence）、目标配置（diffrun-targets.json）与运行产物目录（/evidence 容器挂载映射到 results/research/<run-id>/）都来自实验室仓库。"
+}

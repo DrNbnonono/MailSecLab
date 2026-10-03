@@ -31,6 +31,13 @@ w2 run 总案例数 ≈ 2500（hdrfuzz 30 + hdrfuzz2 240 + hdrfuzz3 900 + hdrfuz
 - msl-mailpit 已接入研究网（SMTP 1025 / API 8025，容器内名 msl-mailpit）。
 - opensmtpd 路由=msl-auth-postfix:25（默认）。
 
+## 回滚完成记录（2026-10-03 任务 7 收尾）
+
+- exim route→msl-auth-postfix:25 ✓、opensmtpd relay→msl-auth-postfix:25 ✓、postfix transport_maps 清空 ✓（capture 捕获路由已撤）。
+- parser-node 容器保留运行（diffrun parse 目标，复用时直接可用）；msl-mailpit 保留在研究网（已在 STATE 记录）。
+- 保活任务 exec_c1499e76 已停止（见下）。
+- rspamd asn/surbl/rbl=off、actions reject=999、dmarc/spf 模块启用等 w2 实验态**未回滚**（后续实验继续用；如需纯净默认栈按本文件回滚表逐项处理）。
+
 ## 活动后台任务（勿忘）
 
 - **Windows 侧 WSL 保活**：exec_c1499e76（每 15s docker exec 防休眠）——实验全部结束后停掉。

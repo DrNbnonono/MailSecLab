@@ -144,10 +144,16 @@ def fetch_mailpit(case_id: str, container_rel_path: str, host_path: Path) -> byt
     return None
 
 
-def smtp_arm(stage: Path, ev_stage: str, variant: str, target: str,
-             server: str, port: int, n: int, arm: str) -> dict:
-    case_id = variant_name(variant, target, arm)
-    raw = build_raw(VARIANTS[variant], n=n, case_id=case_id)
+def smtp_arm(stage: Path, ev_stage: str, case_id: str, target: str,
+             server: str, port: int, raw: bytes, arm: str) -> dict:
+    """发送一封调用方构建好的 raw（corpus_check 门槛不变）。
+
+    2026-10-03 gramfuzz 前置重构：raw 由调用方传入（diffrun 的 run_diff 用
+    build_raw 现建；gramfuzz 的 stage-2 直接喂语料文件）。variant 从 case_id
+    （<variant>__<target>__<arm> 约定）恢复，供 known 键使用；n 不再属于本
+    函数，由调用方按需补记进行。
+    """
+    variant = case_id.split("__", 1)[0] if "__" in case_id else case_id
     problems = corpus_check(raw)
     if problems:
         raise RuntimeError(f"{case_id}: corpus 自检未通过 {problems}")
@@ -168,7 +174,7 @@ def smtp_arm(stage: Path, ev_stage: str, variant: str, target: str,
         stored = fetch_mailpit(
             case_id, f"{ev_stage}/{case_id}.stored.raw", stage / f"{case_id}.stored.raw")
     return {
-        "case": case_id, "variant": variant, "target": target, "arm": arm, "n": n,
+        "case": case_id, "variant": variant, "target": target, "arm": arm,
         "smtp_code": (sent.get("reply") or "")[:3],
         "smtp": (sent.get("reply") or "")[:60],
         "captured": stored is not None,
@@ -216,7 +222,10 @@ def run_diff(run_id: str) -> dict:
         for target, (server, port) in targets.items():
             for arm, n in (("threshold", N_THRESHOLD), ("capture", N_CAPTURE)):
                 try:
-                    row = smtp_arm(stage, ev_stage, variant, target, server, port, n, arm)
+                    case_id = variant_name(variant, target, arm)
+                    raw = build_raw(VARIANTS[variant], n=n, case_id=case_id)
+                    row = smtp_arm(stage, ev_stage, case_id, target, server, port, raw, arm)
+                    row["n"] = n  # smtp_arm 改收 raw 后不再知道 n；补记保持 w3 行结构
                 except Exception as exc:  # 仪器故障记问题，不静默
                     problems.append(f"{variant}/{target}/{arm}: {exc}")
                     continue

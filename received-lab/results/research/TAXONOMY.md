@@ -11,19 +11,21 @@
 | P1 | obs-colon 计数：Postfix 计 / Exim 计 / OpenSMTPD 不计（字节保留维度另见 T1） | tolerance | w3 `diffrun/`；E3 |
 | P2 | 盲区族：nocolon/8bit/cfws/comment 四形态，三台环路计数器全盲 | tolerance | w3 `diffrun/` |
 | P3 | 8-bit 字段名终结头区，后续字段沉正文 | tolerance | w2 `eai/` A-3；V007 |
-| P4 | parser 三命运：python 头区死亡 / go 忽略 / node 计入（w4 一般化到全部 13 入口族） | tolerance | w3 `diffrun/` parse 列；w4 `stage1.json` |
+| P4 | parser 三命运：python 头区死亡 / go 忽略 / node 计入（w4 一般化到全部 13 入口族）。**w5 符合性：python email 的头区终结违反 RFC 5322 §3.1 obs「MUST be honored」——上游已知（CPython #93176 仍 open，3.13 未修）（V10）** | tolerance | w3 `diffrun/` parse 列；w4 `stage1.json`；w5 conformance V10 |
 | P5 | 末位 tag 优先：DKIM d= / 密钥 p= / DMARC p= 三层独立出现 | normalization | w2 `keyprobe/`、`dmarcfuzz/`、`align2/` |
 
 ## T —— 变换差分（中继对字节的改写不同：规范化/保留/折叠/沉没/新增）
 
 | ID | 原语 | 根因 | 证据 |
 | --- | --- | --- | --- |
-| T1 | obs 行字节：Postfix 改写 / Exim 保留 / OpenSMTPD 保留（保留与计数为独立维度）。w4 扩展：obs 冒号规范化不止 Received——`From\t\t\t:` 等身份头同样被 Postfix 改写为 `From:` | repair | w3 `diffrun/` 捕获臂；w4 `relay/` |
+| T1 | obs 行字节：Postfix 改写 / Exim 保留 / OpenSMTPD 保留（保留与计数为独立维度）。w4 扩展：obs 冒号规范化不止 Received——`From\t\t\t:` 等身份头同样被 Postfix 改写为 `From:`。**w5 符合性：违反 RFC 5321 §4.4「MUST NOT change or delete a Received: line」（V3，postfix.org 无记载，3.11.6 未复测）** | repair | w3 `diffrun/` 捕获臂；w4 `relay/`；w5 conformance V3 |
 | T2 | 修复决定判决：同一注入信，osmtpd 保留使 dkimpy parse-error 入箱，postfix 规范化使其全 pass | repair | w3 `sigprobe2/` s2 |
 | T3 | 单跳性质过异构中继 persist/break/created（七个性质 × Exim/OpenSMTPD） | repair | w2 `repair/` |
 | T4 | obs 形态不可签：12/12 格无验证器/路径验过（防御侧强结果） | repair | w3 `sigprobe2/` s1 |
-| T5 | **mbox `From ` 行歧义**：首行 `From`+空格 → Postfix 抬升为 `X-Mailbox-Line:` 并在该行终结头区，DKIM-Signature 与全部身份头沉入正文；空格 vs 仅 tab 一字节类别翻转整个处理路径（`From \t:"` 沉没 vs `From\t\t\t:` 被规范化）。判定链：文件级 dkimpy=tool-error / perl+go+rspamd=pass → 过 postfix 后 perl/go/rspamd=none（signature_count:0） | repair | w4 `sign/`（gf-obs-from-fresh-000{0,2}-sign，7 例） |
-| T6 | **Exim 尾部空白折行丢弃**：头部前段逐字节保留、尾部纯 WSP 折行被丢（postfix/osmtpd 全保）——独立于 T1 的 obs 冒号维度 | repair | w4 `relay/`（23 例「仅 exim 改写」组合） |
+| T5 | **mbox `From ` 行歧义**：首行 `From`+空格 → Postfix 抬升为 `X-Mailbox-Line:` 并在该行终结头区，DKIM-Signature 与全部身份头沉入正文；空格 vs 仅 tab 一字节类别翻转整个处理路径（`From \t:"` 沉没 vs `From\t\t\t:` 被规范化）。判定链：文件级 dkimpy=tool-error / perl+go+rspamd=pass → 过 postfix 后 perl/go/rspamd=none（signature_count:0）。w5 符合性：上游 master smtpd.c L3782–3791 为有意设计（Qualys+Mythos 安全缓解），**新颖面是副作用**（V4） | repair | w4 `sign/`（7 例）；w5 conformance V4 |
+| T6 | **Exim 尾部空白折行丢弃**：头部前段逐字节保留、尾部纯 WSP 折行被丢（postfix/osmtpd 全保）——独立于 T1 的 obs 冒号维度。w5 符合性：违反 RFC 5321 §3.6.3 + RFC 5322 §4.2 obs-FWS（V6，真实 29 例，master ChangeLog 至 4.99.1 无匹配） | repair | w4 `relay/`；w5 conformance V6 |
+| T7 | **OpenSMTPD 头重串行化注入自身主机名**：From/To/Cc 经 header_domain_append_callback 重串行化，自身主机名注入 `()`→`(@opensmtpd.lab.test)`，且有 0x20→0xA0 字节劣化（w5 新增，V8；上游有意设计，副作用未见报告） | repair | w5 conformance V8 |
+| T8 | **milter 区中插入歼灭头区**：milter 头 `X-Spam: Yes` + 空行插进折行 Received 头中间，头区提前结束（w5 新增，V11；组件归属 cleanup/libmilter/rspamd 未分离，confidence: medium） | repair | w5 conformance V11 |
 
 ## X —— 信任差分（采信的身份/实例/结果不同 → 安全结论翻转）
 
@@ -36,7 +38,7 @@
 | X5 | rspamd source 归因取顶部 Received from-clause，伪造链文件扫描可劫持；诚实中继后恢复 | trust-boundary | w1 `i2/` |
 | X6 | 群组/domain-literal From 使 rspamd DMARC 静默（OpenDMARC 同信正常 fail） | normalization | w2 `void/`、`hdrfuzz3/` |
 | X7 | **注入的第二 DKIM-Signature 实例（畸形）→ 2v2 分裂**：dkimpy+rspamd fail vs perl+go pass | normalization | w4 `sign/`（15 例） |
-| X8 | **perl 落单 parse-error**：同注入族，dkimpy+go+rspamd pass、唯 perl 拒解析（容错位置不同轴的镜像形态） | tolerance | w4 `sign/`（13 例） |
+| X8 | ~~perl 落单 parse-error~~ **已撤回（w5 仪器更正 C1–C4）**：w4 记录的「perl 拒解析整信」是验证器适配器/分类器口径伪影——库直跑 Mail::DKIM `sig[1]=pass`（dkimpy 系dkim verify 的第二签名判定）、go-msgauth 打印两个结果。保留此行作为撤回记录，不再引用 | ~~tolerance~~ | w4 `sign/`；撤回依据 w5 `conformance.json` C1–C4 |
 
 （w4 另注：rspamd 在 T2 的跨路径翻转中同样翻转判定——X 族与 T 族的链式组合新数据点。）
 

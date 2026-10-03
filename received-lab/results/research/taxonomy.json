@@ -129,7 +129,9 @@
    "id": "X8",
    "series": "X",
    "root_cause": "tolerance",
-   "evidence": "w4 sign (13)"
+   "evidence": "w4 sign (13)",
+   "retracted": true,
+   "note": "w5 仪器更正 C1-C4：适配器口径伪影，库直跑 pass"
   },
   {
    "id": "D1",
@@ -160,6 +162,20 @@
    "series": "D",
    "root_cause": "normalization",
    "evidence": "w4 imap (12)"
+  },
+  {
+   "id": "T7",
+   "series": "T",
+   "root_cause": "repair",
+   "evidence": "w5 conformance V8",
+   "note": "OpenSMTPD 重串行化注入自身主机名 + 0x20→0xA0"
+  },
+  {
+   "id": "T8",
+   "series": "T",
+   "root_cause": "repair",
+   "evidence": "w5 conformance V11",
+   "note": "milter 区中插入歼灭头区；组件归属未分离 medium"
   }
  ]
 }

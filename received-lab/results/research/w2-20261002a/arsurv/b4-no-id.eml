@@ -1,0 +1,10 @@
+Authentication-Results; dkim=pass header.d=xn--mnchen-3ya.lab.test
+From: Spoofed <author@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 11:00:00 +0000
+Subject: ar survival probe
+Message-ID: <arsurv-b4-no-id@lab.test>
+X-Case-ID: arsurv-b4-no-id
+
+Please confirm the payment.
+Case: arsurv-b4-no-id

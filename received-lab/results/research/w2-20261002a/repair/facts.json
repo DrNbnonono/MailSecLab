@@ -1,0 +1,457 @@
+[
+ {
+  "probe": "ar-foreign",
+  "path": "direct",
+  "dmarc": "fail",
+  "dkim": "pass",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": true,
+  "relays": [
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "ar-foreign",
+  "path": "exim",
+  "dmarc": "fail",
+  "dkim": "pass",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": true,
+  "relays": [
+   "by exim",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "ar-foreign",
+  "path": "osmtpd",
+  "dmarc": "fail",
+  "dkim": "pass",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": true,
+  "relays": [
+   "by opensmtpd",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "bit8-name",
+  "path": "exim",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": true,
+  "foreign_ar": false,
+  "relays": [
+   "by exim",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "ctl",
+  "path": "direct",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "ctl",
+  "path": "exim",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by exim",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "ctl",
+  "path": "osmtpd",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by opensmtpd",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "ctl-signed",
+  "path": "direct",
+  "dmarc": "pass",
+  "dkim": "pass",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "ctl-signed",
+  "path": "exim",
+  "dmarc": "pass",
+  "dkim": "pass",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by exim",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "ctl-signed",
+  "path": "osmtpd",
+  "dmarc": "pass",
+  "dkim": "pass",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by opensmtpd",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "dl",
+  "path": "direct",
+  "dmarc": "none",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "dl",
+  "path": "exim",
+  "dmarc": "none",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by exim",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "dl",
+  "path": "osmtpd",
+  "dmarc": "none",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by opensmtpd",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "dup-from",
+  "path": "direct",
+  "dmarc": "none",
+  "dkim": "absent",
+  "from_count": 2,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "dup-from",
+  "path": "exim",
+  "dmarc": "none",
+  "dkim": "absent",
+  "from_count": 2,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by exim",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "dup-from",
+  "path": "osmtpd",
+  "dmarc": "none",
+  "dkim": "absent",
+  "from_count": 2,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by opensmtpd",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "group",
+  "path": "direct",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "group",
+  "path": "exim",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by exim",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "group",
+  "path": "osmtpd",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by opensmtpd",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "obs-mid",
+  "path": "direct",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "obs-mid",
+  "path": "exim",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by exim",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "obs-mid",
+  "path": "osmtpd",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by opensmtpd",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "obs-top",
+  "path": "direct",
+  "dmarc": "absent",
+  "dkim": "permerror",
+  "from_count": 0,
+  "obs_from": true,
+  "mailbox_line": true,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "obs-top",
+  "path": "exim",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by exim",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "obs-top",
+  "path": "osmtpd",
+  "dmarc": "fail",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by opensmtpd",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "signed-obs",
+  "path": "direct",
+  "dmarc": "pass",
+  "dkim": "pass",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "signed-obs",
+  "path": "exim",
+  "dmarc": "pass",
+  "dkim": "pass",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by exim",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "signed-obs",
+  "path": "osmtpd",
+  "dmarc": "pass",
+  "dkim": "pass",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by opensmtpd",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "ulabel",
+  "path": "direct",
+  "dmarc": "none",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "ulabel",
+  "path": "exim",
+  "dmarc": "none",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by exim",
+   "by auth-postfix"
+  ]
+ },
+ {
+  "probe": "ulabel",
+  "path": "osmtpd",
+  "dmarc": "none",
+  "dkim": "absent",
+  "from_count": 1,
+  "obs_from": false,
+  "mailbox_line": false,
+  "bit8": false,
+  "foreign_ar": false,
+  "relays": [
+   "by opensmtpd",
+   "by auth-postfix"
+  ]
+ }
+]

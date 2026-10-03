@@ -1,0 +1,131 @@
+{
+  "before": {
+    "rc": 0,
+    "text": "msl-dovecot 3.668MiB / 256MiB\nmsl-roundcube 59.98MiB / 512MiB\nmsl-snappymail 54.71MiB / 256MiB\nmsl-auth-postfix 3.129MiB / 384MiB"
+  },
+  "rows": [
+    {
+      "name": "received-10",
+      "before": {
+        "rc": 0,
+        "text": "msl-dovecot 3.668MiB / 256MiB\nmsl-roundcube 59.98MiB / 512MiB\nmsl-snappymail 54.71MiB / 256MiB\nmsl-auth-postfix 3.129MiB / 384MiB"
+      },
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 Ok: queued as CA2A16D3",
+        "queued_id": "CA2A16D3",
+        "bytes": 1354,
+        "sha256": "764c8c58e8075d48d353d80f10721cfa03ffbaea3eea1ee8b93453e5d85e130f",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true,
+        "smtp_seconds": 0.688,
+        "input_bytes": 1354
+      },
+      "after": {
+        "rc": 0,
+        "text": "msl-dovecot 5.883MiB / 256MiB\nmsl-roundcube 59.98MiB / 512MiB\nmsl-snappymail 54.71MiB / 256MiB\nmsl-auth-postfix 9.051MiB / 384MiB"
+      },
+      "fetch": {
+        "imap": "1979 0.0",
+        "stderr": "",
+        "wall": 0.219
+      }
+    },
+    {
+      "name": "received-55",
+      "before": {
+        "rc": 0,
+        "text": "msl-dovecot 6.07MiB / 256MiB\nmsl-roundcube 59.98MiB / 512MiB\nmsl-snappymail 54.71MiB / 256MiB\nmsl-auth-postfix 9.035MiB / 384MiB"
+      },
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "554 5.4.0 Error: too many hops",
+        "queued_id": "",
+        "bytes": 6754,
+        "sha256": "cfc677ce05270522414e1096d318372dee24109deec562346f63eea4c737d950",
+        "accepted": false,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true,
+        "smtp_seconds": 0.214,
+        "input_bytes": 6754
+      }
+    },
+    {
+      "name": "one-header-200kb",
+      "before": {
+        "rc": 0,
+        "text": "msl-dovecot 6.07MiB / 256MiB\nmsl-roundcube 59.98MiB / 512MiB\nmsl-snappymail 54.71MiB / 256MiB\nmsl-auth-postfix 9.043MiB / 384MiB"
+      },
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "250 2.0.0 Ok: queued as 99B2C6D3",
+        "queued_id": "99B2C6D3",
+        "bytes": 200182,
+        "sha256": "46be7828e4da3b89cb6f71a62b34bb9915377f384d2a69551e24e2d7ad25150f",
+        "accepted": true,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true,
+        "smtp_seconds": 0.385,
+        "input_bytes": 200182
+      },
+      "after": {
+        "rc": 0,
+        "text": "msl-dovecot 6.395MiB / 256MiB\nmsl-roundcube 59.98MiB / 512MiB\nmsl-snappymail 54.71MiB / 256MiB\nmsl-auth-postfix 9.145MiB / 384MiB"
+      },
+      "fetch": {
+        "imap": "missing",
+        "stderr": "",
+        "wall": 0.157
+      }
+    },
+    {
+      "name": "xfill-1mb",
+      "before": {
+        "rc": 0,
+        "text": "msl-dovecot 11.11MiB / 256MiB\nmsl-roundcube 59.98MiB / 512MiB\nmsl-snappymail 54.71MiB / 256MiB\nmsl-auth-postfix 9.141MiB / 384MiB"
+      },
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "451 4.7.1 Service unavailable - try again later",
+        "queued_id": "",
+        "bytes": 999990,
+        "sha256": "92c5a54d5c6bdda631c899b40608dccfdc28635ff6219930589eb1db8d58da95",
+        "accepted": false,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true,
+        "smtp_seconds": 0.374,
+        "input_bytes": 999990
+      }
+    },
+    {
+      "name": "xfill-4mb",
+      "before": {
+        "rc": 0,
+        "text": "msl-dovecot 11.11MiB / 256MiB\nmsl-roundcube 59.98MiB / 512MiB\nmsl-snappymail 54.71MiB / 256MiB\nmsl-auth-postfix 9.148MiB / 384MiB"
+      },
+      "smtp": {
+        "client_ip": "10.88.0.11",
+        "reply": "451 4.7.1 Service unavailable - try again later",
+        "queued_id": "",
+        "bytes": 3999980,
+        "sha256": "40532eb7958a3d83476f62538233e394b548306bb83d8e8a663d3939b74d5ad8",
+        "accepted": false,
+        "banner_ok": true,
+        "ehlo_ok": true,
+        "mail_ok": true,
+        "rcpt_ok": true,
+        "smtp_seconds": 0.799,
+        "input_bytes": 3999980
+      }
+    }
+  ]
+}

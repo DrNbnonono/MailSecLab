@@ -1,0 +1,3471 @@
+{
+ "seed": 23,
+ "n": 80,
+ "seconds": 101.8,
+ "new_outcome_count": 67,
+ "known_size": 13,
+ "rows": [
+  {
+   "case": "h2-23-000",
+   "forms": "comment-after-domain+group-two+group-one",
+   "spec": [
+    {
+     "form": "comment-after-domain",
+     "domain_kind": "victim-u-nfc",
+     "display": "None",
+     "obs": true,
+     "case": "from",
+     "domain": "münchen.lab.test"
+    },
+    {
+     "form": "group-two",
+     "domain_kind": "victim-u-nfd",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "münchen.lab.test"
+    },
+    {
+     "form": "group-one",
+     "domain_kind": "victim-a",
+     "display": "Bank Security",
+     "obs": true,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "from :<security@münchen.lab.test (Bank)>\r\nFROM: =?utf-8?B?5L2g5aW9?=: security@münchen.lab.test, agent@lab.test;\r\nFROM :Bank Security: security@xn--mnchen-3ya.",
+   "smtp": "250 2.0.0 Ok: queued as D06A0A9944",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=münchen.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "(b'197 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" {17}', b'm\\xc3\\xbcnchen.lab.test')",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "603529ca41a3f7127926b11dda9d05f626c354cafc4b5b114966f2966f661dda",
+   "env_class": "utf8",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "utf8",
+    "no-dmarc-sym",
+    "utf8"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-001",
+   "forms": "angle+empty-addr+comment-before-domain",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "ascii",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "lab.test"
+    },
+    {
+     "form": "empty-addr",
+     "domain_kind": "dot",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test."
+    },
+    {
+     "form": "comment-before-domain",
+     "domain_kind": "victim-a",
+     "display": "None",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "From: =?utf-8?B?5L2g5aW9?= <security@lab.test>\r\nFrom: =?utf-8?B?5L2g5aW9?= <>\r\nFROM: <security@(Bank)xn--mnchen-3ya.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as A27F4A9944",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'198 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"lab.test\")(\"=?utf-8?B?5L2g5aW9?=\" NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"s",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "9a77faa0dec1f5c4d998541bddf5468a73185c7423e67839c091423bb540ef9f",
+   "env_class": "missing",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "missing"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-002",
+   "forms": "group-empty+group-one",
+   "spec": [
+    {
+     "form": "group-empty",
+     "domain_kind": "upper",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "from",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    },
+    {
+     "form": "group-one",
+     "domain_kind": "dot",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "from: =?utf-8?B?5L2g5aW9?=:;\r\nFROM: =?utf-8?B?5L2g5aW9?=: security@xn--mnchen-3ya.lab.test.;",
+   "smtp": "250 2.0.0 Ok: queued as 80BF5A9946",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'201 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL NIL NIL)(NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL \"security\" \"MISSING_DOMAIN\")(NIL NIL NIL NIL)) ((NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL N",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "d41dc02881c976f2867c35a99e07d114dd8e3491085e29050647790de357a8af",
+   "env_class": "other",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "other"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-003",
+   "forms": "folded-empty-first+empty-addr",
+   "spec": [
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "victim-a",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "from",
+     "domain": "xn--mnchen-3ya.lab.test"
+    },
+    {
+     "form": "empty-addr",
+     "domain_kind": "upper",
+     "display": "None",
+     "obs": true,
+     "case": "From",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "from:\r\n <security@xn--mnchen-3ya.lab.test>\r\nFrom :<>",
+   "smtp": "250 2.0.0 Ok: queued as 5E5B8A994C",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'203 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"MISSING_",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "f25f145b05b640edb569f280eeb7feee569672abcd8e9481070baf19bcf9be19",
+   "env_class": "missing",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "missing"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-004",
+   "forms": "quoted-local",
+   "spec": [
+    {
+     "form": "quoted-local",
+     "domain_kind": "dotless",
+     "display": "None",
+     "obs": false,
+     "case": "From",
+     "domain": "labtest"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "From: <\"security\"@labtest>",
+   "smtp": "250 2.0.0 Ok: queued as 5C35EA994C",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=labtest",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'205 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"labtest\")) ((NIL NIL \"security\" \"labtest\")) ((NIL NIL \"security\" \"labtest\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-004@lab.test>\"))'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "aa8353d6670a6c931e14a01ec0d8782d2152b82cd421321ac9c95c0f63b7ceaa",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-005",
+   "forms": "group-one",
+   "spec": [
+    {
+     "form": "group-one",
+     "domain_kind": "dot",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "FROM: =?utf-8?B?5L2g5aW9?=: security@xn--mnchen-3ya.lab.test.;",
+   "smtp": "250 2.0.0 Ok: queued as F3659A994C",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'208 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL \"security\" \"MISSING_DOMAIN\")(NIL NIL NIL NIL)) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL \"security\" \"MISSING",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "9f568feeaf790eb089623bf3d423bb783f25f32e1a913c40dab91a2231a187ec",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-006",
+   "forms": "quoted-local",
+   "spec": [
+    {
+     "form": "quoted-local",
+     "domain_kind": "victim-u-nfc",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "from",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "from: Bank Security <\"security\"@münchen.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 2D72CA994E",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=münchen.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "(b'210 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" {17}', b'm\\xc3\\xbcnchen.lab.test')",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "e31f3514e74128a08fba469f566b9d91fe3b3a828d578708bf6077fc006642cf",
+   "env_class": "utf8",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "utf8",
+    "DMARC_POLICY_REJECT",
+    "utf8"
+   ],
+   "classes": [
+    "odmarc_void_only",
+    "policy_split"
+   ]
+  },
+  {
+   "case": "h2-23-007",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "victim-a",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "FROM: =?utf-8?B?5L2g5aW9?= <security@xn--mnchen-3ya.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 1D0A9A9954",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'212 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Reply\" NIL \"reply\" \"evil.test\")) ((NIL NIL \"bob\" \"lab.",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "9bc529039a1ebd52192c237546859bbc7aec0a7297788222c4fc7b1c522d338d",
+   "env_class": "victim",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_REJECT",
+    "victim"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-008",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dot",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "from",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "from: =?utf-8?B?5L2g5aW9?= <security@xn--mnchen-3ya.lab.test.>",
+   "smtp": "250 2.0.0 Ok: queued as 15983A9954",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'215 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"SYNTAX_ERROR\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"SYNTAX_ERROR\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"SYNTAX_ERROR\")) ((NIL NIL \"bob\" \"lab.t",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "bfe7c44c526831cd6a2e5db135b2d538a28583f46818ce1f625d4015d16bf2c7",
+   "env_class": "other",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_REJECT",
+    "other"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-009",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "ascii",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "lab.test"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "From: =?utf-8?B?5L2g5aW9?= <security@lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 65CE0A9958",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'217 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"lab.test\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"lab.test\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"lab.test\")) ((NIL NIL \"bob\" \"lab.test\")) NIL N",
+   "rspamd": "DMARC_POLICY_SOFTFAIL",
+   "sha256": "2ece087f71e2c942863ab6bdc040c4cf8c816648e3af2feb7da4c0c64ff200ee",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_SOFTFAIL",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-010",
+   "forms": "angle+domain-literal",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "upper",
+     "display": "None",
+     "obs": false,
+     "case": "From",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    },
+    {
+     "form": "domain-literal",
+     "domain_kind": "dot",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": true,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "From: <security@XN--MNCHEN-3YA.LAB.TEST>\r\nFrom :=?utf-8?B?5L2g5aW9?= <security@[203.0.113.7]>",
+   "smtp": "250 2.0.0 Ok: queued as 4F6B5A9958",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=XN--MNCHEN-3YA.LAB.TEST",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'219 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")(\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"[203.0.113.7]\")) ((NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")(\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"[2",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "8b486da3d45c30425a3eb1b5185490ac1a0d1e7d9bfb84066e7b584d1e26f78e",
+   "env_class": "literal",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "literal"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-011",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "ascii",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "From",
+     "domain": "lab.test"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "From: Bank Security <security@lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as B4065A9958",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'222 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" \"lab.test\")) ((\"Bank Security\" NIL \"security\" \"lab.test\")) ((\"Reply\" NIL \"reply\" \"evil.test\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-011@lab.test>\"))",
+   "rspamd": "DMARC_POLICY_SOFTFAIL",
+   "sha256": "c07ff6f89e90bd0b6401065648cf9fac3eb6c5698b61ad53e5de490675dbfc09",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_SOFTFAIL",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-012",
+   "forms": "angle+folded-empty-first+angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "victim-a",
+     "display": "None",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test"
+    },
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "victim-a",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test"
+    },
+    {
+     "form": "angle",
+     "domain_kind": "victim-u-nfc",
+     "display": "Bank Security",
+     "obs": true,
+     "case": "From",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "FROM: <security@xn--mnchen-3ya.lab.test>\r\nFrom:\r\n <security@xn--mnchen-3ya.lab.test>\r\nFrom :Bank Security <security@münchen.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 12EEFA9960",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "(b'224 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(\"Bank Security\" NIL \"security\" {17}', b'm\\xc3\\xbcnchen.lab.test')",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "b7b3339cc58173c4b574a782ac721df6da577494291aec4c05a581e34f31c1fa",
+   "env_class": "utf8",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "utf8"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-013",
+   "forms": "group-two+group-two",
+   "spec": [
+    {
+     "form": "group-two",
+     "domain_kind": "upper",
+     "display": "None",
+     "obs": false,
+     "case": "FROM",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    },
+    {
+     "form": "group-two",
+     "domain_kind": "dotless",
+     "display": "None",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "FROM: Bank: security@XN--MNCHEN-3YA.LAB.TEST, agent@lab.test;\r\nFROM: Bank: security@labtest, agent@lab.test;",
+   "smtp": "250 2.0.0 Ok: queued as 5E9F2A9962",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [],
+   "envelope": "b'226 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"Bank\" NIL)(NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")(NIL NIL \"agent\" \"lab.test\")(NIL NIL NIL NIL)(NIL NIL \"Bank\" NIL)(NIL NIL \"security\" \"labtest\")(NIL NIL \"agent\" \"lab.test\")(NI",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "4de35dc42c2a5d5a0f0d4e46b014ed34139cd1f7baff56b2698a6fd53091585e",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-014",
+   "forms": "group-two",
+   "spec": [
+    {
+     "form": "group-two",
+     "domain_kind": "victim-u-nfd",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "FROM: Bank Security: security@münchen.lab.test, agent@lab.test;",
+   "smtp": "250 2.0.0 Ok: queued as 78ED6A9962",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [],
+   "envelope": "(b'229 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" {18}', b'mu\\xcc\\x88nchen.lab.test')",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "78ebed1eb7b09535f91e20fdd07685438f99a5f93d6a50cf26fd7e46ef2dea0f",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-015",
+   "forms": "group-one",
+   "spec": [
+    {
+     "form": "group-one",
+     "domain_kind": "dotless",
+     "display": "None",
+     "obs": true,
+     "case": "From",
+     "domain": "labtest"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "From :Bank: security@labtest;",
+   "smtp": "250 2.0.0 Ok: queued as D2A92A9962",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'231 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" NIL ((\"Agent\" NIL \"agent\" \"lab.test\")) NIL ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-015@lab.test>\"))'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "afa248904e8d0ca73edc002e99ac222dd877fd660d6656f2d3cd8be08b20eb63",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-016",
+   "forms": "comment-after-domain+group-empty+quoted-local",
+   "spec": [
+    {
+     "form": "comment-after-domain",
+     "domain_kind": "upper",
+     "display": "Bank Security",
+     "obs": true,
+     "case": "FROM",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    },
+    {
+     "form": "group-empty",
+     "domain_kind": "ascii",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "lab.test"
+    },
+    {
+     "form": "quoted-local",
+     "domain_kind": "victim-a",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "FROM :Bank Security <security@XN--MNCHEN-3YA.LAB.TEST (Bank)>\r\nFrom: =?utf-8?B?5L2g5aW9?=:;\r\nFROM: Bank Security <\"security\"@xn--mnchen-3ya.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 2ED7BA9967",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=XN--MNCHEN-3YA.LAB.TEST",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'233 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")(NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL NIL NIL)(\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Agent\" NIL \"agent\"",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "f6fa07ebf3fbfd96b2c46a8d69cefe6c77f5fa2b1420e6a9cef62f6fb25fc8a2",
+   "env_class": "victim",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "victim"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-017",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "victim-u-nfd",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "from: <security@münchen.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 638CCA9967",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=münchen.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "(b'236 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" {18}', b'mu\\xcc\\x88nchen.lab.test')",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "a32a2e899fd20cfe13eaec18c2b27865b63b42a16eb3a36b21e4a09ae6328078",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "utf8",
+    "DMARC_POLICY_REJECT",
+    "labtest"
+   ],
+   "classes": [
+    "odmarc_void_only",
+    "policy_split"
+   ]
+  },
+  {
+   "case": "h2-23-018",
+   "forms": "angle+group-two",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "ascii",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "from",
+     "domain": "lab.test"
+    },
+    {
+     "form": "group-two",
+     "domain_kind": "ascii",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "lab.test"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "from: =?utf-8?B?5L2g5aW9?= <security@lab.test>\r\nFROM: =?utf-8?B?5L2g5aW9?=: security@lab.test, agent@lab.test;",
+   "smtp": "250 2.0.0 Ok: queued as C829BA996E",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'238 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"lab.test\")(NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL \"security\" \"lab.test\")(NIL NIL \"agent\" \"lab.test\")(NIL NIL NIL NIL)) ((\"Agent\" NIL \"agent\" \"lab.t",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "d0438317b4d11280c61b54ff1a7b8f242ebda215a4a93098a76e72935319a501",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-019",
+   "forms": "quoted-local+angle",
+   "spec": [
+    {
+     "form": "quoted-local",
+     "domain_kind": "victim-a",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test"
+    },
+    {
+     "form": "angle",
+     "domain_kind": "victim-a",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "From: =?utf-8?B?5L2g5aW9?= <\"security\"@xn--mnchen-3ya.lab.test>\r\nFrom: Bank Security <security@xn--mnchen-3ya.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 45364A9970",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'241 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")(\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")(",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "ce2010f07d3f81d21ec6bbbf5be1775a0af17f8ea5abc25083061f2d674fe5db",
+   "env_class": "victim",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "victim"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-020",
+   "forms": "empty-addr+group-empty",
+   "spec": [
+    {
+     "form": "empty-addr",
+     "domain_kind": "victim-u-nfc",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "from",
+     "domain": "münchen.lab.test"
+    },
+    {
+     "form": "group-empty",
+     "domain_kind": "victim-u-nfc",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "from: Bank Security <>\r\nfrom: Bank:;",
+   "smtp": "250 2.0.0 Ok: queued as 3E571A9967",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'243 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")(NIL NIL \"Bank\" NIL)(NIL NIL NIL NIL)) ((\"Bank Security\" NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")(NIL NIL \"Bank\" NIL)(NIL NIL NIL NIL)) (",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "0254d62d41c1aed29bf03c8587952242f0ac26fb75b1ac6b3d41be05d804b976",
+   "env_class": "missing",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "missing"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-021",
+   "forms": "quoted-local+group-one",
+   "spec": [
+    {
+     "form": "quoted-local",
+     "domain_kind": "victim-u-nfc",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "from",
+     "domain": "münchen.lab.test"
+    },
+    {
+     "form": "group-one",
+     "domain_kind": "victim-a",
+     "display": "None",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "from: Bank Security <\"security\"@münchen.lab.test>\r\nFrom: Bank: security@xn--mnchen-3ya.lab.test;",
+   "smtp": "250 2.0.0 Ok: queued as 39139A9975",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=münchen.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "(b'245 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" {17}', b'm\\xc3\\xbcnchen.lab.test')",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "6f96b8840309d38ad351f50ad7355caf4935e22ddfd78136c67ffb798dfc82f5",
+   "env_class": "utf8",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "utf8",
+    "no-dmarc-sym",
+    "utf8"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-022",
+   "forms": "group-one",
+   "spec": [
+    {
+     "form": "group-one",
+     "domain_kind": "ascii",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "lab.test"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "From: =?utf-8?B?5L2g5aW9?=: security@lab.test;",
+   "smtp": "250 2.0.0 Ok: queued as B164EA9978",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'248 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL \"security\" \"lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL \"security\" \"lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"=?utf-8?",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "816a6b3184314834517b55a2ba6e3b2ccd030c9744bf91865a686c90b35b4540",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-023",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dotless",
+     "display": "None",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "FROM: <security@labtest>",
+   "smtp": "250 2.0.0 Ok: queued as 84EF8A997A",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=labtest",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'250 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"labtest\")) ((NIL NIL \"security\" \"labtest\")) ((\"Reply\" NIL \"reply\" \"evil.test\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-023@lab.test>\"))'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "3fa602b3210c432443647eccb84ca549a2dd73a2338ce2f868c6fbf2c9c50556",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-024",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dotless",
+     "display": "Bank Security",
+     "obs": true,
+     "case": "FROM",
+     "domain": "labtest"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "FROM :Bank Security <security@labtest>",
+   "smtp": "250 2.0.0 Ok: queued as 4411FA997B",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=labtest",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'252 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" \"labtest\")) ((\"Bank Security\" NIL \"security\" \"labtest\")) ((\"Bank Security\" NIL \"security\" \"labtest\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-024@lab.t",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "5ae3909b517695da2e129bd0255c2ca4794e63637c5bea0b13b2b5064e57a6db",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-025",
+   "forms": "angle+empty-addr",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dotless",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "labtest"
+    },
+    {
+     "form": "empty-addr",
+     "domain_kind": "dot",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "from: <security@labtest>\r\nFrom: Bank Security <>",
+   "smtp": "250 2.0.0 Ok: queued as DD042A997E",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=labtest",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'255 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"labtest\")(\"Bank Security\" NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"security\" \"labtest\")(\"Bank Security\" NIL \"MISSING_MAILBOX\"",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "914452e65365bb86266b91556c9686427b332eeb808c7f8a84d19d3436c15a69",
+   "env_class": "missing",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "missing"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-026",
+   "forms": "route-addr+angle+folded-empty-first",
+   "spec": [
+    {
+     "form": "route-addr",
+     "domain_kind": "upper",
+     "display": "None",
+     "obs": true,
+     "case": "From",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    },
+    {
+     "form": "angle",
+     "domain_kind": "upper",
+     "display": "None",
+     "obs": true,
+     "case": "FROM",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    },
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "victim-a",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "From :<@relay.lab.test:security@XN--MNCHEN-3YA.LAB.TEST>\r\nFROM :<security@XN--MNCHEN-3YA.LAB.TEST>\r\nFROM:\r\n <security@xn--mnchen-3ya.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 68E31A997E",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=XN--MNCHEN-3YA.LAB.TEST",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'257 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")(NIL NIL \"securi",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "d47e33677816daf6403352f2b8b6e74628d241c73ef6675cd7a38b6ffd21d159",
+   "env_class": "victim",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "victim"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-027",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dotless",
+     "display": "None",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "FROM: <security@labtest>",
+   "smtp": "250 2.0.0 Ok: queued as 39642A9983",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=labtest",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'259 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"labtest\")) ((NIL NIL \"security\" \"labtest\")) ((NIL NIL \"security\" \"labtest\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-027@lab.test>\"))'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "806eccda08ca70d33f0b94f26231ee1809940cdb9687df4f4074967e425f5b26",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-028",
+   "forms": "group-empty",
+   "spec": [
+    {
+     "form": "group-empty",
+     "domain_kind": "victim-a",
+     "display": "None",
+     "obs": true,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "From :Bank:;",
+   "smtp": "250 2.0.0 Ok: queued as 48271A9985",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'262 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" NIL NIL NIL ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-028@lab.test>\"))'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "f81eeaa5bc05c629f556a4c875d71b62472991553bc131310f1b128f4bfd5120",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-029",
+   "forms": "comment-before-domain+group-two+folded-empty-first",
+   "spec": [
+    {
+     "form": "comment-before-domain",
+     "domain_kind": "victim-u-nfc",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": true,
+     "case": "FROM",
+     "domain": "münchen.lab.test"
+    },
+    {
+     "form": "group-two",
+     "domain_kind": "dotless",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    },
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "victim-a",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "from",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "FROM :=?utf-8?B?5L2g5aW9?= <security@(Bank)münchen.lab.test>\r\nFROM: =?utf-8?B?5L2g5aW9?=: security@labtest, agent@lab.test;\r\nfrom:\r\n <security@xn--mnchen-3ya.la",
+   "smtp": "250 2.0.0 Ok: queued as 3FA5FA9985",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=münchen.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "(b'264 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" {17}', b'm\\xc3\\xbcnchen.lab.test')",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "9017852ca82c3a7d4660a1e19cbc9ab83c920cd58015de0d3f6528eaf2ad2dba",
+   "env_class": "utf8",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "utf8",
+    "no-dmarc-sym",
+    "utf8"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-030",
+   "forms": "angle+angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "upper",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "from",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    },
+    {
+     "form": "angle",
+     "domain_kind": "dotless",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "from: Bank Security <security@XN--MNCHEN-3YA.LAB.TEST>\r\nFROM: Bank Security <security@labtest>",
+   "smtp": "250 2.0.0 Ok: queued as 35DD5A9989",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=XN--MNCHEN-3YA.LAB.TEST",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'267 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")(\"Bank Security\" NIL \"security\" \"labtest\")) ((\"Bank Security\" NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")(\"Bank Security\" NIL \"security\"",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "ce9d91a6069e39ad029a444b49e07d20a83c162d5a5d89bba60fc4b7f7f74e1b",
+   "env_class": "other",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "other"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-031",
+   "forms": "angle+angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dot",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "xn--mnchen-3ya.lab.test."
+    },
+    {
+     "form": "angle",
+     "domain_kind": "ascii",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "from",
+     "domain": "lab.test"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "from: <security@xn--mnchen-3ya.lab.test.>\r\nfrom: Bank Security <security@lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as BBBB4A9989",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'269 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"SYNTAX_ERROR\")(\"Bank Security\" NIL \"security\" \"lab.test\")) ((NIL NIL \"security\" \"SYNTAX_ERROR\")(\"Bank Security\" NIL \"security\" \"lab.test\")) ((NIL NIL \"security\" \"SYNTAX_ER",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "5868a7dca5882013115d71348cdecd5097c28e5c1284cafd296982a67176eb5d",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-032",
+   "forms": "group-empty",
+   "spec": [
+    {
+     "form": "group-empty",
+     "domain_kind": "victim-u-nfd",
+     "display": "None",
+     "obs": false,
+     "case": "From",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "From: Bank:;",
+   "smtp": "250 2.0.0 Ok: queued as A0CE5A998F",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'271 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"Bank\" NIL)(NIL NIL NIL NIL)) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"Bank\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-032@lab.test>\"))'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "7e922fb8dc7df5f2e8af80a8c404bb32c18b25702cf2d0879d25e74f6365af73",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-033",
+   "forms": "group-two",
+   "spec": [
+    {
+     "form": "group-two",
+     "domain_kind": "victim-a",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "From: Bank Security: security@xn--mnchen-3ya.lab.test, agent@lab.test;",
+   "smtp": "250 2.0.0 Ok: queued as E05AFA9991",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [],
+   "envelope": "b'273 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"agent\" \"lab.test\")(NIL NIL NIL NIL)) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"Bank Security\" NIL)(NIL ",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "5326ae39331b713e05a4ef3f805d70e85210e2e3937a95e68b449acbd182c4f3",
+   "env_class": "victim",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "victim"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-034",
+   "forms": "group-two+empty-addr",
+   "spec": [
+    {
+     "form": "group-two",
+     "domain_kind": "upper",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": true,
+     "case": "from",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    },
+    {
+     "form": "empty-addr",
+     "domain_kind": "victim-a",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "from",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "from :=?utf-8?B?5L2g5aW9?=: security@XN--MNCHEN-3YA.LAB.TEST, agent@lab.test;\r\nfrom: Bank Security <>",
+   "smtp": "250 2.0.0 Ok: queued as B0BFEA9993",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [],
+   "envelope": "b'275 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")(NIL NIL \"agent\" \"lab.test\")(NIL NIL NIL NIL)(\"Bank Security\" NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")) ((NIL N",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "1c4755a8bd69a974621be2d88f545880a9152f0b8faebf7221f150ae92feb799",
+   "env_class": "missing",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "missing"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-035",
+   "forms": "group-one",
+   "spec": [
+    {
+     "form": "group-one",
+     "domain_kind": "victim-u-nfd",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "from: Bank: security@münchen.lab.test;",
+   "smtp": "250 2.0.0 Ok: queued as 74F8CA9995",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=münchen.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "(b'277 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"Bank\" NIL)(NIL NIL \"security\" {18}', b'mu\\xcc\\x88nchen.lab.test')",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "9327b7a7cb8a371e815931987fcdfdf0a0a6a017032a621ac9b502c329b643d4",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "utf8",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-036",
+   "forms": "empty-addr",
+   "spec": [
+    {
+     "form": "empty-addr",
+     "domain_kind": "upper",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "from",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "from: =?utf-8?B?5L2g5aW9?= <>",
+   "smtp": "250 2.0.0 Ok: queued as 38C2DA9997",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'279 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"MISSING_MAILBOX\" \"MISSING_DOMAI",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "fda709df8ca4ed0a34ff410143ec7a0af199499f1e9321feef8fc00597102ae4",
+   "env_class": "missing",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "missing"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-037",
+   "forms": "comment-before-domain",
+   "spec": [
+    {
+     "form": "comment-before-domain",
+     "domain_kind": "ascii",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "from",
+     "domain": "lab.test"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "from: =?utf-8?B?5L2g5aW9?= <security@(Bank)lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as EBB23A999A",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'281 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"lab.test\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"lab.test\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-037",
+   "rspamd": "DMARC_POLICY_SOFTFAIL",
+   "sha256": "6893918a700c4aa651eed448c8a892105308ac8dbbefe75d4bdc159f5cc43360",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_SOFTFAIL",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-038",
+   "forms": "group-two+group-one",
+   "spec": [
+    {
+     "form": "group-two",
+     "domain_kind": "ascii",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "lab.test"
+    },
+    {
+     "form": "group-one",
+     "domain_kind": "dotless",
+     "display": "None",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "FROM: Bank Security: security@lab.test, agent@lab.test;\r\nFROM: Bank: security@labtest;",
+   "smtp": "250 2.0.0 Ok: queued as 2075EA999B",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'283 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"lab.test\")(NIL NIL \"agent\" \"lab.test\")(NIL NIL NIL NIL)(NIL NIL \"Bank\" NIL)(NIL NIL \"security\" \"labtest\")(NIL NIL NIL NIL)) ((\"Agent\" NIL \"age",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "495b6ff54da728a9c66632cecc860565abd1a6f531ec36a76c62261052732200",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-039",
+   "forms": "bare",
+   "spec": [
+    {
+     "form": "bare",
+     "domain_kind": "upper",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "from",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "from: security@XN--MNCHEN-3YA.LAB.TEST",
+   "smtp": "250 2.0.0 Ok: queued as D2047A999C",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=XN--MNCHEN-3YA.LAB.TEST",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'285 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-039@lab.tes",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "f60f2c67b52ab1a1c1026dc55693cb1c4a42f0b7283cffffb272fc4d3e984108",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_REJECT",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-040",
+   "forms": "domain-literal+group-empty",
+   "spec": [
+    {
+     "form": "domain-literal",
+     "domain_kind": "victim-u-nfd",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "münchen.lab.test"
+    },
+    {
+     "form": "group-empty",
+     "domain_kind": "victim-u-nfc",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": true,
+     "case": "FROM",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "FROM: =?utf-8?B?5L2g5aW9?= <security@[203.0.113.7]>\r\nFROM :=?utf-8?B?5L2g5aW9?=:;",
+   "smtp": "250 2.0.0 Ok: queued as 99178A99A0",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=[203.0.113.7]",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'287 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"[203.0.113.7]\")(NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL NIL NIL)) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"[203.0",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "24114b4d2d4baf574c91bb310251220ecdae2a69b30991a890e3476146cfd624",
+   "env_class": "literal",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "literal"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-041",
+   "forms": "angle+angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dot",
+     "display": "None",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test."
+    },
+    {
+     "form": "angle",
+     "domain_kind": "upper",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "from",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "From: <security@xn--mnchen-3ya.lab.test.>\r\nfrom: =?utf-8?B?5L2g5aW9?= <security@XN--MNCHEN-3YA.LAB.TEST>",
+   "smtp": "250 2.0.0 Ok: queued as 740A0A99A1",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'289 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"SYNTAX_ERROR\")(\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((NIL NIL \"security\" \"SYNTAX_ERROR\")(\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"XN--MNCHEN-3YA",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "b7bd781bc74a4922a70de9fbab336263763c8fdf141762ff78f0f7c00db8da6d",
+   "env_class": "other",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "other"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-042",
+   "forms": "angle+domain-literal+quoted-local",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dot",
+     "display": "None",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test."
+    },
+    {
+     "form": "domain-literal",
+     "domain_kind": "upper",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": true,
+     "case": "from",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    },
+    {
+     "form": "quoted-local",
+     "domain_kind": "victim-u-nfc",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "From: <security@xn--mnchen-3ya.lab.test.>\r\nfrom :=?utf-8?B?5L2g5aW9?= <security@[203.0.113.7]>\r\nFROM: =?utf-8?B?5L2g5aW9?= <\"security\"@münchen.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 6D683A99A1",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "(b'291 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"SYNTAX_ERROR\")(\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"[203.0.113.7]\")(\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" {17}', b'm\\xc3\\xbcnchen.lab.test')",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "df27f3b9077cf9b9dc67422a56ef7b3c9d8c10104b1f5800302c071dbfb93ee7",
+   "env_class": "literal",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "literal"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-043",
+   "forms": "folded-empty-first+comment-after-domain",
+   "spec": [
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "victim-a",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test"
+    },
+    {
+     "form": "comment-after-domain",
+     "domain_kind": "upper",
+     "display": "None",
+     "obs": true,
+     "case": "From",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "From:\r\n <security@xn--mnchen-3ya.lab.test>\r\nFrom :<security@XN--MNCHEN-3YA.LAB.TEST (Bank)>",
+   "smtp": "250 2.0.0 Ok: queued as 88AF3A99A4",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'293 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((\"",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "b7c0a0800185724274e98a477dd84519de387e08fe2377ae6adf977205be953f",
+   "env_class": "victim",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "victim"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-044",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "upper",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "From",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "From: Bank Security <security@XN--MNCHEN-3YA.LAB.TEST>",
+   "smtp": "250 2.0.0 Ok: queued as CC094A99A7",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=XN--MNCHEN-3YA.LAB.TEST",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'295 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((\"Bank Security\" NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "d6e97e62bc51b47e2f4744c7c84e29514505c2d4cc173cf41890ce65b3d9297f",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_REJECT",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-045",
+   "forms": "angle+angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dotless",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "from",
+     "domain": "labtest"
+    },
+    {
+     "form": "angle",
+     "domain_kind": "dotless",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": true,
+     "case": "From",
+     "domain": "labtest"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "from: =?utf-8?B?5L2g5aW9?= <security@labtest>\r\nFrom :=?utf-8?B?5L2g5aW9?= <security@labtest>",
+   "smtp": "250 2.0.0 Ok: queued as ED35EA9986",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=labtest",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'297 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"labtest\")(\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"labtest\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"labtest\")(\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"la",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "ec4a0e060bab3af4714c08d5278edf24311ee4de39d3261e54aed3be840603c8",
+   "env_class": "other",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "other"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-046",
+   "forms": "quoted-local",
+   "spec": [
+    {
+     "form": "quoted-local",
+     "domain_kind": "dot",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "from",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "from: =?utf-8?B?5L2g5aW9?= <\"security\"@xn--mnchen-3ya.lab.test.>",
+   "smtp": "250 2.0.0 Ok: queued as 1058EA99A6",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'299 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"SYNTAX_ERROR\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"SYNTAX_ERROR\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"SYNTAX_ERROR\")) ((NIL NIL \"bob\" \"lab.t",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "73f4c3df1505ca1177a93b02b1e504a3eb25704709f4b5ab6578aca485211168",
+   "env_class": "other",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_REJECT",
+    "other"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-047",
+   "forms": "domain-literal+angle",
+   "spec": [
+    {
+     "form": "domain-literal",
+     "domain_kind": "ascii",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "lab.test"
+    },
+    {
+     "form": "angle",
+     "domain_kind": "dot",
+     "display": "None",
+     "obs": true,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "FROM: Bank Security <security@[203.0.113.7]>\r\nFrom :<security@xn--mnchen-3ya.lab.test.>",
+   "smtp": "250 2.0.0 Ok: queued as 53EC1A99AC",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=[203.0.113.7]",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'301 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" \"[203.0.113.7]\")(NIL NIL \"security\" \"SYNTAX_ERROR\")) ((\"Bank Security\" NIL \"security\" \"[203.0.113.7]\")(NIL NIL \"security\" \"SYNTAX_ERROR\")) ((\"Bank Security\" NIL",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "7b60805d84531ca1a78cbcdb78e9e3ec16dd83a9c56ac92a500123675dd7abcd",
+   "env_class": "literal",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "literal"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-048",
+   "forms": "route-addr",
+   "spec": [
+    {
+     "form": "route-addr",
+     "domain_kind": "dotless",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "FROM: =?utf-8?B?5L2g5aW9?= <@relay.lab.test:security@labtest>",
+   "smtp": "250 2.0.0 Ok: queued as 5D49BA99AF",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=labtest",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'303 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" \"@relay.lab.test\" \"security\" \"labtest\")) ((\"=?utf-8?B?5L2g5aW9?=\" \"@relay.lab.test\" \"security\" \"labtest\")) ((\"Reply\" NIL \"reply\" \"evil.test\")) ((NIL NIL \"bob\" \"lab.test",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "433f941eed5d12f9cbb4f715f8bf8316284a93581b920270c3398372d9b09c70",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-049",
+   "forms": "comment-before-domain+route-addr",
+   "spec": [
+    {
+     "form": "comment-before-domain",
+     "domain_kind": "victim-a",
+     "display": "None",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test"
+    },
+    {
+     "form": "route-addr",
+     "domain_kind": "upper",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "FROM: <security@(Bank)xn--mnchen-3ya.lab.test>\r\nFrom: =?utf-8?B?5L2g5aW9?= <@relay.lab.test:security@XN--MNCHEN-3YA.LAB.TEST>",
+   "smtp": "250 2.0.0 Ok: queued as B25F6A99B1",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'305 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(\"=?utf-8?B?5L2g5aW9?=\" \"@relay.lab.test\" \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(\"=?utf-8?B?5L2g5a",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "d7dae015bad48d23588fbb4dbcdf1ad30ddb6a7224e348f382222acbb3977120",
+   "env_class": "victim",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "victim"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-050",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dot",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "From: =?utf-8?B?5L2g5aW9?= <security@xn--mnchen-3ya.lab.test.>",
+   "smtp": "250 2.0.0 Ok: queued as 1A7F3A99B2",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'307 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"SYNTAX_ERROR\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"SYNTAX_ERROR\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"SYNTAX_ERROR\")) ((NIL NIL \"bob\" \"lab.t",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "c5ade9be9c9779e6d65f9a787ebaece3b5cf8eb304a815872d7d6f8328fbd036",
+   "env_class": "other",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_REJECT",
+    "other"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-051",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "victim-u-nfc",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "from: <security@münchen.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as CAEA3A99B5",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=münchen.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "(b'309 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" {17}', b'm\\xc3\\xbcnchen.lab.test')",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "8d9401cb09720e20e29944ff0904fde9a81548ff221764959a509323abe0682d",
+   "env_class": "utf8",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "utf8",
+    "DMARC_POLICY_REJECT",
+    "utf8"
+   ],
+   "classes": [
+    "odmarc_void_only",
+    "policy_split"
+   ]
+  },
+  {
+   "case": "h2-23-052",
+   "forms": "folded-empty-first+domain-literal",
+   "spec": [
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "ascii",
+     "display": "None",
+     "obs": true,
+     "case": "FROM",
+     "domain": "lab.test"
+    },
+    {
+     "form": "domain-literal",
+     "domain_kind": "victim-u-nfd",
+     "display": "None",
+     "obs": true,
+     "case": "FROM",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "FROM:\r\n <security@lab.test>\r\nFROM :<security@[203.0.113.7]>",
+   "smtp": "250 2.0.0 Ok: queued as ED825A99B5",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'311 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"lab.test\")(NIL NIL \"security\" \"[203.0.113.7]\")) ((NIL NIL \"security\" \"lab.test\")(NIL NIL \"security\" \"[203.0.113.7]\")) ((NIL NIL \"security\" \"lab.test\")(NIL NIL \"security\" \"",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "922b12986dd47c3d104bd909c6c2327a35237fcacaf05efd9a8b36fa586aabe7",
+   "env_class": "literal",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "literal"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-053",
+   "forms": "route-addr",
+   "spec": [
+    {
+     "form": "route-addr",
+     "domain_kind": "dot",
+     "display": "None",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "FROM: <@relay.lab.test:security@xn--mnchen-3ya.lab.test.>",
+   "smtp": "250 2.0.0 Ok: queued as E58ECA99B5",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'313 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL \"@relay.lab.test\" \"security\" \"SYNTAX_ERROR\")) ((NIL \"@relay.lab.test\" \"security\" \"SYNTAX_ERROR\")) ((NIL \"@relay.lab.test\" \"security\" \"SYNTAX_ERROR\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL ",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "c36c782f814852c6d7a726bbd7b75b2dc34c5cb8577cd3dab333782a0f814df4",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_REJECT",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-054",
+   "forms": "empty-addr",
+   "spec": [
+    {
+     "form": "empty-addr",
+     "domain_kind": "victim-u-nfc",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "from: <>",
+   "smtp": "250 2.0.0 Ok: queued as 6A8FEA99BB",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'315 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")) ((NIL NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")) ((NIL NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-054",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "8e394e708b11fdd503ead7fa7fb1d61ed040c0749e9204f514e906d2e6c72d66",
+   "env_class": "missing",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "missing"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-055",
+   "forms": "group-empty",
+   "spec": [
+    {
+     "form": "group-empty",
+     "domain_kind": "victim-u-nfc",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": true,
+     "case": "FROM",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "FROM :=?utf-8?B?5L2g5aW9?=:;",
+   "smtp": "250 2.0.0 Ok: queued as 0EA99A99BE",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'317 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL NIL NIL)) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "d2a30d97a8140c93ca6b94604c7164a83ccdfabef8a3fd2e834499f21cc038db",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-056",
+   "forms": "group-two",
+   "spec": [
+    {
+     "form": "group-two",
+     "domain_kind": "dotless",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "From",
+     "domain": "labtest"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "From: Bank Security: security@labtest, agent@lab.test;",
+   "smtp": "250 2.0.0 Ok: queued as 8DD23A99BF",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [],
+   "envelope": "b'319 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"labtest\")(NIL NIL \"agent\" \"lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"labtest\")(NIL NIL \"agent\" \"lab.test",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "02117f2e51e2aec88ed493fee86e2f43d408b6d8e5931e110812a602a571b746",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-057",
+   "forms": "group-two",
+   "spec": [
+    {
+     "form": "group-two",
+     "domain_kind": "victim-u-nfd",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "From: =?utf-8?B?5L2g5aW9?=: security@münchen.lab.test, agent@lab.test;",
+   "smtp": "250 2.0.0 Ok: queued as 0C3A9A99BF",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [],
+   "envelope": "(b'321 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL \"security\" {18}', b'mu\\xcc\\x88nchen.lab.test')",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "f4ffadd889b791216f508ddeb609f8fefb1da43223d998856af6319f161b7c32",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-058",
+   "forms": "angle+angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "ascii",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "lab.test"
+    },
+    {
+     "form": "angle",
+     "domain_kind": "upper",
+     "display": "None",
+     "obs": false,
+     "case": "FROM",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "from: <security@lab.test>\r\nFROM: <security@XN--MNCHEN-3YA.LAB.TEST>",
+   "smtp": "250 2.0.0 Ok: queued as 9CB75A99BF",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'323 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"lab.test\")(NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"security\" \"lab.test\")(NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "25ec8a02af46717af0d75034d8eaa90aab615e1c06425498567a3654915ade7e",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-059",
+   "forms": "folded-empty-first+group-one+comment-before-domain",
+   "spec": [
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "upper",
+     "display": "None",
+     "obs": false,
+     "case": "From",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    },
+    {
+     "form": "group-one",
+     "domain_kind": "dot",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test."
+    },
+    {
+     "form": "comment-before-domain",
+     "domain_kind": "upper",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "From:\r\n <security@XN--MNCHEN-3YA.LAB.TEST>\r\nFROM: =?utf-8?B?5L2g5aW9?=: security@xn--mnchen-3ya.lab.test.;\r\nFROM: =?utf-8?B?5L2g5aW9?= <security@(Bank)XN--MNCHE",
+   "smtp": "250 2.0.0 Ok: queued as 97D5CA99C5",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=XN--MNCHEN-3YA.LAB.TEST",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'325 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")(NIL NIL \"=?utf-8?B?5L2g5aW9?=\" NIL)(NIL NIL \"security\" \"MISSING_DOMAIN\")(NIL NIL NIL NIL)(\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"XN--MNCHEN-3YA.L",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "e89a52a8973ecb02afedb5b1ec7a16f8f8f78fe28198f80ad1b6e4cb7b8f5c39",
+   "env_class": "other",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "other"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-060",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "upper",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "FROM: =?utf-8?B?5L2g5aW9?= <security@XN--MNCHEN-3YA.LAB.TEST>",
+   "smtp": "250 2.0.0 Ok: queued as B5E00A99C6",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=XN--MNCHEN-3YA.LAB.TEST",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'327 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((NIL NIL \"bob\" \"lab.t",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "e355cb27d843a3af08af85cc2afc7e4bdf30e40306588d2e36be2579b8afaaaa",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_REJECT",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-061",
+   "forms": "angle+domain-literal",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dotless",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    },
+    {
+     "form": "domain-literal",
+     "domain_kind": "ascii",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "From",
+     "domain": "lab.test"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "FROM: Bank Security <security@labtest>\r\nFrom: Bank Security <security@[203.0.113.7]>",
+   "smtp": "250 2.0.0 Ok: queued as 221BCA99C8",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=labtest",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'329 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" \"labtest\")(\"Bank Security\" NIL \"security\" \"[203.0.113.7]\")) ((\"Bank Security\" NIL \"security\" \"labtest\")(\"Bank Security\" NIL \"security\" \"[203.0.113.7]\")) ((\"Repl",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "13f693f8204487a8814cdf9a38f9aba31f5ed2df7322e6e5d5e5b23240131fcd",
+   "env_class": "literal",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "literal"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-062",
+   "forms": "angle+route-addr",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dotless",
+     "display": "Bank Security",
+     "obs": true,
+     "case": "From",
+     "domain": "labtest"
+    },
+    {
+     "form": "route-addr",
+     "domain_kind": "dot",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "From :Bank Security <security@labtest>\r\nfrom: <@relay.lab.test:security@xn--mnchen-3ya.lab.test.>",
+   "smtp": "250 2.0.0 Ok: queued as 5385CA99C8",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'331 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL \"@relay.lab.test\" \"security\" \"SYNTAX_ERROR\")) ((NIL \"@relay.lab.test\" \"security\" \"SYNTAX_ERROR\")) ((\"Reply\" NIL \"reply\" \"evil.test\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-062@",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "64e60e3eb2dacbfe7f6ab1f5ec522f3ded97bebd1f9f2835cfc03e1dda4e1fc2",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_REJECT",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-063",
+   "forms": "bare+folded-empty-first",
+   "spec": [
+    {
+     "form": "bare",
+     "domain_kind": "dotless",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": true,
+     "case": "FROM",
+     "domain": "labtest"
+    },
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "dot",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "FROM :security@labtest\r\nFrom:\r\n <security@xn--mnchen-3ya.lab.test.>",
+   "smtp": "250 2.0.0 Ok: queued as 863D0A99C8",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=labtest",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'333 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"labtest\")(NIL NIL \"security\" \"SYNTAX_ERROR\")) ((NIL NIL \"security\" \"labtest\")(NIL NIL \"security\" \"SYNTAX_ERROR\")) ((NIL NIL \"security\" \"labtest\")(NIL NIL \"security\" \"SYNTA",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "b4082313065048f4548192d3add35546bc68a109604ef44a6bfe5069ebc97b1e",
+   "env_class": "other",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "other"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-064",
+   "forms": "angle+folded-empty-first",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dot",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test."
+    },
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "dotless",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "FROM: Bank Security <security@xn--mnchen-3ya.lab.test.>\r\nFROM:\r\n <security@labtest>",
+   "smtp": "250 2.0.0 Ok: queued as 3AB66A99C8",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'335 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" \"SYNTAX_ERROR\")(NIL NIL \"security\" \"labtest\")) ((\"Bank Security\" NIL \"security\" \"SYNTAX_ERROR\")(NIL NIL \"security\" \"labtest\")) ((\"Bank Security\" NIL \"security\" ",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "2ebc39b353497c7040194e365b0812a47814cf29b77ea9ef0748908986792be6",
+   "env_class": "other",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "other"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-065",
+   "forms": "folded-empty-first",
+   "spec": [
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "dotless",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "labtest"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "from:\r\n <security@labtest>",
+   "smtp": "250 2.0.0 Ok: queued as 6B729A99D0",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=labtest",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'337 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"labtest\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"security\" \"labtest\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-065@lab.test>\"))'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "d68e08cce8c66e2ef09a3923c7debb604a535a0bd8353fe874170f4199a82414",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-066",
+   "forms": "angle+comment-after-domain",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "ascii",
+     "display": "None",
+     "obs": true,
+     "case": "From",
+     "domain": "lab.test"
+    },
+    {
+     "form": "comment-after-domain",
+     "domain_kind": "ascii",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "From",
+     "domain": "lab.test"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "From :<security@lab.test>\r\nFrom: Bank Security <security@lab.test (Bank)>",
+   "smtp": "250 2.0.0 Ok: queued as C8585A99D1",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'339 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" \"lab.test\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((\"Bank Security\" NIL \"security\" \"lab.test\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-066@lab.test>\"))'",
+   "rspamd": "DMARC_POLICY_SOFTFAIL",
+   "sha256": "4d6dcfdd63e0e7488d844146e0d7c166746aecfd06fd424e474ad5b266af8631",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_SOFTFAIL",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-067",
+   "forms": "group-empty",
+   "spec": [
+    {
+     "form": "group-empty",
+     "domain_kind": "upper",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "FROM: Bank Security:;",
+   "smtp": "250 2.0.0 Ok: queued as 3C48DA99D5",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'341 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL NIL NIL)) ((\"Reply\" NIL \"reply\" \"evil.test\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-067@lab.te",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "a28ce0c8b6b9ed9bc8f45be6cea58007c752c527fdc45c5299453f2e48eb1b40",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-068",
+   "forms": "bare+route-addr+empty-addr",
+   "spec": [
+    {
+     "form": "bare",
+     "domain_kind": "dot",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test."
+    },
+    {
+     "form": "route-addr",
+     "domain_kind": "upper",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "From",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    },
+    {
+     "form": "empty-addr",
+     "domain_kind": "dotless",
+     "display": "None",
+     "obs": false,
+     "case": "From",
+     "domain": "labtest"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "FROM: security@xn--mnchen-3ya.lab.test.\r\nFrom: Bank Security <@relay.lab.test:security@XN--MNCHEN-3YA.LAB.TEST>\r\nFrom: <>",
+   "smtp": "250 2.0.0 Ok: queued as 5A744A99D6",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'343 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"MISSING_DOMAIN\")(\"Bank Security\" \"@relay.lab.test\" \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")(NIL NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")) ((NIL NIL \"security\" \"MISSING_DOMAIN\"",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "3cedc6d4cd5882258872a91ab913c99a37847f4f9c30f0ceed02b09380efedfe",
+   "env_class": "missing",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "missing"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-069",
+   "forms": "empty-addr",
+   "spec": [
+    {
+     "form": "empty-addr",
+     "domain_kind": "upper",
+     "display": "None",
+     "obs": true,
+     "case": "From",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "From :<>",
+   "smtp": "250 2.0.0 Ok: queued as 54502A99D6",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'345 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" NIL ((\"Agent\" NIL \"agent\" \"lab.test\")) NIL ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-069@lab.test>\"))'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "4814f1fab4bc00ef8fb3c717aeffc3dd91a35d043ae0b8ef042da607fd4ee353",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-070",
+   "forms": "empty-addr+empty-addr+comment-before-domain",
+   "spec": [
+    {
+     "form": "empty-addr",
+     "domain_kind": "dotless",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    },
+    {
+     "form": "empty-addr",
+     "domain_kind": "victim-a",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": true,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test"
+    },
+    {
+     "form": "comment-before-domain",
+     "domain_kind": "victim-u-nfc",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": true,
+     "case": "from",
+     "domain": "münchen.lab.test"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "FROM: Bank Security <>\r\nFrom :=?utf-8?B?5L2g5aW9?= <>\r\nfrom :=?utf-8?B?5L2g5aW9?= <security@(Bank)münchen.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 1E15CA99DA",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "(b'347 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")(\"=?utf-8?B?5L2g5aW9?=\" NIL \"MISSING_MAILBOX\" \"MISSING_DOMAIN\")(\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" {17}', b'm\\xc3\\xbcnchen.lab.test'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "4dfd16194f8b1599196018fc2075bcaa3b5414c8cc1fa2bd7767bab9fd310b42",
+   "env_class": "utf8",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "utf8"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-071",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "dotless",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    }
+   ],
+   "extra": "reply-to",
+   "from_line_preview": "FROM: Bank Security <security@labtest>",
+   "smtp": "250 2.0.0 Ok: queued as E7519A99DD",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=labtest",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'349 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" \"labtest\")) ((\"Bank Security\" NIL \"security\" \"labtest\")) ((\"Reply\" NIL \"reply\" \"evil.test\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-071@lab.test>\"))'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "4bde9faea404ff67cec6deeacc6e7e4ef3f9730359f1465e45ca7c3eb7a38169",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "none",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-072",
+   "forms": "group-two",
+   "spec": [
+    {
+     "form": "group-two",
+     "domain_kind": "dot",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "From: Bank Security: security@xn--mnchen-3ya.lab.test., agent@lab.test;",
+   "smtp": "250 2.0.0 Ok: queued as B1BD3A99DD",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [],
+   "envelope": "b'351 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"MISSING_DOMAIN\")(NIL NIL \"agent\" \"lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"MISSING_DOMAIN\")(NIL NIL \"ag",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "39f0fd590aa5b2636f54efb2687c68c6415db60aa29bf9cdf3ab70b6d60dd91d",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-073",
+   "forms": "comment-after-domain+group-one+bare",
+   "spec": [
+    {
+     "form": "comment-after-domain",
+     "domain_kind": "ascii",
+     "display": "Bank Security",
+     "obs": true,
+     "case": "FROM",
+     "domain": "lab.test"
+    },
+    {
+     "form": "group-one",
+     "domain_kind": "dotless",
+     "display": "None",
+     "obs": false,
+     "case": "From",
+     "domain": "labtest"
+    },
+    {
+     "form": "bare",
+     "domain_kind": "victim-a",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "FROM :Bank Security <security@lab.test (Bank)>\r\nFrom: Bank: security@labtest;\r\nfrom: security@xn--mnchen-3ya.lab.test",
+   "smtp": "250 2.0.0 Ok: queued as 5D0CAA99E2",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'353 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"Bank Security\" NIL \"security\" \"lab.test\")(NIL NIL \"Bank\" NIL)(NIL NIL \"security\" \"labtest\")(NIL NIL NIL NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Agent\" NIL \"agent\" \"lab.test\"))",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "48ba584abb1394398bac503c6f2a0915f1ccc2233ba8f9a0b60d55048d7d002d",
+   "env_class": "victim",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "victim"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-074",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "ascii",
+     "display": "Bank Security",
+     "obs": true,
+     "case": "From",
+     "domain": "lab.test"
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "From :Bank Security <security@lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 3FCDCA99E3",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'355 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" NIL ((\"Agent\" NIL \"agent\" \"lab.test\")) NIL ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-074@lab.test>\"))'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "e1bda4af6da3e0d24e48350c1d4f79ad93aaabbc5ffeb9d482a5962b20737c68",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-075",
+   "forms": "folded-empty-first+folded-empty-first",
+   "spec": [
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "ascii",
+     "display": "None",
+     "obs": true,
+     "case": "from",
+     "domain": "lab.test"
+    },
+    {
+     "form": "folded-empty-first",
+     "domain_kind": "ascii",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": true,
+     "case": "from",
+     "domain": "lab.test"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "from:\r\n <security@lab.test>\r\nfrom:\r\n <security@lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 218C9A99E5",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'357 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"lab.test\")(NIL NIL \"security\" \"lab.test\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"security\" \"lab.test\")(NIL NIL \"security\" \"lab.test\")) ((NIL NIL \"bob\" \"lab.test\"))",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "d20f2133ae7abc9dface10ceaeeb33fabdfd95ab9ff2162195d50a2335f13f13",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-076",
+   "forms": "comment-before-domain",
+   "spec": [
+    {
+     "form": "comment-before-domain",
+     "domain_kind": "upper",
+     "display": "None",
+     "obs": false,
+     "case": "From",
+     "domain": "XN--MNCHEN-3YA.LAB.TEST"
+    }
+   ],
+   "extra": "sender",
+   "from_line_preview": "From: <security@(Bank)XN--MNCHEN-3YA.LAB.TEST>",
+   "smtp": "250 2.0.0 Ok: queued as EAF83A99E7",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=XN--MNCHEN-3YA.LAB.TEST",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'359 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((NIL NIL \"security\" \"XN--MNCHEN-3YA.LAB.TEST\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-076@lab.tes",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "b44b56ea56377671a59ce041d90c97d23307c721261c79304fa03deaa6666655",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_REJECT",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  },
+  {
+   "case": "h2-23-077",
+   "forms": "angle",
+   "spec": [
+    {
+     "form": "angle",
+     "domain_kind": "victim-a",
+     "display": "None",
+     "obs": true,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "From :<security@xn--mnchen-3ya.lab.test>",
+   "smtp": "250 2.0.0 Ok: queued as 0738DA99E7",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "b'361 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" NIL NIL NIL ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h2-23-077@lab.test>\"))'",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "7ebab36b8547b77abb5c8ad582b12e7cdc273c9e541c450565daf1c253d94d94",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "absent",
+    "empty",
+    "no-dmarc-sym",
+    "labtest"
+   ],
+   "classes": [
+    "empty_identity_ar",
+    "no_stamp"
+   ]
+  },
+  {
+   "case": "h2-23-078",
+   "forms": "comment-after-domain+group-one+comment-before-domain",
+   "spec": [
+    {
+     "form": "comment-after-domain",
+     "domain_kind": "victim-a",
+     "display": "None",
+     "obs": false,
+     "case": "from",
+     "domain": "xn--mnchen-3ya.lab.test"
+    },
+    {
+     "form": "group-one",
+     "domain_kind": "dot",
+     "display": "Bank Security",
+     "obs": false,
+     "case": "FROM",
+     "domain": "xn--mnchen-3ya.lab.test."
+    },
+    {
+     "form": "comment-before-domain",
+     "domain_kind": "dotless",
+     "display": "None",
+     "obs": false,
+     "case": "FROM",
+     "domain": "labtest"
+    }
+   ],
+   "extra": null,
+   "from_line_preview": "from: <security@xn--mnchen-3ya.lab.test (Bank)>\r\nFROM: Bank Security: security@xn--mnchen-3ya.lab.test.;\r\nFROM: <security@(Bank)labtest>",
+   "smtp": "250 2.0.0 Ok: queued as E0E94A99E9",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'363 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"MISSING_DOMAIN\")(NIL NIL NIL NIL)(NIL NIL \"security\" \"labtest\")) ((NIL NIL \"security\" \"xn--mnche",
+   "rspamd": "no-dmarc-sym",
+   "sha256": "def8a23a81d134a3d1121a758759d5417c2ee390da7fd5f337f8b45e7a204900",
+   "env_class": "victim",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "no-dmarc-sym",
+    "victim"
+   ],
+   "classes": [
+    "policy_split",
+    "rspamd_void_only"
+   ]
+  },
+  {
+   "case": "h2-23-079",
+   "forms": "comment-after-domain",
+   "spec": [
+    {
+     "form": "comment-after-domain",
+     "domain_kind": "dot",
+     "display": "=?utf-8?B?5L2g5aW9?=",
+     "obs": false,
+     "case": "From",
+     "domain": "xn--mnchen-3ya.lab.test."
+    }
+   ],
+   "extra": "sender-obs",
+   "from_line_preview": "From: =?utf-8?B?5L2g5aW9?= <security@xn--mnchen-3ya.lab.test. (Bank)>",
+   "smtp": "250 2.0.0 Ok: queued as 37687A99E9",
+   "smtp_code": "250",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test.",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "b'365 (ENVELOPE (\"Sat, 3 Oct 2026 09:00:00 +0000\" \"hdrfuzz2 probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"SYNTAX_ERROR\")) ((\"Agent\" NIL \"agent\" \"lab.test\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"security\" \"SYNTAX_ERROR\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<h",
+   "rspamd": "DMARC_POLICY_REJECT",
+   "sha256": "9a1ce77116d15fd265d98231925f05371ffb58d8a21b3462a38953135bee6c68",
+   "env_class": "labtest",
+   "outcome": [
+    "250",
+    true,
+    "fail",
+    "ascii",
+    "DMARC_POLICY_REJECT",
+    "labtest"
+   ],
+   "classes": [
+    "none"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xn--mnchen-3ya.lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=tiYt7m3+W8IDqpxIEGcyT4FWMfKOS72ynOS1DWWEFXM=; b=JteBxL++hkifd+ldz641hxFdusEhuMqwNhr/DwqsBdIEJFXuNZkmmwXL/gHzrLL85AC+DPwf3w04vY0aCcJ0CpWtRvb6Ljj2LIDl6ptlGTIeh3r7eUYSU3+CeJj6aVB3IrwxIwo83Hm4WmRFiKakPx1ZKTreQkaC7ndoy8W+doeUZeNn/1jcOGy4lMipnayc9nv25ehu21m/R0EnMwfE6N2+Okua0B47dqS5lBTin97LbZjY8AgloVbPUzd+j7wZhapZv9jp0RTL14UQSFrNwed4RWv2o8RcN9JMFvRZ+R64NZBU3OrtjcR+7LNnn5CCmOTI9midV5UpYm8yA9f41g==
+From: Bank Security <security@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 21:00:00 +0000
+Subject: repair ctl-signed
+Message-ID: <rp-ctl-signed-osmtpd@lab.test>
+X-Case-ID: rp-ctl-signed-osmtpd
+
+Please confirm the payment.
+Case: rp-ctl-signed-osmtpd

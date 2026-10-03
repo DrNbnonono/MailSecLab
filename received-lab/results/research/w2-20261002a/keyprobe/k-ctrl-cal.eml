@@ -1,0 +1,11 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=pJjLqYA+/+uR8AgeuDxQ8b+pUtyzy3YGa7gs1+zsKuytl/iH7J7uO0utnrf38t5Rp6gCYzuYAVCgXjTtYC4GqcwqrEKVSqrmRO3PBmv/+DtPBV3Qwvf2CcrEm0F7lgAPZA5bZJPjwFSRufr81HuWtbF2/tQn65xE2+iTPz9U2BUiRlv2PeMABNyIUDWjaZULfmFhRFcjSDEAzZA9RPTrP3gekEOdVrjd6pK5o9C2WjjTdFY97fNhgX5qYDOEdDmUa5KWGjYrG7W8jR4q7muR26Pol4L+cv/5IX+xKo3AZthFlTBGqJT0EqOr8LJdD7Zpd1C2cga+uiqFmLe1Db9uGw==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 18:00:00 +0000
+Subject: key probe k-ctrl-cal
+Message-ID: <key-k-ctrl-cal@lab.test>
+X-Case-ID: key-k-ctrl-cal
+
+Please confirm the payment.

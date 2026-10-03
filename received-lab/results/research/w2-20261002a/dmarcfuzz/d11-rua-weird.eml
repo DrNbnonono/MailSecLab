@@ -1,0 +1,8 @@
+From: Probe <security@d11-rua-weird.dmarc-p.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 20:00:00 +0000
+Subject: dmarc rec d11-rua-weird
+Message-ID: <dmf-d11-rua-weird@lab.test>
+X-Case-ID: dmf-d11-rua-weird
+
+body

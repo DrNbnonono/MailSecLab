@@ -1,0 +1,6 @@
+{
+ "NFC_utf8_hex": "6dc3bc6e6368656e2e6c61622e74657374",
+ "NFD_utf8_hex": "6d75cc886e6368656e2e6c61622e74657374",
+ "NFC_is_nfc": true,
+ "NFD_is_nfd": true
+}

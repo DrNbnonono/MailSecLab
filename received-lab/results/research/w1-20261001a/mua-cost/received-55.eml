@@ -1,0 +1,63 @@
+X-Case-ID: mua-received-55
+Received: from hop0.example (hop0.example [203.0.113.0]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:00 +0000
+Received: from hop1.example (hop1.example [203.0.113.1]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:01 +0000
+Received: from hop2.example (hop2.example [203.0.113.2]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:02 +0000
+Received: from hop3.example (hop3.example [203.0.113.3]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:03 +0000
+Received: from hop4.example (hop4.example [203.0.113.4]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:04 +0000
+Received: from hop5.example (hop5.example [203.0.113.5]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:05 +0000
+Received: from hop6.example (hop6.example [203.0.113.6]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:06 +0000
+Received: from hop7.example (hop7.example [203.0.113.7]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:07 +0000
+Received: from hop8.example (hop8.example [203.0.113.8]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:08 +0000
+Received: from hop9.example (hop9.example [203.0.113.9]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:09 +0000
+Received: from hop10.example (hop10.example [203.0.113.10]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:10 +0000
+Received: from hop11.example (hop11.example [203.0.113.11]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:11 +0000
+Received: from hop12.example (hop12.example [203.0.113.12]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:12 +0000
+Received: from hop13.example (hop13.example [203.0.113.13]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:13 +0000
+Received: from hop14.example (hop14.example [203.0.113.14]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:14 +0000
+Received: from hop15.example (hop15.example [203.0.113.15]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:15 +0000
+Received: from hop16.example (hop16.example [203.0.113.16]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:16 +0000
+Received: from hop17.example (hop17.example [203.0.113.17]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:17 +0000
+Received: from hop18.example (hop18.example [203.0.113.18]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:18 +0000
+Received: from hop19.example (hop19.example [203.0.113.19]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:19 +0000
+Received: from hop20.example (hop20.example [203.0.113.20]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:20 +0000
+Received: from hop21.example (hop21.example [203.0.113.21]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:21 +0000
+Received: from hop22.example (hop22.example [203.0.113.22]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:22 +0000
+Received: from hop23.example (hop23.example [203.0.113.23]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:23 +0000
+Received: from hop24.example (hop24.example [203.0.113.24]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:24 +0000
+Received: from hop25.example (hop25.example [203.0.113.25]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:25 +0000
+Received: from hop26.example (hop26.example [203.0.113.26]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:26 +0000
+Received: from hop27.example (hop27.example [203.0.113.27]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:27 +0000
+Received: from hop28.example (hop28.example [203.0.113.28]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:28 +0000
+Received: from hop29.example (hop29.example [203.0.113.29]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:29 +0000
+Received: from hop30.example (hop30.example [203.0.113.30]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:30 +0000
+Received: from hop31.example (hop31.example [203.0.113.31]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:31 +0000
+Received: from hop32.example (hop32.example [203.0.113.32]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:32 +0000
+Received: from hop33.example (hop33.example [203.0.113.33]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:33 +0000
+Received: from hop34.example (hop34.example [203.0.113.34]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:34 +0000
+Received: from hop35.example (hop35.example [203.0.113.35]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:35 +0000
+Received: from hop36.example (hop36.example [203.0.113.36]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:36 +0000
+Received: from hop37.example (hop37.example [203.0.113.37]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:37 +0000
+Received: from hop38.example (hop38.example [203.0.113.38]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:38 +0000
+Received: from hop39.example (hop39.example [203.0.113.39]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:39 +0000
+Received: from hop40.example (hop40.example [203.0.113.40]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:40 +0000
+Received: from hop41.example (hop41.example [203.0.113.41]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:41 +0000
+Received: from hop42.example (hop42.example [203.0.113.42]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:42 +0000
+Received: from hop43.example (hop43.example [203.0.113.43]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:43 +0000
+Received: from hop44.example (hop44.example [203.0.113.44]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:44 +0000
+Received: from hop45.example (hop45.example [203.0.113.45]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:45 +0000
+Received: from hop46.example (hop46.example [203.0.113.46]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:46 +0000
+Received: from hop47.example (hop47.example [203.0.113.47]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:47 +0000
+Received: from hop48.example (hop48.example [203.0.113.48]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:48 +0000
+Received: from hop49.example (hop49.example [203.0.113.49]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:49 +0000
+Received: from hop50.example (hop50.example [203.0.113.50]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:50 +0000
+Received: from hop51.example (hop51.example [203.0.113.51]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:51 +0000
+Received: from hop52.example (hop52.example [203.0.113.52]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:52 +0000
+Received: from hop53.example (hop53.example [203.0.113.53]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:53 +0000
+Received: from hop54.example (hop54.example [203.0.113.54]) by next.example with ESMTP; Thu, 1 Oct 2026 00:00:54 +0000
+From: Author <author@lab.test>
+To: bob@lab.test
+Subject: mua-received
+Date: Thu, 1 Oct 2026 00:00:00 +0000
+Message-ID: <mua-received@lab.test>
+
+body

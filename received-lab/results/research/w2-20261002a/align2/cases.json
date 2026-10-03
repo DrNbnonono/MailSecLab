@@ -1,0 +1,95 @@
+{
+ "rows": [
+  {
+   "case": "ctrl-bank",
+   "smtp": "250 2.0.0 Ok: queued as 82D11AA30B",
+   "dkim": "pass",
+   "header_d": "bank.test",
+   "dmarc": "pass",
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=pass (p=reject dis=none) header.from=bank.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+    "Authentication-Results: mail.lab.test; dkim=pass (2048-bit key; unprotected) header.d=bank.test header.i=@bank.test head"
+   ],
+   "sha256": "e675644500f31c4ff3d3899700057c32f92d54ea1a4e09e02cc5be6f32735a7f"
+  },
+  {
+   "case": "mis-lab",
+   "smtp": "250 2.0.0 Ok: queued as C255CAA30B",
+   "dkim": "pass",
+   "header_d": "lab.test",
+   "dmarc": "fail",
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=bank.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+    "Authentication-Results: mail.lab.test; dkim=pass (2048-bit key; unprotected) header.d=lab.test header.i=@lab.test header"
+   ],
+   "sha256": "a8d4397bcb042846cd12827d0f6951614f643a4113a3aa8ee9e8d8b3ada9bccd"
+  },
+  {
+   "case": "mis-evil",
+   "smtp": "250 2.0.0 Ok: queued as 1EC27AA30B",
+   "dkim": "pass",
+   "header_d": "evil.test",
+   "dmarc": "fail",
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=bank.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+    "Authentication-Results: mail.lab.test; dkim=pass (2048-bit key; unprotected) header.d=evil.test header.i=@evil.test head"
+   ],
+   "sha256": "5d1b9599870034f51fd4db2f0f29187cfbcc822d270d3cb1f9ca91684454b22b"
+  },
+  {
+   "case": "dup-first-bank",
+   "smtp": "250 2.0.0 Ok: queued as 64EE1AA30B",
+   "dkim": "pass",
+   "header_d": "evil.test",
+   "dmarc": "fail",
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=bank.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+    "Authentication-Results: mail.lab.test; dkim=pass (2048-bit key; unprotected) header.d=evil.test header.i=@evil.test head"
+   ],
+   "sha256": "eb21e981c523786adf0a5667d0e691867f1bac9b063c0dfbb7b5d213599c50b3"
+  },
+  {
+   "case": "dup-first-evil",
+   "smtp": "250 2.0.0 Ok: queued as B167DAA30B",
+   "dkim": "pass",
+   "header_d": "bank.test",
+   "dmarc": "pass",
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=pass (p=reject dis=none) header.from=bank.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+    "Authentication-Results: mail.lab.test; dkim=pass (2048-bit key; unprotected) header.d=bank.test header.i=@bank.test head"
+   ],
+   "sha256": "a4a949762f8264e39f56be01fb4e822dc584eaaac245e87a1b01ce621ca3cbb8"
+  },
+  {
+   "case": "dot-bank",
+   "smtp": "250 2.0.0 Ok: queued as C678EAA30B",
+   "dkim": "pass",
+   "header_d": "bank.test.",
+   "dmarc": "fail",
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=bank.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+    "Authentication-Results: mail.lab.test; dkim=pass (2048-bit key; unprotected) header.d=bank.test. header.i=@bank.test. he"
+   ],
+   "sha256": "250236e0d789d0cd6a92dfe0347c8fafb9492edafd7965c89e8ea974c64eefbe"
+  },
+  {
+   "case": "upper-bank",
+   "smtp": "250 2.0.0 Ok: queued as CBE96AA30B",
+   "dkim": "pass",
+   "header_d": "BANK.TEST",
+   "dmarc": "pass",
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=pass (p=reject dis=none) header.from=bank.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+    "Authentication-Results: mail.lab.test; dkim=pass (2048-bit key; unprotected) header.d=BANK.TEST header.i=@BANK.TEST head"
+   ],
+   "sha256": "c19ccc7597b6e6c915b58e51f520ead889827e30c9ce3a2b70322a4355271a34"
+  }
+ ]
+}

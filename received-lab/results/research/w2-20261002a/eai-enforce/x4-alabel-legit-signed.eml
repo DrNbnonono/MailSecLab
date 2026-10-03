@@ -1,0 +1,12 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xn--mnchen-3ya.lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=CFX8a09jYMdRGfU/QkjOUeuuyGA2aqV9yuxZRBdbgC4=; b=ghMFf1NdWJXi8xMxKv8lJUoMGIzXhUHoH6XH2MuOUhhhpswoOaAe0eGWO5DaCprvBTYU6+QKXV16QN4xpdg1S3b6cAZiCCu5ABV3JChTb9Gc3OM+fC31uu5kpRNZvuP+rXYPVovA3ON3vwzQvvzKVqr7qQkLdYEiigIZgyBcMn/0o0a/ys+Aj15Gek+X0xdf40AIzLoyDL0Nh+RYl/fNCvpJZZ6H/74VZcs+Qh8yrDBnkKRRL64r42LfFZnCA4Z5rC4xnCWwck98cvZ06b2O/XwPrUBXqlu7Za2+SEBA9BMpgMMJJcBbUFXur956MNT8VsWvGyBk8D5CQvOO9iItpA==
+From: Author <author@xn--mnchen-3ya.lab.test>
+To: recipient@receiver.test
+Date: Fri, 2 Oct 2026 13:00:00 +0000
+Subject: eai enforcement probe
+Message-ID: <eaienf-x4-alabel-legit-signed@lab.test>
+X-Case-ID: eaienf-x4-alabel-legit-signed
+
+Controlled research body.
+Case: eaienf-x4-alabel-legit-signed

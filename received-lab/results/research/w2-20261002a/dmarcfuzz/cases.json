@@ -1,0 +1,114 @@
+{
+ "rows": [
+  {
+   "case": "d01-p-only",
+   "record": "v=DMARC1; p=",
+   "smtp": "250 2.0.0 Ok: queued as B8D7F609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d02-dup-p-none-reject",
+   "record": "v=DMARC1; p=none; p=reject",
+   "smtp": "250 2.0.0 Ok: queued as 82206609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d03-dup-p-reject-none",
+   "record": "v=DMARC1; p=reject; p=none",
+   "smtp": "250 2.0.0 Ok: queued as 3295E609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d04-pct-overflow",
+   "record": "v=DMARC1; p=reject; pct=99999999999999999999",
+   "smtp": "250 2.0.0 Ok: queued as D7666609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d05-pct-negative",
+   "record": "v=DMARC1; p=reject; pct=-1",
+   "smtp": "250 2.0.0 Ok: queued as A499C609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d06-pct-huge-hex",
+   "record": "v=DMARC1; p=reject; pct=0x7fffffff",
+   "smtp": "250 2.0.0 Ok: queued as 41E5B609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d07-sp-no-p",
+   "record": "v=DMARC1; sp=reject",
+   "smtp": "250 2.0.0 Ok: queued as D0E5E609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d08-adkim-dup",
+   "record": "v=DMARC1; p=reject; adkim=s; adkim=r",
+   "smtp": "250 2.0.0 Ok: queued as AC439609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d09-unknown-tags",
+   "record": "v=DMARC1; p=reject; xyz=abc; aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...",
+   "smtp": "250 2.0.0 Ok: queued as B9D2F609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d10-rua-many",
+   "record": "v=DMARC1; p=reject; rua=mailto:r0@evil.test,mailto:r1@evil.test,mailto:r2@evil.t...",
+   "smtp": "250 2.0.0 Ok: queued as 8EA9F609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d11-rua-weird",
+   "record": "v=DMARC1; p=reject; rua=mailto:<>@!#$%&*()",
+   "smtp": "250 2.0.0 Ok: queued as 4C7D2609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d12-long-record",
+   "record": "v=DMARC1; p=reject; xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...",
+   "smtp": "250 2.0.0 Ok: queued as 29317609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d13-no-v",
+   "record": "p=reject",
+   "smtp": "250 2.0.0 Ok: queued as 19F76AA608",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d14-v-case",
+   "record": "v=dMaRc1; p=reject",
+   "smtp": "250 2.0.0 Ok: queued as E6C0B609",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "d15-p-junk",
+   "record": "v=DMARC1; p=reject (junk); qua=none",
+   "smtp": "250 2.0.0 Ok: queued as AB13EAA60A",
+   "smtp_code": "250",
+   "milter_after": true
+  },
+  {
+   "case": "canary",
+   "smtp_code": "{\"c",
+   "milter_after": true
+  }
+ ]
+}

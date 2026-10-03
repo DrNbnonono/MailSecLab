@@ -1,0 +1,22 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id IL2KGi/av2pGBAAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Fri, 02 Oct 2026 16:22:07 +0000
+Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 37628A99E9
+	for <bob@lab.test>; Fri,  2 Oct 2026 16:22:07 +0000 (UTC)
+From: Spoofed <author@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 11:00:00 +0000
+Subject: ar survival probe
+Message-ID: <arsurv-b2-obs-colon-own-id@lab.test>
+X-Case-ID: arsurv-b2-obs-colon-own-id
+X-Spam: Yes
+
+Please confirm the payment.
+Case: arsurv-b2-obs-colon-own-id

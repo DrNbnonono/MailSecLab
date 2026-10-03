@@ -1,0 +1,12 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xn--mnchen-3ya.lab.test(x).attacker.test;
+ s=cal;
+ h=from:to:date:subject:message-id;
+ bh=Ck5SoRNWUpSR4X0COv7R5ub2pUTtl6xz4dTFz++ji4M=; b=cipY3JeO8x/q+QWVdpmxHFOCUwv8iqhybgUhDQPAW/XyYswDBorfCYuPu2FQeDWsNq63urpP9NqRSYZQWbbhva2FIv6HilaxpXe/zITKu49M8PzUaSdTmclGYshQc3a40d+QnrOmCiVqWOfea5t+SbVzerDkaeWXdyFtEJu6UQvkftjZUsq4BjJ+MQcotHD6Do05vVF9JSQbS3Z+77c3JQxNlmTXdARGCoN/prcbl3ZdZESeVOSQPTNRM2PvoFzXlQ1RpwBAWa7/N7ox3zAC337C8Tj2ik+hAUc2jXV/e6w18/ow69tcy45IHT2SqxdFmEU0mMhh1VGJgWdEvpj63A==
+From: Spoofed <author@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Fri, 2 Oct 2026 17:20:00 +0000
+Subject: ar2b balanced comment
+Message-ID: <ar2b-balanced-comment@lab.test>
+X-Case-ID: ar2b-balanced-comment
+
+body

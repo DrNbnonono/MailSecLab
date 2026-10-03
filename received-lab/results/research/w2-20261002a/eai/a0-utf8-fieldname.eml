@@ -1,0 +1,13 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=r5saEO0p0yzmlPTpLWNGxyF/lEAi0goiG1KmKj+fLYE=; b=yoDfol6Tmn4rjsHS7lJCJLCPMOX3SQiWyFuF2MUQel77Tap9aaZ181OiQ6/hvLHUXmydctBayBaTaTYyf1UZE173uEBhcTWiDivyw4JN2lgLDUbZiXDGEMtIeWEjL7TqVluAaeWqhyTZaQoFO+E/sph2OE40nCwVIqNhxQGxKsxUrSCwzj/CEzqfVi/O/eYm5tck7fIURSkvBj3MXF2tzsSg9BDBf4YzPWErYTSefC1NcSF9cf0WHe9rHzUu/dfFCikfvJbuHOUPfesSAkr+hkUuJIhGmlao+/wB+dLT/0sv+DDILDdxw345UNTilvKDk3NAZqCU77Ccgcm0BMApkQ==
+X-Ünknow: one
+From: Author <author@lab.test>
+To: recipient@receiver.test
+Date: Fri, 2 Oct 2026 12:00:00 +0000
+Subject: eai binding probe
+Message-ID: <eai-a0-utf8-fieldname@lab.test>
+X-Case-ID: eai-a0-utf8-fieldname
+
+Controlled research body.
+Case: eai-a0-utf8-fieldname

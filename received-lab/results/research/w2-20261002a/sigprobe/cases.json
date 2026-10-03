@@ -1,0 +1,147 @@
+{
+ "rows": [
+  {
+   "case": "ctrl-angle",
+   "from_line": "From: Bank Security <security@lab.test>",
+   "verifiers": {
+    "dkimpy": "pass",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "pass"
+   },
+   "smtp": "250 2.0.0 Ok: queued as 646FFA998A",
+   "rspamd_syms": "R_DKIM_ALLOW",
+   "sha256": "2f052491eacd4180de2d69bf7bf52dc7f2ace30cb7bc369ad336056cf114e01b"
+  },
+  {
+   "case": "group-one",
+   "from_line": "From: Bank: security@lab.test;",
+   "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as 4D0DEA998A",
+   "rspamd_syms": "R_DKIM_REJECT",
+   "sha256": "e8b3fc09597611fe57c97674d4189de0cba0e17013147c53d955df7ea3c6ae3b"
+  },
+  {
+   "case": "group-empty",
+   "from_line": "From: Bank:;",
+   "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as D9F5CA998A",
+   "rspamd_syms": "R_DKIM_REJECT",
+   "sha256": "0efde3533069fe45a0297fd80c3912b7d27f361f6df2e6658f28112da3e559ab"
+  },
+  {
+   "case": "domain-literal",
+   "from_line": "From: Bank Security <security@[203.0.113.7]>",
+   "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as 7945BA998A",
+   "rspamd_syms": "R_DKIM_REJECT",
+   "sha256": "d0db645179bcac9530e2d3a2d56234dc0c62a7b538134a634743f8fc17ec0419"
+  },
+  {
+   "case": "obs-colon",
+   "from_line": "From : Bank Security <security@lab.test>",
+   "verifiers": {
+    "dkimpy": "fail",
+    "perl": "pass",
+    "go": "pass",
+    "rspamd": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as 21017A998A",
+   "rspamd_syms": "R_DKIM_ALLOW",
+   "sha256": "5f1d871cb49852aed726c5e87623b4100c7446ede0145571ddb5774ae920e413"
+  },
+  {
+   "case": "bare",
+   "from_line": "From: security@lab.test",
+   "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as 8DDDCA998A",
+   "rspamd_syms": "R_DKIM_REJECT",
+   "sha256": "bedc5552c7f510243a0d1f0b58633b8b04273e610a8ea0f784b0af9884a3a1c5"
+  },
+  {
+   "case": "quoted-local",
+   "from_line": "From: Bank Security <\"security\"@lab.test>",
+   "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as 0AE44A998A",
+   "rspamd_syms": "R_DKIM_REJECT",
+   "sha256": "227294d4ca3ffbc59349940574c1abc605a61170f38a8eeeb1e9fb7bda3e39d4"
+  },
+  {
+   "case": "folded-empty-first",
+   "from_line": "From:\\r\\n <security@lab.test>",
+   "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as 64619A998A",
+   "rspamd_syms": "R_DKIM_REJECT",
+   "sha256": "f7485c8708b73392eb28eaa24bb0db07ba36ebda49d0c8651915246aadc13da6"
+  },
+  {
+   "case": "dotless",
+   "from_line": "From: Bank Security <security@labtest>",
+   "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as 9D775A998A",
+   "rspamd_syms": "R_DKIM_REJECT",
+   "sha256": "3c0adb58ba05b61300c207992058400b8b009540b375b1b3b2ff0c9077469bb6"
+  },
+  {
+   "case": "upper",
+   "from_line": "From: Bank Security <security@LAB.TEST>",
+   "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as 15397A99F8",
+   "rspamd_syms": "R_DKIM_REJECT",
+   "sha256": "e93261905da608ddae876d893998e667f625eafc4022c73531abae737841d7cc"
+  },
+  {
+   "case": "route-addr",
+   "from_line": "From: Bank Security <@relay.lab.test:security@lab.test>",
+   "verifiers": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail",
+    "rspamd": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as E5DB7A99F8",
+   "rspamd_syms": "R_DKIM_REJECT",
+   "sha256": "1c9589bfed13d2805b901604a18adfd88808171ee871865575ea8cc1190d92a6"
+  }
+ ]
+}

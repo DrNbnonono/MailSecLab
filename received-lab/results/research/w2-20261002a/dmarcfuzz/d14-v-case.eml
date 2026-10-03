@@ -1,0 +1,8 @@
+From: Probe <security@d14-v-case.dmarc-p.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 20:00:00 +0000
+Subject: dmarc rec d14-v-case
+Message-ID: <dmf-d14-v-case@lab.test>
+X-Case-ID: dmf-d14-v-case
+
+body

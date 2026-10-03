@@ -1,0 +1,23 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id eOAuN//cv2qmBAAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Fri, 02 Oct 2026 16:34:07 +0000
+Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=[203.0.113.7]
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id AF8EAA9AFF
+	for <bob@lab.test>; Fri,  2 Oct 2026 16:34:07 +0000 (UTC)
+From: Bank Security <security@x@[203.0.113.7]>
+Sender: Agent <agent@evil.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 13:00:00 +0000
+Subject: hdrfuzz3 probe
+Message-ID: <h3-33-0080@lab.test>
+X-Case-ID: h3-33-0080
+X-Spam: Yes
+
+Please confirm the payment.
+Case: h3-33-0080

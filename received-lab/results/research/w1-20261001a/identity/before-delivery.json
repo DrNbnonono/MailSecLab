@@ -1,0 +1,122 @@
+[
+  {
+    "case": "sender",
+    "sha256": "848ca48506f83f6646e310277fb53256c057e865c5a50cb05582dc1b961fefcc",
+    "signature_unchanged": true,
+    "hashed_from": "From: Author <author@lab.test>\r\n",
+    "verifiers": {
+      "dkimpy": "pass",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "pass"
+    },
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as BDE78A5282",
+      "queued_id": "BDE78A5282",
+      "bytes": 797,
+      "sha256": "848ca48506f83f6646e310277fb53256c057e865c5a50cb05582dc1b961fefcc",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    }
+  },
+  {
+    "case": "reply-to",
+    "sha256": "82ca64b78550997a320bf404c6bb7735c0fbaa38fd5b76eb5e756fc80d1b3f4d",
+    "signature_unchanged": true,
+    "hashed_from": "From: Author <author@lab.test>\r\n",
+    "verifiers": {
+      "dkimpy": "pass",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "pass"
+    },
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as 3EB5DA5282",
+      "queued_id": "3EB5DA5282",
+      "bytes": 801,
+      "sha256": "82ca64b78550997a320bf404c6bb7735c0fbaa38fd5b76eb5e756fc80d1b3f4d",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    }
+  },
+  {
+    "case": "resent-from",
+    "sha256": "210f55d3b7eb4b8f973575918a99aa618b3be01bd49da1fb7bb35af9f8aaabf4",
+    "signature_unchanged": true,
+    "hashed_from": "From: Author <author@lab.test>\r\n",
+    "verifiers": {
+      "dkimpy": "pass",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "pass"
+    },
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as ACF27A5282",
+      "queued_id": "ACF27A5282",
+      "bytes": 809,
+      "sha256": "210f55d3b7eb4b8f973575918a99aa618b3be01bd49da1fb7bb35af9f8aaabf4",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    }
+  },
+  {
+    "case": "from-colon-space",
+    "sha256": "433f267e38cd78fd491b0bb86eee97b3709ec713a3465afc94e5cac0807207b1",
+    "signature_unchanged": true,
+    "hashed_from": "From: Author <author@lab.test>\r\n",
+    "verifiers": {
+      "dkimpy": "pass",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "pass"
+    },
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as 464D2A5288",
+      "queued_id": "464D2A5288",
+      "bytes": 806,
+      "sha256": "433f267e38cd78fd491b0bb86eee97b3709ec713a3465afc94e5cac0807207b1",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    }
+  },
+  {
+    "case": "reply-to-folded",
+    "sha256": "3262ab2f487b81e207c6a466eb7131605345092391bf215e57d96147aa0989c2",
+    "signature_unchanged": true,
+    "hashed_from": "From: Author <author@lab.test>\r\n",
+    "verifiers": {
+      "dkimpy": "pass",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "pass"
+    },
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as 7D091A5291",
+      "queued_id": "7D091A5291",
+      "bytes": 810,
+      "sha256": "3262ab2f487b81e207c6a466eb7131605345092391bf215e57d96147aa0989c2",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    }
+  }
+]

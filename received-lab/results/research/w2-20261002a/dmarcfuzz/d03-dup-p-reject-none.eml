@@ -1,0 +1,8 @@
+From: Probe <security@d03-dup-p-reject-none.dmarc-p.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 20:00:00 +0000
+Subject: dmarc rec d03-dup-p-reject-none
+Message-ID: <dmf-d03-dup-p-reject-none@lab.test>
+X-Case-ID: dmf-d03-dup-p-reject-none
+
+body

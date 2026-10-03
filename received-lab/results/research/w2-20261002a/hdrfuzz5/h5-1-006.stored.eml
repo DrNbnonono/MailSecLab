@@ -1,0 +1,28 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id 2FX0Dyjsv2oNAAAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Fri, 02 Oct 2026 17:38:48 +0000
+Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=evil.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 1EA51A7313
+	for <bob@lab.test>; Fri,  2 Oct 2026 17:38:48 +0000 (UTC)
+Authentication-Results: mail.lab.test;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=lab.test header.i=@lab.test header.a=rsa-sha256 header.s=cal header.b=Ufow4l+K
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab
+	.test;
+ s=cal;
+ h=from:from:to:date:subject:message-id;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=Ufow4l+KWfSNy5IYVaPPfIi48rFSMH8XImcO4qMtWRVq63dVaBby8nXzKjcAFPZY/YmL2zTrpO7TpQeo5xykVva4f7aDuozqVr+Y+bDTR9teZLSNvQVo2mnIAl7taKOKQIfCMg4DKqA0T7QjM2bPWChu7J//t64At5JqMwR3zdph09brH2QdgIEieQoqLnUCZ2T4QoWU/KRlNucXfng27x5HXGa4dEVD/Xe/MA46qJ0Q577UA+CfaebTV0rqJCd8Uo3fSzO26Y0EmY/8H9hehEC/o9yeuSA07kFwhbwA3dna0DOeMSbnqmm0h9HzGdaapu1KU172AW2PJnEcTZtiTg==
+From: Attacker <attacker@evil.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 16:00:00 +0000
+Subject: hdrfuzz5 probe
+Message-ID: <h5-1-006@lab.test>
+X-Case-ID: h5-1-006
+X-Spam: Yes
+
+Please confirm the payment.

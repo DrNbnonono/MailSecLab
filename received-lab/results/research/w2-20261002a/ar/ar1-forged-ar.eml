@@ -1,0 +1,10 @@
+Authentication-Results: mail.lab.test; dkim=pass (2048-bit key) header.d=xn--mnchen-3ya.lab.test header.i=@xn--mnchen-3ya.lab.test header.b=forged
+From: Spoofed <author@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Fri, 2 Oct 2026 17:00:00 +0000
+Subject: ar trust probe
+Message-ID: <ar1-forged-ar@lab.test>
+X-Case-ID: ar1-forged-ar
+
+Controlled research body.
+Case: ar1-forged-ar

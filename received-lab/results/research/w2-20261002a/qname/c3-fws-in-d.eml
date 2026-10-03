@@ -1,0 +1,14 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab
+	.test;
+ s=cal;
+ h=from:to:date:subject:message-id;
+ bh=lZEWWEV20BtHKnsbzjiuRC71BMPpbcKcTgQbkgVYvfk=; b=ak99xWoXlXceQbdTrcT2S3m8wn9JCqbTIJ5dUH4anEyIh2it5LY/13Eyy5bW2RJoqFvW5z0tnn9KbocBfwKfJ2aLG9tte+dPtOw50IHDv0EzQuMOPu4pGQLOYg35FJnjkH9i6so6zWzq4I+lNY4o7f6CIpTuo3UogcWATTHRMeSsJH4rB7qX31BV9e8wHZilrEiB8l2h4FQjBpX57hDJoRq/PmVQ21hGPnkkep/h/lSru2kKC4s1jKfP1G6cK8M32dBOoRtash6MLgcH378r+YNOr5ibQjKrxLIszbfoBCqY5Nz/08abZsy4KG310dsER3Pa0p8CbAqkD+IYpgIc1Q==
+From: Author <author@lab.test>
+To: bob@lab.test
+Date: Fri, 2 Oct 2026 14:25:00 +0000
+Subject: qname construction probe
+Message-ID: <qnp-c3-fws-in-d@lab.test>
+X-Case-ID: qnp-c3-fws-in-d
+
+Controlled research body.
+Case: qnp-c3-fws-in-d

@@ -1,0 +1,11 @@
+{
+  "row": {
+    "case": "ar1-forged-ar",
+    "smtp": "250 2.0.0 Ok: queued as 855DD9C44B",
+    "accepted": true,
+    "sha256": "aa0d74d409aa0cd16fd324af6915a71da237edfe278d6f2213c564741a41a1a7",
+    "stored": {
+      "found": false
+    }
+  }
+}

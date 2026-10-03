@@ -1,0 +1,21 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id 0C6XBWrRv2rzAQAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Fri, 02 Oct 2026 15:44:42 +0000
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id E158C9C5E1
+	for <bob@lab.test>; Fri,  2 Oct 2026 15:44:31 +0000 (UTC)
+Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)
+From: Bank Security:;
+To: bob@lab.test
+Date: Fri, 2 Oct 2026 18:00:00 +0000
+Subject: void trigger probe
+Message-ID: <void-v2-group-empty@lab.test>
+X-Case-ID: void-v2-group-empty
+X-Spam: Yes
+
+Please confirm the payment.
+Case: void-v2-group-empty

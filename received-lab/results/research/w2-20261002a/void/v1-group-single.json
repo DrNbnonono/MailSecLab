@@ -1,0 +1,35 @@
+{
+ "row": {
+  "case": "v1-group-single",
+  "from_line": "From: Bank Security: security@xn--mnchen-3ya.lab.test;",
+  "t_send": "23:44:17",
+  "smtp": "250 2.0.0 Ok: queued as 4076D9C5E1",
+  "delivered": true,
+  "ar": [
+   "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+   "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+  ],
+  "envelope": "er probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Secu"
+ },
+ "smtp": {
+  "client_ip": "10.88.0.11",
+  "reply": "250 2.0.0 Ok: queued as 4076D9C5E1",
+  "queued_id": "4076D9C5E1",
+  "bytes": 278,
+  "sha256": "b83a1e32404e75d6478e7cfdfb2fdceed884125e8f5806be77fac38d9df1daa9",
+  "accepted": true,
+  "banner_ok": true,
+  "ehlo_ok": true,
+  "mail_ok": true,
+  "rcpt_ok": true
+ },
+ "stored": {
+  "found": true,
+  "uid": "75",
+  "ar": [
+   "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+   "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+  ],
+  "envelope": "er probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<void-v1-group-single@l"
+ }
+}

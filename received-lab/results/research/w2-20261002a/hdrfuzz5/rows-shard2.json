@@ -1,0 +1,823 @@
+{
+ "shard": 2,
+ "n": 48,
+ "seconds": 88.7,
+ "rows": [
+  {
+   "case": "h5-2-000",
+   "from": "angle-ascii",
+   "d": "victim",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "10080060666e79247263be84849a60976bed5485d19e1f39b578e2af877ac383"
+  },
+  {
+   "case": "h5-2-001",
+   "from": "angle-ascii",
+   "d": "own",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "2874164e43cfb90df14e2cdf80a069b3698ecd9726b47c9c69ccb2e943df8d72"
+  },
+  {
+   "case": "h5-2-002",
+   "from": "angle-ascii",
+   "d": "trailing-dot",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "ac6663fe437eae8103ad7f05a30e3858b956fbed81b105b6564ca8563e12714c"
+  },
+  {
+   "case": "h5-2-003",
+   "from": "angle-ascii",
+   "d": "trailing-dot",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "fc1aace93e03a4bc3332de5b7ed62754fc99de694efdec9d15e29becacbf9f8d"
+  },
+  {
+   "case": "h5-2-004",
+   "from": "angle-ascii",
+   "d": "upper",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "c52113091c0f53c4a59c4ff316dac3c6a7b9474cd0d5144aa03a27e81b68bccf"
+  },
+  {
+   "case": "h5-2-005",
+   "from": "angle-ascii",
+   "d": "fws",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "parse-error",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "2e7a32b98ebde13ef94fddc5faadc9eb8b71a177bb2261a5e41a27c4292005a5"
+  },
+  {
+   "case": "h5-2-006",
+   "from": "angle-ascii",
+   "d": "duplicate",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "51812a709e9f9528159a66a9995bf8d8297dad0720678e04955db4b4b769c712"
+  },
+  {
+   "case": "h5-2-007",
+   "from": "angle-ascii",
+   "d": "duplicate",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "a05080be3e66535797b97f3ce07fcc9ad0861a6433e905cd6a7b22f1f97fb71a"
+  },
+  {
+   "case": "h5-2-008",
+   "from": "angle-victim",
+   "d": "victim",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "c9a113f027d8f53f14d50c77394198cf53852feaf0fb65f77abecc4442d924ea"
+  },
+  {
+   "case": "h5-2-009",
+   "from": "angle-victim",
+   "d": "own",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "1ce5c3c4e43951f9da844333c4ffdb441e13b7156dcbdcb14570e8f9cb1bfea1"
+  },
+  {
+   "case": "h5-2-010",
+   "from": "angle-victim",
+   "d": "trailing-dot",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "01e3777a2a99c3515592cfeb82f42373f2de8449242119cea3d49411081d8b9c"
+  },
+  {
+   "case": "h5-2-011",
+   "from": "angle-victim",
+   "d": "trailing-dot",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "309cb062208c2086f7a91cc37688ceb1d025fb8cd0d6671a8ca6062a17c769b7"
+  },
+  {
+   "case": "h5-2-012",
+   "from": "angle-victim",
+   "d": "upper",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "308c3ff17b44f2067bdd770d5cb2dc4976cd5a56b67bfa6f9e49db469eaf194a"
+  },
+  {
+   "case": "h5-2-013",
+   "from": "angle-victim",
+   "d": "fws",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "parse-error",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "41b21776c389500ed28da15f9a30fb752d7a698344ca86471536ae7be9998e8f"
+  },
+  {
+   "case": "h5-2-014",
+   "from": "angle-victim",
+   "d": "duplicate",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "802aa0764a246ad93466df5bc773566c2aeee40c01c5c7c6e819e09c288bf3b7"
+  },
+  {
+   "case": "h5-2-015",
+   "from": "angle-victim",
+   "d": "duplicate",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "d8e659cdbb9387ca0b9b284786ee4424bc452adfa80f3c482553ec7a1761b8a5"
+  },
+  {
+   "case": "h5-2-016",
+   "from": "angle-ulabel",
+   "d": "victim",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "1f26c3377d1d0fa2d94a298dee313d98942740ece6862465f56b9492fcc5bc30"
+  },
+  {
+   "case": "h5-2-017",
+   "from": "angle-ulabel",
+   "d": "own",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "97c485c0bbb959fa257b03bf8952c9aabe5c1c12b30417e6b58ec9fd21f7a2df"
+  },
+  {
+   "case": "h5-2-018",
+   "from": "angle-ulabel",
+   "d": "trailing-dot",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "ced7c82fa2d910c49ae92c6566095201127443404eeb78195aadcfcaad928fe2"
+  },
+  {
+   "case": "h5-2-019",
+   "from": "angle-ulabel",
+   "d": "trailing-dot",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "d332690130a97799cc04c200661f00aa7746f403964bf3967691350240c90e65"
+  },
+  {
+   "case": "h5-2-020",
+   "from": "angle-ulabel",
+   "d": "upper",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "ec7bcc0c872e8740c0e599f0f278c4a2125ff9f21b57b42637471359ebefcf13"
+  },
+  {
+   "case": "h5-2-021",
+   "from": "angle-ulabel",
+   "d": "fws",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "parse-error",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "852c5604597f9c71a44b6c2290a4c095d5103179a304600df5ed673029c989d4"
+  },
+  {
+   "case": "h5-2-022",
+   "from": "angle-ulabel",
+   "d": "duplicate",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "63e4adfed408a3d7af63def3d5500c4a40d9992a343bbdb0b068214fb2e0d48b"
+  },
+  {
+   "case": "h5-2-023",
+   "from": "angle-ulabel",
+   "d": "duplicate",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "e097c8269ceee2a89dc0cce60566757fca01366877645fbf122858a198699dc9"
+  },
+  {
+   "case": "h5-2-024",
+   "from": "group-victim",
+   "d": "victim",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "fd9c1b3000bdf704fba54b4f0fbf38e7eaa2a58d1cf4b75aa88873c7918e0ac8"
+  },
+  {
+   "case": "h5-2-025",
+   "from": "group-victim",
+   "d": "own",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "28bac2695be92dddca42fb8d056aa018ac54e54ac1bab609a77d2cf167b90bf6"
+  },
+  {
+   "case": "h5-2-026",
+   "from": "group-victim",
+   "d": "trailing-dot",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "414c10a12c46e0d9175503d8b9c59f89a6ee5b631abffb63b61355f12a1ba076"
+  },
+  {
+   "case": "h5-2-027",
+   "from": "group-victim",
+   "d": "trailing-dot",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "c0ead947fe5c72cf79ef1aeb30876d47874442d62e588860aae60d22d2f09daf"
+  },
+  {
+   "case": "h5-2-028",
+   "from": "group-victim",
+   "d": "upper",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "a3f855d1731ae8985819483463e5a0cce6e9caa3be886a52446a3848309693a4"
+  },
+  {
+   "case": "h5-2-029",
+   "from": "group-victim",
+   "d": "fws",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "parse-error",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "54a584b16debd6ab27510aa015624903edca3a114b1d6532c16d846ea7420d5a"
+  },
+  {
+   "case": "h5-2-030",
+   "from": "group-victim",
+   "d": "duplicate",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "349b532cea661075acfe2df87a4497b93c763dfdda62769272d0ecc597583052"
+  },
+  {
+   "case": "h5-2-031",
+   "from": "group-victim",
+   "d": "duplicate",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "da3d453b04b779a909d9266320326f2006a892e3c1b641684d52d113367cb0bf"
+  },
+  {
+   "case": "h5-2-032",
+   "from": "dl-literal",
+   "d": "victim",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "17d8e24ec6fdb2f90468a0af7b98577689041e73e7e389da14898202151ab2a0"
+  },
+  {
+   "case": "h5-2-033",
+   "from": "dl-literal",
+   "d": "own",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "d0bc162238cd33f1db03ff0f819dd473d37168476fe7e097a927a885bbf7f83e"
+  },
+  {
+   "case": "h5-2-034",
+   "from": "dl-literal",
+   "d": "trailing-dot",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "b35b832112c96641e7499acc92d808177f18c5f53967e162b1da50c22193062b"
+  },
+  {
+   "case": "h5-2-035",
+   "from": "dl-literal",
+   "d": "trailing-dot",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "a2579054e7187687184492b692b152e8e11ee28c47025e6de4204a07a2cbe88c"
+  },
+  {
+   "case": "h5-2-036",
+   "from": "dl-literal",
+   "d": "upper",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "d0b83fac893c3a9b1c4f2cad871f98c8416eea31baf43ffcfdeae3c94f4b5f3a"
+  },
+  {
+   "case": "h5-2-037",
+   "from": "dl-literal",
+   "d": "fws",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "parse-error",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "b6a3bfb0bd2ccf22592743ce3f69a7f8c86d37471a28399a78bf4d8537ae17d4"
+  },
+  {
+   "case": "h5-2-038",
+   "from": "dl-literal",
+   "d": "duplicate",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "a3a05323aa84c94a07d51e807f9947187f02fee406a5b58effc65f0e5dd1c5f8"
+  },
+  {
+   "case": "h5-2-039",
+   "from": "dl-literal",
+   "d": "duplicate",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "c787247d05614a76832dffe0036c79a261521608d7ac3315974698b1dbe69226"
+  },
+  {
+   "case": "h5-2-040",
+   "from": "bare-victim",
+   "d": "victim",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "47dca39fd605ab9451994c44e022ad45c5d54646f6ef21b4371bf7b4ebb2c3f0"
+  },
+  {
+   "case": "h5-2-041",
+   "from": "bare-victim",
+   "d": "own",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "49d72df3f23fa61ff03cf10c29980f21a53577ccf88d0e80c966046e1ae2032d"
+  },
+  {
+   "case": "h5-2-042",
+   "from": "bare-victim",
+   "d": "trailing-dot",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "b2c645f833cb7274d71ad2f0fde427ba88a57b0b3297e81789fd151100cf882b"
+  },
+  {
+   "case": "h5-2-043",
+   "from": "bare-victim",
+   "d": "trailing-dot",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "tool-error",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "9eb79e95705504e413bba78482b9b1a39e0d2d8be69f56677fbc3579b0eec06c"
+  },
+  {
+   "case": "h5-2-044",
+   "from": "bare-victim",
+   "d": "upper",
+   "h": "oversign",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "34d20945ccd543b216f54c368cbe1c671444f2fec28fee981e8f179c564ec4cd"
+  },
+  {
+   "case": "h5-2-045",
+   "from": "bare-victim",
+   "d": "fws",
+   "h": "minimal",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "parse-error",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "36b1a9d6c197d433aab6712b8fcee1122a9dd9d9739b1059adb1a49f843f3915"
+  },
+  {
+   "case": "h5-2-046",
+   "from": "bare-victim",
+   "d": "duplicate",
+   "h": "minimal",
+   "mut": "unchanged",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "od_dkim": "absent",
+   "od": "fail",
+   "sha256": "b22d47f8e144f3b54da449bfb6060e8d352150feb4f80e0f9f6ad7fbbccf5707"
+  },
+  {
+   "case": "h5-2-047",
+   "from": "bare-victim",
+   "d": "duplicate",
+   "h": "oversign",
+   "mut": "to-attacker",
+   "smtp_code": "250",
+   "delivered": true,
+   "file": {
+    "dkimpy": "fail",
+    "perl": "fail",
+    "go": "fail"
+   },
+   "od_dkim": "absent",
+   "od": "none",
+   "sha256": "dde0bf598751597bf31200cafbce754de3ce1f1096814805ec40e639ac0b61bc"
+  }
+ ]
+}

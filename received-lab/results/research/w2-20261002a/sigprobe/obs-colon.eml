@@ -1,0 +1,11 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=Ck5SoRNWUpSR4X0COv7R5ub2pUTtl6xz4dTFz++ji4M=; b=QvXq/38jifUuvq4nzH94IoYl73MAYy1VhEWBebfnfHjZwAuUpyT4H0Pj+BrYEqLf9uz0uyvp7CDdAweaL3egC8ilCUmJoCOS1K6Hncxg81lHXgh2JBIEXxQ2QATlKk4q9XHiaRXRI6RT+/5LlTEjOVZO0i7fJroCkuoMKp0D71epW7KmB/Egeq6pNSU+6cRWoluiAA7KxY3uDvoIIYanWCj3jkaQ+zt60210kjk3gdCZm4aGmS0q5o/FSouDUNJR9fHV4peG8eFQUtb7zUEwebSRabyCgTLhU6kd4Ckq5sda36joaIdHUkfV9M6p3zhvtvLnS2Jeo6k+/Ba1GAQ2TA==
+From : Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 10:00:00 +0000
+Subject: sigprobe
+Message-ID: <sig-obs-colon@lab.test>
+X-Case-ID: sig-obs-colon
+
+body

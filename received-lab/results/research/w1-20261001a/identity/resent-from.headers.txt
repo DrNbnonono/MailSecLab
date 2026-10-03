@@ -1,0 +1,9 @@
+Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Authentication-Results: mail.lab.test;
+X-Case-ID: identity-resent-from
+Resent-From: Resent <resent@list.test>
+From: Author <author@lab.test>
+To: recipient@receiver.test
+Subject: Original subject
+X-Case-ID: preflight

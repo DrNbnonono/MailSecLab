@@ -1,0 +1,12 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=3W/45Xgo7YCyGdO73a6uqOmpb0yrOzjq7SN7Qkq4U0Q=; b=FuQTuog0whRZzeIXCPjS7RAhhwcMgYtZl85v7P0hdHgEvvlgaPtLaDRAghYjvy9ZSNZhkxz23HEBfnMplj6HmDPcU147AOX1iRjOgrWJI1En6NsBly27GaJU8W8Sx/zjWWPbTig5te68RdfexBfmG5Eh9yvGjhQxvQ8wem/TnMTgka/t/pRE9vdxzg/zJrGAV//69QyrjRj16d/UlXkoEUNRb2RL4l0mjZiE8oGXHs+/vyfjfOrjSyh/jJS84Wr3ltNobd2X0RN+oE9fbG69QPh0jaVilIVmhmmer1YROb9Z4hmYwkHmyiuAuiwMQR0nFHcz94y4YBLZumlhbhuztQ==
+From: Spoofed <author@münchen.lab.test>
+To: recipient@receiver.test
+Date: Fri, 2 Oct 2026 13:00:00 +0000
+Subject: eai enforcement probe
+Message-ID: <eaienf-x3-ulabel-spoof-signed-foreign@lab.test>
+X-Case-ID: eaienf-x3-ulabel-spoof-signed-foreign
+
+Controlled research body.
+Case: eaienf-x3-ulabel-spoof-signed-foreign

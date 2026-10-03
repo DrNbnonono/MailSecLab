@@ -1,0 +1,12 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xn--mnchen-3ya.lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=zzHNpnAshE+fx5CdqFiXSJk+ncIVNyDxZpXCsZHfHOM=; b=L9XWtcK7q/0drSKHXw4iLGhWN2SMEvvn65RMX7mAQzNDBA8voXrjatu7Zhu2r45VNZw1fceGZ4SizpRwG0KA/7U3KIkchXPGKkdJz8wkSmel6BUpBAxbSRlOoAco/JvyLcr7IH4ES8sJdl1gRyjZV6UrE2hyq4foxQ0Tb4Y4ndCNd3FYNsYAGS/IxEhIwExblcQRVcEefGK4OxfpISL6d52u278ry7DSuf17sBo1V79wXyWNji87KY5R/FfyNhOswxWK5QcL4g/UnwFVoc4VqNTte5t8UfxBRO0yXj1o52qCJuKtGPS/2B2fDLNs4mO2a62cO4MeKo6rHIK8NICv+Q==
+From : Bank Security <security@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 21:00:00 +0000
+Subject: repair signed-obs
+Message-ID: <rp-signed-obs-direct@lab.test>
+X-Case-ID: rp-signed-obs-direct
+
+Please confirm the payment.
+Case: rp-signed-obs-direct

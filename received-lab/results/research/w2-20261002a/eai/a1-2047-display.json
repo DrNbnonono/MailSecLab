@@ -1,0 +1,164 @@
+{
+  "row": {
+    "case": "a1-2047-display",
+    "case_id": "eai-a1-2047-display",
+    "from_header": "From: =?utf-8?B?5L2g5aW9?= <author@lab.test>",
+    "dkim_d": "lab.test",
+    "dkim_s": "cal",
+    "post_sign_insert": false,
+    "sent_sha256": "66927f11aa41b401c11bd61f702f4b01500e2dee904a0edd3c3f02f3e9d939e1",
+    "sent_bytes": 782,
+    "pre_structure": {
+      "issues": [],
+      "syntax": [
+        "modern"
+      ]
+    },
+    "stored_structure": {
+      "issues": [
+        "not-delivered"
+      ],
+      "syntax": []
+    },
+    "t_verify": "2026-10-02T13:49:15Z",
+    "t_send": "2026-10-02T13:49:16Z",
+    "verifiers": {
+      "dkimpy": "pass",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "pass"
+    },
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as DB4C9A9800",
+      "queued_id": "DB4C9A9800",
+      "bytes": 782,
+      "sha256": "66927f11aa41b401c11bd61f702f4b01500e2dee904a0edd3c3f02f3e9d939e1",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    },
+    "stored": {
+      "found": true,
+      "uid": "36",
+      "bytes": 1577,
+      "envelope_raw": "[(b'36 (RFC822.SIZE 1577 ENVELOPE (\"Fri, 2 Oct 2026 12:00:00 +0000\" \"eai binding probe\" ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"author\" \"lab.test\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"author\" \"lab.test\")) ((\"=?utf-8?B?5L2g5aW9?=\" NIL \"author\" \"lab.test\")) ((NIL NIL \"recipient\" \"receiver.test\")) NIL NIL NIL \"<eai-a1-2047-display@lab.test>\") BODY[HEADER.FIELDS (FROM SENDER REPLY-TO AUTHENTICATION-RESULTS)] {378}', b'Authentication-Results: mail.lab.test; dmarc=pass (p=none dis=none) header.from=lab.test\\r\\nAuthentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test\\r\\nAuthentication-Results: mail.lab.test;\\r\\n\\tdkim=pass (2048-bit key; unprotected) header.d=lab.test header.i=@lab.test header.a=rsa-sha256 header.s=cal header.b=pvqw6Z7d\\r\\nFrom: =?utf-8?B?5L2g5aW9?= <author@lab.test>\\r\\n\\r\\n'), b')']",
+      "size": "[(b'36 (BODY[] {1577}', b'Return-Path: <alice@lab.test>\\r\\nDelivered-To: bob@lab.test\\r\\nReceived: from auth-postfix.lab.test ([10.88.0.43])\\r\\n\\tby dovecot.lab.test with LMTP\\r\\n\\tid iLcmA122v2pEAQAA9b1ovA\\r\\n\\t(envelope-from <alice@lab.test>)\\r\\n\\tfor <bob@lab.test>; Fri, 02 Oct 2026 13:49:17 +0000\\r\\nAuthentication-Results: mail.lab.test; dmarc=pass (p=none dis=none) header.from=lab.test\\r\\nAuthentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test\\r\\nReceived: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])\\r\\n\\tby auth-postfix.lab.test (Postfix) with ESMTP id DB4C9A9800\\r\\n\\tfor <bob@lab.test>; Fri,  2 Oct 2026 13:49:16 +0000 (UTC)\\r\\nAuthentication-Results: mail.lab.test;\\r\\n\\tdkim=pass (2048-bit key; unprotected) header.d=lab.test header.i=@lab.test header.a=rsa-sha256 header.s=cal header.b=pvqw6Z7d\\r\\nDKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;\\r\\n s=cal; h=from:to:date:subject:message-id;\\r\\n bh=SzrGBNhtUgfyTwpA+VR635T2q6A09n9Iv+Kw2vy+0K8=; b=pvqw6Z7dUKrhb9nHOFWzyJR6Rx/n0hDKIQjFT0uJzSbW1zCTRVKnoJN6gPoV1EAUmvDsXbM/3VJrjkaFWBAnzm9xVupl8rQ0/TSlnMvx/Z8M5/TcRTMBnZA8ZQyfj6SWNcugDe7Rig01mTBeHyRx+hoaf3rfSPzzXyhCTckqwCqhbDESnioaTapG/Mz4ZdkYdTy4X+we9cjQlZvSDSLdf0KdVhAT76MolvhrX/pC8lI6TuK9LdG7iDDsHdhKIoBIvySo6T0P/rG5eVyLVyXalk7xCSPzx18lwzvXiy/Qo5REYAfPUShJ5cY+Xm+2FxWcEJrT6/iDtBestr3yrGkbPA==\\r\\nFrom: =?utf-8?B?5L2g5aW9?= <author@lab.test>\\r\\nTo: recipient@receiver.test\\r\\nDate: Fri, 2 Oct 2026 12:00:00 +0000\\r\\nSubject: eai binding probe\\r\\nMessage-ID: <eai-a1-2047-display@lab.test>\\r\\nX-Case-ID: eai-a1-2047-display\\r\\n\\r\\nControlled research body.\\r\\nCase: eai-a1-2047-display\\r\\n'), b')']"
+    },
+    "authentication_results": [],
+    "sign_meta_h": [
+      "from",
+      "to",
+      "date",
+      "subject",
+      "message-id"
+    ]
+  },
+  "verifiers": {
+    "dkimpy": {
+      "tool": "dkimpy",
+      "input_sha256": "66927f11aa41b401c11bd61f702f4b01500e2dee904a0edd3c3f02f3e9d939e1",
+      "input_len": 782,
+      "perl_feed_sha256": "66927f11aa41b401c11bd61f702f4b01500e2dee904a0edd3c3f02f3e9d939e1",
+      "perl_normalization": "identity",
+      "stdout": "status: pass\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "perl": {
+      "tool": "perl",
+      "input_sha256": "66927f11aa41b401c11bd61f702f4b01500e2dee904a0edd3c3f02f3e9d939e1",
+      "input_len": 782,
+      "perl_feed_sha256": "66927f11aa41b401c11bd61f702f4b01500e2dee904a0edd3c3f02f3e9d939e1",
+      "perl_normalization": "identity",
+      "library_fed_sha256": "66927f11aa41b401c11bd61f702f4b01500e2dee904a0edd3c3f02f3e9d939e1",
+      "library_normalization": "identity",
+      "stdout": "input_sha256: 66927f11aa41b401c11bd61f702f4b01500e2dee904a0edd3c3f02f3e9d939e1\ninput_len: 782\nfed_sha256: 66927f11aa41b401c11bd61f702f4b01500e2dee904a0edd3c3f02f3e9d939e1\nfed_len: 782\nnormalization: identity\nsignature_count: 1\nresult: pass\ndetail: pass\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "go": {
+      "tool": "go",
+      "input_sha256": "66927f11aa41b401c11bd61f702f4b01500e2dee904a0edd3c3f02f3e9d939e1",
+      "input_len": 782,
+      "perl_feed_sha256": "66927f11aa41b401c11bd61f702f4b01500e2dee904a0edd3c3f02f3e9d939e1",
+      "perl_normalization": "identity",
+      "stdout": "",
+      "stderr": "2026/10/02 13:49:16 Valid signature for lab.test\n",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "rspamd": {
+      "status": "pass",
+      "action": "no action",
+      "score": 2.199999,
+      "symbols": [
+        "ARC_NA",
+        "DKIM_TRACE",
+        "FROM_HAS_DN",
+        "HFILTER_HOSTNAME_UNKNOWN",
+        "H_SOURCE_IP",
+        "MID_RHS_MATCH_FROM",
+        "MIME_GOOD",
+        "MIME_TRACE",
+        "RCPT_COUNT_ONE",
+        "RCVD_COUNT_ZERO",
+        "R_DKIM_ALLOW",
+        "TO_DN_NONE"
+      ]
+    }
+  },
+  "sign_meta": {
+    "signer": "independent-openssl-reference",
+    "canonicalization": "relaxed/relaxed",
+    "h": [
+      "from",
+      "to",
+      "date",
+      "subject",
+      "message-id"
+    ],
+    "selected_unsigned": [
+      {
+        "name": "from",
+        "index": 0,
+        "start": 0,
+        "end": 46,
+        "canonical_sha256": "2d98928f0b89578b8a4dc744704a1827449d5170fba4ef16794b753bbdbcc210"
+      },
+      {
+        "name": "to",
+        "index": 1,
+        "start": 46,
+        "end": 75,
+        "canonical_sha256": "8d73e03c32fb4eaa1c08761003ec1d65852b797b65fd39777ed3b168f1e56a31"
+      },
+      {
+        "name": "date",
+        "index": 2,
+        "start": 75,
+        "end": 113,
+        "canonical_sha256": "efc7573a3333fbc20ecd04591511e3215c8b6ffb6e65a89f54dcd22ae1687dc2"
+      },
+      {
+        "name": "subject",
+        "index": 3,
+        "start": 113,
+        "end": 141,
+        "canonical_sha256": "4492d5ea3e8ff5215b640c898abf9adc30eea982e5c365a4f6da80a439d022ed"
+      },
+      {
+        "name": "message-id",
+        "index": 4,
+        "start": 141,
+        "end": 185,
+        "canonical_sha256": "7e59eb5d571a01491b0e7984bd0bc74d707926a98fdffaa761ecbc3ceea80640"
+      }
+    ],
+    "hash_input_sha256": "5a541a7f36cf195e898e8ec68e354120650262633dcc912ed62ff44f14ca76d1"
+  }
+}

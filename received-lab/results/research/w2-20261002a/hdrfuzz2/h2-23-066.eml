@@ -1,0 +1,11 @@
+From :<security@lab.test>
+From: Bank Security <security@lab.test (Bank)>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 09:00:00 +0000
+Subject: hdrfuzz2 probe
+Message-ID: <h2-23-066@lab.test>
+X-Case-ID: h2-23-066
+Sender: Agent <agent@lab.test>
+
+Please confirm the payment.
+Case: h2-23-066

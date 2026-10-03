@@ -1,0 +1,12 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bank.test;
+ s=cal;
+ h=from:to:date:subject:message-id;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=D2n2WjREakreGWTpIsCn5+XzlMUietsiIxBa0SezOdtSRNjC21i8BrAAw7jyrqhz5/QoEPoO66x0bztdW+jXyTA7PNXaq5SqmPvRVIgLyfMAfJurHt2ukBsZUFWvGfFqF1PEb94CEGsGhjGobpI0Afb0Ey3r8+tQ22Fen2t+CuTIZp9xKbxdYUU1yoFyEXJR3E70xShR9Lpxe+CkZI4f/0Ox0HUelY9uaQDQMPJfmQo5Cgv+6H0wijIEf/1h0fG6hmbu1CSCPgCaEZ6HUZt7LAfSv6OJDRpLHp657mUGuK1TCK6WeHBySWGR3SYAxyyFKEQkTimFj5rcU5fGhEEi3A==
+From: Bank Security <security@bank.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 19:00:00 +0000
+Subject: align2 ctrl-bank
+Message-ID: <al2-ctrl-bank@lab.test>
+X-Case-ID: al2-ctrl-bank
+
+Please confirm the payment.

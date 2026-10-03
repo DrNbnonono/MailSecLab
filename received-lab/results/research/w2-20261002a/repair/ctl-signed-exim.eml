@@ -1,0 +1,12 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xn--mnchen-3ya.lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=P2H0lBs5aRdjF91HzcPqr3SeS+7vGzAAFGjau75i6Lo=; b=kQ32Iw2Pcgsvz0EuSV5xKmPgZvEr3kDGWP7EHrH2Hu97WJg6mZEY1eyRPRKVrytJarx6CiKaItHVqkAElmmwE4Gej4vrZZnhrwFu11tr5PgsZYEJSdHobbS4g3GQ/KB1F7fl93hrH/HL9BzVjdPFFiivbNKmJVoUtlqiNyr+sfxMW8v1lqTMwIUnoIOHeUUCJeWhZaAZrWYA79Hr9B8alnRTrFO6+SJnSw6xL3ncZbvz2LfIdmRXHzl74Ugl/ZUAKwCLnwk5YHvVCxZgbWdXChmCjmfLYoBxm1IZxggyAk3xgb5wv0CVgJ29tMtbkxBxi9DZNLV1qZnWHbjX8EI4hg==
+From: Bank Security <security@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 21:00:00 +0000
+Subject: repair ctl-signed
+Message-ID: <rp-ctl-signed-exim@lab.test>
+X-Case-ID: rp-ctl-signed-exim
+
+Please confirm the payment.
+Case: rp-ctl-signed-exim

@@ -1,0 +1,21 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id uB/0OFZcwGqCAQAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 01:37:26 +0000
+Authentication-Results: mail.lab.test; dmarc=permerror header.from=d07-sp-no-p.dmarc-p.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id D0E5E609
+	for <bob@lab.test>; Sat,  3 Oct 2026 01:37:26 +0000 (UTC)
+From: Probe <security@d07-sp-no-p.dmarc-p.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 20:00:00 +0000
+Subject: dmarc rec d07-sp-no-p
+Message-ID: <dmf-d07-sp-no-p@lab.test>
+X-Case-ID: dmf-d07-sp-no-p
+X-Spam: Yes
+
+body

@@ -1,0 +1,11 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xn--mnchen-3ya.lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=Ck5SoRNWUpSR4X0COv7R5ub2pUTtl6xz4dTFz++ji4M=; b=sbJ4eKTJYN6FPHx3ezF9VH4pLTjx8vsT88YLfd//WAviBZVx8x3KUOolldUOrWbSL7UrOfyADaXjt9rxVhnAgXQYyd5NHhZatGsL+zL5PPwk9JtXHUSKC9psIeWlmsqfz6YYoUEIy8empwGIsedWXwQBCkoGEb/T4uc6CJef8EzcBfvO4fz8fObbHCTTjy4vc0YBfvBJ5Efa/BKuyMUr2BdSlVWX8GL3OwVW2A8KExsU13or87ATfYbi2HlzV7Rgame7KxLd/8BPAjzGrGTOxkxqG5x5EcUElpK/TdKOXHjluunYTL7+093Y7PUy3csEUw962vWzt6XHv48xg6LsnQ==
+From: Author <author@xn--mnchen-3ya.lab.test>
+To: recipient@receiver.test
+Date: Fri, 2 Oct 2026 14:15:00 +0000
+Subject: rspamd dmarc live 3
+Message-ID: <z12-alabel-legit@lab.test>
+X-Case-ID: z12-alabel-legit
+
+body

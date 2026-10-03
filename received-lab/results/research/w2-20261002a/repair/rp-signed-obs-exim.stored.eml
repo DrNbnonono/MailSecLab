@@ -1,0 +1,33 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id +NXmCeduwGpiBQAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 02:56:39 +0000
+Authentication-Results: mail.lab.test; dmarc=pass (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from exim.lab.test (exim.mailseclab-research-net [10.88.0.4])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 0366DAA68E
+	for <bob@lab.test>; Sat,  3 Oct 2026 02:56:39 +0000 (UTC)
+Authentication-Results: mail.lab.test;
+	dkim=pass (2048-bit key; unprotected) header.d=xn--mnchen-3ya.lab.test header.i=@xn--mnchen-3ya.lab.test header.a=rsa-sha256 header.s=cal header.b=qMyPNfkB
+Received: from [10.88.0.11] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@lab.test>)
+	id 1xCpvS-00006r-38
+	for bob@lab.test;
+	Sat, 03 Oct 2026 02:56:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xn--mnchen-3ya.lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=JRViHdDEcO3RX93foUyhSkRWGg1qBqlhMMbcRuOSpg8=; b=qMyPNfkBJDJH/rytKm3q6ZK8koSXY2OpRz0ePTbLFDXAPtTwmAsLIh+qvFe4tsSU2YObDpzTEpkpX1ysYnyuK+psAHiJOGg7oZ+FmFJxt7yg2uiCT28uyIo1b9goQc5POU/27JtlY8MhRbgdPVKdRqX/bO1HSoESjqOOFFVH2B/bCKejeJ6LnKqsFC2mTGwaLhSwKoBsfkwNeug8dhud5+ljFxmesaMaxq0Zvzq/AZxfTy/RQSVVN3MDgNtbnuaZkvOt6sBhBfLO395we3xxA3fa5NSAUnXqysZQXNRF4puO1TrShwBYTZyFAQiFHf+Nh8tdDW3CQ407+/JrVRfH5A==
+From: Bank Security <security@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 21:00:00 +0000
+Subject: repair signed-obs
+Message-ID: <rp-signed-obs-exim@lab.test>
+X-Case-ID: rp-signed-obs-exim
+X-Spam: Yes
+
+Please confirm the payment.
+Case: rp-signed-obs-exim

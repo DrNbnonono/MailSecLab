@@ -1,0 +1,80 @@
+{
+  "rows": [
+    {
+      "case": "c1-upper-ds",
+      "middle_tags": "d=LAB.TEST;\r\n s=CAL",
+      "t_verify": "22:18:43",
+      "t_send": "22:18:45",
+      "verifiers": {
+        "dkimpy": "pass",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "pass"
+      },
+      "smtp_reply": "250 2.0.0 Ok: queued as B684AA9820",
+      "ar": [
+        "Authentication-Results: mail.lab.test; dmarc=pass (p=none dis=none) header.from=lab.test",
+        "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+        "Authentication-Results: mail.lab.test;"
+      ],
+      "sha256": "a6aa120f3093c421a4a8fa51a216da945b64e0d99ecac21a6a97985d7de32a4f"
+    },
+    {
+      "case": "c2-trailing-dot-d",
+      "middle_tags": "d=lab.test.;\r\n s=cal",
+      "t_verify": "22:19:00",
+      "t_send": "22:19:02",
+      "verifiers": {
+        "dkimpy": "tool-error",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "pass"
+      },
+      "smtp_reply": "250 2.0.0 Ok: queued as 8EEC2A9820",
+      "ar": [
+        "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+        "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+        "Authentication-Results: mail.lab.test;"
+      ],
+      "sha256": "dcf89e167d1db9d1480f9f2f4af1608ee08b1e984e8732c0c9883cbf5180fd71"
+    },
+    {
+      "case": "c3-fws-in-d",
+      "middle_tags": "d=lab\r\n\t.test;\r\n s=cal",
+      "t_verify": "22:19:17",
+      "t_send": "22:19:18",
+      "verifiers": {
+        "dkimpy": "fail",
+        "perl": "parse-error",
+        "go": "pass",
+        "rspamd": "none"
+      },
+      "smtp_reply": "250 2.0.0 Ok: queued as 2DCAFA9835",
+      "ar": [
+        "Authentication-Results: mail.lab.test; dmarc=pass (p=none dis=none) header.from=lab.test",
+        "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+        "Authentication-Results: mail.lab.test;"
+      ],
+      "sha256": "1712a865bf917bf31ad1b688ebfc6e1aadc834cf37d0ea416468a8992faf5777"
+    },
+    {
+      "case": "c4-duplicate-d",
+      "middle_tags": "d=lab.test;\r\n d=evil.test;\r\n s=cal",
+      "t_verify": "22:19:33",
+      "t_send": "22:19:35",
+      "verifiers": {
+        "dkimpy": "fail",
+        "perl": "pass",
+        "go": "pass",
+        "rspamd": "pass"
+      },
+      "smtp_reply": "250 2.0.0 Ok: queued as 9D714A9835",
+      "ar": [
+        "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+        "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+        "Authentication-Results: mail.lab.test;"
+      ],
+      "sha256": "bfed44d0f7c87c513daf5aa5af33d234b13ea494a9257b955d5dcba0b003162b"
+    }
+  ]
+}

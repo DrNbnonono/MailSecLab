@@ -1,0 +1,11 @@
+{
+  "row": {
+    "case": "ar3-badge-ulabel",
+    "smtp": "250 2.0.0 Ok: queued as 18A6E9C44B",
+    "accepted": true,
+    "sha256": "3c99f44dbfa0d19d762ce4144358b3cad8c283b6c968d061a01b056fdb4ac286",
+    "stored": {
+      "found": false
+    }
+  }
+}

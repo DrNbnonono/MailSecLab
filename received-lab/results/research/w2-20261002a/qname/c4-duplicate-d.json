@@ -1,0 +1,79 @@
+{
+  "row": {
+    "case": "c4-duplicate-d",
+    "middle_tags": "d=lab.test;\r\n d=evil.test;\r\n s=cal",
+    "t_verify": "22:19:33",
+    "t_send": "22:19:35",
+    "verifiers": {
+      "dkimpy": "fail",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "pass"
+    },
+    "smtp_reply": "250 2.0.0 Ok: queued as 9D714A9835",
+    "ar": [
+      "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+      "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+      "Authentication-Results: mail.lab.test;"
+    ],
+    "sha256": "bfed44d0f7c87c513daf5aa5af33d234b13ea494a9257b955d5dcba0b003162b"
+  },
+  "verifiers": {
+    "dkimpy": {
+      "tool": "dkimpy",
+      "input_sha256": "bfed44d0f7c87c513daf5aa5af33d234b13ea494a9257b955d5dcba0b003162b",
+      "input_len": 778,
+      "perl_feed_sha256": "bfed44d0f7c87c513daf5aa5af33d234b13ea494a9257b955d5dcba0b003162b",
+      "perl_normalization": "identity",
+      "stdout": "status: fail\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "fail"
+    },
+    "perl": {
+      "tool": "perl",
+      "input_sha256": "bfed44d0f7c87c513daf5aa5af33d234b13ea494a9257b955d5dcba0b003162b",
+      "input_len": 778,
+      "perl_feed_sha256": "bfed44d0f7c87c513daf5aa5af33d234b13ea494a9257b955d5dcba0b003162b",
+      "perl_normalization": "identity",
+      "library_fed_sha256": "bfed44d0f7c87c513daf5aa5af33d234b13ea494a9257b955d5dcba0b003162b",
+      "library_normalization": "identity",
+      "stdout": "input_sha256: bfed44d0f7c87c513daf5aa5af33d234b13ea494a9257b955d5dcba0b003162b\ninput_len: 778\nfed_sha256: bfed44d0f7c87c513daf5aa5af33d234b13ea494a9257b955d5dcba0b003162b\nfed_len: 778\nnormalization: identity\nsignature_count: 1\nresult: pass\ndetail: pass\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "go": {
+      "tool": "go",
+      "input_sha256": "bfed44d0f7c87c513daf5aa5af33d234b13ea494a9257b955d5dcba0b003162b",
+      "input_len": 778,
+      "perl_feed_sha256": "bfed44d0f7c87c513daf5aa5af33d234b13ea494a9257b955d5dcba0b003162b",
+      "perl_normalization": "identity",
+      "stdout": "",
+      "stderr": "2026/10/02 14:19:35 Valid signature for evil.test\n",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "rspamd": {
+      "status": "pass",
+      "action": "no action",
+      "score": 2.3,
+      "symbols": [
+        "ARC_NA",
+        "DKIM_TRACE",
+        "DMARC_POLICY_SOFTFAIL",
+        "FROM_HAS_DN",
+        "HFILTER_HOSTNAME_UNKNOWN",
+        "H_SOURCE_IP",
+        "MID_RHS_MATCH_FROM",
+        "MIME_GOOD",
+        "MIME_TRACE",
+        "RCPT_COUNT_ONE",
+        "RCVD_COUNT_ZERO",
+        "R_DKIM_ALLOW",
+        "TO_DN_NONE",
+        "TO_DOM_EQ_FROM_DOM"
+      ]
+    }
+  }
+}

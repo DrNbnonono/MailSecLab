@@ -1,0 +1,12 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=Ck5SoRNWUpSR4X0COv7R5ub2pUTtl6xz4dTFz++ji4M=; b=eKNMUoWqLV9S9gbedgMmnmUo8XoivNfQRDa5cv5xJ9sYHzXpgQRby240vwWr5gwfwXrRzDpKA6he/Ug0i04QwxTO/tKwLjlLeUvRPIdq9h/a58y4bbY9Gju6UvNVN9u0DWzSWl1/TX5oHapDi9oK1/jBG3G3Oif0RebtXtWST7Tqqgfmh0xFa8+BlaeJHEjNz/bpTHcF4dpkbkVuiCRoiypBeVMhrok5eEG4t3ccwa1IS6aqS4dDsvvMAgS+RMRC7oyy4od4S+Bs8e2XVoyHSYX0a93p9rqMWjWU36Z8fkqBEk5TnMznpdYRpADsFgfv1IT7UolSc25CTKu6DExzxw==
+From:
+ <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 10:00:00 +0000
+Subject: sigprobe
+Message-ID: <sig-folded-empty-first@lab.test>
+X-Case-ID: sig-folded-empty-first
+
+body

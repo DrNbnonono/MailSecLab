@@ -1,0 +1,36 @@
+{
+  "row": {
+    "case": "x2-ulabel-spoof",
+    "from": "From: Spoofed <author@münchen.lab.test>",
+    "signed": "False",
+    "sha256": "7561b7b069fe5ede5672b2682ad788a3e43d3ac21ad3aeeb3cdfc8ebb8922519",
+    "smtp_reply": "250 2.0.0 Ok: queued as 1A96AA9805",
+    "accepted": true,
+    "delivered": true,
+    "ar": [
+      "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=münchen.lab.test",
+      "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+    ]
+  },
+  "smtp": {
+    "client_ip": "10.88.0.11",
+    "reply": "250 2.0.0 Ok: queued as 1A96AA9805",
+    "queued_id": "1A96AA9805",
+    "bytes": 282,
+    "sha256": "7561b7b069fe5ede5672b2682ad788a3e43d3ac21ad3aeeb3cdfc8ebb8922519",
+    "accepted": true,
+    "banner_ok": true,
+    "ehlo_ok": true,
+    "mail_ok": true,
+    "rcpt_ok": true
+  },
+  "stored": {
+    "found": true,
+    "uid": "37",
+    "bytes": 918,
+    "ar": [
+      "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=münchen.lab.test",
+      "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+From: Spoofed <author@münchen.lab.test>
+To: recipient@receiver.test
+Date: Fri, 2 Oct 2026 14:15:00 +0000
+Subject: rspamd dmarc live 3
+Message-ID: <z10-ulabel-spoof@lab.test>
+X-Case-ID: z10-ulabel-spoof
+
+body

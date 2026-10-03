@@ -1,0 +1,12 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=LAB.TEST;
+ s=CAL;
+ h=from:from:to:date:subject:message-id;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=IGLypHM7ultDPqLSgxdnj7pWN/ENXpRCdC27O8dom89k7H188en5p1O61wiLTG0REBbrcV69FKTHpvmnbRWJ2ShiHrFndMab79IksTbdRLu8bcSaWV6sv0NOmdY4Ngo/V2JNzNTHWflYldVPvzQIpehmGn2UhBgKjwAqHGvDqiUJNjtoCjtDt90fKCLQRQo1rG9f/TRiOBjAzMv5WjX6JoUjRUkKH0l7wk/ix4EROMNNSARwchs9rV/BSRoAeVy7F33g9lM2sa7Kmk/afIq5lSBaCIIXMcu5gR2AIqxIt1xjhioYT0W/PF7haiXjKhZ0omE80Pl1ToWnpSP7SSgJ2Q==
+From: Attacker <attacker@evil.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 16:00:00 +0000
+Subject: hdrfuzz5 probe
+Message-ID: <h5-0-013@lab.test>
+X-Case-ID: h5-0-013
+
+Please confirm the payment.

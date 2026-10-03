@@ -1,0 +1,8 @@
+From: Spoofed <author@xn--mnchen-3ya.lab.test>
+To: recipient@receiver.test
+Date: Fri, 2 Oct 2026 14:10:00 +0000
+Subject: rspamd milter dmarc probe 2
+Message-ID: <z5-alabel-spoof@lab.test>
+X-Case-ID: z5-alabel-spoof
+
+body

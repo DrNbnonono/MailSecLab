@@ -1,0 +1,20 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id DoEfLhe6v2p5AQAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Fri, 02 Oct 2026 14:05:11 +0000
+Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 851CFA5243
+	for <bob@lab.test>; Fri,  2 Oct 2026 14:05:11 +0000 (UTC)
+From: Spoofed <author@xn--mnchen-3ya.lab.test>
+To: recipient@receiver.test
+Date: Fri, 2 Oct 2026 14:06:00 +0000
+Subject: rspamd milter dmarc probe
+Message-ID: <z1-alabel-spoof@lab.test>
+X-Case-ID: z1-alabel-spoof
+
+body

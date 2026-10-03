@@ -1,0 +1,29 @@
+{
+ "row": {
+  "case": "v8-group-two-domains",
+  "from_line": "From: Bank Security: security@xn--mnchen-3ya.lab.test, agent@lab.test;",
+  "t_send": "23:45:54",
+  "smtp": "250 2.0.0 Ok: queued as A47749C5E1",
+  "delivered": true,
+  "ar": [],
+  "envelope": "er probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"agent\" \"lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"a"
+ },
+ "smtp": {
+  "client_ip": "10.88.0.11",
+  "reply": "250 2.0.0 Ok: queued as A47749C5E1",
+  "queued_id": "A47749C5E1",
+  "bytes": 309,
+  "sha256": "b4df07731c636196dcc3e38940e14182d13311a3367cadcae009b215f4386ca2",
+  "accepted": true,
+  "banner_ok": true,
+  "ehlo_ok": true,
+  "mail_ok": true,
+  "rcpt_ok": true
+ },
+ "stored": {
+  "found": true,
+  "uid": "82",
+  "ar": [],
+  "envelope": "er probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"agent\" \"lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"agent\" \"lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"agent\" \"lab.test\")"
+ }
+}

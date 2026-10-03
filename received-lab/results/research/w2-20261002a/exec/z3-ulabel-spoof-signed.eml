@@ -1,0 +1,11 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=Ck5SoRNWUpSR4X0COv7R5ub2pUTtl6xz4dTFz++ji4M=; b=Xf2aSlc1OBVrMRzo5AIHTdM3P2DmcX/DtxLivL7u9I2I6Dm48ZKF+ZF0qSJ+uXxgkXizGNTP6oMSHcRwL9t9YTcy/VBey60QsFOHcYUJshwSZ5rlOndeGhkPTcdVfIKFJdsseMIvh7YXPSoH0DcBxoa7/8DhhqkZkRZtZu2AW7zA7qXSkBziB7sLPP2T4VXWs7iXZUWkl5kQAnq8pr+tp+pf18dXX/JKJnC2Nmuex+J6PdfImkH7qrn9eApFVwY9EvfVatOIZCYMvGhI6mjyGQA3OtYDSx+YXSjx6brwcRpMqqtHRTni/TRqo1Z5Mkcvet+kQpEaBBbpiO1hAP7FIg==
+From: Spoofed <author@münchen.lab.test>
+To: recipient@receiver.test
+Date: Fri, 2 Oct 2026 14:06:00 +0000
+Subject: rspamd milter dmarc probe
+Message-ID: <z3-ulabel-spoof-signed@lab.test>
+X-Case-ID: z3-ulabel-spoof-signed
+
+body

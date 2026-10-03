@@ -1,0 +1,19 @@
+{
+  "rows": [
+    {
+      "case": "ar1-forged-ar",
+      "reply": "250 2.0.0 Ok: queued as 855DD9C44B",
+      "ar": []
+    },
+    {
+      "case": "ar2-comment-d",
+      "reply": "451 4.7.1 Service unavailable - try again later",
+      "ar": []
+    },
+    {
+      "case": "ar3-badge-ulabel",
+      "reply": "250 2.0.0 Ok: queued as 18A6E9C44B",
+      "ar": []
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "row": {
+    "case": "a0-utf8-fieldname",
+    "case_id": "eai-a0-utf8-fieldname",
+    "from_header": "From: Author <author@lab.test>",
+    "dkim_d": "lab.test",
+    "dkim_s": "cal",
+    "post_sign_insert": true,
+    "sent_sha256": "87b3b9e778379177b5b03f892666a4e572265a55b9baec5f2f998baae9b4ae01",
+    "sent_bytes": 790,
+    "pre_structure": {
+      "issues": [],
+      "syntax": [
+        "invalid",
+        "modern"
+      ]
+    },
+    "stored_structure": {
+      "issues": [
+        "not-delivered"
+      ],
+      "syntax": []
+    },
+    "t_verify": "2026-10-02T13:47:52Z",
+    "t_send": "2026-10-02T13:47:53Z",
+    "verifiers": {
+      "dkimpy": "parse-error",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "pass"
+    },
+    "smtp": {
+      "client_ip": "10.88.0.11",
+      "reply": "250 2.0.0 Ok: queued as EA9729C4D8",
+      "queued_id": "EA9729C4D8",
+      "bytes": 790,
+      "sha256": "87b3b9e778379177b5b03f892666a4e572265a55b9baec5f2f998baae9b4ae01",
+      "accepted": true,
+      "banner_ok": true,
+      "ehlo_ok": true,
+      "mail_ok": true,
+      "rcpt_ok": true
+    },
+    "stored": {
+      "found": false
+    },
+    "authentication_results": [],
+    "sign_meta_h": [
+      "from",
+      "to",
+      "date",
+      "subject",
+      "message-id"
+    ]
+  },
+  "verifiers": {
+    "dkimpy": {
+      "tool": "dkimpy",
+      "input_sha256": "87b3b9e778379177b5b03f892666a4e572265a55b9baec5f2f998baae9b4ae01",
+      "input_len": 790,
+      "perl_feed_sha256": "87b3b9e778379177b5b03f892666a4e572265a55b9baec5f2f998baae9b4ae01",
+      "perl_normalization": "identity",
+      "stdout": "status: parse-error\nMessageFormatError: Unexpected characters in RFC822 header: b'X-\\xc3\\x9cnknow: one'\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "parse-error"
+    },
+    "perl": {
+      "tool": "perl",
+      "input_sha256": "87b3b9e778379177b5b03f892666a4e572265a55b9baec5f2f998baae9b4ae01",
+      "input_len": 790,
+      "perl_feed_sha256": "87b3b9e778379177b5b03f892666a4e572265a55b9baec5f2f998baae9b4ae01",
+      "perl_normalization": "identity",
+      "library_fed_sha256": "87b3b9e778379177b5b03f892666a4e572265a55b9baec5f2f998baae9b4ae01",
+      "library_normalization": "identity",
+      "stdout": "input_sha256: 87b3b9e778379177b5b03f892666a4e572265a55b9baec5f2f998baae9b4ae01\ninput_len: 790\nfed_sha256: 87b3b9e778379177b5b03f892666a4e572265a55b9baec5f2f998baae9b4ae01\nfed_len: 790\nnormalization: identity\nsignature_count: 1\nresult: pass\ndetail: pass\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "go": {
+      "tool": "go",
+      "input_sha256": "87b3b9e778379177b5b03f892666a4e572265a55b9baec5f2f998baae9b4ae01",
+      "input_len": 790,
+      "perl_feed_sha256": "87b3b9e778379177b5b03f892666a4e572265a55b9baec5f2f998baae9b4ae01",
+      "perl_normalization": "identity",
+      "stdout": "",
+      "stderr": "2026/10/02 13:47:53 Valid signature for lab.test\n",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "rspamd": {
+      "status": "pass",
+      "action": "no action",
+      "score": 2.199999,
+      "symbols": [
+        "ARC_NA",
+        "DKIM_TRACE",
+        "FROM_HAS_DN",
+        "HFILTER_HOSTNAME_UNKNOWN",
+        "H_SOURCE_IP",
+        "MID_RHS_MATCH_FROM",
+        "MIME_GOOD",
+        "MIME_TRACE",
+        "RCPT_COUNT_ONE",
+        "RCVD_COUNT_ZERO",
+        "R_DKIM_ALLOW",
+        "TO_DN_NONE"
+      ]
+    }
+  },
+  "sign_meta": {
+    "signer": "independent-openssl-reference",
+    "canonicalization": "relaxed/relaxed",
+    "h": [
+      "from",
+      "to",
+      "date",
+      "subject",
+      "message-id"
+    ],
+    "selected_unsigned": [
+      {
+        "name": "from",
+        "index": 0,
+        "start": 0,
+        "end": 32,
+        "canonical_sha256": "1c7f8e524d85d5614451c76ef7f3a1642907239d814be8fde2e0a63617e57917"
+      },
+      {
+        "name": "to",
+        "index": 1,
+        "start": 32,
+        "end": 61,
+        "canonical_sha256": "8d73e03c32fb4eaa1c08761003ec1d65852b797b65fd39777ed3b168f1e56a31"
+      },
+      {
+        "name": "date",
+        "index": 2,
+        "start": 61,
+        "end": 99,
+        "canonical_sha256": "efc7573a3333fbc20ecd04591511e3215c8b6ffb6e65a89f54dcd22ae1687dc2"
+      },
+      {
+        "name": "subject",
+        "index": 3,
+        "start": 99,
+        "end": 127,
+        "canonical_sha256": "4492d5ea3e8ff5215b640c898abf9adc30eea982e5c365a4f6da80a439d022ed"
+      },
+      {
+        "name": "message-id",
+        "index": 4,
+        "start": 127,
+        "end": 173,
+        "canonical_sha256": "2101f76b6ecf84c47fe6e7f5b55b53763fa91b722b83b7df3cd7cb7991ea2b66"
+      }
+    ],
+    "hash_input_sha256": "950272d0cec3fd39b4cae86c3c2d5e95d698296c7428596a7942b6919ada8cb2"
+  }
+}

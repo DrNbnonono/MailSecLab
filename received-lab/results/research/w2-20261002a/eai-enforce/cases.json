@@ -1,0 +1,57 @@
+{
+  "before": "RejectFailures true",
+  "flipped": "RejectFailures true",
+  "rows": [
+    {
+      "case": "x1-alabel-spoof",
+      "from": "From: Spoofed <author@xn--mnchen-3ya.lab.test>",
+      "signed": "False",
+      "sha256": "c939b235014a381137c582b246cb2774e1c2e045da266c0183e96103fce15711",
+      "smtp_reply": "550 5.7.1 rejected by DMARC policy for xn--mnchen-3ya.lab.test",
+      "accepted": false,
+      "delivered": false,
+      "ar": []
+    },
+    {
+      "case": "x2-ulabel-spoof",
+      "from": "From: Spoofed <author@münchen.lab.test>",
+      "signed": "False",
+      "sha256": "7561b7b069fe5ede5672b2682ad788a3e43d3ac21ad3aeeb3cdfc8ebb8922519",
+      "smtp_reply": "250 2.0.0 Ok: queued as 1A96AA9805",
+      "accepted": true,
+      "delivered": true,
+      "ar": [
+        "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=münchen.lab.test",
+        "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+      ]
+    },
+    {
+      "case": "x3-ulabel-spoof-signed-foreign",
+      "from": "From: Spoofed <author@münchen.lab.test>",
+      "signed": "True",
+      "sha256": "abbb046588a51013a4b75ef4cfacdbeff076dfc9b711e3a220dc388323a22806",
+      "smtp_reply": "250 2.0.0 Ok: queued as 0599EA72DE",
+      "accepted": true,
+      "delivered": true,
+      "ar": [
+        "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=münchen.lab.test",
+        "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+        "Authentication-Results: mail.lab.test;"
+      ]
+    },
+    {
+      "case": "x4-alabel-legit-signed",
+      "from": "From: Author <author@xn--mnchen-3ya.lab.test>",
+      "signed": "victim",
+      "sha256": "30017725aa1ed698c3383c2bab0aaa717382eb46a1934de4a9fbd3c5fb83f3e8",
+      "smtp_reply": "250 2.0.0 Ok: queued as CD4C4A980D",
+      "accepted": true,
+      "delivered": true,
+      "ar": [
+        "Authentication-Results: mail.lab.test; dmarc=pass (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+        "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+        "Authentication-Results: mail.lab.test;"
+      ]
+    }
+  ]
+}

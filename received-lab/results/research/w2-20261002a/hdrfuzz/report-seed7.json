@@ -1,0 +1,21 @@
+{
+ "tool": "hdrfuzz-v1",
+ "seed": 7,
+ "grammar_cases": 30,
+ "seconds": 581.4,
+ "divergent": 17,
+ "new_after_known_dedup": 0,
+ "ablation": {
+  "arm": "byte+file-oracle",
+  "seen": 180,
+  "valid": 176,
+  "splits": 4,
+  "status_classes": 4
+ },
+ "known_table": {
+  "odmarc_void_only+policy_split": "U-label/NFD/domain-literal/群组外（w2 eai+void）",
+  "rspamd_void_only+policy_split": "群组语法（w2 void v1/v2/v8）",
+  "no_stamp+nil_envelope": "空群组/obs-only（w2 void v2/v6）",
+  "empty_identity_ar": "domain-literal（w2 void v3）"
+ }
+}

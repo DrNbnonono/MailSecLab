@@ -1,0 +1,107 @@
+{
+ "rows": [
+  {
+   "case": "vc-plain-control",
+   "from_line": "From: Bank Security <security@xn--mnchen-3ya.lab.test>",
+   "t_send": "23:44:01",
+   "smtp": "250 2.0.0 Ok: queued as B1FAF9C5E1",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "er probe\" ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((NIL NIL \"bob\" \"lab.test\")"
+  },
+  {
+   "case": "v1-group-single",
+   "from_line": "From: Bank Security: security@xn--mnchen-3ya.lab.test;",
+   "t_send": "23:44:17",
+   "smtp": "250 2.0.0 Ok: queued as 4076D9C5E1",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "er probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Secu"
+  },
+  {
+   "case": "v2-group-empty",
+   "from_line": "From: Bank Security:;",
+   "t_send": "23:44:31",
+   "smtp": "250 2.0.0 Ok: queued as E158C9C5E1",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "er probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<void-v2-group-empty@"
+  },
+  {
+   "case": "v3-domain-literal",
+   "from_line": "From: Bank Security <security@[203.0.113.7]>",
+   "t_send": "23:44:45",
+   "smtp": "250 2.0.0 Ok: queued as B4A3D9C5E1",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=[203.0.113.7]",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "er probe\" ((\"Bank Security\" NIL \"security\" \"[203.0.113.7]\")) ((\"Bank Security\" NIL \"security\" \"[203.0.113.7]\")) ((\"Bank Security\" NIL \"security\" \"[203.0.113.7]\")) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<void-v3-domain"
+  },
+  {
+   "case": "v4-comment-after-domain",
+   "from_line": "From: Bank Security <security@xn--mnchen-3ya.lab.test (Bank)>",
+   "t_send": "23:44:59",
+   "smtp": "250 2.0.0 Ok: queued as 61D7C9C5E1",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "er probe\" ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((NIL NIL \"bob\" \"lab.test\")"
+  },
+  {
+   "case": "v5-folded-addr",
+   "from_line": "From: Bank Security\\r\\n <security@xn--mnchen-3ya.lab.test>",
+   "t_send": "23:45:13",
+   "smtp": "250 2.0.0 Ok: queued as 3E63C9C5E1",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "er probe\" ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((NIL NIL \"bob\" \"lab.test\")"
+  },
+  {
+   "case": "v6-obs-only-from",
+   "from_line": "From : Bank Security <security@xn--mnchen-3ya.lab.test>",
+   "t_send": "23:45:26",
+   "smtp": "250 2.0.0 Ok: queued as 2F41F9C5E1",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+   ],
+   "envelope": "er probe\" NIL NIL NIL ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<void-v6-obs-only-from@lab.test>\"))'"
+  },
+  {
+   "case": "v7-quoted-local",
+   "from_line": "From: Bank Security <\"security\"@xn--mnchen-3ya.lab.test>",
+   "t_send": "23:45:40",
+   "smtp": "250 2.0.0 Ok: queued as F162B9C5E1",
+   "delivered": true,
+   "ar": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "envelope": "er probe\" ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((\"Bank Security\" NIL \"security\" \"xn--mnchen-3ya.lab.test\")) ((NIL NIL \"bob\" \"lab.test\")"
+  },
+  {
+   "case": "v8-group-two-domains",
+   "from_line": "From: Bank Security: security@xn--mnchen-3ya.lab.test, agent@lab.test;",
+   "t_send": "23:45:54",
+   "smtp": "250 2.0.0 Ok: queued as A47749C5E1",
+   "delivered": true,
+   "ar": [],
+   "envelope": "er probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"agent\" \"lab.test\")(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL \"security\" \"xn--mnchen-3ya.lab.test\")(NIL NIL \"a"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id QLTLHEzTv2oHAgAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Fri, 02 Oct 2026 15:52:44 +0000
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 37E23A9852
+	for <bob@lab.test>; Fri,  2 Oct 2026 15:52:34 +0000 (UTC)
+Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)
+from:作者:;
+Sender: Agent <agent@lab.test>
+To: bob@lab.test
+Date: Fri, 2 Oct 2026 19:00:00 +0000
+Subject: hdrfuzz probe
+Message-ID: <hf-7-012-group-empty-trailing-dot@lab.test>
+X-Case-ID: hf-7-012-group-empty-trailing-dot
+X-Spam: Yes
+
+Please confirm the payment.
+Case: hf-7-012-group-empty-trailing-dot

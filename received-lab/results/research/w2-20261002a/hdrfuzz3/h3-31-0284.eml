@@ -1,0 +1,13 @@
+Authentication-Results : receiver.example; spf=pass smtp.mailfrom=xn--mnchen-3ya.lab.test
+From: Bank Security <security@xn--mnchen-3ya.lab.test>
+Sender: Bank <security@xn--mnchen-3ya.lab.test>
+Reply-To: Reply <reply@evil.test>
+Reply-To: Bank <security@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 13:00:00 +0000
+Subject: hdrfuzz3 probe
+Message-ID: <h3-31-0284@lab.test>
+X-Case-ID: h3-31-0284
+
+Please confirm the payment.
+Case: h3-31-0284

@@ -26,3 +26,7 @@ notes/
 *.pem
 received-lab/results/research/**/keys/
 received-lab/research/**/.state/
+
+.graphify/
+.zcode/
+.zcodeignore

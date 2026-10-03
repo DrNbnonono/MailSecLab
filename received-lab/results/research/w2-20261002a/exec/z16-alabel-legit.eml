@@ -1,0 +1,11 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xn--mnchen-3ya.lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=Ck5SoRNWUpSR4X0COv7R5ub2pUTtl6xz4dTFz++ji4M=; b=axLo1thljx9gKbZ+jXwi/C+eBzz3ByqTsnMFlKnPM1UjaGO8VHxAKiWP0vbrJhxZFONDPUzyLToTsN2AYPUjDHCfWZlxNyJCRRgR7ON2522wflbdzjB0sP57vikVZ1kaxFtPupyHZtAX7QDtS5s/pQbcz+NzmKhCCOcKiapL0py71jwYSfkmO+E6ZxsR46pdYhRqvbq13pgmWowqWJ6y05y6tK0JhCCx58M1aMUYucLOOW9h1spGpT2Iv824CzSWEldSZGB4cglxDPRzHok0knHGT6Qlo2XBxlEKADhSpggn+COaS5btHJS9+e+LaKzsbK89luOUkSDRJYMx7VZfFw==
+From: Author <author@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Fri, 2 Oct 2026 14:20:00 +0000
+Subject: dual verdict evidence
+Message-ID: <z16-alabel-legit@lab.test>
+X-Case-ID: z16-alabel-legit
+
+body

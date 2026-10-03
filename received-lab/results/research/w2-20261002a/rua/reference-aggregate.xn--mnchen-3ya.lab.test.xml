@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feedback>
+ <report_metadata>
+  <org_name>reference-aggregation.mailseclab</org_name>
+  <email>postmaster@lab.test</email>
+  <date_range><begin>0</begin><end>0</end></date_range>
+ </report_metadata>
+ <policy_published><domain>xn--mnchen-3ya.lab.test</domain><adkim>r</adkim><aspf>r</aspf><p>reject</p></policy_published>
+  <record>
+   <row>
+    <source_ip>10.88.0.11</source_ip>
+    <count>1</count>
+    <policy_evaluated><disposition>none</disposition><dkim>fail</dkim><spf>fail</spf></policy_evaluated>
+   </row>
+   <identifiers>
+    <header_from>xn--mnchen-3ya.lab.test</header_from>
+   </identifiers>
+  </record> <!-- case r1-alabel-spoof job 3C36FA9811 -->
+  <record>
+   <row>
+    <source_ip>10.88.0.11</source_ip>
+    <count>1</count>
+    <policy_evaluated><disposition>none</disposition><dkim>fail</dkim><spf>fail</spf></policy_evaluated>
+   </row>
+   <identifiers>
+    <header_from>xn--mnchen-3ya.lab.test</header_from>
+   </identifiers>
+  </record> <!-- case r4-alabel-legit job 7F2D2B1E0 -->
+</feedback>

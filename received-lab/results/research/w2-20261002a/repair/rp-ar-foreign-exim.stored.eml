@@ -1,0 +1,29 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id iLrnAuFuwGpiBQAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 02:56:33 +0000
+Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from exim.lab.test (exim.mailseclab-research-net [10.88.0.4])
+	by auth-postfix.lab.test (Postfix) with ESMTP id E6A69AA68E
+	for <bob@lab.test>; Sat,  3 Oct 2026 02:56:32 +0000 (UTC)
+Received: from [10.88.0.11] (helo=client.lab.test)
+	by exim.lab.test with esmtp (Exim 4.96)
+	(envelope-from <alice@lab.test>)
+	id 1xCpvM-00006j-2w
+	for bob@lab.test;
+	Sat, 03 Oct 2026 02:56:32 +0000
+Authentication-Results: receiver.example; dkim=pass (2048-bit key) header.d=xn--mnchen-3ya.lab.test header.b=ZZFZ9
+From: Spoofed <author@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 21:00:00 +0000
+Subject: repair ar-foreign
+Message-ID: <rp-ar-foreign-exim@lab.test>
+X-Case-ID: rp-ar-foreign-exim
+X-Spam: Yes
+
+Please confirm the payment.
+Case: rp-ar-foreign-exim

@@ -1,0 +1,54 @@
+{
+ "note": "reference aggregation over OpenDMARC HistoryFile records; grouping key = policy domain -> rua (RFC 9989 aggregate reporting)",
+ "victim_domain": "xn--mnchen-3ya.lab.test",
+ "victim_report_rows": [
+  {
+   "job": "3C36FA9811",
+   "case": "r1-alabel-spoof",
+   "from_domain": "xn--mnchen-3ya.lab.test",
+   "policy_domain": "xn--mnchen-3ya.lab.test",
+   "policy_code": "16",
+   "rua": "mailto:reports@lab.test",
+   "reported_dkim": "-",
+   "action_code": "2",
+   "received": "1790951420"
+  },
+  {
+   "job": "7F2D2B1E0",
+   "case": "r4-alabel-legit",
+   "from_domain": "xn--mnchen-3ya.lab.test",
+   "policy_domain": "xn--mnchen-3ya.lab.test",
+   "policy_code": "15",
+   "rua": "mailto:reports@lab.test",
+   "reported_dkim": "xn--mnchen-3ya.lab.test cal 0",
+   "action_code": "2",
+   "received": "1790951460"
+  }
+ ],
+ "victim_report_count": 2,
+ "other_reports": {},
+ "unattributable_rows": [
+  {
+   "job": "C9750B1E0",
+   "case": "r2-ulabel-spoof",
+   "from_domain": "münchen.lab.test",
+   "policy_domain": "münchen.lab.test",
+   "policy_code": "14",
+   "rua": "-",
+   "reported_dkim": "-",
+   "action_code": "2",
+   "received": "1790951432"
+  },
+  {
+   "job": "B5C1AB1E0",
+   "case": "r3-ulabel-spoof-signed",
+   "from_domain": "münchen.lab.test",
+   "policy_domain": "münchen.lab.test",
+   "policy_code": "14",
+   "rua": "-",
+   "reported_dkim": "lab.test cal 0",
+   "action_code": "2",
+   "received": "1790951446"
+  }
+ ]
+}

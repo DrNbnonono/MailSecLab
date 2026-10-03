@@ -1,0 +1,26 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id YLdAFodowGosBAAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 02:29:27 +0000
+Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from opensmtpd.lab.test (opensmtpd.mailseclab-research-net [10.88.0.5])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 3581EAA66A
+	for <bob@lab.test>; Sat,  3 Oct 2026 02:29:27 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id 3bfa6e91
+	for <bob@lab.test>;
+	Sat, 3 Oct 2026 02:29:27 +0000 (UTC)
+X-Case-ID: rp-obs-mid-osmtpd
+From: Bank Security <security@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 21:00:00 +0000
+Subject: repair obs-mid
+Message-ID: <rp-obs-mid-osmtpd@lab.test>
+X-Spam: Yes
+
+Please confirm the payment.
+Case: rp-obs-mid-osmtpd

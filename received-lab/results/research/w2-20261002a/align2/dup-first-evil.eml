@@ -1,0 +1,13 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=evil.test;
+ d=bank.test;
+ s=cal;
+ h=from:to:date:subject:message-id;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=Ix4LwCvmsRv9RNcG3SrJg3FFRvfZuVHS+GZZroB+0mv3zj9Sdas2gdiEdUiPKTRPEZ8yZ0MBVJEe7FlgC4UM7M68qiAwrlKsjcPC14e1WhCjYoV3YJvb2MPgwbFnN/PImu0IXIoMDPGXCbiqK27dC8KIVjaNZTNCB51aX/dpLYsq8YnNsTMehniP3Ze+VZ4VELP9rCj2C6L9khT58innD9OYVNB3t3sc0x6sGCiid6+8QbST+qDKZg/vEO8uNpYMyqCMyuzNNmZiS5flKiwC3at5NUpOfjeica4HPLzrtsoYIajV+09Tg0BD/idQnsdESHCvFteOm3YadudFvW50lQ==
+From: Bank Security <security@bank.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 19:00:00 +0000
+Subject: align2 dup-first-evil
+Message-ID: <al2-dup-first-evil@lab.test>
+X-Case-ID: al2-dup-first-evil
+
+Please confirm the payment.

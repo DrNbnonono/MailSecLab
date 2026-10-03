@@ -1,0 +1,60 @@
+{
+ "rows": [
+  {
+   "case": "k-ctrl-cal",
+   "selector": "cal",
+   "file": {
+    "dkimpy": "pass",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "smtp": "250 2.0.0 Ok: queued as 42574AA30B",
+   "rspamd": [
+    "R_DKIM_ALLOW"
+   ],
+   "sha256": "cb19ffc8e4e065d9c101747ea3d28b8709c2b81602f0bb2318be3f7fd9d53849"
+  },
+  {
+   "case": "k-revoked",
+   "selector": "rev",
+   "file": {
+    "dkimpy": "fail",
+    "perl": "parse-error",
+    "go": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as CCFC3AA30B",
+   "rspamd": [
+    "R_DKIM_PERMFAIL"
+   ],
+   "sha256": "0136d8faff29f736c311723ec43a06365d2aeabf5ac017cddaba7a80a699cc1c"
+  },
+  {
+   "case": "k-no-p",
+   "selector": "nop",
+   "file": {
+    "dkimpy": "fail",
+    "perl": "parse-error",
+    "go": "fail"
+   },
+   "smtp": "250 2.0.0 Ok: queued as EED35AA30B",
+   "rspamd": [
+    "R_DKIM_PERMFAIL"
+   ],
+   "sha256": "8f3ace22d1b09869e64d3cd6686215bb03ba0394c217f13b65237646b090170b"
+  },
+  {
+   "case": "k-dup-p",
+   "selector": "dupp",
+   "file": {
+    "dkimpy": "fail",
+    "perl": "pass",
+    "go": "pass"
+   },
+   "smtp": "250 2.0.0 Ok: queued as 1FBD9AA30B",
+   "rspamd": [
+    "R_DKIM_ALLOW"
+   ],
+   "sha256": "72dde0df357de19aa7932e48203643d3245d7594c467283f0feb8dc83f72840c"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id QIW9MYG9v2qIAQAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Fri, 02 Oct 2026 14:19:45 +0000
+Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 9D714A9835
+	for <bob@lab.test>; Fri,  2 Oct 2026 14:19:35 +0000 (UTC)
+Authentication-Results: mail.lab.test;
+	dkim=pass (2048-bit key; unprotected) header.d=evil.test header.i=@evil.test header.a=rsa-sha256 header.s=cal header.b=jOXrnrJU
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ d=evil.test;
+ s=cal;
+ h=from:to:date:subject:message-id;
+ bh=4SpgKkqqamWA21m6gxOXaRaC1cHWy8Z/EzoBYsQxWn4=; b=jOXrnrJUuXMRLUDQNlUC8FwcwrKgbtNbITS+0qyW2KeL0Nasbj5Y8opptt3Bp9SV7dq/r10jbQCh+xnVPZ+ngyyFMdsl14P06aufeTlDwUw2R+0IYD2LH6flRQ+UC7Wx0asaxSLdQZJ1GFTDjRDrR52dT67Bam3N0nJGOE2kDET7amhA/Be+sbf/73/A5Rs4MIc+4xcOuduVaHmOgS3cQ/rg8EI9wTN8FnUFmjnXFwc+uEh9ufveksb+6z18NS831WMX9J+ZgqZyHKSokNHEs/RftmZv0TIpLXYUEr0RmofHoI5nTlq7akWvP35CdH0r4ApN5nTe67EQWsVUBiDL0g==
+From: Author <author@lab.test>
+To: bob@lab.test
+Date: Fri, 2 Oct 2026 14:25:00 +0000
+Subject: qname construction probe
+Message-ID: <qnp-c4-duplicate-d@lab.test>
+X-Case-ID: qnp-c4-duplicate-d
+X-Spam: Yes
+
+Controlled research body.
+Case: qnp-c4-duplicate-d

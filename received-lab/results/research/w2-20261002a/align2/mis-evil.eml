@@ -1,0 +1,12 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=evil.test;
+ s=cal;
+ h=from:to:date:subject:message-id;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=laV7elzxh0GLd+ToufF6eDUczhgGeVVcUDdCWTE4MS+cfbnSr8i7zYbyyW88ukWMJ3KWmMtN5VXxXycL7iWnFJFlfVVsH9gRyitSxMr+Jm6fRgutnEwhllv26UmQTPdWTt+LOfBl0qEFrLLvhGDs2aeFIOhILMMHHOmSrAKDWlmodnnbhq2OUtmFe41XBSVIptfYr52j+Pnr5NzwrR4r5IgBvLC9gMxDJh/QhNhCm3sYkQHpHni4+pZkyyytEO3cvhRoJlptMkz1I3/thO/LUFHNqd1Hlq891JIReLgVm/Gzk2p8JwR7wZzCHlwb23YPq46BWuA4jMieqEuS1rmR3w==
+From: Bank Security <security@bank.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 19:00:00 +0000
+Subject: align2 mis-evil
+Message-ID: <al2-mis-evil@lab.test>
+X-Case-ID: al2-mis-evil
+
+Please confirm the payment.

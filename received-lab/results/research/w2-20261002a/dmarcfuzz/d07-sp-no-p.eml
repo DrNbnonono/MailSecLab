@@ -1,0 +1,8 @@
+From: Probe <security@d07-sp-no-p.dmarc-p.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 20:00:00 +0000
+Subject: dmarc rec d07-sp-no-p
+Message-ID: <dmf-d07-sp-no-p@lab.test>
+X-Case-ID: dmf-d07-sp-no-p
+
+body

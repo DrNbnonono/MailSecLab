@@ -1,0 +1,13 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xn--mnchen-3ya.lab.test(.attacker.test;
+ s=cal;
+ h=from:to:date:subject:message-id;
+ bh=CJYprfatIpqtgLqDAm2kP5TXWgzAqUOilxFdfFnhvBQ=; b=lqxKldiJCERkxLxVXH3EA9GD8OjVQvsKlRyBlBuVRF6hVuWACcLdmTvYuGjyO4FOMWr4g2xjwb8C8lM/rznr0ISZ9FMgeBce2uyJgWT8eeOY148Z5a9q2T9QMKiBduU43vjpsJUj4NtEg0kc4bixCZER9hoagBHX1kEZtT6FG8Q7oIUXy6+fvJ47QIGmJ/EzteTTKlPuWZaC0ZRjGzfXvxD4hqTfpY0HkK5aDPZopnBSQkPilBy7u1VmTrlOht5wbSGH7oXCy37Ukz7zpfno/S3xA6tUEUKCoR2isKVBHAwRVifp/25pWpBfNmF7btCUvlzVUVc/pXf6s60M+gK1Zw==
+From: Spoofed <author@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Fri, 2 Oct 2026 17:00:00 +0000
+Subject: ar trust probe
+Message-ID: <ar2-comment-d@lab.test>
+X-Case-ID: ar2-comment-d
+
+Controlled research body.
+Case: ar2-comment-d

@@ -1,0 +1,11 @@
+Authentication-Results: receiver.example; dmarc=pass (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test
+From: Bank Security <security@x@[203.0.113.7]>
+Reply-To: Reply <reply@evil.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 13:00:00 +0000
+Subject: hdrfuzz3 probe
+Message-ID: <h3-33-0045@lab.test>
+X-Case-ID: h3-33-0045
+
+Please confirm the payment.
+Case: h3-33-0045

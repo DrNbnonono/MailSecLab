@@ -1,0 +1,20 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id oBTjHAPbv2psBAAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Fri, 02 Oct 2026 16:25:39 +0000
+Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=evil.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 59DB2A99FF
+	for <bob@lab.test>; Fri,  2 Oct 2026 16:25:39 +0000 (UTC)
+From: Attacker <attacker@evil.test>To: bob@lab.test
+Date: Sat, 3 Oct 2026 12:00:00 +0000
+Subject: [rs-rsc5-control-plain] resent binding probe
+Message-ID: <rs-rsc5-control-plain@lab.test>
+X-Case-ID: rs-rsc5-control-plain
+X-Spam: Yes
+
+Please confirm the payment.

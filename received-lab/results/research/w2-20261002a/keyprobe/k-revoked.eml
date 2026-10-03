@@ -1,0 +1,11 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lab.test;
+ s=rev; h=from:to:date:subject:message-id;
+ bh=e39nMmM09HvH/gXw1GwR0FjDjlFZxzRAHT3V+j358xM=; b=qam/eOBw6Oo2lTVLKiSGFaplGjlyWifr9/rr5fJSOZ1inAdorMdh9NItNyZtESfJYlWPo6qb/1dNw/aAP6SIiPZzh+sd0i3BUyc96emP/r86YN7C6tAG9eLWkECkdQTvgRnXwm+Ly3mcP7gPT5Ld1V5t2SqLciXJbaQv49KmghMSYp81GcthAX4TGH19u3iQcFKqOCQ21V3yj1E1QefSofj66h9d2s1H36msufWiBHkTurQX1kFbvo21VfO90reNFVTQWMBzXCO+WhjmGsCcP74zGtrmPbJxCq6IT4u2l4H3eSRBs2olNPmyNf90y6d5KPJIvA7cTaVn8exRoEYEnw==
+From: Bank Security <security@lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 18:00:00 +0000
+Subject: key probe k-revoked
+Message-ID: <key-k-revoked@lab.test>
+X-Case-ID: key-k-revoked
+
+Please confirm the payment.

@@ -1,0 +1,33 @@
+{
+ "row": {
+  "case": "v6-obs-only-from",
+  "from_line": "From : Bank Security <security@xn--mnchen-3ya.lab.test>",
+  "t_send": "23:45:26",
+  "smtp": "250 2.0.0 Ok: queued as 2F41F9C5E1",
+  "delivered": true,
+  "ar": [
+   "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+  ],
+  "envelope": "er probe\" NIL NIL NIL ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<void-v6-obs-only-from@lab.test>\"))'"
+ },
+ "smtp": {
+  "client_ip": "10.88.0.11",
+  "reply": "250 2.0.0 Ok: queued as 2F41F9C5E1",
+  "queued_id": "2F41F9C5E1",
+  "bytes": 282,
+  "sha256": "8bff70dc278b572b65c5b5a25b350d12ea0298f1f361950e6740c75e88152ee7",
+  "accepted": true,
+  "banner_ok": true,
+  "ehlo_ok": true,
+  "mail_ok": true,
+  "rcpt_ok": true
+ },
+ "stored": {
+  "found": true,
+  "uid": "80",
+  "ar": [
+   "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+  ],
+  "envelope": "er probe\" NIL NIL NIL ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<void-v6-obs-only-from@lab.test>\"))'"
+ }
+}

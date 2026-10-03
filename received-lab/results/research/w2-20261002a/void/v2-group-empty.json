@@ -1,0 +1,33 @@
+{
+ "row": {
+  "case": "v2-group-empty",
+  "from_line": "From: Bank Security:;",
+  "t_send": "23:44:31",
+  "smtp": "250 2.0.0 Ok: queued as E158C9C5E1",
+  "delivered": true,
+  "ar": [
+   "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+  ],
+  "envelope": "er probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<void-v2-group-empty@"
+ },
+ "smtp": {
+  "client_ip": "10.88.0.11",
+  "reply": "250 2.0.0 Ok: queued as E158C9C5E1",
+  "queued_id": "E158C9C5E1",
+  "bytes": 242,
+  "sha256": "a303c0f24ec67f06e10f562159890f5a952e8ee9a987f901377397395b980ff9",
+  "accepted": true,
+  "banner_ok": true,
+  "ehlo_ok": true,
+  "mail_ok": true,
+  "rcpt_ok": true
+ },
+ "stored": {
+  "found": true,
+  "uid": "76",
+  "ar": [
+   "Authentication-Results:mail.lab.test; dkim=permerror (bad message/signature format)"
+  ],
+  "envelope": "er probe\" ((NIL NIL \"Bank Security\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"Bank Security\" NIL)(NIL NIL NIL NIL)) ((NIL NIL \"bob\" \"lab.test\")) NIL NIL NIL \"<void-v2-group-empty@lab.test>\"))'"
+ }
+}

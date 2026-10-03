@@ -1,0 +1,21 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id ODLYMFhcwGqCAQAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 01:37:28 +0000
+Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=d08-adkim-dup.dmarc-p.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id AC439609
+	for <bob@lab.test>; Sat,  3 Oct 2026 01:37:28 +0000 (UTC)
+From: Probe <security@d08-adkim-dup.dmarc-p.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 20:00:00 +0000
+Subject: dmarc rec d08-adkim-dup
+Message-ID: <dmf-d08-adkim-dup@lab.test>
+X-Case-ID: dmf-d08-adkim-dup
+X-Spam: Yes
+
+body

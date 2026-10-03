@@ -1,0 +1,11 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xn--mnchen-3ya.lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=Ck5SoRNWUpSR4X0COv7R5ub2pUTtl6xz4dTFz++ji4M=; b=JNk2Fcpn6hsKDnbM6VA7WXisidU63Pv0sI7FAz4Zl3A+Sac0JzbXaaC7XsN2cX4FedVBZGb0tFqdxyyPikRzb4s7H37EzGoTh+nMYpUZXInXZ/QWtbExpAP5FlJEfYymdsavfit9zhmKxLdKn3VbqY7Qznh6+e7kw8dfjRKZdYOo1nJ3QV2RIJrJB8QzsmWh7HmbkF/cw6EGMVy6boCtnvNP2/BTgs1ktbFGPfEzMAJN8dhpivuzeu8h+Qs76xDWCWmV1zecFp3m5lUu8pxcBoBbdDMlNUvSVRpkp9r80BVdqYzCtlx1ZxBJsMpnZGx9j8x1QbkbXQOCRRB/2E/hUw==
+From: Author <author@xn--mnchen-3ya.lab.test>
+To: recipient@receiver.test
+Date: Fri, 2 Oct 2026 14:10:00 +0000
+Subject: rspamd milter dmarc probe 2
+Message-ID: <z8-alabel-legit@lab.test>
+X-Case-ID: z8-alabel-legit
+
+body

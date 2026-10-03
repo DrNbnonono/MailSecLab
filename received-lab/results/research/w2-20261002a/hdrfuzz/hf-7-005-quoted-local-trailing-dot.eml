@@ -1,0 +1,10 @@
+From :<"security"@xn--mnchen-3ya.lab.test.>
+Sender: Agent <agent@lab.test>
+To: bob@lab.test
+Date: Fri, 2 Oct 2026 19:00:00 +0000
+Subject: hdrfuzz probe
+Message-ID: <hf-7-005-quoted-local-trailing-dot@lab.test>
+X-Case-ID: hf-7-005-quoted-local-trailing-dot
+
+Please confirm the payment.
+Case: hf-7-005-quoted-local-trailing-dot

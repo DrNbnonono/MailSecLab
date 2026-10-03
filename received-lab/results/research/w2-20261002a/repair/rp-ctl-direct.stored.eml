@@ -1,0 +1,22 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id kz8iELdnwGosBAAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 02:25:59 +0000
+Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 0F9D1AA621
+	for <bob@lab.test>; Sat,  3 Oct 2026 02:25:59 +0000 (UTC)
+From: Bank Security <security@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 21:00:00 +0000
+Subject: repair ctl
+Message-ID: <rp-ctl-direct@lab.test>
+X-Case-ID: rp-ctl-direct
+X-Spam: Yes
+
+Please confirm the payment.
+Case: rp-ctl-direct

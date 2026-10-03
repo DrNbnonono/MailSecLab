@@ -1,0 +1,79 @@
+{
+  "row": {
+    "case": "c2-trailing-dot-d",
+    "middle_tags": "d=lab.test.;\r\n s=cal",
+    "t_verify": "22:19:00",
+    "t_send": "22:19:02",
+    "verifiers": {
+      "dkimpy": "tool-error",
+      "perl": "pass",
+      "go": "pass",
+      "rspamd": "pass"
+    },
+    "smtp_reply": "250 2.0.0 Ok: queued as 8EEC2A9820",
+    "ar": [
+      "Authentication-Results: mail.lab.test; dmarc=fail (p=none dis=none) header.from=lab.test",
+      "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+      "Authentication-Results: mail.lab.test;"
+    ],
+    "sha256": "dcf89e167d1db9d1480f9f2f4af1608ee08b1e984e8732c0c9883cbf5180fd71"
+  },
+  "verifiers": {
+    "dkimpy": {
+      "tool": "dkimpy",
+      "input_sha256": "dcf89e167d1db9d1480f9f2f4af1608ee08b1e984e8732c0c9883cbf5180fd71",
+      "input_len": 773,
+      "perl_feed_sha256": "dcf89e167d1db9d1480f9f2f4af1608ee08b1e984e8732c0c9883cbf5180fd71",
+      "perl_normalization": "identity",
+      "stdout": "status: tool-error\nEmptyLabel: A DNS label is empty.\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "tool-error"
+    },
+    "perl": {
+      "tool": "perl",
+      "input_sha256": "dcf89e167d1db9d1480f9f2f4af1608ee08b1e984e8732c0c9883cbf5180fd71",
+      "input_len": 773,
+      "perl_feed_sha256": "dcf89e167d1db9d1480f9f2f4af1608ee08b1e984e8732c0c9883cbf5180fd71",
+      "perl_normalization": "identity",
+      "library_fed_sha256": "dcf89e167d1db9d1480f9f2f4af1608ee08b1e984e8732c0c9883cbf5180fd71",
+      "library_normalization": "identity",
+      "stdout": "input_sha256: dcf89e167d1db9d1480f9f2f4af1608ee08b1e984e8732c0c9883cbf5180fd71\ninput_len: 773\nfed_sha256: dcf89e167d1db9d1480f9f2f4af1608ee08b1e984e8732c0c9883cbf5180fd71\nfed_len: 773\nnormalization: identity\nsignature_count: 1\nresult: pass\ndetail: pass\n",
+      "stderr": "",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "go": {
+      "tool": "go",
+      "input_sha256": "dcf89e167d1db9d1480f9f2f4af1608ee08b1e984e8732c0c9883cbf5180fd71",
+      "input_len": 773,
+      "perl_feed_sha256": "dcf89e167d1db9d1480f9f2f4af1608ee08b1e984e8732c0c9883cbf5180fd71",
+      "perl_normalization": "identity",
+      "stdout": "",
+      "stderr": "2026/10/02 14:19:02 Valid signature for lab.test.\n",
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "rspamd": {
+      "status": "pass",
+      "action": "no action",
+      "score": 2.3,
+      "symbols": [
+        "ARC_NA",
+        "DKIM_TRACE",
+        "DMARC_POLICY_SOFTFAIL",
+        "FROM_HAS_DN",
+        "HFILTER_HOSTNAME_UNKNOWN",
+        "H_SOURCE_IP",
+        "MID_RHS_MATCH_FROM",
+        "MIME_GOOD",
+        "MIME_TRACE",
+        "RCPT_COUNT_ONE",
+        "RCVD_COUNT_ZERO",
+        "R_DKIM_ALLOW",
+        "TO_DN_NONE",
+        "TO_DOM_EQ_FROM_DOM"
+      ]
+    }
+  }
+}

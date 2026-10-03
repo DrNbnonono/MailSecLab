@@ -1,0 +1,11 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xn--mnchen-3ya.lab.test;
+ s=cal; h=from:to:date:subject:message-id;
+ bh=Ck5SoRNWUpSR4X0COv7R5ub2pUTtl6xz4dTFz++ji4M=; b=g/Unn+7Roza0/h2KTzcXZlYKBQwd/bq1K7ydpJFQzgmDJK5u8xtvgbpCGRtN2mUxXGPcfmQNjuQsq8xSxXof09aFWbWEoTkJknmuIkj4nUEiZlWX/lhIrGg3/cciaahNWWI84hPwhj5iTfDfL34MrhMd02AzkgGhzT6N0CgBZQ13bUzvrSSaORL2av0xigsoFfgzVariMnPLJwzm1EPpzLQKWoPh73P8I35kxasrmIYkE4MnOeeCXX12Sbh9ejddrkPUVtLGSS6dfkNYsGYGGS8Fd8asABmcYi3RSm7390wawv/AMXJUw4Jb5RQQn8I+KP9B1SXV5XxRpMhZaw5egg==
+From: Author <author@xn--mnchen-3ya.lab.test>
+To: bob@lab.test
+Date: Fri, 2 Oct 2026 15:00:00 +0000
+Subject: rua history probe
+Message-ID: <r4-alabel-legit@lab.test>
+X-Case-ID: r4-alabel-legit
+
+body

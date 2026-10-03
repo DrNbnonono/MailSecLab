@@ -1,0 +1,22 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id SO0ZKfJowGosBAAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 02:31:14 +0000
+Authentication-Results: mail.lab.test; dmarc=none (p=none dis=none) header.from=[203.0.113.7]
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 8CC05AA671
+	for <bob@lab.test>; Sat,  3 Oct 2026 02:31:14 +0000 (UTC)
+From: Bank Security <security@[203.0.113.7]>
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 21:00:00 +0000
+Subject: repair dl
+Message-ID: <rp-dl-direct@lab.test>
+X-Case-ID: rp-dl-direct
+X-Spam: Yes
+
+Please confirm the payment.
+Case: rp-dl-direct

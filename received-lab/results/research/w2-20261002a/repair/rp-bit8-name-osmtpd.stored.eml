@@ -1,0 +1,28 @@
+Return-Path: <alice@lab.test>
+Delivered-To: bob@lab.test
+Received: from auth-postfix.lab.test ([10.88.0.43])
+	by dovecot.lab.test with LMTP
+	id V7YGEWtpwGoABQAA9b1ovA
+	(envelope-from <alice@lab.test>)
+	for <bob@lab.test>; Sat, 03 Oct 2026 02:33:15 +0000
+Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test
+Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test
+Received: from opensmtpd.lab.test (opensmtpd.mailseclab-research-net [10.88.0.5])
+	by auth-postfix.lab.test (Postfix) with ESMTP id 25961AA681
+	for <bob@lab.test>; Sat,  3 Oct 2026 02:33:15 +0000 (UTC)
+Received: from client.lab.test (msl-client.mailseclab-research-net [10.88.0.11])
+	by opensmtpd.lab.test (OpenSMTPD) with ESMTP id 5bb1cad0
+	for <bob@lab.test>;
+	Sat, 3 Oct 2026 02:33:15 +0000 (UTC)
+From: Bank Security <security@xn--mnchen-3ya.lab.test>
+X-Spam: Yes
+
+X-Ünknow: one
+To: bob@lab.test
+Date: Sat, 3 Oct 2026 21:00:00 +0000
+Subject: repair bit8-name
+Message-ID: <rp-bit8-name-osmtpd@lab.test>
+X-Case-ID: rp-bit8-name-osmtpd
+
+Please confirm the payment.
+Case: rp-bit8-name-osmtpd

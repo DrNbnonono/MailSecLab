@@ -1,0 +1,65 @@
+{
+ "rows": [
+  {
+   "case": "b1-foreign-id",
+   "smtp": "250 2.0.0 Ok: queued as 893AEA99E9",
+   "delivered": true,
+   "ar_like": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+    "Authentication-Results: receiver.example; dkim=pass (2048-bit key) header.d=xn--mnchen-3ya.lab.test header.b=AAAA"
+   ],
+   "forged_survived": true
+  },
+  {
+   "case": "b2-obs-colon-own-id",
+   "smtp": "250 2.0.0 Ok: queued as 37628A99E9",
+   "delivered": true,
+   "ar_like": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "forged_survived": false
+  },
+  {
+   "case": "b3-lower-foreign",
+   "smtp": "250 2.0.0 Ok: queued as E0B5DA99E9",
+   "delivered": true,
+   "ar_like": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+    "authentication-results: mx.receiver.example; dkim=pass header.d=xn--mnchen-3ya.lab.test"
+   ],
+   "forged_survived": true
+  },
+  {
+   "case": "b4-no-id",
+   "smtp": "250 2.0.0 Ok: queued as 986FAA99E9",
+   "delivered": false,
+   "ar_like": [],
+   "forged_survived": false
+  },
+  {
+   "case": "b5-folded-foreign",
+   "smtp": "250 2.0.0 Ok: queued as 84772A79F4",
+   "delivered": true,
+   "ar_like": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test",
+    "Authentication-Results: receiver.example;",
+    "dkim=pass header.d=xn--mnchen-3ya.lab.test"
+   ],
+   "forged_survived": false
+  },
+  {
+   "case": "b6-own-id-case",
+   "smtp": "250 2.0.0 Ok: queued as 4C8A1A79F4",
+   "delivered": true,
+   "ar_like": [
+    "Authentication-Results: mail.lab.test; dmarc=fail (p=reject dis=none) header.from=xn--mnchen-3ya.lab.test",
+    "Authentication-Results: mail.lab.test; spf=fail smtp.mailfrom=lab.test"
+   ],
+   "forged_survived": false
+  }
+ ]
+}

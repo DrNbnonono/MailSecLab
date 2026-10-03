@@ -37,6 +37,8 @@ Compose profile：默认三跳 Postfix；`mta3b` 为 Exim / OpenSMTPD；`pf11` �
 
 第二套栈：研究网 `mailseclab-research-net`（msl-auth-postfix + OpenDKIM/OpenDMARC/rspamd milter + Dovecot + Roundcube/SnappyMail + msl-dns + msl-mailpit + Exim v3/OpenSMTPD），用于 w1/w2 认证链实验。当前栈状态与回滚表见 `received-lab/results/research/w2-20261002a/STATE.md`。
 
+语法引擎：独立仓库 `E:\Gramfuzz`（远端分支 `tool/gramfuzz`，与本仓库分离）——ABNF 语法差分 fuzz（abnf/gramgen/grammut/funnel 四层，RFC 5321/5322+obs/8601/6376/8617/6532/2045 驱动，13 个顶层头入口）。经 `gramfuzz.lab` 桥引用本仓库的 diffrun/tracefacts/evidence 与 diffrun-targets.json（单一事实来源，不复制）；运行产物落 `results/research/<run-id>/gramfuzz/`（/evidence 挂载映射）。实施计划见 `docs/superpowers/plans/2026-10-03-gramfuzz.md`，调研依据见 `results/research/GAP1-SURVEY-20261003.md`。
+
 E、I、J3 会改 `relayhost`。换实验前执行 `docker compose restart postfix1 postfix2 postfix3`，并核对三条路由都恢复。Docker Desktop 的 resource-saver 会停掉 WSL 虚拟机，长实验需要保活。
 
 新语料必须做头区结构自检。折叠生成器若在已有 CRLF 上再 `"\r\n".join()`，会造出双 CRLF，头区提前结束。`--style folded` 还可能在同一 Received 里放两个日期，不能当成严格合规的长 Received。
@@ -111,10 +113,12 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 
 当前真正开放的项目：
 
-1. recfuzz2 的 Exim 捕获臂（250 后退信路径未捕获转换事实）。
+1. ~~recfuzz2 的 Exim 捕获臂~~ 已关闭（w3 diffrun）：Exim 直投 msl-mailpit 的捕获路径确认 obs 字节保留但计入 hopcount——「保留」与「计数」是独立维度。
 2. ~~parser 三家~~ 已关闭（w3 diffrun parse 列）。
 3. ~~DKIM 验证器 × obs-colon 交叉~~ 已关闭（w3 sigprobe2）。
 4. ~~OpenDKIM 公钥检索~~ 已关闭（w3 `opendkim-col/`）：根因=libunbound 构建的解析路径不出容器（unbound:probe A/B 对照：同信 key-not-found+零查询 vs libc 版 pass+有查询）；实例绑定列已补——OpenDKIM=底部选择。
 5. ~~parsedmarc 报告消费端~~ 已关闭（w3 `parsedmarc-probe/`）：parsedmarc 11.0.3 做结构校验、**不做来源认证**——冒名 reporter + 捏造行数据的伪造聚合报告被完整摄入（`verdict.json`: forged=true, origin_verification_seen=false）。与 w2 rua 发送侧空洞合拢为监控生态完整性缺口的两半。
+6. gramfuzz 全量 campaign（w4，进行中）：39,000 语法样本 → 三 parser 差分漏斗 → 中继/签名/消费三臂 → `results/research/w4-20261003a/gramfuzz/candidates.json`。分类学见 `results/research/TAXONOMY.md`。
+7. 真实服务验证与披露（调研建议 4/5 号）：**门是 candidates.json 非空且证据链完整，负责人决策后另行计划**。未获授权不联系厂商、不公开发布、不出公网。
 
 改实验脚本时，比较的是同一字节流在不同组件上的解释。定位邮件用 `X-Case-ID`；头区可能被终结时，改为在整封 raw 里搜索。

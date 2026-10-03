@@ -22,7 +22,9 @@ MAILSECLAB_ROOT = Path(_cfg["mailseclab_root"])
 
 sys.path.insert(0, str(MAILSECLAB_ROOT))
 
+from research import reference  # noqa: E402
 from research.lib import diffrun  # noqa: E402
+from research.lib.causal import verify_file  # noqa: E402
 from research.lib.evidence import sha256_bytes  # noqa: E402
 from research.lib.tracefacts import corpus_check, facts  # noqa: E402
 

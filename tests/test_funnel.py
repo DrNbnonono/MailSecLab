@@ -85,8 +85,41 @@ def test_phase_corpus_rerun_wipes_stale_files(tmp_path, monkeypatch):
     assert len(sorted(corpus.glob("*.eml"))) == 2
 
 
-def test_cli_stage2_report_stubs_exit_2(capsys):
-    assert gf.main(["t-run", "--phase", "stage2"]) == 2
-    assert "任务 6" in capsys.readouterr().out
+def test_cli_report_stub_exit_2(capsys):
+    # stage2 已在任务 6 接线（真跑需要 docker 研究栈，不在单测里）；
+    # report 仍是任务 7 的桩。
     assert gf.main(["t-run", "--phase", "report"]) == 2
     assert "任务 7" in capsys.readouterr().out
+
+
+def test_imap_tokens_handles_literals_quotes_and_escapes():
+    # imaplib 把响应拆成 (文本段, 字面量段) 交替；{n} 标记后整段是一个 token。
+    # 真实结构：FETCH (ENVELOPE (date subject from-group sender ...))。
+    parts = [b'1 (ENVELOPE ("date" {32}',
+             b'literal subj (parens) and spaces',
+             b' (("Bank \\\\Security" NIL "security" "bank.test")) NIL NIL NIL NIL NIL NIL NIL))']
+    toks = gf._imap_tokens(parts)
+    assert toks[0] == b"1"
+    assert b'literal subj (parens) and spaces' in toks      # 字面量保完整
+    fields = gf._find_envelope(gf._nested(toks))
+    assert fields is not None and fields[0] == b"date"      # 字段表直取
+    slot = gf._envelope_from_slot(parts)
+    assert slot["from_slot"] == "security@bank.test"
+    assert slot["from_group"] == ["security@bank.test"]
+
+
+def test_imap_tokens_nil_from_group():
+    parts = [b'1 (ENVELOPE ("date" "s" NIL NIL NIL NIL NIL NIL NIL NIL))']
+    slot = gf._envelope_from_slot(parts)
+    assert slot["from_slot"] is None
+    assert slot["from_group"] is None
+
+
+def test_first_from_value_and_addr_extraction():
+    raw = (b"X-Junk: 1\r\nFrom : Bank Security <security@bank.test>\r\n"
+           b" extra\r\nFrom: second@lab.test\r\n\r\nbody\r\n")
+    val = gf._first_from_value(raw)
+    assert val.startswith("From : Bank Security") and "extra" in val  # obs + 折行
+    assert gf._addr_from_value(val) == "security@bank.test"          # 第一实例
+    assert gf._addr_from_value("From: plain@x.test") == "plain@x.test"
+    assert gf._addr_from_value(None) is None

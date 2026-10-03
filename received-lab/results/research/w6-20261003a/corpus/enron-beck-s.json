@@ -1,0 +1,58 @@
+{
+ "corpus": "corpus/enron-raw-ham",
+ "files": 1966,
+ "messages": 1977,
+ "features": {
+  "obs_received": 0,
+  "eightbit_name": 0,
+  "nocolon_received": 0,
+  "case_received": 0,
+  "dup_from": 0,
+  "dup_authentication_results": 0,
+  "dup_dkim_signature": 0,
+  "dup_reply_to": 0,
+  "dup_subject": 0,
+  "foreign_ar": 0,
+  "domain_literal_from": 0,
+  "by_from_mismatch": 0,
+  "overlong_lines": 34,
+  "header_8bit_bytes": 0,
+  "bare_lf_corpus": 1933,
+  "zone_anomaly": 940
+ },
+ "rate": {
+  "obs_received": 0.0,
+  "eightbit_name": 0.0,
+  "nocolon_received": 0.0,
+  "case_received": 0.0,
+  "dup_from": 0.0,
+  "dup_authentication_results": 0.0,
+  "dup_dkim_signature": 0.0,
+  "dup_reply_to": 0.0,
+  "dup_subject": 0.0,
+  "foreign_ar": 0.0,
+  "domain_literal_from": 0.0,
+  "by_from_mismatch": 0.0,
+  "overlong_lines": 0.01719777440566515,
+  "header_8bit_bytes": 0.0,
+  "bare_lf_corpus": 0.9777440566514921,
+  "zone_anomaly": 0.47546788062721296
+ },
+ "examples": {
+  "bare_lf_corpus": [
+   "1#0",
+   "2#0",
+   "3#0"
+  ],
+  "zone_anomaly": [
+   "2#0",
+   "5#0",
+   "2#0"
+  ],
+  "overlong_lines": [
+   "11#0",
+   "2#0",
+   "25#0"
+  ]
+ }
+}

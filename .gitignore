@@ -6,6 +6,9 @@ received-lab/_edgeprofile/
 received-lab/_ep2/
 received-lab/_ep3/
 
+# --- downloaded public corpora (passive prevalence scans; only sha256 manifests are committed) ---
+received-lab/corpus/
+
 # --- regenerable byte-level corpora (rebuilt by scripts/gen_*.py) ---
 received-lab/results/f-series/f1/
 received-lab/results/g-series/g1/

@@ -1,0 +1,71 @@
+{
+ "corpus": "corpus/nazario",
+ "files": 1,
+ "messages": 2279,
+ "features": {
+  "obs_received": 0,
+  "eightbit_name": 0,
+  "nocolon_received": 2,
+  "case_received": 0,
+  "dup_from": 0,
+  "dup_authentication_results": 0,
+  "dup_dkim_signature": 0,
+  "dup_reply_to": 2,
+  "dup_subject": 0,
+  "foreign_ar": 0,
+  "domain_literal_from": 0,
+  "by_from_mismatch": 2278,
+  "overlong_lines": 0,
+  "header_8bit_bytes": 39,
+  "bare_lf_corpus": 2279,
+  "zone_anomaly": 1656
+ },
+ "rate": {
+  "obs_received": 0.0,
+  "eightbit_name": 0.0,
+  "nocolon_received": 0.0008775778850372971,
+  "case_received": 0.0,
+  "dup_from": 0.0,
+  "dup_authentication_results": 0.0,
+  "dup_dkim_signature": 0.0,
+  "dup_reply_to": 0.0008775778850372971,
+  "dup_subject": 0.0,
+  "foreign_ar": 0.0,
+  "domain_literal_from": 0.0,
+  "by_from_mismatch": 0.9995612110574813,
+  "overlong_lines": 0.0,
+  "header_8bit_bytes": 0.017112768758227294,
+  "bare_lf_corpus": 1.0,
+  "zone_anomaly": 0.726634488810882
+ },
+ "examples": {
+  "by_from_mismatch": [
+   "phishing3.mbox#0",
+   "phishing3.mbox#1",
+   "phishing3.mbox#2"
+  ],
+  "bare_lf_corpus": [
+   "phishing3.mbox#0",
+   "phishing3.mbox#1",
+   "phishing3.mbox#2"
+  ],
+  "zone_anomaly": [
+   "phishing3.mbox#0",
+   "phishing3.mbox#5",
+   "phishing3.mbox#6"
+  ],
+  "header_8bit_bytes": [
+   "phishing3.mbox#247",
+   "phishing3.mbox#284",
+   "phishing3.mbox#314"
+  ],
+  "dup_reply_to": [
+   "phishing3.mbox#470",
+   "phishing3.mbox#500"
+  ],
+  "nocolon_received": [
+   "phishing3.mbox#908",
+   "phishing3.mbox#2196"
+  ]
+ }
+}

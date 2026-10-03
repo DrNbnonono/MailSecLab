@@ -121,5 +121,6 @@ DKIM（密钥 RSA-2048，`d=lab.test`，`s=j1`，relaxed/relaxed）：
 5. ~~parsedmarc 报告消费端~~ 已关闭（w3 `parsedmarc-probe/`）：parsedmarc 11.0.3 做结构校验、**不做来源认证**——冒名 reporter + 捏造行数据的伪造聚合报告被完整摄入（`verdict.json`: forged=true, origin_verification_seen=false）。与 w2 rua 发送侧空洞合拢为监控生态完整性缺口的两半。
 6. ~~gramfuzz 全量 campaign~~ 已关闭（w4）：39,000 样本 → 150 条 lab_confirmed 候选（`w4-20261003a/gramfuzz/candidates.json`），栈已回滚核对。
 7. 真实服务验证与披露（调研建议 4/5 号）：**门是 candidates.json 非空且证据链完整，负责人决策后另行计划**。未获授权不联系厂商、不公开发布、不出公网。
+8. Gap 2 变换链差分（chainrun）：计划见 `docs/superpowers/plans/2026-10-03-gap2-chainrun.md`——verdicts 判决向量层、有序异构 MTA 序列链引擎（双终点两臂 + 单跳前缀臂）、flip/非交换性搜索、ARC 节点（rspamd arc + OpenARC）、被动语料流行率。run-id 用 `w6-*`（`w5-*` 留给 Gap 1 vuln-amplify）；与 Gap 1 并行执行的冲突规避规则见计划首部。
 
 改实验脚本时，比较的是同一字节流在不同组件上的解释。定位邮件用 `X-Case-ID`；头区可能被终结时，改为在整封 raw 里搜索。

@@ -1,0 +1,57 @@
+Received: from relay-49.example by relay-50.example with ESMTP id lab-8f4ff31e; Thu, 01 Oct 2026 12:00:49 +0000
+Received: from relay-48.example by relay-49.example with ESMTP id lab-78de5857; Thu, 01 Oct 2026 12:00:48 +0000
+Received: from relay-47.example by relay-48.example with ESMTP id lab-5487ce1e; Thu, 01 Oct 2026 12:00:47 +0000
+Received: from relay-46.example by relay-47.example with ESMTP id lab-af19922a; Thu, 01 Oct 2026 12:00:46 +0000
+Received: from relay-45.example by relay-46.example with ESMTP id lab-d9b8a714; Thu, 01 Oct 2026 12:00:45 +0000
+Received: from relay-44.example by relay-45.example with ESMTP id lab-e61a441c; Thu, 01 Oct 2026 12:00:44 +0000
+Received: from relay-43.example by relay-44.example with ESMTP id lab-12e0c8b2; Thu, 01 Oct 2026 12:00:43 +0000
+Received: from relay-42.example by relay-43.example with ESMTP id lab-bad640fb; Thu, 01 Oct 2026 12:00:42 +0000
+Received: from relay-41.example by relay-42.example with ESMTP id lab-19488dec; Thu, 01 Oct 2026 12:00:41 +0000
+Received: from relay-40.example by relay-41.example with ESMTP id lab-4f65d4d9; Thu, 01 Oct 2026 12:00:40 +0000
+Received: from relay-39.example by relay-40.example with ESMTP id lab-259f4329; Thu, 01 Oct 2026 12:00:39 +0000
+Received: from relay-38.example by relay-39.example with ESMTP id lab-e6f4590b; Thu, 01 Oct 2026 12:00:38 +0000
+Received: from relay-37.example by relay-38.example with ESMTP id lab-9a164106; Thu, 01 Oct 2026 12:00:37 +0000
+Received: from relay-36.example by relay-37.example with ESMTP id lab-cf6a659e; Thu, 01 Oct 2026 12:00:36 +0000
+Received: from relay-35.example by relay-36.example with ESMTP id lab-b4862b21; Thu, 01 Oct 2026 12:00:35 +0000
+Received: from relay-34.example by relay-35.example with ESMTP id lab-fb97d435; Thu, 01 Oct 2026 12:00:34 +0000
+Received: from relay-33.example by relay-34.example with ESMTP id lab-88561712; Thu, 01 Oct 2026 12:00:33 +0000
+Received: from relay-32.example by relay-33.example with ESMTP id lab-e8e5216a; Thu, 01 Oct 2026 12:00:32 +0000
+Received: from relay-31.example by relay-32.example with ESMTP id lab-fcbd04c3; Thu, 01 Oct 2026 12:00:31 +0000
+Received: from relay-30.example by relay-31.example with ESMTP id lab-40212ef7; Thu, 01 Oct 2026 12:00:30 +0000
+Received: from relay-29.example by relay-30.example with ESMTP id lab-cca5a5a1; Thu, 01 Oct 2026 12:00:29 +0000
+Received: from relay-28.example by relay-29.example with ESMTP id lab-9e4d6e3c; Thu, 01 Oct 2026 12:00:28 +0000
+Received: from relay-27.example by relay-28.example with ESMTP id lab-1846d424; Thu, 01 Oct 2026 12:00:27 +0000
+Received: from relay-26.example by relay-27.example with ESMTP id lab-c17c6279; Thu, 01 Oct 2026 12:00:26 +0000
+Received: from relay-25.example by relay-26.example with ESMTP id lab-23c6612f; Thu, 01 Oct 2026 12:00:25 +0000
+Received: from relay-24.example by relay-25.example with ESMTP id lab-48268673; Thu, 01 Oct 2026 12:00:24 +0000
+Received: from relay-23.example by relay-24.example with ESMTP id lab-23a7711a; Thu, 01 Oct 2026 12:00:23 +0000
+Received: from relay-22.example by relay-23.example with ESMTP id lab-81332876; Thu, 01 Oct 2026 12:00:22 +0000
+Received: from relay-21.example by relay-22.example with ESMTP id lab-37ebdcd9; Thu, 01 Oct 2026 12:00:21 +0000
+Received: from relay-20.example by relay-21.example with ESMTP id lab-e87a1613; Thu, 01 Oct 2026 12:00:20 +0000
+Received: from relay-19.example by relay-20.example with ESMTP id lab-e443df78; Thu, 01 Oct 2026 12:00:19 +0000
+Received: from relay-18.example by relay-19.example with ESMTP id lab-9558867f; Thu, 01 Oct 2026 12:00:18 +0000
+Received: from relay-17.example by relay-18.example with ESMTP id lab-5ba91faf; Thu, 01 Oct 2026 12:00:17 +0000
+Received: from relay-16.example by relay-17.example with ESMTP id lab-7a024204; Thu, 01 Oct 2026 12:00:16 +0000
+Received: from relay-15.example by relay-16.example with ESMTP id lab-f7c1bd87; Thu, 01 Oct 2026 12:00:15 +0000
+Received: from relay-14.example by relay-15.example with ESMTP id lab-4da5e709; Thu, 01 Oct 2026 12:00:14 +0000
+Received: from relay-13.example by relay-14.example with ESMTP id lab-d4713d60; Thu, 01 Oct 2026 12:00:13 +0000
+Received: from relay-12.example by relay-13.example with ESMTP id lab-c8a70639; Thu, 01 Oct 2026 12:00:12 +0000
+Received: from relay-11.example by relay-12.example with ESMTP id lab-eb1167b3; Thu, 01 Oct 2026 12:00:11 +0000
+Received: from relay-10.example by relay-11.example with ESMTP id lab-67a9c378; Thu, 01 Oct 2026 12:00:10 +0000
+Received: from relay-9.example by relay-10.example with ESMTP id lab-7c65c1e5; Thu, 01 Oct 2026 12:00:09 +0000
+Received: from relay-8.example by relay-9.example with ESMTP id lab-82e2e662; Thu, 01 Oct 2026 12:00:08 +0000
+Received: from relay-7.example by relay-8.example with ESMTP id lab-f728b4fa; Thu, 01 Oct 2026 12:00:07 +0000
+Received: from relay-6.example by relay-7.example with ESMTP id lab-42485e3a; Thu, 01 Oct 2026 12:00:06 +0000
+Received: from relay-5.example by relay-6.example with ESMTP id lab-0a5d2f34; Thu, 01 Oct 2026 12:00:05 +0000
+Received: from relay-4.example by relay-5.example with ESMTP id lab-6baa9455; Thu, 01 Oct 2026 12:00:04 +0000
+Received: from relay-3.example by relay-4.example with ESMTP id lab-e3e70682; Thu, 01 Oct 2026 12:00:03 +0000
+Received: from relay-2.example by relay-3.example with ESMTP id lab-c2094cac; Thu, 01 Oct 2026 12:00:02 +0000
+Received: from relay-1.example by relay-2.example with ESMTP id lab-629f6fbe; Thu, 01 Oct 2026 12:00:01 +0000
+Received: from relay-0.example by relay-1.example with ESMTP id lab-d82c07cd; Thu, 01 Oct 2026 12:00:00 +0000
+From: Alice <alice@sender.example>
+To: Bob <bob@recipient.example>
+Subject: MailTrace synthetic experiment
+Date: Thu, 01 Oct 2026 12:00:00 +0000
+Message-ID: <baseline@sender.example>
+
+MailTrace synthetic experiment.
